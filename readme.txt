@@ -37,7 +37,7 @@ Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
 д╦дшдъ─╛└▄┼кд▐д┐д╧┤╓└▄┼кд╦└╕д╕д┐дддлд╩ды┬╗│▓д╦┤╪д╖д╞дтбдд╜д╬└╒╟ддЄ╔щ
 дяд╩ддбе
 
-$Id$
+$Id: readme.txt 141 2014-09-26 09:13:20Z mtakada $
 ----------------------------------------------------------------------
 
 б√╠▄╝б
@@ -70,7 +70,7 @@ A-RTEGENд╧бд╝б└д┬х╝╓║▄е╖е╣е╞ер╕■д▒д╦NCESд╟│л╚пд╖д┐A-RTEдкдшд╙A-SCHMдЄ└╕└од╣дые─б
 2.1 ╟█╔█е╤е├е▒б╝е╕д╬е╟егеьепе╚еъ╣╜└о
 
 	bin/
-		bin/			A-RTEGENд╬╝┬╣╘е╫еэе░ещер(rtegen)
+		bin/			A-RTEGENд╬╝┬╣╘е╫еэе░ещер(rtegen.sh)
 		lib/			A-RTEGENд╬╝┬╣╘д╦╔м═╫д╚д╩дыещеде╓ещеъ
 		model/			A-RTEGENдм╞т╔Ї┼кд╦╗╚═╤д╣дыете╟еые╒ебедеы
 		schema/			XMLе╣енб╝е▐е╒ебедеы(б╓3.2 XMLе╣енб╝е▐д╬╞■╝ъб╫д╬└с╗▓╛╚)
@@ -100,14 +100,20 @@ schemaе╟егеьепе╚еъд╦╟█├╓д╣дыбе
 бжAUTOSAR_4-0-3_STRICT.xsd
 бжxml.xsd
 
-AUTOSAR_4-0-3_STRICT.xsdд╚xml.xsdд╧░╩▓╝длдщ╝ш╞└д╣дыбе
-http://www.autosar.org/download/R4.0/AUTOSAR_MMOD_XMLSchema.zip
+AUTOSAR_4-0-3_STRICT.xsdд╚xml.xsdд╧░╩▓╝д╬╝ъ╜чд╟╝ш╞└д╣дыбе
+  1) AUTOSAR╕°╝░Webе╡еде╚д╦евепе╗е╣(http://www.autosar.org/)
+  2) Specificationsе┐е╓дЄ┴к┬Є
+  3) ▓ш╠╠║╕╔Їесе╦ехб╝дшдъRelease4.0дЄ┴к┬Є
+  4) ▓ш╠╠║╕╔Їесе╦ехб╝дшдъMethodology and TemplatesдЄ┴к┬Є
+  5) ▓ш╠╠║╕╔Їесе╦ехб╝дшдъTemplatesдЄ┴к┬Є
+  6) Standard SpecificationsдЄ┴к┬Є
+  7) AUTOSAR_MMOD_XMLSchema.zipдЄе└ежеєеэб╝е╔
 
 4беA-RTEGENд╬╗╚дд╩¤
 
-A-RTEGEN(rtegen)д╬╗╚дд╩¤д╧бд░╩▓╝д╬─╠дъд╟двдыбе
+A-RTEGEN(rtegen.sh)д╬╗╚дд╩¤д╧бд░╩▓╝д╬─╠дъд╟двдыбе
 
-rtegen <file1> [<file2> [<file3>] ...] ... [--help] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
+rtegen.sh <file1> [<file2> [<file3>] ...] ... [--help] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
 
 	 <file1> [<file2> [<file3>] ...]
 		A-RTEGENд╬╞■╬╧е╒ебедеы╠╛(╩г┐Ї╗╪─ъ▓─)
@@ -136,6 +142,7 @@ rtegen <file1> [<file2> [<file3>] ...] ... [--help] [-o (--output-directory) <di
 A-RTE/SCHMд╬╞т╔Ї╞░║юд╬╝┬┴їд╬д┐дсд╦бд╕х╜╥д╣дыд╬OSеке╓е╕езепе╚дЄ╗╚═╤д╣дыбе
 A-RTEGENд╦╞■╬╧д╡дьд┐AUTOSAR XMLе╒ебедеыд╦д│дьдщд╬OSеке╓е╕езепе╚дм┤▐д▐дьд╩дд╛ь╣чбдA-RTEGENд╧OSеке╓е╕езепе╚д╦┬╨▒■д╣дыеке╓е╕езепе╚е│еєе╞е╩дЄ┤▐др░╩▓╝д╬AUTOSAR XMLе╒ебедеыдЄ╜╨╬╧д╣дыбе
 бжRte_GeneratedEcuc.arxml (OSеке╓е╕езепе╚д╬еке╓е╕езепе╚е│еєе╞е╩дЄ┤▐др)
+д╩дкбде╟б╝е┐╖┐д╦┤╪д╣ды▓╝╡нд╬AUTOSAR XMLе╒ебедеыд╧╔мд║╜╨╬╧д╣дыбе
 бжRte_InternalDataTypes.arxml (OSеке╓е╕езепе╚дм╗╚═╤д╣дые╟б╝е┐╖┐д╬е│еєе╞е╩дЄ┤▐др)
 
 AUOTSAR XMLд╬╜╨╬╧╗┼══д╬╛▄║┘д╧бдб╓╝б└д┬х╝╓║▄е╖е╣е╞ер╕■д▒RTE│░╔Ї╗┼══╜ёб╫д╬б╓2.13	RTE/SCHMе│б╝е╔└╕└о╩¤┐╦б╫д╬└сдЄ╗▓╛╚д╣дыд│д╚бе

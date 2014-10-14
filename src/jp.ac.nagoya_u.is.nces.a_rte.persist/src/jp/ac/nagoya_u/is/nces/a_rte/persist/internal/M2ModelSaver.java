@@ -57,7 +57,6 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util.EcucModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Referrable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
@@ -72,7 +71,6 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
-import com.google.common.base.Charsets;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.io.Files;
@@ -81,7 +79,7 @@ public class M2ModelSaver {
 
 	private static class Saver {
 		private static final String XML_VERSION = "1.0";
-		private static final Charset DEFAULT_ENCODING = Charsets.US_ASCII;
+		private static final Charset DEFAULT_ENCODING = Charset.forName("EUC-JP");
 
 		private final M2Root m2Root;
 		private final XMLStreamWriter writer;
@@ -98,9 +96,13 @@ public class M2ModelSaver {
 		private void save() throws XMLStreamException {
 			try {
 				this.writer.writeStartDocument(DEFAULT_ENCODING.name(), XML_VERSION);
-				this.writer.setDefaultNamespace(M2XmlUtils.AUTOSAR_NAMESPACE);
+				this.writer.writeStartElement("AUTOSAR");
+				this.writer.writeNamespace("", M2XmlUtils.AUTOSAR_NAMESPACE);
+	            this.writer.writeNamespace("xsi", M2XmlUtils.NAMESPACE_XSI);
+	            this.writer.writeAttribute("xsi:schemaLocation", M2XmlUtils.SCHEMA_LOCATION);
 
-				writeContent(this.m2Root);
+				writeContent(this.m2Root.getAutosar());
+				this.writer.writeEndElement();
 
 				this.writer.writeEndDocument();
 				this.writer.flush();

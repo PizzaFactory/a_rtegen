@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: senderReceiverOperation.mtl 8456 2014-06-27 00:35:45Z i.tanaka $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -209,16 +209,21 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 
 [template private genReadOperation(aReadOperation : ComReadOperation) ]
 [comment 正常なコンフィギュレーションが行なわれていれば必ず値が取得できるので，戻り値の確認は不要 /]
-(void) [aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]);
 [if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
-	if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
+	if ([aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
+		ercd = RTE_E_COM_STOPPED;
+	}
+	else if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
 		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_INVALID;
 	}
 	else {
 		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
 	}
 [else]
-	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
+	ercd = RTE_E_OK;
+	if ([aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
+		ercd = RTE_E_COM_STOPPED;
+	}
 [/if]
 [/template]
 

@@ -66,11 +66,14 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__PREFIX;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_CORE_START_API_IMPL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_CORE_INIT_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
 
 import java.util.Comparator;
 
@@ -93,12 +96,16 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
@@ -152,20 +159,33 @@ public class ModuleModelSorter {
 
 	@SuppressWarnings("unchecked")
 	private void sortFunctionContents(Function targetFunction) {
+		
+		for (EAttribute eAttribute : targetFunction.eClass().getEAllAttributes()) {
+			if (OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID.equals(eAttribute)) {
+				EList<OsEventSetExecutableTaskBody> targetOperations = (EList<OsEventSetExecutableTaskBody>) targetFunction.eGet(eAttribute);
+				ECollections.sort(targetOperations);
+			}
+		}
+		
 		for (EReference eReference : targetFunction.eClass().getEAllReferences()) {
 			if (eReference.isMany()) {
 				if (INITIALIZE_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<InitializeOperation> targetOperations = (EList<InitializeOperation>) targetFunction.eGet(eReference);
 					sortInitializeOperations(targetOperations);
-
 				} else if (SEND_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SendOperation> targetOperations = (EList<SendOperation>) targetFunction.eGet(eReference);
 					sortSendOperations(targetOperations);
-
 				} else if (COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<ComSendProxyOperation> targetOperations = (EList<ComSendProxyOperation>) targetFunction.eGet(eReference);
 					sortProxyComSendOperations(targetOperations);
+				} else if (RTE_CORE_START_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<RteCoreStartApiImpl> targetOperations = (EList<RteCoreStartApiImpl>) targetFunction.eGet(eReference);
+					sortRteCoreStartApi(targetOperations);
+				} else if (SCHM_CORE_INIT_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<SchmCoreInitApiImpl> targetOperations = (EList<SchmCoreInitApiImpl>) targetFunction.eGet(eReference);
+					sortSchmCoreInitApi(targetOperations);
 				}
+
 				// NOTE ReadOperationは必ず多重度1のため，ソートを行なわない．
 				// NOTE ContextActivationOperation, RunnableStartOperationは例外的にOperationの生成時にソートを行うため，ここではソートしない．
 
@@ -251,6 +271,16 @@ public class ModuleModelSorter {
 
 	private void sortProxyComSendOperations(EList<ComSendProxyOperation> targetOperations) {
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
+		ECollections.sort(targetOperations, ordering);
+	}
+	
+	private void sortSchmCoreInitApi(EList<SchmCoreInitApiImpl> targetOperations) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(FUNCTION__SYMBOL_NAME));
+		ECollections.sort(targetOperations, ordering);
+	}
+
+	private void sortRteCoreStartApi(EList<RteCoreStartApiImpl> targetOperations) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(FUNCTION__SYMBOL_NAME));
 		ECollections.sort(targetOperations, ordering);
 	}
 

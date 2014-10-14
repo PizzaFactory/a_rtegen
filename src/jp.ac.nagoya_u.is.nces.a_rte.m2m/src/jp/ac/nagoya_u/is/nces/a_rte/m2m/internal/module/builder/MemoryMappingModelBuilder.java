@@ -114,10 +114,22 @@ public class MemoryMappingModelBuilder {
 		String memorySectionName = sourceExecutableEntity.getSwAddrMethod() != null ? SymbolNames.createFunctionMemorySectionName(sourceExecutableEntity.getSwAddrMethod())
 				: SymbolNames.createSwcFunctionMemorySectionName();
 
-		BswMemoryMapping memoryMapping = buildRteMemoryMapping(memorySectionName);;
-		memoryMapping.setPrefix(generateSnp(targetPartedBswm));
-		targetPartedBswm.getBswMemoryMapping().add(memoryMapping);
-		return memoryMapping;
+		return buildBswmMemoryMapping(targetPartedBswm, memorySectionName);
+	}
+
+	private BswMemoryMapping buildBswmMemoryMapping(PartedBswm targetPartedBswm, String memorySectionName) {
+		Optional<BswMemoryMapping> foundMemoryMapping = this.context.query.trySelectSingle(targetPartedBswm.getBswMemoryMapping(),
+				hasAttr(MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME, memorySectionName));
+		if (foundMemoryMapping.isPresent()) {
+			return foundMemoryMapping.get();
+
+		} else {
+			BswMemoryMapping memoryMapping = ModuleFactory.eINSTANCE.createBswMemoryMapping();
+			memoryMapping.setPrefix(generateSnp(targetPartedBswm));
+			memoryMapping.setMemorySectionSymbolName(memorySectionName);
+			targetPartedBswm.getBswMemoryMapping().add(memoryMapping);
+			return memoryMapping;
+		}
 	}
 
 	private SwcMemoryMapping buildSwcMemoryMapping(Swc targetSwc, String memorySectionName) throws ModelException {

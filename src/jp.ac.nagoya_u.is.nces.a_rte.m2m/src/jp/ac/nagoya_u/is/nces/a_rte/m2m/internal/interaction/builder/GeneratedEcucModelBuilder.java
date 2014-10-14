@@ -57,6 +57,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VALUE
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION;
@@ -98,9 +99,11 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
 import org.eclipse.emf.ecore.EClass;
@@ -124,7 +127,7 @@ public class GeneratedEcucModelBuilder {
 		Os targetOs = this.context.query.findSingleByKind(OS);
 
 		// マルチコアにおける排他のためのスピンロックを追加
-		if (targetOs.getOsOS().isMulticoreOs()) {
+		if (isSpinLock(targetOs)) {
 			buildRteInternalSpinlock(targetOs);
 		}
 
@@ -165,6 +168,59 @@ public class GeneratedEcucModelBuilder {
 		}
 	}
 
+	private boolean isSpinLock(Os targetOs) {
+
+		// マルチコアOS判定
+		if (!targetOs.getOsOS().isMulticoreOs()) {
+			return false;
+		}
+
+		for (InternalEcuReceiver targetReceiver : this.context.query.<InternalEcuReceiver> findByKind(INTERNAL_ECU_RECEIVER)) {
+
+			if (targetReceiver.getReceiveInteraction().isEmpty()) {
+				continue;
+			}
+
+			// コア跨ぎ判定
+			// 以下は、SenderReceiverImplementationModelBuilder:buildReceiveImplementationsにてReceiveInteractionに「0」のみに設定しているため、同様に実装
+			ReceiveInteraction receiveInteraction = targetReceiver.getReceiveInteraction().get(0);
+			if (!receiveInteraction.receivesInterCore()) {
+				// コア跨ぎでない場合、スピンロックなし
+				continue;
+			}
+
+			// 「セマンティクス」「タイムアウト」「フィルター」判定
+			RVariableDataInstanceInSwc dataInstanceInSwc = (RVariableDataInstanceInSwc) targetReceiver.getSource().getPrototype();
+			if (!(dataInstanceInSwc.isEventSemantics()) && 
+				!(dataInstanceInSwc.isAliveTimeoutEnabled()) &&
+				!(dataInstanceInSwc.isFilterEnabled()))
+			{
+				// 「データセマンティクス」 or 「タイムアウト無効」 or 「フィルター無効」の場合、スピンロックなし
+				continue;
+			}
+
+			// 実現方式判定
+			ValueBufferImplementation valueBufferImplementation = receiveInteraction.getValueBufferImplementation();
+			if (!isRteImplementation(valueBufferImplementation)) {
+				// 実現方式がRteValueBufferImplementationでない場合、スピンロックなし
+				continue;
+			}
+
+			// スピンロックあり
+			return true;
+		}
+
+		return false;
+	}
+
+	private boolean isRteImplementation(ValueBufferImplementation implementation) {
+		if (implementation instanceof RteValueBufferImplementation) {
+			return true;
+		}
+
+		return false;
+	}
+	
 	private OsIoc getOrCreateOsIoc(Os targetOs) {
 		if (targetOs.getOsIoc() == null) {
 			OsIoc osIoc = EcucFactory.eINSTANCE.createOsIoc();

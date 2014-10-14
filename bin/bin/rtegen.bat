@@ -1,5 +1,4 @@
 @echo off
-REM バッチファイルの絶対パスを取得
 set SCRIPT=%~0
 for /f "delims=\ tokens=*" %%z in ("%SCRIPT%") do (
    set BASEDIR=%%~dpz

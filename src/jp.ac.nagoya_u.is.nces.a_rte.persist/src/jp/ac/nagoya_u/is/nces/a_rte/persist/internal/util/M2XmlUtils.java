@@ -62,6 +62,8 @@ public class M2XmlUtils {
 	public static final String VARIANTS_TAG_NAME_SUFFIX = "-VARIANTS";
 	public static final String CONDITIONAL_TAG_NAME_SUFFIX = "-CONDITIONAL";
 	public static final String AUTOSAR_NAMESPACE = "http://autosar.org/schema/r4.0";
+	public static final String NAMESPACE_XSI = "http://www.w3.org/2001/XMLSchema-instance";
+	public static final String SCHEMA_LOCATION = "http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd";
 
 	public static final String DEST_ATTRIBUTE_NAME = "DEST";
 

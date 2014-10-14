@@ -1,9 +1,0 @@
-#!/bin/sh
-BASEDIR=$(dirname "$0")
-PLATFORM_NAME=$(uname -o)
-
-if [ "$PLATFORM_NAME" = "Cygwin" ]; then
-	BASEDIR=$(cygpath -w "$BASEDIR" | sed 's/\\/\//g')
-fi
-
-java -cp "$BASEDIR/../lib/*" -DA_RTE_HOME="$BASEDIR/.." -Djava.util.logging.config.file="$BASEDIR/logging.properties" jp.ac.nagoya_u.is.nces.a_rte.app.RteGeneratorApp $*

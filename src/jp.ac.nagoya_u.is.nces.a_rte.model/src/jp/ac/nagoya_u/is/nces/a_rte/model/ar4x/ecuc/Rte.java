@@ -137,7 +137,7 @@ public interface Rte extends EcucModule {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rte Initialization Behavior</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteInitializationBehavior()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<RteInitializationBehavior> getRteInitializationBehavior();

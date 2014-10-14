@@ -226,6 +226,8 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				// RTE，もしくはAUTOSAR XMLの生成
 				InteractionRoot interactionRoot = query.findSingleByKind(INTERACTION_ROOT);
 
+				generateInternalDataTypeFile(options);
+
 				if (interactionRoot.getGeneratedEcuConfiguration() != null) {
 					// 不足情報がある場合，AUTOSAR XMLとして出力
 					generateInsufficientArxmls(eGeneratedEcucResource, eGenSourceResource, options);
@@ -265,7 +267,19 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		File outputDir = new File(options.outputDirectory);
 
+		// ECUC ARXMLの出力
+		File generatedEcucFile = new File(outputDir, GENERATED_ECUC_ARXML_FILE_NAME);
+
+		System.out.println("Generating " + generatedEcucFile.getPath() + " ...");
+		this.ecucModelExtractor.extract(eGeneratedEcucResource, eGenSourceResource);
+		this.saver.save(eGeneratedEcucResource, generatedEcucFile);
+
+		System.out.println("Generation done.");
+	}
+
+	private void generateInternalDataTypeFile(GeneratorOptions options) throws AppException {
 		// 内部データ型のARXMLの出力
+		File outputDir = new File(options.outputDirectory);
 		File generatedInternalDataTypeFile = new File(outputDir, this.generatorInitOptions.internalDataTypesFile.getName());
 
 		System.out.println("Generating " + generatedInternalDataTypeFile.getPath() + " ...");
@@ -275,15 +289,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		} catch (IOException e) {
 			throw new AppException("Internal error occurred while generating AUTOSAR XML. " + e.getMessage(), e);
 		}
-
-		// ECUC ARXMLの出力
-		File generatedEcucFile = new File(outputDir, GENERATED_ECUC_ARXML_FILE_NAME);
-
-		System.out.println("Generating " + generatedEcucFile.getPath() + " ...");
-		this.ecucModelExtractor.extract(eGeneratedEcucResource, eGenSourceResource);
-		this.saver.save(eGeneratedEcucResource, generatedEcucFile);
-
-		System.out.println("Generation done.");
 	}
 
 	private void generateRte(XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, ModelException, CodegenException {

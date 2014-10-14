@@ -46,7 +46,7 @@ import java.io.File;
 
 public class AppResources { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 	private static final String RTE_GENERATOR_HOME_ENV_NAME = "A_RTE_HOME";
-	public static final String SCHEMA_FILE_RELATIVE_PATH = "schema/AUTOSAR_4-0-3_STRICT_COMPACT.xsd";
+	public static final String SCHEMA_FILE_RELATIVE_PATH = "schema/AUTOSAR_4-0-3_STRICT.xsd";
 	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
 	public static final String UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH = "bin/uncrustify.exe";
 	public static final String UNCRUSTIFY_CONFIG_RELATIVE_PATH = "bin/atk2style.cfg";

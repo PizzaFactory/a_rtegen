@@ -1025,7 +1025,7 @@
           upperBound="-1" eType="#//ecuc/RteSwComponentInstance" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteOsInteraction" lowerBound="1"
           upperBound="-1" eType="#//ecuc/RteOsInteraction" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rteInitializationBehavior"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rteInitializationBehavior" lowerBound="1"
           upperBound="-1" eType="#//ecuc/RteInitializationBehavior" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswModuleInstance"
           upperBound="-1" eType="#//ecuc/RteBswModuleInstance" containment="true"/>

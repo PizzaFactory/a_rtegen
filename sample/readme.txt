@@ -10,7 +10,7 @@ TOPPERS/A-RTEGEN
 
 Copyright (C) 2013-2014 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2013-2014 by FUJISOFT INCORPORATED, JAPAN
+Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
 Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
 Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
@@ -43,7 +43,7 @@ Copyright (C) 2013-2014 by Witz Corporation, JAPAN
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 357 2014-03-19 08:35:24Z shigihara $
+$Id: readme.txt 141 2014-09-26 09:13:20Z mtakada $
 ----------------------------------------------------------------------
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -81,8 +81,8 @@ TOPPERS/ATK2，TOPPERS/A-COMSTACKを入手し，以下のように同一フォルダ内に
 配置する．複数ECUを使用したサンプルアプリケーションを使用しない場合は，
 A-COMSTACKは不要である．
 
-┣ a-comstack                 ：A-COMSTACK (a-comstack-1.0.0.tar.gz)
-┣ a-rtegen                   ：A-RTEGEN (a-rtegen-1.0.0.tar.gz)
+┣ a-comstack                 ：A-COMSTACK (a-comstack-1.0.1.tar.gz)
+┣ a-rtegen                   ：A-RTEGEN (a-rtegen-1.0.1.tar.gz)
 ┃ ┣ bin                     ：RTEジェネレータ
 ┃ ┗ sample                  ：サンプルアプリケーション
 ┃     ┣ general             ：共通コード
@@ -93,10 +93,10 @@ A-COMSTACKは不要である．
 ┃     ┣ sc1-mc              ：ATK2-SC1-MC用サンプルアプリケーション
 ┃     ┣ sc3                 ：ATK2-SC3用サンプルアプリケーション
 ┃     ┗ sc3-mc              ：ATK2-SC3-MC用サンプルアプリケーション
-┣ atk2-sc1                   ：ATK2-SC1 (atk2-sc1-1.3.0.tar.gz)
-┣ atk2-sc1-mc                ：ATK2-SC1-MC (atk2-sc1-mc-1.2.0.tar.gz)
-┣ atk2-sc3                   ：ATK2-SC3 (atk2-sc3-1.3.0.tar.gz)
-┗ atk2-sc3-mc                ：ATK2-SC3-MC (atk2-sc3-mc-1.2.0.tar.gz)
+┣ atk2-sc1                   ：ATK2-SC1 (atk2-sc1-1.3.1.tar.gz)
+┣ atk2-sc1-mc                ：ATK2-SC1-MC (atk2-sc1-mc-1.2.1.tar.gz)
+┣ atk2-sc3                   ：ATK2-SC3 (atk2-sc3-1.3.1.tar.gz)
+┗ atk2-sc3-mc                ：ATK2-SC3-MC (atk2-sc3-mc-1.2.1.tar.gz)
 
 各サンプルアプリケーションフォルダ内に，サンプル毎にフォルダがあり，そ
 れぞれのフォルダにconfigure.shがあるので，サンプルの詳細は，

@@ -9,7 +9,7 @@ ECU Extractor
 
 Copyright (C) 2013-2014 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2013-2014 by FUJISOFT INCORPORATED, JAPAN
+Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
 Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
 Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
@@ -42,7 +42,7 @@ Copyright (C) 2013-2014 by Witz Corporation, JAPAN
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 352 2014-03-10 03:28:42Z shigihara $
+$Id: readme.txt 141 2014-09-26 09:13:20Z mtakada $
 ----------------------------------------------------------------------
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

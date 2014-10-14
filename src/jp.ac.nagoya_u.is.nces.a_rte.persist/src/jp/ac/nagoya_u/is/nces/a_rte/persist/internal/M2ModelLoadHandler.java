@@ -42,6 +42,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -49,6 +50,11 @@ import java.util.logging.Logger;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelLabels;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util.EcucModelUtils;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucContainerValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucModuleConfigurationValues;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucNumericalParamValue;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
@@ -316,8 +322,17 @@ public class M2ModelLoadHandler extends DefaultHandler {
 						value = M2ModelUtils.convertValueForFeature(originalValue, valueFeature);
 					}
 				} catch (ModelException e) {
-					throw new SAXException("Error found in the parameter '" + valueFeature.getName() + "' of " + ModelLabels.getLabel(getCurrentXmlContext().contextM2Element) + ". " + e.getMessage(),
-							e);
+					// ジェネレータで未使用のEcucContainerValueのNumerical値のパースエラー時に、仮の値に置き換えることで、
+					// 未使用パラメータの型エラーにより生成処理が止まることを防ぐ。
+					if (isSkippableNumericalParameter()) {
+						LOGGER.warning("Ignore the invaild parameter '" + valueFeature.getName() + "' of " + ModelLabels.getLabel(getCurrentXmlContext().contextM2Element) + ". " + e.getMessage());
+						// 使用しないNumericalパラメータであるため、仮の値(0)をセットすることで対処する。
+						// 未使用であるためソース出力に影響せず、また、不足コンフィグ情報の出力対象にもならないため、仮の値を入れても問題ない。
+						value = new BigDecimal(0);
+					} else {
+						throw new SAXException("Error found in the parameter '" + valueFeature.getName() + "' of " + ModelLabels.getLabel(getCurrentXmlContext().contextM2Element) + ". " + e.getMessage(),
+								e);
+					}
 				}
 				LOGGER.finest("set value '" + value + "' to " + valueFeature);
 				setValueToCurrentContextM2Element(valueFeature, value);
@@ -332,6 +347,89 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		default:
 			break;
 		}
+	}
+
+	/* パース中のEcucModuleConfigurationValuesをXmlContextsから取得する */
+	private EcucModuleConfigurationValues getParsingEcucModuleConfigurationValues() {
+		for (XmlContext context : xmlContexts) {
+			if (context.contextM2Element instanceof EcucModuleConfigurationValues) {
+				return (EcucModuleConfigurationValues)context.contextM2Element;
+			}
+		}
+		return null; // COVERAGE 常に未到達(isSkippableNumericalParameter()からの呼び出しでは到達しないため，未カバレッジで問題ない)
+	}
+	
+	/* パース中のEcucContainerValueをXmlContextsから取得する */
+	private List<EcucContainerValue> getParsingEcucContainerValues() {
+		List<EcucContainerValue> values = new ArrayList<EcucContainerValue>();
+		for (XmlContext context : xmlContexts) {
+			if (context.contextM2Element instanceof EcucContainerValue) {
+				if (!values.contains((EcucContainerValue)context.contextM2Element)) {
+					values.add((EcucContainerValue)context.contextM2Element);
+				}
+			}
+		}
+		return values;
+	}
+
+	/* containerClass配下に、definitionRefで示されるクラスオブジェクトを作成する */
+	private ExtendedEObject createObjectInEcucPackage(ExtendedEObject containerClass, String definitionRef) {
+		EStructuralFeature eFeature = containerClass.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfContainerDef(definitionRef));
+		if (eFeature == null) {
+			return null;
+		}
+		EClass eClass = (EClass) eFeature.getEType();
+		return (ExtendedEObject) EcucFactory.eINSTANCE.create(eClass);
+	}
+	
+	/* containerClass配下に、definitionRefで示されるfeatureをセット可能か */
+	private boolean isDefinedInEcore(ExtendedEObject containerClass, String definitionRef) {
+		EStructuralFeature eFeature = containerClass.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfContainerDef(definitionRef));
+		return eFeature != null;
+	}
+
+	/**
+	 * パース中のパラメータが、スキップ可能(ジェネレータで使用しない)かを判定する
+	 * ecucのコンフィグ情報、かつ、ジェネレータで使用するNumricalパラメータの場合にtrueを返す
+	 * それ以外の場合にfalseを返す
+	 */
+	private boolean isSkippableNumericalParameter() {
+		ExtendedEObject valueClass = getCurrentXmlContext().contextM2Element;
+		if (!(valueClass instanceof EcucNumericalParamValue)) {
+			return false;
+		}
+		EcucNumericalParamValue numericalValueClass = (EcucNumericalParamValue)valueClass;
+		
+		EcucModuleConfigurationValues configValues = getParsingEcucModuleConfigurationValues();
+		if (configValues == null) { // COVERAGE 常にfalse(trueとなるのは不具合混入時のみなので，未カバレッジで問題ない)
+			// EcucModuleConfigurationValuesをパース中でなければ、Numericalパラメータをパースしないため、到達しない
+			return false;
+		}
+		
+		ExtendedEObject containerClass = EcucFactory.eINSTANCE.createEcucRoot();
+
+		// m2.EcucModuleConfigurationValuesに対応するecucパッケージのインスタンスを作成できるかにより、対象か否かを判定する
+		containerClass = createObjectInEcucPackage(containerClass, configValues.getDefinitionRef());
+		if (containerClass == null) {
+			// 対象としないモジュールであるため、不要なパラメータである
+			return true;
+		}
+
+		List<EcucContainerValue> containerValues = getParsingEcucContainerValues();
+		if (containerValues.isEmpty()) { // COVERAGE 常にfalse(trueとなるのは不具合混入時のみなので，未カバレッジで問題ない)
+			// コンテナ以外はNumericalパラメータを保持しないため、到達しない
+			return false;
+		}
+		for (EcucContainerValue containerValue : containerValues) {
+			// m2.EcucContainerValueに対応するecucパッケージのインスタンスを作成できるかにより、対象か否かを判定する
+			containerClass = createObjectInEcucPackage(containerClass, containerValue.getDefinitionRef());
+			if (containerClass == null) {
+				// 対象としないコンテナであるため、不要なパラメータである
+				return true;
+			}
+		}
+
+		return !isDefinedInEcore(containerClass, numericalValueClass.getDefinitionRef());
 	}
 
 	private void setValueToCurrentContextM2Element(EStructuralFeature m2Feature, Object value) {

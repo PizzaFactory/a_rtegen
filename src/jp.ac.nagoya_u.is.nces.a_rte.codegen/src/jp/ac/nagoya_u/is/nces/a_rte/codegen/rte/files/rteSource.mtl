@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: rteSource.mtl 8547 2014-07-04 09:41:46Z i.tanaka $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -724,8 +724,14 @@ BSWスケジューラブルエンティティの定義
 {
 	[aBswSchedulableEntity.genLocalVariableDeclarations()/]
 	[for (aProxyOperation : ComSendProxyOperation | aBswSchedulableEntity.operation)]
-		while (IOC_E_NO_DATA != [aProxyOperation.accessApi.symbolName/]([aProxyOperation.signalIdVariable.genPointerAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/])) {
-			(void) Com_SendSignal([aProxyOperation.signalIdVariable.genValueAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
+		Std_ReturnType ercd;
+		while (1) {
+			ercd = [aProxyOperation.accessApi.symbolName/]([aProxyOperation.signalIdVariable.genPointerAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
+			if ((ercd == IOC_E_OK) || (ercd == IOC_E_LOST_DATA)) {
+		        (void) Com_SendSignal([aProxyOperation.signalIdVariable.genValueAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
+			} else {
+				break;
+			}
 		}
 	[/for]
 }
@@ -737,9 +743,15 @@ BSWスケジューラブルエンティティの定義
 {
 	[aBswSchedulableEntity.genLocalVariableDeclarations()/]
 	[for (aProxyOperation : ComSendProxyOperation | aBswSchedulableEntity.operation)]
-	    while (IOC_E_NO_DATA != [aProxyOperation.accessApi.symbolName/]([aProxyOperation.signalIdVariable.genPointerAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/])) {
-	        (void) Com_SendSignal([aProxyOperation.signalIdVariable.genValueAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
-	    }
+		Std_ReturnType ercd;
+		while (1) {
+			ercd = [aProxyOperation.accessApi.symbolName/]([aProxyOperation.signalIdVariable.genPointerAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
+			if ((ercd == IOC_E_OK) || (ercd == IOC_E_LOST_DATA)) {
+		        (void) Com_SendSignal([aProxyOperation.signalIdVariable.genValueAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
+			} else {
+				break;
+			}
+		}
 	[/for]
 }
 [/template]
