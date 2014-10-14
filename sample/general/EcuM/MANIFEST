@@ -1,0 +1,10 @@
+PACKAGE a-rtegen
+
+MANIFEST
+C_Init_Code.c
+EcuM.c
+EcuM.h
+EcuM_Callout.h
+EcuM_Cbk.h
+EcuM_StartupTask.c
+Os_Hook.c

@@ -1,0 +1,30 @@
+PACKAGE a-rtegen
+VERSION 1.0.0
+
+MANIFEST
+readme.txt
+
+bin/bin/atk2style.cfg
+bin/bin/logging.properties
+bin/bin/rtegen
+bin/bin/rtegen.bat
+bin/bin/uncrustify.exe
+
+bin/lib/
+
+bin/model/Rte_InternalDataTypes.arxml
+bin/schema/MANIFEST
+
+ecu_extractor/ecu_extractor.rb
+ecu_extractor/readme.txt
+
+sample/readme.txt
+
+INCLUDE sample/general/EcuM/MANIFEST
+INCLUDE sample/general/HelloAutosar/MANIFEST
+INCLUDE sample/sc1/MANIFEST
+INCLUDE sample/sc1-mc/MANIFEST
+INCLUDE sample/sc3/MANIFEST
+INCLUDE sample/sc3-mc/MANIFEST
+
+src

@@ -1,0 +1,156 @@
+[comment]
+/*
+ *  TOPPERS/A-RTEGEN
+ *      Automotive Runtime Environment Generator
+ *
+ *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
+ *
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
+ *
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
+ * 
+ *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ */
+[/comment]
+[comment encoding = EUC-JP /]
+[module rteUtilityHeader('http://nces.is.nagoya-u.ac.jp/a-rte/rte/module')]
+
+[import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::fileUtil /]
+[import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::symbolUtil /]
+
+[template public genRteUtilityHeader(aRteUtilityHeader : RteUtilityHeader)]
+[file (aRteUtilityHeader.fileName, false, 'ASCII')]
+	[aRteUtilityHeader.genFileHeader()/]
+
+	[aRteUtilityHeader.genFileIncludes()/]
+
+	[aRteUtilityHeader.genRteBufferQueueOperationDefinitions()/]
+
+	[aRteUtilityHeader.genFilterCheckMacroDefinitions()/]
+
+	[aRteUtilityHeader.genFileFooter()/]
+[/file]
+[/template]
+
+[template private genFileHeader(aRteUtilityHeader : RteUtilityHeader)]
+[aRteUtilityHeader.genFileHeaderComment()/]
+
+[aRteUtilityHeader.genGuardDeclarationStart()/]
+
+[aRteUtilityHeader.genExternCDeclarationStart()/]
+[/template]
+
+[template private genFileFooter(aRteUtilityHeader : RteUtilityHeader)]
+[aRteUtilityHeader.genExternCDeclarationEnd()/]
+
+[aRteUtilityHeader.genGuardDeclarationEnd()/]
+[/template]
+
+[comment]
+キュー操作用マクロの定義
+[/comment]
+[template private genRteBufferQueueOperationDefinitions(aRteUtilityHeader : RteUtilityHeader)]
+/*
+ * Internal Queue Macro Definitions
+ *
+ * Fields of each queue are
+ * 	<size_type> quecnt:<quecnt_bitsize>;
+ * 	<size_type> head:<head_bitsize>;
+ * 	<size_type> stat:1;
+ * 	<data_type> element['['/]<max_quecnt>[']'/];
+ */
+#define RTE_QUEUE_STATUS_LOST_DATA	(1U)
+#define RTE_QUEUE_STATUS_NORMAL	(0U)
+
+#define Rte_Enqueue(queue, value, max_quecnt, ercd)	\
+do {	\
+	if ((queue)->quecnt == (max_quecnt)) {	\
+		(queue)->stat = RTE_QUEUE_STATUS_LOST_DATA;	\
+		*(ercd) = RTE_E_LIMIT;	\
+	}	\
+	else {	\
+	    ((queue)->element['['/] ((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0]))[']'/]) = (value);	\
+	    ++((queue)->quecnt);	\
+		*(ercd) = RTE_E_OK;	\
+	}	\
+} while (0)
+
+#define Rte_EnqueueNoReturn(queue, value, max_quecnt)	\
+do {	\
+	if ((queue)->quecnt == (max_quecnt)) {	\
+		(queue)->stat = RTE_QUEUE_STATUS_LOST_DATA;	\
+	}	\
+	else {	\
+	    ((queue)->element['['/] ((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0]))[']'/]) = (value);	\
+	    ++((queue)->quecnt);	\
+	}	\
+} while (0)
+
+#define Rte_Dequeue(queue, dest, ercd)	\
+do {	\
+	if ((queue)->quecnt > 0U) {	\
+		if ((queue)->stat == RTE_QUEUE_STATUS_NORMAL) {	\
+			*(ercd) = RTE_E_OK;	\
+		}	\
+		else {	\
+			(queue)->stat = RTE_QUEUE_STATUS_NORMAL;	\
+			*(ercd) = RTE_E_LOST_DATA;	\
+		}	\
+	    *(dest) = ((queue)->element['['/](queue)->head]);	\
+	    (queue)->head = ((queue)->head + 1U) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0[']'/]));	\
+        --((queue)->quecnt);	\
+	}	\
+	else {	\
+		*(ercd) = RTE_E_NO_DATA;	\
+	}	\
+} while (0)
+
+#define Rte_InitQueue(queue)	\
+do {	\
+    (queue)->quecnt = 0U;	\
+    (queue)->stat = RTE_QUEUE_STATUS_NORMAL;	\
+    (queue)->head = 0U;	\
+} while (0)
+[/template]
+
+[template private genFilterCheckMacroDefinitions(aRteUtilityHeader : RteUtilityHeader)]
+/*
+ * Internal Filter Macro Definitions
+ */
+#define Rte_FilterMaskedNewEqualsX(newValue, maskValue, desinatedValue)	((boolean) (((newValue) & (maskValue)) == (desinatedValue)) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define Rte_FilterMaskedNewDiffersX(newValue, maskValue, desinatedValue)	((boolean) (((newValue) & (maskValue)) != (desinatedValue)) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define Rte_FilterMaskedNewDiffersMaskedOld(newValue, oldValue, maskValue)	((boolean) (((newValue) & (maskValue)) != ((oldValue) & (maskValue))) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define Rte_FilterNewIsWithin(newValue, minValue, maxValue)	((boolean) (((newValue) >= (minValue)) && ((newValue) <= (maxValue))) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define Rte_FilterNewIsOutside(newValue, minValue, maxValue) ((boolean) (((newValue) < (minValue)) || ((newValue) > (maxValue))) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define Rte_FilterOneEveryN(occurrenceVariable, period, offset) ((boolean) (((occurrenceVariable) % (period)) == (offset)) ) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+[/template]
