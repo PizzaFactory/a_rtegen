@@ -54,7 +54,7 @@ ECU Extractorは，複数のECUを有するシステムコンフィギュレーションファイ
 ECU毎に切り出して生成する．
 
 なお，本ツールで生成したEcuExtractは，A-RTEGENへの入力とすることを想定
-しており，A-RTEGENではECU-INTSANCEを必要としないため，ECU-INTSANCEの定
+しており，A-RTEGENではECU-INSTANCEを必要としないため，ECU-INSTANCEの定
 義は本ツールによって削除する．
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
