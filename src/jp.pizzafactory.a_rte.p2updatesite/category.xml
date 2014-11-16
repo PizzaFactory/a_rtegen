@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="A-RTE tuned by PizzaFactory" url="http://pizzafactory.github.io/a_rte/update/">
+      A-RTE tuned by PizzaFactory
+   </description>
+   <feature url="features/jp.pizzafactory.a_rte_1.0.1.qualifier.jar" id="jp.pizzafactory.a_rte" version="1.0.1.qualifier">
+      <category name="A-RTE for PizzaFactory"/>
+   </feature>
+   <category-def name="A-RTE for PizzaFactory" label="A-RTE for PizzaFactory"/>
+</site>

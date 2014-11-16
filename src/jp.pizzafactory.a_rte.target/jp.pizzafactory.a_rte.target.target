@@ -62,10 +62,6 @@
 <repository location="http://download.eclipse.org/releases/kepler"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.google.guava" version="12.0.0.v201212092141"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20130517111416/repository/"/>
-</location>
-<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="jp.pizzafactory.a_rte.orbit.feature.group" version="1.0.1.201411160835"/>
 <repository location="http://pizzafactory.github.io/a_rte.orbit/"/>
 </location>
