@@ -1,0 +1,14 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jp.pizzafactory.a_rte</groupId>
+  <artifactId>root</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.1-SNAPSHOT</version>
+  <name>A-RTE for PizzaFactory (Project root)</name>
+  <url>http://www.pizzafactory.jp/</url>
+
+  <modules>
+    <module>src/jp.pizzafactory.a_rte.parent</module>
+  </modules>
+</project>
