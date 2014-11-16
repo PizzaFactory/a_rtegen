@@ -31,9 +31,13 @@ Export-Package: jp.ac.nagoya_u.is.nces.a_rte.model,
  jp.ac.nagoya_u.is.nces.a_rte.model.util
 Require-Bundle: org.eclipse.ocl.ecore;bundle-version="3.3.0",
  org.eclipse.emf.query.ocl;bundle-version="2.0.0",
- com.google.guava;bundle-version="11.0.2",
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  jp.ac.nagoya_u.is.nces.a_rte.model;visibility:=reexport,
  org.eclipse.osgi
+Import-Package: com.google.common.base;version="[11.0.0,15.0.0)",
+ com.google.common.cache;version="[11.0.0,15.0.0)",
+ com.google.common.collect;version="[11.0.0,15.0.0)",
+ com.google.common.io;version="[11.0.0,15.0.0)",
+ com.google.common.util.concurrent;version="[11.0.0,15.0.0)"
 Bundle-ActivationPolicy: lazy
