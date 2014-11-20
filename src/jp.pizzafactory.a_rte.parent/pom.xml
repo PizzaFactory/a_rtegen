@@ -5,6 +5,8 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<groupId>jp.pizzafactory.a_rte</groupId>
+	<name>A-RTEGEN tuned by PizzaFactory</name>
+
 	<modules>
 		<module>../jp.pizzafactory.a_rte.target</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
@@ -85,6 +87,55 @@
 					<includeAllDependencies>true</includeAllDependencies>
 				</configuration>
 			</plugin>
+			<!-- Testing -->
+			<plugin>
+			  <groupId>org.eclipse.tycho</groupId>
+			  <artifactId>tycho-surefire-plugin</artifactId>
+			  <version>${tycho-version}</version>
+			  <configuration>
+			    <useUIHarness>false</useUIHarness>
+			    <includes>
+			      <include>**/*Test.java</include>
+			    </includes>
+			    <!-- Kill test JVM if tests take more than 10 minutes (600 seconds) to finish -->
+			    <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
+			  </configuration>
+			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+	  <!-- This profile is used to gather code coverage for Sonar -->
+	  <profile>
+	    <id>codeCoverage</id>
+	    <properties>
+	      <!-- Properties to enable jacoco code coverage analysis -->
+	      <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+	      <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+	      <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
+	    </properties>
+
+	    <build>
+	      <plugins>
+		<!-- Enabling use of jacoco -->
+		<plugin>
+		  <groupId>org.jacoco</groupId>
+		  <artifactId>jacoco-maven-plugin</artifactId>
+		  <version>0.7.2.201409121644</version>
+		  <executions>
+		    <execution>
+		      <goals>
+			<goal>prepare-agent</goal>
+		      </goals>
+		      <configuration>
+			<!-- Where to put jacoco coverage report -->
+			<destFile>${sonar.jacoco.reportPath}</destFile>
+		      </configuration>
+		    </execution>
+		  </executions>
+		</plugin>
+	      </plugins>
+	    </build>
+	  </profile>
+	</profiles>
 </project>
