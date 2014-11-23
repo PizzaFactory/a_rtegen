@@ -3,12 +3,12 @@ before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
 - git config credential.helper "store --file=.git/credentials"
-- echo "https://${GH_TOKEN}@github.com" > .git/credentials
 - git clone https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git p2repo
+- echo "https://${GH_TOKEN}@github.com" > p2repo/.git/credentials
 - (cd p2repo && git checkout gh-pages)
 script: mvn install
 after_success:
-- cp -r jp.pizzafactory.mruby-site/target/repository/ p2repo/travis-build-${TRAVIS_BUILD_NUMBER}/
+- cp -r src/jp.pizzafactory.a_rte.p2updatesite/target/repository/ p2repo/travis-build-${TRAVIS_BUILD_NUMBER}/
 - (cd p2repo && git add . && ruby -e 'print "Hello!"' && git push)
 env:
   global:
