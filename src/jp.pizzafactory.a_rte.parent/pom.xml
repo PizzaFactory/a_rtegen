@@ -21,6 +21,7 @@
 	<properties>
 		<tycho-version>0.21.0</tycho-version>
 		<pomDependencies>consider</pomDependencies>
+    <sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
