@@ -26,7 +26,7 @@
 		<repository>
 			<id>Eclipse Kepler repository</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/kepler</url>
+			<url>http://builder.monami-ya.com:8080/nexus/content/repositories/Kepler-releases/</url>
 		</repository>
 		<repository>
 			<id>Update Site</id>

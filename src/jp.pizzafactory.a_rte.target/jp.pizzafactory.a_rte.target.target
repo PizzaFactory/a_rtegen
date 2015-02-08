@@ -59,7 +59,7 @@
 <unit id="org.eclipse.emf.common.ui.feature.group" version="2.8.0.v20140203-1126"/>
 <unit id="org.eclipse.emf.query.feature.group" version="1.7.0.201306111332"/>
 <unit id="org.eclipse.emf.codegen.ui.feature.group" version="2.7.0.v20140203-1126"/>
-<repository location="http://download.eclipse.org/releases/kepler"/>
+<repository location="http://builder.monami-ya.com:8080/nexus/content/repositories/Kepler-releases/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="jp.pizzafactory.a_rte.orbit.feature.group" version="1.0.1.201411160835"/>
