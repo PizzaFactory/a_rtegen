@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: senderReceiverOperation.mtl 14527 2015-05-29 09:32:57Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -82,7 +82,7 @@
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteBufferWriteSendOperation) ]
-tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) [aSendOperation.sendValue.genPointerAccess()/]);
+tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) [aSendOperation.sendValue.genPointerAccess()/]); [if (aSendOperation.sendValue.oclIsKindOf(Parameter) and aSendOperation.sendValue.oclAsType(Parameter).hasConst)]/* MISRA RULE 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */[/if]
 if (tmp_ercd != E_OK) {	
 	ercd = RTE_E_DEV_DEFECT;
 }
@@ -113,7 +113,7 @@ if (tmp_ercd != E_OK) {
 
 [template private genSendOperation(aSendOperation : DirectComSendOperation) ]
 	[if (aSendOperation.accessApi.isSignalGroup)]
-		[aSendOperation.tempReturnVariable.symbolName/] = [aSendOperation.accessApi.symbolName/](&[aSendOperation.accessApi.comSignalSymbolName/], (const uint8*)[aSendOperation.sendValue.genPointerAccess()/]); 
+		[aSendOperation.tempReturnVariable.symbolName/] = [aSendOperation.accessApi.symbolName/](&[aSendOperation.accessApi.comSignalSymbolName/], (const uint8*)[aSendOperation.sendValue.genPointerAccess()/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
 	[else]
 		[aSendOperation.tempReturnVariable.symbolName/] = [aSendOperation.accessApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genPointerAccess()/]);
 	[/if]
@@ -127,25 +127,19 @@ if (tmp_ercd != E_OK) {
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteSendOperation) ]
-	Rte_SendTrustedFunctionParamType tfn_prm;
 [if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tfn_prm.data = p_data;
+	tfn_prm.tf_data = p_data;
 [else]
-	tfn_prm.data = (void*)data;
+	tfn_prm.tf_data = (void*)data; /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
 [/if]
-	tfn_prm.ercd = RTE_E_OK;
+	tfn_prm.tf_ercd = RTE_E_OK;
 	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.srSendTfSymbolName/], (&tfn_prm));
 	if (tmp_ercd != E_OK) {
 		ercd = RTE_E_DEV_DEFECT;
 	}
 	else {
-		ercd = (ercd == RTE_E_OK) ? tfn_prm.ercd : ercd;
+		ercd = (ercd == RTE_E_OK) ? tfn_prm.tf_ercd : ercd;
 	}
-
-[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-  err_return:
-[/if]
-
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionComSendOperation) ]
@@ -160,12 +154,12 @@ if (tmp_ercd != E_OK) {
 	if (tmp_ercd != E_OK) {
 		ercd = RTE_E_DEV_DEFECT;
 	} else {
-		ercd = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('ercd')/];
+		ercd = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/];
 	}
 [else]
 	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
 	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_data')/] = [aSendOperation.sendValue.genPointerAccess()/];
-	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('ercd')/] = RTE_E_OK;
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] = RTE_E_OK;
 	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
 	[aSendOperation.genTrustedReturn()/]
 [/if]
@@ -182,14 +176,14 @@ if ([aSendOperation.tempReturnVariable.genValueAccess()/] != E_OK) {
 	[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
 }
 else {
-	[aSendOperation.returnVariable.genValueAccess()/] = ([aSendOperation.returnVariable.genValueAccess()/] == RTE_E_OK) ? tfn_prm.ercd : [aSendOperation.returnVariable.genValueAccess()/];
+	[aSendOperation.returnVariable.genValueAccess()/] = ([aSendOperation.returnVariable.genValueAccess()/] == RTE_E_OK) ? tfn_prm.tf_ercd : [aSendOperation.returnVariable.genValueAccess()/];
 }
 [/template]
 
 [template private genSendOperation(aSendOperation : ImmediateProxyComSendOperation) ]
 [comment NOTE IOC APIの結果からCOMの状態はわからないため，戻り値は返さない/]
 [if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tmp_ercd = [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
+	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
 	if (tmp_ercd == IOC_E_OK) {
 		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
 	} else if (tmp_ercd == IOC_E_LIMIT) {
@@ -203,9 +197,9 @@ else {
 		ercd = RTE_E_SEG_FAULT;
 	}
 [else]
-	tmp_ercd = [aSendOperation.accessIocApi.symbolName/](p_data);
+	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
 	if (tmp_ercd == IOC_E_OK) {
-		(void) [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.functionTableSymbolName/]);
+		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
 		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
 	} else if (tmp_ercd == IOC_E_LIMIT) {
 		[if (aSendOperation.isWriteApi)]
@@ -223,7 +217,7 @@ else {
 [template private genSendOperation(aSendOperation : PeriodicProxyComSendOperation) ]
 [comment NOTE IOC APIの結果からCOMの状態はわからないため，戻り値は返さない/]
 [if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tmp_ercd = [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
+	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
 	if (tmp_ercd == IOC_E_OK) {
 		/* Nothing to do */
 	} else if (tmp_ercd == IOC_E_LIMIT) {
@@ -237,9 +231,9 @@ else {
 		ercd = RTE_E_SEG_FAULT;
 	}
 [else]
-	tmp_ercd = [aSendOperation.accessIocApi.symbolName/](p_data);
+	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
 	if (tmp_ercd == IOC_E_OK) {
-		(void) [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.functionTableSymbolName/]);
+		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
 	} else if (tmp_ercd == IOC_E_LIMIT) {
 		[if (aSendOperation.isWriteApi)]
 			ercd = RTE_E_DEV_DEFECT;
@@ -292,6 +286,8 @@ else {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_LIMIT;
 	} else if ([aSendOperation.tempReturnVariable.genValueAccess()/] != IOC_E_OK) {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
+	} else {
+		/* Nothing to do */
 	}
 [/if]
 [/template]
@@ -303,13 +299,13 @@ else {
 	[aExcludeOperation.genExcludeOperationEnter()/]
 [/let]
 [if (aSendOperation.type.oclIsKindOf(ArrayType))]
-	Rte_EnqueueArray([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	Rte_EnqueueArray([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
 [elseif aSendOperation.type.oclIsKindOf(StructType)]
-	Rte_EnqueueStruct([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	Rte_EnqueueStruct([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
 [elseif aSendOperation.type.oclIsKindOf(UnionType)]
-	Rte_EnqueueUnion([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	Rte_EnqueueUnion([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
 [else]
-	Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/]) p_tfn_prm->data, [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->ercd));
+	Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/]) p_tfn_prm->tf_data, [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
 [/if]
 [let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationExit()/]
@@ -414,7 +410,7 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [else]
 	ercd = RTE_E_OK;
 	[if (aReadOperation.accessApi.isSignalGroup)]
-		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/](&[aReadOperation.accessApi.comSignalSymbolName/], (uint8*)[aReadOperation.readValueVariable.symbolName/]);
+		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/](&[aReadOperation.accessApi.comSignalSymbolName/], (uint8*)[aReadOperation.readValueVariable.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
 	[else]
 		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]);
 	[/if]
@@ -504,60 +500,3 @@ else {
 	[aExcludeOperation.genExcludeOperationExit()/]
 [/let]
 [/template]
-
-[template public genMemoryCheck(aSendOperation : SendOperation) /]
-
-[template private genMemoryCheck(aSendOperation : TrustedFunctionRteOperation) ]
-[if (aSendOperation.sendValue.oclAsType(Variable).type.oclIsKindOf(PointerType)) ]
-	RTE_DECLARE_TASK_ID(taskId);
-	RTE_GET_TASK_ID(taskId);
-	RTE_CHECK_ARG_POINTER_IN(taskId, [aSendOperation.sendValue.genPointerAccess()/], [aSendOperation.sendValue.oclAsType(Variable).type.symbolName/]);
-[elseif (not aSendOperation.sendValue.oclAsType(Variable).type.oclIsKindOf(PrimitiveType))]
-	RTE_DECLARE_TASK_ID(taskId);
-	RTE_GET_TASK_ID(taskId);
-	RTE_CHECK_ARG_IN(taskId, p_data, [aSendOperation.sendValue.oclAsType(Variable).type.symbolName/]);
-[/if]
-[/template]
-
-[template private genMemoryCheck(aSendOperation : IocSendOperation) ]
-[if (aSendOperation.type.oclIsKindOf(PointerType))]
-	RTE_DECLARE_TASK_ID(taskId);
-	RTE_GET_TASK_ID(taskId);
-	RTE_CHECK_ARG_POINTER_IN(taskId, [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/]);
-[/if]
-[/template]
-
-[template private genMemoryCheck(aSendOperation : TrustedFunctionComSendOperation) ]
-[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	RTE_DECLARE_TASK_ID(taskId);
-	RTE_GET_TASK_ID(taskId);
-	RTE_CHECK_ARG_IN(taskId, p_data, [aSendOperation.type.symbolName/]);
-[/if]
-[/template]
-
-[template public genErrLabel(aSendOperation : SendOperation) /]
-
-[template private genErrLabel(aSendOperation : TrustedFunctionRteBufferWriteSendOperation) ]
-[if (not aSendOperation.sendValue.oclAsType(Variable).type.oclIsKindOf(PrimitiveType))]
-err_return:
-[/if]
-[/template]
-
-[template private genErrLabel(aSendOperation : IocNonqueuedSendOperation) ]
-[if (aSendOperation.type.oclIsKindOf(PointerType))]
-err_return:
-[/if]
-[/template]
-
-[template private genErrLabel(aSendOperation : TrustedFunctionComSendOperation) ]
-[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-err_return:
-[/if]
-[/template]
-
-[template private genErrLabel(aSendOperation : IocQueuedSendOperation) ]
-[if (aSendOperation.type.oclIsKindOf(PointerType))]
-err_return:
-[/if]
-[/template]
-

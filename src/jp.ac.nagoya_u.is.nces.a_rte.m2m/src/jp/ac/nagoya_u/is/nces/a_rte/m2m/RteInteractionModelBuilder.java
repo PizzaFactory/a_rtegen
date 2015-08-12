@@ -42,7 +42,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m;
 
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.IInteractionModelBuildDirector;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.InteractionModelBuildDirector;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.InteractionModelBuildContext;
@@ -61,7 +60,7 @@ public class RteInteractionModelBuilder {
 		this.buildDirector = buildDirector;
 	}
 
-	public void build(Resource eResource, RteModuleModelBuilderOptions options) throws M2MException {
+	public void build(Resource eResource, RteInteractionModelBuilderOptions options) throws M2MException {
 		this.buildDirector.build(new InteractionModelBuildContext(eResource, options));
 	}
 }

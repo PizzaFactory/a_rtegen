@@ -50,7 +50,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableMember;
 
 public class Variables { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
-	public static LocalVariable createLocalVariable(UnionType unionType, String symbolName) {
+	public static LocalVariable createUnionTypeLocalVariable(UnionType unionType, String symbolName) {
 		LocalVariable variable = ModuleFactory.eINSTANCE.createLocalVariable();
 		variable.setType(unionType);
 		variable.setSymbolName(symbolName);

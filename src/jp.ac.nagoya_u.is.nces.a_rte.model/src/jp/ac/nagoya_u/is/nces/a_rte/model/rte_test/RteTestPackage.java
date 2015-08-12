@@ -275,13 +275,13 @@ public interface RteTestPackage extends EPackage {
 	int OS_STUB_HEADER__GUARD_NAME = ModulePackage.HEADER_FILE__GUARD_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OS_STUB_HEADER__DEPENDENT_HEADERS = ModulePackage.HEADER_FILE__DEPENDENT_HEADERS;
+	int OS_STUB_HEADER__INCLUDE_HEADER = ModulePackage.HEADER_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Constant</b></em>' reference list.
@@ -384,13 +384,13 @@ public interface RteTestPackage extends EPackage {
 	int COM_STUB_HEADER__GUARD_NAME = ModulePackage.HEADER_FILE__GUARD_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_STUB_HEADER__DEPENDENT_HEADERS = ModulePackage.HEADER_FILE__DEPENDENT_HEADERS;
+	int COM_STUB_HEADER__INCLUDE_HEADER = ModulePackage.HEADER_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Constant</b></em>' reference list.
@@ -493,13 +493,13 @@ public interface RteTestPackage extends EPackage {
 	int IOC_MOCK_HEADER__GUARD_NAME = ModulePackage.HEADER_FILE__GUARD_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IOC_MOCK_HEADER__DEPENDENT_HEADERS = ModulePackage.HEADER_FILE__DEPENDENT_HEADERS;
+	int IOC_MOCK_HEADER__INCLUDE_HEADER = ModulePackage.HEADER_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Ioc Api</b></em>' reference list.
@@ -602,13 +602,13 @@ public interface RteTestPackage extends EPackage {
 	int SWC_MOCK_HEADER__GUARD_NAME = ModulePackage.HEADER_FILE__GUARD_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_MOCK_HEADER__DEPENDENT_HEADERS = ModulePackage.HEADER_FILE__DEPENDENT_HEADERS;
+	int SWC_MOCK_HEADER__INCLUDE_HEADER = ModulePackage.HEADER_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Swc Name</b></em>' attribute.
@@ -757,13 +757,13 @@ public interface RteTestPackage extends EPackage {
 	int IOC_MOCK_SOURCE__GENERATION_INFO = ModulePackage.SOURCE_FILE__GENERATION_INFO;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IOC_MOCK_SOURCE__DEPENDENT_HEADERS = ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS;
+	int IOC_MOCK_SOURCE__INCLUDE_HEADER = ModulePackage.SOURCE_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Ioc Api</b></em>' reference list.
@@ -857,13 +857,13 @@ public interface RteTestPackage extends EPackage {
 	int SWC_MOCK_SOURCE__GENERATION_INFO = ModulePackage.SOURCE_FILE__GENERATION_INFO;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_MOCK_SOURCE__DEPENDENT_HEADERS = ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS;
+	int SWC_MOCK_SOURCE__INCLUDE_HEADER = ModulePackage.SOURCE_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Swc Name</b></em>' attribute.
@@ -1022,13 +1022,13 @@ public interface RteTestPackage extends EPackage {
 	int BSWM_MOCK_HEADER__GUARD_NAME = ModulePackage.HEADER_FILE__GUARD_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSWM_MOCK_HEADER__DEPENDENT_HEADERS = ModulePackage.HEADER_FILE__DEPENDENT_HEADERS;
+	int BSWM_MOCK_HEADER__INCLUDE_HEADER = ModulePackage.HEADER_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Executable Entity</b></em>' reference list.
@@ -1131,13 +1131,13 @@ public interface RteTestPackage extends EPackage {
 	int BSWM_MOCK_SOURCE__GENERATION_INFO = ModulePackage.SOURCE_FILE__GENERATION_INFO;
 
 	/**
-	 * The feature id for the '<em><b>Dependent Headers</b></em>' reference list.
+	 * The feature id for the '<em><b>Include Header</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSWM_MOCK_SOURCE__DEPENDENT_HEADERS = ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS;
+	int BSWM_MOCK_SOURCE__INCLUDE_HEADER = ModulePackage.SOURCE_FILE__INCLUDE_HEADER;
 
 	/**
 	 * The feature id for the '<em><b>Executable Entity</b></em>' reference list.

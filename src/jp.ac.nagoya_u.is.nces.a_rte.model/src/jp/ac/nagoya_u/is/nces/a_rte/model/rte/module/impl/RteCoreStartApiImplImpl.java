@@ -155,7 +155,7 @@ public class RteCoreStartApiImplImpl extends RteLifecycleApiImpl implements RteC
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModulePackage.CORE__RTE_START_API, Core.class, msgs);
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModulePackage.CORE__RTE_CORE_START_API_IMPL, Core.class, msgs);
 			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -204,7 +204,7 @@ public class RteCoreStartApiImplImpl extends RteLifecycleApiImpl implements RteC
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ModulePackage.RTE_CORE_START_API_IMPL__PARENT:
-				return eInternalContainer().eInverseRemove(this, ModulePackage.CORE__RTE_START_API, Core.class, msgs);
+				return eInternalContainer().eInverseRemove(this, ModulePackage.CORE__RTE_CORE_START_API_IMPL, Core.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

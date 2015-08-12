@@ -44,6 +44,15 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 
+/**
+ * RTEジェネレータの機能を提供するインタフェース。
+ */
 public interface IRteGenerator {
+
+	/**
+	 * RTEを生成する。
+	 * @param options RTEの生成オプション
+	 * @throws AppException RTEの生成中にエラーが発生した場合
+	 */
 	public void generate(GeneratorOptions options) throws AppException;
 }

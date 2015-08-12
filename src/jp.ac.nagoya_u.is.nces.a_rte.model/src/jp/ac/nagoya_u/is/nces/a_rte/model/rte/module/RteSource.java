@@ -55,6 +55,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getGlobalVariableGroup <em>Global Variable Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getDependentExternalExecutableEntityGroup <em>Dependent External Executable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getBswSchedulableEntityGroup <em>Bsw Schedulable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getRteApiGroup <em>Rte Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getRteLifecycleApiGroup <em>Rte Lifecycle Api Group</em>}</li>
@@ -64,8 +65,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getSourceMacro <em>Source Macro</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getSchmLifecycleApiGroup <em>Schm Lifecycle Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getSchmApiGroup <em>Schm Api Group</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getSignalApiGroup <em>Signal Api Group</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getProxyApiGroup <em>Proxy Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getComSignalApiWrapperGroup <em>Com Signal Api Wrapper Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource#getComProxyFunctionGroup <em>Com Proxy Function Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,7 +77,7 @@ import org.eclipse.emf.common.util.EList;
 public interface RteSource extends SourceFile {
 	/**
 	 * Returns the value of the '<em><b>Global Variable Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Global Variable Group</em>' containment reference list isn't clear,
@@ -88,11 +89,27 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GlobalVariableGroup> getGlobalVariableGroup();
+	EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Dependent External Executable Entity Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependent External Executable Entity Group</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependent External Executable Entity Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSource_DependentExternalExecutableEntityGroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ExecutableEntityFileContentsGroup> getDependentExternalExecutableEntityGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Bsw Schedulable Entity Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bsw Schedulable Entity Group</em>' containment reference list isn't clear,
@@ -104,11 +121,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BswSchedulableEntityGroup> getBswSchedulableEntityGroup();
+	EList<BswSchedulableEntityFileContentsGroup> getBswSchedulableEntityGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Rte Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Api Group</em>' containment reference list isn't clear,
@@ -120,11 +137,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteApiGroup> getRteApiGroup();
+	EList<RteApiFileContentsGroup> getRteApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Rte Lifecycle Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Lifecycle Api Group</em>' containment reference list isn't clear,
@@ -136,11 +153,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteLifecycleApiGroup> getRteLifecycleApiGroup();
+	EList<RteLifecycleApiFileContentsGroup> getRteLifecycleApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Task Body Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task Body Group</em>' containment reference list isn't clear,
@@ -152,11 +169,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TaskBodyGroup> getTaskBodyGroup();
+	EList<TaskBodyFileContentsGroup> getTaskBodyGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Com Callback Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Com Callback Group</em>' containment reference list isn't clear,
@@ -168,11 +185,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComCallbackGroup> getComCallbackGroup();
+	EList<ComCallbackFileContentsGroup> getComCallbackGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Trusted Function Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Trusted Function Group</em>' containment reference list isn't clear,
@@ -184,7 +201,7 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TrustedFunctionGroup> getTrustedFunctionGroup();
+	EList<TrustedFunctionFileContentsGroup> getTrustedFunctionGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Source Macro</b></em>' reference list.
@@ -204,7 +221,7 @@ public interface RteSource extends SourceFile {
 
 	/**
 	 * Returns the value of the '<em><b>Schm Lifecycle Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schm Lifecycle Api Group</em>' containment reference list isn't clear,
@@ -216,11 +233,11 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SchmLifecycleApiGroup> getSchmLifecycleApiGroup();
+	EList<SchmLifecycleApiFileContentsGroup> getSchmLifecycleApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Schm Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schm Api Group</em>' containment reference list isn't clear,
@@ -232,38 +249,38 @@ public interface RteSource extends SourceFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SchmApiGroup> getSchmApiGroup();
+	EList<SchmApiFileContentsGroup> getSchmApiGroup();
 
 	/**
-	 * Returns the value of the '<em><b>Signal Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApiGroup}.
+	 * Returns the value of the '<em><b>Com Signal Api Wrapper Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapperFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Signal Api Group</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Com Signal Api Wrapper Group</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signal Api Group</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSource_SignalApiGroup()
+	 * @return the value of the '<em>Com Signal Api Wrapper Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSource_ComSignalApiWrapperGroup()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SignalApiGroup> getSignalApiGroup();
+	EList<ComSignalApiWrapperFileContentsGroup> getComSignalApiWrapperGroup();
 
 	/**
-	 * Returns the value of the '<em><b>Proxy Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApiGroup}.
+	 * Returns the value of the '<em><b>Com Proxy Function Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Proxy Api Group</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Com Proxy Function Group</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proxy Api Group</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSource_ProxyApiGroup()
+	 * @return the value of the '<em>Com Proxy Function Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSource_ComProxyFunctionGroup()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ProxyApiGroup> getProxyApiGroup();
+	EList<ComProxyFunctionFileContentsGroup> getComProxyFunctionGroup();
 
 } // RteSource

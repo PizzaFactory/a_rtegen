@@ -91,7 +91,7 @@ public class TimeValueExImpl extends ExtendedEObjectImpl implements TimeValueEx 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another) {
+	public boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another) {
 		return nullToZero(this_).compareTo(nullToZero(another)) >= 0;
 	}
 
@@ -100,7 +100,7 @@ public class TimeValueExImpl extends ExtendedEObjectImpl implements TimeValueEx 
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public Boolean isMultiplesOf(BigDecimal this_, BigDecimal another) {
+	public boolean isMultiplesOf(BigDecimal this_, BigDecimal another) {
 		return BigDecimal.ZERO.compareTo(nullToZero(this_).remainder(nullToZero(another))) == 0;
 	}
 

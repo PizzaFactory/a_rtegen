@@ -63,10 +63,10 @@ public interface NonqueuedSenderComSpecEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n\t\t\t\tif this_.initValue.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse if this_.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then\n\t\t\t\t\tlet type : ar4x::m2::ImplementationDataType = this_.dataElement.type.oclAsType(ar4x::m2::ImplementationDataType)\n\t\t\t\t\tin\n\t\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\t\tValueSpecificationEx::isForVALUE(this_.initValue)\n\t\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'TYPE_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse\n\t\t\t\t\t\tfalse\n\t\t\t\t\tendif endif endif endif endif endif\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif'"
 	 * @generated
 	 */
-	Boolean hasValidInitValue(NonqueuedSenderComSpec this_);
+	boolean hasValidInitValue(NonqueuedSenderComSpec this_);
 
 } // NonqueuedSenderComSpecEx

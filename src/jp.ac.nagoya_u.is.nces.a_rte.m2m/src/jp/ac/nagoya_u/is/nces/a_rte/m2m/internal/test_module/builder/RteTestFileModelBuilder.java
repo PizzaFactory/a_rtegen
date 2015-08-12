@@ -99,6 +99,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestModule;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.SwcMockHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.SwcMockSource;
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 public class RteTestFileModelBuilder {
@@ -245,7 +246,7 @@ public class RteTestFileModelBuilder {
 		int comGroupSignalIndex = 1;
 		for (ComSignal sourceComSignal : this.context.query.<ComSignal> findByKind(COM_SIGNAL)) {
 			Constant constant = ModuleFactory.eINSTANCE.createConstant();
-			constant.setSymbolName(SymbolNames.createComSignalSymbolicName(sourceComSignal));
+			constant.setSymbolName(SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignal)));
 			constant.setType(this.context.cache.comSignalIdType);
 			constant.setValue(String.valueOf(comSignalIndex));
 			targetRteTest.getComStubConstant().add(constant);
@@ -293,7 +294,7 @@ public class RteTestFileModelBuilder {
 	private IocMockSource createIocMockSource(IocMockHeader mockHeader) {
 		IocMockSource mockSource = RteTestFactory.eINSTANCE.createIocMockSource();
 		mockSource.setFileName(TestFileNames.IOC_MOCK_SOURCE_NAME);
-		mockSource.getDependentHeaders().add(mockHeader);
+		mockSource.getIncludeHeader().add(mockHeader);
 		mockSource.getIocApi().addAll(getUniqueIocApis());
 		return mockSource;
 	}
@@ -302,8 +303,8 @@ public class RteTestFileModelBuilder {
 		IocMockHeader mockHeader = RteTestFactory.eINSTANCE.createIocMockHeader();
 		mockHeader.setFileName(TestFileNames.IOC_MOCK_HEADER_NAME);
 		mockHeader.setGuardName(TestFileNames.IOC_MOCK_HEADER_GUARD_NAME);
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteTypeHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteBswApiHeader());
 		mockHeader.getIocApi().addAll(getUniqueIocApis());
 		return mockHeader;
 	}
@@ -311,7 +312,7 @@ public class RteTestFileModelBuilder {
 	private List<IocApi> getUniqueIocApis() {
 		List<IocApi> apis = Lists.newArrayList();
 		for (IocApi iocApi : this.context.query.<IocApi> findByKind(IOC_API)) {
-			if (!hasSameSymbolIocApi(apis, iocApi)) {
+			if (!hasSameSymbolIocApi(apis, iocApi)) { // COVERAGE (コードレビューで問題ないことを確認)
 				apis.add(iocApi);
 			}
 		}
@@ -320,7 +321,7 @@ public class RteTestFileModelBuilder {
 	
 	private boolean hasSameSymbolIocApi(List<IocApi> apis, IocApi api) {
 		for (IocApi iocApi : apis) {
-			if (iocApi.getSymbolName().equals(api.getSymbolName())) {
+			if (iocApi.getSymbolName().equals(api.getSymbolName())) { // COVERAGE (コードレビューで問題ないことを確認)
 				return true;
 			}
 		}
@@ -340,11 +341,11 @@ public class RteTestFileModelBuilder {
 
 		SwcMockSource mockSource = RteTestFactory.eINSTANCE.createSwcMockSource();
 		mockSource.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + TestFileNames.CC_POSTFIX);
-		mockSource.getDependentHeaders().add(applicationHeader);
-		mockSource.getDependentHeaders().add(mockHeader);
+		mockSource.getIncludeHeader().add(applicationHeader);
+		mockSource.getIncludeHeader().add(mockHeader);
 		mockSource.setSwcName(sourceSwc.getCompartmentName());
-		for (ExecutableEntity executableEntity : sourceSwc.getDependentExecutableEntity()) {
-			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) {
+		for (ExecutableEntity executableEntity : sourceSwc.getDependentRunnableEntity()) {
+			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) { // COVERAGE (コードレビューで問題ないことを確認)
 				mockSource.getExecutableEntity().add(executableEntity);
 			}
 		}
@@ -353,13 +354,13 @@ public class RteTestFileModelBuilder {
 
 	private SwcMockHeader createSwcMockHeader(Swc sourceSwc) {
 		SwcMockHeader mockHeader = RteTestFactory.eINSTANCE.createSwcMockHeader();
-		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + FileNames.H_POSTFIX);
+		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + FileNames.HEADER_FILE_NAME_POSTFIX);
 		mockHeader.setGuardName(TestFileNames.MOCK_HEADER_GUARD_NAME_PREFIX + sourceSwc.getCompartmentName() + TestFileNames.HEADER_GUARD_NAME_POSTFIX);
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteTypeHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteBswApiHeader());
 		mockHeader.setSwcName(sourceSwc.getCompartmentName());
-		for (ExecutableEntity executableEntity : sourceSwc.getDependentExecutableEntity()) {
-			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) {
+		for (ExecutableEntity executableEntity : sourceSwc.getDependentRunnableEntity()) {
+			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) { // COVERAGE (コードレビューで問題ないことを確認)
 				mockHeader.getExecutableEntity().add(executableEntity);
 			}
 		}
@@ -378,24 +379,24 @@ public class RteTestFileModelBuilder {
 
 		BswmMockSource mockSource = RteTestFactory.eINSTANCE.createBswmMockSource();
 		mockSource.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + TestFileNames.CC_POSTFIX);
-		mockSource.getDependentHeaders().add(moduleInterlinkHeader);
-		mockSource.getDependentHeaders().add(mockHeader);
+		mockSource.getIncludeHeader().add(moduleInterlinkHeader);
+		mockSource.getIncludeHeader().add(mockHeader);
 		mockSource.setBswmName(sourceBswm.getCompartmentName());
 		for (PartedBswm partedBswm : sourceBswm.getPartedBswm()) {
-			mockSource.getExecutableEntity().addAll(partedBswm.getDependentExecutableEntity());
+			mockSource.getExecutableEntity().addAll(partedBswm.getDependentBswSchedulableEntity());
 		}
 		return mockSource;
 	}
 
 	private BswmMockHeader createBswmMockHeader(Bswm sourceBswm) {
 		BswmMockHeader mockHeader = RteTestFactory.eINSTANCE.createBswmMockHeader();
-		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + FileNames.H_POSTFIX);
+		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + FileNames.HEADER_FILE_NAME_POSTFIX);
 		mockHeader.setGuardName(TestFileNames.MOCK_HEADER_GUARD_NAME_PREFIX + sourceBswm.getCompartmentName() + TestFileNames.HEADER_GUARD_NAME_POSTFIX);
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteTypeHeader());
+		mockHeader.getIncludeHeader().add(this.context.cache.rteModule.getRteBswApiHeader());
 		mockHeader.setBswmName(sourceBswm.getCompartmentName());
 		for (PartedBswm partedBswm : sourceBswm.getPartedBswm()) {
-			mockHeader.getExecutableEntity().addAll(partedBswm.getDependentExecutableEntity());
+			mockHeader.getExecutableEntity().addAll(partedBswm.getDependentBswSchedulableEntity());
 		}
 		return mockHeader;
 	}

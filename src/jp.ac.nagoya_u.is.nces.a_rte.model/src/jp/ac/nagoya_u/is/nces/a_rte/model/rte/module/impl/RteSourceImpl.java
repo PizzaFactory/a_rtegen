@@ -45,20 +45,21 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapperFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApiGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApiGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionFileContentsGroup;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -75,6 +76,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getGlobalVariableGroup <em>Global Variable Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getDependentExternalExecutableEntityGroup <em>Dependent External Executable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getBswSchedulableEntityGroup <em>Bsw Schedulable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getRteApiGroup <em>Rte Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getRteLifecycleApiGroup <em>Rte Lifecycle Api Group</em>}</li>
@@ -84,8 +86,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSourceMacro <em>Source Macro</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSchmLifecycleApiGroup <em>Schm Lifecycle Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSchmApiGroup <em>Schm Api Group</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSignalApiGroup <em>Signal Api Group</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getProxyApiGroup <em>Proxy Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getComSignalApiWrapperGroup <em>Com Signal Api Wrapper Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getComProxyFunctionGroup <em>Com Proxy Function Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,7 +102,17 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GlobalVariableGroup> globalVariableGroup;
+	protected EList<GlobalVariableFileContentsGroup> globalVariableGroup;
+
+	/**
+	 * The cached value of the '{@link #getDependentExternalExecutableEntityGroup() <em>Dependent External Executable Entity Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependentExternalExecutableEntityGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExecutableEntityFileContentsGroup> dependentExternalExecutableEntityGroup;
 
 	/**
 	 * The cached value of the '{@link #getBswSchedulableEntityGroup() <em>Bsw Schedulable Entity Group</em>}' containment reference list.
@@ -110,7 +122,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BswSchedulableEntityGroup> bswSchedulableEntityGroup;
+	protected EList<BswSchedulableEntityFileContentsGroup> bswSchedulableEntityGroup;
 
 	/**
 	 * The cached value of the '{@link #getRteApiGroup() <em>Rte Api Group</em>}' containment reference list.
@@ -120,7 +132,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RteApiGroup> rteApiGroup;
+	protected EList<RteApiFileContentsGroup> rteApiGroup;
 
 	/**
 	 * The cached value of the '{@link #getRteLifecycleApiGroup() <em>Rte Lifecycle Api Group</em>}' containment reference list.
@@ -130,7 +142,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RteLifecycleApiGroup> rteLifecycleApiGroup;
+	protected EList<RteLifecycleApiFileContentsGroup> rteLifecycleApiGroup;
 
 	/**
 	 * The cached value of the '{@link #getTaskBodyGroup() <em>Task Body Group</em>}' containment reference list.
@@ -140,7 +152,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TaskBodyGroup> taskBodyGroup;
+	protected EList<TaskBodyFileContentsGroup> taskBodyGroup;
 
 	/**
 	 * The cached value of the '{@link #getComCallbackGroup() <em>Com Callback Group</em>}' containment reference list.
@@ -150,7 +162,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComCallbackGroup> comCallbackGroup;
+	protected EList<ComCallbackFileContentsGroup> comCallbackGroup;
 
 	/**
 	 * The cached value of the '{@link #getTrustedFunctionGroup() <em>Trusted Function Group</em>}' containment reference list.
@@ -160,7 +172,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TrustedFunctionGroup> trustedFunctionGroup;
+	protected EList<TrustedFunctionFileContentsGroup> trustedFunctionGroup;
 
 	/**
 	 * The cached value of the '{@link #getSourceMacro() <em>Source Macro</em>}' reference list.
@@ -180,7 +192,7 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SchmLifecycleApiGroup> schmLifecycleApiGroup;
+	protected EList<SchmLifecycleApiFileContentsGroup> schmLifecycleApiGroup;
 
 	/**
 	 * The cached value of the '{@link #getSchmApiGroup() <em>Schm Api Group</em>}' containment reference list.
@@ -190,27 +202,27 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SchmApiGroup> schmApiGroup;
+	protected EList<SchmApiFileContentsGroup> schmApiGroup;
 
 	/**
-	 * The cached value of the '{@link #getSignalApiGroup() <em>Signal Api Group</em>}' containment reference list.
+	 * The cached value of the '{@link #getComSignalApiWrapperGroup() <em>Com Signal Api Wrapper Group</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignalApiGroup()
+	 * @see #getComSignalApiWrapperGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SignalApiGroup> signalApiGroup;
+	protected EList<ComSignalApiWrapperFileContentsGroup> comSignalApiWrapperGroup;
 
 	/**
-	 * The cached value of the '{@link #getProxyApiGroup() <em>Proxy Api Group</em>}' containment reference list.
+	 * The cached value of the '{@link #getComProxyFunctionGroup() <em>Com Proxy Function Group</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProxyApiGroup()
+	 * @see #getComProxyFunctionGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProxyApiGroup> proxyApiGroup;
+	protected EList<ComProxyFunctionFileContentsGroup> comProxyFunctionGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -236,9 +248,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GlobalVariableGroup> getGlobalVariableGroup() {
+	public EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup() {
 		if (globalVariableGroup == null) {
-			globalVariableGroup = new EObjectContainmentEList<GlobalVariableGroup>(GlobalVariableGroup.class, this, ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP);
+			globalVariableGroup = new EObjectContainmentEList<GlobalVariableFileContentsGroup>(GlobalVariableFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP);
 		}
 		return globalVariableGroup;
 	}
@@ -248,9 +260,21 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BswSchedulableEntityGroup> getBswSchedulableEntityGroup() {
+	public EList<ExecutableEntityFileContentsGroup> getDependentExternalExecutableEntityGroup() {
+		if (dependentExternalExecutableEntityGroup == null) {
+			dependentExternalExecutableEntityGroup = new EObjectContainmentEList<ExecutableEntityFileContentsGroup>(ExecutableEntityFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP);
+		}
+		return dependentExternalExecutableEntityGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<BswSchedulableEntityFileContentsGroup> getBswSchedulableEntityGroup() {
 		if (bswSchedulableEntityGroup == null) {
-			bswSchedulableEntityGroup = new EObjectContainmentEList<BswSchedulableEntityGroup>(BswSchedulableEntityGroup.class, this, ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP);
+			bswSchedulableEntityGroup = new EObjectContainmentEList<BswSchedulableEntityFileContentsGroup>(BswSchedulableEntityFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP);
 		}
 		return bswSchedulableEntityGroup;
 	}
@@ -260,9 +284,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteApiGroup> getRteApiGroup() {
+	public EList<RteApiFileContentsGroup> getRteApiGroup() {
 		if (rteApiGroup == null) {
-			rteApiGroup = new EObjectContainmentEList<RteApiGroup>(RteApiGroup.class, this, ModulePackage.RTE_SOURCE__RTE_API_GROUP);
+			rteApiGroup = new EObjectContainmentEList<RteApiFileContentsGroup>(RteApiFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__RTE_API_GROUP);
 		}
 		return rteApiGroup;
 	}
@@ -272,9 +296,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteLifecycleApiGroup> getRteLifecycleApiGroup() {
+	public EList<RteLifecycleApiFileContentsGroup> getRteLifecycleApiGroup() {
 		if (rteLifecycleApiGroup == null) {
-			rteLifecycleApiGroup = new EObjectContainmentEList<RteLifecycleApiGroup>(RteLifecycleApiGroup.class, this, ModulePackage.RTE_SOURCE__RTE_LIFECYCLE_API_GROUP);
+			rteLifecycleApiGroup = new EObjectContainmentEList<RteLifecycleApiFileContentsGroup>(RteLifecycleApiFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__RTE_LIFECYCLE_API_GROUP);
 		}
 		return rteLifecycleApiGroup;
 	}
@@ -284,9 +308,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TaskBodyGroup> getTaskBodyGroup() {
+	public EList<TaskBodyFileContentsGroup> getTaskBodyGroup() {
 		if (taskBodyGroup == null) {
-			taskBodyGroup = new EObjectContainmentEList<TaskBodyGroup>(TaskBodyGroup.class, this, ModulePackage.RTE_SOURCE__TASK_BODY_GROUP);
+			taskBodyGroup = new EObjectContainmentEList<TaskBodyFileContentsGroup>(TaskBodyFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__TASK_BODY_GROUP);
 		}
 		return taskBodyGroup;
 	}
@@ -296,9 +320,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ComCallbackGroup> getComCallbackGroup() {
+	public EList<ComCallbackFileContentsGroup> getComCallbackGroup() {
 		if (comCallbackGroup == null) {
-			comCallbackGroup = new EObjectContainmentEList<ComCallbackGroup>(ComCallbackGroup.class, this, ModulePackage.RTE_SOURCE__COM_CALLBACK_GROUP);
+			comCallbackGroup = new EObjectContainmentEList<ComCallbackFileContentsGroup>(ComCallbackFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__COM_CALLBACK_GROUP);
 		}
 		return comCallbackGroup;
 	}
@@ -308,9 +332,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TrustedFunctionGroup> getTrustedFunctionGroup() {
+	public EList<TrustedFunctionFileContentsGroup> getTrustedFunctionGroup() {
 		if (trustedFunctionGroup == null) {
-			trustedFunctionGroup = new EObjectContainmentEList<TrustedFunctionGroup>(TrustedFunctionGroup.class, this, ModulePackage.RTE_SOURCE__TRUSTED_FUNCTION_GROUP);
+			trustedFunctionGroup = new EObjectContainmentEList<TrustedFunctionFileContentsGroup>(TrustedFunctionFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__TRUSTED_FUNCTION_GROUP);
 		}
 		return trustedFunctionGroup;
 	}
@@ -332,9 +356,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SchmLifecycleApiGroup> getSchmLifecycleApiGroup() {
+	public EList<SchmLifecycleApiFileContentsGroup> getSchmLifecycleApiGroup() {
 		if (schmLifecycleApiGroup == null) {
-			schmLifecycleApiGroup = new EObjectContainmentEList<SchmLifecycleApiGroup>(SchmLifecycleApiGroup.class, this, ModulePackage.RTE_SOURCE__SCHM_LIFECYCLE_API_GROUP);
+			schmLifecycleApiGroup = new EObjectContainmentEList<SchmLifecycleApiFileContentsGroup>(SchmLifecycleApiFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__SCHM_LIFECYCLE_API_GROUP);
 		}
 		return schmLifecycleApiGroup;
 	}
@@ -344,9 +368,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SchmApiGroup> getSchmApiGroup() {
+	public EList<SchmApiFileContentsGroup> getSchmApiGroup() {
 		if (schmApiGroup == null) {
-			schmApiGroup = new EObjectContainmentEList<SchmApiGroup>(SchmApiGroup.class, this, ModulePackage.RTE_SOURCE__SCHM_API_GROUP);
+			schmApiGroup = new EObjectContainmentEList<SchmApiFileContentsGroup>(SchmApiFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__SCHM_API_GROUP);
 		}
 		return schmApiGroup;
 	}
@@ -356,11 +380,11 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SignalApiGroup> getSignalApiGroup() {
-		if (signalApiGroup == null) {
-			signalApiGroup = new EObjectContainmentEList<SignalApiGroup>(SignalApiGroup.class, this, ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP);
+	public EList<ComSignalApiWrapperFileContentsGroup> getComSignalApiWrapperGroup() {
+		if (comSignalApiWrapperGroup == null) {
+			comSignalApiWrapperGroup = new EObjectContainmentEList<ComSignalApiWrapperFileContentsGroup>(ComSignalApiWrapperFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP);
 		}
-		return signalApiGroup;
+		return comSignalApiWrapperGroup;
 	}
 
 	/**
@@ -368,11 +392,11 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProxyApiGroup> getProxyApiGroup() {
-		if (proxyApiGroup == null) {
-			proxyApiGroup = new EObjectContainmentEList<ProxyApiGroup>(ProxyApiGroup.class, this, ModulePackage.RTE_SOURCE__PROXY_API_GROUP);
+	public EList<ComProxyFunctionFileContentsGroup> getComProxyFunctionGroup() {
+		if (comProxyFunctionGroup == null) {
+			comProxyFunctionGroup = new EObjectContainmentEList<ComProxyFunctionFileContentsGroup>(ComProxyFunctionFileContentsGroup.class, this, ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP);
 		}
-		return proxyApiGroup;
+		return comProxyFunctionGroup;
 	}
 
 	/**
@@ -385,6 +409,8 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 		switch (featureID) {
 			case ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP:
 				return ((InternalEList<?>)getGlobalVariableGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP:
+				return ((InternalEList<?>)getDependentExternalExecutableEntityGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP:
 				return ((InternalEList<?>)getBswSchedulableEntityGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_SOURCE__RTE_API_GROUP:
@@ -401,10 +427,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return ((InternalEList<?>)getSchmLifecycleApiGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return ((InternalEList<?>)getSchmApiGroup()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
-				return ((InternalEList<?>)getSignalApiGroup()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
-				return ((InternalEList<?>)getProxyApiGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP:
+				return ((InternalEList<?>)getComSignalApiWrapperGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP:
+				return ((InternalEList<?>)getComProxyFunctionGroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -419,6 +445,8 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 		switch (featureID) {
 			case ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP:
 				return getGlobalVariableGroup();
+			case ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP:
+				return getDependentExternalExecutableEntityGroup();
 			case ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP:
 				return getBswSchedulableEntityGroup();
 			case ModulePackage.RTE_SOURCE__RTE_API_GROUP:
@@ -437,10 +465,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return getSchmLifecycleApiGroup();
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return getSchmApiGroup();
-			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
-				return getSignalApiGroup();
-			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
-				return getProxyApiGroup();
+			case ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP:
+				return getComSignalApiWrapperGroup();
+			case ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP:
+				return getComProxyFunctionGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -456,31 +484,35 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 		switch (featureID) {
 			case ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP:
 				getGlobalVariableGroup().clear();
-				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableGroup>)newValue);
+				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableFileContentsGroup>)newValue);
+				return;
+			case ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP:
+				getDependentExternalExecutableEntityGroup().clear();
+				getDependentExternalExecutableEntityGroup().addAll((Collection<? extends ExecutableEntityFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP:
 				getBswSchedulableEntityGroup().clear();
-				getBswSchedulableEntityGroup().addAll((Collection<? extends BswSchedulableEntityGroup>)newValue);
+				getBswSchedulableEntityGroup().addAll((Collection<? extends BswSchedulableEntityFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__RTE_API_GROUP:
 				getRteApiGroup().clear();
-				getRteApiGroup().addAll((Collection<? extends RteApiGroup>)newValue);
+				getRteApiGroup().addAll((Collection<? extends RteApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__RTE_LIFECYCLE_API_GROUP:
 				getRteLifecycleApiGroup().clear();
-				getRteLifecycleApiGroup().addAll((Collection<? extends RteLifecycleApiGroup>)newValue);
+				getRteLifecycleApiGroup().addAll((Collection<? extends RteLifecycleApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__TASK_BODY_GROUP:
 				getTaskBodyGroup().clear();
-				getTaskBodyGroup().addAll((Collection<? extends TaskBodyGroup>)newValue);
+				getTaskBodyGroup().addAll((Collection<? extends TaskBodyFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__COM_CALLBACK_GROUP:
 				getComCallbackGroup().clear();
-				getComCallbackGroup().addAll((Collection<? extends ComCallbackGroup>)newValue);
+				getComCallbackGroup().addAll((Collection<? extends ComCallbackFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__TRUSTED_FUNCTION_GROUP:
 				getTrustedFunctionGroup().clear();
-				getTrustedFunctionGroup().addAll((Collection<? extends TrustedFunctionGroup>)newValue);
+				getTrustedFunctionGroup().addAll((Collection<? extends TrustedFunctionFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__SOURCE_MACRO:
 				getSourceMacro().clear();
@@ -488,19 +520,19 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return;
 			case ModulePackage.RTE_SOURCE__SCHM_LIFECYCLE_API_GROUP:
 				getSchmLifecycleApiGroup().clear();
-				getSchmLifecycleApiGroup().addAll((Collection<? extends SchmLifecycleApiGroup>)newValue);
+				getSchmLifecycleApiGroup().addAll((Collection<? extends SchmLifecycleApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				getSchmApiGroup().clear();
-				getSchmApiGroup().addAll((Collection<? extends SchmApiGroup>)newValue);
+				getSchmApiGroup().addAll((Collection<? extends SchmApiFileContentsGroup>)newValue);
 				return;
-			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
-				getSignalApiGroup().clear();
-				getSignalApiGroup().addAll((Collection<? extends SignalApiGroup>)newValue);
+			case ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP:
+				getComSignalApiWrapperGroup().clear();
+				getComSignalApiWrapperGroup().addAll((Collection<? extends ComSignalApiWrapperFileContentsGroup>)newValue);
 				return;
-			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
-				getProxyApiGroup().clear();
-				getProxyApiGroup().addAll((Collection<? extends ProxyApiGroup>)newValue);
+			case ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP:
+				getComProxyFunctionGroup().clear();
+				getComProxyFunctionGroup().addAll((Collection<? extends ComProxyFunctionFileContentsGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -517,6 +549,9 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 			case ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP:
 				getGlobalVariableGroup().clear();
 				return;
+			case ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP:
+				getDependentExternalExecutableEntityGroup().clear();
+				return;
 			case ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP:
 				getBswSchedulableEntityGroup().clear();
 				return;
@@ -544,11 +579,11 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				getSchmApiGroup().clear();
 				return;
-			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
-				getSignalApiGroup().clear();
+			case ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP:
+				getComSignalApiWrapperGroup().clear();
 				return;
-			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
-				getProxyApiGroup().clear();
+			case ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP:
+				getComProxyFunctionGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -564,6 +599,8 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 		switch (featureID) {
 			case ModulePackage.RTE_SOURCE__GLOBAL_VARIABLE_GROUP:
 				return globalVariableGroup != null && !globalVariableGroup.isEmpty();
+			case ModulePackage.RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP:
+				return dependentExternalExecutableEntityGroup != null && !dependentExternalExecutableEntityGroup.isEmpty();
 			case ModulePackage.RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP:
 				return bswSchedulableEntityGroup != null && !bswSchedulableEntityGroup.isEmpty();
 			case ModulePackage.RTE_SOURCE__RTE_API_GROUP:
@@ -582,10 +619,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return schmLifecycleApiGroup != null && !schmLifecycleApiGroup.isEmpty();
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return schmApiGroup != null && !schmApiGroup.isEmpty();
-			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
-				return signalApiGroup != null && !signalApiGroup.isEmpty();
-			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
-				return proxyApiGroup != null && !proxyApiGroup.isEmpty();
+			case ModulePackage.RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP:
+				return comSignalApiWrapperGroup != null && !comSignalApiWrapperGroup.isEmpty();
+			case ModulePackage.RTE_SOURCE__COM_PROXY_FUNCTION_GROUP:
+				return comProxyFunctionGroup != null && !comProxyFunctionGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

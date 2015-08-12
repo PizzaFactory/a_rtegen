@@ -361,24 +361,6 @@ public interface EcucFactory extends EFactory {
 	RteBswEventToTaskMapping createRteBswEventToTaskMapping();
 
 	/**
-	 * Returns a new object of class '<em>Rte Bsw Provided Mode Group Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Bsw Provided Mode Group Ref</em>'.
-	 * @generated
-	 */
-	RteBswProvidedModeGroupRef createRteBswProvidedModeGroupRef();
-
-	/**
-	 * Returns a new object of class '<em>Rte Bsw Required Mode Group Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Bsw Required Mode Group Ref</em>'.
-	 * @generated
-	 */
-	RteBswRequiredModeGroupRef createRteBswRequiredModeGroupRef();
-
-	/**
 	 * Returns a new object of class '<em>Rte Bsw Required Mode Group Connection</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

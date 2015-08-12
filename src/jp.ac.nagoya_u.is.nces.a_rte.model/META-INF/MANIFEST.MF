@@ -2,9 +2,8 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: jp.ac.nagoya_u.is.nces.a_rte.model;singleton:=true
-Bundle-Version: 1.2.1.qualifier
-Bundle-ClassPath: .,
- lib/ST-4.0.7.jar
+Bundle-Version: 1.2.2.qualifier
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

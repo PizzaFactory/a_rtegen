@@ -324,16 +324,6 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case M2Package.MODE_SWITCH_EVENT: {
-				modeSwitchEvent modeSwitchEvent = (modeSwitchEvent)theEObject;
-				T result = casemodeSwitchEvent(modeSwitchEvent);
-				if (result == null) result = caseRteEvent(modeSwitchEvent);
-				if (result == null) result = caseIdentifiable(modeSwitchEvent);
-				if (result == null) result = caseReferrable(modeSwitchEvent);
-				if (result == null) result = caseM2Object(modeSwitchEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case M2Package.ECUC_MODULE_CONFIGURATION_VALUES: {
 				EcucModuleConfigurationValues ecucModuleConfigurationValues = (EcucModuleConfigurationValues)theEObject;
 				T result = caseEcucModuleConfigurationValues(ecucModuleConfigurationValues);
@@ -568,6 +558,15 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiable(implementationDataType);
 				if (result == null) result = caseReferrable(implementationDataType);
 				if (result == null) result = caseM2Object(implementationDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: {
+				ImplementationDataTypeElement implementationDataTypeElement = (ImplementationDataTypeElement)theEObject;
+				T result = caseImplementationDataTypeElement(implementationDataTypeElement);
+				if (result == null) result = caseIdentifiable(implementationDataTypeElement);
+				if (result == null) result = caseReferrable(implementationDataTypeElement);
+				if (result == null) result = caseM2Object(implementationDataTypeElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1316,15 +1315,6 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: {
-				ImplementationDataTypeElement implementationDataTypeElement = (ImplementationDataTypeElement)theEObject;
-				T result = caseImplementationDataTypeElement(implementationDataTypeElement);
-				if (result == null) result = caseIdentifiable(implementationDataTypeElement);
-				if (result == null) result = caseReferrable(implementationDataTypeElement);
-				if (result == null) result = caseM2Object(implementationDataTypeElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case M2Package.SYSTEM_SIGNAL_GROUP: {
 				SystemSignalGroup systemSignalGroup = (SystemSignalGroup)theEObject;
 				T result = caseSystemSignalGroup(systemSignalGroup);
@@ -1361,6 +1351,7 @@ public class M2Switch<T> extends Switch<T> {
 			case M2Package.SENDER_REC_RECORD_ELEMENT_MAPPING: {
 				SenderRecRecordElementMapping senderRecRecordElementMapping = (SenderRecRecordElementMapping)theEObject;
 				T result = caseSenderRecRecordElementMapping(senderRecRecordElementMapping);
+				if (result == null) result = caseM2Object(senderRecRecordElementMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1374,18 +1365,21 @@ public class M2Switch<T> extends Switch<T> {
 			case M2Package.INDEXED_ARRAY_ELEMENT: {
 				IndexedArrayElement indexedArrayElement = (IndexedArrayElement)theEObject;
 				T result = caseIndexedArrayElement(indexedArrayElement);
+				if (result == null) result = caseM2Object(indexedArrayElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case M2Package.SENDER_REC_ARRAY_ELEMENT_MAPPING: {
 				SenderRecArrayElementMapping senderRecArrayElementMapping = (SenderRecArrayElementMapping)theEObject;
 				T result = caseSenderRecArrayElementMapping(senderRecArrayElementMapping);
+				if (result == null) result = caseM2Object(senderRecArrayElementMapping);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case M2Package.SW_POINTER_TARGET_PROPS: {
 				SwPointerTargetProps swPointerTargetProps = (SwPointerTargetProps)theEObject;
 				T result = caseSwPointerTargetProps(swPointerTargetProps);
+				if (result == null) result = caseM2Object(swPointerTargetProps);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1750,21 +1744,6 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingEvent(TimingEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>mode Switch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>mode Switch Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casemodeSwitchEvent(modeSwitchEvent object) {
 		return null;
 	}
 

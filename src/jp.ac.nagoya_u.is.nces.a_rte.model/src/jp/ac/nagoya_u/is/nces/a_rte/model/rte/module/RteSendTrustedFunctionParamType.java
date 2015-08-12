@@ -50,42 +50,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * A representation of the model object '<em><b>Rte Send Trusted Function Param Type</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType#getIsGroup <em>Is Group</em>}</li>
- * </ul>
- * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSendTrustedFunctionParamType()
  * @model
  * @generated
  */
-public interface RteSendTrustedFunctionParamType extends BlackboxType {
-	/**
-	 * Returns the value of the '<em><b>Is Group</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Group</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Group</em>' attribute.
-	 * @see #setIsGroup(Boolean)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteSendTrustedFunctionParamType_IsGroup()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
-	 * @generated
-	 */
-	Boolean getIsGroup();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType#getIsGroup <em>Is Group</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Group</em>' attribute.
-	 * @see #getIsGroup()
-	 * @generated
-	 */
-	void setIsGroup(Boolean value);
+public interface RteSendTrustedFunctionParamType extends Type {
 
 } // RteSendTrustedFunctionParamType

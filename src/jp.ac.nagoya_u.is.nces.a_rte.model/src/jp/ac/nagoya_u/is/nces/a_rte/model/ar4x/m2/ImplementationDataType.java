@@ -55,9 +55,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSubElement <em>Sub Element</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getBaseType <em>Base Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSwAlignment <em>Sw Alignment</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSubElement <em>Sub Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,23 +76,12 @@ public interface ImplementationDataType extends AutosarDataType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Base Type</em>' reference.
-	 * @see #setBaseType(SwBaseType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataType_BaseType()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.baseType.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.baseType\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	SwBaseType getBaseType();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getBaseType <em>Base Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Base Type</em>' reference.
-	 * @see #getBaseType()
-	 * @generated
-	 */
-	void setBaseType(SwBaseType value);
 
 	/**
 	 * Returns the value of the '<em><b>Sw Alignment</b></em>' attribute.
@@ -103,23 +92,12 @@ public interface ImplementationDataType extends AutosarDataType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #setSwAlignment(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataType_SwAlignment()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" volatile="true" derived="true"
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	String getSwAlignment();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSwAlignment <em>Sw Alignment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #getSwAlignment()
-	 * @generated
-	 */
-	void setSwAlignment(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Sub Element</b></em>' containment reference list.
@@ -148,4 +126,67 @@ public interface ImplementationDataType extends AutosarDataType {
 	 * @generated
 	 */
 	ImplementationDataType getLeafImplementationDataType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getLeafImplementationDataType().category = \'VALUE\''"
+	 * @generated
+	 */
+	boolean isPrimitiveType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getLeafImplementationDataType().category = \'DATA_REFERENCE\''"
+	 * @generated
+	 */
+	boolean isPointerType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getLeafImplementationDataType().category = \'ARRAY\''"
+	 * @generated
+	 */
+	boolean isArrayType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getLeafImplementationDataType().category = \'STRUCTURE\''"
+	 * @generated
+	 */
+	boolean isStructType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getLeafImplementationDataType().category = \'UNION\''"
+	 * @generated
+	 */
+	boolean isUnionType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='category = \'TYPE_REFERENCE\''"
+	 * @generated
+	 */
+	boolean isRedefinitionType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not isPrimitiveType()'"
+	 * @generated
+	 */
+	boolean isComplexType();
 } // ImplementationDataType

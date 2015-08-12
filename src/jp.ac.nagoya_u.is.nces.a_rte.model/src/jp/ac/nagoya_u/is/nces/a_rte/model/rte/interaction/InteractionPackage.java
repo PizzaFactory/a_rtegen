@@ -1260,31 +1260,13 @@ public interface InteractionPackage extends EPackage {
 	int RTE_VALUE_BUFFER_IMPLEMENTATION__HAS_STATUS = VALUE_BUFFER_IMPLEMENTATION__HAS_STATUS;
 
 	/**
-	 * The feature id for the '<em><b>Com Signal</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Rte Value Buffer Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 2;
+	int RTE_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Rte Value Buffer Implementation</em>' class.
@@ -1535,13 +1517,13 @@ public interface InteractionPackage extends EPackage {
 	int IOC_SEND_IMPLEMENTATION__PARENT = SEND_IMPLEMENTATION__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Oc Ioc Sender Properties</b></em>' reference.
+	 * The feature id for the '<em><b>Os Ioc Sender Properties</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES = SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
+	int IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES = SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Ioc Send Implementation</em>' class.
@@ -2342,22 +2324,22 @@ public interface InteractionPackage extends EPackage {
 	int COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE = INTERACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Os Ioc Communication</b></em>' reference.
+	 * The feature id for the '<em><b>Request Os Ioc Communication</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION = INTERACTION_FEATURE_COUNT + 2;
+	int COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION = INTERACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Os Ioc Communication For Complex Value</b></em>' reference.
+	 * The feature id for the '<em><b>Value Os Ioc Communication For Complex Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION_FOR_COMPLEX_VALUE = INTERACTION_FEATURE_COUNT + 3;
+	int COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE = INTERACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Proxy</b></em>' reference.
@@ -3478,31 +3460,13 @@ public interface InteractionPackage extends EPackage {
 	int EVENT_TO_TASK_MAPPING__POSITION_IN_TASK = INTERACTION_OBJECT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Used Os Alarm</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING__USED_OS_ALARM = INTERACTION_OBJECT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Used Os Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING__USED_OS_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Event To Task Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TO_TASK_MAPPING_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 5;
+	int EVENT_TO_TASK_MAPPING_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Event To Task Mapping</em>' class.
@@ -3533,13 +3497,13 @@ public interface InteractionPackage extends EPackage {
 	int EVENT__START_ON_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT__BSW_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
+	int EVENT__SOURCE_BSW_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Event</em>' class.
@@ -3579,13 +3543,13 @@ public interface InteractionPackage extends EPackage {
 	int TIMING_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
 
 	/**
-	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIMING_EVENT__BSW_EVENT = EVENT__BSW_EVENT;
+	int TIMING_EVENT__SOURCE_BSW_EVENT = EVENT__SOURCE_BSW_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -3635,13 +3599,13 @@ public interface InteractionPackage extends EPackage {
 	int MODE_SWITCH_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
 
 	/**
-	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_SWITCH_EVENT__BSW_EVENT = EVENT__BSW_EVENT;
+	int MODE_SWITCH_EVENT__SOURCE_BSW_EVENT = EVENT__SOURCE_BSW_EVENT;
 
 	/**
 	 * The number of structural features of the '<em>Mode Switch Event</em>' class.
@@ -4202,28 +4166,6 @@ public interface InteractionPackage extends EPackage {
 	EClass getRteValueBufferImplementation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal <em>Com Signal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Com Signal</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal()
-	 * @see #getRteValueBufferImplementation()
-	 * @generated
-	 */
-	EReference getRteValueBufferImplementation_ComSignal();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup <em>Com Signal Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Com Signal Group</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup()
-	 * @see #getRteValueBufferImplementation()
-	 * @generated
-	 */
-	EReference getRteValueBufferImplementation_ComSignalGroup();
-
-	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver <em>External Ecu Receiver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4297,15 +4239,15 @@ public interface InteractionPackage extends EPackage {
 	EClass getIocSendImplementation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOcIocSenderProperties <em>Oc Ioc Sender Properties</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOsIocSenderProperties <em>Os Ioc Sender Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Oc Ioc Sender Properties</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOcIocSenderProperties()
+	 * @return the meta object for the reference '<em>Os Ioc Sender Properties</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOsIocSenderProperties()
 	 * @see #getIocSendImplementation()
 	 * @generated
 	 */
-	EReference getIocSendImplementation_OcIocSenderProperties();
+	EReference getIocSendImplementation_OsIocSenderProperties();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.DirectComSendImplementation <em>Direct Com Send Implementation</em>}'.
@@ -4634,26 +4576,26 @@ public interface InteractionPackage extends EPackage {
 	EReference getComSendProxyInteraction_SignalDataType();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunication <em>Os Ioc Communication</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getRequestOsIocCommunication <em>Request Os Ioc Communication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Os Ioc Communication</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunication()
+	 * @return the meta object for the reference '<em>Request Os Ioc Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getRequestOsIocCommunication()
 	 * @see #getComSendProxyInteraction()
 	 * @generated
 	 */
-	EReference getComSendProxyInteraction_OsIocCommunication();
+	EReference getComSendProxyInteraction_RequestOsIocCommunication();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue <em>Os Ioc Communication For Complex Value</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType <em>Value Os Ioc Communication For Complex Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Os Ioc Communication For Complex Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue()
+	 * @return the meta object for the reference '<em>Value Os Ioc Communication For Complex Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType()
 	 * @see #getComSendProxyInteraction()
 	 * @generated
 	 */
-	EReference getComSendProxyInteraction_OsIocCommunicationForComplexValue();
+	EReference getComSendProxyInteraction_ValueOsIocCommunicationForComplexType();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getProxy <em>Proxy</em>}'.
@@ -5163,28 +5105,6 @@ public interface InteractionPackage extends EPackage {
 	EAttribute getEventToTaskMapping_PositionInTask();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsAlarm <em>Used Os Alarm</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Used Os Alarm</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsAlarm()
-	 * @see #getEventToTaskMapping()
-	 * @generated
-	 */
-	EReference getEventToTaskMapping_UsedOsAlarm();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsEvent <em>Used Os Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Used Os Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsEvent()
-	 * @see #getEventToTaskMapping()
-	 * @generated
-	 */
-	EReference getEventToTaskMapping_UsedOsEvent();
-
-	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5206,15 +5126,15 @@ public interface InteractionPackage extends EPackage {
 	EReference getEvent_StartOnEvent();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent <em>Source Bsw Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Bsw Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent()
+	 * @return the meta object for the reference '<em>Source Bsw Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent()
 	 * @see #getEvent()
 	 * @generated
 	 */
-	EReference getEvent_BswEvent();
+	EReference getEvent_SourceBswEvent();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent <em>Timing Event</em>}'.
@@ -5709,22 +5629,6 @@ public interface InteractionPackage extends EPackage {
 		EClass RTE_VALUE_BUFFER_IMPLEMENTATION = eINSTANCE.getRteValueBufferImplementation();
 
 		/**
-		 * The meta object literal for the '<em><b>Com Signal</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = eINSTANCE.getRteValueBufferImplementation_ComSignal();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Signal Group</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = eINSTANCE.getRteValueBufferImplementation_ComSignalGroup();
-
-		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuReceiverImpl <em>External Ecu Receiver</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5789,12 +5693,12 @@ public interface InteractionPackage extends EPackage {
 		EClass IOC_SEND_IMPLEMENTATION = eINSTANCE.getIocSendImplementation();
 
 		/**
-		 * The meta object literal for the '<em><b>Oc Ioc Sender Properties</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Os Ioc Sender Properties</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES = eINSTANCE.getIocSendImplementation_OcIocSenderProperties();
+		EReference IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES = eINSTANCE.getIocSendImplementation_OsIocSenderProperties();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.DirectComSendImplementationImpl <em>Direct Com Send Implementation</em>}' class.
@@ -6073,20 +5977,20 @@ public interface InteractionPackage extends EPackage {
 		EReference COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE = eINSTANCE.getComSendProxyInteraction_SignalDataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Os Ioc Communication</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Request Os Ioc Communication</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION = eINSTANCE.getComSendProxyInteraction_OsIocCommunication();
+		EReference COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION = eINSTANCE.getComSendProxyInteraction_RequestOsIocCommunication();
 
 		/**
-		 * The meta object literal for the '<em><b>Os Ioc Communication For Complex Value</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value Os Ioc Communication For Complex Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION_FOR_COMPLEX_VALUE = eINSTANCE.getComSendProxyInteraction_OsIocCommunicationForComplexValue();
+		EReference COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE = eINSTANCE.getComSendProxyInteraction_ValueOsIocCommunicationForComplexType();
 
 		/**
 		 * The meta object literal for the '<em><b>Proxy</b></em>' reference feature.
@@ -6507,22 +6411,6 @@ public interface InteractionPackage extends EPackage {
 		EAttribute EVENT_TO_TASK_MAPPING__POSITION_IN_TASK = eINSTANCE.getEventToTaskMapping_PositionInTask();
 
 		/**
-		 * The meta object literal for the '<em><b>Used Os Alarm</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT_TO_TASK_MAPPING__USED_OS_ALARM = eINSTANCE.getEventToTaskMapping_UsedOsAlarm();
-
-		/**
-		 * The meta object literal for the '<em><b>Used Os Event</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT_TO_TASK_MAPPING__USED_OS_EVENT = eINSTANCE.getEventToTaskMapping_UsedOsEvent();
-
-		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl <em>Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6541,12 +6429,12 @@ public interface InteractionPackage extends EPackage {
 		EReference EVENT__START_ON_EVENT = eINSTANCE.getEvent_StartOnEvent();
 
 		/**
-		 * The meta object literal for the '<em><b>Bsw Event</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source Bsw Event</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EVENT__BSW_EVENT = eINSTANCE.getEvent_BswEvent();
+		EReference EVENT__SOURCE_BSW_EVENT = eINSTANCE.getEvent_SourceBswEvent();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl <em>Timing Event</em>}' class.

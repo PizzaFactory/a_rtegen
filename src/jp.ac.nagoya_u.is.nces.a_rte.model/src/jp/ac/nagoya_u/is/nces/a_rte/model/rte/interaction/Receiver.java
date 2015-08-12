@@ -94,11 +94,11 @@ public interface Receiver extends InteractionEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getSenders()->size() > 1'"
 	 * @generated
 	 */
-	Boolean hasMultipleSenders();
+	boolean hasMultipleSenders();
 
 	/**
 	 * <!-- begin-user-doc -->

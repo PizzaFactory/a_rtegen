@@ -3361,62 +3361,6 @@ public interface EcucPackage extends EPackage {
 	int RTE_BSW_EVENT_TO_TASK_MAPPING_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswProvidedModeGroupRefImpl <em>Rte Bsw Provided Mode Group Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswProvidedModeGroupRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswProvidedModeGroupRef()
-	 * @generated
-	 */
-	int RTE_BSW_PROVIDED_MODE_GROUP_REF = 37;
-
-	/**
-	 * The number of structural features of the '<em>Rte Bsw Provided Mode Group Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BSW_PROVIDED_MODE_GROUP_REF_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Rte Bsw Provided Mode Group Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BSW_PROVIDED_MODE_GROUP_REF_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupRefImpl <em>Rte Bsw Required Mode Group Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupRef()
-	 * @generated
-	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_REF = 38;
-
-	/**
-	 * The number of structural features of the '<em>Rte Bsw Required Mode Group Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_REF_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Rte Bsw Required Mode Group Ref</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_REF_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl <em>Rte Bsw Required Mode Group Connection</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3424,7 +3368,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupConnection()
 	 * @generated
 	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = 39;
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3463,13 +3407,22 @@ public interface EcucPackage extends EPackage {
 	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__SOURCE = ECUC_CONTAINER__SOURCE;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT = ECUC_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Rte Bsw Provided Mode Group</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 0;
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Rte Bsw Required Mode Group</b></em>' reference.
@@ -3478,7 +3431,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 1;
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Rte Bsw Required Mode Group Connection</em>' class.
@@ -3487,7 +3440,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 2;
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Rte Bsw Required Mode Group Connection</em>' class.
@@ -3506,7 +3459,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswModuleInstance()
 	 * @generated
 	 */
-	int RTE_BSW_MODULE_INSTANCE = 40;
+	int RTE_BSW_MODULE_INSTANCE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3606,7 +3559,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswExclusiveAreaImpl()
 	 * @generated
 	 */
-	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 41;
+	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3706,7 +3659,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsTaskScheduleEnum()
 	 * @generated
 	 */
-	int OS_TASK_SCHEDULE_ENUM = 42;
+	int OS_TASK_SCHEDULE_ENUM = 40;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum <em>Rte Exclusive Area Impl Mechanism Enum</em>}' enum.
@@ -3716,7 +3669,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteExclusiveAreaImplMechanismEnum()
 	 * @generated
 	 */
-	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 43;
+	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 41;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum <em>Com Transfer Property Enum</em>}' enum.
@@ -3726,7 +3679,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComTransferPropertyEnum()
 	 * @generated
 	 */
-	int COM_TRANSFER_PROPERTY_ENUM = 44;
+	int COM_TRANSFER_PROPERTY_ENUM = 42;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsSpinlockLockMethodEnum <em>Os Spinlock Lock Method Enum</em>}' enum.
@@ -3736,7 +3689,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsSpinlockLockMethodEnum()
 	 * @generated
 	 */
-	int OS_SPINLOCK_LOCK_METHOD_ENUM = 45;
+	int OS_SPINLOCK_LOCK_METHOD_ENUM = 43;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteInitializationStrategyEnum <em>Rte Initialization Strategy Enum</em>}' enum.
@@ -3746,7 +3699,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteInitializationStrategyEnum()
 	 * @generated
 	 */
-	int RTE_INITIALIZATION_STRATEGY_ENUM = 46;
+	int RTE_INITIALIZATION_STRATEGY_ENUM = 44;
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte <em>Rte</em>}'.
@@ -5289,26 +5242,6 @@ public interface EcucPackage extends EPackage {
 	EReference getRteBswEventToTaskMapping_RteBswUsedOsEvent();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef <em>Rte Bsw Provided Mode Group Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Bsw Provided Mode Group Ref</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef
-	 * @generated
-	 */
-	EClass getRteBswProvidedModeGroupRef();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef <em>Rte Bsw Required Mode Group Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Bsw Required Mode Group Ref</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef
-	 * @generated
-	 */
-	EClass getRteBswRequiredModeGroupRef();
-
-	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection <em>Rte Bsw Required Mode Group Connection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5317,6 +5250,17 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRteBswRequiredModeGroupConnection();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent()
+	 * @see #getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 */
+	EReference getRteBswRequiredModeGroupConnection_Parent();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getRteBswProvidedModeGroup <em>Rte Bsw Provided Mode Group</em>}'.
@@ -6748,26 +6692,6 @@ public interface EcucPackage extends EPackage {
 		EReference RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT = eINSTANCE.getRteBswEventToTaskMapping_RteBswUsedOsEvent();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswProvidedModeGroupRefImpl <em>Rte Bsw Provided Mode Group Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswProvidedModeGroupRefImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswProvidedModeGroupRef()
-		 * @generated
-		 */
-		EClass RTE_BSW_PROVIDED_MODE_GROUP_REF = eINSTANCE.getRteBswProvidedModeGroupRef();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupRefImpl <em>Rte Bsw Required Mode Group Ref</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupRefImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupRef()
-		 * @generated
-		 */
-		EClass RTE_BSW_REQUIRED_MODE_GROUP_REF = eINSTANCE.getRteBswRequiredModeGroupRef();
-
-		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl <em>Rte Bsw Required Mode Group Connection</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6776,6 +6700,14 @@ public interface EcucPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = eINSTANCE.getRteBswRequiredModeGroupConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT = eINSTANCE.getRteBswRequiredModeGroupConnection_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Rte Bsw Provided Mode Group</b></em>' reference feature.

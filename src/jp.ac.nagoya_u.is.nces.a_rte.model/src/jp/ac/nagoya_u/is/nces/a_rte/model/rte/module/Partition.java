@@ -54,28 +54,36 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition <em>Is Bsw Partition</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSwc <em>Swc</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferVariableSet <em>Rte Buffer Variable Set</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getFilterOldValueVariable <em>Filter Old Value Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getFilterOccurrenceVariable <em>Filter Occurrence Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm <em>Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition <em>Is Bsw Partition</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getOsTrustedMacro <em>Os Trusted Macro</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComReceiveBufferVariableSet <em>Com Receive Buffer Variable Set</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComSignalApiWrapper <em>Com Signal Api Wrapper</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComSignalApiAlias <em>Com Signal Api Alias</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComMetaDataVariableSet <em>Com Meta Data Variable Set</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunction <em>Com Proxy Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableIndexConstant <em>Com Proxy Function Table Index Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant <em>Com Proxy Function Table Size Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableVariable <em>Com Proxy Function Table Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyBufferVariableSet <em>Com Proxy Buffer Variable Set</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrRteBufferInitValueConstant <em>Sr Rte Buffer Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrRteBufferVariableSet <em>Sr Rte Buffer Variable Set</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrRteBufferQueuedVariable <em>Sr Rte Buffer Queued Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterConstant <em>Sr Filter Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOldValueVariable <em>Sr Filter Old Value Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOccurrenceVariable <em>Sr Filter Occurrence Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfArgcConstant <em>Cs Tf Argc Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfOpidConstant <em>Cs Tf Opid Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTrustedFunction <em>Cs Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable <em>Entity Start Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant <em>Entity Start Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody <em>Task Body</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRestartPartitionApi <em>Restart Partition Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionTerminatedApi <em>Partition Terminated Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionRestartingApi <em>Partition Restarting Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody <em>Task Body</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferQueuedVariable <em>Rte Buffer Queued Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferInitValueConstant <em>Rte Buffer Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable <em>Entity Start Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant <em>Entity Start Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getFilterConstant <em>Filter Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getOsTrustedMacro <em>Os Trusted Macro</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm <em>Parted Bswm</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getFunctionMacroGroup <em>Function Macro Group</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteInternalVariable <em>Rte Internal Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSignalApi <em>Signal Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getProxyApi <em>Proxy Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -157,54 +165,6 @@ public interface Partition extends LogicalCompartment {
 	EList<Swc> getSwc();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Buffer Variable Set</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rte Buffer Variable Set</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Buffer Variable Set</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_RteBufferVariableSet()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RteBufferVariableSet> getRteBufferVariableSet();
-
-	/**
-	 * Returns the value of the '<em><b>Filter Old Value Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filter Old Value Variable</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Filter Old Value Variable</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_FilterOldValueVariable()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<GlobalVariable> getFilterOldValueVariable();
-
-	/**
-	 * Returns the value of the '<em><b>Filter Occurrence Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filter Occurrence Variable</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Filter Occurrence Variable</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_FilterOccurrenceVariable()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
-	EList<GlobalVariable> getFilterOccurrenceVariable();
-
-	/**
 	 * Returns the value of the '<em><b>Restart Partition Api</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -241,7 +201,7 @@ public interface Partition extends LogicalCompartment {
 	 * @return the value of the '<em>Partition Terminated Api</em>' containment reference.
 	 * @see #setPartitionTerminatedApi(PartitionTerminatedApi)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_PartitionTerminatedApi()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	PartitionTerminatedApi getPartitionTerminatedApi();
@@ -299,36 +259,52 @@ public interface Partition extends LogicalCompartment {
 	EList<TaskBody> getTaskBody();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Buffer Queued Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rte Buffer Queued Variable</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Buffer Queued Variable</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_RteBufferQueuedVariable()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RteBufferQueuedVariable> getRteBufferQueuedVariable();
-
-	/**
-	 * Returns the value of the '<em><b>Rte Buffer Init Value Constant</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Cs Tf Argc Constant</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Buffer Init Value Constant</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Cs Tf Argc Constant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Buffer Init Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_RteBufferInitValueConstant()
+	 * @return the value of the '<em>Cs Tf Argc Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_CsTfArgcConstant()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Constant> getRteBufferInitValueConstant();
+	EList<Constant> getCsTfArgcConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Cs Tf Opid Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Tf Opid Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Tf Opid Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_CsTfOpidConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getCsTfOpidConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Cs Trusted Function</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Trusted Function</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Trusted Function</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_CsTrustedFunction()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CsTrustedFunction> getCsTrustedFunction();
 
 	/**
 	 * Returns the value of the '<em><b>Entity Start Variable</b></em>' containment reference list.
@@ -363,22 +339,6 @@ public interface Partition extends LogicalCompartment {
 	EList<Constant> getEntityStartConstant();
 
 	/**
-	 * Returns the value of the '<em><b>Filter Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filter Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Filter Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_FilterConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getFilterConstant();
-
-	/**
 	 * Returns the value of the '<em><b>Rte Buffer Send Trusted Function</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction}.
 	 * <!-- begin-user-doc -->
@@ -393,6 +353,54 @@ public interface Partition extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<TrustedFunction> getRteBufferSendTrustedFunction();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Filter Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Filter Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Filter Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrFilterConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrFilterConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Filter Old Value Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Filter Old Value Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Filter Old Value Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrFilterOldValueVariable()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<GlobalVariable> getSrFilterOldValueVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Filter Occurrence Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Filter Occurrence Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Filter Occurrence Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrFilterOccurrenceVariable()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<GlobalVariable> getSrFilterOccurrenceVariable();
 
 	/**
 	 * Returns the value of the '<em><b>Os Trusted Macro</b></em>' containment reference.
@@ -421,6 +429,72 @@ public interface Partition extends LogicalCompartment {
 	void setOsTrustedMacro(Macro value);
 
 	/**
+	 * Returns the value of the '<em><b>Com Receive Buffer Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Receive Buffer Variable Set</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Receive Buffer Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComReceiveBufferVariableSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferVariableSet> getComReceiveBufferVariableSet();
+
+	/**
+	 * Returns the value of the '<em><b>Com Signal Api Wrapper</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Signal Api Wrapper</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Signal Api Wrapper</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComSignalApiWrapper()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	EList<ComSignalApiWrapper> getComSignalApiWrapper();
+
+	/**
+	 * Returns the value of the '<em><b>Com Signal Api Alias</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Signal Api Alias</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Signal Api Alias</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComSignalApiAlias()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<FunctionMacro> getComSignalApiAlias();
+
+	/**
+	 * Returns the value of the '<em><b>Com Meta Data Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Meta Data Variable Set</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Meta Data Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComMetaDataVariableSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GlobalVariableSet> getComMetaDataVariableSet();
+
+	/**
 	 * Returns the value of the '<em><b>Parted Bswm</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm}.
 	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getParent <em>Parent</em>}'.
@@ -439,71 +513,153 @@ public interface Partition extends LogicalCompartment {
 	EList<PartedBswm> getPartedBswm();
 
 	/**
-	 * Returns the value of the '<em><b>Function Macro Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacroGroup}.
+	 * Returns the value of the '<em><b>Com Proxy Function Table Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Function Macro Group</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Com Proxy Function Table Variable</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Function Macro Group</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_FunctionMacroGroup()
+	 * @return the value of the '<em>Com Proxy Function Table Variable</em>' containment reference.
+	 * @see #setComProxyFunctionTableVariable(GlobalVariable)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComProxyFunctionTableVariable()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<FunctionMacroGroup> getFunctionMacroGroup();
+	GlobalVariable getComProxyFunctionTableVariable();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Internal Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableVariable <em>Com Proxy Function Table Variable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Proxy Function Table Variable</em>' containment reference.
+	 * @see #getComProxyFunctionTableVariable()
+	 * @generated
+	 */
+	void setComProxyFunctionTableVariable(GlobalVariable value);
+
+	/**
+	 * Returns the value of the '<em><b>Com Proxy Buffer Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Internal Variable</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Com Proxy Buffer Variable Set</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Internal Variable</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_RteInternalVariable()
+	 * @return the value of the '<em>Com Proxy Buffer Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComProxyBufferVariableSet()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GlobalVariable> getRteInternalVariable();
+	EList<RteBufferVariableSet> getComProxyBufferVariableSet();
 
 	/**
-	 * Returns the value of the '<em><b>Signal Api</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi}.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Sr Rte Buffer Init Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Signal Api</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sr Rte Buffer Init Value Constant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signal Api</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SignalApi()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi#getParent
-	 * @model opposite="parent" containment="true"
+	 * @return the value of the '<em>Sr Rte Buffer Init Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrRteBufferInitValueConstant()
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SignalApi> getSignalApi();
+	EList<Constant> getSrRteBufferInitValueConstant();
 
 	/**
-	 * Returns the value of the '<em><b>Proxy Api</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi}.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Sr Rte Buffer Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Proxy Api</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sr Rte Buffer Variable Set</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proxy Api</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ProxyApi()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi#getParent
+	 * @return the value of the '<em>Sr Rte Buffer Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrRteBufferVariableSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferVariableSet> getSrRteBufferVariableSet();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Rte Buffer Queued Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Buffer Queued Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Buffer Queued Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SrRteBufferQueuedVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferQueuedVariable> getSrRteBufferQueuedVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Com Proxy Function</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Proxy Function</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Proxy Function</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComProxyFunction()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getParent
 	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
-	EList<ProxyApi> getProxyApi();
+	EList<ComProxyFunction> getComProxyFunction();
+
+	/**
+	 * Returns the value of the '<em><b>Com Proxy Function Table Index Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Proxy Function Table Index Constant</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Proxy Function Table Index Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComProxyFunctionTableIndexConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getComProxyFunctionTableIndexConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Com Proxy Function Table Size Constant</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Proxy Function Table Size Constant</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Proxy Function Table Size Constant</em>' containment reference.
+	 * @see #setComProxyFunctionTableSizeConstant(Constant)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ComProxyFunctionTableSizeConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Constant getComProxyFunctionTableSizeConstant();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant <em>Com Proxy Function Table Size Constant</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Proxy Function Table Size Constant</em>' containment reference.
+	 * @see #getComProxyFunctionTableSizeConstant()
+	 * @generated
+	 */
+	void setComProxyFunctionTableSizeConstant(Constant value);
 
 } // Partition

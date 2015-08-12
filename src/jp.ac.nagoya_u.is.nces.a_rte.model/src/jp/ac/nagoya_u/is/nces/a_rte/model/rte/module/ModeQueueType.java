@@ -62,28 +62,28 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface ModeQueueType extends BlackboxType {
+public interface ModeQueueType extends Type {
 	/**
-	 * Returns the value of the '<em><b>Max Length Constant</b></em>' reference.
+	 * Returns the value of the '<em><b>Max Length Constant</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Max Length Constant</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Max Length Constant</em>' reference.
+	 * @return the value of the '<em>Max Length Constant</em>' containment reference.
 	 * @see #setMaxLengthConstant(Constant)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModeQueueType_MaxLengthConstant()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Constant getMaxLengthConstant();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant <em>Max Length Constant</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant <em>Max Length Constant</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Max Length Constant</em>' reference.
+	 * @param value the new value of the '<em>Max Length Constant</em>' containment reference.
 	 * @see #getMaxLengthConstant()
 	 * @generated
 	 */

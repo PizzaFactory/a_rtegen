@@ -43,12 +43,18 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum;
 
+/**
+ * 組込シンボルのモデルを構築します。
+ * 
+ * 組込シンボルは、コンフィグ内容に関わらず内容が固定のシンボル(ソースコード側で決め打ちされているもの)を表す。
+ */
 public class BuiltinSymbolModelBuilder {
 
 	private final ModuleModelBuildContext context;
@@ -63,7 +69,7 @@ public class BuiltinSymbolModelBuilder {
 	}
 
 	private void buildBuiltinTypes(Rte targetRte) {
-		this.context.cache.voidType = buildBuiltinPrimitiveType(targetRte, SymbolNames.VOID_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.voidType = buildBuiltinBlackboxType(targetRte, SymbolNames.VOID_TYPE_NAME, SignednessEnum.UNSIGNED);
 		this.context.cache.booleanType = buildBuiltinPrimitiveType(targetRte, SymbolNames.BOOLEAN_TYPE_NAME, SignednessEnum.UNSIGNED);
 		this.context.cache.uint8Type = buildBuiltinPrimitiveType(targetRte, SymbolNames.UINT8_TYPE_NAME, SignednessEnum.UNSIGNED);
 		this.context.cache.uint16Type = buildBuiltinPrimitiveType(targetRte, SymbolNames.UINT16_TYPE_NAME, SignednessEnum.UNSIGNED);
@@ -77,14 +83,14 @@ public class BuiltinSymbolModelBuilder {
 		this.context.cache.osEventMaskType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_EVENT_MASK_TYPE_NAME, SignednessEnum.UNSIGNED);
 		this.context.cache.osResourceType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_RESOURCE_TYPE_NAME, SignednessEnum.UNSIGNED);
 		this.context.cache.osSpinlockIdType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_SPINLOCK_ID_TYPE_NAME, SignednessEnum.UNSIGNED);
-		this.context.cache.osTrustedFunctionIndexType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_TRUSTED_FUNCTION_INDEX_TYPE_NAME, SignednessEnum.UNSIGNED);
-		this.context.cache.osTrustedFunctionParamRefType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.osTfIndexType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_TRUSTED_FUNCTION_INDEX_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.osTfParamRefType = buildBuiltinBlackboxType(targetRte, SymbolNames.OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME, SignednessEnum.UNSIGNED);
 
 		this.context.cache.comSignalIdType = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_SIGNAL_ID_TYPE_NAME, SignednessEnum.UNSIGNED);
-		this.context.cache.rteBufferTypeOffset = buildBuiltinPrimitiveType(targetRte, SymbolNames.RTE_BUFFER_TYPE_OFFSET, SignednessEnum.UNSIGNED);
-		this.context.cache.SrWriteProxyFunctionTableIndex = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_SR_WRITE_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME, SignednessEnum.UNSIGNED);
 		
-		this.context.cache.comMetaComplexDataType = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_META_COMPLEX_DATA_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.comMetaDataTypeMemberOffsetType = buildBuiltinBlackboxType(targetRte, SymbolNames.COM_META_DATA_TYPE_MEMBER_OFFSET_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.comMetaDataType = buildBuiltinBlackboxType(targetRte, SymbolNames.COM_META_DATA_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.comProxyFunctionTableIndexType = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME, SignednessEnum.UNSIGNED);
 	}
 
 	private PrimitiveType buildBuiltinPrimitiveType(Rte targetRte, String symbolName, SignednessEnum signedness) {
@@ -94,7 +100,15 @@ public class BuiltinSymbolModelBuilder {
 		targetRte.getDependentType().add(type);
 		return type;
 	}
-	
+
+	private BlackboxType buildBuiltinBlackboxType(Rte targetRte, String symbolName, SignednessEnum signedness) {
+		BlackboxType type = ModuleFactory.eINSTANCE.createBlackboxType();
+		type.setSymbolName(symbolName);
+		type.setSignedness(signedness);
+		targetRte.getDependentType().add(type);
+		return type;
+	}
+
 	private void buildBuiltinConstants(Rte targetRte) {
 		this.context.cache.rteErrorOkConstant = createBuiltinConstant(SymbolNames.RTE_E_OK_CONSTANT_NAME);
 		targetRte.getDependentConstant().add(this.context.cache.rteErrorOkConstant);

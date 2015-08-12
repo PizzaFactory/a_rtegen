@@ -45,8 +45,23 @@ package jp.ac.nagoya_u.is.nces.a_rte.model;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 
+/**
+ *　<p>全モデル要素のスーパークラス。</p>
+ *
+ * <p>NOTE {@link EObject}を拡張し、遅延リファレンス解決の仕組みを導入している。</p>
+ */
 public interface ExtendedEObject extends EObject {
 
+	/**
+	 * 未解決のリファレンスを追加する。
+	 * @param eReference リファレンスの種別を表す{@link EReference}
+	 * @param id リファレンス先のオブジェクトを表すID
+	 */
 	public void addUnresolvedReference(EReference eReference, String id);
+
+	/**
+	 * 未解決のリファレンスを解決する。
+	 * @throws ModelException リファレンスの解決に失敗した場合
+	 */
 	public void resolveReferences() throws ModelException;
 }

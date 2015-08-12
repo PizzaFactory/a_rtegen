@@ -44,15 +44,18 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_GROUP_API;
+
+import java.util.List;
+
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyComplexOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableMember;
 
 
@@ -64,28 +67,29 @@ public class ComProxyOperationModelBuilder {
 		this.context = context;
 	}
 
-	public ComSendProxyOperation createComSendProxyOperation(ComSendProxyInteraction sourceProxyInteraction, Variable signalIdVariable, VariableMember dataVariable) throws ModelException {
-		// Primitive用
-		IocReceiveGroupApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_GROUP_API, sourceProxyInteraction.getOsIocCommunication());
-		accessApi.setComSendSignalSymbolName(SymbolNames.RTE_CALL_BSW_COM_SEND_SIGNAL_API_NAME);
+	// Primitive用
+	public PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation(ComSendProxyInteraction sourceProxyInteraction, LocalVariable signalIdVariable, VariableMember dataVariable) throws ModelException {
+		IocReceiveGroupApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_GROUP_API, sourceProxyInteraction.getRequestOsIocCommunication());
+		accessApi.setComSendSignalSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
 
-		ComSendProxyOperation operation = ModuleFactory.eINSTANCE.createComSendProxyOperation();
-		operation.setSingleSource(sourceProxyInteraction);
-		operation.setAccessApi(accessApi);
-		operation.setSignalIdVariable(signalIdVariable);
-		operation.setReadValueVariable(dataVariable);
-		return operation;
+		PrimitiveComSendProxyOperation destOperation = ModuleFactory.eINSTANCE.createPrimitiveComSendProxyOperation();
+		destOperation.setSingleSource(sourceProxyInteraction);
+		destOperation.setAccessApi(accessApi);
+		destOperation.setSignalIdVariable(signalIdVariable);
+		destOperation.setReadValueVariable(dataVariable);
+		return destOperation;
 	}
 	
-	public ComSendProxyComplexOperation createComSendProxyComplexOperation(ComSendProxyInteraction sourceProxyInteraction, Variable index) throws ModelException {
-		// 複合型用
-		IocReceiveApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_API, sourceProxyInteraction.getOsIocCommunication());
+	// 複合型用
+	public ComplexComSendProxyOperation createComplexComSendProxyOperation(List<ComSendProxyInteraction> sourceProxyInteractions, LocalVariable indexVariable) throws ModelException {
+		// NOTE 要求伝搬用のIOC通信はパーティション毎に共通のため、代表のComSendProxyInteractionのものを使用する
+		IocReceiveApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_API, sourceProxyInteractions.get(0).getRequestOsIocCommunication());
 		
-		ComSendProxyComplexOperation operation = ModuleFactory.eINSTANCE.createComSendProxyComplexOperation();
-		operation.setFunctionTableSymbolName(SymbolNames.RTE_SR_WRITE_PROXY_FUNCTION_TABLE_NAME);
-		operation.setSingleSource(sourceProxyInteraction);
-		operation.setAccessApi(accessApi);
-		operation.setTableIndexVariable(index);
-		return operation;
+		ComplexComSendProxyOperation destOperation = ModuleFactory.eINSTANCE.createComplexComSendProxyOperation();
+		destOperation.getSource().addAll(sourceProxyInteractions);
+		destOperation.setAccessApi(accessApi);
+		destOperation.setFunctionTableSymbolName(SymbolNames.COM_PROXY_FUNCTION_TABLE_NAME);
+		destOperation.setTableIndexVariable(indexVariable);
+		return destOperation;
 	}
 }

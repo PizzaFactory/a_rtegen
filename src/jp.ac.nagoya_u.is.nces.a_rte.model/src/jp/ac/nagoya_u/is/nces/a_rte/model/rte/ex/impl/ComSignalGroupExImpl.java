@@ -156,7 +156,7 @@ public class ComSignalGroupExImpl extends ExtendedEObjectImpl implements ComSign
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isSender(ComSignalGroup this_) {
+	public boolean isSender(ComSignalGroup this_) {
 		try {
 			return (Boolean)IS_SENDER_COM_SIGNAL_GROUP__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -180,7 +180,7 @@ public class ComSignalGroupExImpl extends ExtendedEObjectImpl implements ComSign
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isReceiver(ComSignalGroup this_) {
+	public boolean isReceiver(ComSignalGroup this_) {
 		try {
 			return (Boolean)IS_RECEIVER_COM_SIGNAL_GROUP__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

@@ -82,9 +82,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswExclusiveAreaImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplementation;
@@ -380,20 +378,6 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * @generated
 	 */
 	private EClass rteBswEventToTaskMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteBswProvidedModeGroupRefEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteBswRequiredModeGroupRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1836,24 +1820,6 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRteBswProvidedModeGroupRef() {
-		return rteBswProvidedModeGroupRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteBswRequiredModeGroupRef() {
-		return rteBswRequiredModeGroupRefEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRteBswRequiredModeGroupConnection() {
 		return rteBswRequiredModeGroupConnectionEClass;
 	}
@@ -1863,7 +1829,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup() {
+	public EReference getRteBswRequiredModeGroupConnection_Parent() {
 		return (EReference)rteBswRequiredModeGroupConnectionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1872,8 +1838,17 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup() {
+	public EReference getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup() {
 		return (EReference)rteBswRequiredModeGroupConnectionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup() {
+		return (EReference)rteBswRequiredModeGroupConnectionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2220,11 +2195,8 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		createEReference(rteBswEventToTaskMappingEClass, RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_ALARM);
 		createEReference(rteBswEventToTaskMappingEClass, RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT);
 
-		rteBswProvidedModeGroupRefEClass = createEClass(RTE_BSW_PROVIDED_MODE_GROUP_REF);
-
-		rteBswRequiredModeGroupRefEClass = createEClass(RTE_BSW_REQUIRED_MODE_GROUP_REF);
-
 		rteBswRequiredModeGroupConnectionEClass = createEClass(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION);
+		createEReference(rteBswRequiredModeGroupConnectionEClass, RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT);
 		createEReference(rteBswRequiredModeGroupConnectionEClass, RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP);
 		createEReference(rteBswRequiredModeGroupConnectionEClass, RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP);
 
@@ -2406,7 +2378,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEAttribute(getComSignal_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComSignal_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getComSignal__TransfersImmediately(), theM2Package.getBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComSignal__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comSignalGroupEClass, ComSignalGroup.class, "ComSignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSignalGroup_ComGroupSignal(), this.getComGroupSignal(), null, "comGroupSignal", null, 0, -1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2414,7 +2386,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEAttribute(getComSignalGroup_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComSignalGroup_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getComSignalGroup__TransfersImmediately(), theM2Package.getBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComSignalGroup__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(comGroupSignalEClass, ComGroupSignal.class, "ComGroupSignal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComGroupSignal_ComSystemTemplateSystemSignal(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSystemSignal", null, 0, 1, ComGroupSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2446,7 +2418,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEReference(getEcucPartition_EcucPartitionSoftwareComponent(), theInstancePackage.getSwComponentInstanceInSystem(), theInstancePackage.getSwComponentInstanceInSystem_OwnerPartition(), "ecucPartitionSoftwareComponent", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEcucPartition_ImplOsApplication(), this.getOsApplication(), this.getOsApplication_OsAppEcucPartition(), "implOsApplication", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getEcucPartition__IsTrusted(), theM2Package.getBoolean(), "isTrusted", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getEcucPartition__IsTrusted(), ecorePackage.getEBoolean(), "isTrusted", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getEcucPartition__GetOwnerCore(), theM2Package.getInteger(), "getOwnerCore", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -2498,7 +2470,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEAttribute(getOsOS_OsNumberOfCores(), theM2Package.getInteger(), "osNumberOfCores", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOsOS_OsMasterCoreId(), theM2Package.getInteger(), "osMasterCoreId", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getOsOS__IsMulticoreOs(), theM2Package.getBoolean(), "isMulticoreOs", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOsOS__IsMulticoreOs(), ecorePackage.getEBoolean(), "isMulticoreOs", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rteBswEventToTaskMappingEClass, RteBswEventToTaskMapping.class, "RteBswEventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRteBswEventToTaskMapping_RteBswActivationOffset(), theM2Package.getTimeValue(), "rteBswActivationOffset", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2508,11 +2480,8 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsAlarm(), this.getOsAlarm(), null, "rteBswUsedOsAlarm", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsEvent(), this.getOsEvent(), null, "rteBswUsedOsEvent", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(rteBswProvidedModeGroupRefEClass, RteBswProvidedModeGroupRef.class, "RteBswProvidedModeGroupRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(rteBswRequiredModeGroupRefEClass, RteBswRequiredModeGroupRef.class, "RteBswRequiredModeGroupRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(rteBswRequiredModeGroupConnectionEClass, RteBswRequiredModeGroupConnection.class, "RteBswRequiredModeGroupConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteBswRequiredModeGroupConnection_Parent(), this.getRteBswModuleInstance(), this.getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), "parent", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswProvidedModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswRequiredModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2520,7 +2489,7 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		initEReference(getRteBswModuleInstance_RteBswEventToTaskMapping(), this.getRteBswEventToTaskMapping(), null, "rteBswEventToTaskMapping", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBswModuleInstance_RteBswExclusiveAreaImpl(), this.getRteBswExclusiveAreaImpl(), null, "rteBswExclusiveAreaImpl", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBswModuleInstance_RteBswImplementation(), theM2Package.getBswImplementation(), null, "rteBswImplementation", null, 1, 1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection(), null, "rteBswRequiredModeGroupConnection", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection_Parent(), "rteBswRequiredModeGroupConnection", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(rteBswExclusiveAreaImplEClass, RteBswExclusiveAreaImpl.class, "RteBswExclusiveAreaImpl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveArea(), theM2Package.getExclusiveArea(), theM2Package.getExclusiveArea_BswConfig(), "rteBswExclusiveArea", null, 1, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

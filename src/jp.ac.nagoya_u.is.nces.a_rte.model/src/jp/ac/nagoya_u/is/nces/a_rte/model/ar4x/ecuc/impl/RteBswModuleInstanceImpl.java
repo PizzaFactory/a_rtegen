@@ -58,6 +58,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -210,9 +211,24 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 	 */
 	public EList<RteBswRequiredModeGroupConnection> getRteBswRequiredModeGroupConnection() {
 		if (rteBswRequiredModeGroupConnection == null) {
-			rteBswRequiredModeGroupConnection = new EObjectContainmentEList<RteBswRequiredModeGroupConnection>(RteBswRequiredModeGroupConnection.class, this, EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION);
+			rteBswRequiredModeGroupConnection = new EObjectContainmentWithInverseEList<RteBswRequiredModeGroupConnection>(RteBswRequiredModeGroupConnection.class, this, EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION, EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT);
 		}
 		return rteBswRequiredModeGroupConnection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRteBswRequiredModeGroupConnection()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

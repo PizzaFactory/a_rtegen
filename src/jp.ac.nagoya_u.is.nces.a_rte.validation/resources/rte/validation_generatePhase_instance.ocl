@@ -293,6 +293,13 @@ package ar4x::ecuc
 	not self.rteEvent.oclIsKindOf(m2::TimingEvent) or expectedConfig.oclIsUndefined()
 	or timeValueEx.isMultiplesOf(self.rteEvent.oclAsType(m2::TimingEvent).period, expectedConfig.rteExpectedTickDuration)
 
+	inv nrte_sws_0351:
+	self.rteMappedToTask.oclIsUndefined()
+	or
+	self.rteMappedToTask.ownerApplication->isEmpty()
+	or
+	self.rteMappedToTask.ownerApplication.osAppEcucPartition.ecucPartitionSoftwareComponent->exists(prototype.type = self.rteEvent.startOnEvent.parent.parent)
+
 	/*
 	 * RteExclusiveAreaImplementation
 	 */

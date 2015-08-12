@@ -164,4 +164,13 @@ public interface ImplementationDataTypeElement extends Identifiable {
 	 */
 	void setSwDataDefProps(SwDataDefProps value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='category = \'TYPE_REFERENCE\''"
+	 * @generated
+	 */
+	boolean isRedefinitionType();
+
 } // ImplementationDataTypeElement

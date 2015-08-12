@@ -55,7 +55,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocSenderProperties;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOcIocSenderProperties <em>Oc Ioc Sender Properties</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOsIocSenderProperties <em>Os Ioc Sender Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,28 +66,24 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocSenderProperties;
 public interface IocSendImplementation extends SendImplementation {
 
 	/**
-	 * Returns the value of the '<em><b>Oc Ioc Sender Properties</b></em>' reference.
+	 * Returns the value of the '<em><b>Os Ioc Sender Properties</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Oc Ioc Sender Properties</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Oc Ioc Sender Properties</em>' reference.
-	 * @see #setOcIocSenderProperties(OsIocSenderProperties)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getIocSendImplementation_OcIocSenderProperties()
+	 * @return the value of the '<em>Os Ioc Sender Properties</em>' reference.
+	 * @see #setOsIocSenderProperties(OsIocSenderProperties)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getIocSendImplementation_OsIocSenderProperties()
 	 * @model required="true"
 	 * @generated
 	 */
-	OsIocSenderProperties getOcIocSenderProperties();
+	OsIocSenderProperties getOsIocSenderProperties();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOcIocSenderProperties <em>Oc Ioc Sender Properties</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation#getOsIocSenderProperties <em>Os Ioc Sender Properties</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Oc Ioc Sender Properties</em>' reference.
-	 * @see #getOcIocSenderProperties()
+	 * @param value the new value of the '<em>Os Ioc Sender Properties</em>' reference.
+	 * @see #getOsIocSenderProperties()
 	 * @generated
 	 */
-	void setOcIocSenderProperties(OsIocSenderProperties value);
+	void setOsIocSenderProperties(OsIocSenderProperties value);
 } // IocSendImplementation

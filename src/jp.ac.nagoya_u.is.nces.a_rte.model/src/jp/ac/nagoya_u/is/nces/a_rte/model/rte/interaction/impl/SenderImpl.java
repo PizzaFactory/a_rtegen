@@ -131,7 +131,7 @@ public abstract class SenderImpl extends InteractionEndImpl implements Sender {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean hasMultipleReceivers() {
+	public boolean hasMultipleReceivers() {
 		try {
 			return (Boolean)HAS_MULTIPLE_RECEIVERS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -180,7 +180,7 @@ public abstract class SenderImpl extends InteractionEndImpl implements Sender {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean hasMultipleInternalEcuReceivers() {
+	public boolean hasMultipleInternalEcuReceivers() {
 		try {
 			return (Boolean)HAS_MULTIPLE_INTERNAL_ECU_RECEIVERS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

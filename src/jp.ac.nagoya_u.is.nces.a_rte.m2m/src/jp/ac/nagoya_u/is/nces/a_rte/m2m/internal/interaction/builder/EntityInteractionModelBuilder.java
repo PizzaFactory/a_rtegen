@@ -43,7 +43,11 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_TASK;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_TASK__MAPPED_RTE_BSW_EVENT;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_TASK__MAPPED_RTE_EVENT;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_ALARM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_ALARM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.OS_TASK_EX___GET_OWNER_PARTITION__OSTASK;
@@ -61,11 +65,11 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.MathUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsAlarm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping;
@@ -89,10 +93,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntitySt
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
 
 public class EntityInteractionModelBuilder {
 	private final InteractionModelBuildContext context;
@@ -115,173 +118,229 @@ public class EntityInteractionModelBuilder {
 			if (sourceOsTask.getMappedRteEvent().isEmpty() && sourceOsTask.getMappedRteBswEvent().isEmpty()) {
 				continue;
 			}
-			
-			EventToTaskMapping eventToTaskMapping;
-			if (sourceOsTask.getMappedRteEvent().isEmpty() == false) {
-				eventToTaskMapping = createEventToTaskMapping(sourceOsTask.getMappedRteEvent().get(0));
-			} else {
-				eventToTaskMapping = createEventToTaskMapping(sourceOsTask.getMappedRteBswEvent().get(0));
-			}
 
 			// OSイベントが設定されているかどうか
-			if (eventToTaskMapping.getUsedOsEvent() == null) {
+			List<OsEvent> sourceUsedOsEvents = getUsedOsEvents(sourceOsTask);
+			if (sourceUsedOsEvents.isEmpty()) {
 				// OSタスク起動によるエクスキュータブル起動
-				targetInteractionRoot.getInteractionEnd().add(createOsTaskEntityStarter(sourceOsTask, eventToTaskMapping));
+				targetInteractionRoot.getInteractionEnd().add(createOsTaskEntityStarter(sourceOsTask));
 			} else {
 				// OSイベント設定によるエクスキュータブル起動
-				Set<OsEvent> sourceOsEvents = Sets.newHashSet(this.context.query.<OsEvent> collect(sourceOsTask.getMappedRteEvent(), RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT));
-				sourceOsEvents.addAll(Sets.newHashSet(this.context.query.<OsEvent> collect(sourceOsTask.getMappedRteBswEvent(), RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT)));
-				for (OsEvent sourceOsEvent : sourceOsEvents) {
-					targetInteractionRoot.getInteractionEnd().add(createOsEventEntityStarter(sourceOsTask, sourceOsEvent));
+				for (OsEvent sourceUsedOsEvent : sourceUsedOsEvents) {
+					targetInteractionRoot.getInteractionEnd().add(createOsEventEntityStarter(sourceOsTask, sourceUsedOsEvent));
 				}
 			}
 		}
 	}
 
-	private OsTaskActivateEntityStarter createOsTaskEntityStarter(OsTask sourceOsTask, EventToTaskMapping eventToTaskMapping) throws ModelException {
-		EcucPartition partition = EmfUtils.exInvoke(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
+	private OsTaskActivateEntityStarter createOsTaskEntityStarter(OsTask sourceOsTask) throws ModelException {
+		List<OsAlarm> sourceOsAlarms = getUsedOsAlarms(sourceOsTask);
+		EcucPartition partition = this.context.query.get(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
 
-		OsTaskActivateEntityStarter entityStarter = InteractionFactory.eINSTANCE.createOsTaskActivateEntityStarter();
-		entityStarter.setSourceOsTask(sourceOsTask);
-		entityStarter.setOwnerPartition(partition);
-		buildExpectedConfig(entityStarter, eventToTaskMapping);
-		return entityStarter;
+		OsTaskActivateEntityStarter destEntityStarter = InteractionFactory.eINSTANCE.createOsTaskActivateEntityStarter();
+		destEntityStarter.setSourceOsTask(sourceOsTask);
+		destEntityStarter.setOwnerPartition(partition);
+		buildExpectedConfigOfEntityStarter(destEntityStarter, sourceOsAlarms);
+		return destEntityStarter;
 	}
 
 	private OsEventSetEntityStarter createOsEventEntityStarter(OsTask sourceOsTask, OsEvent sourceOsEvent) throws ModelException {
-		EcucPartition partition = EmfUtils.exInvoke(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
+		List<OsAlarm> sourceOsAlarms = getUsedOsAlarms(sourceOsTask, sourceOsEvent);
+		EcucPartition partition = this.context.query.get(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
 
-		OsEventSetEntityStarter entityStarter = InteractionFactory.eINSTANCE.createOsEventSetEntityStarter();
-		entityStarter.setSourceOsTask(sourceOsTask);
-		entityStarter.setSourceOsEvent(sourceOsEvent);
-		entityStarter.setOwnerPartition(partition);
-		buildExpectedConfig(entityStarter, getMappedEvents(entityStarter).get(0));
-		return entityStarter;
+		OsEventSetEntityStarter destEntityStarter = InteractionFactory.eINSTANCE.createOsEventSetEntityStarter();
+		destEntityStarter.setSourceOsTask(sourceOsTask);
+		destEntityStarter.setSourceOsEvent(sourceOsEvent);
+		destEntityStarter.setOwnerPartition(partition);
+		buildExpectedConfigOfEntityStarter(destEntityStarter, sourceOsAlarms);
+		return destEntityStarter;
 	}
 
-	private void buildExpectedConfig(EntityStarter targetEntityStarter, EventToTaskMapping eventToTaskMapping) {
-		if ((eventToTaskMapping.getUsedOsAlarm() != null)) { // COVERAGE 常にtrue(現状，タスクがマッピングされる場合，アラームも同時に設定されるため)
-			targetEntityStarter.setExpectedConfig(eventToTaskMapping.getUsedOsAlarm().getExpectedConfig().get(0));
+	private void buildExpectedConfigOfEntityStarter(EntityStarter targetEntityStarter, List<OsAlarm> sourceOsAlarms) {
+		if (sourceOsAlarms.isEmpty()) {
+			return;
 		}
+
+		targetEntityStarter.setExpectedConfig(sourceOsAlarms.get(0).getExpectedConfig().get(0));
 	}
 
 	private void buildEntityStartInteractions(InteractionRoot targetInteractionRoot) {
 		// OSタスク起動により起動するエクスキュータブルの開始連携を構築
-		for (OsTaskActivateEntityStarter entityStarter : this.context.query.<OsTaskActivateEntityStarter> findByKind(OS_TASK_ACTIVATE_ENTITY_STARTER)) {
-			if (entityStarter.getSourceOsTask().getMappedRteEvent().isEmpty() == false) {
-				for (RteEventToTaskMapping sourceRteEventConfig : entityStarter.getSourceOsTask().getMappedRteEvent()) {
-					targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, entityStarter));
-				}
+		for (OsTaskActivateEntityStarter sourceAndTargetEntityStarter : this.context.query.<OsTaskActivateEntityStarter> findByKind(OS_TASK_ACTIVATE_ENTITY_STARTER)) {
+			for (RteEventToTaskMapping sourceRteEventConfig : sourceAndTargetEntityStarter.getSourceOsTask().getMappedRteEvent()) {
+				targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, sourceAndTargetEntityStarter));
 			}
 			
-			if (entityStarter.getSourceOsTask().getMappedRteBswEvent().isEmpty() == false) {
-				for (RteBswEventToTaskMapping sourceRteBswEventConfig : entityStarter.getSourceOsTask().getMappedRteBswEvent()) {
-					// BswImplementationが存在しているBswInternalBehaviorに属しているBswSchedulableEntityのみ生成の対象とする.
-					if (!sourceRteBswEventConfig.getRteBswEvent().getStartsOnEvent().getParent().getImplementation().isEmpty()) {
-						// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-						// BSWイベントが有効でない(有効なInternalBehavior)に含まれていない場合
-						targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceRteBswEventConfig, entityStarter));
-					}
+			for (RteBswEventToTaskMapping sourceBswEventConfig : sourceAndTargetEntityStarter.getSourceOsTask().getMappedRteBswEvent()) {
+				// BswImplementationが存在しているBswInternalBehaviorに属しているBswSchedulableEntityのみ生成の対象とする.
+				if (!sourceBswEventConfig.getRteBswEvent().getStartsOnEvent().getParent().getImplementation().isEmpty()) {
+					// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+					// BSWイベントが有効でない(有効なInternalBehavior)に含まれていない場合
+					targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceBswEventConfig, sourceAndTargetEntityStarter));
 				}
 			}
 		}
 
 		// OSイベント設定により起動するエクスキュータブルの開始連携を構築
-		for (OsEventSetEntityStarter entityStarter : this.context.query.<OsEventSetEntityStarter> findByKind(OS_EVENT_SET_ENTITY_STARTER)) {
-			if (entityStarter.getSourceOsTask().getMappedRteEvent().isEmpty() == false) {
-				for (RteEventToTaskMapping sourceRteEventConfig : getMappedRteEvents(entityStarter)) {
-					targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, entityStarter));
-				}
+		for (OsEventSetEntityStarter sourceAndTargetEntityStarter : this.context.query.<OsEventSetEntityStarter> findByKind(OS_EVENT_SET_ENTITY_STARTER)) {
+			for (RteEventToTaskMapping sourceRteEventConfig : getMappedRteEventConfigs(sourceAndTargetEntityStarter.getSourceOsTask(), sourceAndTargetEntityStarter.getSourceOsEvent())) {
+				targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, sourceAndTargetEntityStarter));
 			}
 
-			if (entityStarter.getSourceOsTask().getMappedRteBswEvent().isEmpty() == false) {
-				for (RteBswEventToTaskMapping sourceRteBswEventConfig : getMappedRteBswEvents(entityStarter)) {
-					targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceRteBswEventConfig, entityStarter));
-				}
+			for (RteBswEventToTaskMapping sourceBswEventConfig : getMappedBswEventConfigs(sourceAndTargetEntityStarter.getSourceOsTask(), sourceAndTargetEntityStarter.getSourceOsEvent())) {
+				targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceBswEventConfig, sourceAndTargetEntityStarter));
 			}
 		}
 	}
 
-	private List<RteEventToTaskMapping> getMappedRteEvents(OsEventSetEntityStarter entityStarter) {
-		return this.context.query.select(entityStarter.getSourceOsTask().getMappedRteEvent(), ref(RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT, entityStarter.getSourceOsEvent()));
+	private List<OsEvent> getUsedOsEvents(OsTask osTask) {
+		List<OsEvent> usedOsEvents = new ArrayList<OsEvent>();
+		usedOsEvents.addAll(this.context.query.<OsEvent> collect(osTask, OS_TASK__MAPPED_RTE_EVENT, RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT));
+		usedOsEvents.addAll(this.context.query.<OsEvent> collect(osTask, OS_TASK__MAPPED_RTE_BSW_EVENT, RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT));
+		return ImmutableSet.copyOf(usedOsEvents).asList();
 	}
 
-	private List<RteBswEventToTaskMapping> getMappedRteBswEvents(OsEventSetEntityStarter entityStarter) {
-		return this.context.query.select(entityStarter.getSourceOsTask().getMappedRteBswEvent(), ref(RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT, entityStarter.getSourceOsEvent()));
+	private List<OsAlarm> getUsedOsAlarms(OsTask osTask) {
+		List<OsAlarm> usedOsAlarms = new ArrayList<OsAlarm>();
+		usedOsAlarms.addAll(this.context.query.<OsAlarm> collect(osTask, OS_TASK__MAPPED_RTE_EVENT, RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_ALARM));
+		usedOsAlarms.addAll(this.context.query.<OsAlarm> collect(osTask, OS_TASK__MAPPED_RTE_BSW_EVENT, RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_ALARM));
+		return ImmutableSet.copyOf(usedOsAlarms).asList();
 	}
 
-	private List<EventToTaskMapping> getMappedEvents(OsEventSetEntityStarter entityStarter) {
-		List<EventToTaskMapping> events = new ArrayList<EventToTaskMapping>();
-		for (RteEventToTaskMapping rteEvent : getMappedRteEvents(entityStarter)) {
-			events.add(createEventToTaskMapping(rteEvent));
-		}
+	private List<OsAlarm> getUsedOsAlarms(OsTask osTask, OsEvent osEvent) {
+		List<OsAlarm> usedOsAlarms = new ArrayList<OsAlarm>();
+		usedOsAlarms.addAll(this.context.query.<OsAlarm> collect(getMappedRteEventConfigs(osTask, osEvent), RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_ALARM));
+		usedOsAlarms.addAll(this.context.query.<OsAlarm> collect(getMappedBswEventConfigs(osTask, osEvent), RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_ALARM));
+		return ImmutableSet.copyOf(usedOsAlarms).asList();
+	}
 
-		for (RteBswEventToTaskMapping rteBswEvent : getMappedRteBswEvents(entityStarter)) {
-			events.add(createEventToTaskMapping(rteBswEvent));
-		}
-		
-		return events;
+	private List<RteEventToTaskMapping> getMappedRteEventConfigs(OsTask osTask, OsEvent osEvent) {
+		return this.context.query.select(osTask.getMappedRteEvent(), ref(RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT, osEvent));
+	}
+
+	private List<RteBswEventToTaskMapping> getMappedBswEventConfigs(OsTask osTask, OsEvent osEvent) {
+		return this.context.query.select(osTask.getMappedRteBswEvent(), ref(RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT, osEvent));
 	}
 
 	private RunnableEntityStartInteraction createRunnableEntityStartInteraction(RteEventToTaskMapping sourceRteEventConfig, EntityStarter entityStarter) {
-		RunnableEntityStartInteraction startInteraction = InteractionFactory.eINSTANCE.createRunnableEntityStartInteraction();
-		startInteraction.setStarter(entityStarter);
-		startInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteEventConfig));
-		return startInteraction;
+		RunnableEntityStartInteraction destStartInteraction = InteractionFactory.eINSTANCE.createRunnableEntityStartInteraction();
+		destStartInteraction.setStarter(entityStarter);
+		destStartInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteEventConfig));
+		return destStartInteraction;
 	}
 
 	private BswSchedulableEntityStartInteraction createBswSchedulableEntityStartInteraction(RteBswEventToTaskMapping sourceRteBswEventConfig, EntityStarter entityStarter) {
-		BswSchedulableEntityStartInteraction startInteraction = InteractionFactory.eINSTANCE.createBswSchedulableEntityStartInteraction();
-		startInteraction.setStarter(entityStarter);
-		startInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteBswEventConfig));
-		return startInteraction;
+		BswSchedulableEntityStartInteraction destStartInteraction = InteractionFactory.eINSTANCE.createBswSchedulableEntityStartInteraction();
+		destStartInteraction.setStarter(entityStarter);
+		destStartInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteBswEventConfig));
+		return destStartInteraction;
+	}
+	
+	private EventToTaskMapping createEventToTaskMapping(RteEventToTaskMapping sourceRteEventToTaskMapping) {
+		EventToTaskMapping destEventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
+		
+		destEventToTaskMapping.setActivationOffset(sourceRteEventToTaskMapping.getRteActivationOffset());
+		destEventToTaskMapping.setPositionInTask(sourceRteEventToTaskMapping.getRtePositionInTask());
+
+		if (sourceRteEventToTaskMapping.getRteEvent() instanceof TimingEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			TimingEvent sourceRteTimingEvent = (TimingEvent)sourceRteEventToTaskMapping.getRteEvent();
+			destEventToTaskMapping.setEvent(createTimingEvent(sourceRteTimingEvent));
+		}
+		
+		return destEventToTaskMapping;
+	}
+
+	private EventToTaskMapping createEventToTaskMapping(RteBswEventToTaskMapping sourceRteBswEventToTaskMapping) {
+		EventToTaskMapping destEventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
+		
+		destEventToTaskMapping.setActivationOffset(sourceRteBswEventToTaskMapping.getRteBswActivationOffset());
+		destEventToTaskMapping.setPositionInTask(sourceRteBswEventToTaskMapping.getRteBswPositionInTask());
+
+		if (sourceRteBswEventToTaskMapping.getRteBswEvent() instanceof BswTimingEvent) {
+			BswTimingEvent sourceBswTimingEvent = (BswTimingEvent) sourceRteBswEventToTaskMapping.getRteBswEvent();
+			destEventToTaskMapping.setEvent(createTimingEvent(sourceBswTimingEvent));
+
+		} else if (sourceRteBswEventToTaskMapping.getRteBswEvent() instanceof BswModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			BswModeSwitchEvent sourceBswModeSwitchEvent = (BswModeSwitchEvent) sourceRteBswEventToTaskMapping.getRteBswEvent();
+			destEventToTaskMapping.setEvent(createModeSwitchEvent(sourceBswModeSwitchEvent, sourceBswModeSwitchEvent.getStartsOnEvent()));
+		}
+		
+		return destEventToTaskMapping;
+	}
+
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(TimingEvent sourceEvent) {
+		return createTimingEvent(sourceEvent.getStartOnEvent(), sourceEvent.getPeriod());
+	}
+
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(BswTimingEvent sourceEvent) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent destTimingEvent = createTimingEvent(sourceEvent.getStartsOnEvent(), sourceEvent.getPeriod());
+		destTimingEvent.setSourceBswEvent(sourceEvent);
+		return destTimingEvent;
+	}
+	
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity sourceExecutableEntity, BigDecimal sourcePeriod) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent destTimingEvent = InteractionFactory.eINSTANCE.createTimingEvent();
+		
+		destTimingEvent.setStartOnEvent(sourceExecutableEntity);
+		destTimingEvent.setPeriod(sourcePeriod);
+		
+		return destTimingEvent;
+	}
+	
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent createModeSwitchEvent(BswModeSwitchEvent sourceEvent, ExecutableEntity soureExecutableEntity) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent destModeSwitchEvent = InteractionFactory.eINSTANCE.createModeSwitchEvent();
+		
+		destModeSwitchEvent.setStartOnEvent(soureExecutableEntity);
+		destModeSwitchEvent.setSourceBswEvent(sourceEvent);
+		
+		return destModeSwitchEvent;
 	}
 
 	private void buildEntityStartImplementations(InteractionRoot targetInteractionRoot) {
-		for (EntityStartInteraction targetStartInteraction : this.context.query.<EntityStartInteraction> findByKind(ENTITY_START_INTERACTION)) {
+		for (EntityStartInteraction sourceAndTargetStartInteraction : this.context.query.<EntityStartInteraction> findByKind(ENTITY_START_INTERACTION)) {
 			// 現状のサポート範囲では周期イベントとオペレーション呼出しイベントのみ
-			if (targetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) { // COVERAGE 常にtrue(現状，EntityStartInteractionは周期イベントに対してのみ生成されるため)
-				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent timingEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) targetStartInteraction.getEventToTaskMapping().getEvent();
-				targetStartInteraction.setImplementation(createTimingTriggeringEntityStartImplementation(targetStartInteraction, timingEvent.getPeriod()));
-			} else if (targetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent modeSwitchEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) targetStartInteraction.getEventToTaskMapping().getEvent();
-				targetStartInteraction.setImplementation(createModeSwitchTriggeringEntityStartImplementation(targetStartInteraction, modeSwitchEvent));
+			if (sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) { // COVERAGE 常にtrue(現状，EntityStartInteractionは周期イベントに対してのみ生成されるため)
+				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent sourceTimingEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent();
+				sourceAndTargetStartInteraction.setImplementation(createTimingTriggeringEntityStartImplementation(sourceAndTargetStartInteraction, sourceTimingEvent));
+
+			} else if (sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent sourceModeSwitchEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent();
+				sourceAndTargetStartInteraction.setImplementation(createModeSwitchTriggeringEntityStartImplementation(sourceAndTargetStartInteraction, sourceModeSwitchEvent));
 			}
 		}
 	}
 
-	private TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation(EntityStartInteraction targetStartInteraction, BigDecimal period) {
-		// 周期イベントの場合，必ずEntityStarterに周期情報が設定されているはず
-		RteUsedOsActivation expectedConfig = targetStartInteraction.getStarter().getExpectedConfig();
-		BigDecimal starterStartOffset = expectedConfig.getRteExpectedActivationOffset();
-		BigDecimal starterPeriod = expectedConfig.getRteExpectedTickDuration();
-		BigDecimal entityStartOffset = (targetStartInteraction.getEventToTaskMapping().getActivationOffset() == null) ? BigDecimal.ZERO : targetStartInteraction.getEventToTaskMapping().getActivationOffset();
+	private TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction, jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent sourceTimingEvent) {
+		// NOTE 周期イベントの場合，必ずEntityStarterに周期情報が設定されているため、存在チェックは行わない
+		RteUsedOsActivation sourceExpectedConfig = sourceAndTargetStartInteraction.getStarter().getExpectedConfig();
+		BigDecimal starterStartOffset = sourceExpectedConfig.getRteExpectedActivationOffset();
+		BigDecimal starterPeriod = sourceExpectedConfig.getRteExpectedTickDuration();
+		BigDecimal entityStartOffset = (sourceAndTargetStartInteraction.getEventToTaskMapping().getActivationOffset() == null) ? BigDecimal.ZERO : sourceAndTargetStartInteraction.getEventToTaskMapping().getActivationOffset();
 
 		// Starterとエクスキュータブルの間の周期，およびオフセットの差分を算出
-		TimingTriggeringEntityStartImplementation startImplementation = InteractionFactory.eINSTANCE.createTimingTriggeringEntityStartImplementation();
-		startImplementation.setStartOffset(entityStartOffset.subtract(starterStartOffset).divide(starterPeriod).intValue());
-		startImplementation.setCyclePeriod(period.divide(starterPeriod).intValue());
-		return startImplementation;
+		TimingTriggeringEntityStartImplementation destStartImplementation = InteractionFactory.eINSTANCE.createTimingTriggeringEntityStartImplementation();
+		destStartImplementation.setStartOffset(entityStartOffset.subtract(starterStartOffset).divide(starterPeriod).intValue());
+		destStartImplementation.setCyclePeriod(sourceTimingEvent.getPeriod().divide(starterPeriod).intValue());
+		return destStartImplementation;
 	}
 
-	private ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation(EntityStartInteraction targetStartInteraction, ModeSwitchEvent modeSwitchEvent) {
-		ModeSwitchTriggeringEntityStartImplementation startImplementation = InteractionFactory.eINSTANCE.createModeSwitchTriggeringEntityStartImplementation();
-		return startImplementation;
+	private ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction, ModeSwitchEvent sourceModeSwitchEvent) {
+		return InteractionFactory.eINSTANCE.createModeSwitchTriggeringEntityStartImplementation();
 	}
 	
 	private void buildStarterCounterImplementations(InteractionRoot targetInteractionRoot) throws ModelException {
-		for (EntityStarter targetEntityStarter : this.context.query.<EntityStarter> findByKind(ENTITY_STARTER)) {
-			List<TimingTriggeringEntityStartImplementation> startImplementations = EmfUtils.exInvoke(targetEntityStarter,
+		for (EntityStarter sourceAndTargetEntityStarter : this.context.query.<EntityStarter> findByKind(ENTITY_STARTER)) {
+			List<TimingTriggeringEntityStartImplementation> startImplementations = this.context.query.get(sourceAndTargetEntityStarter,
 					ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER);
 
 			// 周期調整が必要な場合，調整用カウンタを用意する
 			if (this.context.query.exists(startImplementations, hasOp(TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_CYCLE_ADJUST, true))) {
-				targetEntityStarter.setCycleCounterImplementation(createCycleCounterImplementation(startImplementations, targetEntityStarter.getOwnerPartition()));
+				sourceAndTargetEntityStarter.setCycleCounterImplementation(createCycleCounterImplementation(startImplementations, sourceAndTargetEntityStarter.getOwnerPartition()));
 			}
 
 			// 開始オフセット調整が必要な場合，調整用カウンタを用意する
 			if (this.context.query.exists(startImplementations, hasOp(TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST, true))) {
-				targetEntityStarter.setStartOffsetCounterImplementation(createStartOffsetCounterImplementation(startImplementations, targetEntityStarter.getOwnerPartition()));
+				sourceAndTargetEntityStarter.setStartOffsetCounterImplementation(createStartOffsetCounterImplementation(startImplementations, sourceAndTargetEntityStarter.getOwnerPartition()));
 			}
 		}
 	}
@@ -289,79 +348,18 @@ public class EntityInteractionModelBuilder {
 	private StartOffsetCounterImplementation createStartOffsetCounterImplementation(List<TimingTriggeringEntityStartImplementation> startImplementations, EcucPartition ownerPartition) {
 		List<Integer> startOffsets = this.context.query.collect(startImplementations, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION__START_OFFSET);
 
-		StartOffsetCounterImplementation startOffsetCounterImplementation = InteractionFactory.eINSTANCE.createStartOffsetCounterImplementation();
-		startOffsetCounterImplementation.setMaxCount(Ordering.natural().max(startOffsets));
-		startOffsetCounterImplementation.setOwnerPartition(ownerPartition);
-		return startOffsetCounterImplementation;
+		StartOffsetCounterImplementation destStartOffsetCounterImplementation = InteractionFactory.eINSTANCE.createStartOffsetCounterImplementation();
+		destStartOffsetCounterImplementation.setMaxCount(Ordering.natural().max(startOffsets));
+		destStartOffsetCounterImplementation.setOwnerPartition(ownerPartition);
+		return destStartOffsetCounterImplementation;
 	}
 
 	private CycleCounterImplementation createCycleCounterImplementation(List<TimingTriggeringEntityStartImplementation> startImplementations, EcucPartition ownerPartition) {
 		List<Integer> cyclePeriods = this.context.query.collect(startImplementations, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION__CYCLE_PERIOD);
 
-		CycleCounterImplementation cycleCounterImplementation = InteractionFactory.eINSTANCE.createCycleCounterImplementation();
-		cycleCounterImplementation.setMaxCount(MathUtils.lcm(cyclePeriods));
-		cycleCounterImplementation.setOwnerPartition(ownerPartition);
-		return cycleCounterImplementation;
-	}
-	
-	private EventToTaskMapping createEventToTaskMapping(RteEventToTaskMapping rteEventToTaskMapping) {
-		EventToTaskMapping eventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
-		
-		eventToTaskMapping.setActivationOffset(rteEventToTaskMapping.getRteActivationOffset());
-		eventToTaskMapping.setPositionInTask(rteEventToTaskMapping.getRtePositionInTask());
-
-		if (rteEventToTaskMapping.getRteEvent() instanceof TimingEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			TimingEvent rteTimingEvent = (TimingEvent)rteEventToTaskMapping.getRteEvent();
-			eventToTaskMapping.setEvent(createTimingEvent(rteTimingEvent.getStartOnEvent(), rteTimingEvent.getPeriod()));
-		}
-		
-		eventToTaskMapping.setUsedOsAlarm(rteEventToTaskMapping.getRteUsedOsAlarm());
-		eventToTaskMapping.setUsedOsEvent(rteEventToTaskMapping.getRteUsedOsEvent());
-		
-		return eventToTaskMapping;
-	}
-
-	private EventToTaskMapping createEventToTaskMapping(RteBswEventToTaskMapping rteBswEventToTaskMapping) {
-		EventToTaskMapping eventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
-		
-		eventToTaskMapping.setActivationOffset(rteBswEventToTaskMapping.getRteBswActivationOffset());
-		eventToTaskMapping.setPositionInTask(rteBswEventToTaskMapping.getRteBswPositionInTask());
-
-		if (rteBswEventToTaskMapping.getRteBswEvent() instanceof BswTimingEvent) {
-			BswTimingEvent rteBswTimingEvent = (BswTimingEvent)rteBswEventToTaskMapping.getRteBswEvent();
-			eventToTaskMapping.setEvent(createTimingEvent(rteBswTimingEvent.getStartsOnEvent(), rteBswTimingEvent.getPeriod(), rteBswTimingEvent));
-		} else if (rteBswEventToTaskMapping.getRteBswEvent() instanceof BswModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			BswModeSwitchEvent rteBswModeSwitchEvent = (BswModeSwitchEvent)rteBswEventToTaskMapping.getRteBswEvent();
-			eventToTaskMapping.setEvent(createModeSwitchEvent(rteBswModeSwitchEvent.getStartsOnEvent(), rteBswModeSwitchEvent));
-		}
-		
-		eventToTaskMapping.setUsedOsAlarm(rteBswEventToTaskMapping.getRteBswUsedOsAlarm());
-		eventToTaskMapping.setUsedOsEvent(rteBswEventToTaskMapping.getRteBswUsedOsEvent());
-		
-		return eventToTaskMapping;
-	}
-
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity executableEntity, BigDecimal period, BswTimingEvent event) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent timingEvent = createTimingEvent(executableEntity, period);
-		timingEvent.setBswEvent(event);
-		return timingEvent;
-	}
-	
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity executableEntity, BigDecimal period) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent timingEvent = InteractionFactory.eINSTANCE.createTimingEvent();
-		
-		timingEvent.setStartOnEvent(executableEntity);
-		timingEvent.setPeriod(period);
-		
-		return timingEvent;
-	}
-	
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent createModeSwitchEvent(ExecutableEntity executableEntity, BswModeSwitchEvent event) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent modeSwitchEvent = InteractionFactory.eINSTANCE.createModeSwitchEvent();
-		
-		modeSwitchEvent.setStartOnEvent(executableEntity);
-		modeSwitchEvent.setBswEvent(event);
-		
-		return modeSwitchEvent;
+		CycleCounterImplementation destCycleCounterImplementation = InteractionFactory.eINSTANCE.createCycleCounterImplementation();
+		destCycleCounterImplementation.setMaxCount(MathUtils.lcm(cyclePeriods));
+		destCycleCounterImplementation.setOwnerPartition(ownerPartition);
+		return destCycleCounterImplementation;
 	}
 }

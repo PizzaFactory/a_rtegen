@@ -44,9 +44,28 @@ package jp.ac.nagoya_u.is.nces.a_rte.app;
 
 import java.io.File;
 
+/**
+ * RTEジェネレータアプリケーションの初期設定を表す。
+ */
 public class GeneratorInitOptions {
+
+	/**
+	 * スキーマファイル
+	 */
 	public File schemaFile;
+
+	/**
+	 * RTE内部データ型のモデルを保持するAUTOSAR XML
+	 */
 	public File internalDataTypesFile;
+
+	/**
+	 * 生成したRTEに適用するコードフォーマッタ(uncrustify)の実行ファイル
+	 */
 	public File uncrustifyExecutableFile;
+
+	/**
+	 * 生成したRTEに適用するコードフォーマッタ(uncrustify)のコンフィグファイル
+	 */
 	public File uncrustifyConfigFile;
 }

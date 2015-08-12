@@ -96,7 +96,7 @@ public interface ModuleObject extends ExtendedEObject {
 	 * @return the value of the '<em>Single Source</em>' reference.
 	 * @see #setSingleSource(EObject)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleObject_SingleSource()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true"
 	 * @generated
 	 */
 	EObject getSingleSource();

@@ -68,7 +68,7 @@ public interface RteLifecycleHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Rte Lifecycle Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Lifecycle Api Group</em>' reference list isn't clear,
@@ -80,11 +80,11 @@ public interface RteLifecycleHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteLifecycleApiGroup> getRteLifecycleApiGroup();
+	EList<RteLifecycleApiFileContentsGroup> getRteLifecycleApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Schm Lifecycle Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schm Lifecycle Api Group</em>' containment reference list isn't clear,
@@ -96,5 +96,5 @@ public interface RteLifecycleHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SchmLifecycleApiGroup> getSchmLifecycleApiGroup();
+	EList<SchmLifecycleApiFileContentsGroup> getSchmLifecycleApiGroup();
 } // RteLifecycleHeader

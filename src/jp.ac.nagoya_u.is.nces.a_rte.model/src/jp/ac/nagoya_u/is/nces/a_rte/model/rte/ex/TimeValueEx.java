@@ -63,18 +63,18 @@ public interface TimeValueEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
+	 * @model required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
 	 * @generated
 	 */
-	Boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another);
+	boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
+	 * @model required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
 	 * @generated
 	 */
-	Boolean isMultiplesOf(BigDecimal this_, BigDecimal another);
+	boolean isMultiplesOf(BigDecimal this_, BigDecimal another);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -53,12 +53,8 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getOperation <em>Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getCurrentModeName <em>Current Mode Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getNextModeName <em>Next Mode Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getTransitionName <em>Transition Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getInitModeName <em>Init Mode Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getIsNoneExclude <em>Is None Exclude</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,159 +64,55 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  */
 public interface SchmModeApi extends SchmApi {
 	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Mode Declaration Group</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operation</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Mode Declaration Group</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference.
-	 * @see #setOperation(ExcludeOperation)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_Operation()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Mode Declaration Group</em>' reference.
+	 * @see #setModeDeclarationGroup(ModeDeclarationGroup)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_ModeDeclarationGroup()
+	 * @model required="true"
 	 * @generated
 	 */
-	ExcludeOperation getOperation();
+	ModeDeclarationGroup getModeDeclarationGroup();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getOperation <em>Operation</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup <em>Mode Declaration Group</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operation</em>' containment reference.
-	 * @see #getOperation()
+	 * @param value the new value of the '<em>Mode Declaration Group</em>' reference.
+	 * @see #getModeDeclarationGroup()
 	 * @generated
 	 */
-	void setOperation(ExcludeOperation value);
+	void setModeDeclarationGroup(ModeDeclarationGroup value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Mode Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Mode Machine Instance</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Mode Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Mode Machine Instance</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Mode Name</em>' attribute.
-	 * @see #setCurrentModeName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_CurrentModeName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @return the value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #setModeMachineInstance(ModeMachineInstance)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_ModeMachineInstance()
+	 * @model
 	 * @generated
 	 */
-	String getCurrentModeName();
+	ModeMachineInstance getModeMachineInstance();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getCurrentModeName <em>Current Mode Name</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance <em>Mode Machine Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Mode Name</em>' attribute.
-	 * @see #getCurrentModeName()
+	 * @param value the new value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #getModeMachineInstance()
 	 * @generated
 	 */
-	void setCurrentModeName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Mode Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Mode Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Mode Name</em>' attribute.
-	 * @see #setNextModeName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_NextModeName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getNextModeName();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getNextModeName <em>Next Mode Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Mode Name</em>' attribute.
-	 * @see #getNextModeName()
-	 * @generated
-	 */
-	void setNextModeName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Transition Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Transition Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Transition Name</em>' attribute.
-	 * @see #setTransitionName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_TransitionName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getTransitionName();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getTransitionName <em>Transition Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Transition Name</em>' attribute.
-	 * @see #getTransitionName()
-	 * @generated
-	 */
-	void setTransitionName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Init Mode Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Init Mode Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Init Mode Name</em>' attribute.
-	 * @see #setInitModeName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_InitModeName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getInitModeName();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getInitModeName <em>Init Mode Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Init Mode Name</em>' attribute.
-	 * @see #getInitModeName()
-	 * @generated
-	 */
-	void setInitModeName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Is None Exclude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is None Exclude</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is None Exclude</em>' attribute.
-	 * @see #setIsNoneExclude(Boolean)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmModeApi_IsNoneExclude()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
-	 * @generated
-	 */
-	Boolean getIsNoneExclude();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getIsNoneExclude <em>Is None Exclude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is None Exclude</em>' attribute.
-	 * @see #getIsNoneExclude()
-	 * @generated
-	 */
-	void setIsNoneExclude(Boolean value);
+	void setModeMachineInstance(ModeMachineInstance value);
 
 } // SchmModeApi

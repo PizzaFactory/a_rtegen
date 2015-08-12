@@ -65,7 +65,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 public interface SchmCoreInitApiImpl extends SchmInitApi {
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi <em>Schm Init Api</em>}'.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -75,8 +75,8 @@ public interface SchmCoreInitApiImpl extends SchmInitApi {
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(Core)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmCoreInitApiImpl_Parent()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi
-	 * @model opposite="schmInitApi" required="true" transient="false"
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl
+	 * @model opposite="schmCoreInitApiImpl" required="true" transient="false"
 	 * @generated
 	 */
 	Core getParent();

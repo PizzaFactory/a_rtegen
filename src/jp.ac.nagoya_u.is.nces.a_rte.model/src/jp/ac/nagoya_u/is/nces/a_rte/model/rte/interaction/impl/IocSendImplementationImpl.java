@@ -61,7 +61,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.IocSendImplementationImpl#getOcIocSenderProperties <em>Oc Ioc Sender Properties</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.IocSendImplementationImpl#getOsIocSenderProperties <em>Os Ioc Sender Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,15 +69,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class IocSendImplementationImpl extends SendImplementationImpl implements IocSendImplementation {
 	/**
-	 * The cached value of the '{@link #getOcIocSenderProperties() <em>Oc Ioc Sender Properties</em>}' reference.
+	 * The cached value of the '{@link #getOsIocSenderProperties() <em>Os Ioc Sender Properties</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOcIocSenderProperties()
+	 * @see #getOsIocSenderProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected OsIocSenderProperties ocIocSenderProperties;
-
+	protected OsIocSenderProperties osIocSenderProperties;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,16 +101,16 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OsIocSenderProperties getOcIocSenderProperties() {
-		if (ocIocSenderProperties != null && ((EObject)ocIocSenderProperties).eIsProxy()) {
-			InternalEObject oldOcIocSenderProperties = (InternalEObject)ocIocSenderProperties;
-			ocIocSenderProperties = (OsIocSenderProperties)eResolveProxy(oldOcIocSenderProperties);
-			if (ocIocSenderProperties != oldOcIocSenderProperties) {
+	public OsIocSenderProperties getOsIocSenderProperties() {
+		if (osIocSenderProperties != null && ((EObject)osIocSenderProperties).eIsProxy()) {
+			InternalEObject oldOsIocSenderProperties = (InternalEObject)osIocSenderProperties;
+			osIocSenderProperties = (OsIocSenderProperties)eResolveProxy(oldOsIocSenderProperties);
+			if (osIocSenderProperties != oldOsIocSenderProperties) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES, oldOcIocSenderProperties, ocIocSenderProperties));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES, oldOsIocSenderProperties, osIocSenderProperties));
 			}
 		}
-		return ocIocSenderProperties;
+		return osIocSenderProperties;
 	}
 
 	/**
@@ -119,8 +118,8 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OsIocSenderProperties basicGetOcIocSenderProperties() {
-		return ocIocSenderProperties;
+	public OsIocSenderProperties basicGetOsIocSenderProperties() {
+		return osIocSenderProperties;
 	}
 
 	/**
@@ -128,11 +127,11 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOcIocSenderProperties(OsIocSenderProperties newOcIocSenderProperties) {
-		OsIocSenderProperties oldOcIocSenderProperties = ocIocSenderProperties;
-		ocIocSenderProperties = newOcIocSenderProperties;
+	public void setOsIocSenderProperties(OsIocSenderProperties newOsIocSenderProperties) {
+		OsIocSenderProperties oldOsIocSenderProperties = osIocSenderProperties;
+		osIocSenderProperties = newOsIocSenderProperties;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES, oldOcIocSenderProperties, ocIocSenderProperties));
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES, oldOsIocSenderProperties, osIocSenderProperties));
 	}
 
 	/**
@@ -143,9 +142,9 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES:
-				if (resolve) return getOcIocSenderProperties();
-				return basicGetOcIocSenderProperties();
+			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES:
+				if (resolve) return getOsIocSenderProperties();
+				return basicGetOsIocSenderProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,8 +157,8 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES:
-				setOcIocSenderProperties((OsIocSenderProperties)newValue);
+			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES:
+				setOsIocSenderProperties((OsIocSenderProperties)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +172,8 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES:
-				setOcIocSenderProperties((OsIocSenderProperties)null);
+			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES:
+				setOsIocSenderProperties((OsIocSenderProperties)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -188,8 +187,8 @@ public class IocSendImplementationImpl extends SendImplementationImpl implements
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OC_IOC_SENDER_PROPERTIES:
-				return ocIocSenderProperties != null;
+			case InteractionPackage.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES:
+				return osIocSenderProperties != null;
 		}
 		return super.eIsSet(featureID);
 	}

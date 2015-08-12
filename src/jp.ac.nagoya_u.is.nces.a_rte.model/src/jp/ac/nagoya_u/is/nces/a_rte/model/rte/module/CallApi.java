@@ -75,12 +75,12 @@ public interface CallApi extends RteApi {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference.
-	 * @see #setOperation(DirectExecutableStartOperation)
+	 * @see #setOperation(ServerRunnableStartOperation)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCallApi_Operation()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DirectExecutableStartOperation getOperation();
+	ServerRunnableStartOperation getOperation();
 
 	/**
 	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation <em>Operation</em>}' containment reference.
@@ -90,7 +90,7 @@ public interface CallApi extends RteApi {
 	 * @see #getOperation()
 	 * @generated
 	 */
-	void setOperation(DirectExecutableStartOperation value);
+	void setOperation(ServerRunnableStartOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Operation Param</b></em>' reference list.

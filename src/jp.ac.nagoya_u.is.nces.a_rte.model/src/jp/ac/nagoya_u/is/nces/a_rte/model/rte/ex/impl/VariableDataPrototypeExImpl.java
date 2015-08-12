@@ -107,7 +107,7 @@ public class VariableDataPrototypeExImpl extends ExtendedEObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtDeclaration(VariableDataPrototype this_) {
+	public boolean initAtDeclaration(VariableDataPrototype this_) {
 		try {
 			return (Boolean)INIT_AT_DECLARATION_VARIABLE_DATA_PROTOTYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -131,7 +131,7 @@ public class VariableDataPrototypeExImpl extends ExtendedEObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtStart(VariableDataPrototype this_) {
+	public boolean initAtStart(VariableDataPrototype this_) {
 		try {
 			return (Boolean)INIT_AT_START_VARIABLE_DATA_PROTOTYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -155,7 +155,7 @@ public class VariableDataPrototypeExImpl extends ExtendedEObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtPartitionRestart(VariableDataPrototype this_) {
+	public boolean initAtPartitionRestart(VariableDataPrototype this_) {
 		try {
 			return (Boolean)INIT_AT_PARTITION_RESTART_VARIABLE_DATA_PROTOTYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

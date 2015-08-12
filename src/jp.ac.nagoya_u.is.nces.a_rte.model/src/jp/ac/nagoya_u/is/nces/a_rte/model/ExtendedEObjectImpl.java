@@ -52,6 +52,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+/**
+ * {@link ExtendedEObject}¤Î¼ÂÁõ¡£
+ */
 public class ExtendedEObjectImpl extends MinimalEObjectImpl.Container implements ExtendedEObject {
 
 	private class UnresolvedReference {
@@ -66,11 +69,17 @@ public class ExtendedEObjectImpl extends MinimalEObjectImpl.Container implements
 
 	private final List<UnresolvedReference> unresolvedReferences = new ArrayList<UnresolvedReference>();
 
+	/* (non-Javadoc)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject#addUnresolvedReference(org.eclipse.emf.ecore.EReference, java.lang.String)
+	 */
 	@Override
 	public void addUnresolvedReference(EReference eReference, String id) {
 		this.unresolvedReferences.add(new UnresolvedReference(eReference, id));
 	}
 
+	/* (non-Javadoc)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject#resolveReferences()
+	 */
 	@Override
 	public void resolveReferences() throws ModelException {
 		for (UnresolvedReference unresolvedReference : this.unresolvedReferences) {

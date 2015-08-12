@@ -68,15 +68,25 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getSubElement <em>Sub Element</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getBaseType <em>Base Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getSwAlignment <em>Sw Alignment</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getSubElement <em>Sub Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements ImplementationDataType {
+	/**
+	 * The cached value of the '{@link #getSubElement() <em>Sub Element</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ImplementationDataTypeElement> subElement;
+
 	/**
 	 * The cached setting delegate for the '{@link #getBaseType() <em>Base Type</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -96,16 +106,6 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate SW_ALIGNMENT__ESETTING_DELEGATE = ((EStructuralFeature.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT).getSettingDelegate();
-
-	/**
-	 * The cached value of the '{@link #getSubElement() <em>Sub Element</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubElement()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ImplementationDataTypeElement> subElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,35 +140,8 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwBaseType basicGetBaseType() {
-		return (SwBaseType)BASE_TYPE__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBaseType(SwBaseType newBaseType) {
-		BASE_TYPE__ESETTING_DELEGATE.dynamicSet(this, null, 0, newBaseType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getSwAlignment() {
 		return (String)SW_ALIGNMENT__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSwAlignment(String newSwAlignment) {
-		SW_ALIGNMENT__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAlignment);
 	}
 
 	/**
@@ -208,6 +181,174 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isPrimitiveType() <em>Is Primitive Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPrimitiveType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_PRIMITIVE_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_PRIMITIVE_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPrimitiveType() {
+		try {
+			return (Boolean)IS_PRIMITIVE_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isPointerType() <em>Is Pointer Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPointerType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_POINTER_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_POINTER_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isPointerType() {
+		try {
+			return (Boolean)IS_POINTER_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isArrayType() <em>Is Array Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isArrayType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_ARRAY_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_ARRAY_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isArrayType() {
+		try {
+			return (Boolean)IS_ARRAY_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isStructType() <em>Is Struct Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStructType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_STRUCT_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_STRUCT_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isStructType() {
+		try {
+			return (Boolean)IS_STRUCT_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isUnionType() <em>Is Union Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_UNION_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_UNION_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isUnionType() {
+		try {
+			return (Boolean)IS_UNION_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isRedefinitionType() <em>Is Redefinition Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRedefinitionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_REDEFINITION_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_REDEFINITION_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRedefinitionType() {
+		try {
+			return (Boolean)IS_REDEFINITION_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isComplexType() <em>Is Complex Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isComplexType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_COMPLEX_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___IS_COMPLEX_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isComplexType() {
+		try {
+			return (Boolean)IS_COMPLEX_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -229,13 +370,12 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case M2Package.IMPLEMENTATION_DATA_TYPE__BASE_TYPE:
-				if (resolve) return getBaseType();
-				return basicGetBaseType();
-			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
-				return getSwAlignment();
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
 				return getSubElement();
+			case M2Package.IMPLEMENTATION_DATA_TYPE__BASE_TYPE:
+				return getBaseType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
+				return getSwAlignment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -249,12 +389,6 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case M2Package.IMPLEMENTATION_DATA_TYPE__BASE_TYPE:
-				setBaseType((SwBaseType)newValue);
-				return;
-			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
-				setSwAlignment((String)newValue);
-				return;
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
 				getSubElement().clear();
 				getSubElement().addAll((Collection<? extends ImplementationDataTypeElement>)newValue);
@@ -271,12 +405,6 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case M2Package.IMPLEMENTATION_DATA_TYPE__BASE_TYPE:
-				setBaseType((SwBaseType)null);
-				return;
-			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
-				SW_ALIGNMENT__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
-				return;
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
 				getSubElement().clear();
 				return;
@@ -292,12 +420,12 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				return subElement != null && !subElement.isEmpty();
 			case M2Package.IMPLEMENTATION_DATA_TYPE__BASE_TYPE:
 				return BASE_TYPE__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
 				return SW_ALIGNMENT__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
-			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
-				return subElement != null && !subElement.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -312,6 +440,20 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 		switch (operationID) {
 			case M2Package.IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE:
 				return getLeafImplementationDataType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_PRIMITIVE_TYPE:
+				return isPrimitiveType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_POINTER_TYPE:
+				return isPointerType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_ARRAY_TYPE:
+				return isArrayType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_STRUCT_TYPE:
+				return isStructType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_UNION_TYPE:
+				return isUnionType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_REDEFINITION_TYPE:
+				return isRedefinitionType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE___IS_COMPLEX_TYPE:
+				return isComplexType();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

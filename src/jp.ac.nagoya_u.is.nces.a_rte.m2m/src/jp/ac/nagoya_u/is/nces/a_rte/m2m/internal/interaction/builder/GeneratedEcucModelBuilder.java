@@ -45,7 +45,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION___GET_OWNER_CORE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_REFERRABLE__SHORT_NAME;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_APPLICATION_TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_EVENT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_IOC_COMMUNICATION;
@@ -56,8 +55,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.L
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ATOMIC_SW_COMPONENT_TYPE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VALUE_SPECIFICATION_EX___GET_END_VALUE_SPEC__VALUESPECIFICATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION;
@@ -65,7 +62,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION;
@@ -97,7 +93,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsSpinlockLockMethodEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.AssemblyOperationInstanceConnector;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInComposition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PortInstanceInComposition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.ROperationInstanceInSwc;
@@ -114,6 +109,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.GeneratedEcuConfiguration;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
@@ -121,13 +117,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplemen
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ProxyComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ValueBufferImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -139,333 +132,273 @@ import com.google.common.base.Optional;
  */
 public class GeneratedEcucModelBuilder {
 	private final InteractionModelBuildContext context;
+	private final InteractionRules interactionRules;
 	private final InteractionModelSorter sorter;
 
 	public GeneratedEcucModelBuilder(InteractionModelBuildContext context) {
 		this.context = context;
+		this.interactionRules = new InteractionRules(context);
 		this.sorter = new InteractionModelSorter(context);
 	}
 
 	public void build() throws ModelException {
-		Os targetOs = this.context.query.findSingleByKind(OS);
+		Os sourceAndTargetOs = this.context.cache.sourceOs;
 
-		// マルチコアにおける排他のためのスピンロックを追加
-		if (isSpinLock(targetOs)) {
-			buildRteInternalSpinlock(targetOs);
+		// コア間連携における排他のためのスピンロックを追加
+		if (this.interactionRules.needsSpinlockForRteInternalExclusion()) {
+			buildRteInternalSpinlock(sourceAndTargetOs);
 		}
 
 		// プロキシCOM通信のためのタスク，イベント，IOCを追加
-		Optional<ImmediateComSendProxy> immediateComSendProxy = this.context.query.tryFindSingleByKind(IMMEDIATE_COM_SEND_PROXY);
-		if (immediateComSendProxy.isPresent()) {
-			OsApplication targetOsApplication = immediateComSendProxy.get().getOwnerPartition().getImplOsApplication().get(0);
-			buildComSendSignalImmediateOsEventAndTask(targetOs, targetOsApplication, immediateComSendProxy.get());
+		Optional<ImmediateComSendProxy> sourceAndTargetImmediateComSendProxy = this.context.query.tryFindSingleByKind(IMMEDIATE_COM_SEND_PROXY);
+		if (sourceAndTargetImmediateComSendProxy.isPresent()) {
+			OsApplication targetOsApplication = sourceAndTargetImmediateComSendProxy.get().getOwnerPartition().getImplOsApplication().get(0);
+			buildComSendSignalImmediateOsEventAndTask(sourceAndTargetOs, targetOsApplication, sourceAndTargetImmediateComSendProxy.get());
 		}
 
-		for (ComSendProxyInteraction proxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
-			buildOsIocCommunication(getOrCreateOsIoc(targetOs), proxyInteraction);
+		for (ComSendProxyInteraction sourceAndTargetProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
+			buildComSendProxyOsIocCommunication(getOrCreateOsIoc(sourceAndTargetOs), sourceAndTargetProxyInteraction);
 		}
 
-		// IOC送信のためのIOCを追加
-		for (IocValueBufferImplementation sourceValueBufferImplementation : this.context.query.<IocValueBufferImplementation> findByKind(IOC_VALUE_BUFFER_IMPLEMENTATION)) {
-			buildOsIocCommunication(getOrCreateOsIoc(targetOs), sourceValueBufferImplementation);
+		// S/R IOC送信のためのIOCを追加
+		for (IocValueBufferImplementation sourceAndTargetValueBufferImplementation : this.context.query.<IocValueBufferImplementation> findByKind(IOC_VALUE_BUFFER_IMPLEMENTATION)) {
+			buildSrInterPartitionOsIocCommunication(getOrCreateOsIoc(sourceAndTargetOs), sourceAndTargetValueBufferImplementation);
 		}
 
-		// 信頼関数COM送信のための信頼関数を追加
-		buildComSendSignalTrustedFunction();
+		// 信頼関数経由COM送信のための信頼関数を追加
+		buildComSendSignalTrustedFunctions();
 
-		// 信頼関数RTEバッファ送信のための信頼関数を追加
-		for (TrustedFunctionRteSendImplementation sourceSendImplementation : this.context.query.<TrustedFunctionRteSendImplementation> findByKind(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION)) {
-			buildRteBufferSendTrustedFunction(sourceSendImplementation);
-		}
+		// 信頼関数経由のS/Rのための信頼関数を追加
+		buildSrTrustedFunctions();
 
-		// 信頼関数CSのための信頼関数の追加
-		buildCsTrustedFunction(targetOs);
+		// 信頼関数経由のC/Sのための信頼関数を追加
+		buildCsTrustedFunctions();
 
 		// 生成したECUCのソート
-		GeneratedEcuConfiguration generatedEcuConfiguration = this.context.cache.interactionRoot.getGeneratedEcuConfiguration();
-		if (generatedEcuConfiguration != null) {
-			this.sorter.sortEcucContainers(generatedEcuConfiguration.getGeneratedOsEvent());
-			this.sorter.sortEcucContainers(generatedEcuConfiguration.getGeneratedOsTask());
-			this.sorter.sortEcucContainers(generatedEcuConfiguration.getGeneratedOsSpinlock());
-			this.sorter.sortEcucContainers(generatedEcuConfiguration.getGeneratedOsTrustedFunction());
-			this.sorter.sortEcucContainers(generatedEcuConfiguration.getGeneratedOsIocCommunication());
+		GeneratedEcuConfiguration targetGeneratedEcuConfiguration = this.context.cache.interactionRoot.getGeneratedEcuConfiguration();
+		if (targetGeneratedEcuConfiguration != null) {
+			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsEvent());
+			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsTask());
+			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsSpinlock());
+			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsTrustedFunction());
+			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsIocCommunication());
 		}
 	}
 
-	private boolean isSpinLock(Os targetOs) {
-
-		// マルチコアOS判定
-		if (!targetOs.getOsOS().isMulticoreOs()) {
-			return false;
+	private void buildSrTrustedFunctions() throws ModelException {
+		// 信頼関数経由RTE送信のための信頼関数を追加
+		for (TrustedFunctionRteSendImplementation sourceAndTargetSendImplementation : this.context.query.<TrustedFunctionRteSendImplementation> findByKind(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION)) {
+			buildRteBufferSendTrustedFunctions(sourceAndTargetSendImplementation);
 		}
-
-		for (InternalEcuReceiver targetReceiver : this.context.query.<InternalEcuReceiver> findByKind(INTERNAL_ECU_RECEIVER)) {
-
-			if (targetReceiver.getReceiveInteraction().isEmpty()) {
-				continue;
-			}
-
-			// コア跨ぎ判定
-			// 以下は、SenderReceiverImplementationModelBuilder:buildReceiveImplementationsにてReceiveInteractionに「0」のみに設定しているため、同様に実装
-			ReceiveInteraction receiveInteraction = targetReceiver.getReceiveInteraction().get(0);
-			if (!receiveInteraction.receivesInterCore()) {
-				// コア跨ぎでない場合、スピンロックなし
-				continue;
-			}
-
-			// 「セマンティクス」「タイムアウト」「フィルター」判定
-			RVariableDataInstanceInSwc dataInstanceInSwc = (RVariableDataInstanceInSwc) targetReceiver.getSource().getPrototype();
-			ImplementationDataType sourceDataType = dataInstanceInSwc.getImplementationDataType();
-			if (!isComplexType(sourceDataType) &&
-				!(dataInstanceInSwc.isEventSemantics()) && 
-				!(dataInstanceInSwc.isAliveTimeoutEnabled()) &&
-				!(dataInstanceInSwc.isFilterEnabled()))
-			{
-				// 「Primitive」 and 「データセマンティクス」 and 「タイムアウト無効」 and 「フィルター無効」の場合、スピンロックなし
-				continue;
-			}
-
-			// 実現方式判定
-			ValueBufferImplementation valueBufferImplementation = receiveInteraction.getValueBufferImplementation();
-			if (!isRteImplementation(valueBufferImplementation)) {
-				// 実現方式がRteValueBufferImplementationでない場合、スピンロックなし
-				continue;
-			}
-
-			// スピンロックあり
-			return true;
-		}
-
-		return false;
 	}
 
-	private boolean isComplexType(ImplementationDataType sourceDataType) {
-		String typeCategory = sourceDataType.getCategory();
-		if ("TYPE_REFERENCE".equals(typeCategory)) {
-			ImplementationDataType sourceImplType = sourceDataType.getSwDataDefProps().getImplementationDataType();
-			typeCategory = sourceImplType.getCategory();
+	private OsIoc getOrCreateOsIoc(Os sourceAndTargetOs) {
+		if (sourceAndTargetOs.getOsIoc() == null) {
+			OsIoc destOsIoc = EcucFactory.eINSTANCE.createOsIoc();
+			destOsIoc.setShortName(Identifiers.DEFAULT_OS_IOC_NAME);
+			sourceAndTargetOs.setOsIoc(destOsIoc);
 		}
-
-		if ("ARRAY".equals(typeCategory) || "STRUCTURE".equals(typeCategory) || "UNION".equals(typeCategory)) {
-			return true;
-		}
-
-		return false;
-	}
-
-	private boolean isRteImplementation(ValueBufferImplementation implementation) {
-		if (implementation instanceof RteValueBufferImplementation) {
-			return true;
-		}
-
-		return false;
-	}
-	
-	private OsIoc getOrCreateOsIoc(Os targetOs) {
-		if (targetOs.getOsIoc() == null) {
-			OsIoc osIoc = EcucFactory.eINSTANCE.createOsIoc();
-			osIoc.setShortName(Identifiers.DEFAULT_OS_IOC_NAME);
-			targetOs.setOsIoc(osIoc);
-		}
-		return targetOs.getOsIoc();
+		return sourceAndTargetOs.getOsIoc();
 	}
 
 	private void buildRteInternalSpinlock(Os targetOs) {
 		Optional<OsSpinlock> inputOsSpinlock = tryFindOsConfig(OS_SPINLOCK, Identifiers.RTE_INTERNAL_SPINLOCK_NAME);
 		if (!inputOsSpinlock.isPresent()) {
-			OsSpinlock osSpinlock = createRteInternalSpinlock(targetOs);
-			targetOs.getOsSpinlock().add(osSpinlock);
+			OsSpinlock destOsSpinlock = createRteInternalSpinlock(targetOs);
+			targetOs.getOsSpinlock().add(destOsSpinlock);
 
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsSpinlock().add(osSpinlock);
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsSpinlock().add(destOsSpinlock);
 		}
 	}
 
 	private OsSpinlock createRteInternalSpinlock(Os os) {
-		OsSpinlock osSpinlock = EcucFactory.eINSTANCE.createOsSpinlock();
-		osSpinlock.setShortName(Identifiers.RTE_INTERNAL_SPINLOCK_NAME);
-		osSpinlock.getOsSpinlockAccessingApplication().addAll(os.getOsApplication());
-		osSpinlock.setOsSpinlockLockMethod(OsSpinlockLockMethodEnum.LOCK_ALL_INTERRUPTS);
-		return osSpinlock;
+		OsSpinlock destOsSpinlock = EcucFactory.eINSTANCE.createOsSpinlock();
+		destOsSpinlock.setShortName(Identifiers.RTE_INTERNAL_SPINLOCK_NAME);
+		destOsSpinlock.getOsSpinlockAccessingApplication().addAll(os.getOsApplication());
+		destOsSpinlock.setOsSpinlockLockMethod(OsSpinlockLockMethodEnum.LOCK_ALL_INTERRUPTS);
+		return destOsSpinlock;
 	}
 
-	private void buildComSendSignalImmediateOsEventAndTask(Os targetOs, OsApplication targetOsApplication, ImmediateComSendProxy sourceComSendProxy) {
+	private void buildComSendSignalImmediateOsEventAndTask(Os targetOs, OsApplication targetOsApplication, ImmediateComSendProxy sourceAndTargetComSendProxy) {
 		// OSイベントの構築
-		OsEvent osEvent;
+		OsEvent destOsEvent;
 
 		Optional<OsEvent> inputOsEvent = tryFindOsConfig(OS_EVENT, Identifiers.COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME);
 		if (inputOsEvent.isPresent()) {
-			osEvent = inputOsEvent.get();
+			destOsEvent = inputOsEvent.get();
 
 		} else {
-			osEvent = createComSendSignalImmediateOsEvent();
-			targetOs.getOsEvent().add(osEvent);
+			destOsEvent = createComSendSignalImmediateOsEvent();
+			targetOs.getOsEvent().add(destOsEvent);
 
 			// 生成したECUCであることを明示
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsEvent().add(osEvent);
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsEvent().add(destOsEvent);
 		}
 
-		sourceComSendProxy.setOsEvent(osEvent);
+		sourceAndTargetComSendProxy.setOsEvent(destOsEvent);
 
 		// OSタスクの構築
 		Optional<OsTask> inputOsTask = tryFindOsConfig(OS_TASK, Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
 		if (!inputOsTask.isPresent()) {
-			OsTask osTask = createComSendSignalImmediateOsTask(targetOs, sourceComSendProxy, osEvent);
-			targetOsApplication.getOsAppTask().add(osTask);
+			OsTask destOsTask = createComSendSignalImmediateOsTask(targetOs, sourceAndTargetComSendProxy, destOsEvent);
+			targetOsApplication.getOsAppTask().add(destOsTask);
 
 			// 生成したECUCであることを明示
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTask().add(osTask);
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTask().add(destOsTask);
 		}
 	}
 
 	private OsTask createComSendSignalImmediateOsTask(Os targetOs, ImmediateComSendProxy sourceComSendProxy, OsEvent osEvent) {
-		OsTask osTask = EcucFactory.eINSTANCE.createOsTask();
-		osTask.setShortName(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
-		osTask.setOsTaskActivation(ConfigValues.DEFAULT_OS_TASK_ACTIVATION);
-		osTask.setOsTaskPriority(ConfigValues.DEFAULT_OS_TASK_PRIORITY);
-		osTask.setOsTaskSchedule(ConfigValues.DEFAULT_OS_TASK_SCHEDULE);
-		osTask.getOsTaskAccessingApplication().addAll(sourceComSendProxy.getRequesterOsApplications());
-		osTask.getOsTaskEvent().add(osEvent);
-		targetOs.getOsTask().add(osTask);
-		return osTask;
+		OsTask destOsTask = EcucFactory.eINSTANCE.createOsTask();
+		destOsTask.setShortName(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
+		destOsTask.setOsTaskActivation(ConfigValues.DEFAULT_OS_TASK_ACTIVATION);
+		destOsTask.setOsTaskPriority(ConfigValues.DEFAULT_OS_TASK_PRIORITY);
+		destOsTask.setOsTaskSchedule(ConfigValues.DEFAULT_OS_TASK_SCHEDULE);
+		destOsTask.getOsTaskAccessingApplication().addAll(sourceComSendProxy.getRequesterOsApplications());
+		destOsTask.getOsTaskEvent().add(osEvent);
+		targetOs.getOsTask().add(destOsTask);
+		return destOsTask;
 	}
 
 	private OsEvent createComSendSignalImmediateOsEvent() {
-		OsEvent osEvent = EcucFactory.eINSTANCE.createOsEvent();
-		osEvent.setShortName(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME);
-		return osEvent;
+		OsEvent destOsEvent = EcucFactory.eINSTANCE.createOsEvent();
+		destOsEvent.setShortName(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME);
+		return destOsEvent;
 	}
 
-	private void buildOsIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
-		OsIocCommunication osIocCommunication;
-		ImplementationDataType type = sourceProxyInteraction.getSignalDataType();
-		type = type.getLeafImplementationDataType();
-		
-		// primitive用 or Complexの関数テーブルインデックス用
-		String osIocCommunicationName = null;
-		if ("VALUE".equals(type.getCategory())) {
-			osIocCommunicationName = (sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createOsIocCommunicationPeriodicName(sourceProxyInteraction)
-					: Identifiers.createOsIocCommunicationImmediateName(sourceProxyInteraction);
-			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, osIocCommunicationName);
-			if (inputOsIocCommunication.isPresent()) {
-				osIocCommunication = inputOsIocCommunication.get();
-			} else {
-				osIocCommunication = createIocCommunication(targetOsIoc, sourceProxyInteraction, osIocCommunicationName);
-				osIocCommunication.setOsIocBufferLength(getDefaultComSendProxyIocBufferLength(sourceProxyInteraction));
-				osIocCommunication.getOsIocDataProperties().add(createSignalIdDataProperties());
-				osIocCommunication.getOsIocDataProperties().add(createSignalDataDataProperties(sourceProxyInteraction, 1));
-			}
-			sourceProxyInteraction.setOsIocCommunication(osIocCommunication);
-		} else {
-			osIocCommunicationName = (sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createOsIocCommunicationPeriodicComplexName(sourceProxyInteraction)
-					: Identifiers.createOsIocCommunicationImmediateComplexName(sourceProxyInteraction);
-			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, osIocCommunicationName);
-			if (inputOsIocCommunication.isPresent()) {
-				osIocCommunication = inputOsIocCommunication.get();
-			} else {
-				osIocCommunication = createIocCommunication(targetOsIoc, sourceProxyInteraction, osIocCommunicationName);
-				osIocCommunication.setOsIocBufferLength(getDefaultComSendProxyComplexIocBufferLength(sourceProxyInteraction));
-				osIocCommunication.getOsIocDataProperties().add(createFunctionTableIndexDataProperties());
-			}
-			sourceProxyInteraction.setOsIocCommunication(osIocCommunication);
-			
-			ProxyComSendImplementation sendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceProxyInteraction));
-			InternalEcuSender sender = sendImplementation.getParent().getInternalEcuSenders().get(0);
-			VariableDataInstanceInSwc dataInstanceInSwc = sender.getSource().getPrototype();
+	private void buildComSendProxyOsIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceAndTargetProxyInteraction) throws ModelException {
+		if (sourceAndTargetProxyInteraction.getSignalDataType().isPrimitiveType()) {
+			// プリミティブ型の場合
+			// 要求・値伝搬用のIOC通信を構築
+			OsIocCommunication destOsIocCommunication;
 
-			EcucReferrable signal = sendImplementation.getComSignal() != null
-					? sendImplementation.getComSignal() : sendImplementation.getComSignalGroup();
-			String osIocComForComplexName = (sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createOsIocCommunicationPeriodicDataName(dataInstanceInSwc, signal)
-					: Identifiers.createOsIocCommunicationImmediateDataName(dataInstanceInSwc, signal);
-			
-			OsIocCommunication osIocComForComplex;
-			Optional<OsIocCommunication> inputOsIocForComplex = tryFindOsConfig(OS_IOC_COMMUNICATION, osIocComForComplexName);
-			if (inputOsIocForComplex.isPresent()) {
-				osIocComForComplex = inputOsIocForComplex.get();
+			String osIocCommunicationName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+					? Identifiers.createPeriodicComProxyRequestOsIocCommunicationNameForPrimitiveType(sourceAndTargetProxyInteraction)
+					: Identifiers.createImmediateComProxyRequestOsIocCommunicationNameForPrimitiveType(sourceAndTargetProxyInteraction);
+			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, osIocCommunicationName);
+			if (inputOsIocCommunication.isPresent()) {
+				destOsIocCommunication = inputOsIocCommunication.get();
 			} else {
-				osIocComForComplex = createIocCommunication(targetOsIoc, sourceProxyInteraction, osIocComForComplexName);
-				osIocComForComplex.setOsIocBufferLength(1);
-				osIocComForComplex.getOsIocDataProperties().add(createSignalDataDataProperties(sourceProxyInteraction));
+				destOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, osIocCommunicationName);
+				destOsIocCommunication.setOsIocBufferLength(getComSendProxyRequestIocDefaultBufferLength(sourceAndTargetProxyInteraction));
+				destOsIocCommunication.getOsIocDataProperties().add(createComSendProxySignalIdDataProperties());
+				destOsIocCommunication.getOsIocDataProperties().add(createComSendProxySignalDataDataProperties(sourceAndTargetProxyInteraction, 1));
 			}
-			sourceProxyInteraction.setOsIocCommunicationForComplexValue(osIocComForComplex);
+			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destOsIocCommunication);
+
+		} else {
+			// 複合データ型の場合
+			// 要求伝搬用のIOC通信を構築
+			OsIocCommunication destRequestOsIocCommunication;
+
+			String requestOsIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+					? Identifiers.createPeriodicComProxyRequestOsIocCommunicationNameForComplexType(sourceAndTargetProxyInteraction)
+					: Identifiers.createImmediateComProxyRequestOsIocCommunicationNameForComplexType(sourceAndTargetProxyInteraction);
+			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, requestOsIocComName);
+			if (inputOsIocCommunication.isPresent()) {
+				destRequestOsIocCommunication = inputOsIocCommunication.get();
+			} else {
+				destRequestOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, requestOsIocComName);
+				destRequestOsIocCommunication.setOsIocBufferLength(getComSendProxyValueIocDefaultBufferLength(sourceAndTargetProxyInteraction));
+				destRequestOsIocCommunication.getOsIocDataProperties().add(createComSendProxyFunctionTableIndexDataProperties());
+			}
+			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destRequestOsIocCommunication);
+
+			// 値伝搬用のIOC通信を構築
+			ProxyComSendImplementation sourceSendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceAndTargetProxyInteraction));
+			InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
+			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
+
+			EcucReferrable sourceComSignalOrComSignalGroup = sourceSendImplementation.getComSignal() != null ? sourceSendImplementation.getComSignal() : sourceSendImplementation.getComSignalGroup();
+			String valueIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+					? Identifiers.createPeriodicComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup)
+					: Identifiers.createImmediateComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
+			
+			OsIocCommunication destValueIocComForComplexType;
+			Optional<OsIocCommunication> inputOsIocForComplex = tryFindOsConfig(OS_IOC_COMMUNICATION, valueIocComName);
+			if (inputOsIocForComplex.isPresent()) {
+				destValueIocComForComplexType = inputOsIocForComplex.get();
+			} else {
+				destValueIocComForComplexType = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, valueIocComName);
+				destValueIocComForComplexType.setOsIocBufferLength(1);
+				destValueIocComForComplexType.getOsIocDataProperties().add(createComSendProxySignalDataDataProperties(sourceAndTargetProxyInteraction));
+			}
+			sourceAndTargetProxyInteraction.setValueOsIocCommunicationForComplexType(destValueIocComForComplexType);
 		}
 	}
 
-	private OsIocCommunication createIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceProxyInteraction, String osIocCommunicationName) throws ModelException {
-		OsIocCommunication osIocCommunication = EcucFactory.eINSTANCE.createOsIocCommunication();
-		osIocCommunication.setShortName(osIocCommunicationName);
-		targetOsIoc.getOsIocCommunication().add(osIocCommunication);
+	private OsIocCommunication createComSendProxyIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceProxyInteraction, String osIocCommunicationName) {
+		OsIocCommunication destOsIocCommunication = EcucFactory.eINSTANCE.createOsIocCommunication();
+		destOsIocCommunication.setShortName(osIocCommunicationName);
+		targetOsIoc.getOsIocCommunication().add(destOsIocCommunication);
 		
 		// 生成したECUCであることを明示
-		getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(osIocCommunication);
+		getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(destOsIocCommunication);
 
 		// 受信側情報の構築
-		osIocCommunication.setOsIocReceiverProperties(createOsIocReceiverProperties(sourceProxyInteraction));
+		destOsIocCommunication.setOsIocReceiverProperties(createComSendProxyOsIocReceiverProperties(sourceProxyInteraction));
 
 		// 送信側情報の構築
-		osIocCommunication.getOsIocSenderProperties().add(createOsIocSenderProperties(sourceProxyInteraction));
-		return osIocCommunication;
+		destOsIocCommunication.getOsIocSenderProperties().add(createComSendProxyOsIocSenderProperties(sourceProxyInteraction));
+		return destOsIocCommunication;
 	}
 
-	private OsIocSenderProperties createOsIocSenderProperties(ComSendProxyInteraction sourceProxyInteraction) {
-		OsIocSenderProperties osIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
-		osIocSenderProperties.setShortName(Identifiers.DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME);
-		osIocSenderProperties.setOsIocSendingOsApplication(sourceProxyInteraction.getRequesterPartition().getImplOsApplication().get(0));
-		return osIocSenderProperties;
+	private OsIocSenderProperties createComSendProxyOsIocSenderProperties(ComSendProxyInteraction sourceProxyInteraction) {
+		OsIocSenderProperties destOsIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
+		destOsIocSenderProperties.setShortName(Identifiers.DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME);
+		destOsIocSenderProperties.setOsIocSendingOsApplication(sourceProxyInteraction.getRequesterPartition().getImplOsApplication().get(0));
+		return destOsIocSenderProperties;
 	}
 
-	private OsIocReceiverProperties createOsIocReceiverProperties(ComSendProxyInteraction sourceProxyInteraction) {
-		OsIocReceiverProperties osIocReceiverProperties = EcucFactory.eINSTANCE.createOsIocReceiverProperties();
-		osIocReceiverProperties.setShortName(Identifiers.DEFAULT_OS_IOC_RECEIVER_PROPERTIES_NAME);
-		osIocReceiverProperties.setOsIocReceivingOsApplication(sourceProxyInteraction.getProxy().getOwnerPartition().getImplOsApplication().get(0));
-		return osIocReceiverProperties;
+	private OsIocReceiverProperties createComSendProxyOsIocReceiverProperties(ComSendProxyInteraction sourceProxyInteraction) {
+		OsIocReceiverProperties destOsIocReceiverProperties = EcucFactory.eINSTANCE.createOsIocReceiverProperties();
+		destOsIocReceiverProperties.setShortName(Identifiers.DEFAULT_OS_IOC_RECEIVER_PROPERTIES_NAME);
+		destOsIocReceiverProperties.setOsIocReceivingOsApplication(sourceProxyInteraction.getProxy().getOwnerPartition().getImplOsApplication().get(0));
+		return destOsIocReceiverProperties;
 	}
 
-	private OsIocDataProperties createSignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction, int index) {
-		OsIocDataProperties signalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		signalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
-		signalDataDataProperties.setOsIocDataType(sourceProxyInteraction.getSignalDataType());
-		signalDataDataProperties.setOsIocDataPropertyIndex(index);
-		return signalDataDataProperties;
+	private OsIocDataProperties createComSendProxySignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction, int index) {
+		OsIocDataProperties destSignalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
+		destSignalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
+		destSignalDataDataProperties.setOsIocDataType(sourceProxyInteraction.getSignalDataType());
+		destSignalDataDataProperties.setOsIocDataPropertyIndex(index);
+		return destSignalDataDataProperties;
 	}
 
-	private OsIocDataProperties createSignalIdDataProperties() {
-		OsIocDataProperties signalIdDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		signalIdDataProperties.setShortName(Identifiers.COM_PROXY_SIGNAL_ID_DATA_NAME);
-		signalIdDataProperties.setOsIocDataType(this.context.cache.comSignalIdType);
-		signalIdDataProperties.setOsIocDataPropertyIndex(0);
-		return signalIdDataProperties;
+	private OsIocDataProperties createComSendProxySignalIdDataProperties() {
+		OsIocDataProperties destSignalIdDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
+		destSignalIdDataProperties.setShortName(Identifiers.COM_PROXY_SIGNAL_ID_DATA_NAME);
+		destSignalIdDataProperties.setOsIocDataType(this.context.cache.sourceComSignalIdType);
+		destSignalIdDataProperties.setOsIocDataPropertyIndex(0);
+		return destSignalIdDataProperties;
 	}
 
-	private OsIocDataProperties createSignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction) {
-		OsIocDataProperties signalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		signalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
-		signalDataDataProperties.setOsIocDataType(sourceProxyInteraction.getSignalDataType());
-		return signalDataDataProperties;
+	private OsIocDataProperties createComSendProxySignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction) {
+		OsIocDataProperties destSignalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
+		destSignalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
+		destSignalDataDataProperties.setOsIocDataType(sourceProxyInteraction.getSignalDataType());
+		return destSignalDataDataProperties;
 	}
 
-	private OsIocDataProperties createFunctionTableIndexDataProperties() {
-		OsIocDataProperties signalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		signalDataDataProperties.setShortName(Identifiers.COM_PROXY_FUNCTION_INDEX_NAME);
-		signalDataDataProperties.setOsIocDataType(this.context.cache.uint32Type);
-		return signalDataDataProperties;
+	private OsIocDataProperties createComSendProxyFunctionTableIndexDataProperties() {
+		OsIocDataProperties destFunctionTableIndexDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
+		destFunctionTableIndexDataProperties.setShortName(Identifiers.COM_PROXY_FUNCTION_INDEX_NAME);
+		destFunctionTableIndexDataProperties.setOsIocDataType(this.context.cache.sourceUint32Type);
+		return destFunctionTableIndexDataProperties;
 	}
 
-	private int getDefaultComSendProxyIocBufferLength(ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
+	private int getComSendProxyRequestIocDefaultBufferLength(ComSendProxyInteraction sourceProxyInteraction) {
 		return this.context.query.find(isKindOf(PROXY_COM_SEND_IMPLEMENTATION).AND(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceProxyInteraction))).size();
 	}
 
-	private int getDefaultComSendProxyComplexIocBufferLength(ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
+	private int getComSendProxyValueIocDefaultBufferLength(ComSendProxyInteraction sourceProxyInteraction) {
 		int count = 0; // 自身を必ず足しこむため、0からスタートする
-		for (ComSendProxyInteraction proxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
-			if (proxyInteraction.getRequesterPartition() == sourceProxyInteraction.getRequesterPartition()) {
-				if ((proxyInteraction.getProxy() instanceof PeriodicComSendProxy && sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					|| (proxyInteraction.getProxy() instanceof ImmediateComSendProxy && sourceProxyInteraction.getProxy() instanceof ImmediateComSendProxy)) {
-					ImplementationDataType type = proxyInteraction.getSignalDataType();
-					type = type.getLeafImplementationDataType();
-					if (!"VALUE".equals(type.getCategory())) {
+		for (ComSendProxyInteraction sourceAnotherProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
+			if (sourceAnotherProxyInteraction.getRequesterPartition() == sourceProxyInteraction.getRequesterPartition()) {
+				if ((sourceAnotherProxyInteraction.getProxy() instanceof PeriodicComSendProxy && sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+					|| (sourceAnotherProxyInteraction.getProxy() instanceof ImmediateComSendProxy && sourceProxyInteraction.getProxy() instanceof ImmediateComSendProxy)) {
+					ImplementationDataType sourceLeafType = sourceAnotherProxyInteraction.getSignalDataType().getLeafImplementationDataType();
+					if (!sourceLeafType.isPrimitiveType()) {
 						count++;
 					}
 				}
@@ -474,341 +407,317 @@ public class GeneratedEcucModelBuilder {
 		return count;
 	}
 
-	private void buildOsIocCommunication(OsIoc targetOsIoc, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceValueBufferImplementation.getParent();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc dataInstance = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
+	private void buildSrInterPartitionOsIocCommunication(OsIoc targetOsIoc, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceValueBufferImplementation.getParent();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceDataInstance = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 
 		// IOC通信を構築
-		OsIocCommunication osIocCommunication;
+		OsIocCommunication destOsIocCommunication;
 
-		Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, Identifiers.createOsIocCommunicationName(dataInstance));
+		Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, Identifiers.createSrInterPartitionOsIocCommunicationName(sourceDataInstance));
 		if (inputOsIocCommunication.isPresent()) {
-			osIocCommunication = inputOsIocCommunication.get();
+			destOsIocCommunication = inputOsIocCommunication.get();
 
 		} else {
-			osIocCommunication = createOsIocCommunication(dataInstance);
-			targetOsIoc.getOsIocCommunication().add(osIocCommunication);
+			destOsIocCommunication = createSrInterPartitionOsIocCommunication(sourceDataInstance);
+			targetOsIoc.getOsIocCommunication().add(destOsIocCommunication);
 
 			// 生成したECUCであることを明示
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(osIocCommunication);
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(destOsIocCommunication);
 
 			// データ情報の構築
-			osIocCommunication.getOsIocDataProperties().add(createOsIocDataProperties(receiver, dataInstance));
+			destOsIocCommunication.getOsIocDataProperties().add(createSrInterPartitionOsIocDataProperties(sourceReceiver, sourceDataInstance));
 
 			// 受信側情報の構築
-			osIocCommunication.setOsIocReceiverProperties(createOsIocReceiverProperties(sourceValueBufferImplementation));
+			destOsIocCommunication.setOsIocReceiverProperties(createSrInterPartitionOsIocReceiverProperties(sourceValueBufferImplementation));
 		}
 
 		// 実装に使用するIOCをひもづけ
-		sourceValueBufferImplementation.setOsIocCommunication(osIocCommunication);
+		sourceValueBufferImplementation.setOsIocCommunication(destOsIocCommunication);
 
 		// 送信側情報を構築
 
 		// 初期化用に，ループバックの送信側情報を構築
-		if (!dataInstance.isEventSemantics()) {
-			Optional<EcucReferrable> inputLoopbackOsIocSenderProperties = tryFindOsConfig(osIocCommunication, OS_IOC_SENDER_PROPERTIES,
-					Identifiers.createOsIocSenderPropertiesName(receiver.getSource()));
+		if (!sourceDataInstance.isEventSemantics()) {
+			Optional<EcucReferrable> inputLoopbackOsIocSenderProperties = tryFindOsConfig(destOsIocCommunication, OS_IOC_SENDER_PROPERTIES,
+					Identifiers.createOsIocSenderPropertiesName(sourceReceiver.getSource()));
 			if (!inputLoopbackOsIocSenderProperties.isPresent()) {
-				osIocCommunication.getOsIocSenderProperties().add(createLoopbackOsIocSenderProperties(receiver));
+				destOsIocCommunication.getOsIocSenderProperties().add(createSrInterPartitionLoopbackOsIocSenderProperties(sourceReceiver));
 			}
 		}
 
 		// 各送信者用の送信側情報を構築
-		for (SendInteraction sendInteraction : receiveInteraction.getSendInteraction()) {
-			Sender sender = sendInteraction.getSender().get(0);
-			IocSendImplementation iocSendImplementation = (IocSendImplementation) sendInteraction.getImplementation();
+		for (SendInteraction sourceSendInteraction : sourceReceiveInteraction.getSendInteraction()) {
+			Sender sourceSender = sourceSendInteraction.getSender().get(0);
+			IocSendImplementation targetIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation(); // NOTE IOCバッファを使用する場合、送信側は必ずIOC送信
 
-			OsIocSenderProperties osIocSenderProperties;
+			OsIocSenderProperties destOsIocSenderProperties;
 
-			Optional<OsIocSenderProperties> inputOsIocSenderProperties = tryFindOsConfig(osIocCommunication, OS_IOC_SENDER_PROPERTIES, createOsIocSenderPropertyName(sender));
+			Optional<OsIocSenderProperties> inputOsIocSenderProperties = tryFindOsConfig(destOsIocCommunication, OS_IOC_SENDER_PROPERTIES, createSrInterPartitionOsIocSenderPropertyName(sourceSender));
 			if (inputOsIocSenderProperties.isPresent()) {
-				osIocSenderProperties = inputOsIocSenderProperties.get();
+				destOsIocSenderProperties = inputOsIocSenderProperties.get();
 
 			} else {
-				osIocSenderProperties = createOsIocSenderProperties(sendInteraction, sender);
-				osIocCommunication.getOsIocSenderProperties().add(osIocSenderProperties);
+				destOsIocSenderProperties = createSrInterPartitionOsIocSenderProperties(sourceSendInteraction, sourceSender);
+				destOsIocCommunication.getOsIocSenderProperties().add(destOsIocSenderProperties);
 			}
 
 			// 実装に使用するIOCセンダをひもづけ
-			iocSendImplementation.setOcIocSenderProperties(osIocSenderProperties);
+			targetIocSendImplementation.setOsIocSenderProperties(destOsIocSenderProperties);
 		}
 
 		// OsIocSenderPropertiesをソート
-		this.sorter.sortEcucContainers(osIocCommunication.getOsIocSenderProperties());
+		this.sorter.sortEcucContainers(destOsIocCommunication.getOsIocSenderProperties());
 
 		// senderIdを割り振り（送信者数がNの場合のみ）
-		if (osIocCommunication.getOsIocSenderProperties().size() > 1) {
+		if (destOsIocCommunication.getOsIocSenderProperties().size() > 1) {
 			int nextSenderId = 0;
-			for (OsIocSenderProperties targetOsIocSenderProperties : osIocCommunication.getOsIocSenderProperties()) {
+			for (OsIocSenderProperties targetOsIocSenderProperties : destOsIocCommunication.getOsIocSenderProperties()) {
 				targetOsIocSenderProperties.setOsIocSenderId(nextSenderId);
 				nextSenderId++;
 			}
 		}
 	}
 
-	private OsIocSenderProperties createLoopbackOsIocSenderProperties(InternalEcuReceiver receiver) {
-		OsIocSenderProperties osIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
-		osIocSenderProperties.setShortName(Identifiers.createOsIocSenderPropertiesName(receiver.getSource()));
-		osIocSenderProperties.setOsIocSendingOsApplication(receiver.getOwnerPartition().getImplOsApplication().get(0));
-		return osIocSenderProperties;
+	private OsIocSenderProperties createSrInterPartitionLoopbackOsIocSenderProperties(InternalEcuReceiver sourceReceiver) {
+		OsIocSenderProperties destOsIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
+		destOsIocSenderProperties.setShortName(Identifiers.createOsIocSenderPropertiesName(sourceReceiver.getSource()));
+		destOsIocSenderProperties.setOsIocSendingOsApplication(sourceReceiver.getOwnerPartition().getImplOsApplication().get(0));
+		return destOsIocSenderProperties;
 	}
 
-	private OsIocSenderProperties createOsIocSenderProperties(SendInteraction sourceSendInteraction, Sender sender) {
-		OsIocSenderProperties osIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
-		osIocSenderProperties.setShortName(createOsIocSenderPropertyName(sender));
-		osIocSenderProperties.setOsIocSendingOsApplication(sender.getOwnerPartition().getImplOsApplication().get(0));
-		return osIocSenderProperties;
+	private OsIocSenderProperties createSrInterPartitionOsIocSenderProperties(SendInteraction sourceSendInteraction, Sender sender) {
+		OsIocSenderProperties destOsIocSenderProperties = EcucFactory.eINSTANCE.createOsIocSenderProperties();
+		destOsIocSenderProperties.setShortName(createSrInterPartitionOsIocSenderPropertyName(sender));
+		destOsIocSenderProperties.setOsIocSendingOsApplication(sender.getOwnerPartition().getImplOsApplication().get(0));
+		return destOsIocSenderProperties;
 	}
 
-	private String createOsIocSenderPropertyName(Sender sender) {
-		if (sender instanceof InternalEcuSender) {
-			InternalEcuSender internalEcuSender = (InternalEcuSender) sender;
-			return Identifiers.createOsIocSenderPropertiesName(internalEcuSender.getSource());
+	private String createSrInterPartitionOsIocSenderPropertyName(Sender sourceSender) {
+		if (sourceSender instanceof InternalEcuSender) {
+			InternalEcuSender sourceInternalEcuSender = (InternalEcuSender) sourceSender;
+			return Identifiers.createOsIocSenderPropertiesName(sourceInternalEcuSender.getSource());
 
 		} else {
 			// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった関係上,本判定のelseがは通過しないようになっている.
-			ExternalEcuSender externalEcuSender = (ExternalEcuSender) sender;
-			if (externalEcuSender.getSourceSignal() != null) {
-				return Identifiers.createOsIocSenderPropertiesName(externalEcuSender.getSourceSignal());
+			ExternalEcuSender sourceExternalEcuSender = (ExternalEcuSender) sourceSender;
+			if (sourceExternalEcuSender.getSourceSignal() != null) {
+				return Identifiers.createOsIocSenderPropertiesName(sourceExternalEcuSender.getSourceSignal());
 			} else {
-				return Identifiers.createOsIocSenderPropertiesName(externalEcuSender.getSourceSignalGroup());
+				return Identifiers.createOsIocSenderPropertiesName(sourceExternalEcuSender.getSourceSignalGroup());
 			}
 		}
 	}
 
-	private OsIocReceiverProperties createOsIocReceiverProperties(IocValueBufferImplementation sourceValueBufferImplementation) {
-		OsIocReceiverProperties osIocReceiverProperties = EcucFactory.eINSTANCE.createOsIocReceiverProperties();
-		osIocReceiverProperties.setShortName(Identifiers.DEFAULT_OS_IOC_RECEIVER_PROPERTIES_NAME);
-		osIocReceiverProperties.setOsIocReceivingOsApplication(sourceValueBufferImplementation.getOwnerPartition().getImplOsApplication().get(0));
-		return osIocReceiverProperties;
+	private OsIocReceiverProperties createSrInterPartitionOsIocReceiverProperties(IocValueBufferImplementation sourceValueBufferImplementation) {
+		OsIocReceiverProperties destOsIocReceiverProperties = EcucFactory.eINSTANCE.createOsIocReceiverProperties();
+		destOsIocReceiverProperties.setShortName(Identifiers.DEFAULT_OS_IOC_RECEIVER_PROPERTIES_NAME);
+		destOsIocReceiverProperties.setOsIocReceivingOsApplication(sourceValueBufferImplementation.getOwnerPartition().getImplOsApplication().get(0));
+		return destOsIocReceiverProperties;
 	}
 
-	private OsIocCommunication createOsIocCommunication(RVariableDataInstanceInSwc sourceDataInstance) {
-		OsIocCommunication osIocCommunication = EcucFactory.eINSTANCE.createOsIocCommunication();
-		osIocCommunication.setShortName(Identifiers.createOsIocCommunicationName(sourceDataInstance));
+	private OsIocCommunication createSrInterPartitionOsIocCommunication(RVariableDataInstanceInSwc sourceDataInstance) {
+		OsIocCommunication destOsIocCommunication = EcucFactory.eINSTANCE.createOsIocCommunication();
+		destOsIocCommunication.setShortName(Identifiers.createSrInterPartitionOsIocCommunicationName(sourceDataInstance));
 		if (sourceDataInstance.isEventSemantics()) {
-			osIocCommunication.setOsIocBufferLength(sourceDataInstance.getQueueLength());
+			destOsIocCommunication.setOsIocBufferLength(sourceDataInstance.getQueueLength());
 		}
-		return osIocCommunication;
+		return destOsIocCommunication;
 	}
 
-	private OsIocDataProperties createOsIocDataProperties(InternalEcuReceiver sourceReceiver, RVariableDataInstanceInSwc dataInstance) throws ModelException {
-		OsIocDataProperties osIocDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		osIocDataProperties.setShortName(Identifiers.DEFAULT_OS_IOC_DATA_PROPERTIES_NAME);
-		if (!dataInstance.isEventSemantics()) {
+	private OsIocDataProperties createSrInterPartitionOsIocDataProperties(InternalEcuReceiver sourceReceiver, RVariableDataInstanceInSwc sourceDataInstance) throws ModelException {
+		OsIocDataProperties destOsIocDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
+		destOsIocDataProperties.setShortName(Identifiers.DEFAULT_OS_IOC_DATA_PROPERTIES_NAME);
+		if (!sourceDataInstance.isEventSemantics()) {
 			ValueSpecification initValue = this.context.query.get(sourceReceiver.getSource(), VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION);
-			osIocDataProperties.setOsIocInitValue(getValueSpecificationValueAsText(initValue));
+			destOsIocDataProperties.setOsIocInitValue(getValueSpecificationValueAsText(initValue));
 		}
-		osIocDataProperties.setOsIocDataType(dataInstance.getImplementationDataType());
-		return osIocDataProperties;
+		destOsIocDataProperties.setOsIocDataType(sourceDataInstance.getImplementationDataType());
+		return destOsIocDataProperties;
 	}
 
 	private String getValueSpecificationValueAsText(ValueSpecification value) throws ModelException {
-		value = EmfUtils.<ValueSpecification> exInvoke(value, VALUE_SPECIFICATION_EX___GET_END_VALUE_SPEC__VALUESPECIFICATION);
+		value = this.context.query.get(value, VALUE_SPECIFICATION_EX___GET_END_VALUE_SPEC__VALUESPECIFICATION);
 		String text = "";
-		// TODO 将来的には多次元にも対応 ex. {1, {2, 3}, 4}
 		if (value instanceof ArrayValueSpecification) {
 			for (ValueSpecification valueSpecification : ((ArrayValueSpecification) value).getElement()) {
-				text += EmfUtils.<String> exInvoke(valueSpecification, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION) + ",";
+				text += this.context.query.get(valueSpecification, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION) + ",";
 			}
 			int last = text.lastIndexOf(",");
 			text = "{" + text.substring(0, last) + "}";
 			return text;
 		} else if (value instanceof RecordValueSpecification) {
 			for (ValueSpecification valueSpecification : ((RecordValueSpecification) value).getField()) {
-				text += EmfUtils.<String> exInvoke(valueSpecification, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION) + ",";
+				text += this.context.query.get(valueSpecification, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION) + ",";
 			}
 			int last = text.lastIndexOf(",");
 			text = "{" + text.substring(0, last) + "}";
 			return text;
 		} else {
-			return EmfUtils.<String> exInvoke(value, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION);
+			return this.context.query.get(value, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION);
 		}
 	}
 	
-	private void buildComSendSignalTrustedFunction() throws ModelException {
-		Optional<TrustedFunctionComSendImplementation> imp = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(
+	private void buildComSendSignalTrustedFunctions() {
+		Optional<TrustedFunctionComSendImplementation> sourceImplForComSignal = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(
 				refExists(COM_SEND_IMPLEMENTATION__COM_SIGNAL)));
-		if (imp.isPresent()) {
-			setupTrustedComSendSignalTrustedFunction(Identifiers.COM_SEND_SIGNAL_TRUSTED_FUNCTION_NAME, SymbolNames.COM_SEND_SIGNAL_TRUSTED_FUNCTION_NAME);
+		if (sourceImplForComSignal.isPresent()) {
+			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE 信頼関数を構築する場合には必ずマスタパーティションが存在するため、存在チェックを行わない
+			buildComSendSignalTrustedFunction(Identifiers.createComSendSignalTrustedFunctionName(sourceMasterBswPartition), SymbolNames.createComSendSignalTrustedFunctionName(sourceMasterBswPartition));
 		}
-		imp = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(refExists(COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP)));
-		if (imp.isPresent()) {
-			setupTrustedComSendSignalTrustedFunction(Identifiers.COM_SEND_SIGNAL_GROUP_TRUSTED_FUNCTION_NAME, SymbolNames.COM_SEND_SIGNAL_GROUP_TRUSTED_FUNCTION_NAME);
+
+		Optional<TrustedFunctionComSendImplementation> sourceImplForComSignalGroup = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(refExists(COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP)));
+		if (sourceImplForComSignalGroup.isPresent()) {
+			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE 信頼関数を構築する場合には必ずマスタパーティションが存在するため、存在チェックを行わない
+			buildComSendSignalTrustedFunction(Identifiers.createComSendSignalGroupTrustedFunctionName(sourceMasterBswPartition), SymbolNames.createComSendSignalGroupTrustedFunctionName(sourceMasterBswPartition));
 		}
 	}
 
-	private void setupTrustedComSendSignalTrustedFunction(String container, String function) throws ModelException {
-		EcucPartition masterBswPartition = this.context.query.findSingle(hasOp(ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION, true));
-		String containerName = container + "_" + masterBswPartition.getShortName();
-		Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION, containerName);
+	private void buildComSendSignalTrustedFunction(String tfShortName, String tfSymbolName) {
+		EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE 信頼関数を構築する場合には必ずマスタパーティションが存在するため、存在チェックを行わない
+
+		Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION, tfShortName);
 		if (!inputTrustedFunction.isPresent()) {
-			OsApplicationTrustedFunction osTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
-			osTrustedFunction.setShortName(containerName);
-			osTrustedFunction.setOsTrustedFunctionName(function + "_" + masterBswPartition.getShortName());
-			OsApplication targetOsApplication = masterBswPartition.getImplOsApplication().get(0);
-			targetOsApplication.getOsApplicationTrustedFunction().add(osTrustedFunction);
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(osTrustedFunction);
+			OsApplication targetOsApplication = sourceMasterBswPartition.getImplOsApplication().get(0);
+
+			OsApplicationTrustedFunction destOsTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
+			destOsTrustedFunction.setShortName(tfShortName);
+			destOsTrustedFunction.setOsTrustedFunctionName(tfSymbolName);
+			targetOsApplication.getOsApplicationTrustedFunction().add(destOsTrustedFunction);
+
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(destOsTrustedFunction);
 		}
 	}
 
-	private void buildRteBufferSendTrustedFunction(TrustedFunctionRteSendImplementation sourceSendImplementation) throws ModelException {
-		SendInteraction sendInteraction = sourceSendImplementation.getParent();
-		InternalEcuSender sender = sendInteraction.getInternalEcuSenders().get(0);
-		InternalEcuReceiver receiver = sendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
-		PVariableDataInstanceInSwc dataInstanceInSwc = (PVariableDataInstanceInSwc) sender.getSource().getPrototype();
+	private void buildRteBufferSendTrustedFunctions(TrustedFunctionRteSendImplementation sourceAndTargetSendImplementation) throws ModelException {
+		SendInteraction sourceSendInteraction = sourceAndTargetSendImplementation.getParent();
+		InternalEcuSender sourceSender = sourceSendInteraction.getInternalEcuSenders().get(0);
+		InternalEcuReceiver sourceReceiver = sourceSendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
+		PVariableDataInstanceInSwc sourceDataInstanceInSwc = (PVariableDataInstanceInSwc) sourceSender.getSource().getPrototype();
 
 		EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
-				hasOp(ECUC_PARTITION___GET_OWNER_CORE, sender.getOwnerPartition().getOwnerCore())));
+				hasOp(ECUC_PARTITION___GET_OWNER_CORE, sourceSender.getOwnerPartition().getOwnerCore())));
 		OsApplication targetOsApplication = bswPartition.getImplOsApplication().get(0);
 
 		// データ書き込み用の信頼関数の構築
-		OsApplicationTrustedFunction writeTrustedFunction;
+		OsApplicationTrustedFunction destWriteTrustedFunction;
 
 		Optional<OsApplicationTrustedFunction> inputWriteTrustedFunction;
-		Boolean isEventSemantics = dataInstanceInSwc.isEventSemantics();
-		if (isEventSemantics) {
+		if (sourceDataInstanceInSwc.isEventSemantics()) {
 			inputWriteTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION,
-					Identifiers.createRteBufferSendTrustedFunctionName(sender.getSource(), receiver.getSource()));
+					Identifiers.createSrRteBufferSendTrustedFunctionName(sourceSender.getSource(), sourceReceiver.getSource()));
 		} else {
 			inputWriteTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION,
-					Identifiers.createRteBufferWriteTrustedFunctionName(sender.getSource(), receiver.getSource()));
+					Identifiers.createSrRteBufferWriteTrustedFunctionName(sourceSender.getSource(), sourceReceiver.getSource()));
 		}
 		
 		if (inputWriteTrustedFunction.isPresent()) {
-			writeTrustedFunction = inputWriteTrustedFunction.get();
+			destWriteTrustedFunction = inputWriteTrustedFunction.get();
 
 		} else {
-			writeTrustedFunction = createRteBufferWriteTrustedFunction(sender, receiver, isEventSemantics);
-			targetOsApplication.getOsApplicationTrustedFunction().add(writeTrustedFunction);
+			destWriteTrustedFunction = createRteBufferWriteTrustedFunction(sourceSender, sourceReceiver, sourceDataInstanceInSwc.isEventSemantics());
+			targetOsApplication.getOsApplicationTrustedFunction().add(destWriteTrustedFunction);
 
-			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(writeTrustedFunction);
+			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(destWriteTrustedFunction);
 		}
 
-		sourceSendImplementation.setWriteOsTrustedFunction(writeTrustedFunction);
+		sourceAndTargetSendImplementation.setWriteOsTrustedFunction(destWriteTrustedFunction);
 
 		// データ無効化用の信頼関数の構築
-		if (dataInstanceInSwc.isInvalidationEnabled()) {
-			OsApplicationTrustedFunction invalidateTrustedFunction;
+		if (sourceDataInstanceInSwc.isInvalidationEnabled()) {
+			OsApplicationTrustedFunction destInvalidateTrustedFunction;
 
 			Optional<OsApplicationTrustedFunction> inputInvalidateTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION,
-					Identifiers.createRteBufferInvalidateTrustedFunctionName(sender.getSource(), receiver.getSource()));
+					Identifiers.createSrRteBufferInvalidateTrustedFunctionName(sourceSender.getSource(), sourceReceiver.getSource()));
 			if (inputInvalidateTrustedFunction.isPresent()) {
-				invalidateTrustedFunction = inputInvalidateTrustedFunction.get();
+				destInvalidateTrustedFunction = inputInvalidateTrustedFunction.get();
 
 			} else {
-				invalidateTrustedFunction = createRteBufferInvalidateTrustedFunction(sender, receiver);
-				targetOsApplication.getOsApplicationTrustedFunction().add(invalidateTrustedFunction);
+				destInvalidateTrustedFunction = createRteBufferInvalidateTrustedFunction(sourceSender, sourceReceiver);
+				targetOsApplication.getOsApplicationTrustedFunction().add(destInvalidateTrustedFunction);
 
-				getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(invalidateTrustedFunction);
+				getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(destInvalidateTrustedFunction);
 			}
 
-			sourceSendImplementation.setInvalidateOsTrustedFunction(invalidateTrustedFunction);
+			sourceAndTargetSendImplementation.setInvalidateOsTrustedFunction(destInvalidateTrustedFunction);
 		}
 	}
 
 	private OsApplicationTrustedFunction createRteBufferWriteTrustedFunction(InternalEcuSender internalEcuSender, InternalEcuReceiver internalEcuReceiver, Boolean isEventSemantics) {
-		OsApplicationTrustedFunction osApplicationTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
+		OsApplicationTrustedFunction destOsApplicationTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
 
 		if (isEventSemantics) {
-			osApplicationTrustedFunction.setShortName(Identifiers.createRteBufferSendTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
-			osApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createRteBufferSendTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));			
+			destOsApplicationTrustedFunction.setShortName(Identifiers.createSrRteBufferSendTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
+			destOsApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createSrRteBufferSendTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));			
 		} else {
-			osApplicationTrustedFunction.setShortName(Identifiers.createRteBufferWriteTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
-			osApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createRteBufferWriteTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));			
+			destOsApplicationTrustedFunction.setShortName(Identifiers.createSrRteBufferWriteTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
+			destOsApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createSrRteBufferWriteTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));			
 		}
 
-		return osApplicationTrustedFunction;
+		return destOsApplicationTrustedFunction;
 	}
 
 	private OsApplicationTrustedFunction createRteBufferInvalidateTrustedFunction(InternalEcuSender internalEcuSender, InternalEcuReceiver internalEcuReceiver) {
-		OsApplicationTrustedFunction osApplicationTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
-		osApplicationTrustedFunction.setShortName(Identifiers.createRteBufferInvalidateTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
-		osApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createRteBufferInvalidateTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
-		return osApplicationTrustedFunction;
+		OsApplicationTrustedFunction destOsApplicationTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
+		destOsApplicationTrustedFunction.setShortName(Identifiers.createSrRteBufferInvalidateTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
+		destOsApplicationTrustedFunction.setOsTrustedFunctionName(SymbolNames.createSrRteBufferInvalidateTrustedFunctionName(internalEcuSender.getSource(), internalEcuReceiver.getSource()));
+		return destOsApplicationTrustedFunction;
 	}
 	
-	private void buildCsTrustedFunction(Os targetOs) throws ModelException {
-		for (AtomicSwComponentType swComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
-			for (RPortPrototype portPrototype : swComponentType.getRPorts()) {
-				for (ROperationInstanceInSwc operationInstanceInSwc : this.context.query.<ROperationInstanceInSwc> find(ref(OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT, portPrototype))) {
-					if (this.context.query.get(operationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC)) {
-						Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION,
-								SymbolNames.createCallCstfName(operationInstanceInSwc));
+	private void buildCsTrustedFunctions() throws ModelException {
+		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
+			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
+				for (ROperationInstanceInSwc sourceOperationInstanceInSwc : this.context.query.<ROperationInstanceInSwc> find(ref(OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
+					if (this.interactionRules.needsTrustedFunctionForCsCall(sourceOperationInstanceInSwc)) {
+						// 送信：非信頼、受信：信頼の場合、信頼関数使用
+						Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION, Identifiers.createCsCallTfName(sourceSwComponentType));
 						if (!inputTrustedFunction.isPresent()) {
-							EcucPartition sourceRPartition = getEcucRPartition(operationInstanceInSwc);
-							EcucPartition sourcePPartition = getEcucPPartition(operationInstanceInSwc);
+							Optional<EcucPartition> sourcePPartition = tryGetPEcucPartition(sourceOperationInstanceInSwc);
 
-							// COVERAGE (ecucPartitionがnullのときはpEcucPartitionもnullであるためカバレッジがパスしない．コードレビューで問題ないことを確認)
-							if (sourceRPartition != null && sourcePPartition != null
-									&& !sourceRPartition.isTrusted() && sourcePPartition.isTrusted()) {
-								// 送信：非信頼、受信：信頼の場合、信頼関数使用
-								OsApplication targetOsApplication = sourcePPartition.getImplOsApplication().get(0);
-								OsApplicationTrustedFunction osTrustedFunction = createCsTrustedFunction(operationInstanceInSwc);
-								targetOsApplication.getOsApplicationTrustedFunction().add(osTrustedFunction);
-								getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(osTrustedFunction);
-							}
+							OsApplication targetOsApplication = sourcePPartition.get().getImplOsApplication().get(0); // NOTE 信頼関数を使用する場合、要求側パーティションは必ず存在する
+							OsApplicationTrustedFunction destOsTrustedFunction = createCsTrustedFunction(sourceSwComponentType);
+							targetOsApplication.getOsApplicationTrustedFunction().add(destOsTrustedFunction);
+
+							getOrCreateGeneratedEcuConfiguration().getGeneratedOsTrustedFunction().add(destOsTrustedFunction);
 						}
 					}
 				}
 			}
 		}
 	}
-	
-	private EcucPartition getEcucRPartition(OperationInstanceInSwc operationInstanceInSwc) throws ModelException {
-		PortInstanceInComposition portInComposition = null;
-		OperationInstanceInComposition opInComposition;
-		EcucPartition ecucPartition = null;
-		try {
-			opInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, operationInstanceInSwc));
-			AssemblyOperationInstanceConnector connector = this.context.query.<AssemblyOperationInstanceConnector> findSingle(ref(ASSEMBLY_OPERATION_INSTANCE_CONNECTOR__REQUESTER, opInComposition));
-			portInComposition = (PortInstanceInComposition)connector.getRequester().eContainer();
-			if (portInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().isEmpty()) {
-				return null;
-			}
-			ecucPartition = portInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().get(0);
-		} catch (ModelException e) {
-			// 1:0の場合は相手が存在しない
+
+	// NOTE できればexモデルに定義したほうがよい
+	private Optional<EcucPartition> tryGetPEcucPartition(ROperationInstanceInSwc rOperationInstanceInSwc) throws ModelException {
+		OperationInstanceInComposition rOpInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, rOperationInstanceInSwc));
+		Optional<AssemblyOperationInstanceConnector> connector = this.context.query.<AssemblyOperationInstanceConnector> tryFindSingle(ref(ASSEMBLY_OPERATION_INSTANCE_CONNECTOR__REQUESTER, rOpInComposition));
+		if (!connector.isPresent()) { // COVERAGE 現状は、常にfalse(信頼関数を使用する場合、要求側パーティションは必ず存在する)
+			return Optional.absent();
 		}
 
-		return ecucPartition;
-	}
-	
-	private EcucPartition getEcucPPartition(OperationInstanceInSwc operationInstanceInSwc) throws ModelException {
-		PortInstanceInComposition portInComposition = null;
-		OperationInstanceInComposition opInComposition;
-		EcucPartition ecucPartition = null;
-		try {
-			opInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, operationInstanceInSwc));
-			AssemblyOperationInstanceConnector connector = this.context.query.<AssemblyOperationInstanceConnector> findSingle(ref(ASSEMBLY_OPERATION_INSTANCE_CONNECTOR__REQUESTER, opInComposition));
-			portInComposition = (PortInstanceInComposition)connector.getProvider().eContainer();
-			if (portInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().isEmpty()) {
-				return null;
-			}
-			ecucPartition = portInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().get(0);
-		} catch (ModelException e) {
-			// 0:1の場合は相手が存在しない
+		PortInstanceInComposition pPortInComposition = connector.get().getProvider().getParent();
+		if (pPortInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().isEmpty()) {
+			return Optional.absent(); // COVERAGE 現状は、常にfalse(信頼関数を使用する場合、要求側パーティションは必ず存在する)
 		}
-		return ecucPartition;
+
+		return Optional.of(pPortInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().get(0));
 	}
 
-	private OsApplicationTrustedFunction createCsTrustedFunction(ROperationInstanceInSwc operationInstanceInSwc) {
-
-		// 信頼関数構築
-		OsApplicationTrustedFunction osTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
-		osTrustedFunction.setShortName(SymbolNames.createCallCstfName(operationInstanceInSwc));
-		osTrustedFunction.setOsTrustedFunctionName(SymbolNames.createCsTrustedFunctionName(operationInstanceInSwc));
-		
-		return osTrustedFunction;
+	private OsApplicationTrustedFunction createCsTrustedFunction(AtomicSwComponentType sourceSwComponentType) {
+		OsApplicationTrustedFunction destOsTrustedFunction = EcucFactory.eINSTANCE.createOsApplicationTrustedFunction();
+		destOsTrustedFunction.setShortName(Identifiers.createCsCallTfName(sourceSwComponentType));
+		destOsTrustedFunction.setOsTrustedFunctionName(SymbolNames.createCsCallTfName(sourceSwComponentType));
+		return destOsTrustedFunction;
 	}
 
 	private GeneratedEcuConfiguration getOrCreateGeneratedEcuConfiguration() {
-		if (this.context.cache.interactionRoot.getGeneratedEcuConfiguration() == null) {
-			this.context.cache.interactionRoot.setGeneratedEcuConfiguration(InteractionFactory.eINSTANCE.createGeneratedEcuConfiguration());
+		InteractionRoot targetInteractionRoot = this.context.cache.interactionRoot;
+
+		if (targetInteractionRoot.getGeneratedEcuConfiguration() == null) {
+			targetInteractionRoot.setGeneratedEcuConfiguration(InteractionFactory.eINSTANCE.createGeneratedEcuConfiguration());
 		}
-		return this.context.cache.interactionRoot.getGeneratedEcuConfiguration();
+		return targetInteractionRoot.getGeneratedEcuConfiguration();
 	}
 
 	private <T extends EcucReferrable> Optional<T> tryFindOsConfig(EObject eObject, EClass eClass, String shortName) {

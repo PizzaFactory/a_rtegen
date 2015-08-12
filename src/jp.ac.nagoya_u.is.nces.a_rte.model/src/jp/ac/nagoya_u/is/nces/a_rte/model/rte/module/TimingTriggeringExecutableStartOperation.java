@@ -65,7 +65,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface TimingTriggeringExecutableStartOperation extends Operation, ExecutableStartOperation {
+public interface TimingTriggeringExecutableStartOperation extends ExecutableStartOperation {
 	/**
 	 * Returns the value of the '<em><b>Cycle Period Constant</b></em>' reference.
 	 * <!-- begin-user-doc -->

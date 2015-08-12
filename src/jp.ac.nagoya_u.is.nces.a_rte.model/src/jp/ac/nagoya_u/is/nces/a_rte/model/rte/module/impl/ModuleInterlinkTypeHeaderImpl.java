@@ -46,7 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeRequestVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
@@ -63,7 +63,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkTypeHeaderImpl#getConstant <em>Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkTypeHeaderImpl#getModeType <em>Mode Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkTypeHeaderImpl#getModeRequestVariable <em>Mode Request Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkTypeHeaderImpl#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,14 +91,14 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 	protected EList<ModeType> modeType;
 
 	/**
-	 * The cached value of the '{@link #getModeRequestVariable() <em>Mode Request Variable</em>}' reference list.
+	 * The cached value of the '{@link #getModeDeclarationGroup() <em>Mode Declaration Group</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModeRequestVariable()
+	 * @see #getModeDeclarationGroup()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModeRequestVariableSet> modeRequestVariable;
+	protected EList<ModeDeclarationGroup> modeDeclarationGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,11 +148,11 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModeRequestVariableSet> getModeRequestVariable() {
-		if (modeRequestVariable == null) {
-			modeRequestVariable = new EObjectResolvingEList<ModeRequestVariableSet>(ModeRequestVariableSet.class, this, ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_REQUEST_VARIABLE);
+	public EList<ModeDeclarationGroup> getModeDeclarationGroup() {
+		if (modeDeclarationGroup == null) {
+			modeDeclarationGroup = new EObjectResolvingEList<ModeDeclarationGroup>(ModeDeclarationGroup.class, this, ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP);
 		}
-		return modeRequestVariable;
+		return modeDeclarationGroup;
 	}
 
 	/**
@@ -167,8 +167,8 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 				return getConstant();
 			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_TYPE:
 				return getModeType();
-			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_REQUEST_VARIABLE:
-				return getModeRequestVariable();
+			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP:
+				return getModeDeclarationGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -190,9 +190,9 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 				getModeType().clear();
 				getModeType().addAll((Collection<? extends ModeType>)newValue);
 				return;
-			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_REQUEST_VARIABLE:
-				getModeRequestVariable().clear();
-				getModeRequestVariable().addAll((Collection<? extends ModeRequestVariableSet>)newValue);
+			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP:
+				getModeDeclarationGroup().clear();
+				getModeDeclarationGroup().addAll((Collection<? extends ModeDeclarationGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -212,8 +212,8 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_TYPE:
 				getModeType().clear();
 				return;
-			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_REQUEST_VARIABLE:
-				getModeRequestVariable().clear();
+			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP:
+				getModeDeclarationGroup().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -231,8 +231,8 @@ public class ModuleInterlinkTypeHeaderImpl extends HeaderFileImpl implements Mod
 				return constant != null && !constant.isEmpty();
 			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_TYPE:
 				return modeType != null && !modeType.isEmpty();
-			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_REQUEST_VARIABLE:
-				return modeRequestVariable != null && !modeRequestVariable.isEmpty();
+			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP:
+				return modeDeclarationGroup != null && !modeDeclarationGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -46,11 +46,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -120,7 +120,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GlobalVariableGroup> globalVariableGroup;
+	protected EList<GlobalVariableFileContentsGroup> globalVariableGroup;
 
 	/**
 	 * The cached value of the '{@link #getRteApiGroup() <em>Rte Api Group</em>}' containment reference list.
@@ -130,7 +130,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RteApiGroup> rteApiGroup;
+	protected EList<RteApiFileContentsGroup> rteApiGroup;
 
 	/**
 	 * The cached value of the '{@link #getDeclarationsRteApiGroup() <em>Declarations Rte Api Group</em>}' containment reference list.
@@ -140,7 +140,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RteApiGroup> declarationsRteApiGroup;
+	protected EList<RteApiFileContentsGroup> declarationsRteApiGroup;
 
 	/**
 	 * The cached value of the '{@link #getConstant() <em>Constant</em>}' reference list.
@@ -160,7 +160,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutableEntityGroup> dependentExecutableEntityGroup;
+	protected EList<ExecutableEntityFileContentsGroup> dependentExecutableEntityGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -219,9 +219,9 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GlobalVariableGroup> getGlobalVariableGroup() {
+	public EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup() {
 		if (globalVariableGroup == null) {
-			globalVariableGroup = new EObjectContainmentEList<GlobalVariableGroup>(GlobalVariableGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__GLOBAL_VARIABLE_GROUP);
+			globalVariableGroup = new EObjectContainmentEList<GlobalVariableFileContentsGroup>(GlobalVariableFileContentsGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__GLOBAL_VARIABLE_GROUP);
 		}
 		return globalVariableGroup;
 	}
@@ -231,9 +231,9 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteApiGroup> getRteApiGroup() {
+	public EList<RteApiFileContentsGroup> getRteApiGroup() {
 		if (rteApiGroup == null) {
-			rteApiGroup = new EObjectContainmentEList<RteApiGroup>(RteApiGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__RTE_API_GROUP);
+			rteApiGroup = new EObjectContainmentEList<RteApiFileContentsGroup>(RteApiFileContentsGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__RTE_API_GROUP);
 		}
 		return rteApiGroup;
 	}
@@ -243,9 +243,9 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteApiGroup> getDeclarationsRteApiGroup() {
+	public EList<RteApiFileContentsGroup> getDeclarationsRteApiGroup() {
 		if (declarationsRteApiGroup == null) {
-			declarationsRteApiGroup = new EObjectContainmentEList<RteApiGroup>(RteApiGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__DECLARATIONS_RTE_API_GROUP);
+			declarationsRteApiGroup = new EObjectContainmentEList<RteApiFileContentsGroup>(RteApiFileContentsGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__DECLARATIONS_RTE_API_GROUP);
 		}
 		return declarationsRteApiGroup;
 	}
@@ -267,9 +267,9 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExecutableEntityGroup> getDependentExecutableEntityGroup() {
+	public EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup() {
 		if (dependentExecutableEntityGroup == null) {
-			dependentExecutableEntityGroup = new EObjectContainmentEList<ExecutableEntityGroup>(ExecutableEntityGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
+			dependentExecutableEntityGroup = new EObjectContainmentEList<ExecutableEntityFileContentsGroup>(ExecutableEntityFileContentsGroup.class, this, ModulePackage.RTE_APPLICATION_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
 		}
 		return dependentExecutableEntityGroup;
 	}
@@ -338,15 +338,15 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 				return;
 			case ModulePackage.RTE_APPLICATION_HEADER__GLOBAL_VARIABLE_GROUP:
 				getGlobalVariableGroup().clear();
-				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableGroup>)newValue);
+				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_APPLICATION_HEADER__RTE_API_GROUP:
 				getRteApiGroup().clear();
-				getRteApiGroup().addAll((Collection<? extends RteApiGroup>)newValue);
+				getRteApiGroup().addAll((Collection<? extends RteApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_APPLICATION_HEADER__DECLARATIONS_RTE_API_GROUP:
 				getDeclarationsRteApiGroup().clear();
-				getDeclarationsRteApiGroup().addAll((Collection<? extends RteApiGroup>)newValue);
+				getDeclarationsRteApiGroup().addAll((Collection<? extends RteApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_APPLICATION_HEADER__CONSTANT:
 				getConstant().clear();
@@ -354,7 +354,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 				return;
 			case ModulePackage.RTE_APPLICATION_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:
 				getDependentExecutableEntityGroup().clear();
-				getDependentExecutableEntityGroup().addAll((Collection<? extends ExecutableEntityGroup>)newValue);
+				getDependentExecutableEntityGroup().addAll((Collection<? extends ExecutableEntityFileContentsGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

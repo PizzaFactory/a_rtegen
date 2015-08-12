@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
@@ -68,7 +67,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class IndexedArrayElementImpl extends ExtendedEObjectImpl implements IndexedArrayElement {
+public class IndexedArrayElementImpl extends M2ObjectImpl implements IndexedArrayElement {
 	/**
 	 * The cached value of the '{@link #getImplementationArrayElement() <em>Implementation Array Element</em>}' reference.
 	 * <!-- begin-user-doc -->

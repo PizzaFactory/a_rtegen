@@ -42,8 +42,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.util;
 
+/**
+ * インスタンスモデルに関するユーティリティ機能を提供する。
+ */
 public class InstanceModelUtils {
 
+	/**
+	 * インスタンスモデルのID接頭辞
+	 */
 	public static final String ID_PREFIX = "instance.";
 
 }

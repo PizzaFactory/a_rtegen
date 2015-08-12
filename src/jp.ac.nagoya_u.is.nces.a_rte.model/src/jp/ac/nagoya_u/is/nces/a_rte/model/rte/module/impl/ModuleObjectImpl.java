@@ -52,7 +52,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
@@ -135,19 +134,9 @@ public abstract class ModuleObjectImpl extends ExtendedEObjectImpl implements Mo
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EObject getSingleSource() {
-		EObject singleSource = basicGetSingleSource();
-		return singleSource != null && singleSource.eIsProxy() ? eResolveProxy((InternalEObject)singleSource) : singleSource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public EObject basicGetSingleSource() {
+	public EObject getSingleSource() {
 		return getSource().isEmpty() ? null : getSource().get(0);
 	}
 
@@ -195,8 +184,7 @@ public abstract class ModuleObjectImpl extends ExtendedEObjectImpl implements Mo
 			case ModulePackage.MODULE_OBJECT__SOURCE:
 				return getSource();
 			case ModulePackage.MODULE_OBJECT__SINGLE_SOURCE:
-				if (resolve) return getSingleSource();
-				return basicGetSingleSource();
+				return getSingleSource();
 			case ModulePackage.MODULE_OBJECT__ROLE_NAME:
 				return getRoleName();
 		}
@@ -258,7 +246,7 @@ public abstract class ModuleObjectImpl extends ExtendedEObjectImpl implements Mo
 			case ModulePackage.MODULE_OBJECT__SOURCE:
 				return source != null && !source.isEmpty();
 			case ModulePackage.MODULE_OBJECT__SINGLE_SOURCE:
-				return basicGetSingleSource() != null;
+				return getSingleSource() != null;
 			case ModulePackage.MODULE_OBJECT__ROLE_NAME:
 				return ROLE_NAME_EDEFAULT == null ? roleName != null : !ROLE_NAME_EDEFAULT.equals(roleName);
 		}

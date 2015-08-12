@@ -252,13 +252,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeSwitchEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass ecucModuleConfigurationValuesEClass = null;
 
 	/**
@@ -2182,15 +2175,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getmodeSwitchEvent() {
-		return modeSwitchEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getEcucModuleConfigurationValues() {
 		return ecucModuleConfigurationValuesEClass;
 	}
@@ -2786,7 +2770,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	public EReference getImplementationDataType_BaseType() {
-		return (EReference)implementationDataTypeEClass.getEStructuralFeatures().get(0);
+		return (EReference)implementationDataTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2795,7 +2779,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	public EAttribute getImplementationDataType_SwAlignment() {
-		return (EAttribute)implementationDataTypeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)implementationDataTypeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2804,7 +2788,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	public EReference getImplementationDataType_SubElement() {
-		return (EReference)implementationDataTypeEClass.getEStructuralFeatures().get(2);
+		return (EReference)implementationDataTypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2814,6 +2798,69 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EOperation getImplementationDataType__GetLeafImplementationDataType() {
 		return implementationDataTypeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsPrimitiveType() {
+		return implementationDataTypeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsPointerType() {
+		return implementationDataTypeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsArrayType() {
+		return implementationDataTypeEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsStructType() {
+		return implementationDataTypeEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsUnionType() {
+		return implementationDataTypeEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsRedefinitionType() {
+		return implementationDataTypeEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__IsComplexType() {
+		return implementationDataTypeEClass.getEOperations().get(7);
 	}
 
 	/**
@@ -5044,6 +5091,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getImplementationDataTypeElement__IsRedefinitionType() {
+		return implementationDataTypeElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSystemSignalGroup() {
 		return systemSignalGroupEClass;
 	}
@@ -5640,8 +5696,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		timingEventEClass = createEClass(TIMING_EVENT);
 		createEAttribute(timingEventEClass, TIMING_EVENT__PERIOD);
 
-		modeSwitchEventEClass = createEClass(MODE_SWITCH_EVENT);
-
 		ecucModuleConfigurationValuesEClass = createEClass(ECUC_MODULE_CONFIGURATION_VALUES);
 		createEAttribute(ecucModuleConfigurationValuesEClass, ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF);
 		createEAttribute(ecucModuleConfigurationValuesEClass, ECUC_MODULE_CONFIGURATION_VALUES__ECUC_DEF_EDITION);
@@ -5736,10 +5790,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		applicationDataTypeEClass = createEClass(APPLICATION_DATA_TYPE);
 
 		implementationDataTypeEClass = createEClass(IMPLEMENTATION_DATA_TYPE);
+		createEReference(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT);
 		createEReference(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__BASE_TYPE);
 		createEAttribute(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT);
-		createEReference(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT);
 		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_PRIMITIVE_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_POINTER_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_ARRAY_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_STRUCT_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_UNION_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_REDEFINITION_TYPE);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___IS_COMPLEX_TYPE);
+
+		implementationDataTypeElementEClass = createEClass(IMPLEMENTATION_DATA_TYPE_ELEMENT);
+		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE);
+		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS);
+		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SUB_ELEMENT);
+		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SW_DATA_DEF_PROPS);
+		createEOperation(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT___IS_REDEFINITION_TYPE);
 
 		swDataDefPropsEClass = createEClass(SW_DATA_DEF_PROPS);
 		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__INVALID_VALUE);
@@ -6062,12 +6130,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswInterruptEntityEClass = createEClass(BSW_INTERRUPT_ENTITY);
 		createEAttribute(bswInterruptEntityEClass, BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE);
 
-		implementationDataTypeElementEClass = createEClass(IMPLEMENTATION_DATA_TYPE_ELEMENT);
-		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE);
-		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS);
-		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SUB_ELEMENT);
-		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SW_DATA_DEF_PROPS);
-
 		systemSignalGroupEClass = createEClass(SYSTEM_SIGNAL_GROUP);
 		createEReference(systemSignalGroupEClass, SYSTEM_SIGNAL_GROUP__SYSTEM_SIGNAL);
 
@@ -6102,6 +6164,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(swPointerTargetPropsEClass, SW_POINTER_TARGET_PROPS__SW_DATA_DEF_PROPS);
 
 		// Create enums
+		arraySizeSemanticsEnumEEnum = createEEnum(ARRAY_SIZE_SEMANTICS_ENUM);
 		argumentDirectionEnumEEnum = createEEnum(ARGUMENT_DIRECTION_ENUM);
 		dataFilterTypeEnumEEnum = createEEnum(DATA_FILTER_TYPE_ENUM);
 		handleInvalidEnumEEnum = createEEnum(HANDLE_INVALID_ENUM);
@@ -6111,7 +6174,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		modeActivationKindEEnum = createEEnum(MODE_ACTIVATION_KIND);
 		bswCallTypeEnumEEnum = createEEnum(BSW_CALL_TYPE_ENUM);
 		bswExecutionContextEnumEEnum = createEEnum(BSW_EXECUTION_CONTEXT_ENUM);
-		arraySizeSemanticsEnumEEnum = createEEnum(ARRAY_SIZE_SEMANTICS_ENUM);
 
 		// Create data types
 		numericalEDataType = createEDataType(NUMERICAL);
@@ -6190,7 +6252,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		variableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		rteEventEClass.getESuperTypes().add(this.getIdentifiable());
 		timingEventEClass.getESuperTypes().add(this.getRteEvent());
-		modeSwitchEventEClass.getESuperTypes().add(this.getRteEvent());
 		ecucModuleConfigurationValuesEClass.getESuperTypes().add(this.getArElement());
 		ecucContainerValueEClass.getESuperTypes().add(this.getIdentifiable());
 		ecucParameterValueEClass.getESuperTypes().add(this.getM2Object());
@@ -6219,6 +6280,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		autosarDataTypeEClass.getESuperTypes().add(this.getArElement());
 		applicationDataTypeEClass.getESuperTypes().add(this.getAutosarDataType());
 		implementationDataTypeEClass.getESuperTypes().add(this.getAutosarDataType());
+		implementationDataTypeElementEClass.getESuperTypes().add(this.getIdentifiable());
 		swDataDefPropsEClass.getESuperTypes().add(this.getM2Object());
 		dataTypeMapEClass.getESuperTypes().add(this.getM2Object());
 		dataTypeMappingSetEClass.getESuperTypes().add(this.getArElement());
@@ -6306,11 +6368,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswTimingEventEClass.getESuperTypes().add(this.getBswEvent());
 		bswCalledEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
 		bswInterruptEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
-		implementationDataTypeElementEClass.getESuperTypes().add(this.getIdentifiable());
 		systemSignalGroupEClass.getESuperTypes().add(this.getArElement());
 		iSignalGroupEClass.getESuperTypes().add(this.getArElement());
 		senderRecRecordTypeMappingEClass.getESuperTypes().add(this.getSenderRecCompositeTypeMapping());
+		senderRecRecordElementMappingEClass.getESuperTypes().add(this.getM2Object());
 		senderRecArrayTypeMappingEClass.getESuperTypes().add(this.getSenderRecCompositeTypeMapping());
+		indexedArrayElementEClass.getESuperTypes().add(this.getM2Object());
+		senderRecArrayElementMappingEClass.getESuperTypes().add(this.getM2Object());
+		swPointerTargetPropsEClass.getESuperTypes().add(this.getM2Object());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(m2RootEClass, M2Root.class, "M2Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -6451,8 +6516,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimingEvent_Period(), this.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modeSwitchEventEClass, modeSwitchEvent.class, "modeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(ecucModuleConfigurationValuesEClass, EcucModuleConfigurationValues.class, "EcucModuleConfigurationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEcucModuleConfigurationValues_DefinitionRef(), this.getRef(), "definitionRef", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEcucModuleConfigurationValues_EcucDefEdition(), this.getRevisionLabelString(), "ecucDefEdition", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6538,21 +6601,43 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(autosarDataTypeEClass, AutosarDataType.class, "AutosarDataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAutosarDataType_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, AutosarDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAutosarDataType_InvalidValue(), this.getValueSpecification(), null, "invalidValue", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getAutosarDataType_CompuMethod(), this.getCompuMethod(), null, "compuMethod", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getAutosarDataType_DataConstr(), this.getDataConstr(), null, "dataConstr", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getAutosarDataType_SwAddrMethod(), this.getSwAddrMethod(), null, "swAddrMethod", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarDataType_InvalidValue(), this.getValueSpecification(), null, "invalidValue", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarDataType_CompuMethod(), this.getCompuMethod(), null, "compuMethod", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarDataType_DataConstr(), this.getDataConstr(), null, "dataConstr", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarDataType_SwAddrMethod(), this.getSwAddrMethod(), null, "swAddrMethod", null, 0, 1, AutosarDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAutosarDataType__GetSwImplPolicy(), this.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(applicationDataTypeEClass, ApplicationDataType.class, "ApplicationDataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(implementationDataTypeEClass, ImplementationDataType.class, "ImplementationDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getImplementationDataType_BaseType(), this.getSwBaseType(), null, "baseType", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImplementationDataType_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getImplementationDataType_SubElement(), this.getImplementationDataTypeElement(), null, "subElement", null, 0, -1, ImplementationDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataType_BaseType(), this.getSwBaseType(), null, "baseType", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImplementationDataType_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getImplementationDataType__GetLeafImplementationDataType(), this.getImplementationDataType(), "getLeafImplementationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsPrimitiveType(), ecorePackage.getEBoolean(), "isPrimitiveType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsPointerType(), ecorePackage.getEBoolean(), "isPointerType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsArrayType(), ecorePackage.getEBoolean(), "isArrayType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsStructType(), ecorePackage.getEBoolean(), "isStructType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsUnionType(), ecorePackage.getEBoolean(), "isUnionType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsRedefinitionType(), ecorePackage.getEBoolean(), "isRedefinitionType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__IsComplexType(), ecorePackage.getEBoolean(), "isComplexType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(implementationDataTypeElementEClass, ImplementationDataTypeElement.class, "ImplementationDataTypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImplementationDataTypeElement_ArraySize(), this.getPositiveInteger(), "arraySize", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImplementationDataTypeElement_ArraySizeSemantics(), this.getArraySizeSemanticsEnum(), "arraySizeSemantics", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataTypeElement_SubElement(), this.getImplementationDataTypeElement(), null, "subElement", null, 0, -1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataTypeElement_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getImplementationDataTypeElement__IsRedefinitionType(), ecorePackage.getEBoolean(), "isRedefinitionType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(swDataDefPropsEClass, SwDataDefProps.class, "SwDataDefProps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwDataDefProps_InvalidValue(), this.getValueSpecification(), null, "invalidValue", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6584,7 +6669,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(modeDeclarationGroupEClass, ModeDeclarationGroup.class, "ModeDeclarationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModeDeclarationGroup_InitialMode(), this.getModeDeclaration(), null, "initialMode", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModeDeclarationGroup_ModeDeclaration(), this.getModeDeclaration(), null, "modeDeclaration", null, 0, -1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getModeDeclarationGroup_ModeDeclaration(), this.getModeDeclaration(), null, "modeDeclaration", null, 1, -1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(applicationPrimitiveDataTypeEClass, ApplicationPrimitiveDataType.class, "ApplicationPrimitiveDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -6600,8 +6685,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(dataPrototypeEClass, DataPrototype.class, "DataPrototype", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataPrototype_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, DataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataPrototype_SwAddrMethod(), this.getSwAddrMethod(), null, "swAddrMethod", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDataPrototype_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataPrototype_SwAddrMethod(), this.getSwAddrMethod(), null, "swAddrMethod", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataPrototype_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getDataPrototype_Type(), this.getAutosarDataType(), null, "type", null, 1, 1, DataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDataPrototype__GetSwImplPolicy(), this.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -6668,9 +6753,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEAttribute(getDataFilter_Period(), this.getPositiveInteger(), "period", null, 0, 1, DataFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataFilter_X(), this.getUnlimitedInteger(), "x", null, 0, 1, DataFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getDataFilter__IsFilterEnabled(), this.getBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getDataFilter__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getDataFilter__IsCompatibleWith__DataFilter(), this.getBoolean(), "isCompatibleWith", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getDataFilter__IsCompatibleWith__DataFilter(), ecorePackage.getEBoolean(), "isCompatibleWith", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDataFilter(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(queuedReceiverComSpecEClass, QueuedReceiverComSpec.class, "QueuedReceiverComSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -6680,7 +6765,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getInvalidationPolicy_DataElement(), this.getVariableDataPrototype(), null, "dataElement", null, 1, 1, InvalidationPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInvalidationPolicy_HandleInvalid(), this.getHandleInvalidEnum(), "handleInvalid", null, 0, 1, InvalidationPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getInvalidationPolicy__IsInvalidationEnabled(), this.getBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInvalidationPolicy__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(portApiOptionEClass, PortApiOption.class, "PortApiOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPortApiOption_PortArgValue(), this.getPortDefinedArgumentValue(), this.getPortDefinedArgumentValue_Parent(), "portArgValue", null, 0, -1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6889,12 +6974,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(bswInterruptEntityEClass, BswInterruptEntity.class, "BswInterruptEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBswInterruptEntity_InterruptSource(), this.getString(), "interruptSource", null, 1, 1, BswInterruptEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(implementationDataTypeElementEClass, ImplementationDataTypeElement.class, "ImplementationDataTypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImplementationDataTypeElement_ArraySize(), this.getPositiveInteger(), "arraySize", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getImplementationDataTypeElement_ArraySizeSemantics(), this.getArraySizeSemanticsEnum(), "arraySizeSemantics", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getImplementationDataTypeElement_SubElement(), this.getImplementationDataTypeElement(), null, "subElement", null, 0, -1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getImplementationDataTypeElement_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(systemSignalGroupEClass, SystemSignalGroup.class, "SystemSignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSystemSignalGroup_SystemSignal(), this.getSystemSignal(), null, "systemSignal", null, 0, -1, SystemSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -6929,6 +7008,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getSwPointerTargetProps_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, SwPointerTargetProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
+		initEEnum(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.class, "ArraySizeSemanticsEnum");
+		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.FIXED_SIZE);
+		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.VARIABLE_SIZE);
+
 		initEEnum(argumentDirectionEnumEEnum, ArgumentDirectionEnum.class, "ArgumentDirectionEnum");
 		addEEnumLiteral(argumentDirectionEnumEEnum, ArgumentDirectionEnum.IN);
 		addEEnumLiteral(argumentDirectionEnumEEnum, ArgumentDirectionEnum.OUT);
@@ -6988,10 +7071,6 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		addEEnumLiteral(bswExecutionContextEnumEEnum, BswExecutionContextEnum.HOOK);
 		addEEnumLiteral(bswExecutionContextEnumEEnum, BswExecutionContextEnum.UNSPECIFIED);
 
-		initEEnum(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.class, "ArraySizeSemanticsEnum");
-		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.FIXED_SIZE);
-		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.VARIABLE_SIZE);
-
 		// Initialize data types
 		initEDataType(numericalEDataType, BigDecimal.class, "Numerical", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(integerEDataType, Integer.class, "Integer", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -7038,7 +7117,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																																														
+		   });																																																																																						
 	}
 
 	/**
@@ -7066,7 +7145,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "isOfType", "true"
-		   });											
+		   });																			
 		addAnnotation
 		  (getModeDeclarationGroupPrototype_Type(), 
 		   source, 
@@ -7240,6 +7319,48 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 			 "body", "if swDataDefProps.implementationDataType.oclIsUndefined()\n\t\t\t\tthen self\n\t\t\t\telse swDataDefProps.implementationDataType.getLeafImplementationDataType()\n\t\t\t\tendif"
 		   });		
 		addAnnotation
+		  (getImplementationDataType__IsPrimitiveType(), 
+		   source, 
+		   new String[] {
+			 "body", "getLeafImplementationDataType().category = \'VALUE\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsPointerType(), 
+		   source, 
+		   new String[] {
+			 "body", "getLeafImplementationDataType().category = \'DATA_REFERENCE\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsArrayType(), 
+		   source, 
+		   new String[] {
+			 "body", "getLeafImplementationDataType().category = \'ARRAY\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsStructType(), 
+		   source, 
+		   new String[] {
+			 "body", "getLeafImplementationDataType().category = \'STRUCTURE\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsUnionType(), 
+		   source, 
+		   new String[] {
+			 "body", "getLeafImplementationDataType().category = \'UNION\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsRedefinitionType(), 
+		   source, 
+		   new String[] {
+			 "body", "category = \'TYPE_REFERENCE\'"
+		   });		
+		addAnnotation
+		  (getImplementationDataType__IsComplexType(), 
+		   source, 
+		   new String[] {
+			 "body", "not isPrimitiveType()"
+		   });		
+		addAnnotation
 		  (getImplementationDataType_BaseType(), 
 		   source, 
 		   new String[] {
@@ -7250,6 +7371,12 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "derivation", "if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif"
+		   });		
+		addAnnotation
+		  (getImplementationDataTypeElement__IsRedefinitionType(), 
+		   source, 
+		   new String[] {
+			 "body", "category = \'TYPE_REFERENCE\'"
 		   });				
 		addAnnotation
 		  (getAutosarDataPrototype__GetSwAddrMethod(), 
@@ -7356,7 +7483,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "xml.roleWrapperElement", "true"
-		   });																																																			
+		   });																																																											
 		addAnnotation
 		  (getSystem_RootSoftwareComposition(), 
 		   source, 

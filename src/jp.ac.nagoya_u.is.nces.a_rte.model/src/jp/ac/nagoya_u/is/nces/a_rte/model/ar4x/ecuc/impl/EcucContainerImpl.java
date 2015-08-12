@@ -106,7 +106,7 @@ public abstract class EcucContainerImpl extends EcucReferrableImpl implements Ec
 	}
 
 	public void rebuildId() {
-		Optional<EcucReferrable> foundParent = EmfUtils.tryFindParentOfType(this, ECUC_REFERRABLE);
+		Optional<EcucReferrable> foundParent = EmfUtils.tryFindNearestAncestorOfType(this, ECUC_REFERRABLE);
 		String reference = foundParent.isPresent() ? foundParent.get().getReference() + M2ModelUtils.REFERENCE_SEPARATOR + getShortName() : M2ModelUtils.REFERENCE_SEPARATOR + getShortName();
 		setReference(reference);
 		setId(EcucModelUtils.ID_PREFIX + reference);

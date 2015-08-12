@@ -42,17 +42,15 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction;
 
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERACTION_REFERRABLE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.M2MException;
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.ComSendProxyModelBuilder;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.EntityInteractionModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.GeneratedEcucModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.InteractionModelBuildContext;
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.EntityInteractionModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.SenderReceiverImplementationModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.SenderReceiverInteractionModelBuilder;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder.SourceModelCacheBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionReferrable;
@@ -72,30 +70,31 @@ public class InteractionModelBuildDirector implements IInteractionModelBuildDire
 	public void build(InteractionModelBuildContext context) throws M2MException {
 
 		try {
-			context.cache.uint8Type = context.query.findByID(Identifiers.RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT8);
-			context.cache.uint16Type = context.query.findByID(Identifiers.RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT16);
-			context.cache.uint32Type = context.query.findByID(Identifiers.RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT32);
-			context.cache.comSignalIdType = context.query.findByID(Identifiers.RTE_INTERNAL_DATA_TYPE_REFERENCE_COM_SIGNAL_ID_TYPE);
-
-			context.cache.masterBswPartition = context.query.tryFindSingle(hasOp(ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION, true));
+			// モデル変換元モデルのキャッシュを構築
+			SourceModelCacheBuilder sourceModelCacheBuilder = new SourceModelCacheBuilder(context);
+			sourceModelCacheBuilder.build();
 
 			// モデルの構築
 			InteractionRoot interactionRoot = InteractionFactory.eINSTANCE.createInteractionRoot();
 			context.eResource.getContents().add(interactionRoot);
 			context.cache.interactionRoot = interactionRoot;
 
+			// S/Rの連携内容モデルを構築
 			SenderReceiverInteractionModelBuilder srInteractionBuilder = new SenderReceiverInteractionModelBuilder(context);
 			srInteractionBuilder.build();
 
+			// S/Rの連携実現方式モデルを構築
 			SenderReceiverImplementationModelBuilder srImplementationBuilder = new SenderReceiverImplementationModelBuilder(context);
 			srImplementationBuilder.build();
 
 			ComSendProxyModelBuilder comSendProxyBuilder = new ComSendProxyModelBuilder(context);
 			comSendProxyBuilder.build();
 
+			// エンティティの連携内容・連携実現方式モデルを構築
 			EntityInteractionModelBuilder entityInteractionBuilder = new EntityInteractionModelBuilder(context);
 			entityInteractionBuilder.build();
 
+			// 不足しているECUCモデルを生成
 			GeneratedEcucModelBuilder generatedEcucBuilder = new GeneratedEcucModelBuilder(context);
 			generatedEcucBuilder.build();
 

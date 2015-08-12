@@ -63,7 +63,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface ModeSwitchTriggeringExecutableStartOperation extends Operation, ExecutableStartOperation {
+public interface ModeSwitchTriggeringExecutableStartOperation extends ExecutableStartOperation {
 
 	/**
 	 * Returns the value of the '<em><b>Start Mode</b></em>' reference list.

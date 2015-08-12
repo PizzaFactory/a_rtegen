@@ -45,15 +45,9 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -65,7 +59,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl#getSymbolName <em>Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl#getFunctionName <em>Function Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl#getMemoryMapping <em>Memory Mapping</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,16 +104,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 	 * @ordered
 	 */
 	protected String functionName = FUNCTION_NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getMemoryMapping() <em>Memory Mapping</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMemoryMapping()
-	 * @generated
-	 * @ordered
-	 */
-	protected MemoryMapping memoryMapping;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,44 +171,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MemoryMapping getMemoryMapping() {
-		if (memoryMapping != null && ((EObject)memoryMapping).eIsProxy()) {
-			InternalEObject oldMemoryMapping = (InternalEObject)memoryMapping;
-			memoryMapping = (MemoryMapping)eResolveProxy(oldMemoryMapping);
-			if (memoryMapping != oldMemoryMapping) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING, oldMemoryMapping, memoryMapping));
-			}
-		}
-		return memoryMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MemoryMapping basicGetMemoryMapping() {
-		return memoryMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMemoryMapping(MemoryMapping newMemoryMapping) {
-		MemoryMapping oldMemoryMapping = memoryMapping;
-		memoryMapping = newMemoryMapping;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING, oldMemoryMapping, memoryMapping));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -233,9 +178,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 				return getSymbolName();
 			case ModulePackage.FUNCTION_MACRO__FUNCTION_NAME:
 				return getFunctionName();
-			case ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING:
-				if (resolve) return getMemoryMapping();
-				return basicGetMemoryMapping();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,9 +195,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 				return;
 			case ModulePackage.FUNCTION_MACRO__FUNCTION_NAME:
 				setFunctionName((String)newValue);
-				return;
-			case ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING:
-				setMemoryMapping((MemoryMapping)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,9 +214,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 			case ModulePackage.FUNCTION_MACRO__FUNCTION_NAME:
 				setFunctionName(FUNCTION_NAME_EDEFAULT);
 				return;
-			case ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING:
-				setMemoryMapping((MemoryMapping)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -294,8 +230,6 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 				return SYMBOL_NAME_EDEFAULT == null ? symbolName != null : !SYMBOL_NAME_EDEFAULT.equals(symbolName);
 			case ModulePackage.FUNCTION_MACRO__FUNCTION_NAME:
 				return FUNCTION_NAME_EDEFAULT == null ? functionName != null : !FUNCTION_NAME_EDEFAULT.equals(functionName);
-			case ModulePackage.FUNCTION_MACRO__MEMORY_MAPPING:
-				return memoryMapping != null;
 		}
 		return super.eIsSet(featureID);
 	}

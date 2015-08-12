@@ -99,20 +99,20 @@ public interface ComSignalGroupEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())'"
 	 * @generated
 	 */
-	Boolean isSender(ComSignalGroup this_);
+	boolean isSender(ComSignalGroup this_);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())'"
 	 * @generated
 	 */
-	Boolean isReceiver(ComSignalGroup this_);
+	boolean isReceiver(ComSignalGroup this_);
 
 	/**
 	 * <!-- begin-user-doc -->

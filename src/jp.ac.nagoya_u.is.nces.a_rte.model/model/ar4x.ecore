@@ -298,7 +298,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="TimingEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="modeSwitchEvent" eSuperTypes="#//m2/RteEvent"/>
     <eClassifiers xsi:type="ecore:EClass" name="EcucModuleConfigurationValues" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
           eType="#//m2/Ref"/>
@@ -431,25 +430,25 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="invalidValue" eType="#//m2/ValueSpecification"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.invalidValue.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.invalidValue&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="compuMethod" eType="#//m2/CompuMethod"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.compuMethod.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.compuMethod&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataConstr" eType="#//m2/DataConstr"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.dataConstr.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.dataConstr&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.swAddrMethod.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.swAddrMethod&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
@@ -466,20 +465,72 @@
           <details key="body" value="if swDataDefProps.implementationDataType.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;then self&#xA;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.implementationDataType.getLeafImplementationDataType()&#xA;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="isPrimitiveType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getLeafImplementationDataType().category = 'VALUE'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isPointerType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getLeafImplementationDataType().category = 'DATA_REFERENCE'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isArrayType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getLeafImplementationDataType().category = 'ARRAY'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isStructType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getLeafImplementationDataType().category = 'STRUCTURE'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isUnionType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getLeafImplementationDataType().category = 'UNION'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isRedefinitionType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="category = 'TYPE_REFERENCE'"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isComplexType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not isPrimitiveType()"/>
+        </eAnnotations>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subElement" upperBound="-1"
+          eType="#//m2/ImplementationDataTypeElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//m2/SwBaseType"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.baseType.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.baseType&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="swAlignment" eType="#//m2/AlignmentType"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.swAlignment.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.swAlignment&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ImplementationDataTypeElement" eSuperTypes="#//m2/Identifiable">
+      <eOperations name="isRedefinitionType" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="category = 'TYPE_REFERENCE'"/>
+        </eAnnotations>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySize" eType="#//m2/PositiveInteger"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySizeSemantics" eType="#//m2/ArraySizeSemanticsEnum"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subElement" upperBound="-1"
           eType="#//m2/ImplementationDataTypeElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ArraySizeSemanticsEnum">
+      <eLiterals name="fixedSize"/>
+      <eLiterals name="variableSize" value="1"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwDataDefProps" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="invalidValue" eType="#//m2/ValueSpecification"
@@ -526,7 +577,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="initialMode" lowerBound="1"
           eType="#//m2/ModeDeclaration"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeDeclaration" ordered="false"
-          upperBound="-1" eType="#//m2/ModeDeclaration" containment="true"/>
+          lowerBound="1" upperBound="-1" eType="#//m2/ModeDeclaration" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationPrimitiveDataType" eSuperTypes="#//m2/ApplicationDataType"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutosarDataPrototype" abstract="true"
@@ -573,13 +624,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.swAddrMethod.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.swAddrMethod&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="swAlignment" eType="#//m2/AlignmentType"
-          volatile="true" transient="true" derived="true">
+          changeable="false" volatile="true" transient="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.swAlignment.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.swAlignment&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
@@ -697,12 +748,12 @@
       <eLiterals name="oneEveryN"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataFilter" eSuperTypes="#//m2/M2Object">
-      <eOperations name="isFilterEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isFilterEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="dataFilterType &lt;> DataFilterTypeEnum::always"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isCompatibleWith" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isCompatibleWith" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="self.dataFilterType = another.dataFilterType and self.mask = another.mask and self.max = another.max and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;self.min = another.min and self.offset = another.offset and self.period = another.period and self.x = another.x"/>
         </eAnnotations>
@@ -732,7 +783,7 @@
     <eClassifiers xsi:type="ecore:EDataType" name="VerbatimString" instanceClassName="java.lang.String"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Float" instanceClassName="java.math.BigDecimal"/>
     <eClassifiers xsi:type="ecore:EClass" name="InvalidationPolicy" eSuperTypes="#//m2/M2Object">
-      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="無効化が有効かどうか"/>
         </eAnnotations>
@@ -1137,18 +1188,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="interruptSource" lowerBound="1"
           eType="#//m2/String"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ImplementationDataTypeElement" eSuperTypes="#//m2/Identifiable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySize" eType="#//m2/PositiveInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySizeSemantics" eType="#//m2/ArraySizeSemanticsEnum"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subElement" upperBound="-1"
-          eType="#//m2/ImplementationDataTypeElement" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="ArraySizeSemanticsEnum">
-      <eLiterals name="fixedSize"/>
-      <eLiterals name="variableSize" value="1"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemSignalGroup" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" upperBound="-1"
           eType="#//m2/SystemSignal"/>
@@ -1165,7 +1204,7 @@
           ordered="false" upperBound="-1" eType="#//m2/SenderRecRecordElementMapping"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SenderRecRecordElementMapping">
+    <eClassifiers xsi:type="ecore:EClass" name="SenderRecRecordElementMapping" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationRecordElement"
           eType="#//m2/ImplementationDataTypeElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="complexTypeMapping" eType="#//m2/SenderRecCompositeTypeMapping"
@@ -1177,20 +1216,20 @@
           ordered="false" upperBound="-1" eType="#//m2/SenderRecArrayElementMapping"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IndexedArrayElement">
+    <eClassifiers xsi:type="ecore:EClass" name="IndexedArrayElement" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationArrayElement"
           eType="#//m2/ImplementationDataTypeElement"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1"
           eType="#//m2/Integer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SenderRecArrayElementMapping">
+    <eClassifiers xsi:type="ecore:EClass" name="SenderRecArrayElementMapping" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="indexedArrayElement"
           lowerBound="1" eType="#//m2/IndexedArrayElement" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="complexTypeMapping" eType="#//m2/SenderRecCompositeTypeMapping"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" eType="#//m2/SystemSignal"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SwPointerTargetProps">
+    <eClassifiers xsi:type="ecore:EClass" name="SwPointerTargetProps" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetCategory" eType="#//m2/Identifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
           containment="true"/>
@@ -1363,7 +1402,7 @@
       <eLiterals name="TRIGGERED_WITHOUT_REPETITION"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSignal" eSuperTypes="#//ecuc/EcucContainer">
-      <eOperations name="transfersImmediately" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="transfersImmediately" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="not comTransferProperty.oclIsUndefined() and comTransferProperty &lt;> ComTransferPropertyEnum::PENDING"/>
         </eAnnotations>
@@ -1376,7 +1415,7 @@
           eType="#//ecuc/ComTransferPropertyEnum"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSignalGroup" eSuperTypes="#//ecuc/EcucContainer">
-      <eOperations name="transfersImmediately" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="transfersImmediately" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="not comTransferProperty.oclIsUndefined() and comTransferProperty &lt;> ComTransferPropertyEnum::PENDING"/>
         </eAnnotations>
@@ -1428,7 +1467,7 @@
           eType="#//ecuc/EcucPartition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucPartition" eSuperTypes="#//ecuc/EcucContainer">
-      <eOperations name="isTrusted" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isTrusted" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="let osApp : OsApplication = self.implOsApplication->any(true)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;in if osApp.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then false&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else osApp.osTrusted&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
@@ -1533,7 +1572,7 @@
           eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osApplicationTrustedFunction"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsOS" eSuperTypes="#//ecuc/EcucContainer">
-      <eOperations name="isMulticoreOs" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isMulticoreOs" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="not self.osNumberOfCores.oclIsUndefined()"/>
         </eAnnotations>
@@ -1553,10 +1592,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsAlarm" eType="#//ecuc/OsAlarm"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsEvent" eType="#//ecuc/OsEvent"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RteBswProvidedModeGroupRef"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RteBswRequiredModeGroupRef"/>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswRequiredModeGroupConnection"
         eSuperTypes="#//ecuc/EcucContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+          eType="#//ecuc/RteBswModuleInstance" derived="true" eOpposite="#//ecuc/RteBswModuleInstance/rteBswRequiredModeGroupConnection"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswProvidedModeGroup"
           lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroup"
@@ -1571,7 +1610,7 @@
           lowerBound="1" eType="#//m2/BswImplementation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroupConnection"
           ordered="false" upperBound="-1" eType="#//ecuc/RteBswRequiredModeGroupConnection"
-          containment="true"/>
+          containment="true" eOpposite="#//ecuc/RteBswRequiredModeGroupConnection/parent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswExclusiveAreaImpl" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveArea"
@@ -1614,7 +1653,7 @@
           <details key="body" value="self.prototype.shortName"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isEventSemantics" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isEventSemantics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="イベントセマンティクスかどうか"/>
         </eAnnotations>
@@ -1695,12 +1734,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableDataInstanceInComposition"
         eSuperTypes="#//instance/VariableDataInstance">
-      <eOperations name="isProvided" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isProvided" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="prototype.oclIsKindOf(PVariableDataInstanceInSwc)"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isRequired" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isRequired" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="prototype.oclIsKindOf(RVariableDataInstanceInSwc)"/>
         </eAnnotations>
@@ -1721,7 +1760,7 @@
           eType="#//instance/AssemblyDataInstanceConnector" derived="true" eOpposite="#//instance/AssemblyDataInstanceConnector/requester"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PVariableDataInstanceInSwc" eSuperTypes="#//instance/VariableDataInstanceInSwc">
-      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="無効化が有効かどうか"/>
         </eAnnotations>
@@ -1748,14 +1787,15 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextPPort" lowerBound="1"
-          eType="#//m2/PPortPrototype" volatile="true" transient="true" derived="true">
+          eType="#//m2/PPortPrototype" changeable="false" volatile="true" transient="true"
+          derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="contextPort.oclAsType(m2::PPortPrototype)"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RVariableDataInstanceInSwc" eSuperTypes="#//instance/VariableDataInstanceInSwc">
-      <eOperations name="isFilterEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isFilterEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="if getFilter().oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then false&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else getFilter().isFilterEnabled()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
@@ -1765,12 +1805,12 @@
           <details key="body" value="let filter : m2::DataFilter = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).filter&#xA;&#x9;&#x9;&#x9;&#x9;in if filter.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else filter&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isAliveTimeoutEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isAliveTimeoutEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="let comSpec : m2::NonqueuedReceiverComSpec = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec)&#xA;&#x9;&#x9;&#x9;&#x9;in not comSpec.oclIsUndefined() and comSpec.aliveTimeout &lt;> 0"/>
         </eAnnotations>
       </eOperations>
-      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="#//m2/Boolean">
+      <eOperations name="isInvalidationEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="無効化が有効かどうか"/>
         </eAnnotations>
@@ -1793,10 +1833,10 @@
       </eOperations>
       <eOperations name="getQueueLength" lowerBound="1" eType="#//m2/PositiveInteger">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="QueuedReceiverComSpecのキュー長を返す&#xA;NOTE: ComSpecがないときは、nullU問題の対応で1を返す（暫定対応となるため、モデル違反として扱うときには、nullを返すように戻すこと"/>
+          <details key="documentation" value="QueuedReceiverComSpecのキュー長を返す"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)&#xA;&#x9;&#x9;&#x9;&#x9;in if comSpec.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then 1&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else comSpec.queueLength&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
+          <details key="body" value="let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)&#xA;&#x9;&#x9;&#x9;&#x9;in if comSpec.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else comSpec.queueLength&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eOperations>
       <eOperations name="getComSpec" lowerBound="1" eType="#//m2/ReceiverComSpec">
@@ -1805,7 +1845,8 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextRPort" lowerBound="1"
-          eType="#//m2/RPortPrototype" volatile="true" transient="true" derived="true">
+          eType="#//m2/RPortPrototype" changeable="false" volatile="true" transient="true"
+          derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="contextPort.oclAsType(m2::RPortPrototype)"/>
         </eAnnotations>

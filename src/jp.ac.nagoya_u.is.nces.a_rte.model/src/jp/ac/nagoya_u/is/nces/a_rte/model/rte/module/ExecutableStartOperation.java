@@ -54,11 +54,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getExcludeOperation <em>Exclude Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable <em>Start Executable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getCurrentMode <em>Current Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getNextMode <em>Next Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledMode <em>Disabled Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getRieaExcludeOperation <em>Riea Exclude Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledInMode <em>Disabled In Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,20 +66,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExecutableStartOperation extends Operation {
 	/**
-	 * Returns the value of the '<em><b>Exclude Operation</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation}.
+	 * Returns the value of the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exclude Operation</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Disabled In Mode</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exclude Operation</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_ExcludeOperation()
+	 * @return the value of the '<em>Disabled In Mode</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_DisabledInMode()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExcludeOperation> getExcludeOperation();
+	EList<DisabledInMode> getDisabledInMode();
 
 	/**
 	 * Returns the value of the '<em><b>Start Executable</b></em>' reference.
@@ -110,71 +108,22 @@ public interface ExecutableStartOperation extends Operation {
 	void setStartExecutable(ExecutableEntity value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Mode</b></em>' attribute.
+	 * Returns the value of the '<em><b>Riea Exclude Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Mode</em>' reference isn't clear,
+	 * If the meaning of the '<em>Riea Exclude Operation</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Mode</em>' attribute.
-	 * @see #setCurrentMode(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_CurrentMode()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getCurrentMode();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getCurrentMode <em>Current Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Mode</em>' attribute.
-	 * @see #getCurrentMode()
-	 * @generated
-	 */
-	void setCurrentMode(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Mode</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Mode</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Mode</em>' attribute.
-	 * @see #setNextMode(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_NextMode()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getNextMode();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getNextMode <em>Next Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Mode</em>' attribute.
-	 * @see #getNextMode()
-	 * @generated
-	 */
-	void setNextMode(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Disabled Mode</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Disabled Mode</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Disabled Mode</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_DisabledMode()
+	 * <!-- begin-model-doc -->
+	 * エクスキュータブル実行時に行う排他処理
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Riea Exclude Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_RieaExcludeOperation()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DisabledInMode> getDisabledMode();
+	EList<ExcludeOperation> getRieaExcludeOperation();
 
 } // ExecutableStartOperation

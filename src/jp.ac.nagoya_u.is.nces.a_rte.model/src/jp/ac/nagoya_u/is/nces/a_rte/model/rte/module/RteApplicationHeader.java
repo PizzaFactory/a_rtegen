@@ -115,7 +115,7 @@ public interface RteApplicationHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Global Variable Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Global Variable Group</em>' containment reference list isn't clear,
@@ -127,11 +127,11 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GlobalVariableGroup> getGlobalVariableGroup();
+	EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Rte Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Api Group</em>' reference list isn't clear,
@@ -143,11 +143,11 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteApiGroup> getRteApiGroup();
+	EList<RteApiFileContentsGroup> getRteApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Declarations Rte Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Declarations Rte Api Group</em>' containment reference list isn't clear,
@@ -159,7 +159,7 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteApiGroup> getDeclarationsRteApiGroup();
+	EList<RteApiFileContentsGroup> getDeclarationsRteApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Constant</b></em>' reference list.
@@ -179,7 +179,7 @@ public interface RteApplicationHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Executable Entity Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dependent Executable Entity Group</em>' containment reference list isn't clear,
@@ -191,5 +191,5 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExecutableEntityGroup> getDependentExecutableEntityGroup();
+	EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup();
 } // RteApplicationHeader

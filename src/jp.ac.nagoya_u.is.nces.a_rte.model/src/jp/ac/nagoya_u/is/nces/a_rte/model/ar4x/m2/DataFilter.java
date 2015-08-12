@@ -258,18 +258,18 @@ public interface DataFilter extends M2Object {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='dataFilterType <> DataFilterTypeEnum::always'"
 	 * @generated
 	 */
-	Boolean isFilterEnabled();
+	boolean isFilterEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" anotherRequired="true"
+	 * @model required="true" anotherRequired="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.dataFilterType = another.dataFilterType and self.mask = another.mask and self.max = another.max and\n\t\t\t\t\tself.min = another.min and self.offset = another.offset and self.period = another.period and self.x = another.x'"
 	 * @generated
 	 */
-	Boolean isCompatibleWith(DataFilter another);
+	boolean isCompatibleWith(DataFilter another);
 } // DataFilter

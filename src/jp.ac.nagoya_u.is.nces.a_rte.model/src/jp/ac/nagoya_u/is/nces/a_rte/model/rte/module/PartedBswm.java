@@ -55,11 +55,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getParent <em>Parent</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentExecutableEntity <em>Dependent Executable Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi <em>Schm Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getBswMemoryMapping <em>Bsw Memory Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getBswMemoryMapping <em>Bsw Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity <em>Dependent Bsw Schedulable Entity</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi <em>Schm Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,22 +97,22 @@ public interface PartedBswm extends LogicalCompartment {
 	void setParent(Partition value);
 
 	/**
-	 * Returns the value of the '<em><b>Dependent Executable Entity</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity}.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}'.
+	 * Returns the value of the '<em><b>Dependent Bsw Schedulable Entity</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dependent Executable Entity</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Dependent Bsw Schedulable Entity</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Executable Entity</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartedBswm_DependentExecutableEntity()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getParentPartedBswm
+	 * @return the value of the '<em>Dependent Bsw Schedulable Entity</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartedBswm_DependentBswSchedulableEntity()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm
 	 * @model opposite="parentPartedBswm" containment="true"
 	 * @generated
 	 */
-	EList<ExecutableEntity> getDependentExecutableEntity();
+	EList<BswSchedulableEntity> getDependentBswSchedulableEntity();
 
 	/**
 	 * Returns the value of the '<em><b>Schm Api</b></em>' containment reference list.
@@ -131,22 +131,6 @@ public interface PartedBswm extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<SchmApi> getSchmApi();
-
-	/**
-	 * Returns the value of the '<em><b>Bsw Memory Mapping</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bsw Memory Mapping</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bsw Memory Mapping</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartedBswm_BswMemoryMapping()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<BswMemoryMapping> getBswMemoryMapping();
 
 	/**
 	 * Returns the value of the '<em><b>Bswm</b></em>' reference.
@@ -175,6 +159,18 @@ public interface PartedBswm extends LogicalCompartment {
 	 * @generated
 	 */
 	void setBswm(Bswm value);
+
+	/**
+	 * Returns the value of the '<em><b>Bsw Memory Mapping</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bsw Memory Mapping</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartedBswm_BswMemoryMapping()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BswMemoryMapping> getBswMemoryMapping();
 
 	/**
 	 * Returns the value of the '<em><b>Mode Machine Instance</b></em>' containment reference list.

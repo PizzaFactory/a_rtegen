@@ -56,8 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm#getPartedBswm <em>Parted Bswm</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm#getModeType <em>Mode Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm#getModeRequestVariable <em>Mode Request Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,36 +84,20 @@ public interface Bswm extends LogicalCompartment {
 	EList<PartedBswm> getPartedBswm();
 
 	/**
-	 * Returns the value of the '<em><b>Mode Type</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType}.
+	 * Returns the value of the '<em><b>Mode Declaration Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mode Type</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Mode Declaration Group</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mode Type</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getBswm_ModeType()
+	 * @return the value of the '<em>Mode Declaration Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getBswm_ModeDeclarationGroup()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ModeType> getModeType();
-
-	/**
-	 * Returns the value of the '<em><b>Mode Request Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeRequestVariableSet}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Mode Request Variable</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mode Request Variable</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getBswm_ModeRequestVariable()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ModeRequestVariableSet> getModeRequestVariable();
+	EList<ModeDeclarationGroup> getModeDeclarationGroup();
 
 	/**
 	 * <!-- begin-user-doc -->

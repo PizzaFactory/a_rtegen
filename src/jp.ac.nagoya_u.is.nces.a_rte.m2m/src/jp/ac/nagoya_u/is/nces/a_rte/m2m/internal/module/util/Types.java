@@ -42,18 +42,22 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util;
 
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 public class Types { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
 	public static SignednessEnum getSignedness(ImplementationDataType sourceDataType) {
-		if (Identifiers.BASE_TYPE_ENCODING_NONE.equals(sourceDataType.getBaseType().getBaseTypeEncoding())) {
+		if (SwBaseType.BASE_TYPE_ENCODING_NONE.equals(sourceDataType.getBaseType().getBaseTypeEncoding())) {
 			return SignednessEnum.UNSIGNED;
 
-		} else if (Identifiers.BASE_TYPE_ENCODING_BOOLEAN.equals(sourceDataType.getBaseType().getBaseTypeEncoding())) {
+		} else if (SwBaseType.BASE_TYPE_ENCODING_BOOLEAN.equals(sourceDataType.getBaseType().getBaseTypeEncoding())) {
 			return SignednessEnum.UNSIGNED;
 
 		} else {
@@ -63,15 +67,50 @@ public class Types { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，
 	}
 
 	public static SignednessEnum getSignedness(ImplementationDataTypeElement sourceDataType) {
-		if (Identifiers.BASE_TYPE_ENCODING_NONE.equals(sourceDataType.getSwDataDefProps().getBaseType().getBaseTypeEncoding())) {
+		if (SwBaseType.BASE_TYPE_ENCODING_NONE.equals(sourceDataType.getSwDataDefProps().getBaseType().getBaseTypeEncoding())) {
 			return SignednessEnum.UNSIGNED;
 
-		} else if (Identifiers.BASE_TYPE_ENCODING_BOOLEAN.equals(sourceDataType.getSwDataDefProps().getBaseType().getBaseTypeEncoding())) {
+		} else if (SwBaseType.BASE_TYPE_ENCODING_BOOLEAN.equals(sourceDataType.getSwDataDefProps().getBaseType().getBaseTypeEncoding())) {
 			return SignednessEnum.UNSIGNED;
 
 		} else {
 			// それ以外のエンコーディングは符号ありと認識
 			return SignednessEnum.SIGNED;
 		}
+	}
+
+	/**
+	 * アトミックにアクセスできる{@link Type}であるかを判定します。
+	 * @param type 判定対象の{@link Type}
+	 * @return アトミックにアクセスできる{@link Type}である場合、true。それ以外の場合、false。
+	 */
+	public static boolean isAtomicType(Type type) {
+		Type leafType;
+		if (type instanceof RedefinitionType) {
+			leafType = ((RedefinitionType) type).getLeafType();
+		} else {
+			leafType = type;
+		}
+
+		return (leafType instanceof PrimitiveType && !isDestOfFloat64ImplementationDataType(leafType)) || leafType instanceof PointerType;
+	}
+
+	/**
+	 * float64の{@link ImplementationDataType}から生成された{@link Type}であるかを判定する。
+	 * @param destType 判定対象の{@link Type}
+	 * @return float64の{@link ImplementationDataType}から生成された{@link Type}である場合、true。それ以外の場合、false。
+	 */
+	private static boolean isDestOfFloat64ImplementationDataType(Type destType) {
+		if (!(destType.getSingleSource() instanceof ImplementationDataType)) {	// COVERAGE 常にtrue(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return false;
+		}
+
+		ImplementationDataType sourceImplDataType = (ImplementationDataType) destType.getSingleSource();
+
+		if (!(destType instanceof PrimitiveType)) {	// COVERAGE 常にtrue(呼び出し元で事前チェックしているため，未カバレッジで問題ない)
+			return false;
+		}
+
+		return SwBaseType.BASE_TYPE_ENCODING_IEEE754.equals(sourceImplDataType.getBaseType().getBaseTypeEncoding()) && destType.getSize() == 64;
 	}
 }

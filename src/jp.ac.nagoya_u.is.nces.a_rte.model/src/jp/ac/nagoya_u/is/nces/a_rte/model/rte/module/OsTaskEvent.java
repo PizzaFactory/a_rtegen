@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 
 /**
@@ -51,12 +53,17 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * A representation of the model object '<em><b>Os Task Event</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * <p>OSタスク起動・OSイベント設定に使用する識別子(OSタスクID、もしくはOSタスクIDとOSイベントIDのペア)を表す。</p>
+ * <p>NOTE OsTaskEventに復数のOSイベントが指定される場合があることに注意。</p>
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskId <em>Task Id</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskIdEvents <em>Task Id Events</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskPriority <em>Task Priority</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getOsTaskId <em>Os Task Id</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getOsEventId <em>Os Event Id</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getOsTaskPriority <em>Os Task Priority</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,83 +71,73 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface OsTaskEvent extends ModuleReferrable {
+public interface OsTaskEvent extends ModuleObject {
 	/**
-	 * Returns the value of the '<em><b>Task Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Os Task Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task Id</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Os Task Id</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Id</em>' attribute.
-	 * @see #setTaskId(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_TaskId()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.String" required="true"
+	 * @return the value of the '<em>Os Task Id</em>' attribute.
+	 * @see #setOsTaskId(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_OsTaskId()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
 	 * @generated
 	 */
-	String getTaskId();
+	String getOsTaskId();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskId <em>Task Id</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getOsTaskId <em>Os Task Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Id</em>' attribute.
-	 * @see #getTaskId()
+	 * @param value the new value of the '<em>Os Task Id</em>' attribute.
+	 * @see #getOsTaskId()
 	 * @generated
 	 */
-	void setTaskId(String value);
+	void setOsTaskId(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Task Id Events</b></em>' attribute.
+	 * Returns the value of the '<em><b>Os Event Id</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task Id Events</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Os Event Id</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Id Events</em>' attribute.
-	 * @see #setTaskIdEvents(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_TaskIdEvents()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.String" required="true"
+	 * @return the value of the '<em>Os Event Id</em>' attribute list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_OsEventId()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier"
 	 * @generated
 	 */
-	String getTaskIdEvents();
+	EList<String> getOsEventId();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskIdEvents <em>Task Id Events</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Id Events</em>' attribute.
-	 * @see #getTaskIdEvents()
-	 * @generated
-	 */
-	void setTaskIdEvents(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Task Priority</b></em>' attribute.
+	 * Returns the value of the '<em><b>Os Task Priority</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task Priority</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Os Task Priority</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Priority</em>' attribute.
-	 * @see #setTaskPriority(Integer)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_TaskPriority()
+	 * @return the value of the '<em>Os Task Priority</em>' attribute.
+	 * @see #setOsTaskPriority(Integer)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getOsTaskEvent_OsTaskPriority()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Integer" required="true"
 	 * @generated
 	 */
-	Integer getTaskPriority();
+	Integer getOsTaskPriority();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getTaskPriority <em>Task Priority</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent#getOsTaskPriority <em>Os Task Priority</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Priority</em>' attribute.
-	 * @see #getTaskPriority()
+	 * @param value the new value of the '<em>Os Task Priority</em>' attribute.
+	 * @see #getOsTaskPriority()
 	 * @generated
 	 */
-	void setTaskPriority(Integer value);
+	void setOsTaskPriority(Integer value);
 
 } // OsTaskEvent

@@ -55,13 +55,9 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getOsTaskEventTriggeredByMode <em>Os Task Event Triggered By Mode</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getExecutableStartOperation <em>Executable Start Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getRequestModeQueue <em>Request Mode Queue</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getCurrentModeVariable <em>Current Mode Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getNextModeVariable <em>Next Mode Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getOsTaskEvent <em>Os Task Event</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getIsNoneExclude <em>Is None Exclude</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,30 +67,46 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SchmSwitchApi extends SchmApi {
 	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Mode Machine Instance</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operation</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Mode Machine Instance</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference.
-	 * @see #setOperation(ExcludeOperation)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_Operation()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #setModeMachineInstance(ModeMachineInstance)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_ModeMachineInstance()
+	 * @model
 	 * @generated
 	 */
-	ExcludeOperation getOperation();
+	ModeMachineInstance getModeMachineInstance();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getOperation <em>Operation</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getModeMachineInstance <em>Mode Machine Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operation</em>' containment reference.
-	 * @see #getOperation()
+	 * @param value the new value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #getModeMachineInstance()
 	 * @generated
 	 */
-	void setOperation(ExcludeOperation value);
+	void setModeMachineInstance(ModeMachineInstance value);
+
+	/**
+	 * Returns the value of the '<em><b>Os Task Event Triggered By Mode</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEventsTriggeredByMode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Os Task Event Triggered By Mode</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Os Task Event Triggered By Mode</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_OsTaskEventTriggeredByMode()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<OsTaskEventsTriggeredByMode> getOsTaskEventTriggeredByMode();
 
 	/**
 	 * Returns the value of the '<em><b>Executable Start Operation</b></em>' containment reference list.
@@ -111,125 +123,5 @@ public interface SchmSwitchApi extends SchmApi {
 	 * @generated
 	 */
 	EList<ModeSwitchTriggeringExecutableStartOperation> getExecutableStartOperation();
-
-	/**
-	 * Returns the value of the '<em><b>Request Mode Queue</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Request Mode Queue</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Request Mode Queue</em>' reference.
-	 * @see #setRequestModeQueue(ModeQueuedVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_RequestModeQueue()
-	 * @model required="true"
-	 * @generated
-	 */
-	ModeQueuedVariable getRequestModeQueue();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getRequestModeQueue <em>Request Mode Queue</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Request Mode Queue</em>' reference.
-	 * @see #getRequestModeQueue()
-	 * @generated
-	 */
-	void setRequestModeQueue(ModeQueuedVariable value);
-
-	/**
-	 * Returns the value of the '<em><b>Current Mode Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Current Mode Variable</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Mode Variable</em>' reference.
-	 * @see #setCurrentModeVariable(GlobalVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_CurrentModeVariable()
-	 * @model required="true"
-	 * @generated
-	 */
-	GlobalVariable getCurrentModeVariable();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getCurrentModeVariable <em>Current Mode Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Mode Variable</em>' reference.
-	 * @see #getCurrentModeVariable()
-	 * @generated
-	 */
-	void setCurrentModeVariable(GlobalVariable value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Mode Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Mode Variable</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Mode Variable</em>' reference.
-	 * @see #setNextModeVariable(GlobalVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_NextModeVariable()
-	 * @model required="true"
-	 * @generated
-	 */
-	GlobalVariable getNextModeVariable();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getNextModeVariable <em>Next Mode Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Mode Variable</em>' reference.
-	 * @see #getNextModeVariable()
-	 * @generated
-	 */
-	void setNextModeVariable(GlobalVariable value);
-
-	/**
-	 * Returns the value of the '<em><b>Os Task Event</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEventsTriggeredByMode}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Os Task Event</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Os Task Event</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_OsTaskEvent()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<OsTaskEventsTriggeredByMode> getOsTaskEvent();
-
-	/**
-	 * Returns the value of the '<em><b>Is None Exclude</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is None Exclude</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is None Exclude</em>' attribute.
-	 * @see #setIsNoneExclude(Boolean)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmSwitchApi_IsNoneExclude()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
-	 * @generated
-	 */
-	Boolean getIsNoneExclude();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi#getIsNoneExclude <em>Is None Exclude</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is None Exclude</em>' attribute.
-	 * @see #getIsNoneExclude()
-	 * @generated
-	 */
-	void setIsNoneExclude(Boolean value);
 
 } // SchmSwitchApi

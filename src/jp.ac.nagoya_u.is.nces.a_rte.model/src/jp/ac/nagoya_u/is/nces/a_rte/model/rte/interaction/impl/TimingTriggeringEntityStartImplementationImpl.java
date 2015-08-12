@@ -206,7 +206,7 @@ public class TimingTriggeringEntityStartImplementationImpl extends EntityStartIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresCycleAdjust() {
+	public boolean requiresCycleAdjust() {
 		try {
 			return (Boolean)REQUIRES_CYCLE_ADJUST__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -230,7 +230,7 @@ public class TimingTriggeringEntityStartImplementationImpl extends EntityStartIm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresStartOffsetAdjust() {
+	public boolean requiresStartOffsetAdjust() {
 		try {
 			return (Boolean)REQUIRES_START_OFFSET_ADJUST__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

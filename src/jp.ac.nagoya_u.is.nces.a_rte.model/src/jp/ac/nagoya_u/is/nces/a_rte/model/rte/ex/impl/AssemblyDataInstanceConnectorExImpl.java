@@ -158,7 +158,7 @@ public class AssemblyDataInstanceConnectorExImpl extends ExtendedEObjectImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInterPartition(AssemblyDataInstanceConnector this_) {
+	public boolean isInterPartition(AssemblyDataInstanceConnector this_) {
 		try {
 			return (Boolean)IS_INTER_PARTITION_ASSEMBLY_DATA_INSTANCE_CONNECTOR__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

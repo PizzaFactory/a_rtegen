@@ -47,12 +47,18 @@ import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
+/**
+ * コンソールへのログ出力のフォーマットを行う。
+ */
 public class ConsoleLogFormatter extends Formatter { // COVERAGE 常に未達(未カバレッジで問題ないことをコードレビューにより確認済み)
 
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	private final static String DATE_FORMAT = "{0,date} {0,time}";
 
+	/* (non-Javadoc)
+	 * @see java.util.logging.Formatter#format(java.util.logging.LogRecord)
+	 */
 	@Override
 	public String format(LogRecord record) {
 		StringBuilder sb = new StringBuilder();

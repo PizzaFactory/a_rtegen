@@ -67,9 +67,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getOperation <em>Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getExecutableStartOperation <em>Executable Start Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getOsTaskEvent <em>Os Task Event</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getInitialExecutableStartOperation <em>Initial Executable Start Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getInitialExecutableOsTaskEvent <em>Initial Executable Os Task Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmInitApiImpl#getInitTargetModeMachineInstance <em>Init Target Mode Machine Instance</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,32 +86,32 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 	 */
 	protected EList<InitializeOperation> operation;
 	/**
-	 * The cached value of the '{@link #getExecutableStartOperation() <em>Executable Start Operation</em>}' containment reference list.
+	 * The cached value of the '{@link #getInitialExecutableStartOperation() <em>Initial Executable Start Operation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExecutableStartOperation()
+	 * @see #getInitialExecutableStartOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModeSwitchTriggeringExecutableStartOperation> executableStartOperation;
+	protected EList<ModeSwitchTriggeringExecutableStartOperation> initialExecutableStartOperation;
 	/**
-	 * The cached value of the '{@link #getOsTaskEvent() <em>Os Task Event</em>}' containment reference list.
+	 * The cached value of the '{@link #getInitialExecutableOsTaskEvent() <em>Initial Executable Os Task Event</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOsTaskEvent()
+	 * @see #getInitialExecutableOsTaskEvent()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<OsTaskEvent> osTaskEvent;
+	protected EList<OsTaskEvent> initialExecutableOsTaskEvent;
 	/**
-	 * The cached value of the '{@link #getModeMachineInstance() <em>Mode Machine Instance</em>}' reference list.
+	 * The cached value of the '{@link #getInitTargetModeMachineInstance() <em>Init Target Mode Machine Instance</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModeMachineInstance()
+	 * @see #getInitTargetModeMachineInstance()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModeMachineInstance> modeMachineInstance;
+	protected EList<ModeMachineInstance> initTargetModeMachineInstance;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,11 +148,11 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModeSwitchTriggeringExecutableStartOperation> getExecutableStartOperation() {
-		if (executableStartOperation == null) {
-			executableStartOperation = new EObjectContainmentEList<ModeSwitchTriggeringExecutableStartOperation>(ModeSwitchTriggeringExecutableStartOperation.class, this, ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION);
+	public EList<ModeSwitchTriggeringExecutableStartOperation> getInitialExecutableStartOperation() {
+		if (initialExecutableStartOperation == null) {
+			initialExecutableStartOperation = new EObjectContainmentEList<ModeSwitchTriggeringExecutableStartOperation>(ModeSwitchTriggeringExecutableStartOperation.class, this, ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION);
 		}
-		return executableStartOperation;
+		return initialExecutableStartOperation;
 	}
 
 	/**
@@ -160,11 +160,11 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<OsTaskEvent> getOsTaskEvent() {
-		if (osTaskEvent == null) {
-			osTaskEvent = new EObjectContainmentEList<OsTaskEvent>(OsTaskEvent.class, this, ModulePackage.SCHM_INIT_API__OS_TASK_EVENT);
+	public EList<OsTaskEvent> getInitialExecutableOsTaskEvent() {
+		if (initialExecutableOsTaskEvent == null) {
+			initialExecutableOsTaskEvent = new EObjectContainmentEList<OsTaskEvent>(OsTaskEvent.class, this, ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT);
 		}
-		return osTaskEvent;
+		return initialExecutableOsTaskEvent;
 	}
 
 	/**
@@ -172,11 +172,11 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ModeMachineInstance> getModeMachineInstance() {
-		if (modeMachineInstance == null) {
-			modeMachineInstance = new EObjectResolvingEList<ModeMachineInstance>(ModeMachineInstance.class, this, ModulePackage.SCHM_INIT_API__MODE_MACHINE_INSTANCE);
+	public EList<ModeMachineInstance> getInitTargetModeMachineInstance() {
+		if (initTargetModeMachineInstance == null) {
+			initTargetModeMachineInstance = new EObjectResolvingEList<ModeMachineInstance>(ModeMachineInstance.class, this, ModulePackage.SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE);
 		}
-		return modeMachineInstance;
+		return initTargetModeMachineInstance;
 	}
 
 	/**
@@ -189,10 +189,10 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 		switch (featureID) {
 			case ModulePackage.SCHM_INIT_API__OPERATION:
 				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION:
-				return ((InternalEList<?>)getExecutableStartOperation()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SCHM_INIT_API__OS_TASK_EVENT:
-				return ((InternalEList<?>)getOsTaskEvent()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION:
+				return ((InternalEList<?>)getInitialExecutableStartOperation()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT:
+				return ((InternalEList<?>)getInitialExecutableOsTaskEvent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -207,12 +207,12 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 		switch (featureID) {
 			case ModulePackage.SCHM_INIT_API__OPERATION:
 				return getOperation();
-			case ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION:
-				return getExecutableStartOperation();
-			case ModulePackage.SCHM_INIT_API__OS_TASK_EVENT:
-				return getOsTaskEvent();
-			case ModulePackage.SCHM_INIT_API__MODE_MACHINE_INSTANCE:
-				return getModeMachineInstance();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION:
+				return getInitialExecutableStartOperation();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT:
+				return getInitialExecutableOsTaskEvent();
+			case ModulePackage.SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE:
+				return getInitTargetModeMachineInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,17 +230,17 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 				getOperation().clear();
 				getOperation().addAll((Collection<? extends InitializeOperation>)newValue);
 				return;
-			case ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION:
-				getExecutableStartOperation().clear();
-				getExecutableStartOperation().addAll((Collection<? extends ModeSwitchTriggeringExecutableStartOperation>)newValue);
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION:
+				getInitialExecutableStartOperation().clear();
+				getInitialExecutableStartOperation().addAll((Collection<? extends ModeSwitchTriggeringExecutableStartOperation>)newValue);
 				return;
-			case ModulePackage.SCHM_INIT_API__OS_TASK_EVENT:
-				getOsTaskEvent().clear();
-				getOsTaskEvent().addAll((Collection<? extends OsTaskEvent>)newValue);
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT:
+				getInitialExecutableOsTaskEvent().clear();
+				getInitialExecutableOsTaskEvent().addAll((Collection<? extends OsTaskEvent>)newValue);
 				return;
-			case ModulePackage.SCHM_INIT_API__MODE_MACHINE_INSTANCE:
-				getModeMachineInstance().clear();
-				getModeMachineInstance().addAll((Collection<? extends ModeMachineInstance>)newValue);
+			case ModulePackage.SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE:
+				getInitTargetModeMachineInstance().clear();
+				getInitTargetModeMachineInstance().addAll((Collection<? extends ModeMachineInstance>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,14 +257,14 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 			case ModulePackage.SCHM_INIT_API__OPERATION:
 				getOperation().clear();
 				return;
-			case ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION:
-				getExecutableStartOperation().clear();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION:
+				getInitialExecutableStartOperation().clear();
 				return;
-			case ModulePackage.SCHM_INIT_API__OS_TASK_EVENT:
-				getOsTaskEvent().clear();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT:
+				getInitialExecutableOsTaskEvent().clear();
 				return;
-			case ModulePackage.SCHM_INIT_API__MODE_MACHINE_INSTANCE:
-				getModeMachineInstance().clear();
+			case ModulePackage.SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE:
+				getInitTargetModeMachineInstance().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -280,12 +280,12 @@ public class SchmInitApiImpl extends SchmLifecycleApiImpl implements SchmInitApi
 		switch (featureID) {
 			case ModulePackage.SCHM_INIT_API__OPERATION:
 				return operation != null && !operation.isEmpty();
-			case ModulePackage.SCHM_INIT_API__EXECUTABLE_START_OPERATION:
-				return executableStartOperation != null && !executableStartOperation.isEmpty();
-			case ModulePackage.SCHM_INIT_API__OS_TASK_EVENT:
-				return osTaskEvent != null && !osTaskEvent.isEmpty();
-			case ModulePackage.SCHM_INIT_API__MODE_MACHINE_INSTANCE:
-				return modeMachineInstance != null && !modeMachineInstance.isEmpty();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION:
+				return initialExecutableStartOperation != null && !initialExecutableStartOperation.isEmpty();
+			case ModulePackage.SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT:
+				return initialExecutableOsTaskEvent != null && !initialExecutableOsTaskEvent.isEmpty();
+			case ModulePackage.SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE:
+				return initTargetModeMachineInstance != null && !initTargetModeMachineInstance.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

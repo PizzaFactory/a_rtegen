@@ -310,7 +310,7 @@ public class SendInteractionImpl extends InteractionImpl implements SendInteract
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInterCore() {
+	public boolean isInterCore() {
 		try {
 			return (Boolean)IS_INTER_CORE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -334,7 +334,7 @@ public class SendInteractionImpl extends InteractionImpl implements SendInteract
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInterPartition() {
+	public boolean isInterPartition() {
 		try {
 			return (Boolean)IS_INTER_PARTITION__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

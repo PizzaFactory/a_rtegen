@@ -128,7 +128,7 @@ public interface RteBufferVariableSet extends GlobalVariable {
 	 * @return the value of the '<em>Init Value Variable</em>' containment reference.
 	 * @see #setInitValueVariable(GlobalVariable)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteBufferVariableSet_InitValueVariable()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	GlobalVariable getInitValueVariable();
@@ -154,7 +154,7 @@ public interface RteBufferVariableSet extends GlobalVariable {
 	 * @return the value of the '<em>Complex Variable</em>' containment reference.
 	 * @see #setComplexVariable(GlobalVariable)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteBufferVariableSet_ComplexVariable()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	GlobalVariable getComplexVariable();

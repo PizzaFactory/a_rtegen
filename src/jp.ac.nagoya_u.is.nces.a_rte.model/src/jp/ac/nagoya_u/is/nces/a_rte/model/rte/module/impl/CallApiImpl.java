@@ -46,10 +46,10 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DirectExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -85,7 +85,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * @generated
 	 * @ordered
 	 */
-	protected DirectExecutableStartOperation operation;
+	protected ServerRunnableStartOperation operation;
 
 	/**
 	 * The cached value of the '{@link #getOperationParam() <em>Operation Param</em>}' reference list.
@@ -141,7 +141,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DirectExecutableStartOperation getOperation() {
+	public ServerRunnableStartOperation getOperation() {
 		return operation;
 	}
 
@@ -150,8 +150,8 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperation(DirectExecutableStartOperation newOperation, NotificationChain msgs) {
-		DirectExecutableStartOperation oldOperation = operation;
+	public NotificationChain basicSetOperation(ServerRunnableStartOperation newOperation, NotificationChain msgs) {
+		ServerRunnableStartOperation oldOperation = operation;
 		operation = newOperation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.CALL_API__OPERATION, oldOperation, newOperation);
@@ -165,7 +165,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(DirectExecutableStartOperation newOperation) {
+	public void setOperation(ServerRunnableStartOperation newOperation) {
 		if (newOperation != operation) {
 			NotificationChain msgs = null;
 			if (operation != null)
@@ -286,7 +286,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModulePackage.CALL_API__OPERATION:
-				setOperation((DirectExecutableStartOperation)newValue);
+				setOperation((ServerRunnableStartOperation)newValue);
 				return;
 			case ModulePackage.CALL_API__OPERATION_PARAM:
 				getOperationParam().clear();
@@ -312,7 +312,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModulePackage.CALL_API__OPERATION:
-				setOperation((DirectExecutableStartOperation)null);
+				setOperation((ServerRunnableStartOperation)null);
 				return;
 			case ModulePackage.CALL_API__OPERATION_PARAM:
 				getOperationParam().clear();

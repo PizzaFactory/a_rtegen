@@ -101,7 +101,7 @@ public class CompuScaleExImpl extends ExtendedEObjectImpl implements CompuScaleE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesEnumConstant(CompuScale this_) {
+	public boolean providesEnumConstant(CompuScale this_) {
 		try {
 			return (Boolean)PROVIDES_ENUM_CONSTANT_COMPU_SCALE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

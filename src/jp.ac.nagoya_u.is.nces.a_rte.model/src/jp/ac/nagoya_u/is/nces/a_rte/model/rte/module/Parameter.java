@@ -55,8 +55,8 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getPassType <em>Pass Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getDirection <em>Direction</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getHasConst <em>Has Const</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getIsIn <em>Is In</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +95,35 @@ public interface Parameter extends Variable {
 	void setPassType(ParameterPassTypeEnum value);
 
 	/**
+	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
+	 * The literals are from the enumeration {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Direction</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Direction</em>' attribute.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum
+	 * @see #setDirection(ParameterDirectionEnum)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getParameter_Direction()
+	 * @model required="true"
+	 * @generated
+	 */
+	ParameterDirectionEnum getDirection();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getDirection <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Direction</em>' attribute.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum
+	 * @see #getDirection()
+	 * @generated
+	 */
+	void setDirection(ParameterDirectionEnum value);
+
+	/**
 	 * Returns the value of the '<em><b>Has Const</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -119,31 +148,5 @@ public interface Parameter extends Variable {
 	 * @generated
 	 */
 	void setHasConst(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is In</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is In</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is In</em>' attribute.
-	 * @see #setIsIn(Boolean)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getParameter_IsIn()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
-	 * @generated
-	 */
-	Boolean getIsIn();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter#getIsIn <em>Is In</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is In</em>' attribute.
-	 * @see #getIsIn()
-	 * @generated
-	 */
-	void setIsIn(Boolean value);
 
 } // Parameter

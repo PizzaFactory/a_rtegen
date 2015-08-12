@@ -158,7 +158,7 @@ public class VariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesInitValueConstant(VariableDataInstanceInSwc this_) {
+	public boolean providesInitValueConstant(VariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_INIT_VALUE_CONSTANT_VARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

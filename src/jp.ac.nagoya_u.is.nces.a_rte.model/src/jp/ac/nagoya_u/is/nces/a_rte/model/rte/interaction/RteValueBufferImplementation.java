@@ -44,8 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 
 
 /**
@@ -53,69 +51,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
  * A representation of the model object '<em><b>Rte Value Buffer Implementation</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal <em>Com Signal</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup <em>Com Signal Group</em>}</li>
- * </ul>
- * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getRteValueBufferImplementation()
  * @model
  * @generated
  */
 public interface RteValueBufferImplementation extends ValueBufferImplementation {
-
-	/**
-	 * Returns the value of the '<em><b>Com Signal</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Com Signal</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Signal</em>' reference.
-	 * @see #setComSignal(ComSignal)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getRteValueBufferImplementation_ComSignal()
-	 * @model required="true"
-	 * @generated
-	 */
-	ComSignal getComSignal();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal <em>Com Signal</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Signal</em>' reference.
-	 * @see #getComSignal()
-	 * @generated
-	 */
-	void setComSignal(ComSignal value);
-
-	/**
-	 * Returns the value of the '<em><b>Com Signal Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Com Signal Group</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Signal Group</em>' reference.
-	 * @see #setComSignalGroup(ComSignalGroup)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getRteValueBufferImplementation_ComSignalGroup()
-	 * @model required="true"
-	 * @generated
-	 */
-	ComSignalGroup getComSignalGroup();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup <em>Com Signal Group</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Signal Group</em>' reference.
-	 * @see #getComSignalGroup()
-	 * @generated
-	 */
-	void setComSignalGroup(ComSignalGroup value);
 } // RteValueBufferImplementation

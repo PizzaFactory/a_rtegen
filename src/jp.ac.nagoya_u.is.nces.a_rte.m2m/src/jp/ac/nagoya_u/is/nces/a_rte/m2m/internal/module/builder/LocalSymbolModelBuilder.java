@@ -44,6 +44,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE__SYMBOL_NAME;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 
 import java.util.List;
@@ -52,15 +53,16 @@ import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.ConfigValues;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.Variables;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocDataProperties;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.POperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDataPrototype;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ConstantReference;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NumericalValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue;
@@ -70,11 +72,12 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
@@ -84,7 +87,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions;
 
 import com.google.common.collect.Lists;
 
@@ -96,79 +98,149 @@ public class LocalSymbolModelBuilder {
 		this.context = context;
 	}
 
-	public Parameter createInDataParam(Type type) {
-		Parameter param = createDataParam(type, getInParameterPassType(type));
-		param.setIsIn(true);
-		param.setHasConst(!((type instanceof PrimitiveType) || (type instanceof PointerType)));
-		return param;
+	public Parameter createIocInDataParam(OsIocDataProperties sourceOsIocDataProperties) throws ModelException {
+		Type type = this.context.builtQuery.findDestType(sourceOsIocDataProperties.getOsIocDataType());
+
+		return createInParam(sourceOsIocDataProperties.getShortName(), type);
 	}
 
-	public Parameter createOutDataParam(Type type) {
-		Parameter param =createDataParam(type, ParameterPassTypeEnum.REFERENCE);
-		param.setIsIn(false);
-		return param;
+	public Parameter createIocOutDataParam(OsIocDataProperties sourceOsIocDataProperties) throws ModelException {
+		Type type = this.context.builtQuery.findDestType(sourceOsIocDataProperties.getOsIocDataType());
+
+		return createOutParam(sourceOsIocDataProperties.getShortName(), type);
 	}
 
-	private Parameter createDataParam(Type type, ParameterPassTypeEnum passType) {
-		Parameter param = ModuleFactory.eINSTANCE.createParameter();
-		param.setSymbolName(getSymbolNameOfDataParam(passType));
-		param.setPassType(passType);
-		param.setType(type);
-		return param;
+	public Parameter createSrInDataParam(Type type) {
+		return createInParam(getSymbolNameOfSrDataParam(getInParameterPassType(type)), type);
 	}
 
-	private String getSymbolNameOfDataParam(ParameterPassTypeEnum passType) {
+	public Parameter createSrOutDataParam(Type type) {
+		return createOutParam(getSymbolNameOfSrDataParam(ParameterPassTypeEnum.REFERENCE), type);
+	}
+
+	private String getSymbolNameOfSrDataParam(ParameterPassTypeEnum passType) {
 		switch (passType) {
 		case REFERENCE:
-			return SymbolNames.DATA_REFERENCE_PARAM_NAME;
+			return SymbolNames.SR_DATA_REFERENCE_PARAM_NAME;
 		case VALUE:
 		default:
-			return SymbolNames.DATA_PARAM_NAME;
+			return SymbolNames.SR_DATA_PARAM_NAME;
 		}
 	}
 
-	public List<Parameter> createPortArgValueParams(POperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
-		List<Parameter> portArgValueParams = Lists.newArrayList();
+	public List<Parameter> createCsPortArgValueParams(POperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
+		List<Parameter> destPortArgValueParams = Lists.newArrayList();
 		if (!sourceOperationInstanceInSwc.getContextPort().getPortApiOption().isEmpty()) {
-			PortApiOption portApiOption = sourceOperationInstanceInSwc.getContextPort().getPortApiOption().get(0);
+			PortApiOption sourcePortApiOption = sourceOperationInstanceInSwc.getContextPort().getPortApiOption().get(0);
 
 			int i = 0;
-			for (PortDefinedArgumentValue sourcePortDefinedArgumentValue : portApiOption.getPortArgValue()) {
-				portArgValueParams.add(createPortArgValueParam(sourcePortDefinedArgumentValue, i));
+			for (PortDefinedArgumentValue sourcePortDefinedArgumentValue : sourcePortApiOption.getPortArgValue()) {
+				destPortArgValueParams.add(createCsPortArgValueParam(sourcePortDefinedArgumentValue, i));
 				i++;
 			}
 		}
-		return portArgValueParams;
+		return destPortArgValueParams;
 	}
 
-	private Parameter createPortArgValueParam(PortDefinedArgumentValue sourcePortDefinedArgumentValue, int index) throws ModelException {
+	private Parameter createCsPortArgValueParam(PortDefinedArgumentValue sourcePortDefinedArgumentValue, int index) throws ModelException {
 		Type type = this.context.builtQuery.<Type> findDest(TYPE, sourcePortDefinedArgumentValue.getValueType());
-		Parameter param =  createInDataParam(type);
-		param.setSymbolName(SymbolNames.createPortArgValueParamName(sourcePortDefinedArgumentValue, index));
-		return param;
+
+		return createInParam(SymbolNames.createCsPortArgValueParamName(sourcePortDefinedArgumentValue, index), type);
 	}
 
-	public List<Parameter> createOperationParams(OperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
-		AtomicSwComponentType swComponentType = (AtomicSwComponentType) sourceOperationInstanceInSwc.getContextPort().getParent();
+	public List<Parameter> createCsOperationParams(OperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
+		AtomicSwComponentType sourceSwComponentType = (AtomicSwComponentType) sourceOperationInstanceInSwc.getContextPort().getParent();
 
-		List<Parameter> operationParams = Lists.newArrayList();
+		List<Parameter> destOperationParams = Lists.newArrayList();
 		for (ArgumentDataPrototype sourceArgumentDataPrototype : sourceOperationInstanceInSwc.getPrototype().getArgument()) {
-			ImplementationDataType implementationDataType = swComponentType.getImplementationDataType(sourceArgumentDataPrototype.getType());
-			operationParams.add(createOperationParam(sourceArgumentDataPrototype, implementationDataType));
+			ImplementationDataType sourceImplementationDataType = sourceSwComponentType.getImplementationDataType(sourceArgumentDataPrototype.getType());
+			destOperationParams.add(createCsOperationParam(sourceArgumentDataPrototype, sourceImplementationDataType));
 		}
-		return operationParams;
+		return destOperationParams;
 	}
 
-	private Parameter createOperationParam(ArgumentDataPrototype sourceArgumentDataPrototype, ImplementationDataType implementationDataType) throws ModelException {
-		Type type = this.context.builtQuery.<Type> findDest(TYPE, implementationDataType);
-		Parameter param = null;
-		if (sourceArgumentDataPrototype.getDirection() == ArgumentDirectionEnum.IN) {
-			param = createInDataParam(type);
-		} else { // OUT,INOUTのとき
-			param = createOutDataParam(type);
+	private Parameter createCsOperationParam(ArgumentDataPrototype sourceArgumentDataPrototype, ImplementationDataType sourceImplementationDataType) throws ModelException {
+		Type type = this.context.builtQuery.<Type> findDest(TYPE, sourceImplementationDataType);
+
+		switch (sourceArgumentDataPrototype.getDirection()) {
+		case IN:
+			return createInParam(sourceArgumentDataPrototype.getShortName(), type);
+		case OUT:
+			return createOutParam(sourceArgumentDataPrototype.getShortName(), type);
+		case INOUT:
+		default:
+			return createInOutParam(sourceArgumentDataPrototype.getShortName(), type);
 		}
-		param.setSymbolName(sourceArgumentDataPrototype.getShortName());
-		return param;
+	}
+
+	public Parameter createModeParam(ModeDeclarationGroupPrototype sourceModeDeclarationGroupPrototype, Type type) {
+		Parameter destParam = ModuleFactory.eINSTANCE.createParameter();
+		destParam.setSymbolName(SymbolNames.MODE_VAR_NAME);
+		destParam.setType(type);
+		return destParam;
+	}
+
+	public Parameter createIrvInDataParam(Type type) {
+		return createInParam(getSymbolNameOfIrvDataParam(getInParameterPassType(type)), type);
+	}
+
+	public Parameter createIrvOutDataParam(Type type) {
+		return createOutParam(getSymbolNameOfIrvDataParam(ParameterPassTypeEnum.REFERENCE), type);
+	}
+
+	private String getSymbolNameOfIrvDataParam(ParameterPassTypeEnum passType) {
+		switch (passType) {
+		case REFERENCE:
+			return SymbolNames.IRV_DATA_REFERENCE_PARAM_NAME;
+		case VALUE:
+		default:
+			return SymbolNames.IRV_DATA_PARAM_NAME;
+		}
+	}
+
+	public Parameter createTrustedFunctionIndexParam() {
+		Parameter destFunctionIndexParam = ModuleFactory.eINSTANCE.createParameter();
+		destFunctionIndexParam.setType(this.context.cache.osTfIndexType);
+		destFunctionIndexParam.setSymbolName(SymbolNames.OS_TRUSTED_FUNCTION_INDEX_PARAM_NAME);
+		destFunctionIndexParam.setDirection(ParameterDirectionEnum.IN);
+		destFunctionIndexParam.setPassType(ParameterPassTypeEnum.VALUE);
+		destFunctionIndexParam.setHasConst(false);
+		return destFunctionIndexParam;
+	}
+
+	public Parameter createTrustedFunctionParamsParam() {
+		Parameter destFunctionParamsParam = ModuleFactory.eINSTANCE.createParameter();
+		destFunctionParamsParam.setType(this.context.cache.osTfParamRefType);
+		destFunctionParamsParam.setSymbolName(SymbolNames.OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME);
+		destFunctionParamsParam.setDirection(ParameterDirectionEnum.IN); // NOTE 本来はINOUTだが、コード生成の都合上現在の設定としている
+		destFunctionParamsParam.setPassType(ParameterPassTypeEnum.VALUE); // NOTE 本来はREFERENCEだが、コード生成の都合上現在の設定としている
+		destFunctionParamsParam.setHasConst(false);
+		return destFunctionParamsParam;
+	}
+
+	private Parameter createInParam(String symbolName, Type type) {
+		ParameterPassTypeEnum passType = getInParameterPassType(type);
+		boolean hasConst = (passType == ParameterPassTypeEnum.REFERENCE);
+
+		return createParam(symbolName, type, ParameterDirectionEnum.IN, passType, hasConst);
+	}
+
+	private Parameter createOutParam(String symbolName, Type type) {
+		return createParam(symbolName, type, ParameterDirectionEnum.OUT, ParameterPassTypeEnum.REFERENCE, false);
+	}
+
+	private Parameter createInOutParam(String symbolName, Type type) {
+		return createParam(symbolName, type, ParameterDirectionEnum.INOUT, ParameterPassTypeEnum.REFERENCE, false);
+	}
+
+	private Parameter createParam(String symbolName, Type type, ParameterDirectionEnum direction, ParameterPassTypeEnum passType, boolean hasConst) {
+		Parameter destParam = ModuleFactory.eINSTANCE.createParameter();
+		destParam.setSymbolName(symbolName);
+		destParam.setType(type);
+		destParam.setDirection(direction);
+		destParam.setPassType(passType);
+		destParam.setHasConst(hasConst);
+		return destParam;
 	}
 
 	public ParameterPassTypeEnum getInParameterPassType(Type type) {
@@ -179,114 +251,107 @@ public class LocalSymbolModelBuilder {
 		}
 	}
 
-	public Parameter createTrustedFunctionIndexParam() {
-		Parameter functionIndexParam = ModuleFactory.eINSTANCE.createParameter();
-		functionIndexParam.setType(this.context.cache.osTrustedFunctionIndexType);
-		functionIndexParam.setSymbolName(SymbolNames.OS_TRUSTED_FUNCTION_INDEX_PARAM_NAME);
-		functionIndexParam.setPassType(ParameterPassTypeEnum.VALUE);
-		return functionIndexParam;
-	}
-
-	public Parameter createTrustedFunctionParamsParam() {
-		Parameter functionParamsParam = ModuleFactory.eINSTANCE.createParameter();
-		functionParamsParam.setType(this.context.cache.osTrustedFunctionParamRefType);
-		functionParamsParam.setSymbolName(SymbolNames.OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME);
-		functionParamsParam.setPassType(ParameterPassTypeEnum.VALUE);
-		return functionParamsParam;
-	}
-
 	public LocalVariable createReturnValueVariable() {
-		LocalVariable statusVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		statusVariable.setType(this.context.cache.stdReturnType);
-		statusVariable.setSymbolName(SymbolNames.RETURN_VALUE_LOCAL_VAR_NAME);
-		return statusVariable;
+		LocalVariable destStatusVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destStatusVariable.setType(this.context.cache.stdReturnType);
+		destStatusVariable.setSymbolName(SymbolNames.RETURN_VALUE_LOCAL_VAR_NAME);
+		return destStatusVariable;
 	}
 
 	public LocalVariable createTempReturnValueVariable() {
-		LocalVariable statusVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		statusVariable.setType(this.context.cache.stdReturnType);
-		statusVariable.setSymbolName(SymbolNames.TEMP_RETURN_VALUE_LOCAL_VAR_NAME);
-		return statusVariable;
+		LocalVariable destStatusVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destStatusVariable.setType(this.context.cache.stdReturnType);
+		destStatusVariable.setSymbolName(SymbolNames.TEMP_RETURN_VALUE_LOCAL_VAR_NAME);
+		return destStatusVariable;
 	}
 
-	public LocalVariable createDataVariable(VariableDataInstanceInSwc dataInstanceInSwc, String symbolName) throws ModelException {
-		LocalVariable dataVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		dataVariable.setType(this.context.builtQuery.findType(dataInstanceInSwc));
-		dataVariable.setSymbolName(symbolName);
-		return dataVariable;
+	public LocalVariable createSrDataVariable(VariableDataInstanceInSwc sourceDataInstanceInSwc, String symbolName) throws ModelException {
+		LocalVariable destDataVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destDataVariable.setType(this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType()));
+		destDataVariable.setSymbolName(symbolName);
+		return destDataVariable;
 	}
 
-	public LocalVariable createInvalidValueVariable(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
-		LocalVariable dataVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		dataVariable.setType(this.context.builtQuery.findPrimitiveType(dataInstanceInSwc));
-		dataVariable.setSymbolName(SymbolNames.INVALID_VALUE_VAR_NAME);
-		return dataVariable;
+	public LocalVariable createSrInvalidValueVariable(VariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
+		LocalVariable destInvalidValueVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destInvalidValueVariable.setType(this.context.builtQuery.findDestPrimitiveType(sourceDataInstanceInSwc.getImplementationDataType()));
+		destInvalidValueVariable.setSymbolName(SymbolNames.SR_INVALID_VALUE_VAR_NAME);
+		return destInvalidValueVariable;
 	}
 
-	public LocalVariable createFilterResultVariable() {
-		LocalVariable filterResultVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		filterResultVariable.setType(this.context.cache.booleanType);
-		filterResultVariable.setSymbolName(SymbolNames.FILTER_RESULT_VAR_NAME);
-		return filterResultVariable;
+	public LocalVariable createSrFilterResultVariable() {
+		LocalVariable destFilterResultVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destFilterResultVariable.setType(this.context.cache.booleanType);
+		destFilterResultVariable.setSymbolName(SymbolNames.SR_FILTER_RESULT_VAR_NAME);
+		return destFilterResultVariable;
 	}
 
-	public LocalVariable createComSendSignalTrustedFunctionParamVariable(boolean isForSignalGroup) {
-		LocalVariable trustedFunctionParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		if (isForSignalGroup) {
-			trustedFunctionParamVariable.setType(this.context.cache.comSendSignalGroupTrustedFunctionParamType.orNull());
-			trustedFunctionParamVariable.setSymbolName(SymbolNames.COM_GROUP_TRUSTED_FUNCTION_GROUP_PARAM_VAR_NAME);
-		} else {
-			trustedFunctionParamVariable.setType(this.context.cache.comSendSignalTrustedFunctionParamType.orNull());
-			trustedFunctionParamVariable.setSymbolName(SymbolNames.COM_TRUSTED_FUNCTION_PARAM_VAR_NAME);
-		}
-		return trustedFunctionParamVariable;
+	public LocalVariable createRteSendTrustedFunctionParamVariable() {
+		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destTfParamVariable.setType(this.context.cache.rteSendTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.RTE_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		return destTfParamVariable;
 	}
 
-	public LocalVariable createSignalIdVariable() {
-		LocalVariable variable = ModuleFactory.eINSTANCE.createLocalVariable();
-		variable.setType(this.context.cache.comSignalIdType);
-		variable.setSymbolName(SymbolNames.SIGNAL_ID_VAR_NAME);
-		return variable;
+	public LocalVariable createComSendSignalTrustedFunctionParamVariable() {
+		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destTfParamVariable.setType(this.context.cache.comSendSignalTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.COM_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		return destTfParamVariable;
 	}
 
-	public LocalVariable createSrWriteProxyFunctionTableIndexVariable() {
-		LocalVariable variable = ModuleFactory.eINSTANCE.createLocalVariable();
-		variable.setType(this.context.cache.SrWriteProxyFunctionTableIndex);
-		variable.setSymbolName(SymbolNames.INX_VAR_NAME);
-		return variable;
+	public LocalVariable createComSendSignalGroupTrustedFunctionParamVariable() {
+		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destTfParamVariable.setType(this.context.cache.comSendSignalGroupTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.COM_GROUP_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		return destTfParamVariable;
+	}
+
+	public LocalVariable createComProxySignalIdVariable() {
+		LocalVariable destVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destVariable.setType(this.context.cache.comSignalIdType);
+		destVariable.setSymbolName(SymbolNames.COM_PROXY_SIGNAL_ID_VAR_NAME);
+		return destVariable;
+	}
+
+	public LocalVariable createComProxyFunctionTableIndexVariable() {
+		LocalVariable destVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destVariable.setType(this.context.cache.comProxyFunctionTableIndexType);
+		destVariable.setSymbolName(SymbolNames.COM_PROXY_FUNCTION_TABLE_INDEX_VAR_NAME);
+		return destVariable;
 	}
 	
-	public LocalVariable createEventVariable() {
-		LocalVariable variable = ModuleFactory.eINSTANCE.createLocalVariable();
-		variable.setType(this.context.cache.osEventMaskType);
-		variable.setSymbolName(SymbolNames.EVENT_VAR_NAME);
-		return variable;
+	public LocalVariable createEntityEventVariable() {
+		LocalVariable destVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destVariable.setType(this.context.cache.osEventMaskType);
+		destVariable.setSymbolName(SymbolNames.ENTITY_EVENT_VAR_NAME);
+		return destVariable;
 	}
 
-	public LocalVariable createProxyUnionDataVariable(UnionType proxyUnionType) {
-		return Variables.createLocalVariable(proxyUnionType, SymbolNames.PROXY_UNION_DATA_VARIABLE);
+	public LocalVariable createComProxyUnionDataVariable(UnionType proxyUnionType) {
+		return Variables.createUnionTypeLocalVariable(proxyUnionType, SymbolNames.COM_PROXY_UNION_DATA_VAR_NAME);
 	}
 
-	public UnionType createProxyUnionType() {
-		UnionType proxyUnionType = ModuleFactory.eINSTANCE.createUnionType();
-		proxyUnionType.setIsAnonymous(true);
-		proxyUnionType.getMember().add(createProxyUnionMember(this.context.cache.uint8Type));
-		proxyUnionType.getMember().add(createProxyUnionMember(this.context.cache.uint16Type));
-		proxyUnionType.getMember().add(createProxyUnionMember(this.context.cache.uint32Type));
-		return proxyUnionType;
+	public UnionType createPrimitiveComProxyUnionType() {
+		UnionType destProxyUnionType = ModuleFactory.eINSTANCE.createUnionType();
+		destProxyUnionType.setIsAnonymous(true);
+		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint8Type));
+		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint16Type));
+		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint32Type));
+		return destProxyUnionType;
 	}
 
-	private UnionMember createProxyUnionMember(PrimitiveType type) {
-		UnionMember unionMember = ModuleFactory.eINSTANCE.createUnionMember();
-		unionMember.setMemberName(SymbolNames.createProxyUnionVariableMemberName(type));
-		unionMember.setType(type);
-		return unionMember;
+	private UnionMember createComProxyUnionMember(PrimitiveType type) {
+		UnionMember destUnionMember = ModuleFactory.eINSTANCE.createUnionMember();
+		destUnionMember.setMemberName(SymbolNames.createComProxyUnionVariableMemberName(type));
+		destUnionMember.setType(type);
+		return destUnionMember;
 	}
 
-	public void removeUnusedLocalVariables(Function function) {
-		for (LocalVariable localVariable : Lists.newArrayList(function.getLocalVariable())) {
-			if (isUnusedLocalVariable(localVariable, function)) {
-				function.getLocalVariable().remove(localVariable);
+	public void removeUnusedLocalVariables(Function targetFunction) {
+		for (LocalVariable targetLocalVariable : Lists.newArrayList(targetFunction.getLocalVariable())) {
+			if (isUnusedLocalVariable(targetLocalVariable, targetFunction)) {
+				targetFunction.getLocalVariable().remove(targetLocalVariable);
 			}
 		}
 	}
@@ -295,137 +360,129 @@ public class LocalSymbolModelBuilder {
 		return this.context.query.find(function, ref(localVariable)).isEmpty();
 	}
 
-	private ValueSpecification getLeafValueSpecification(ValueSpecification value) {
+	private ValueSpecification getLeafValueSpecification(ValueSpecification sourceValue) {
 		// OCLと実装が被るが、登録していないValueSpecificationを処理したいので、Javaで実装する
-		if (value instanceof ConstantReference) {
-			return getLeafValueSpecification(((ConstantReference)value).getEndValueSpec());
+		if (sourceValue instanceof ConstantReference) {
+			return getLeafValueSpecification(((ConstantReference)sourceValue).getEndValueSpec());
 		}
-		return value;
+		return sourceValue;
 	}
-	
-	private String getValueString(ValueSpecification value) {
+
+	public void buildConstantValue(Constant targetConstant, ValueSpecification sourceValue, Type type) throws ModelException {
+		if (sourceValue == null) {
+			targetConstant.setValue(String.valueOf(ConfigValues.DEFAULT_DATA_ELEMENT_INIT_VALUE));
+
+		} else {
+			ValueSpecification sourceLeafValue = getLeafValueSpecification(sourceValue);
+			Type leafType;
+			if (type instanceof RedefinitionType) {
+				leafType = ((RedefinitionType) type).getLeafType();
+			} else {
+				leafType = type;
+			}
+
+			if (leafType instanceof ArrayType) {
+				buildConstantMembersForArray(targetConstant, (ArrayValueSpecification) sourceLeafValue, leafType);
+
+			} else if (leafType instanceof StructType) {
+				buildConstantMembersForRecord(targetConstant, (RecordValueSpecification) sourceLeafValue, (StructType) leafType);
+
+			} else if (leafType instanceof UnionType) {
+				buildConstantMembersForUnion(targetConstant, (RecordValueSpecification) sourceLeafValue, (UnionType) leafType);
+
+			} else {
+				targetConstant.setValue(getValueString(sourceLeafValue));
+			}
+			buildConstantValueType(targetConstant, sourceLeafValue);
+		}
+	}
+
+	private void buildConstantMembersForArray(Constant targetConstant, ArrayValueSpecification sourceValue, Type type) throws ModelException {
+		Type memberType = getConstantMemberType(type.getOriginalTypeSymbolName());
+
+		for (ValueSpecification sourceElementValue : sourceValue.getElement()) {
+			targetConstant.getMember().add(createConstantForArrayElement(sourceElementValue, memberType));
+		}
+	}
+
+	private ConstantMember createConstantForArrayElement(ValueSpecification sourceElementValue, Type type) {
+		// arrayの多次元には未対応
+		ConstantMember destMemberConstant = ModuleFactory.eINSTANCE.createConstantMember();
+		destMemberConstant.setType(type);
+		destMemberConstant.setValue(getValueString(sourceElementValue));
+		buildConstantValueType(destMemberConstant, sourceElementValue);
+		return destMemberConstant;
+	}
+
+	private void buildConstantMembersForRecord(Constant targetConstant, RecordValueSpecification sourceValue, StructType type) {
+		int index = 0;
+		for (StructMember member : type.getMember()) {
+			// NOTE validationで保障されるため、indexは取得可能と決め打ち
+			targetConstant.getMember().add(createConstantForRecordElement(sourceValue.getField().get(index++), member));
+		}
+	}
+
+	private ConstantMember createConstantForRecordElement(ValueSpecification sourceElementValue, StructMember structMember) {
+		// arrayの多次元には未対応
+		ConstantMember destMemberConstant = ModuleFactory.eINSTANCE.createConstantMember();
+		destMemberConstant.setType(structMember.getType());
+		destMemberConstant.setValue(getValueString(sourceElementValue));
+		buildConstantValueType(destMemberConstant, sourceElementValue);
+		return destMemberConstant;
+	}
+
+	private void buildConstantMembersForUnion(Constant targetConstant, RecordValueSpecification sourceValue, UnionType type) {
+		// 1番目のメンバーのみ追加
+		targetConstant.getMember().add(createConstantForUnionElement(sourceValue.getField().get(0), type.getMember().get(0)));
+	}
+
+	private ConstantMember createConstantForUnionElement(ValueSpecification sourceElementValue, UnionMember unionMember) {
+		ConstantMember destMemberConstant = ModuleFactory.eINSTANCE.createConstantMember();
+		destMemberConstant.setType(unionMember.getType());
+		destMemberConstant.setValue(getValueString(sourceElementValue));
+		buildConstantValueType(destMemberConstant, sourceElementValue);
+		return destMemberConstant;
+	}
+
+	private Type getConstantMemberType(String typeName) throws ModelException {
+		try {
+			return this.context.query.selectSingle(this.context.cache.rte.getDependentType(), hasAttr(TYPE__SYMBOL_NAME, typeName));
+		} catch (ModelException e) {
+			return this.context.query.selectSingle(this.context.cache.rte.getImplementationDataType(), hasAttr(TYPE__SYMBOL_NAME, typeName));
+		}
+	}
+
+	private String getValueString(ValueSpecification sourceValue) {
 		// OCLと実装が被るが、登録していないValueSpecificationを処理したいので、Javaで実装する
-		value = getLeafValueSpecification(value);
-		if (value instanceof NumericalValueSpecification) {
-			return ((NumericalValueSpecification)value).getValue().toString();
-		} else if (value instanceof TextValueSpecification) {
-			return ((TextValueSpecification)value).getValue();
+		ValueSpecification sourceLeafValue = getLeafValueSpecification(sourceValue);
+		if (sourceValue instanceof NumericalValueSpecification) {
+			return ((NumericalValueSpecification) sourceLeafValue).getValue().toString();
+
+		} else if (sourceValue instanceof TextValueSpecification) {
+			return ((TextValueSpecification) sourceLeafValue).getValue();
 		}
 
 		// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 		// 配列型/構造体型/共用体型のメンバは必ずプリミティブ型であることをモデル制約で保証している.
 		return null;
 	}
-	
-	public void setupConstant(Constant constant, Type type, ValueSpecification value) throws ModelException {
-		if (value == null) {
-			constant.setValue(String.valueOf(ConfigValues.DEFAULT_DATA_ELEMENT_INIT_VALUE));
+
+	public void buildConstantValueType(Constant targetConstant, ValueSpecification sourceValue) {
+		ValueSpecification sourceLeafValue;
+		if (sourceValue instanceof ConstantReference) {
+			sourceLeafValue = getLeafValueSpecification(sourceValue);
 		} else {
-			value = getLeafValueSpecification(value);
-			if (type instanceof RedefinitionType) {
-				type = ((RedefinitionType)type).getLeafType();
-			}
-			if (type instanceof ArrayType) {
-				setupConstantMembersForArray((ArrayValueSpecification)value, constant, type);
-			} else if (type instanceof StructType) {
-				setupConstantMembersForRecord((RecordValueSpecification)value, constant, (StructType)type);
-			} else if (type instanceof UnionType) {
-				setupConstantMembersForUnion((RecordValueSpecification)value, constant, (UnionType)type);
-			} else {
-				constant.setValue(getValueString(value));
-			}
-			setConstantType(value, constant);
+			sourceLeafValue = sourceValue;
 		}
-	}
 
-	private ConstantMember createConstantForArrayElement(ValueSpecification element, Type type) throws ModelException {
-		// arrayの多次元には未対応
-		ConstantMember memberConstant = ModuleFactory.eINSTANCE.createConstantMember();
-		//memberConstant.setSingleSource(sourceValueBufferImplementation);
-		memberConstant.setType(type);
+		if (sourceLeafValue instanceof NumericalValueSpecification) {
+			targetConstant.setConstantValueType(ConstantValueTypeEnum.NUMERICAL_VALUE);
 
-		if (element == null) {
-			// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			// 構造体型にパディングメンバを含めない方針に変更となった.
-			// for padding
-			memberConstant.setValue("0");
-			memberConstant.setConstantType(ConstantTypeEnum.NUMERICAL_VALUE);
-		} else {
-			memberConstant.setValue(getValueString(element));
-			setConstantType(element, memberConstant);
-		}
-		return memberConstant;
-	}
+		} else if (sourceLeafValue instanceof TextValueSpecification) {
+			targetConstant.setConstantValueType(ConstantValueTypeEnum.TEXT_VALUE);			
 
-	private ConstantMember createConstantForStructElement(ValueSpecification element, StructMember structMember) throws ModelException {
-		// arrayの多次元には未対応
-		ConstantMember memberConstant = ModuleFactory.eINSTANCE.createConstantMember();
-		memberConstant.setType(structMember.getType());
-
-		if (element == null) {
-			// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			// 構造体型にパディングメンバを含めない方針に変更となった.
-			// padding
-			String typeName = structMember.getType().getOriginalTypeSymbolName();
-			Type mType = getConstantMemberType(typeName);
-			int arraySize = ((ArrayType)structMember.getType()).getArraySize();
-			for (int i = 0; i < arraySize; i++) {
-				memberConstant.getMember().add(createConstantForArrayElement(null, mType));
-			}
-		} else {
-			memberConstant.setValue(getValueString(element));
-			setConstantType(element, memberConstant);
-		}
-		return memberConstant;
-	}
-
-	private ConstantMember createConstantForUnionElement(ValueSpecification element, UnionMember unionMember) throws ModelException {
-		ConstantMember memberConstant = ModuleFactory.eINSTANCE.createConstantMember();
-		memberConstant.setType(unionMember.getType());
-		memberConstant.setValue(getValueString(element));
-		setConstantType(element, memberConstant);
-		return memberConstant;
-	}
-
-	private void setupConstantMembersForArray(ArrayValueSpecification initValue, Constant initValueConstant, Type type) throws ModelException {
-		String typeName = type.getOriginalTypeSymbolName();
-		Type mType = getConstantMemberType(typeName);
-		for (ValueSpecification element : initValue.getElement()) {
-			initValueConstant.getMember().add(createConstantForArrayElement(element, mType));
-		}
-	}
-
-	private void setupConstantMembersForRecord(RecordValueSpecification initValue, Constant initValueConstant, StructType type) throws ModelException {
-		int index = 0;
-		for (StructMember member : type.getMember()) {
-			// validationで保障されるため、indexは取得可能と決め打ち
-			initValueConstant.getMember().add(createConstantForStructElement(initValue.getField().get(index++), member));
-		}
-	}
-
-	private Type getConstantMemberType(String typeName) throws ModelException {
-		try {
-			return this.context.query.selectSingle(this.context.cache.rte.getDependentType(), EObjectConditions.hasAttr(TYPE__SYMBOL_NAME, typeName));
-		} catch (ModelException me) {
-			return this.context.query.selectSingle(this.context.cache.rte.getRteType(), EObjectConditions.hasAttr(TYPE__SYMBOL_NAME, typeName));
-		}
-	}
-
-	private void setupConstantMembersForUnion(RecordValueSpecification initValue, Constant initValueConstant, UnionType type) throws ModelException {
-		// 1番目のメンバーのみ追加
-		initValueConstant.getMember().add(createConstantForUnionElement(initValue.getField().get(0), type.getMember().get(0)));
-	}
-	
-	public void setConstantType(ValueSpecification valueSpec, Constant valueConst) throws ModelException {
-		if (valueSpec instanceof ConstantReference) {
-			valueSpec = getLeafValueSpecification(valueSpec);
-		}
-		if (valueSpec instanceof NumericalValueSpecification) {
-			valueConst.setConstantType(ConstantTypeEnum.NUMERICAL_VALUE);
-		} else if (valueSpec instanceof TextValueSpecification) {
-			valueConst.setConstantType(ConstantTypeEnum.TEXT_VALUE);			
 		} else { // COVERAGE (numerical, text以外を設定することはないため未到達)
-			valueConst.setConstantType(ConstantTypeEnum.UNKNOWN_VALUE);
+			targetConstant.setConstantValueType(ConstantValueTypeEnum.UNKNOWN_VALUE);
 		}
 	}
 }

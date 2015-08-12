@@ -116,7 +116,6 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.AUTOSAR_VARIABLE_REF: return (EObject)createAutosarVariableRef();
 			case M2Package.VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF: return (EObject)createVariableInAtomicSwcInstanceRef();
 			case M2Package.TIMING_EVENT: return (EObject)createTimingEvent();
-			case M2Package.MODE_SWITCH_EVENT: return (EObject)createmodeSwitchEvent();
 			case M2Package.ECUC_MODULE_CONFIGURATION_VALUES: return (EObject)createEcucModuleConfigurationValues();
 			case M2Package.ECUC_CONTAINER_VALUE: return (EObject)createEcucContainerValue();
 			case M2Package.ECUC_NUMERICAL_PARAM_VALUE: return (EObject)createEcucNumericalParamValue();
@@ -133,6 +132,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.PPORT_PROTOTYPE_IN_COMPOSITION_INSTANCE_REF: return (EObject)createPPortPrototypeInCompositionInstanceRef();
 			case M2Package.SW_COMPONENT_PROTOTYPE: return (EObject)createSwComponentPrototype();
 			case M2Package.IMPLEMENTATION_DATA_TYPE: return (EObject)createImplementationDataType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: return (EObject)createImplementationDataTypeElement();
 			case M2Package.SW_DATA_DEF_PROPS: return (EObject)createSwDataDefProps();
 			case M2Package.DATA_TYPE_MAP: return (EObject)createDataTypeMap();
 			case M2Package.DATA_TYPE_MAPPING_SET: return (EObject)createDataTypeMappingSet();
@@ -205,7 +205,6 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.BSW_TIMING_EVENT: return (EObject)createBswTimingEvent();
 			case M2Package.BSW_CALLED_ENTITY: return (EObject)createBswCalledEntity();
 			case M2Package.BSW_INTERRUPT_ENTITY: return (EObject)createBswInterruptEntity();
-			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: return (EObject)createImplementationDataTypeElement();
 			case M2Package.SYSTEM_SIGNAL_GROUP: return (EObject)createSystemSignalGroup();
 			case M2Package.ISIGNAL_GROUP: return (EObject)createISignalGroup();
 			case M2Package.SENDER_REC_RECORD_TYPE_MAPPING: return (EObject)createSenderRecRecordTypeMapping();
@@ -227,6 +226,8 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
+				return createArraySizeSemanticsEnumFromString(eDataType, initialValue);
 			case M2Package.ARGUMENT_DIRECTION_ENUM:
 				return createArgumentDirectionEnumFromString(eDataType, initialValue);
 			case M2Package.DATA_FILTER_TYPE_ENUM:
@@ -245,8 +246,6 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 				return createBswCallTypeEnumFromString(eDataType, initialValue);
 			case M2Package.BSW_EXECUTION_CONTEXT_ENUM:
 				return createBswExecutionContextEnumFromString(eDataType, initialValue);
-			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
-				return createArraySizeSemanticsEnumFromString(eDataType, initialValue);
 			case M2Package.NUMERICAL:
 				return createNumericalFromString(eDataType, initialValue);
 			case M2Package.INTEGER:
@@ -296,6 +295,8 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
+				return convertArraySizeSemanticsEnumToString(eDataType, instanceValue);
 			case M2Package.ARGUMENT_DIRECTION_ENUM:
 				return convertArgumentDirectionEnumToString(eDataType, instanceValue);
 			case M2Package.DATA_FILTER_TYPE_ENUM:
@@ -314,8 +315,6 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 				return convertBswCallTypeEnumToString(eDataType, instanceValue);
 			case M2Package.BSW_EXECUTION_CONTEXT_ENUM:
 				return convertBswExecutionContextEnumToString(eDataType, instanceValue);
-			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
-				return convertArraySizeSemanticsEnumToString(eDataType, instanceValue);
 			case M2Package.NUMERICAL:
 				return convertNumericalToString(eDataType, instanceValue);
 			case M2Package.INTEGER:
@@ -505,16 +504,6 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	public TimingEvent createTimingEvent() {
 		TimingEventImpl timingEvent = new TimingEventImpl();
 		return timingEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public modeSwitchEvent createmodeSwitchEvent() {
-		modeSwitchEventImpl modeSwitchEvent = new modeSwitchEventImpl();
-		return modeSwitchEvent;
 	}
 
 	/**

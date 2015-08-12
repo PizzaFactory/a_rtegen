@@ -44,11 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -60,7 +57,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class InitializeOperationImpl extends ExtendedEObjectImpl implements InitializeOperation {
+public abstract class InitializeOperationImpl extends OperationImpl implements InitializeOperation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

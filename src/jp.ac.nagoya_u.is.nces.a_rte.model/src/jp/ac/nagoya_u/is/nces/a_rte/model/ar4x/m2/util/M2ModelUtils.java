@@ -63,13 +63,39 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
+/**
+ * M2モデルに関するユーティリティ機能を提供する。
+ */
 public class M2ModelUtils {
 
+	/**
+	 * M2モデルのオブジェクトのIDの接頭辞
+	 */
 	public static final String ID_PREFIX = "m2.";
+
+	/**
+	 * M2モデルのリファレンスの区切り文字
+	 */
 	public static final String REFERENCE_SEPARATOR = "/";
+
+	/**
+	 * リファレンスのロール名の接尾辞
+	 */
 	public static final String REFERENCE_ROLE_SUFFIX = "Ref";
+
+	/**
+	 * タイプリファレンスのロール名の接尾辞
+	 */
 	public static final String TYPE_REFERENCE_ROLE_SUFFIX = "Tref";
+
+	/**
+	 * インスタンスリファレンスのロール名の接尾辞
+	 */
 	public static final String INSTANCE_REFERENCE_ROLE_SUFFIX = "Iref";
+
+	/**
+	 * mixedStringの値を保持する属性のロール名
+	 */
 	public static final String MIXED_STRING_VALUE_FEATURE_NAME = "value";
 
 	// 数値，および論理値の文字列表現
@@ -92,16 +118,45 @@ public class M2ModelUtils {
 	private static final String XML_NAME_TAG = "xml.name"; // ロールに対応するXMLタグ名(単数形)
 	private static final String XML_NAME_PLURAL_TAG = "xml.namePlural"; // ロールに対応するXMLタグ名(複数形)
 
+	/**
+	 * ecucDefのデフォルト値
+	 */
 	public static final String DEFAULT_ECUC_DEF_EDITION = "4.2.0";
 
+	/**
+	 * リファレンスの種別を表す。
+	 */
 	public static enum ReferenceType {
-		CONTAINMENT, REFERENCE, TYPE_REFERENCE,
+		/**
+		 * AUTOSARモデルにおける集約を表す。
+		 */
+		CONTAINMENT,
+
+		/**
+		 * AUTOSARモデルにおけるリファレンスを表す。
+		 */
+		REFERENCE,
+
+		/**
+		 * AUTOSARモデルにおけるタイプリファレンスを表す。
+		 */
+		TYPE_REFERENCE,
 	}
 
+	/**
+	 * {@link EStructuralFeature}からインスタンスリファレンスのロール名を取得する。
+	 * @param eStructuralFeature 取得対象の{@link EStructuralFeature}
+	 * @return インスタンスリファレンスのロール名
+	 */
 	public static String getIrefRoleNameOfRoleFeature(EStructuralFeature eStructuralFeature) {
 		return eStructuralFeature.getName() + INSTANCE_REFERENCE_ROLE_SUFFIX;
 	}
 
+	/**
+	 * リファレンスの種別を判定する。
+	 * @param eReference 判定対象の{@link EReference}
+	 * @return リファレンスの種別
+	 */
 	public static ReferenceType getReferenceType(EReference eReference) {
 		if (eReference.isContainment()) {
 			return ReferenceType.CONTAINMENT;
@@ -114,14 +169,34 @@ public class M2ModelUtils {
 		}
 	}
 
+	/**
+	 * 文字列を、指定された{@link EStructuralFeature}に設定可能なオブジェクトに変換する。
+	 * @param originalValue 変換元の文字列
+	 * @param eFeature 変換先の{@link EStructuralFeature}
+	 * @return 変換結果のオブジェクト
+	 * @throws ModelException 変換に失敗した場合
+	 */
 	public static Object convertValueForFeature(String originalValue, EStructuralFeature eFeature) throws ModelException {
 		return convertValueToType(originalValue, (EDataType) eFeature.getEType());
 	}
 
+	/**
+	 * {@link BigDecimal}を、指定された{@link EStructuralFeature}に設定可能なオブジェクトに変換する。
+	 * @param originalValue 変換元の{@link BigDecimal}
+	 * @param eFeature 変換先の{@link EStructuralFeature}
+	 * @return 変換結果のオブジェクト
+	 * @throws ModelException 変換に失敗した場合
+	 */
 	public static Object convertValueForFeature(BigDecimal originalValue, EStructuralFeature eFeature) throws ModelException {
 		return convertValueToType(originalValue, (EDataType) eFeature.getEType());
 	}
 
+	/**
+	 * 文字列が、指定された{@link EDataType}のオブジェクトに変換可能かを判定する。
+	 * @param originalValue 変換元の文字列
+	 * @param type 変換先の{@link EDataType}
+	 * @return 変換可能である場合、true。それ以外の場合、false。
+	 */
 	public static boolean tryConvertValueToType(String originalValue, EDataType type) {
 		try {
 			tryConvertValueToType(originalValue, type);
@@ -131,6 +206,13 @@ public class M2ModelUtils {
 		}
 	}
 
+	/**
+	 * 文字列を、指定された{@link EDataType}のオブジェクトに変換する。
+	 * @param originalValue 変換元の文字列
+	 * @param type 変換先の{@link EDataType}
+	 * @return 変換結果のオブジェクト
+	 * @throws ModelException 変換に失敗した場合
+	 */
 	public static Object convertValueToType(String originalValue, EDataType type) throws ModelException {
 		try {
 			if (isJavaBigDecimal(type)) {
@@ -158,6 +240,13 @@ public class M2ModelUtils {
 		}
 	}
 
+	/**
+	 * {@link BigDecimal}を、指定された{@link EDataType}のオブジェクトに変換する。
+	 * @param originalValue 変換元の{@link BigDecimal}
+	 * @param type 変換先の{@link EDataType}
+	 * @return 変換結果のオブジェクト
+	 * @throws ModelException 変換に失敗した場合
+	 */
 	public static Object convertValueToType(BigDecimal originalValue, EDataType type) throws ModelException {
 		try {
 			if (isJavaBigDecimal(type)) {
@@ -252,22 +341,49 @@ public class M2ModelUtils {
 		return BOOLEAN_TRUE_TEXT_REPRESENTATIONS.contains(originalValue);
 	}
 
+	/**
+	 * {@link EClass}にmixedStringのステレオタイプが付与されているかを判定する。
+	 * @param eClass 判定対象の{@link EClass}
+	 * @return {@link EClass}にmixedStringのステレオタイプが付与されている場合、true。それ以外の場合、false。
+	 */
 	public static boolean hasMixedStringStereotype(EClass eClass) {
 		return EmfUtils.hasStereotype(eClass, MIXED_STRING_STEREOTYPE);
 	}
 
+	/**
+	 * {@link EStructuralFeature}の永続化時にロールラッパを使用するかを判定する。
+	 * @param eStructuralFeature 判定対象の{@link EStructuralFeature}
+	 * @param defaultValue {@link EStructuralFeature}にxml.roleWrapperEnabledが設定されていない場合のデフォルト値
+	 * @return {@link EStructuralFeature}の永続化時にロールラッパを使用する場合、true。それ以外の場合、false。
+	 */
 	public static boolean isXmlRoleWrapperEnabled(EStructuralFeature eStructuralFeature, boolean defaultValue) {
 		return EmfUtils.getBooleanTagValue(eStructuralFeature, XML_ROLE_WRAPPER_ELEMENT_TAG, defaultValue);
 	}
 
+	/**
+	 * {@link EStructuralFeature}に設定されたxml.nameの値を取得する。
+	 * @param eStructuralFeature 取得対象の{@link EStructuralFeature}
+	 * @return　{@link EStructuralFeature}に設定されたxml.nameの値
+	 */
 	public static Optional<String> tryGetXmlName(EStructuralFeature eStructuralFeature) {
 		return EmfUtils.tryGetTag(eStructuralFeature, XML_NAME_TAG);
 	}
 
+	/**
+	 * {@link EStructuralFeature}に設定されたxml.namePluralの値を取得する。
+	 * @param eStructuralFeature 取得対象の{@link EStructuralFeature}
+	 * @return　{@link EStructuralFeature}に設定されたxml.namePluralの値
+	 */
 	public static Optional<String> tryGetXmlPluralName(EStructuralFeature eStructuralFeature) {
 		return EmfUtils.tryGetTag(eStructuralFeature, XML_NAME_PLURAL_TAG);
 	}
 
+	/**
+	 * <p>数値オブジェクトを{@link BigDecimal}に変換する。</p>
+	 * <p>NOTE 現在、変換可能な数値オブジェクトは{@link BigDecimal}、{@link BigInteger}、{@link Boolean}、{@link Integer}のみであることに注意。</p>
+	 * @param value 変換元の数値オブジェクト
+	 * @return 変換可能な数値オブジェクトである場合、変換結果の{@link BigDecimal}。それ以外の場合、null。
+	 */
 	public static BigDecimal convertValueToBigDecimal(Object value) {
 		if (value instanceof BigDecimal) {
 			return new BigDecimal((BigInteger) value);
@@ -287,11 +403,21 @@ public class M2ModelUtils {
 		}
 	}
 
+	/**
+	 * 数値型の属性かどうかを判定する。
+	 * @param eAttribute 判定対象の{@link EAttribute}
+	 * @return 数値型の属性である場合、true。それ以外の場合、false。
+	 */
 	public static boolean isNumericalAttribute(EAttribute eAttribute) {
 		return isJavaBooleanType(eAttribute.getEAttributeType()) || isJavaIntegerType(eAttribute.getEAttributeType()) || isJavaBigInteger(eAttribute.getEAttributeType())
 				|| isJavaBigDecimal(eAttribute.getEAttributeType());
 	}
 
+	/**
+	 * M2モデルのオブジェクトへのリファレンスを生成する。
+	 * @param object リファレンスの生成対象の{@link M2Object}
+	 * @return M2モデルのオブジェクトへのリファレンス
+	 */
 	public static String generateAutosarReference(M2Object object) {
 		StringBuilder sb = new StringBuilder();
 
@@ -306,12 +432,22 @@ public class M2ModelUtils {
 		return sb.toString();
 	}
 
+	/**
+	 * {@link Referrable}へのリファレンスベース(親モデル要素のリファレンス)を取得する。
+	 * @param referrable リファレンスベースの取得対象の{@link Referrable}
+	 * @return {@link Referrable}へのリファレンスベース
+	 */
 	public static String getReferenceBase(Referrable referrable) {
 		String reference = referrable.getReference();
 		int lastIndex = reference.lastIndexOf(REFERENCE_SEPARATOR);
 		return lastIndex == -1 ? "" : reference.substring(0, lastIndex);
 	}
 
+	/**
+	 * {@link EStructuralFeature}がAUTOSARのM2で定義された属性／リファレンスであるかを判定する。
+	 * @param eFeature 判定対象の{@link EStructuralFeature}
+	 * @return {@link EStructuralFeature}がAUTOSARのM2で定義された属性／リファレンスである場合、true。それ以外の場合、false。
+	 */
 	public static boolean isNonM2Feature(EStructuralFeature eFeature) {
 		return EmfUtils.hasStereotype(eFeature, NON_M2_STEREOTYPE);
 	}

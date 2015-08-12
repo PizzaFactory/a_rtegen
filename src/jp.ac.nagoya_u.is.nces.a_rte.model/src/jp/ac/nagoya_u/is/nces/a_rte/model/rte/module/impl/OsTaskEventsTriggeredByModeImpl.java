@@ -79,7 +79,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class OsTaskEventsTriggeredByModeImpl extends ModuleReferrableImpl implements OsTaskEventsTriggeredByMode {
+public class OsTaskEventsTriggeredByModeImpl extends ModuleObjectImpl implements OsTaskEventsTriggeredByMode {
 	/**
 	 * The cached value of the '{@link #getStartMode() <em>Start Mode</em>}' reference.
 	 * <!-- begin-user-doc -->

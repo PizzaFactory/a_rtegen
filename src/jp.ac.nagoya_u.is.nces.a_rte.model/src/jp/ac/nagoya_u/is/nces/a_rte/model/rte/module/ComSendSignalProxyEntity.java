@@ -54,7 +54,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getPrimitiveOperation <em>Primitive Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getComplexOperation <em>Complex Operation</em>}</li>
  * </ul>
  * </p>
@@ -65,24 +65,24 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ComSendSignalProxyEntity extends BswSchedulableEntity {
 	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation}.
+	 * Returns the value of the '<em><b>Primitive Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComSendSignalProxyEntity_Operation()
+	 * @return the value of the '<em>Primitive Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComSendSignalProxyEntity_PrimitiveOperation()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComSendProxyOperation> getOperation();
+	EList<PrimitiveComSendProxyOperation> getPrimitiveOperation();
 
 	/**
 	 * Returns the value of the '<em><b>Complex Operation</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyComplexOperation}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Complex Operation</em>' containment reference list isn't clear,
@@ -94,6 +94,6 @@ public interface ComSendSignalProxyEntity extends BswSchedulableEntity {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComSendProxyComplexOperation> getComplexOperation();
+	EList<ComplexComSendProxyOperation> getComplexOperation();
 
 } // ComSendSignalProxyEntity

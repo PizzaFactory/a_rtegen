@@ -46,56 +46,62 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
-
-import org.eclipse.emf.common.util.EList;
 
 public class IrvOperationModelBuilder {
 
 	private final ModuleModelBuildContext context;
-	private ExcludeOperationModelBuilder excludeOperationBuilder;
+	private final ModuleRules moduleRules;
+	private final ExcludeOperationModelBuilder excludeOperationBuilder;
 
 	public IrvOperationModelBuilder(ModuleModelBuildContext context) {
 		this.context = context;
+		this.moduleRules = new ModuleRules(context);
 		this.excludeOperationBuilder = new ExcludeOperationModelBuilder(context);
 	}
 
-	public IrvReadOperation createIrvReadOperation(Swc swc, VariableDataPrototype dataPrototype, Parameter dataParam, boolean isInline)
-			throws ModelException {
-		IrvReadOperation operation = ModuleFactory.eINSTANCE.createIrvReadOperation();
-		RteBufferVariableSet rteBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, dataPrototype);
-		operation.setAccessVariable(rteBuffer);
+	public IrvReadOperation createIrvReadOperation(IrvReadApi targetApi, VariableDataPrototype sourceDataPrototype, Parameter dataParam) throws ModelException {
+		RteBufferVariableSet irvBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceDataPrototype);
+
+		IrvReadOperation destOperation = ModuleFactory.eINSTANCE.createIrvReadOperation();
+		destOperation.setAccessVariable(irvBuffer);
 		if (dataParam != null) {
-			operation.setReadValueVariable(dataParam);
-			operation.setExcludeOperation(excludeOperationBuilder.createExcludeOperationForIrv(dataParam.getType()));
+			destOperation.setReadValueVariable(dataParam);
+			if (this.moduleRules.needsExclusionForIrvOperation(dataParam.getType())) {
+				destOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(false));
+			}
 		}
-		if (isInline) {
-			addGlovalVariable(swc.getInlineGlobalVariables(), rteBuffer.getValueVariable());
+		if (targetApi.getIsInline()) {
+			addInlineGlovalVariable(targetApi, irvBuffer.getValueVariable());
 		}
-		return operation;
+		return destOperation;
 	}
 
-	public IrvWriteOperation createIrvWriteOperation(Swc swc, VariableDataPrototype dataPrototype, Parameter dataParam, boolean isInline)
-			throws ModelException {
-		IrvWriteOperation operation = ModuleFactory.eINSTANCE.createIrvWriteOperation();
-		RteBufferVariableSet rteBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, dataPrototype);
-		operation.setAccessVariable(rteBuffer);
-		operation.setWriteValueVariable(dataParam);
-		operation.setExcludeOperation(excludeOperationBuilder.createExcludeOperationForIrv(dataParam.getType()));
-		if (isInline) {
-			addGlovalVariable(swc.getInlineGlobalVariables(), rteBuffer.getValueVariable());
+	public IrvWriteOperation createIrvWriteOperation(IrvWriteApi targetApi, VariableDataPrototype sourceDataPrototype, Parameter dataParam) throws ModelException {
+		RteBufferVariableSet irvBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceDataPrototype);
+
+		IrvWriteOperation destOperation = ModuleFactory.eINSTANCE.createIrvWriteOperation();
+		destOperation.setAccessVariable(irvBuffer);
+		destOperation.setWriteValueVariable(dataParam);
+		if (this.moduleRules.needsExclusionForIrvOperation(dataParam.getType())) {
+			destOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(false));
 		}
-		return operation;
+		if (targetApi.getIsInline()) {
+			addInlineGlovalVariable(targetApi, irvBuffer.getValueVariable());
+		}
+		return destOperation;
 	}
-	
-	private void addGlovalVariable(EList<GlobalVariable> variables, GlobalVariable glovalVariable) {
-		if (! variables.contains(glovalVariable)) {
-			variables.add(glovalVariable);
+
+	private void addInlineGlovalVariable(RteApi targetApi, GlobalVariable glovalVariable) {
+		if (!targetApi.getInlineGlobalVariable().contains(glovalVariable)) { // COVERAGE (コードレビューで問題ないことを確認)
+			targetApi.getInlineGlobalVariable().add(glovalVariable);
 		}
 	}
 }

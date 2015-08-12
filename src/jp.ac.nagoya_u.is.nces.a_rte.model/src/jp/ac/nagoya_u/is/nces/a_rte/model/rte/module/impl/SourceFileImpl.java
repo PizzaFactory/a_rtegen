@@ -59,7 +59,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl#getDependentHeaders <em>Dependent Headers</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl#getIncludeHeader <em>Include Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,15 +67,14 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	/**
-	 * The cached value of the '{@link #getDependentHeaders() <em>Dependent Headers</em>}' reference list.
+	 * The cached value of the '{@link #getIncludeHeader() <em>Include Header</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentHeaders()
+	 * @see #getIncludeHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<HeaderFile> dependentHeaders;
-
+	protected EList<HeaderFile> includeHeader;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,11 +99,11 @@ public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HeaderFile> getDependentHeaders() {
-		if (dependentHeaders == null) {
-			dependentHeaders = new EObjectResolvingEList<HeaderFile>(HeaderFile.class, this, ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS);
+	public EList<HeaderFile> getIncludeHeader() {
+		if (includeHeader == null) {
+			includeHeader = new EObjectResolvingEList<HeaderFile>(HeaderFile.class, this, ModulePackage.SOURCE_FILE__INCLUDE_HEADER);
 		}
-		return dependentHeaders;
+		return includeHeader;
 	}
 
 	/**
@@ -115,8 +114,8 @@ public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS:
-				return getDependentHeaders();
+			case ModulePackage.SOURCE_FILE__INCLUDE_HEADER:
+				return getIncludeHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,9 +129,9 @@ public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS:
-				getDependentHeaders().clear();
-				getDependentHeaders().addAll((Collection<? extends HeaderFile>)newValue);
+			case ModulePackage.SOURCE_FILE__INCLUDE_HEADER:
+				getIncludeHeader().clear();
+				getIncludeHeader().addAll((Collection<? extends HeaderFile>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,8 +145,8 @@ public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS:
-				getDependentHeaders().clear();
+			case ModulePackage.SOURCE_FILE__INCLUDE_HEADER:
+				getIncludeHeader().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -161,8 +160,8 @@ public abstract class SourceFileImpl extends FileImpl implements SourceFile {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.SOURCE_FILE__DEPENDENT_HEADERS:
-				return dependentHeaders != null && !dependentHeaders.isEmpty();
+			case ModulePackage.SOURCE_FILE__INCLUDE_HEADER:
+				return includeHeader != null && !includeHeader.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,8 +53,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getInitializeOperation()
  * @model abstract="true"
- * @extends ExtendedEObject
  * @generated
  */
-public interface InitializeOperation extends ExtendedEObject {
+public interface InitializeOperation extends Operation {
 } // InitializeOperation

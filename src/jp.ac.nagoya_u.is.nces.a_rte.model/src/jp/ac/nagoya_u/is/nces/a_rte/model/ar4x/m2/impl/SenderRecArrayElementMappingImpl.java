@@ -44,21 +44,16 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignal;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -76,7 +71,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SenderRecArrayElementMappingImpl extends ExtendedEObjectImpl implements SenderRecArrayElementMapping {
+public class SenderRecArrayElementMappingImpl extends M2ObjectImpl implements SenderRecArrayElementMapping {
 	/**
 	 * The cached value of the '{@link #getIndexedArrayElement() <em>Indexed Array Element</em>}' containment reference.
 	 * <!-- begin-user-doc -->

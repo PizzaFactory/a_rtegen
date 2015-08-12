@@ -62,9 +62,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getType <em>Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getAccessProxyApi <em>Access Proxy Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getAccessIocApi <em>Access Ioc Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getRequestProxyIocApi <em>Request Proxy Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getValueProxyIocApi <em>Value Proxy Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getProxyFunctionIndexConstantName <em>Proxy Function Index Constant Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,44 +81,41 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 */
 	protected Type type;
 	/**
-	 * The cached value of the '{@link #getAccessProxyApi() <em>Access Proxy Api</em>}' reference.
+	 * The cached value of the '{@link #getRequestProxyIocApi() <em>Request Proxy Ioc Api</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAccessProxyApi()
+	 * @see #getRequestProxyIocApi()
 	 * @generated
 	 * @ordered
 	 */
-	protected IocSendApi accessProxyApi;
-
+	protected IocSendApi requestProxyIocApi;
 	/**
-	 * The cached value of the '{@link #getAccessIocApi() <em>Access Ioc Api</em>}' reference.
+	 * The cached value of the '{@link #getValueProxyIocApi() <em>Value Proxy Ioc Api</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAccessIocApi()
+	 * @see #getValueProxyIocApi()
 	 * @generated
 	 * @ordered
 	 */
-	protected IocSendApi accessIocApi;
-
+	protected IocSendApi valueProxyIocApi;
 	/**
-	 * The default value of the '{@link #getFunctionTableSymbolName() <em>Function Table Symbol Name</em>}' attribute.
+	 * The default value of the '{@link #getProxyFunctionIndexConstantName() <em>Proxy Function Index Constant Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFunctionTableSymbolName()
+	 * @see #getProxyFunctionIndexConstantName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT = null;
+	protected static final String PROXY_FUNCTION_INDEX_CONSTANT_NAME_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getFunctionTableSymbolName() <em>Function Table Symbol Name</em>}' attribute.
+	 * The cached value of the '{@link #getProxyFunctionIndexConstantName() <em>Proxy Function Index Constant Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFunctionTableSymbolName()
+	 * @see #getProxyFunctionIndexConstantName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String functionTableSymbolName = FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT;
-
+	protected String proxyFunctionIndexConstantName = PROXY_FUNCTION_INDEX_CONSTANT_NAME_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,16 +178,16 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendApi getAccessProxyApi() {
-		if (accessProxyApi != null && ((EObject)accessProxyApi).eIsProxy()) {
-			InternalEObject oldAccessProxyApi = (InternalEObject)accessProxyApi;
-			accessProxyApi = (IocSendApi)eResolveProxy(oldAccessProxyApi);
-			if (accessProxyApi != oldAccessProxyApi) {
+	public IocSendApi getRequestProxyIocApi() {
+		if (requestProxyIocApi != null && ((EObject)requestProxyIocApi).eIsProxy()) {
+			InternalEObject oldRequestProxyIocApi = (InternalEObject)requestProxyIocApi;
+			requestProxyIocApi = (IocSendApi)eResolveProxy(oldRequestProxyIocApi);
+			if (requestProxyIocApi != oldRequestProxyIocApi) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API, oldAccessProxyApi, accessProxyApi));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API, oldRequestProxyIocApi, requestProxyIocApi));
 			}
 		}
-		return accessProxyApi;
+		return requestProxyIocApi;
 	}
 
 	/**
@@ -198,8 +195,8 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendApi basicGetAccessProxyApi() {
-		return accessProxyApi;
+	public IocSendApi basicGetRequestProxyIocApi() {
+		return requestProxyIocApi;
 	}
 
 	/**
@@ -207,11 +204,11 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccessProxyApi(IocSendApi newAccessProxyApi) {
-		IocSendApi oldAccessProxyApi = accessProxyApi;
-		accessProxyApi = newAccessProxyApi;
+	public void setRequestProxyIocApi(IocSendApi newRequestProxyIocApi) {
+		IocSendApi oldRequestProxyIocApi = requestProxyIocApi;
+		requestProxyIocApi = newRequestProxyIocApi;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API, oldAccessProxyApi, accessProxyApi));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API, oldRequestProxyIocApi, requestProxyIocApi));
 	}
 
 	/**
@@ -219,16 +216,16 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendApi getAccessIocApi() {
-		if (accessIocApi != null && ((EObject)accessIocApi).eIsProxy()) {
-			InternalEObject oldAccessIocApi = (InternalEObject)accessIocApi;
-			accessIocApi = (IocSendApi)eResolveProxy(oldAccessIocApi);
-			if (accessIocApi != oldAccessIocApi) {
+	public IocSendApi getValueProxyIocApi() {
+		if (valueProxyIocApi != null && ((EObject)valueProxyIocApi).eIsProxy()) {
+			InternalEObject oldValueProxyIocApi = (InternalEObject)valueProxyIocApi;
+			valueProxyIocApi = (IocSendApi)eResolveProxy(oldValueProxyIocApi);
+			if (valueProxyIocApi != oldValueProxyIocApi) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API, oldAccessIocApi, accessIocApi));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API, oldValueProxyIocApi, valueProxyIocApi));
 			}
 		}
-		return accessIocApi;
+		return valueProxyIocApi;
 	}
 
 	/**
@@ -236,8 +233,8 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendApi basicGetAccessIocApi() {
-		return accessIocApi;
+	public IocSendApi basicGetValueProxyIocApi() {
+		return valueProxyIocApi;
 	}
 
 	/**
@@ -245,11 +242,11 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccessIocApi(IocSendApi newAccessIocApi) {
-		IocSendApi oldAccessIocApi = accessIocApi;
-		accessIocApi = newAccessIocApi;
+	public void setValueProxyIocApi(IocSendApi newValueProxyIocApi) {
+		IocSendApi oldValueProxyIocApi = valueProxyIocApi;
+		valueProxyIocApi = newValueProxyIocApi;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API, oldAccessIocApi, accessIocApi));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API, oldValueProxyIocApi, valueProxyIocApi));
 	}
 
 	/**
@@ -257,8 +254,8 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getFunctionTableSymbolName() {
-		return functionTableSymbolName;
+	public String getProxyFunctionIndexConstantName() {
+		return proxyFunctionIndexConstantName;
 	}
 
 	/**
@@ -266,11 +263,11 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setFunctionTableSymbolName(String newFunctionTableSymbolName) {
-		String oldFunctionTableSymbolName = functionTableSymbolName;
-		functionTableSymbolName = newFunctionTableSymbolName;
+	public void setProxyFunctionIndexConstantName(String newProxyFunctionIndexConstantName) {
+		String oldProxyFunctionIndexConstantName = proxyFunctionIndexConstantName;
+		proxyFunctionIndexConstantName = newProxyFunctionIndexConstantName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME, oldFunctionTableSymbolName, functionTableSymbolName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME, oldProxyFunctionIndexConstantName, proxyFunctionIndexConstantName));
 	}
 
 	/**
@@ -284,14 +281,14 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				if (resolve) return getAccessProxyApi();
-				return basicGetAccessProxyApi();
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
-				if (resolve) return getAccessIocApi();
-				return basicGetAccessIocApi();
-			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
-				return getFunctionTableSymbolName();
+			case ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API:
+				if (resolve) return getRequestProxyIocApi();
+				return basicGetRequestProxyIocApi();
+			case ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API:
+				if (resolve) return getValueProxyIocApi();
+				return basicGetValueProxyIocApi();
+			case ModulePackage.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME:
+				return getProxyFunctionIndexConstantName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -307,14 +304,14 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
 				setType((Type)newValue);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				setAccessProxyApi((IocSendApi)newValue);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API:
+				setRequestProxyIocApi((IocSendApi)newValue);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
-				setAccessIocApi((IocSendApi)newValue);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API:
+				setValueProxyIocApi((IocSendApi)newValue);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
-				setFunctionTableSymbolName((String)newValue);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME:
+				setProxyFunctionIndexConstantName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -331,14 +328,14 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
 				setType((Type)null);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				setAccessProxyApi((IocSendApi)null);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API:
+				setRequestProxyIocApi((IocSendApi)null);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
-				setAccessIocApi((IocSendApi)null);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API:
+				setValueProxyIocApi((IocSendApi)null);
 				return;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
-				setFunctionTableSymbolName(FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME:
+				setProxyFunctionIndexConstantName(PROXY_FUNCTION_INDEX_CONSTANT_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -354,12 +351,12 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 		switch (featureID) {
 			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
 				return type != null;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				return accessProxyApi != null;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
-				return accessIocApi != null;
-			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
-				return FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT == null ? functionTableSymbolName != null : !FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT.equals(functionTableSymbolName);
+			case ModulePackage.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API:
+				return requestProxyIocApi != null;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API:
+				return valueProxyIocApi != null;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME:
+				return PROXY_FUNCTION_INDEX_CONSTANT_NAME_EDEFAULT == null ? proxyFunctionIndexConstantName != null : !PROXY_FUNCTION_INDEX_CONSTANT_NAME_EDEFAULT.equals(proxyFunctionIndexConstantName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -374,8 +371,8 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (functionTableSymbolName: ");
-		result.append(functionTableSymbolName);
+		result.append(" (proxyFunctionIndexConstantName: ");
+		result.append(proxyFunctionIndexConstantName);
 		result.append(')');
 		return result.toString();
 	}

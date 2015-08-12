@@ -56,7 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile#getGuardName <em>Guard Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile#getDependentHeaders <em>Dependent Headers</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile#getIncludeHeader <em>Include Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,7 +92,7 @@ public interface HeaderFile extends File {
 	void setGuardName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Dependent Headers</b></em>' reference list.
+	 * Returns the value of the '<em><b>Include Header</b></em>' reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -100,11 +100,11 @@ public interface HeaderFile extends File {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Headers</em>' reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getHeaderFile_DependentHeaders()
+	 * @return the value of the '<em>Include Header</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getHeaderFile_IncludeHeader()
 	 * @model
 	 * @generated
 	 */
-	EList<HeaderFile> getDependentHeaders();
+	EList<HeaderFile> getIncludeHeader();
 
 } // HeaderFile

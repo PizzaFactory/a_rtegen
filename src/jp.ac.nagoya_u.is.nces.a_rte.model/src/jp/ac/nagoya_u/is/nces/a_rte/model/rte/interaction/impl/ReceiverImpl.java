@@ -154,7 +154,7 @@ public class ReceiverImpl extends InteractionEndImpl implements Receiver {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean hasMultipleSenders() {
+	public boolean hasMultipleSenders() {
 		try {
 			return (Boolean)HAS_MULTIPLE_SENDERS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: fileUtil.mtl 14054 2015-04-25 02:25:32Z t-inoue $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -48,13 +48,13 @@
 [template public genFileIncludes(aFile : File) /]
 
 [template private genFileIncludes(aFile : HeaderFile)]
-[for (aDependentFile : File | aFile.dependentHeaders)]
+[for (aDependentFile : File | aFile.includeHeader)]
 	[aDependentFile.genFileInclude()/]
 [/for]
 [/template]
 
 [template private genFileIncludes(aFile : SourceFile)]
-[for (aDependentFile : File | aFile.dependentHeaders)]
+[for (aDependentFile : File | aFile.includeHeader)]
 	[aDependentFile.genFileInclude()/]
 [/for]
 [/template]

@@ -55,24 +55,31 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCore <em>Core</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback <em>Com Callback</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentType <em>Dependent Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteType <em>Rte Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant <em>Dependent Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentOsApi <em>Dependent Os Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentIocCommunication <em>Dependent Ioc Communication</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentComApi <em>Dependent Com Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueConstant <em>Ioc Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant <em>Dependent Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteTypeConstant <em>Rte Type Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueVariableSet <em>Ioc Init Value Variable Set</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteMemoryMapping <em>Rte Memory Mapping</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImplementationDataType <em>Implementation Data Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType <em>Cs Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant <em>Sr Rte Buffer Queue Max Length Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant <em>Immediate Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback <em>Com Callback</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmInitApi <em>Schm Init Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmDeinitApi <em>Schm Deinit Api</em>}</li>
  * </ul>
@@ -178,7 +185,7 @@ public interface Rte extends LogicalCompartment {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Com Send Signal Trusted Function</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalTrustedFunction()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction();
@@ -200,20 +207,36 @@ public interface Rte extends LogicalCompartment {
 	EList<Type> getDependentType();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Type</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type}.
+	 * Returns the value of the '<em><b>Immediate Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Type</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Immediate Constant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Type</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteType()
+	 * @return the value of the '<em>Immediate Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ImmediateConstant()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Type> getRteType();
+	EList<Constant> getImmediateConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteBufferQueueMaxLengthConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrRteBufferQueueMaxLengthConstant();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Os Api</b></em>' containment reference list.
@@ -264,6 +287,38 @@ public interface Rte extends LogicalCompartment {
 	EList<ComApi> getDependentComApi();
 
 	/**
+	 * Returns the value of the '<em><b>Ioc Init Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ioc Init Value Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ioc Init Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_IocInitValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getIocInitValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Ioc Init Value Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ioc Init Value Variable Set</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ioc Init Value Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_IocInitValueVariableSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferVariableSet> getIocInitValueVariableSet();
+
+	/**
 	 * Returns the value of the '<em><b>Rte Start Api</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -288,22 +343,6 @@ public interface Rte extends LogicalCompartment {
 	 * @generated
 	 */
 	void setRteStartApi(RteStartApi value);
-
-	/**
-	 * Returns the value of the '<em><b>Ioc Init Value Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ioc Init Value Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ioc Init Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_IocInitValueConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getIocInitValueConstant();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Constant</b></em>' containment reference list.
@@ -358,7 +397,7 @@ public interface Rte extends LogicalCompartment {
 	 * @return the value of the '<em>Rte Stop Api</em>' containment reference.
 	 * @see #setRteStopApi(RteStopApi)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteStopApi()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	RteStopApi getRteStopApi();
@@ -374,20 +413,130 @@ public interface Rte extends LogicalCompartment {
 	void setRteStopApi(RteStopApi value);
 
 	/**
-	 * Returns the value of the '<em><b>Rte Type Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * Returns the value of the '<em><b>Implementation Data Type</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Type Constant</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Implementation Data Type</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Type Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteTypeConstant()
+	 * @return the value of the '<em>Implementation Data Type</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ImplementationDataType()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Constant> getRteTypeConstant();
+	EList<Type> getImplementationDataType();
+
+	/**
+	 * Returns the value of the '<em><b>Com Send Signal Tf Param Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Send Signal Tf Param Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Send Signal Tf Param Type</em>' containment reference.
+	 * @see #setComSendSignalTfParamType(ComSendTrustedFunctionParamType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalTfParamType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ComSendTrustedFunctionParamType getComSendSignalTfParamType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Send Signal Tf Param Type</em>' containment reference.
+	 * @see #getComSendSignalTfParamType()
+	 * @generated
+	 */
+	void setComSendSignalTfParamType(ComSendTrustedFunctionParamType value);
+
+	/**
+	 * Returns the value of the '<em><b>Com Send Signal Group Tf Param Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Send Signal Group Tf Param Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Send Signal Group Tf Param Type</em>' containment reference.
+	 * @see #setComSendSignalGroupTfParamType(ComSendTrustedFunctionParamType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalGroupTfParamType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ComSendTrustedFunctionParamType getComSendSignalGroupTfParamType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Send Signal Group Tf Param Type</em>' containment reference.
+	 * @see #getComSendSignalGroupTfParamType()
+	 * @generated
+	 */
+	void setComSendSignalGroupTfParamType(ComSendTrustedFunctionParamType value);
+
+	/**
+	 * Returns the value of the '<em><b>Cs Tf Param Type</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunctionParamType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Tf Param Type</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Tf Param Type</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_CsTfParamType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CsTrustedFunctionParamType> getCsTfParamType();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Rte Send Tf Param Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Send Tf Param Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Send Tf Param Type</em>' containment reference.
+	 * @see #setSrRteSendTfParamType(RteSendTrustedFunctionParamType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteSendTfParamType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RteSendTrustedFunctionParamType getSrRteSendTfParamType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sr Rte Send Tf Param Type</em>' containment reference.
+	 * @see #getSrRteSendTfParamType()
+	 * @generated
+	 */
+	void setSrRteSendTfParamType(RteSendTrustedFunctionParamType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Buffer Queue Type</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Buffer Queue Type</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteBufferQueueType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferQueueType> getSrRteBufferQueueType();
 
 	/**
 	 * Returns the value of the '<em><b>Rte Memory Mapping</b></em>' containment reference list.
@@ -484,7 +633,7 @@ public interface Rte extends LogicalCompartment {
 	 * @return the value of the '<em>Schm Deinit Api</em>' containment reference.
 	 * @see #setSchmDeinitApi(SchmDeinitApi)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SchmDeinitApi()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	SchmDeinitApi getSchmDeinitApi();

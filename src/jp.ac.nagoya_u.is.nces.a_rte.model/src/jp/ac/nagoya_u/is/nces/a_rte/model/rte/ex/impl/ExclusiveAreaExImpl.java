@@ -170,23 +170,47 @@ public class ExclusiveAreaExImpl extends ExtendedEObjectImpl implements Exclusiv
 	}
 
 	/**
-	 * The cached invocation delegate for the '{@link #providesEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Enter Exit Api</em>}' operation.
+	 * The cached invocation delegate for the '{@link #providesRteEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Rte Enter Exit Api</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #providesEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
+	 * @see #providesRteEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EOperation.Internal.InvocationDelegate PROVIDES_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA).getInvocationDelegate();
+	protected static final EOperation.Internal.InvocationDelegate PROVIDES_RTE_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA).getInvocationDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesEnterExitApi(ExclusiveArea this_) {
+	public boolean providesRteEnterExitApi(ExclusiveArea this_) {
 		try {
-			return (Boolean)PROVIDES_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+			return (Boolean)PROVIDES_RTE_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #providesSchmEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Schm Enter Exit Api</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #providesSchmEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate PROVIDES_SCHM_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean providesSchmEnterExitApi(ExclusiveArea this_) {
+		try {
+			return (Boolean)PROVIDES_SCHM_ENTER_EXIT_API_EXCLUSIVE_AREA__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
 		catch (InvocationTargetException ite) {
 			throw new WrappedException(ite);
@@ -262,8 +286,10 @@ public class ExclusiveAreaExImpl extends ExtendedEObjectImpl implements Exclusiv
 		switch (operationID) {
 			case ExPackage.EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA:
 				return getUsingPartitionsOfBswExclusiveArea((ExclusiveArea)arguments.get(0));
-			case ExPackage.EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA:
-				return providesEnterExitApi((ExclusiveArea)arguments.get(0));
+			case ExPackage.EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA:
+				return providesRteEnterExitApi((ExclusiveArea)arguments.get(0));
+			case ExPackage.EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA:
+				return providesSchmEnterExitApi((ExclusiveArea)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

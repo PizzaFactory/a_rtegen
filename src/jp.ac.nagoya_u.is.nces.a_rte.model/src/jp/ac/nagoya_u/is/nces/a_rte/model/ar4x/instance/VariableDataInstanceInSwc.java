@@ -160,11 +160,11 @@ public interface VariableDataInstanceInSwc extends VariableDataInstance {
 	 * <!-- begin-model-doc -->
 	 * イベントセマンティクスかどうか
 	 * <!-- end-model-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getSwImplPolicy() = m2::SwImplPolicyEnum::queued'"
 	 * @generated
 	 */
-	Boolean isEventSemantics();
+	boolean isEventSemantics();
 
 	/**
 	 * <!-- begin-user-doc -->

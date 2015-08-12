@@ -430,18 +430,6 @@ public class EcucSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EcucPackage.RTE_BSW_PROVIDED_MODE_GROUP_REF: {
-				RteBswProvidedModeGroupRef rteBswProvidedModeGroupRef = (RteBswProvidedModeGroupRef)theEObject;
-				T result = caseRteBswProvidedModeGroupRef(rteBswProvidedModeGroupRef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_REF: {
-				RteBswRequiredModeGroupRef rteBswRequiredModeGroupRef = (RteBswRequiredModeGroupRef)theEObject;
-				T result = caseRteBswRequiredModeGroupRef(rteBswRequiredModeGroupRef);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION: {
 				RteBswRequiredModeGroupConnection rteBswRequiredModeGroupConnection = (RteBswRequiredModeGroupConnection)theEObject;
 				T result = caseRteBswRequiredModeGroupConnection(rteBswRequiredModeGroupConnection);
@@ -1025,36 +1013,6 @@ public class EcucSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRteBswEventToTaskMapping(RteBswEventToTaskMapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rte Bsw Provided Mode Group Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rte Bsw Provided Mode Group Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRteBswProvidedModeGroupRef(RteBswProvidedModeGroupRef object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rte Bsw Required Mode Group Ref</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rte Bsw Required Mode Group Ref</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRteBswRequiredModeGroupRef(RteBswRequiredModeGroupRef object) {
 		return null;
 	}
 

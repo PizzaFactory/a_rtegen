@@ -100,7 +100,7 @@ public interface IrvReadApi extends RteApi {
 	 * @return the value of the '<em>Data Param</em>' reference.
 	 * @see #setDataParam(Parameter)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getIrvReadApi_DataParam()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Parameter getDataParam();

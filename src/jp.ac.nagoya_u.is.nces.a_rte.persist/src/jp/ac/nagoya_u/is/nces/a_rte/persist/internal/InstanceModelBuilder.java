@@ -58,7 +58,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.SW_C
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelLabels;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.AssemblyDataInstanceConnector;
@@ -145,8 +144,6 @@ public class InstanceModelBuilder {
 			buildConnectionOfInstanceModels();
 
 			buildModelIds();
-		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			throw new PersistException("Internal error occurred while resolving AUTOSAR instance references.", e);
 
 		} catch (InternalPersistException e) {
 			throw new PersistException("Error occurred while resolving AUTOSAR instance references. " + e.getMessage(), e);
@@ -242,7 +239,7 @@ public class InstanceModelBuilder {
 		}
 	}
 
-	private void buildConnectionOfInstanceModels() throws ModelException {
+	private void buildConnectionOfInstanceModels() {
 		if (this.rootSwCompositionPrototype == null) {
 			return;
 		}
@@ -273,7 +270,7 @@ public class InstanceModelBuilder {
 		}
 	}
 
-	private void buildElementConnectionsOfAssemblyConnector(AssemblySwConnector assemblySwConnector) throws ModelException {
+	private void buildElementConnectionsOfAssemblyConnector(AssemblySwConnector assemblySwConnector) {
 		for (VariableDataInstanceInComposition providerDataElement : assemblySwConnector.getProvider().getDataElement()) {
 			Optional<VariableDataInstanceInComposition> requesterDataElement = this.query.trySelectSingle(assemblySwConnector.getRequester().getDataElement(),
 					hasOp(VARIABLE_DATA_INSTANCE_IN_COMPOSITION___GET_TARGET_SHORT_NAME, providerDataElement.getTargetShortName()));

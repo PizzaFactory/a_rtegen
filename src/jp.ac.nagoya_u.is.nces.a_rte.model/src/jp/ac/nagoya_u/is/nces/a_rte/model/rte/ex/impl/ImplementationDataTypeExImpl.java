@@ -160,7 +160,7 @@ public class ImplementationDataTypeExImpl extends ExtendedEObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesTypeDefinition(ImplementationDataType this_) {
+	public boolean providesTypeDefinition(ImplementationDataType this_) {
 		try {
 			return (Boolean)PROVIDES_TYPE_DEFINITION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -184,7 +184,7 @@ public class ImplementationDataTypeExImpl extends ExtendedEObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesEnumConstant(ImplementationDataType this_, ApplicationDataType applicationDataType) {
+	public boolean providesEnumConstant(ImplementationDataType this_, ApplicationDataType applicationDataType) {
 		try {
 			return (Boolean)PROVIDES_ENUM_CONSTANT_IMPLEMENTATION_DATA_TYPE_APPLICATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{this_, applicationDataType}));
 		}

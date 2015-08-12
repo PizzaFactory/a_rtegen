@@ -163,11 +163,11 @@ public interface EcucPartition extends EcucContainer {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let osApp : OsApplication = self.implOsApplication->any(true)\n\t\t\t\t\t\t\tin if osApp.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen false\n\t\t\t\t\t\t\t\t\telse osApp.osTrusted\n\t\t\t\t\t\t\t\tendif'"
 	 * @generated
 	 */
-	Boolean isTrusted();
+	boolean isTrusted();
 
 	/**
 	 * <!-- begin-user-doc -->

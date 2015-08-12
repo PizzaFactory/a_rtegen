@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: symbolUtil.mtl 14598 2015-06-04 08:23:54Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -97,8 +97,8 @@ extern [aFunction.returnType.symbolName/]	[aFunction.symbolName/]([aFunction.gen
 [/if]
 [/template]
 
-[template public genSignalApiFunctionDeclaration(aSignalApi : SignalApi) post (trim())]
-extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
+[template public genComSignalApiWrapperDeclaration(aComSignalApiWrapper : ComSignalApiWrapper) post (trim())]
+extern uint8 [aComSignalApiWrapper.symbolName/]([aComSignalApiWrapper.genComSignalApiWrapperParams()/]);
 [/template]
 
 [template public genFunctionParamTypes(aFunction : Function) post (trim())]
@@ -121,17 +121,17 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [/if]
 [/template]
 
-[template public genFunctionRunnableParams(aRteCsTrustedRunnables : RteCsTrustedRunnables) post (trim())]
-[for (aParam : Parameter | aRteCsTrustedRunnables.runnableParam)]
-	[if (aParam.passType = ParameterPassTypeEnum::value)]*[/if]([if (aParam.hasConst)]const[/if] [if (aParam.type.oclIsKindOf(ArrayType))][aParam.type.originalTypeSymbolName/][else][aParam.type.symbolName/][/if] *) p_tfn_prm->argv['['/][aRteCsTrustedRunnables.runnableParam->indexOf(aParam)-1/][']'/][if (aParam <> aRteCsTrustedRunnables.runnableParam->last())],[/if]
+[template public genFunctionRunnableParams(aCsTfCalledRunnable : CsTfCalledRunnable) post (trim())]
+[for (aParam : Parameter | aCsTfCalledRunnable.startOperation.startServerRunnable.roleParam)]
+	[if (aParam.passType = ParameterPassTypeEnum::value)]*[/if]([if (aParam.hasConst)]const[/if] [if (aParam.type.oclIsKindOf(ArrayType))][aParam.type.originalTypeSymbolName/][else][aParam.type.symbolName/][/if] *) p_tfn_prm->tf_argv['['/][aCsTfCalledRunnable.startOperation.startServerRunnable.roleParam->indexOf(aParam)-1/][']'/][if (aParam <> aCsTfCalledRunnable.startOperation.startServerRunnable.roleParam->last())],[/if]
 [/for]
 [/template]
 
-[template public genSignalApiParams(aFunction : Function) post (trim())]
-	[aFunction.param.genSignalApiParam()->sep(', ')/]
+[template public genComSignalApiWrapperParams(aFunction : Function) post (trim())]
+	[aFunction.param.genComSignalApiWrapperParam()->sep(', ')/]
 [/template]
 
-[template private genSignalApiParam(aParam : Parameter) post (trim())]
+[template private genComSignalApiWrapperParam(aParam : Parameter) post (trim())]
 	[if (aParam.hasConst)]const[/if] [aParam.type.symbolName/] [if (aParam.passType = ParameterPassTypeEnum::reference)]*[/if] [aParam.symbolName/][if (aParam.passType = ParameterPassTypeEnum::value)]['[]'/][/if]
 [/template]
 
@@ -139,7 +139,7 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [if (aConstant.type->isEmpty())]
 	[aConstant.value/]
 [else]
-	[if not aConstant.type.oclIsKindOf(UnionType)]([aConstant.type.symbolName/]) [/if][aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantType = ConstantTypeEnum::numericalValue))]U[/if]
+	[if not aConstant.type.oclIsKindOf(UnionType)]([aConstant.type.symbolName/]) [/if][aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantValueType = ConstantValueTypeEnum::numericalValue))]U[/if]
 [/if]
 [/template]
 
@@ -168,7 +168,7 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [/template]
 
 [template public genApplicationConstantDefinition(aConstant : Constant) post (trim())]
-#define [aConstant.symbolName/] (([aConstant.type.symbolName/]) [aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantType = ConstantTypeEnum::numericalValue))]U[/if])
+#define [aConstant.symbolName/] (([aConstant.type.symbolName/]) [aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantValueType = ConstantValueTypeEnum::numericalValue))]U[/if])
 [/template]
 
 [template public genVariableName(aVariable : Variable) /]
@@ -192,7 +192,7 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [template public genGlobalVariableDeclaration(aVariable : Variable) /]
 
 [template private genGlobalVariableDeclaration(aGlobalVariable : GlobalVariable) post (trim())]
-[if (not aGlobalVariable.hasStatic)]extern [if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/];[/if]
+[if (not aGlobalVariable.hasStatic)]extern [if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/];[/if][if aGlobalVariable.type.oclIsKindOf(UnionType)] /* MISRA RULE 18.4 VIOLATION : It won't be fixed because of RTE Specification rte_sws_7144 */[/if]
 [/template]
 
 [template private genGlobalVariableDeclaration(aGlobalVariableSet : GlobalVariableSet) post (trim())]
@@ -204,7 +204,11 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [template public genGlobalVariableDefinition(aVariable : Variable) /]
 
 [template private genGlobalVariableDefinition(aGlobalVariable : GlobalVariable) post (trim())]
-[if (aGlobalVariable.hasStatic)]static [/if][if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/][aGlobalVariable.genInitPartOfVariableDeclaration()/];
+[if (aGlobalVariable.hasStatic)]static [/if][if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/][aGlobalVariable.genInitPartOfVariableDeclaration()/][if aGlobalVariable.type.oclIsKindOf(UnionType)] /* MISRA RULE 18.4 VIOLATION : It won't be fixed because of RTE Specification rte_sws_7144 */[/if]
+[/template]
+
+[template private genGlobalVariableDefinition(aGlobalVariable : ComProxyFunctionTableVariable) post (trim())]
+[if (aGlobalVariable.hasStatic)]static [/if][if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/][aGlobalVariable.genInitPartOfVariableDeclaration()/] /* MISRA RULE 8.7 VIOLATION : It is safe because the variable is managed by RTE codes */
 [/template]
 
 [template private genGlobalVariableDefinition(aGlobalVariableSet : GlobalVariableSet) post (trim())]
@@ -218,21 +222,21 @@ extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [/template]
 
 [template private genInitPartOfVariableDeclaration(aGlobalVariable : GlobalVariable)]
-[if (aGlobalVariable.initAtDefinition)] = [aGlobalVariable.genInitValuePartOfVariableDeclaration()/][/if]
+[if (aGlobalVariable.initAtDefinition)] = [aGlobalVariable.genInitValuePartOfVariableDeclaration()/][else];[/if]
 [/template]
 
 [template private genInitValuePartOfVariableDeclaration(aGlobalVariable : GlobalVariable) post (trim())]
 [if (aGlobalVariable.initWithConstantValue)]
 	[if aGlobalVariable.initValueConstant.member->isEmpty()]
-		([aGlobalVariable.initValueConstant.genConstantValue()/])
+		([aGlobalVariable.initValueConstant.genConstantValue()/]);
 	[else]
-		[aGlobalVariable.initValueConstant.genMetaConstantValues()/]
+		[aGlobalVariable.initValueConstant.genMetaConstantValues()/];
 	[/if]
 [else]
 	[let aInitValueConstant : Constant = aGlobalVariable.initValueConstant]
-		[aInitValueConstant.symbolName/]
+		[aInitValueConstant.symbolName/];[if not aInitValueConstant.type.oclIsUndefined() and aInitValueConstant.type.oclIsKindOf(PointerType)] /* MISRA RULE 3.1 11.3 VIOLATION : It won't be fixed because of RTE Specification rte_sws_3852 and 7046 */[/if]
 	[else]
-		0[if (aGlobalVariable.type.oclAsType(PrimitiveType).signedness = SignednessEnum::unsigned)]U[/if]
+		0[if (aGlobalVariable.type.oclAsType(PrimitiveType).signedness = SignednessEnum::unsigned)]U[/if];
 	[/let]
 [/if]
 [/template]
@@ -289,35 +293,45 @@ union { /* MISRA RULE 18.4 VIOLATION : It is safe because the union data is not 
 [aType.symbolName.toUpper()/]_ARRAY_SIZE
 [/template]
 
-[template public genSrWriteProxyFunctionTable(aProxyFunctionTableGroup : ProxyFunctionTableGroup)]
-[for (aSrWriteProxyName : CIdentifier | aProxyFunctionTableGroup.srWriteProxyName)]
+[template public genSrWriteProxyFunctionTable(aComProxyFunctionTableGroup : ComProxyFunctionTableFileContentsGroup)]
+[for (aSrWriteProxyName : CIdentifier | aComProxyFunctionTableGroup.srWriteProxyName)]
 	extern void [aSrWriteProxyName/](void);
 [/for]
 [/template]
 
-[template public genModeTypeDefinition (aType : Type)]
-	#ifndef RTE_MODETYPE_[aType.symbolName /]
-	#define RTE_MODETYPE_[aType.symbolName /]
-	typedef [aType.originalTypeSymbolName /] Rte_ModeType_[aType.symbolName /];
+[template public genModeTypeDefinition (aModeType : ModeType)]
+	#ifndef [aModeType.guardName /]
+	#define [aModeType.guardName /]
+	typedef [aModeType.implementationDataType.symbolName /] [aModeType.symbolName /];
 	#endif
 [/template]
 
-[template public genModeInitMacroDefinition (aModeRequestVariableSet : ModeRequestVariableSet)]
-	[let aInitMode : Constant = aModeRequestVariableSet.initValueConstant ]
-		#define [aInitMode.symbolName /] ((Rte_ModeType_[aInitMode.type.symbolName /])[aInitMode.value /]U)
+[template public genInternalInitModeConstantDefinition (aModeDeclarationGroup : ModeDeclarationGroup)]
+	[let aInitMode : Constant = aModeDeclarationGroup.initModeConstant ]
+		#define [aInitMode.symbolName /] (([aInitMode.type.symbolName /])[aInitMode.value /]U)
 	[/let]
 [/template]
 
-[template public genModeMacroDefinition (aModeRequestVariableSet : ModeRequestVariableSet)]
-	[let aTransitionStatusConstant : Constant = aModeRequestVariableSet.modeTransitionStatusConstant ]
-		#ifndef [aTransitionStatusConstant.symbolName /]
-		#define [aTransitionStatusConstant.symbolName /] ((Rte_ModeType_[aTransitionStatusConstant.type.symbolName /])[aTransitionStatusConstant.value /]U)
+[template public genExternalModeConstantsDefinition (aModeDeclarationGroup : ModeDeclarationGroup)]
+	[let aTransitionStatusConstant : Constant = aModeDeclarationGroup.modeTransitionStatusConstant ]
+		#ifndef [aTransitionStatusConstant.externalSymbolName /]
+		#define [aTransitionStatusConstant.externalSymbolName /] ([aTransitionStatusConstant.value /]U)
 		#endif
 	[/let]
 
-	[for (aMode : Constant | aModeRequestVariableSet.modeConstant)]
-		#ifndef [aMode.symbolName /]
-		#define [aMode.symbolName /] ((Rte_ModeType_[aMode.type.symbolName /])[aMode.value /]U)
+	[for (aMode : Constant | aModeDeclarationGroup.modeConstant)]
+		#ifndef [aMode.externalSymbolName /]
+		#define [aMode.externalSymbolName /] ([aMode.value /]U)
 		#endif
+	[/for]
+[/template]
+
+[template public genInternalModeConstantsDefinition (aModeDeclarationGroup : ModeDeclarationGroup)]
+	[let aTransitionStatusConstant : Constant = aModeDeclarationGroup.modeTransitionStatusConstant ]
+		#define [aTransitionStatusConstant.symbolName /] (([aTransitionStatusConstant.type.symbolName /])[aTransitionStatusConstant.value /]U)
+	[/let]
+
+	[for (aMode : Constant | aModeDeclarationGroup.modeConstant)]
+		#define [aMode.symbolName /] (([aMode.type.symbolName /])[aMode.value /]U)
 	[/for]
 [/template]

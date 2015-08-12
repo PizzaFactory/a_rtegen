@@ -68,7 +68,7 @@ import org.eclipse.emf.common.util.EList;
 public interface ModuleInterlinkHeader extends HeaderFile {
 	/**
 	 * Returns the value of the '<em><b>Global Variable Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Global Variable Group</em>' containment reference list isn't clear,
@@ -80,11 +80,11 @@ public interface ModuleInterlinkHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<GlobalVariableGroup> getGlobalVariableGroup();
+	EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Schm Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schm Api Group</em>' containment reference list isn't clear,
@@ -96,11 +96,11 @@ public interface ModuleInterlinkHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SchmApiGroup> getSchmApiGroup();
+	EList<SchmApiFileContentsGroup> getSchmApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Executable Entity Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dependent Executable Entity Group</em>' containment reference list isn't clear,
@@ -112,7 +112,7 @@ public interface ModuleInterlinkHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExecutableEntityGroup> getDependentExecutableEntityGroup();
+	EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Constant</b></em>' reference list.

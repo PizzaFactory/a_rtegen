@@ -81,161 +81,31 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCommonSource <em>Rte Common Source</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRtePartitionSource <em>Rte Partition Source</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteApplicationHeader <em>Rte Application Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteApplicationTypeHeader <em>Rte Application Type Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteLifecycleHeader <em>Rte Lifecycle Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCallbackHeader <em>Rte Callback Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteConfigurationHeader <em>Rte Configuration Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteVfbTraceHeader <em>Rte Vfb Trace Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteTypeHeader <em>Rte Type Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteHeader <em>Rte Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCommonHeader <em>Rte Common Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRtePartitionHeader <em>Rte Partition Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteUtilityHeader <em>Rte Utility Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getDependentHeader <em>Dependent Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getBswMemoryMappingHeader <em>Bsw Memory Mapping Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getSwcMemoryMappingHeader <em>Swc Memory Mapping Header</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getModuleInterlinkHeader <em>Module Interlink Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteHeader <em>Rte Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteTypeHeader <em>Rte Type Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteApplicationTypeHeader <em>Rte Application Type Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteApplicationHeader <em>Rte Application Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getModuleInterlinkTypeHeader <em>Module Interlink Type Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getModuleInterlinkHeader <em>Module Interlink Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteLifecycleHeader <em>Rte Lifecycle Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteConfigurationHeader <em>Rte Configuration Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteVfbTraceHeader <em>Rte Vfb Trace Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCallbackHeader <em>Rte Callback Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteUtilityHeader <em>Rte Utility Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteBswApiHeader <em>Rte Bsw Api Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCommonHeader <em>Rte Common Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRtePartitionHeader <em>Rte Partition Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteCommonSource <em>Rte Common Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRtePartitionSource <em>Rte Partition Source</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
-	/**
-	 * The cached value of the '{@link #getRteCommonSource() <em>Rte Common Source</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteCommonSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteSource rteCommonSource;
-
-	/**
-	 * The cached value of the '{@link #getRtePartitionSource() <em>Rte Partition Source</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRtePartitionSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RteSource> rtePartitionSource;
-
-	/**
-	 * The cached value of the '{@link #getRteApplicationHeader() <em>Rte Application Header</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteApplicationHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RteApplicationHeader> rteApplicationHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteApplicationTypeHeader() <em>Rte Application Type Header</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteApplicationTypeHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RteApplicationTypeHeader> rteApplicationTypeHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteLifecycleHeader() <em>Rte Lifecycle Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteLifecycleHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteLifecycleHeader rteLifecycleHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteCallbackHeader() <em>Rte Callback Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteCallbackHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteCallbackHeader rteCallbackHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteConfigurationHeader() <em>Rte Configuration Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteConfigurationHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteConfigurationHeader rteConfigurationHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteVfbTraceHeader() <em>Rte Vfb Trace Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteVfbTraceHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteVfbTraceHeader rteVfbTraceHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteTypeHeader() <em>Rte Type Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteTypeHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteTypeHeader rteTypeHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteHeader() <em>Rte Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteHeader rteHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteCommonHeader() <em>Rte Common Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteCommonHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteInternalHeader rteCommonHeader;
-
-	/**
-	 * The cached value of the '{@link #getRtePartitionHeader() <em>Rte Partition Header</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRtePartitionHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RteInternalHeader> rtePartitionHeader;
-
-	/**
-	 * The cached value of the '{@link #getRteUtilityHeader() <em>Rte Utility Header</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteUtilityHeader()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteUtilityHeader rteUtilityHeader;
-
 	/**
 	 * The cached value of the '{@link #getDependentHeader() <em>Dependent Header</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -267,14 +137,44 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	protected EList<SwcMemoryMappingHeader> swcMemoryMappingHeader;
 
 	/**
-	 * The cached value of the '{@link #getModuleInterlinkHeader() <em>Module Interlink Header</em>}' containment reference list.
+	 * The cached value of the '{@link #getRteHeader() <em>Rte Header</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModuleInterlinkHeader()
+	 * @see #getRteHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModuleInterlinkHeader> moduleInterlinkHeader;
+	protected RteHeader rteHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteTypeHeader() <em>Rte Type Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteTypeHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteTypeHeader rteTypeHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteApplicationTypeHeader() <em>Rte Application Type Header</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteApplicationTypeHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteApplicationTypeHeader> rteApplicationTypeHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteApplicationHeader() <em>Rte Application Header</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteApplicationHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteApplicationHeader> rteApplicationHeader;
 
 	/**
 	 * The cached value of the '{@link #getModuleInterlinkTypeHeader() <em>Module Interlink Type Header</em>}' containment reference list.
@@ -287,6 +187,66 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	protected EList<ModuleInterlinkTypeHeader> moduleInterlinkTypeHeader;
 
 	/**
+	 * The cached value of the '{@link #getModuleInterlinkHeader() <em>Module Interlink Header</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModuleInterlinkHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModuleInterlinkHeader> moduleInterlinkHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteLifecycleHeader() <em>Rte Lifecycle Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteLifecycleHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteLifecycleHeader rteLifecycleHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteConfigurationHeader() <em>Rte Configuration Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteConfigurationHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteConfigurationHeader rteConfigurationHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteVfbTraceHeader() <em>Rte Vfb Trace Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteVfbTraceHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteVfbTraceHeader rteVfbTraceHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteCallbackHeader() <em>Rte Callback Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteCallbackHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteCallbackHeader rteCallbackHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteUtilityHeader() <em>Rte Utility Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteUtilityHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteUtilityHeader rteUtilityHeader;
+
+	/**
 	 * The cached value of the '{@link #getRteBswApiHeader() <em>Rte Bsw Api Header</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,6 +255,46 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * @ordered
 	 */
 	protected RteBswApiHeader rteBswApiHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteCommonHeader() <em>Rte Common Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteCommonHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteInternalHeader rteCommonHeader;
+
+	/**
+	 * The cached value of the '{@link #getRtePartitionHeader() <em>Rte Partition Header</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRtePartitionHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteInternalHeader> rtePartitionHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteCommonSource() <em>Rte Common Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteCommonSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteSource rteCommonSource;
+
+	/**
+	 * The cached value of the '{@link #getRtePartitionSource() <em>Rte Partition Source</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRtePartitionSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteSource> rtePartitionSource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -892,44 +892,44 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
-				return basicSetRteCommonSource(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
-				return ((InternalEList<?>)getRtePartitionSource()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
-				return ((InternalEList<?>)getRteApplicationHeader()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
-				return ((InternalEList<?>)getRteApplicationTypeHeader()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
-				return basicSetRteLifecycleHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
-				return basicSetRteCallbackHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
-				return basicSetRteConfigurationHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
-				return basicSetRteVfbTraceHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
-				return basicSetRteTypeHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_HEADER:
-				return basicSetRteHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
-				return basicSetRteCommonHeader(null, msgs);
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
-				return ((InternalEList<?>)getRtePartitionHeader()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
-				return basicSetRteUtilityHeader(null, msgs);
 			case ModulePackage.RTE_MODULE__DEPENDENT_HEADER:
 				return ((InternalEList<?>)getDependentHeader()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER:
 				return basicSetBswMemoryMappingHeader(null, msgs);
 			case ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER:
 				return ((InternalEList<?>)getSwcMemoryMappingHeader()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
-				return ((InternalEList<?>)getModuleInterlinkHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__RTE_HEADER:
+				return basicSetRteHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
+				return basicSetRteTypeHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
+				return ((InternalEList<?>)getRteApplicationTypeHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
+				return ((InternalEList<?>)getRteApplicationHeader()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return ((InternalEList<?>)getModuleInterlinkTypeHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
+				return ((InternalEList<?>)getModuleInterlinkHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
+				return basicSetRteLifecycleHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
+				return basicSetRteConfigurationHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
+				return basicSetRteVfbTraceHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
+				return basicSetRteCallbackHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
+				return basicSetRteUtilityHeader(null, msgs);
 			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
 				return basicSetRteBswApiHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
+				return basicSetRteCommonHeader(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
+				return ((InternalEList<?>)getRtePartitionHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
+				return basicSetRteCommonSource(null, msgs);
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
+				return ((InternalEList<?>)getRtePartitionSource()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -942,44 +942,44 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
-				return getRteCommonSource();
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
-				return getRtePartitionSource();
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
-				return getRteApplicationHeader();
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
-				return getRteApplicationTypeHeader();
-			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
-				return getRteLifecycleHeader();
-			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
-				return getRteCallbackHeader();
-			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
-				return getRteConfigurationHeader();
-			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
-				return getRteVfbTraceHeader();
-			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
-				return getRteTypeHeader();
-			case ModulePackage.RTE_MODULE__RTE_HEADER:
-				return getRteHeader();
-			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
-				return getRteCommonHeader();
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
-				return getRtePartitionHeader();
-			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
-				return getRteUtilityHeader();
 			case ModulePackage.RTE_MODULE__DEPENDENT_HEADER:
 				return getDependentHeader();
 			case ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER:
 				return getBswMemoryMappingHeader();
 			case ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER:
 				return getSwcMemoryMappingHeader();
-			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
-				return getModuleInterlinkHeader();
+			case ModulePackage.RTE_MODULE__RTE_HEADER:
+				return getRteHeader();
+			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
+				return getRteTypeHeader();
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
+				return getRteApplicationTypeHeader();
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
+				return getRteApplicationHeader();
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return getModuleInterlinkTypeHeader();
+			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
+				return getModuleInterlinkHeader();
+			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
+				return getRteLifecycleHeader();
+			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
+				return getRteConfigurationHeader();
+			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
+				return getRteVfbTraceHeader();
+			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
+				return getRteCallbackHeader();
+			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
+				return getRteUtilityHeader();
 			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
 				return getRteBswApiHeader();
+			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
+				return getRteCommonHeader();
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
+				return getRtePartitionHeader();
+			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
+				return getRteCommonSource();
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
+				return getRtePartitionSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -993,49 +993,6 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
-				setRteCommonSource((RteSource)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
-				getRtePartitionSource().clear();
-				getRtePartitionSource().addAll((Collection<? extends RteSource>)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
-				getRteApplicationHeader().clear();
-				getRteApplicationHeader().addAll((Collection<? extends RteApplicationHeader>)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
-				getRteApplicationTypeHeader().clear();
-				getRteApplicationTypeHeader().addAll((Collection<? extends RteApplicationTypeHeader>)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
-				setRteLifecycleHeader((RteLifecycleHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
-				setRteCallbackHeader((RteCallbackHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
-				setRteConfigurationHeader((RteConfigurationHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
-				setRteVfbTraceHeader((RteVfbTraceHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
-				setRteTypeHeader((RteTypeHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_HEADER:
-				setRteHeader((RteHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
-				setRteCommonHeader((RteInternalHeader)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
-				getRtePartitionHeader().clear();
-				getRtePartitionHeader().addAll((Collection<? extends RteInternalHeader>)newValue);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
-				setRteUtilityHeader((RteUtilityHeader)newValue);
-				return;
 			case ModulePackage.RTE_MODULE__DEPENDENT_HEADER:
 				getDependentHeader().clear();
 				getDependentHeader().addAll((Collection<? extends HeaderFile>)newValue);
@@ -1047,16 +1004,59 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 				getSwcMemoryMappingHeader().clear();
 				getSwcMemoryMappingHeader().addAll((Collection<? extends SwcMemoryMappingHeader>)newValue);
 				return;
-			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
-				getModuleInterlinkHeader().clear();
-				getModuleInterlinkHeader().addAll((Collection<? extends ModuleInterlinkHeader>)newValue);
+			case ModulePackage.RTE_MODULE__RTE_HEADER:
+				setRteHeader((RteHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
+				setRteTypeHeader((RteTypeHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
+				getRteApplicationTypeHeader().clear();
+				getRteApplicationTypeHeader().addAll((Collection<? extends RteApplicationTypeHeader>)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
+				getRteApplicationHeader().clear();
+				getRteApplicationHeader().addAll((Collection<? extends RteApplicationHeader>)newValue);
 				return;
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				getModuleInterlinkTypeHeader().clear();
 				getModuleInterlinkTypeHeader().addAll((Collection<? extends ModuleInterlinkTypeHeader>)newValue);
 				return;
+			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
+				getModuleInterlinkHeader().clear();
+				getModuleInterlinkHeader().addAll((Collection<? extends ModuleInterlinkHeader>)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
+				setRteLifecycleHeader((RteLifecycleHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
+				setRteConfigurationHeader((RteConfigurationHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
+				setRteVfbTraceHeader((RteVfbTraceHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
+				setRteCallbackHeader((RteCallbackHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
+				setRteUtilityHeader((RteUtilityHeader)newValue);
+				return;
 			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
 				setRteBswApiHeader((RteBswApiHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
+				setRteCommonHeader((RteInternalHeader)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
+				getRtePartitionHeader().clear();
+				getRtePartitionHeader().addAll((Collection<? extends RteInternalHeader>)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
+				setRteCommonSource((RteSource)newValue);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
+				getRtePartitionSource().clear();
+				getRtePartitionSource().addAll((Collection<? extends RteSource>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1070,45 +1070,6 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
-				setRteCommonSource((RteSource)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
-				getRtePartitionSource().clear();
-				return;
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
-				getRteApplicationHeader().clear();
-				return;
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
-				getRteApplicationTypeHeader().clear();
-				return;
-			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
-				setRteLifecycleHeader((RteLifecycleHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
-				setRteCallbackHeader((RteCallbackHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
-				setRteConfigurationHeader((RteConfigurationHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
-				setRteVfbTraceHeader((RteVfbTraceHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
-				setRteTypeHeader((RteTypeHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_HEADER:
-				setRteHeader((RteHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
-				setRteCommonHeader((RteInternalHeader)null);
-				return;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
-				getRtePartitionHeader().clear();
-				return;
-			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
-				setRteUtilityHeader((RteUtilityHeader)null);
-				return;
 			case ModulePackage.RTE_MODULE__DEPENDENT_HEADER:
 				getDependentHeader().clear();
 				return;
@@ -1118,14 +1079,53 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 			case ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER:
 				getSwcMemoryMappingHeader().clear();
 				return;
-			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
-				getModuleInterlinkHeader().clear();
+			case ModulePackage.RTE_MODULE__RTE_HEADER:
+				setRteHeader((RteHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
+				setRteTypeHeader((RteTypeHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
+				getRteApplicationTypeHeader().clear();
+				return;
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
+				getRteApplicationHeader().clear();
 				return;
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				getModuleInterlinkTypeHeader().clear();
 				return;
+			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
+				getModuleInterlinkHeader().clear();
+				return;
+			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
+				setRteLifecycleHeader((RteLifecycleHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
+				setRteConfigurationHeader((RteConfigurationHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
+				setRteVfbTraceHeader((RteVfbTraceHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
+				setRteCallbackHeader((RteCallbackHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
+				setRteUtilityHeader((RteUtilityHeader)null);
+				return;
 			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
 				setRteBswApiHeader((RteBswApiHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
+				setRteCommonHeader((RteInternalHeader)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
+				getRtePartitionHeader().clear();
+				return;
+			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
+				setRteCommonSource((RteSource)null);
+				return;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
+				getRtePartitionSource().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -1139,44 +1139,44 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
-				return rteCommonSource != null;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
-				return rtePartitionSource != null && !rtePartitionSource.isEmpty();
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
-				return rteApplicationHeader != null && !rteApplicationHeader.isEmpty();
-			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
-				return rteApplicationTypeHeader != null && !rteApplicationTypeHeader.isEmpty();
-			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
-				return rteLifecycleHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
-				return rteCallbackHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
-				return rteConfigurationHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
-				return rteVfbTraceHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
-				return rteTypeHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_HEADER:
-				return rteHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
-				return rteCommonHeader != null;
-			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
-				return rtePartitionHeader != null && !rtePartitionHeader.isEmpty();
-			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
-				return rteUtilityHeader != null;
 			case ModulePackage.RTE_MODULE__DEPENDENT_HEADER:
 				return dependentHeader != null && !dependentHeader.isEmpty();
 			case ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER:
 				return bswMemoryMappingHeader != null;
 			case ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER:
 				return swcMemoryMappingHeader != null && !swcMemoryMappingHeader.isEmpty();
-			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
-				return moduleInterlinkHeader != null && !moduleInterlinkHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__RTE_HEADER:
+				return rteHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_TYPE_HEADER:
+				return rteTypeHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER:
+				return rteApplicationTypeHeader != null && !rteApplicationTypeHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__RTE_APPLICATION_HEADER:
+				return rteApplicationHeader != null && !rteApplicationHeader.isEmpty();
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return moduleInterlinkTypeHeader != null && !moduleInterlinkTypeHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER:
+				return moduleInterlinkHeader != null && !moduleInterlinkHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER:
+				return rteLifecycleHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_CONFIGURATION_HEADER:
+				return rteConfigurationHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_VFB_TRACE_HEADER:
+				return rteVfbTraceHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER:
+				return rteCallbackHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER:
+				return rteUtilityHeader != null;
 			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
 				return rteBswApiHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_COMMON_HEADER:
+				return rteCommonHeader != null;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_HEADER:
+				return rtePartitionHeader != null && !rtePartitionHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE:
+				return rteCommonSource != null;
+			case ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE:
+				return rtePartitionSource != null && !rtePartitionSource.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -199,15 +199,6 @@ public interface M2Factory extends EFactory {
 	TimingEvent createTimingEvent();
 
 	/**
-	 * Returns a new object of class '<em>mode Switch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>mode Switch Event</em>'.
-	 * @generated
-	 */
-	modeSwitchEvent createmodeSwitchEvent();
-
-	/**
 	 * Returns a new object of class '<em>Ecuc Module Configuration Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

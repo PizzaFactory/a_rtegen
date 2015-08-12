@@ -100,23 +100,12 @@ public interface DataPrototype extends Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #setSwAddrMethod(SwAddrMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataPrototype_SwAddrMethod()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAddrMethod\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	SwAddrMethod getSwAddrMethod();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAddrMethod <em>Sw Addr Method</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #getSwAddrMethod()
-	 * @generated
-	 */
-	void setSwAddrMethod(SwAddrMethod value);
 
 	/**
 	 * Returns the value of the '<em><b>Sw Alignment</b></em>' attribute.
@@ -127,23 +116,12 @@ public interface DataPrototype extends Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #setSwAlignment(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataPrototype_SwAlignment()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" volatile="true" derived="true"
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	String getSwAlignment();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAlignment <em>Sw Alignment</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #getSwAlignment()
-	 * @generated
-	 */
-	void setSwAlignment(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.

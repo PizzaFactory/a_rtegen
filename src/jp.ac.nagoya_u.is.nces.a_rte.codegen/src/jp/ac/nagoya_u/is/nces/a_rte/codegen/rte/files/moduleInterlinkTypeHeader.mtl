@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: moduleInterlinkTypeHeader.mtl 14174 2015-05-11 05:14:12Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -54,9 +54,9 @@
 
 	[aModuleInterlinkTypeHeader.genFileIncludes()/]
 
-	[aModuleInterlinkTypeHeader.genFileFooter()/]
+	[aModuleInterlinkTypeHeader.genModeTypeAndConstantDefinitions()/]
 
-	[aModuleInterlinkTypeHeader.genInternalConstantDefinitions()/]
+	[aModuleInterlinkTypeHeader.genFileFooter()/]
 [/file]
 [/template]
 
@@ -74,15 +74,15 @@
 [aModuleInterlinkTypeHeader.genGuardDeclarationEnd()/]
 [/template]
 
-[template private genInternalConstantDefinitions (aModuleInterlinkTypeHeader : ModuleInterlinkTypeHeader) ]
+[template private genModeTypeAndConstantDefinitions (aModuleInterlinkTypeHeader : ModuleInterlinkTypeHeader) ]
 /*
- * Internal Constant Definitions
+ * Mode Type and Constant Definitions
  */
 [for (aModeType : ModeType | aModuleInterlinkTypeHeader.modeType)]
 	[aModeType.genModeTypeDefinition() /]
 [/for]
 
-[for (aModeRequestVariableSet : ModeRequestVariableSet | aModuleInterlinkTypeHeader.modeRequestVariable)]
-	[aModeRequestVariableSet.genModeMacroDefinition() /]
+[for (aModeDeclarationGroup : ModeDeclarationGroup | aModuleInterlinkTypeHeader.modeDeclarationGroup)]
+	[aModeDeclarationGroup.genExternalModeConstantsDefinition() /]
 [/for]
 [/template]

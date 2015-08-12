@@ -204,10 +204,6 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createTimingEventAdapter();
 			}
 			@Override
-			public Adapter casemodeSwitchEvent(modeSwitchEvent object) {
-				return createmodeSwitchEventAdapter();
-			}
-			@Override
 			public Adapter caseEcucModuleConfigurationValues(EcucModuleConfigurationValues object) {
 				return createEcucModuleConfigurationValuesAdapter();
 			}
@@ -314,6 +310,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseImplementationDataType(ImplementationDataType object) {
 				return createImplementationDataTypeAdapter();
+			}
+			@Override
+			public Adapter caseImplementationDataTypeElement(ImplementationDataTypeElement object) {
+				return createImplementationDataTypeElementAdapter();
 			}
 			@Override
 			public Adapter caseSwDataDefProps(SwDataDefProps object) {
@@ -642,10 +642,6 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBswInterruptEntity(BswInterruptEntity object) {
 				return createBswInterruptEntityAdapter();
-			}
-			@Override
-			public Adapter caseImplementationDataTypeElement(ImplementationDataTypeElement object) {
-				return createImplementationDataTypeElementAdapter();
 			}
 			@Override
 			public Adapter caseSystemSignalGroup(SystemSignalGroup object) {
@@ -1036,20 +1032,6 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.modeSwitchEvent <em>mode Switch Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.modeSwitchEvent
-	 * @generated
-	 */
-	public Adapter createmodeSwitchEventAdapter() {
 		return null;
 	}
 

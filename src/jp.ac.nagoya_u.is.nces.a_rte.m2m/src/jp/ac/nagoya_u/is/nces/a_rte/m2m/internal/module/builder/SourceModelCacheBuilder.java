@@ -46,6 +46,9 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 
+/**
+ * モデル変換元のモデル要素をキャッシュに登録する。
+ */
 public class SourceModelCacheBuilder {
 
 	private ModuleModelBuildContext context;

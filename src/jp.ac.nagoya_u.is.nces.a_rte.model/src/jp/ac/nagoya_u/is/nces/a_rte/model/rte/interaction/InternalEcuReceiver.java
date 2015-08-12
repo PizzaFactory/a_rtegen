@@ -94,11 +94,11 @@ public interface InternalEcuReceiver extends Receiver {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isInvalidationEnabled()'"
 	 * @generated
 	 */
-	Boolean isInvalidationEnabled();
+	boolean isInvalidationEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +112,11 @@ public interface InternalEcuReceiver extends Receiver {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isFilterEnabled()'"
 	 * @generated
 	 */
-	Boolean isFilterEnabled();
+	boolean isFilterEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,10 +130,10 @@ public interface InternalEcuReceiver extends Receiver {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isAliveTimeoutEnabled()'"
 	 * @generated
 	 */
-	Boolean isAliveTimeoutEnabled();
+	boolean isAliveTimeoutEnabled();
 
 } // InternalEcuReceiver

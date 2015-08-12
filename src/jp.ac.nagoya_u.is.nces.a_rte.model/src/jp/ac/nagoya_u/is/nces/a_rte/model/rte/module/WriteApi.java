@@ -56,6 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getOperation <em>Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getDataParam <em>Data Param</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getNeedsCheckArg <em>Needs Check Arg</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,31 @@ public interface WriteApi extends RteApi {
 	 * @generated
 	 */
 	void setDataParam(Parameter value);
+
+	/**
+	 * Returns the value of the '<em><b>Needs Check Arg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Needs Check Arg</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Needs Check Arg</em>' attribute.
+	 * @see #setNeedsCheckArg(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getWriteApi_NeedsCheckArg()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getNeedsCheckArg();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getNeedsCheckArg <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Needs Check Arg</em>' attribute.
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 */
+	void setNeedsCheckArg(Boolean value);
 
 } // WriteApi

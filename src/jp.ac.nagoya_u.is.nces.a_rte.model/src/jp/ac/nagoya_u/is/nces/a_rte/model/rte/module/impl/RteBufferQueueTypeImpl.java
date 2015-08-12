@@ -71,7 +71,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RteBufferQueueTypeImpl extends BlackboxTypeImpl implements RteBufferQueueType {
+public class RteBufferQueueTypeImpl extends TypeImpl implements RteBufferQueueType {
 	/**
 	 * The cached value of the '{@link #getMaxLengthConstant() <em>Max Length Constant</em>}' reference.
 	 * <!-- begin-user-doc -->

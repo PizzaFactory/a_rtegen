@@ -85,11 +85,11 @@ public interface Sender extends InteractionEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getReceivers()->size() > 1'"
 	 * @generated
 	 */
-	Boolean hasMultipleReceivers();
+	boolean hasMultipleReceivers();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +103,11 @@ public interface Sender extends InteractionEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getInternalEcuReceivers()->size() > 1'"
 	 * @generated
 	 */
-	Boolean hasMultipleInternalEcuReceivers();
+	boolean hasMultipleInternalEcuReceivers();
 
 	/**
 	 * <!-- begin-user-doc -->

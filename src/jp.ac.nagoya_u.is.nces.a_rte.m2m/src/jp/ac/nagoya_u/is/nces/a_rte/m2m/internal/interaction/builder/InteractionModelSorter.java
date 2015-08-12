@@ -59,8 +59,8 @@ public class InteractionModelSorter {
 		this.context = context;
 	}
 
-	public void sortEcucContainers(EList<? extends EcucContainer> targetEcucReferrables) {
+	public void sortEcucContainers(EList<? extends EcucContainer> targetEcucContainers) {
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(this.context.query.<String> feature2Function(ECUC_REFERRABLE__SHORT_NAME));
-		ECollections.sort(targetEcucReferrables, ordering);
+		ECollections.sort(targetEcucContainers, ordering);
 	}
 }

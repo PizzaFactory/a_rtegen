@@ -316,7 +316,7 @@ public class ReceiveInteractionImpl extends InteractionImpl implements ReceiveIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean receivesInterCore() {
+	public boolean receivesInterCore() {
 		try {
 			return (Boolean)RECEIVES_INTER_CORE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -340,7 +340,7 @@ public class ReceiveInteractionImpl extends InteractionImpl implements ReceiveIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean receivesFromMultipleCores() {
+	public boolean receivesFromMultipleCores() {
 		try {
 			return (Boolean)RECEIVES_FROM_MULTIPLE_CORES__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

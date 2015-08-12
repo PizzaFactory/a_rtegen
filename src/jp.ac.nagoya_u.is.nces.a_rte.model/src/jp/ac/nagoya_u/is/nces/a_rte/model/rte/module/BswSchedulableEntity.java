@@ -50,10 +50,44 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * A representation of the model object '<em><b>Bsw Schedulable Entity</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getBswSchedulableEntity()
- * @model abstract="true"
+ * @model
  * @generated
  */
-public interface BswSchedulableEntity extends Function {
+public interface BswSchedulableEntity extends ExecutableEntity {
+
+	/**
+	 * Returns the value of the '<em><b>Parent Parted Bswm</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity <em>Dependent Bsw Schedulable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Parted Bswm</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Parted Bswm</em>' container reference.
+	 * @see #setParentPartedBswm(PartedBswm)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getBswSchedulableEntity_ParentPartedBswm()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity
+	 * @model opposite="dependentBswSchedulableEntity" transient="false"
+	 * @generated
+	 */
+	PartedBswm getParentPartedBswm();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Parted Bswm</em>' container reference.
+	 * @see #getParentPartedBswm()
+	 * @generated
+	 */
+	void setParentPartedBswm(PartedBswm value);
 } // BswSchedulableEntity

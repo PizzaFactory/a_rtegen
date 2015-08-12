@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: initializeOperation.mtl 14598 2015-06-04 08:23:54Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -95,7 +95,7 @@ Rte_UnionMemcpy(&[aGlobalVariable.symbolName/], &[aGlobalVariable.initValueConst
 [/template]
 
 [template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(PointerType))]
-[aGlobalVariable.genValueAccess()/] = [let aInitValueConstant : Constant = aGlobalVariable.initValueConstant][aInitValueConstant.genValueAccess()/][else]0[/let];
+[aGlobalVariable.genValueAccess()/] = [let aInitValueConstant : Constant = aGlobalVariable.initValueConstant][aInitValueConstant.genValueAccess()/][else]0[/let]; /* MISRA RULE 3.1 11.3 VIOLATION : It won't be fixed because of RTE Specification rte_sws_3852 and 7046 */
 [/template]
 
 [template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(ModeQueueType))]
@@ -112,7 +112,7 @@ SchM_SwitchMode_Initqueue([aGlobalVariable.symbolName/]);
 
 [template private genIocInitializeOperation(aIocApi : IocWriteApi) ]
 [if (aIocApi.parent.initValueVariable.oclIsUndefined()) ]
-	(void) [aIocApi.symbolName/]([aIocApi.parent.initValue.genPointerAccess()/]);
+	(void) [aIocApi.symbolName/]([aIocApi.parent.initValue.genPointerAccess()/]);[if aIocApi.parent.initValue.type.oclIsKindOf(PointerType)] /* MISRA RULE 3.1 11.3 VIOLATION : It won't be fixed because of RTE Specification rte_sws_3852 and 7046 */[/if]
 [else]
 	(void) [aIocApi.symbolName/]([aIocApi.parent.initValueVariable.genPointerAccess()/]);
 [/if]

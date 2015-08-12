@@ -56,7 +56,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getStartOnEvent <em>Start On Event</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent <em>Source Bsw Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,29 +92,29 @@ public interface Event extends InteractionObject {
 	void setStartOnEvent(ExecutableEntity value);
 
 	/**
-	 * Returns the value of the '<em><b>Bsw Event</b></em>' reference.
+	 * Returns the value of the '<em><b>Source Bsw Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Bsw Event</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bsw Event</em>' reference.
-	 * @see #setBswEvent(BswEvent)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEvent_BswEvent()
+	 * @return the value of the '<em>Source Bsw Event</em>' reference.
+	 * @see #setSourceBswEvent(BswEvent)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEvent_SourceBswEvent()
 	 * @model
 	 * @generated
 	 */
-	BswEvent getBswEvent();
+	BswEvent getSourceBswEvent();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent <em>Source Bsw Event</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Bsw Event</em>' reference.
-	 * @see #getBswEvent()
+	 * @param value the new value of the '<em>Source Bsw Event</em>' reference.
+	 * @see #getSourceBswEvent()
 	 * @generated
 	 */
-	void setBswEvent(BswEvent value);
+	void setSourceBswEvent(BswEvent value);
 
 } // Event

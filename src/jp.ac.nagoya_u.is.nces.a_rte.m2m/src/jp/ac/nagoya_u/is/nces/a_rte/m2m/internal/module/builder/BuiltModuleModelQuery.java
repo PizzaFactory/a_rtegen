@@ -51,13 +51,13 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 
+import java.util.Collection;
 import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.MaxValues;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
@@ -71,17 +71,20 @@ import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
+/**
+ * モジュールモデル変換で生成したモデルを検索する。
+ */
 public class BuiltModuleModelQuery {
 
 	private final ModelQuery query;
-	private ModuleModelBuildCache cache;
+	private final ModuleModelBuildCache cache;
 
 	public BuiltModuleModelQuery(ModelQuery query, ModuleModelBuildCache cache) {
 		this.query = query;
 		this.cache = cache;
 	}
 
-	public PrimitiveType getAppropriateType(int maxValue) {
+	public PrimitiveType getAppropriateUintTypeForRange(int maxValue) {
 		if (maxValue <= MaxValues.UINT8_MAX) {
 			return this.cache.uint8Type;
 		} else if (maxValue <= MaxValues.UINT16_MAX) {
@@ -94,12 +97,23 @@ public class BuiltModuleModelQuery {
 	/**
 	 * EcucPartitionに対応するPartitionを検索する。
 	 * 引数にnull(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
-	 * @param partition 検索元のEcucPartition
+	 * @param sourcePartition 検索元のEcucPartition
 	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
 	 * @throws ModelException EcucPartitionに対応するPartitionが見つからない場合
 	 */
-	public Partition findPartition(EcucPartition partition) throws ModelException {
-		return partition == null ? this.cache.masterBswPartition : this.<Partition> findDest(PARTITION, partition);
+	public Partition findDestPartition(EcucPartition sourcePartition) throws ModelException {
+		return findDestPartition(Optional.fromNullable(sourcePartition));
+	}
+
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にOptional.absent()(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param sourcePartition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にOptional.absent()を指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 * @throws ModelException EcucPartitionに対応するPartitionが見つからない場合
+	 */
+	public Partition findDestPartition(Optional<EcucPartition> sourcePartition) throws ModelException {
+		return !sourcePartition.isPresent() ? this.cache.masterBswPartition : this.<Partition> findDest(PARTITION, sourcePartition.get());
 	}
 
 	/**
@@ -108,26 +122,18 @@ public class BuiltModuleModelQuery {
 	 * @param partition 検索元のEcucPartition
 	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
 	 */
-	public Optional<Partition> tryFindPartition(EcucPartition partition) {
+	public Optional<Partition> tryFindDestPartition(EcucPartition partition) {
 		// COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 		// 現在使用していないメソッド
 		return partition == null ? Optional.of(this.cache.masterBswPartition) : this.<Partition> tryFindDest(PARTITION, partition);
 	}
 
-	public Type findType(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
-		return findType(dataInstanceInSwc.getImplementationDataType());
+	public Type findDestType(ImplementationDataType sourceImplementationDataType) throws ModelException {
+		return findDest(TYPE, sourceImplementationDataType);
 	}
 
-	public PrimitiveType findPrimitiveType(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
-		return findPrimitiveType(dataInstanceInSwc.getImplementationDataType());
-	}
-
-	public Type findType(ImplementationDataType implementationDataType) throws ModelException {
-		return findDest(TYPE, implementationDataType);
-	}
-
-	public PrimitiveType findPrimitiveType(ImplementationDataType implementationDataType) throws ModelException {
-		return findDest(PRIMITIVE_TYPE, implementationDataType);
+	public PrimitiveType findDestPrimitiveType(ImplementationDataType sourceImplementationDataType) throws ModelException {
+		return findDest(PRIMITIVE_TYPE, sourceImplementationDataType);
 	}
 
 	public <T extends EObject> List<T> findDests(final EClass kind, EList<? extends EObject> sources) throws ModelException {
@@ -162,5 +168,17 @@ public class BuiltModuleModelQuery {
 
 	public <T extends EObject> Optional<T> tryFindDest(EClass kind, EObject source) {
 		return this.query.tryFindSingle(isKindOf(kind).AND(ref(MODULE_OBJECT__SOURCE, source)));
+	}
+
+	public <T extends EObject> T selectDest(Collection<T> dests, EObject source) throws ModelException {
+		return this.query.selectSingle(dests, ref(MODULE_OBJECT__SOURCE, source));
+	}
+
+	public <T extends EObject> Optional<T> trySelectDest(Collection<T> dests, EObject source) {
+		return this.query.trySelectSingle(dests, ref(MODULE_OBJECT__SOURCE, source));
+	}
+
+	public <T extends EObject> List<T> selectDests(Collection<T> dests, EObject source) {
+		return this.query.select(dests, ref(MODULE_OBJECT__SOURCE, source));
 	}
 }

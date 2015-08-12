@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: rteApplicationHeader.mtl 14077 2015-04-28 07:18:17Z t-inoue $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -111,7 +111,7 @@
 /*
  * Internal Global Variable Declarations
  */
-[for (aGroup : GlobalVariableGroup | aRteApplicationHeader.globalVariableGroup)]
+[for (aGroup : GlobalVariableFileContentsGroup | aRteApplicationHeader.globalVariableGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aGlobalVariable : GlobalVariable | aGroup.globalVariable)]
@@ -127,7 +127,7 @@
 /*
  * RTE API Implementation Function Declarations
  */
-[for (aGroup : RteApiGroup | aRteApplicationHeader.DeclarationsRteApiGroup)]
+[for (aGroup : RteApiFileContentsGroup | aRteApplicationHeader.DeclarationsRteApiGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aRteApi : RteApi | aGroup.rteApi)]
@@ -147,7 +147,7 @@
 /*
  * RTE API Definitions
  */
-[for (aGroup : RteApiGroup | aRteApplicationHeader.rteApiGroup)]
+[for (aGroup : RteApiFileContentsGroup | aRteApplicationHeader.rteApiGroup)]
 	[for (aRteApi : RteApi | aGroup.rteApi)]
 		[aRteApi.genRteApiMapping()/]
 	[/for]
@@ -178,7 +178,7 @@
 /*
  * RunnableEntity Declarations
  */
-[for (aGroup : ExecutableEntityGroup | aRteApplicationHeader.dependentExecutableEntityGroup)]
+[for (aGroup : ExecutableEntityFileContentsGroup | aRteApplicationHeader.dependentExecutableEntityGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aExecutableEntity : ExecutableEntity | aGroup.executableEntity)]

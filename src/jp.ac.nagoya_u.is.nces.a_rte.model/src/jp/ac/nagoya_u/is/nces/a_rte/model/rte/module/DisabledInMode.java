@@ -50,12 +50,15 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * A representation of the model object '<em><b>Disabled In Mode</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * モード依存無効化制御処理
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getDisabledMode <em>Disabled Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getCurrentModeVariable <em>Current Mode Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getNextModeVariable <em>Next Mode Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,7 +66,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface DisabledInMode extends ModuleReferrable {
+public interface DisabledInMode extends Operation {
 	/**
 	 * Returns the value of the '<em><b>Disabled Mode</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -91,55 +94,29 @@ public interface DisabledInMode extends ModuleReferrable {
 	void setDisabledMode(Constant value);
 
 	/**
-	 * Returns the value of the '<em><b>Current Mode Variable</b></em>' reference.
+	 * Returns the value of the '<em><b>Mode Machine Instance</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Current Mode Variable</em>' reference isn't clear,
+	 * If the meaning of the '<em>Mode Machine Instance</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Current Mode Variable</em>' reference.
-	 * @see #setCurrentModeVariable(GlobalVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getDisabledInMode_CurrentModeVariable()
+	 * @return the value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #setModeMachineInstance(ModeMachineInstance)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getDisabledInMode_ModeMachineInstance()
 	 * @model required="true"
 	 * @generated
 	 */
-	GlobalVariable getCurrentModeVariable();
+	ModeMachineInstance getModeMachineInstance();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getCurrentModeVariable <em>Current Mode Variable</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance <em>Mode Machine Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Current Mode Variable</em>' reference.
-	 * @see #getCurrentModeVariable()
+	 * @param value the new value of the '<em>Mode Machine Instance</em>' reference.
+	 * @see #getModeMachineInstance()
 	 * @generated
 	 */
-	void setCurrentModeVariable(GlobalVariable value);
-
-	/**
-	 * Returns the value of the '<em><b>Next Mode Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Mode Variable</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Next Mode Variable</em>' reference.
-	 * @see #setNextModeVariable(GlobalVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getDisabledInMode_NextModeVariable()
-	 * @model required="true"
-	 * @generated
-	 */
-	GlobalVariable getNextModeVariable();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getNextModeVariable <em>Next Mode Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Next Mode Variable</em>' reference.
-	 * @see #getNextModeVariable()
-	 * @generated
-	 */
-	void setNextModeVariable(GlobalVariable value);
+	void setModeMachineInstance(ModeMachineInstance value);
 
 } // DisabledInMode

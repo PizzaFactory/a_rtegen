@@ -43,10 +43,17 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m;
 
 public class RteModuleModelBuilderOptions {
+	// ツールオプションから決定されるオプション
 	public boolean suppressConfigHeader = false;
 	public boolean writeGenerationTimeStamp = false;
 	public boolean doesGenerateMemoryMappingHeaderSkelton = false;
 	public boolean withoutStaticInline = false;
-	public boolean comMultiCore = false;
 	public boolean generationPhase = false;
+
+	// 入力されたコンフィグから決定されるオプション
+	/** RTEモジュールを生成するかどうか */
+	public boolean doesGenerateRte = false;
+
+	/** BSWスケジューラモジュールを生成するかどうか */
+	public boolean doesGenerateSchm = false;
 }

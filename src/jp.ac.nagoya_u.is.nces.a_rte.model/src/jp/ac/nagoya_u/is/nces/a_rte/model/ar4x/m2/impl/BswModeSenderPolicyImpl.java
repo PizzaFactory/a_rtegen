@@ -196,7 +196,6 @@ public class BswModeSenderPolicyImpl extends M2ObjectImpl implements BswModeSend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

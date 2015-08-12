@@ -42,8 +42,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.util;
 
+/**
+ * RTEモジュールモデルに関するユーティリティ機能を提供する。
+ */
 public class ModuleModelUtils {
 
+	/**
+	 * RTEモジュールモデルのID接頭辞
+	 */
 	public static final String ID_PREFIX = "module.";
 
 }

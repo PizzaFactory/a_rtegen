@@ -46,15 +46,12 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -65,14 +62,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl#getDisabledMode <em>Disabled Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl#getCurrentModeVariable <em>Current Mode Variable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl#getNextModeVariable <em>Next Mode Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DisabledInModeImpl extends ModuleReferrableImpl implements DisabledInMode {
+public class DisabledInModeImpl extends OperationImpl implements DisabledInMode {
 	/**
 	 * The cached value of the '{@link #getDisabledMode() <em>Disabled Mode</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -84,24 +80,14 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 	protected Constant disabledMode;
 
 	/**
-	 * The cached value of the '{@link #getCurrentModeVariable() <em>Current Mode Variable</em>}' reference.
+	 * The cached value of the '{@link #getModeMachineInstance() <em>Mode Machine Instance</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentModeVariable()
+	 * @see #getModeMachineInstance()
 	 * @generated
 	 * @ordered
 	 */
-	protected GlobalVariable currentModeVariable;
-
-	/**
-	 * The cached value of the '{@link #getNextModeVariable() <em>Next Mode Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextModeVariable()
-	 * @generated
-	 * @ordered
-	 */
-	protected GlobalVariable nextModeVariable;
+	protected ModeMachineInstance modeMachineInstance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,16 +151,16 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GlobalVariable getCurrentModeVariable() {
-		if (currentModeVariable != null && ((EObject)currentModeVariable).eIsProxy()) {
-			InternalEObject oldCurrentModeVariable = (InternalEObject)currentModeVariable;
-			currentModeVariable = (GlobalVariable)eResolveProxy(oldCurrentModeVariable);
-			if (currentModeVariable != oldCurrentModeVariable) {
+	public ModeMachineInstance getModeMachineInstance() {
+		if (modeMachineInstance != null && ((EObject)modeMachineInstance).eIsProxy()) {
+			InternalEObject oldModeMachineInstance = (InternalEObject)modeMachineInstance;
+			modeMachineInstance = (ModeMachineInstance)eResolveProxy(oldModeMachineInstance);
+			if (modeMachineInstance != oldModeMachineInstance) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE, oldCurrentModeVariable, currentModeVariable));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE, oldModeMachineInstance, modeMachineInstance));
 			}
 		}
-		return currentModeVariable;
+		return modeMachineInstance;
 	}
 
 	/**
@@ -182,8 +168,8 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GlobalVariable basicGetCurrentModeVariable() {
-		return currentModeVariable;
+	public ModeMachineInstance basicGetModeMachineInstance() {
+		return modeMachineInstance;
 	}
 
 	/**
@@ -191,49 +177,11 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCurrentModeVariable(GlobalVariable newCurrentModeVariable) {
-		GlobalVariable oldCurrentModeVariable = currentModeVariable;
-		currentModeVariable = newCurrentModeVariable;
+	public void setModeMachineInstance(ModeMachineInstance newModeMachineInstance) {
+		ModeMachineInstance oldModeMachineInstance = modeMachineInstance;
+		modeMachineInstance = newModeMachineInstance;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE, oldCurrentModeVariable, currentModeVariable));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariable getNextModeVariable() {
-		if (nextModeVariable != null && ((EObject)nextModeVariable).eIsProxy()) {
-			InternalEObject oldNextModeVariable = (InternalEObject)nextModeVariable;
-			nextModeVariable = (GlobalVariable)eResolveProxy(oldNextModeVariable);
-			if (nextModeVariable != oldNextModeVariable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE, oldNextModeVariable, nextModeVariable));
-			}
-		}
-		return nextModeVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariable basicGetNextModeVariable() {
-		return nextModeVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextModeVariable(GlobalVariable newNextModeVariable) {
-		GlobalVariable oldNextModeVariable = nextModeVariable;
-		nextModeVariable = newNextModeVariable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE, oldNextModeVariable, nextModeVariable));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE, oldModeMachineInstance, modeMachineInstance));
 	}
 
 	/**
@@ -247,12 +195,9 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 			case ModulePackage.DISABLED_IN_MODE__DISABLED_MODE:
 				if (resolve) return getDisabledMode();
 				return basicGetDisabledMode();
-			case ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE:
-				if (resolve) return getCurrentModeVariable();
-				return basicGetCurrentModeVariable();
-			case ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE:
-				if (resolve) return getNextModeVariable();
-				return basicGetNextModeVariable();
+			case ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE:
+				if (resolve) return getModeMachineInstance();
+				return basicGetModeMachineInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,11 +213,8 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 			case ModulePackage.DISABLED_IN_MODE__DISABLED_MODE:
 				setDisabledMode((Constant)newValue);
 				return;
-			case ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE:
-				setCurrentModeVariable((GlobalVariable)newValue);
-				return;
-			case ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE:
-				setNextModeVariable((GlobalVariable)newValue);
+			case ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE:
+				setModeMachineInstance((ModeMachineInstance)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -289,11 +231,8 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 			case ModulePackage.DISABLED_IN_MODE__DISABLED_MODE:
 				setDisabledMode((Constant)null);
 				return;
-			case ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE:
-				setCurrentModeVariable((GlobalVariable)null);
-				return;
-			case ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE:
-				setNextModeVariable((GlobalVariable)null);
+			case ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE:
+				setModeMachineInstance((ModeMachineInstance)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -309,10 +248,8 @@ public class DisabledInModeImpl extends ModuleReferrableImpl implements Disabled
 		switch (featureID) {
 			case ModulePackage.DISABLED_IN_MODE__DISABLED_MODE:
 				return disabledMode != null;
-			case ModulePackage.DISABLED_IN_MODE__CURRENT_MODE_VARIABLE:
-				return currentModeVariable != null;
-			case ModulePackage.DISABLED_IN_MODE__NEXT_MODE_VARIABLE:
-				return nextModeVariable != null;
+			case ModulePackage.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE:
+				return modeMachineInstance != null;
 		}
 		return super.eIsSet(featureID);
 	}

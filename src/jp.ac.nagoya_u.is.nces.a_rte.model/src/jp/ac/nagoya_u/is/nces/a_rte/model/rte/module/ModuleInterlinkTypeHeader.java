@@ -56,7 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getConstant <em>Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getModeType <em>Mode Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getModeRequestVariable <em>Mode Request Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,19 +98,19 @@ public interface ModuleInterlinkTypeHeader extends HeaderFile {
 	EList<ModeType> getModeType();
 
 	/**
-	 * Returns the value of the '<em><b>Mode Request Variable</b></em>' reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeRequestVariableSet}.
+	 * Returns the value of the '<em><b>Mode Declaration Group</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mode Request Variable</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Mode Declaration Group</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mode Request Variable</em>' reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleInterlinkTypeHeader_ModeRequestVariable()
+	 * @return the value of the '<em>Mode Declaration Group</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleInterlinkTypeHeader_ModeDeclarationGroup()
 	 * @model
 	 * @generated
 	 */
-	EList<ModeRequestVariableSet> getModeRequestVariable();
+	EList<ModeDeclarationGroup> getModeDeclarationGroup();
 
 } // ModuleInterlinkTypeHeader

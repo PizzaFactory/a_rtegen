@@ -51,6 +51,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -71,9 +72,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ModeQueueTypeImpl extends BlackboxTypeImpl implements ModeQueueType {
+public class ModeQueueTypeImpl extends TypeImpl implements ModeQueueType {
 	/**
-	 * The cached value of the '{@link #getMaxLengthConstant() <em>Max Length Constant</em>}' reference.
+	 * The cached value of the '{@link #getMaxLengthConstant() <em>Max Length Constant</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMaxLengthConstant()
@@ -117,14 +118,6 @@ public class ModeQueueTypeImpl extends BlackboxTypeImpl implements ModeQueueType
 	 * @generated
 	 */
 	public Constant getMaxLengthConstant() {
-		if (maxLengthConstant != null && ((EObject)maxLengthConstant).eIsProxy()) {
-			InternalEObject oldMaxLengthConstant = (InternalEObject)maxLengthConstant;
-			maxLengthConstant = (Constant)eResolveProxy(oldMaxLengthConstant);
-			if (maxLengthConstant != oldMaxLengthConstant) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, oldMaxLengthConstant, maxLengthConstant));
-			}
-		}
 		return maxLengthConstant;
 	}
 
@@ -133,8 +126,14 @@ public class ModeQueueTypeImpl extends BlackboxTypeImpl implements ModeQueueType
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constant basicGetMaxLengthConstant() {
-		return maxLengthConstant;
+	public NotificationChain basicSetMaxLengthConstant(Constant newMaxLengthConstant, NotificationChain msgs) {
+		Constant oldMaxLengthConstant = maxLengthConstant;
+		maxLengthConstant = newMaxLengthConstant;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, oldMaxLengthConstant, newMaxLengthConstant);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -143,10 +142,17 @@ public class ModeQueueTypeImpl extends BlackboxTypeImpl implements ModeQueueType
 	 * @generated
 	 */
 	public void setMaxLengthConstant(Constant newMaxLengthConstant) {
-		Constant oldMaxLengthConstant = maxLengthConstant;
-		maxLengthConstant = newMaxLengthConstant;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, oldMaxLengthConstant, maxLengthConstant));
+		if (newMaxLengthConstant != maxLengthConstant) {
+			NotificationChain msgs = null;
+			if (maxLengthConstant != null)
+				msgs = ((InternalEObject)maxLengthConstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, null, msgs);
+			if (newMaxLengthConstant != null)
+				msgs = ((InternalEObject)newMaxLengthConstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, null, msgs);
+			msgs = basicSetMaxLengthConstant(newMaxLengthConstant, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT, newMaxLengthConstant, newMaxLengthConstant));
 	}
 
 	/**
@@ -193,11 +199,24 @@ public class ModeQueueTypeImpl extends BlackboxTypeImpl implements ModeQueueType
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT:
+				return basicSetMaxLengthConstant(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModulePackage.MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT:
-				if (resolve) return getMaxLengthConstant();
-				return basicGetMaxLengthConstant();
+				return getMaxLengthConstant();
 			case ModulePackage.MODE_QUEUE_TYPE__ELEMENT_TYPE:
 				if (resolve) return getElementType();
 				return basicGetElementType();

@@ -46,11 +46,12 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMapping;
 import org.eclipse.emf.common.notify.Notification;
@@ -74,26 +75,57 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSwcMemoryMapping <em>Swc Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getDependentRunnableEntity <em>Dependent Runnable Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getDependentExternalRunnableEntity <em>Dependent External Runnable Entity</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getRteApi <em>Rte Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getApiInitValueConstant <em>Api Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getApiApplicationErrorConstant <em>Api Application Error Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getApiEnumConstant <em>Api Enum Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getApiUpperLowerLimitConstant <em>Api Upper Lower Limit Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getFilterConstant <em>Filter Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getPortArgValueConstant <em>Port Arg Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getDependentExecutableEntity <em>Dependent Executable Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInvalidValueConstant <em>Invalid Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getImplInitValueConstant <em>Impl Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSwcMemoryMapping <em>Swc Memory Mapping</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineGlobalVariables <em>Inline Global Variables</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineConstant <em>Inline Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineExecutableEntity <em>Inline Executable Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSrApiInitValueConstant <em>Sr Api Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSrImplInitValueConstant <em>Sr Impl Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSrImplInvalidValueConstant <em>Sr Impl Invalid Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSrFilterConstant <em>Sr Filter Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getCsApiApplicationErrorConstant <em>Cs Api Application Error Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getCsPortArgValueConstant <em>Cs Port Arg Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getCsPortArgValueVariable <em>Cs Port Arg Value Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getIrvBufferInitValueConstant <em>Irv Buffer Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getIrvBufferVariableSet <em>Irv Buffer Variable Set</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class SwcImpl extends LogicalCompartmentImpl implements Swc {
+	/**
+	 * The cached value of the '{@link #getSwcMemoryMapping() <em>Swc Memory Mapping</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSwcMemoryMapping()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SwcMemoryMapping> swcMemoryMapping;
+
+	/**
+	 * The cached value of the '{@link #getDependentRunnableEntity() <em>Dependent Runnable Entity</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependentRunnableEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RunnableEntity> dependentRunnableEntity;
+
+	/**
+	 * The cached value of the '{@link #getDependentExternalRunnableEntity() <em>Dependent External Runnable Entity</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDependentExternalRunnableEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RunnableEntity> dependentExternalRunnableEntity;
+
 	/**
 	 * The cached value of the '{@link #getRteApi() <em>Rte Api</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -103,26 +135,6 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * @ordered
 	 */
 	protected EList<RteApi> rteApi;
-
-	/**
-	 * The cached value of the '{@link #getApiInitValueConstant() <em>Api Init Value Constant</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApiInitValueConstant()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constant> apiInitValueConstant;
-
-	/**
-	 * The cached value of the '{@link #getApiApplicationErrorConstant() <em>Api Application Error Constant</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getApiApplicationErrorConstant()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constant> apiApplicationErrorConstant;
 
 	/**
 	 * The cached value of the '{@link #getApiEnumConstant() <em>Api Enum Constant</em>}' containment reference list.
@@ -145,94 +157,94 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	protected EList<Constant> apiUpperLowerLimitConstant;
 
 	/**
-	 * The cached value of the '{@link #getFilterConstant() <em>Filter Constant</em>}' containment reference list.
+	 * The cached value of the '{@link #getSrApiInitValueConstant() <em>Sr Api Init Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFilterConstant()
+	 * @see #getSrApiInitValueConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> filterConstant;
+	protected EList<Constant> srApiInitValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getPortArgValueConstant() <em>Port Arg Value Constant</em>}' containment reference list.
+	 * The cached value of the '{@link #getSrImplInitValueConstant() <em>Sr Impl Init Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPortArgValueConstant()
+	 * @see #getSrImplInitValueConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> portArgValueConstant;
+	protected EList<Constant> srImplInitValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getDependentExecutableEntity() <em>Dependent Executable Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getSrImplInvalidValueConstant() <em>Sr Impl Invalid Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentExecutableEntity()
+	 * @see #getSrImplInvalidValueConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutableEntity> dependentExecutableEntity;
+	protected EList<Constant> srImplInvalidValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getInvalidValueConstant() <em>Invalid Value Constant</em>}' containment reference list.
+	 * The cached value of the '{@link #getSrFilterConstant() <em>Sr Filter Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInvalidValueConstant()
+	 * @see #getSrFilterConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> invalidValueConstant;
+	protected EList<Constant> srFilterConstant;
 
 	/**
-	 * The cached value of the '{@link #getImplInitValueConstant() <em>Impl Init Value Constant</em>}' containment reference list.
+	 * The cached value of the '{@link #getCsApiApplicationErrorConstant() <em>Cs Api Application Error Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getImplInitValueConstant()
+	 * @see #getCsApiApplicationErrorConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> implInitValueConstant;
+	protected EList<Constant> csApiApplicationErrorConstant;
 
 	/**
-	 * The cached value of the '{@link #getSwcMemoryMapping() <em>Swc Memory Mapping</em>}' containment reference list.
+	 * The cached value of the '{@link #getCsPortArgValueConstant() <em>Cs Port Arg Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSwcMemoryMapping()
+	 * @see #getCsPortArgValueConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SwcMemoryMapping> swcMemoryMapping;
+	protected EList<Constant> csPortArgValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getInlineGlobalVariables() <em>Inline Global Variables</em>}' reference list.
+	 * The cached value of the '{@link #getCsPortArgValueVariable() <em>Cs Port Arg Value Variable</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInlineGlobalVariables()
+	 * @see #getCsPortArgValueVariable()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GlobalVariable> inlineGlobalVariables;
+	protected EList<GlobalVariable> csPortArgValueVariable;
 
 	/**
-	 * The cached value of the '{@link #getInlineConstant() <em>Inline Constant</em>}' reference list.
+	 * The cached value of the '{@link #getIrvBufferInitValueConstant() <em>Irv Buffer Init Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInlineConstant()
+	 * @see #getIrvBufferInitValueConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> inlineConstant;
+	protected EList<Constant> irvBufferInitValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getInlineExecutableEntity() <em>Inline Executable Entity</em>}' reference list.
+	 * The cached value of the '{@link #getIrvBufferVariableSet() <em>Irv Buffer Variable Set</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInlineExecutableEntity()
+	 * @see #getIrvBufferVariableSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutableEntity> inlineExecutableEntity;
+	protected EList<RteBufferVariableSet> irvBufferVariableSet;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -258,66 +270,6 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constant> getFilterConstant() {
-		if (filterConstant == null) {
-			filterConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__FILTER_CONSTANT);
-		}
-		return filterConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getPortArgValueConstant() {
-		if (portArgValueConstant == null) {
-			portArgValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT);
-		}
-		return portArgValueConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ExecutableEntity> getDependentExecutableEntity() {
-		if (dependentExecutableEntity == null) {
-			dependentExecutableEntity = new EObjectContainmentEList<ExecutableEntity>(ExecutableEntity.class, this, ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY);
-		}
-		return dependentExecutableEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getInvalidValueConstant() {
-		if (invalidValueConstant == null) {
-			invalidValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__INVALID_VALUE_CONSTANT);
-		}
-		return invalidValueConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getImplInitValueConstant() {
-		if (implInitValueConstant == null) {
-			implInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT);
-		}
-		return implInitValueConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<SwcMemoryMapping> getSwcMemoryMapping() {
 		if (swcMemoryMapping == null) {
 			swcMemoryMapping = new EObjectContainmentEList<SwcMemoryMapping>(SwcMemoryMapping.class, this, ModulePackage.SWC__SWC_MEMORY_MAPPING);
@@ -330,11 +282,11 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GlobalVariable> getInlineGlobalVariables() {
-		if (inlineGlobalVariables == null) {
-			inlineGlobalVariables = new EObjectResolvingEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.SWC__INLINE_GLOBAL_VARIABLES);
+	public EList<RunnableEntity> getDependentRunnableEntity() {
+		if (dependentRunnableEntity == null) {
+			dependentRunnableEntity = new EObjectContainmentEList<RunnableEntity>(RunnableEntity.class, this, ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY);
 		}
-		return inlineGlobalVariables;
+		return dependentRunnableEntity;
 	}
 
 	/**
@@ -342,23 +294,11 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constant> getInlineConstant() {
-		if (inlineConstant == null) {
-			inlineConstant = new EObjectResolvingEList<Constant>(Constant.class, this, ModulePackage.SWC__INLINE_CONSTANT);
+	public EList<RunnableEntity> getDependentExternalRunnableEntity() {
+		if (dependentExternalRunnableEntity == null) {
+			dependentExternalRunnableEntity = new EObjectResolvingEList<RunnableEntity>(RunnableEntity.class, this, ModulePackage.SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY);
 		}
-		return inlineConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ExecutableEntity> getInlineExecutableEntity() {
-		if (inlineExecutableEntity == null) {
-			inlineExecutableEntity = new EObjectResolvingEList<ExecutableEntity>(ExecutableEntity.class, this, ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY);
-		}
-		return inlineExecutableEntity;
+		return dependentExternalRunnableEntity;
 	}
 
 	/**
@@ -438,30 +378,6 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constant> getApiInitValueConstant() {
-		if (apiInitValueConstant == null) {
-			apiInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__API_INIT_VALUE_CONSTANT);
-		}
-		return apiInitValueConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getApiApplicationErrorConstant() {
-		if (apiApplicationErrorConstant == null) {
-			apiApplicationErrorConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT);
-		}
-		return apiApplicationErrorConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Constant> getApiEnumConstant() {
 		if (apiEnumConstant == null) {
 			apiEnumConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__API_ENUM_CONSTANT);
@@ -486,33 +402,147 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Constant> getSrApiInitValueConstant() {
+		if (srApiInitValueConstant == null) {
+			srApiInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT);
+		}
+		return srApiInitValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrImplInitValueConstant() {
+		if (srImplInitValueConstant == null) {
+			srImplInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT);
+		}
+		return srImplInitValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrImplInvalidValueConstant() {
+		if (srImplInvalidValueConstant == null) {
+			srImplInvalidValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT);
+		}
+		return srImplInvalidValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrFilterConstant() {
+		if (srFilterConstant == null) {
+			srFilterConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__SR_FILTER_CONSTANT);
+		}
+		return srFilterConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getCsApiApplicationErrorConstant() {
+		if (csApiApplicationErrorConstant == null) {
+			csApiApplicationErrorConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT);
+		}
+		return csApiApplicationErrorConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getCsPortArgValueConstant() {
+		if (csPortArgValueConstant == null) {
+			csPortArgValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT);
+		}
+		return csPortArgValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getCsPortArgValueVariable() {
+		if (csPortArgValueVariable == null) {
+			csPortArgValueVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE);
+		}
+		return csPortArgValueVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getIrvBufferInitValueConstant() {
+		if (irvBufferInitValueConstant == null) {
+			irvBufferInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT);
+		}
+		return irvBufferInitValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferVariableSet> getIrvBufferVariableSet() {
+		if (irvBufferVariableSet == null) {
+			irvBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET);
+		}
+		return irvBufferVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModulePackage.SWC__PARENT:
 				return basicSetParent(null, msgs);
+			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
+				return ((InternalEList<?>)getSwcMemoryMapping()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY:
+				return ((InternalEList<?>)getDependentRunnableEntity()).basicRemove(otherEnd, msgs);
 			case ModulePackage.SWC__RTE_API:
 				return ((InternalEList<?>)getRteApi()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__API_INIT_VALUE_CONSTANT:
-				return ((InternalEList<?>)getApiInitValueConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT:
-				return ((InternalEList<?>)getApiApplicationErrorConstant()).basicRemove(otherEnd, msgs);
 			case ModulePackage.SWC__API_ENUM_CONSTANT:
 				return ((InternalEList<?>)getApiEnumConstant()).basicRemove(otherEnd, msgs);
 			case ModulePackage.SWC__API_UPPER_LOWER_LIMIT_CONSTANT:
 				return ((InternalEList<?>)getApiUpperLowerLimitConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__FILTER_CONSTANT:
-				return ((InternalEList<?>)getFilterConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT:
-				return ((InternalEList<?>)getPortArgValueConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY:
-				return ((InternalEList<?>)getDependentExecutableEntity()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__INVALID_VALUE_CONSTANT:
-				return ((InternalEList<?>)getInvalidValueConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT:
-				return ((InternalEList<?>)getImplInitValueConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
-				return ((InternalEList<?>)getSwcMemoryMapping()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT:
+				return ((InternalEList<?>)getSrApiInitValueConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT:
+				return ((InternalEList<?>)getSrImplInitValueConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT:
+				return ((InternalEList<?>)getSrImplInvalidValueConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__SR_FILTER_CONSTANT:
+				return ((InternalEList<?>)getSrFilterConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT:
+				return ((InternalEList<?>)getCsApiApplicationErrorConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT:
+				return ((InternalEList<?>)getCsPortArgValueConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE:
+				return ((InternalEList<?>)getCsPortArgValueVariable()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT:
+				return ((InternalEList<?>)getIrvBufferInitValueConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET:
+				return ((InternalEList<?>)getIrvBufferVariableSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -541,34 +571,36 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 		switch (featureID) {
 			case ModulePackage.SWC__PARENT:
 				return getParent();
+			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
+				return getSwcMemoryMapping();
+			case ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY:
+				return getDependentRunnableEntity();
+			case ModulePackage.SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY:
+				return getDependentExternalRunnableEntity();
 			case ModulePackage.SWC__RTE_API:
 				return getRteApi();
-			case ModulePackage.SWC__API_INIT_VALUE_CONSTANT:
-				return getApiInitValueConstant();
-			case ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT:
-				return getApiApplicationErrorConstant();
 			case ModulePackage.SWC__API_ENUM_CONSTANT:
 				return getApiEnumConstant();
 			case ModulePackage.SWC__API_UPPER_LOWER_LIMIT_CONSTANT:
 				return getApiUpperLowerLimitConstant();
-			case ModulePackage.SWC__FILTER_CONSTANT:
-				return getFilterConstant();
-			case ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT:
-				return getPortArgValueConstant();
-			case ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY:
-				return getDependentExecutableEntity();
-			case ModulePackage.SWC__INVALID_VALUE_CONSTANT:
-				return getInvalidValueConstant();
-			case ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT:
-				return getImplInitValueConstant();
-			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
-				return getSwcMemoryMapping();
-			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
-				return getInlineGlobalVariables();
-			case ModulePackage.SWC__INLINE_CONSTANT:
-				return getInlineConstant();
-			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
-				return getInlineExecutableEntity();
+			case ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT:
+				return getSrApiInitValueConstant();
+			case ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT:
+				return getSrImplInitValueConstant();
+			case ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT:
+				return getSrImplInvalidValueConstant();
+			case ModulePackage.SWC__SR_FILTER_CONSTANT:
+				return getSrFilterConstant();
+			case ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT:
+				return getCsApiApplicationErrorConstant();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT:
+				return getCsPortArgValueConstant();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE:
+				return getCsPortArgValueVariable();
+			case ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT:
+				return getIrvBufferInitValueConstant();
+			case ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET:
+				return getIrvBufferVariableSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -585,17 +617,21 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 			case ModulePackage.SWC__PARENT:
 				setParent((Partition)newValue);
 				return;
+			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
+				getSwcMemoryMapping().clear();
+				getSwcMemoryMapping().addAll((Collection<? extends SwcMemoryMapping>)newValue);
+				return;
+			case ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY:
+				getDependentRunnableEntity().clear();
+				getDependentRunnableEntity().addAll((Collection<? extends RunnableEntity>)newValue);
+				return;
+			case ModulePackage.SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY:
+				getDependentExternalRunnableEntity().clear();
+				getDependentExternalRunnableEntity().addAll((Collection<? extends RunnableEntity>)newValue);
+				return;
 			case ModulePackage.SWC__RTE_API:
 				getRteApi().clear();
 				getRteApi().addAll((Collection<? extends RteApi>)newValue);
-				return;
-			case ModulePackage.SWC__API_INIT_VALUE_CONSTANT:
-				getApiInitValueConstant().clear();
-				getApiInitValueConstant().addAll((Collection<? extends Constant>)newValue);
-				return;
-			case ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT:
-				getApiApplicationErrorConstant().clear();
-				getApiApplicationErrorConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
 			case ModulePackage.SWC__API_ENUM_CONSTANT:
 				getApiEnumConstant().clear();
@@ -605,41 +641,41 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 				getApiUpperLowerLimitConstant().clear();
 				getApiUpperLowerLimitConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__FILTER_CONSTANT:
-				getFilterConstant().clear();
-				getFilterConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT:
+				getSrApiInitValueConstant().clear();
+				getSrApiInitValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT:
-				getPortArgValueConstant().clear();
-				getPortArgValueConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT:
+				getSrImplInitValueConstant().clear();
+				getSrImplInitValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY:
-				getDependentExecutableEntity().clear();
-				getDependentExecutableEntity().addAll((Collection<? extends ExecutableEntity>)newValue);
+			case ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT:
+				getSrImplInvalidValueConstant().clear();
+				getSrImplInvalidValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__INVALID_VALUE_CONSTANT:
-				getInvalidValueConstant().clear();
-				getInvalidValueConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.SWC__SR_FILTER_CONSTANT:
+				getSrFilterConstant().clear();
+				getSrFilterConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT:
-				getImplInitValueConstant().clear();
-				getImplInitValueConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT:
+				getCsApiApplicationErrorConstant().clear();
+				getCsApiApplicationErrorConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
-				getSwcMemoryMapping().clear();
-				getSwcMemoryMapping().addAll((Collection<? extends SwcMemoryMapping>)newValue);
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT:
+				getCsPortArgValueConstant().clear();
+				getCsPortArgValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
-				getInlineGlobalVariables().clear();
-				getInlineGlobalVariables().addAll((Collection<? extends GlobalVariable>)newValue);
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE:
+				getCsPortArgValueVariable().clear();
+				getCsPortArgValueVariable().addAll((Collection<? extends GlobalVariable>)newValue);
 				return;
-			case ModulePackage.SWC__INLINE_CONSTANT:
-				getInlineConstant().clear();
-				getInlineConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT:
+				getIrvBufferInitValueConstant().clear();
+				getIrvBufferInitValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
-				getInlineExecutableEntity().clear();
-				getInlineExecutableEntity().addAll((Collection<? extends ExecutableEntity>)newValue);
+			case ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET:
+				getIrvBufferVariableSet().clear();
+				getIrvBufferVariableSet().addAll((Collection<? extends RteBufferVariableSet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -656,14 +692,17 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 			case ModulePackage.SWC__PARENT:
 				setParent((Partition)null);
 				return;
+			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
+				getSwcMemoryMapping().clear();
+				return;
+			case ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY:
+				getDependentRunnableEntity().clear();
+				return;
+			case ModulePackage.SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY:
+				getDependentExternalRunnableEntity().clear();
+				return;
 			case ModulePackage.SWC__RTE_API:
 				getRteApi().clear();
-				return;
-			case ModulePackage.SWC__API_INIT_VALUE_CONSTANT:
-				getApiInitValueConstant().clear();
-				return;
-			case ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT:
-				getApiApplicationErrorConstant().clear();
 				return;
 			case ModulePackage.SWC__API_ENUM_CONSTANT:
 				getApiEnumConstant().clear();
@@ -671,32 +710,32 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 			case ModulePackage.SWC__API_UPPER_LOWER_LIMIT_CONSTANT:
 				getApiUpperLowerLimitConstant().clear();
 				return;
-			case ModulePackage.SWC__FILTER_CONSTANT:
-				getFilterConstant().clear();
+			case ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT:
+				getSrApiInitValueConstant().clear();
 				return;
-			case ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT:
-				getPortArgValueConstant().clear();
+			case ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT:
+				getSrImplInitValueConstant().clear();
 				return;
-			case ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY:
-				getDependentExecutableEntity().clear();
+			case ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT:
+				getSrImplInvalidValueConstant().clear();
 				return;
-			case ModulePackage.SWC__INVALID_VALUE_CONSTANT:
-				getInvalidValueConstant().clear();
+			case ModulePackage.SWC__SR_FILTER_CONSTANT:
+				getSrFilterConstant().clear();
 				return;
-			case ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT:
-				getImplInitValueConstant().clear();
+			case ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT:
+				getCsApiApplicationErrorConstant().clear();
 				return;
-			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
-				getSwcMemoryMapping().clear();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT:
+				getCsPortArgValueConstant().clear();
 				return;
-			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
-				getInlineGlobalVariables().clear();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE:
+				getCsPortArgValueVariable().clear();
 				return;
-			case ModulePackage.SWC__INLINE_CONSTANT:
-				getInlineConstant().clear();
+			case ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT:
+				getIrvBufferInitValueConstant().clear();
 				return;
-			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
-				getInlineExecutableEntity().clear();
+			case ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET:
+				getIrvBufferVariableSet().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -712,34 +751,36 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 		switch (featureID) {
 			case ModulePackage.SWC__PARENT:
 				return getParent() != null;
+			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
+				return swcMemoryMapping != null && !swcMemoryMapping.isEmpty();
+			case ModulePackage.SWC__DEPENDENT_RUNNABLE_ENTITY:
+				return dependentRunnableEntity != null && !dependentRunnableEntity.isEmpty();
+			case ModulePackage.SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY:
+				return dependentExternalRunnableEntity != null && !dependentExternalRunnableEntity.isEmpty();
 			case ModulePackage.SWC__RTE_API:
 				return rteApi != null && !rteApi.isEmpty();
-			case ModulePackage.SWC__API_INIT_VALUE_CONSTANT:
-				return apiInitValueConstant != null && !apiInitValueConstant.isEmpty();
-			case ModulePackage.SWC__API_APPLICATION_ERROR_CONSTANT:
-				return apiApplicationErrorConstant != null && !apiApplicationErrorConstant.isEmpty();
 			case ModulePackage.SWC__API_ENUM_CONSTANT:
 				return apiEnumConstant != null && !apiEnumConstant.isEmpty();
 			case ModulePackage.SWC__API_UPPER_LOWER_LIMIT_CONSTANT:
 				return apiUpperLowerLimitConstant != null && !apiUpperLowerLimitConstant.isEmpty();
-			case ModulePackage.SWC__FILTER_CONSTANT:
-				return filterConstant != null && !filterConstant.isEmpty();
-			case ModulePackage.SWC__PORT_ARG_VALUE_CONSTANT:
-				return portArgValueConstant != null && !portArgValueConstant.isEmpty();
-			case ModulePackage.SWC__DEPENDENT_EXECUTABLE_ENTITY:
-				return dependentExecutableEntity != null && !dependentExecutableEntity.isEmpty();
-			case ModulePackage.SWC__INVALID_VALUE_CONSTANT:
-				return invalidValueConstant != null && !invalidValueConstant.isEmpty();
-			case ModulePackage.SWC__IMPL_INIT_VALUE_CONSTANT:
-				return implInitValueConstant != null && !implInitValueConstant.isEmpty();
-			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
-				return swcMemoryMapping != null && !swcMemoryMapping.isEmpty();
-			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
-				return inlineGlobalVariables != null && !inlineGlobalVariables.isEmpty();
-			case ModulePackage.SWC__INLINE_CONSTANT:
-				return inlineConstant != null && !inlineConstant.isEmpty();
-			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
-				return inlineExecutableEntity != null && !inlineExecutableEntity.isEmpty();
+			case ModulePackage.SWC__SR_API_INIT_VALUE_CONSTANT:
+				return srApiInitValueConstant != null && !srApiInitValueConstant.isEmpty();
+			case ModulePackage.SWC__SR_IMPL_INIT_VALUE_CONSTANT:
+				return srImplInitValueConstant != null && !srImplInitValueConstant.isEmpty();
+			case ModulePackage.SWC__SR_IMPL_INVALID_VALUE_CONSTANT:
+				return srImplInvalidValueConstant != null && !srImplInvalidValueConstant.isEmpty();
+			case ModulePackage.SWC__SR_FILTER_CONSTANT:
+				return srFilterConstant != null && !srFilterConstant.isEmpty();
+			case ModulePackage.SWC__CS_API_APPLICATION_ERROR_CONSTANT:
+				return csApiApplicationErrorConstant != null && !csApiApplicationErrorConstant.isEmpty();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_CONSTANT:
+				return csPortArgValueConstant != null && !csPortArgValueConstant.isEmpty();
+			case ModulePackage.SWC__CS_PORT_ARG_VALUE_VARIABLE:
+				return csPortArgValueVariable != null && !csPortArgValueVariable.isEmpty();
+			case ModulePackage.SWC__IRV_BUFFER_INIT_VALUE_CONSTANT:
+				return irvBufferInitValueConstant != null && !irvBufferInitValueConstant.isEmpty();
+			case ModulePackage.SWC__IRV_BUFFER_VARIABLE_SET:
+				return irvBufferVariableSet != null && !irvBufferVariableSet.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

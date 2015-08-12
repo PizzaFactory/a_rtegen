@@ -44,15 +44,15 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util;
 
 public class RoleNames { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
-	public static final String INIT_VALUE = "apiInitValue";
-	public static final String INVALID_VALUE = "invalidValue";
-	public static final String IMPL_INIT_VALUE = "implInitValue";
-	public static final String FILTER_MASK_ROLE_NAME = "filterMask";
-	public static final String FILTER_X_ROLE_NAME = "filterX";
-	public static final String FILTER_MIN_ROLE_NAME = "filterMin";
-	public static final String FILTER_MAX_ROLE_NAME = "filterMax";
-	public static final String FILTER_PERIOD_ROLE_NAME = "filterPeriod";
-	public static final String FILTER_OFFSET_ROLE_NAME = "filterOffset";
+	public static final String SR_INVALID_VALUE_ROLE_NAME = "srInvalidValue";
+	public static final String SR_API_INIT_VALUE_ROLE_NAME = "srApiInitValue";
+	public static final String SR_IMPL_INIT_VALUE_ROLE_NAME = "srImplInitValue";
+	public static final String SR_FILTER_MASK_ROLE_NAME = "srFilterMask";
+	public static final String SR_FILTER_X_ROLE_NAME = "srFilterX";
+	public static final String SR_FILTER_MIN_ROLE_NAME = "srFilterMin";
+	public static final String SR_FILTER_MAX_ROLE_NAME = "srFilterMax";
+	public static final String SR_FILTER_PERIOD_ROLE_NAME = "srFilterPeriod";
+	public static final String SR_FILTER_OFFSET_ROLE_NAME = "srFilterOffset";
 	public static final String EXECUTABLE_CYCLE_PERIOD_ROLE_NAME = "executableCyclePeriod";
 	public static final String EXECUTABLE_CYCLE_OFFSET_ROLE_NAME = "executableCycleOffset";
 	public static final String EXECUTABLE_START_OFFSET_ROLE_NAME = "executableStartOffset";

@@ -285,7 +285,7 @@ public class VariableDataInstanceInCompositionImpl extends VariableDataInstanceI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isProvided() {
+	public boolean isProvided() {
 		try {
 			return (Boolean)IS_PROVIDED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -309,7 +309,7 @@ public class VariableDataInstanceInCompositionImpl extends VariableDataInstanceI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isRequired() {
+	public boolean isRequired() {
 		try {
 			return (Boolean)IS_REQUIRED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

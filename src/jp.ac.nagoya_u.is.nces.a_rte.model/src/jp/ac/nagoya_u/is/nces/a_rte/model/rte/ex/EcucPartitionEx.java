@@ -65,11 +65,11 @@ public interface EcucPartitionEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * マスタコアかどうか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let osOs : ecuc::OsOS = ecuc::OsOS.allInstances()\n\t\t\t\t\t->any(true)\n\t\t\t\tin this_.getOwnerCore().oclIsUndefined() or osOs.osMasterCoreId = this_.getOwnerCore()'"
 	 * @generated
 	 */
-	Boolean isInMasterCore(EcucPartition this_);
+	boolean isInMasterCore(EcucPartition this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,11 +77,11 @@ public interface EcucPartitionEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * マスタコアのBSWパーティションかどうか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='isInMasterCore(this_) and this_.ecucPartitionBswModuleExecution'"
 	 * @generated
 	 */
-	Boolean isMasterBswPartition(EcucPartition this_);
+	boolean isMasterBswPartition(EcucPartition this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,11 +89,11 @@ public interface EcucPartitionEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * RestartPartition APIを生成するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.partitionCanBeRestarted'"
 	 * @generated
 	 */
-	Boolean providesRestartPartitionApi(EcucPartition this_);
+	boolean providesRestartPartitionApi(EcucPartition this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,10 +101,10 @@ public interface EcucPartitionEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * PartitionRestarting APIを生成するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.partitionCanBeRestarted'"
 	 * @generated
 	 */
-	Boolean providesPartitionRestartingApi(EcucPartition this_);
+	boolean providesPartitionRestartingApi(EcucPartition this_);
 
 } // EcucPartitionEx

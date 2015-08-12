@@ -69,11 +69,11 @@ public interface VariableDataPrototypeEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * 宣言時に初期化するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART'"
 	 * @generated
 	 */
-	Boolean initAtDeclaration(VariableDataPrototype this_);
+	boolean initAtDeclaration(VariableDataPrototype this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,11 +81,11 @@ public interface VariableDataPrototypeEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * RTEの開始時に初期化するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART'"
 	 * @generated
 	 */
-	Boolean initAtStart(VariableDataPrototype this_);
+	boolean initAtStart(VariableDataPrototype this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -93,11 +93,11 @@ public interface VariableDataPrototypeEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * パーティションの再起動時に初期化するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART'"
 	 * @generated
 	 */
-	Boolean initAtPartitionRestart(VariableDataPrototype this_);
+	boolean initAtPartitionRestart(VariableDataPrototype this_);
 
 	/**
 	 * <!-- begin-user-doc -->

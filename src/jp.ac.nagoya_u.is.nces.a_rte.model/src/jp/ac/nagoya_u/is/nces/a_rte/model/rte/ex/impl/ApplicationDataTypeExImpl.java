@@ -101,7 +101,7 @@ public class ApplicationDataTypeExImpl extends ExtendedEObjectImpl implements Ap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesUpperLowerLimitConstant(ApplicationDataType this_) {
+	public boolean providesUpperLowerLimitConstant(ApplicationDataType this_) {
 		try {
 			return (Boolean)PROVIDES_UPPER_LOWER_LIMIT_CONSTANT_APPLICATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

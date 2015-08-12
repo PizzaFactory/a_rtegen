@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,10 +60,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getUnionMember()
  * @model
- * @extends ExtendedEObject
  * @generated
  */
-public interface UnionMember extends ExtendedEObject {
+public interface UnionMember extends ModuleObject {
 	/**
 	 * Returns the value of the '<em><b>Member Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->

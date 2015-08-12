@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping;
@@ -72,7 +71,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SenderRecRecordElementMappingImpl extends ExtendedEObjectImpl implements SenderRecRecordElementMapping {
+public class SenderRecRecordElementMappingImpl extends M2ObjectImpl implements SenderRecRecordElementMapping {
 	/**
 	 * The cached value of the '{@link #getImplementationRecordElement() <em>Implementation Record Element</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -280,7 +279,6 @@ public class SenderRecRecordElementMappingImpl extends ExtendedEObjectImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

@@ -150,7 +150,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isForVALUE(ValueSpecification this_) {
+	public boolean isForVALUE(ValueSpecification this_) {
 		try {
 			return (Boolean)IS_FOR_VALUE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -174,7 +174,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isForARRAY(ValueSpecification value, ImplementationDataType type) {
+	public boolean isForARRAY(ValueSpecification value, ImplementationDataType type) {
 		try {
 			return (Boolean)IS_FOR_ARRAY_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
 		}
@@ -198,7 +198,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isForSTRUCTURE(ValueSpecification value, ImplementationDataType type) {
+	public boolean isForSTRUCTURE(ValueSpecification value, ImplementationDataType type) {
 		try {
 			return (Boolean)IS_FOR_STRUCTURE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
 		}
@@ -222,7 +222,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isForUNION(ValueSpecification value, ImplementationDataType type) {
+	public boolean isForUNION(ValueSpecification value, ImplementationDataType type) {
 		try {
 			return (Boolean)IS_FOR_UNION_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
 		}
@@ -246,7 +246,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isForDATA_REFERENCE(ValueSpecification value) {
+	public boolean isForDATA_REFERENCE(ValueSpecification value) {
 		try {
 			return (Boolean)IS_FOR_DATA_REFERENCE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{value}));
 		}
@@ -270,7 +270,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isValidValue(ValueSpecification value, ImplementationDataType type) {
+	public boolean isValidValue(ValueSpecification value, ImplementationDataType type) {
 		try {
 			return (Boolean)IS_VALID_VALUE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
 		}
@@ -294,7 +294,7 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean equalsInitValue(ValueSpecification v1, ValueSpecification v2) {
+	public boolean equalsInitValue(ValueSpecification v1, ValueSpecification v2) {
 		try {
 			return (Boolean)EQUALS_INIT_VALUE_VALUE_SPECIFICATION_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{v1, v2}));
 		}

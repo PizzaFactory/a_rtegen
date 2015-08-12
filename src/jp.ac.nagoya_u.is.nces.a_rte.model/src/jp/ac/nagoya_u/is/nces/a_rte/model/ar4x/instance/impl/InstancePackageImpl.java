@@ -1232,7 +1232,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getVariableDataInstanceInSwc__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), theM2Package.getBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getVariableDataInstanceInSwc__GetSwImplPolicy(), theM2Package.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1256,16 +1256,16 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEReference(getVariableDataInstanceInComposition_RequesterConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Provider(), "requesterConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableDataInstanceInComposition_ProviderConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Requester(), "providerConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInComposition__IsProvided(), theM2Package.getBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsProvided(), ecorePackage.getEBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInComposition__IsRequired(), theM2Package.getBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsRequired(), ecorePackage.getEBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getVariableDataInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pVariableDataInstanceInSwcEClass, PVariableDataInstanceInSwc.class, "PVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), theM2Package.getBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1274,15 +1274,15 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), theM2Package.getBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), theM2Package.getBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), theM2Package.getBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1524,7 +1524,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (getRVariableDataInstanceInSwc__GetQueueLength(), 
 		   source, 
 		   new String[] {
-			 "body", "let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen 1\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif"
+			 "body", "let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif"
 		   });		
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetComSpec(), 

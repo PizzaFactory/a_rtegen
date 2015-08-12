@@ -240,7 +240,7 @@ public class ComSignalImpl extends EcucContainerImpl implements ComSignal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean transfersImmediately() {
+	public boolean transfersImmediately() {
 		try {
 			return (Boolean)TRANSFERS_IMMEDIATELY__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

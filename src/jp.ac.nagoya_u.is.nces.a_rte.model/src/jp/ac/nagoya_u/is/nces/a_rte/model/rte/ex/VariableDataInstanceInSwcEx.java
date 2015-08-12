@@ -98,11 +98,11 @@ public interface VariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * 初期値定数を提供するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics()'"
 	 * @generated
 	 */
-	Boolean providesInitValueConstant(VariableDataInstanceInSwc this_);
+	boolean providesInitValueConstant(VariableDataInstanceInSwc this_);
 
 	/**
 	 * <!-- begin-user-doc -->

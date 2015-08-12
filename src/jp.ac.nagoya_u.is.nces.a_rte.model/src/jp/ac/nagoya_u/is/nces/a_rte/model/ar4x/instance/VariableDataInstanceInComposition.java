@@ -162,20 +162,20 @@ public interface VariableDataInstanceInComposition extends VariableDataInstance 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='prototype.oclIsKindOf(PVariableDataInstanceInSwc)'"
 	 * @generated
 	 */
-	Boolean isProvided();
+	boolean isProvided();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='prototype.oclIsKindOf(RVariableDataInstanceInSwc)'"
 	 * @generated
 	 */
-	Boolean isRequired();
+	boolean isRequired();
 
 	/**
 	 * <!-- begin-user-doc -->

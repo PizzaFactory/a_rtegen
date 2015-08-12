@@ -159,7 +159,7 @@ public class ComSignalExImpl extends ExtendedEObjectImpl implements ComSignalEx 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isSender(ComSignal this_) {
+	public boolean isSender(ComSignal this_) {
 		try {
 			return (Boolean)IS_SENDER_COM_SIGNAL__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -183,7 +183,7 @@ public class ComSignalExImpl extends ExtendedEObjectImpl implements ComSignalEx 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isReceiver(ComSignal this_) {
+	public boolean isReceiver(ComSignal this_) {
 		try {
 			return (Boolean)IS_RECEIVER_COM_SIGNAL__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

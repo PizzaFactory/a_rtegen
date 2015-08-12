@@ -157,6 +157,11 @@ package ar4x::m2
 	inv nrte_sws_0302:
 	not (self.category = 'UNION' and self.subElement->size() < 2)
 
+	inv nrte_sws_0346:
+	not (self.category = 'TYPE_REFERENCE')
+	or
+	not self.swDataDefProps.implementationDataType.oclIsUndefined()
+
 	/*
 	 * ImplementationDataTypeElement
 	 */

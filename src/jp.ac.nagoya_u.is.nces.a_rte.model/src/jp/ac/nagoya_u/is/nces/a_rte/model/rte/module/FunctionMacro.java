@@ -55,7 +55,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro#getSymbolName <em>Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro#getFunctionName <em>Function Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro#getMemoryMapping <em>Memory Mapping</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,31 +114,5 @@ public interface FunctionMacro extends ModuleObject {
 	 * @generated
 	 */
 	void setFunctionName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Memory Mapping</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Memory Mapping</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Memory Mapping</em>' reference.
-	 * @see #setMemoryMapping(MemoryMapping)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getFunctionMacro_MemoryMapping()
-	 * @model
-	 * @generated
-	 */
-	MemoryMapping getMemoryMapping();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro#getMemoryMapping <em>Memory Mapping</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Memory Mapping</em>' reference.
-	 * @see #getMemoryMapping()
-	 * @generated
-	 */
-	void setMemoryMapping(MemoryMapping value);
 
 } // FunctionMacro

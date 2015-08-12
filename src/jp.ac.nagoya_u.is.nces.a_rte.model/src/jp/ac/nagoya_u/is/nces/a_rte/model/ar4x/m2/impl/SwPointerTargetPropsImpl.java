@@ -44,17 +44,12 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -72,7 +67,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class SwPointerTargetPropsImpl extends ExtendedEObjectImpl implements SwPointerTargetProps {
+public class SwPointerTargetPropsImpl extends M2ObjectImpl implements SwPointerTargetProps {
 	/**
 	 * The default value of the '{@link #getTargetCategory() <em>Target Category</em>}' attribute.
 	 * <!-- begin-user-doc -->

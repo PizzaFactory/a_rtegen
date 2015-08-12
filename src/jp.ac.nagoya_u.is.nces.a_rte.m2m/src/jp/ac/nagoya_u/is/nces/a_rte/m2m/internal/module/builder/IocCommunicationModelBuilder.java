@@ -42,13 +42,13 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
@@ -56,6 +56,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocDataProperties;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocSenderProperties;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NumericalValueSpecification;
@@ -66,7 +67,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
@@ -82,184 +82,190 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
 
-import org.eclipse.emf.common.util.EList;
-
 import com.google.common.base.Optional;
 
+/**
+ * RTEが依存するIOC通信のモデルを構築する。
+ */
 public class IocCommunicationModelBuilder {
 
-	private final ModuleModelBuildContext context;
+	final ModuleModelBuildContext context;
 	private final LocalSymbolModelBuilder localSymbolModelBuilder;
+	private final MemoryMappingModelBuilder memmapBuilder;
 
 	public IocCommunicationModelBuilder(ModuleModelBuildContext context) {
 		this.context = context;
 		this.localSymbolModelBuilder = new LocalSymbolModelBuilder(context);
+		this.memmapBuilder = new MemoryMappingModelBuilder(this.context);
 	}
 
 	public void build() throws ModelException {
-		buildSenderReceiverIocCommunications(this.context.cache.rte);
+		buildSrInterPartitionIocCommunications(this.context.cache.rte);
 		buildComProxyIocCommunications(this.context.cache.rte);
 	}
 
-	private void buildSenderReceiverIocCommunications(Rte targetRte) throws ModelException {
-		for (IocValueBufferImplementation iocValueBufferImplementation : this.context.query.<IocValueBufferImplementation> findByKind(IOC_VALUE_BUFFER_IMPLEMENTATION)) {
-			InternalEcuReceiver receiver = iocValueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
+	private void buildSrInterPartitionIocCommunications(Rte targetRte) throws ModelException {
+		for (IocValueBufferImplementation sourceIocValueBufferImplementation : this.context.query.<IocValueBufferImplementation> findByKind(IOC_VALUE_BUFFER_IMPLEMENTATION)) {
+			InternalEcuReceiver sourceReceiver = sourceIocValueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
 
-			if (receiver.getSource().getPrototype().isEventSemantics()) {
-				buildIocQueuedCommunication(targetRte, iocValueBufferImplementation);
+			if (sourceReceiver.getSource().getPrototype().isEventSemantics()) {
+				buildSrInterPartitionIocQueuedCommunication(targetRte, sourceIocValueBufferImplementation);
 			} else {
-				buildIocNonqueuedCommunication(targetRte, iocValueBufferImplementation);
+				buildSrInterPartitionIocNonqueuedCommunication(targetRte, sourceIocValueBufferImplementation);
 			}
 		}
 	}
 
-	private boolean buildIocQueuedCommunication(Rte targetRte, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
-		return targetRte.getDependentIocCommunication().add(createIocQueuedCommunication(sourceValueBufferImplementation));
+	private void buildSrInterPartitionIocQueuedCommunication(Rte targetRte, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
+		targetRte.getDependentIocCommunication().add(createSrInterPartitionIocQueuedCommunication(sourceValueBufferImplementation));
 	}
 
-	private IocQueuedCommunication createIocQueuedCommunication(IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
-		IocQueuedCommunication iocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
+	private IocQueuedCommunication createSrInterPartitionIocQueuedCommunication(IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
+		IocQueuedCommunication destIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
 
-		IocReceiveApi iocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveApi();
-		iocReceiveApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
-		iocReceiveApi.setSymbolName(SymbolNames.createIocReceiveApiName(sourceValueBufferImplementation.getOsIocCommunication()));
-		iocReceiveApi.setMappingName(SymbolNames.createIocReceiveApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
-		buildReceiverIocApiSignature(iocReceiveApi, sourceValueBufferImplementation.getOsIocCommunication());
-		iocCommunication.setReceiveApi(iocReceiveApi);
+		IocReceiveApi destIocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveApi();
+		destIocReceiveApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
+		destIocReceiveApi.setSymbolName(SymbolNames.createIocReceiveApiName(sourceValueBufferImplementation.getOsIocCommunication()));
+		destIocReceiveApi.setMappingName(SymbolNames.createIocReceiveApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
+		buildReceiverIocApiSignature(destIocReceiveApi, sourceValueBufferImplementation.getOsIocCommunication());
+		destIocCommunication.setReceiveApi(destIocReceiveApi);
 
-		IocEmptyQueueApi iocEmptyQueueApi = ModuleFactory.eINSTANCE.createIocEmptyQueueApi();
-		iocEmptyQueueApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
-		iocEmptyQueueApi.setSymbolName(SymbolNames.createIocEmptyQueueApiName(sourceValueBufferImplementation.getOsIocCommunication()));
-		iocEmptyQueueApi.setMappingName(SymbolNames.createIocEmptyQueueApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
-		iocEmptyQueueApi.setReturnType(this.context.cache.osStatusType);
-		iocCommunication.setIocEmptyQueueApi(iocEmptyQueueApi);
+		IocEmptyQueueApi destIocEmptyQueueApi = ModuleFactory.eINSTANCE.createIocEmptyQueueApi();
+		destIocEmptyQueueApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
+		destIocEmptyQueueApi.setSymbolName(SymbolNames.createIocEmptyQueueApiName(sourceValueBufferImplementation.getOsIocCommunication()));
+		destIocEmptyQueueApi.setMappingName(SymbolNames.createIocEmptyQueueApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
+		destIocEmptyQueueApi.setReturnType(this.context.cache.osStatusType);
+		destIocCommunication.setIocEmptyQueueApi(destIocEmptyQueueApi);
 
-		for (OsIocSenderProperties osIocSenderProperties : sourceValueBufferImplementation.getOsIocCommunication().getOsIocSenderProperties()) {
-			IocSendApi iocSendApi = ModuleFactory.eINSTANCE.createIocSendApi();
-			iocSendApi.setSingleSource(osIocSenderProperties);
-			iocSendApi.setSymbolName(SymbolNames.createIocSendApiName(osIocSenderProperties));
-			iocSendApi.setMappingName(SymbolNames.createIocSendApiMappingName(osIocSenderProperties));
-			buildSenderIocApiSignature(iocSendApi, sourceValueBufferImplementation.getOsIocCommunication());
-			iocCommunication.getSendApi().add(iocSendApi);
+		for (OsIocSenderProperties sourceOsIocSenderProperties : sourceValueBufferImplementation.getOsIocCommunication().getOsIocSenderProperties()) {
+			IocSendApi destIocSendApi = ModuleFactory.eINSTANCE.createIocSendApi();
+			destIocSendApi.setSingleSource(sourceOsIocSenderProperties);
+			destIocSendApi.setSymbolName(SymbolNames.createIocSendApiName(sourceOsIocSenderProperties));
+			destIocSendApi.setMappingName(SymbolNames.createIocSendApiMappingName(sourceOsIocSenderProperties));
+			buildSenderIocApiSignature(destIocSendApi, sourceValueBufferImplementation.getOsIocCommunication());
+			destIocCommunication.getSendApi().add(destIocSendApi);
 		}
-		return iocCommunication;
+		return destIocCommunication;
 	}
 
-	private void buildIocNonqueuedCommunication(Rte targetRte, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
-		OsIocDataProperties osIocDataProperties = sourceValueBufferImplementation.getOsIocCommunication().getOsIocDataProperties().get(0);
-		Type type = this.context.builtQuery.findDest(TYPE, osIocDataProperties.getOsIocDataType());
+	private void buildSrInterPartitionIocNonqueuedCommunication(Rte targetRte, IocValueBufferImplementation sourceValueBufferImplementation) throws ModelException {
+		OsIocDataProperties sourceOsIocDataProperties = sourceValueBufferImplementation.getOsIocCommunication().getOsIocDataProperties().get(0);
+
+		Type type = this.context.builtQuery.findDest(TYPE, sourceOsIocDataProperties.getOsIocDataType());
 
 		// IOC初期値定数の構築
-		Constant initValueConstant = createIocInitValueConstant(sourceValueBufferImplementation, osIocDataProperties, type);
-		targetRte.getIocInitValueConstant().add(initValueConstant);
-	 	
+		Constant destInitValueConstant = createSrInterPartitionIocInitValueConstant(sourceValueBufferImplementation, sourceOsIocDataProperties, type);
+		targetRte.getIocInitValueConstant().add(destInitValueConstant);
+
 		// IOC連携の構築
-		IocNonqueuedCommunication iocCommunication = createIocNonqueuedCommunication(sourceValueBufferImplementation, initValueConstant);
-		targetRte.getDependentIocCommunication().add(iocCommunication);
+		IocNonqueuedCommunication destIocCommunication = createSrInterPartitionIocNonqueuedCommunication(sourceValueBufferImplementation, destInitValueConstant);
+		targetRte.getDependentIocCommunication().add(destIocCommunication);
 	}
 
-	private IocNonqueuedCommunication createIocNonqueuedCommunication(IocValueBufferImplementation sourceValueBufferImplementation, Constant initValueConstant) throws ModelException {
-		IocNonqueuedCommunication iocCommunication = ModuleFactory.eINSTANCE.createIocNonqueuedCommunication();
-		iocCommunication.setInitValue(initValueConstant);
+	private IocNonqueuedCommunication createSrInterPartitionIocNonqueuedCommunication(IocValueBufferImplementation sourceValueBufferImplementation, Constant initValueConstant) throws ModelException {
+		IocNonqueuedCommunication destIocCommunication = ModuleFactory.eINSTANCE.createIocNonqueuedCommunication();
 
-		IocReadApi iocReadApi = ModuleFactory.eINSTANCE.createIocReadApi();
-		iocReadApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
-		iocReadApi.setSymbolName(SymbolNames.createIocReadApiName(sourceValueBufferImplementation.getOsIocCommunication()));
-		iocReadApi.setMappingName(SymbolNames.createIocReadApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
-		buildReceiverIocApiSignature(iocReadApi, sourceValueBufferImplementation.getOsIocCommunication());
-		iocCommunication.setReadApi(iocReadApi);
+		IocReadApi destIocReadApi = ModuleFactory.eINSTANCE.createIocReadApi();
+		destIocReadApi.setSingleSource(sourceValueBufferImplementation.getOsIocCommunication());
+		destIocReadApi.setSymbolName(SymbolNames.createIocReadApiName(sourceValueBufferImplementation.getOsIocCommunication()));
+		destIocReadApi.setMappingName(SymbolNames.createIocReadApiMappingName(sourceValueBufferImplementation.getOsIocCommunication()));
+		buildReceiverIocApiSignature(destIocReadApi, sourceValueBufferImplementation.getOsIocCommunication());
+		destIocCommunication.setReadApi(destIocReadApi);
 
-		for (OsIocSenderProperties osIocSenderProperties : sourceValueBufferImplementation.getOsIocCommunication().getOsIocSenderProperties()) {
-			IocWriteApi iocWriteApi = ModuleFactory.eINSTANCE.createIocWriteApi();
-			iocWriteApi.setSingleSource(osIocSenderProperties);
-			iocWriteApi.setSymbolName(SymbolNames.createIocWriteApiName(osIocSenderProperties));
-			iocWriteApi.setMappingName(SymbolNames.createIocWriteApiMappingName(osIocSenderProperties));
-			buildSenderIocApiSignature(iocWriteApi, sourceValueBufferImplementation.getOsIocCommunication());
-			iocCommunication.getWriteApi().add(iocWriteApi);
+		for (OsIocSenderProperties sourceOsIocSenderProperties : sourceValueBufferImplementation.getOsIocCommunication().getOsIocSenderProperties()) {
+			IocWriteApi destIocWriteApi = ModuleFactory.eINSTANCE.createIocWriteApi();
+			destIocWriteApi.setSingleSource(sourceOsIocSenderProperties);
+			destIocWriteApi.setSymbolName(SymbolNames.createIocWriteApiName(sourceOsIocSenderProperties));
+			destIocWriteApi.setMappingName(SymbolNames.createIocWriteApiMappingName(sourceOsIocSenderProperties));
+			buildSenderIocApiSignature(destIocWriteApi, sourceValueBufferImplementation.getOsIocCommunication());
+			destIocCommunication.getWriteApi().add(destIocWriteApi);
 		}
+
+		destIocCommunication.setInitValue(initValueConstant);
+
+		// 複合データ型向けの初期値定数を構築
 		if (!initValueConstant.getMember().isEmpty()) {
-			ReceiveInteraction receiveInteraction = sourceValueBufferImplementation.getParent();
-			InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
+			Optional<EcucPartition> sourcePartition = Optional.fromNullable(sourceValueBufferImplementation.getOwnerPartition());
+			InternalEcuReceiver sourceReceiver = sourceValueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
+			VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceReceiver.getSource();
 
-			MemoryMappingModelBuilder memmapBuilder = new MemoryMappingModelBuilder(this.context);
-			GlobalVariable initValueVariable = ModuleFactory.eINSTANCE.createGlobalVariable();
-			initValueVariable.setSymbolName(SymbolNames.createRteBufferInitValueVariableName(receiver.getSource()));
-			initValueVariable.setHasConst(false);
-			initValueVariable.setHasStatic(false);
-			initValueVariable.setType(initValueConstant.getType());
-			initValueVariable.setInitValueConstant(initValueConstant);
-			initValueVariable.setInitAtDefinition(true);
-			initValueVariable.setMemoryMapping(memmapBuilder.buildDataElementMemoryMapping(Optional.fromNullable(sourceValueBufferImplementation.getOwnerPartition()), sourceValueBufferImplementation.getParent().getInternalEcuReceivers().get(0).getSource()));
-			initValueConstant.setRepresentedVariableName(initValueVariable.getSymbolName());
-			iocCommunication.setInitValueVariable(initValueVariable);
+			Rte targetRte = this.context.cache.rte;
 
-			RteBufferVariableSet rteBuffer = ModuleFactory.eINSTANCE.createRteBufferVariableSet();
-			Optional<EcucPartition> masterBswPartition = context.query.tryFindSingle(hasOp(ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION, true));
-			Partition targetPartition = this.context.builtQuery.findPartition(masterBswPartition.get());
-			rteBuffer.setInitValueVariable(initValueVariable);
-			rteBuffer.setHasConst(false);
-			rteBuffer.setHasStatic(false);
-			targetPartition.getRteBufferVariableSet().add(rteBuffer);
+			GlobalVariable destInitValueVariable = ModuleFactory.eINSTANCE.createGlobalVariable();
+			destInitValueVariable.setSymbolName(SymbolNames.createSrRteBufferInitValueVariableName(sourceDataInstanceInComposition));
+			destInitValueVariable.setHasConst(false);
+			destInitValueVariable.setHasStatic(false);
+			destInitValueVariable.setType(initValueConstant.getType());
+			destInitValueVariable.setInitValueConstant(initValueConstant);
+			destInitValueVariable.setInitAtDefinition(true);
+			destInitValueVariable.setMemoryMapping(this.memmapBuilder.buildDataElementMemoryMapping(sourcePartition, sourceDataInstanceInComposition));
+
+			RteBufferVariableSet destInitValueVariableSet = ModuleFactory.eINSTANCE.createRteBufferVariableSet();
+			destInitValueVariableSet.setInitValueVariable(destInitValueVariable);
+			targetRte.getIocInitValueVariableSet().add(destInitValueVariableSet);
+
+			// IOC通信・初期値定数のConstantと関連付
+			destIocCommunication.setInitValueVariable(destInitValueVariable);
+			initValueConstant.setRepresentedVariableName(destInitValueVariable.getSymbolName());
 		}
 
-		return iocCommunication;
+		return destIocCommunication;
 	}
 
-	private Constant createIocInitValueConstant(IocValueBufferImplementation sourceValueBufferImplementation, OsIocDataProperties osIocDataProperties, Type type) throws ModelException {
-		Constant initValueConstant = ModuleFactory.eINSTANCE.createConstant();
-		initValueConstant.setSymbolName(SymbolNames.createIocInitValueConstantName(sourceValueBufferImplementation.getOsIocCommunication()));
-		initValueConstant.setType(type);
-		ValueSpecification initValue = createValueSpecification(type, osIocDataProperties.getOsIocInitValue());
-		this.localSymbolModelBuilder.setupConstant(initValueConstant, type, initValue);
-		return initValueConstant;
+	private Constant createSrInterPartitionIocInitValueConstant(IocValueBufferImplementation sourceValueBufferImplementation, OsIocDataProperties sourceOsIocDataProperties, Type type) throws ModelException {
+		ValueSpecification sourceInitValue = parseAsValueSpecification(type, sourceOsIocDataProperties.getOsIocInitValue());
+
+		Constant destInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
+		destInitValueConstant.setSymbolName(SymbolNames.createIocInitValueConstantName(sourceValueBufferImplementation.getOsIocCommunication()));
+		destInitValueConstant.setType(type);
+		this.localSymbolModelBuilder.buildConstantValue(destInitValueConstant, sourceInitValue, type);
+		return destInitValueConstant;
 	}
 
-	private ValueSpecification createValueSpecification(Type type, String osIocInitValue) throws ModelException {
-		// TODO 将来的には多次元にも対応 ex. {1, {2, 3}, 4}
+	private ValueSpecification parseAsValueSpecification(Type type, String osIocInitValue) throws ModelException {
 		if (type instanceof ArrayType) {
 			ArrayValueSpecification value = M2Factory.eINSTANCE.createArrayValueSpecification();
-			createValueSpecificationMembers(value.getElement(), osIocInitValue);
+			value.getElement().addAll(parseAsPrimitiveValueSpecifications(osIocInitValue));
 			return value;
 		} else if (type instanceof StructType || type instanceof UnionType) {
 			RecordValueSpecification value = M2Factory.eINSTANCE.createRecordValueSpecification();
-			createValueSpecificationMembers(value.getField(), osIocInitValue);
+			value.getField().addAll(parseAsPrimitiveValueSpecifications(osIocInitValue));
 			return value;
 		} else {
-			return createValueSpecification(osIocInitValue);
+			return parseAsPrimitiveValueSpecification(osIocInitValue);
 		}
 	}
 
-	private void createValueSpecificationMembers(EList<ValueSpecification> members, String osIocInitValue) throws ModelException {
+	private List<ValueSpecification> parseAsPrimitiveValueSpecifications(String osIocInitValue) throws ModelException {
+		List<ValueSpecification> values = new ArrayList<ValueSpecification>();
+
 		int from = osIocInitValue.indexOf("{", 0);
 		int to = osIocInitValue.lastIndexOf("}", osIocInitValue.length() - 1);
 		if (from == -1 || to <= from) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new ModelException("Error occurred while parsing OsIocInitValue.");
 		}
-		osIocInitValue = osIocInitValue.substring(from + 1, to);
-		
-		String[] values = osIocInitValue.split(",");
-		for (int i = 0; i < values.length; i++) {
-			members.add(createValueSpecification(values[i]));
+		String trimmedOsIocInitValue = osIocInitValue.substring(from + 1, to);
+
+		String[] valueStrings = trimmedOsIocInitValue.split(",");
+		for (String valueString : valueStrings) {
+			values.add(parseAsPrimitiveValueSpecification(valueString));
 		}
+		return values;
 	}
-	
-	private ValueSpecification createValueSpecification(String valueString) {
+
+	private ValueSpecification parseAsPrimitiveValueSpecification(String valueString) {
 		try {
 			BigDecimal numerical = M2ModelUtils.parseNumerical(valueString);
 			NumericalValueSpecification value = M2Factory.eINSTANCE.createNumericalValueSpecification();
 			value.setValue(numerical);
 			return value;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			// BigDecimalに変換不能なら、TextValueSpecificationを作成する
 			TextValueSpecification value = M2Factory.eINSTANCE.createTextValueSpecification();
 			value.setValue(valueString);
@@ -268,97 +274,88 @@ public class IocCommunicationModelBuilder {
 	}
 
 	private void buildComProxyIocCommunications(Rte targetRte) throws ModelException {
-		for (ComSendProxyInteraction proxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
-			Type type = this.context.builtQuery.findType(proxyInteraction.getSignalDataType());
-			if (type instanceof PrimitiveType) {
-				createIocQueuedGroupCommunication(targetRte, proxyInteraction);
+		for (ComSendProxyInteraction sourceProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
+			if (sourceProxyInteraction.getSignalDataType().isPrimitiveType()) {
+				buildComProxyIocCommunicationForPrimitiveType(targetRte, sourceProxyInteraction);
 			} else {
-				createIocQueuedCommunication(targetRte, proxyInteraction);
+				buildComProxyIocCommunicationForComplexType(targetRte, sourceProxyInteraction);
 			}
 		}
 	}
 
-	private void createIocQueuedGroupCommunication(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
-		IocQueuedGroupCommunication iocCommunication = ModuleFactory.eINSTANCE.createIocQueuedGroupCommunication();
+	private void buildComProxyIocCommunicationForPrimitiveType(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
+		// NOTE グループ通信では送信プロパティは必ず1つ
+		OsIocSenderProperties sourceOsIocSenderProperties = sourceProxyInteraction.getRequestOsIocCommunication().getOsIocSenderProperties().get(0);
 
-		IocReceiveGroupApi iocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveGroupApi();
-		iocReceiveApi.setSingleSource(sourceProxyInteraction.getOsIocCommunication());
-		iocReceiveApi.setSymbolName(SymbolNames.createIocReceiveGroupApiName(sourceProxyInteraction.getOsIocCommunication()));
-		iocReceiveApi.setMappingName(SymbolNames.createIocReceiveGroupApiMappingName(sourceProxyInteraction.getOsIocCommunication()));
-		buildReceiverIocApiSignature(iocReceiveApi, sourceProxyInteraction.getOsIocCommunication());
-		iocCommunication.setReceiveApi(iocReceiveApi);
+		IocQueuedGroupCommunication destIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedGroupCommunication();
 
-		// グループ通信では送信プロパティは必ず1つ
-		OsIocSenderProperties osIocSenderProperties = sourceProxyInteraction.getOsIocCommunication().getOsIocSenderProperties().get(0);
-		IocSendGroupApi iocSendApi = ModuleFactory.eINSTANCE.createIocSendGroupApi();
-		iocSendApi.setSingleSource(osIocSenderProperties);
-		iocSendApi.setSymbolName(SymbolNames.createIocSendGroupApiName(osIocSenderProperties));
-		iocSendApi.setMappingName(SymbolNames.createIocSendGroupApiMappingName(osIocSenderProperties));
-		buildSenderIocApiSignature(iocSendApi, sourceProxyInteraction.getOsIocCommunication());
-		iocCommunication.setSendApi(iocSendApi);
+		IocReceiveGroupApi destIocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveGroupApi();
+		destIocReceiveApi.setSingleSource(sourceProxyInteraction.getRequestOsIocCommunication());
+		destIocReceiveApi.setSymbolName(SymbolNames.createIocReceiveGroupApiName(sourceProxyInteraction.getRequestOsIocCommunication()));
+		destIocReceiveApi.setMappingName(SymbolNames.createIocReceiveGroupApiMappingName(sourceProxyInteraction.getRequestOsIocCommunication()));
+		buildReceiverIocApiSignature(destIocReceiveApi, sourceProxyInteraction.getRequestOsIocCommunication());
+		destIocCommunication.setReceiveApi(destIocReceiveApi);
 
-		targetRte.getDependentIocCommunication().add(iocCommunication);
+		IocSendGroupApi destIocSendApi = ModuleFactory.eINSTANCE.createIocSendGroupApi();
+		destIocSendApi.setSingleSource(sourceOsIocSenderProperties);
+		destIocSendApi.setSymbolName(SymbolNames.createIocSendGroupApiName(sourceOsIocSenderProperties));
+		destIocSendApi.setMappingName(SymbolNames.createIocSendGroupApiMappingName(sourceOsIocSenderProperties));
+		buildSenderIocApiSignature(destIocSendApi, sourceProxyInteraction.getRequestOsIocCommunication());
+		destIocCommunication.setSendApi(destIocSendApi);
+
+		targetRte.getDependentIocCommunication().add(destIocCommunication);
 	}
 
-	private void createIocQueuedCommunication(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
-		// 関数テーブル用
-		IocQueuedCommunication iocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
-		IocReceiveApi iocReceiveApi = createIocReceiveApi(sourceProxyInteraction.getOsIocCommunication());
-		iocCommunication.setReceiveApi(iocReceiveApi);
-		IocSendApi iocSendApi = createIocSendApi(sourceProxyInteraction.getOsIocCommunication());
-		iocCommunication.getSendApi().add(iocSendApi);
-		targetRte.getDependentIocCommunication().add(iocCommunication);
+	private void buildComProxyIocCommunicationForComplexType(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
+		// COMプロキシ送信要求用
+		OsIocCommunication sourceRequestOsIocCommunication = sourceProxyInteraction.getRequestOsIocCommunication();
+
+		IocQueuedCommunication destRequestIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
+		destRequestIocCommunication.setReceiveApi(createIocReceiveApi(sourceRequestOsIocCommunication));
+		destRequestIocCommunication.getSendApi().add(createIocSendApi(sourceRequestOsIocCommunication));
+		targetRte.getDependentIocCommunication().add(destRequestIocCommunication);
 
 		// 値やり取り用
-		createIocCommunication(targetRte, sourceProxyInteraction.getOsIocCommunicationForComplexValue());
+		OsIocCommunication sourceValueOsIocCommunication = sourceProxyInteraction.getValueOsIocCommunicationForComplexType();
+
+		IocQueuedCommunication destValueIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
+		destValueIocCommunication.setReceiveApi(createIocReceiveApi(sourceValueOsIocCommunication));
+		destValueIocCommunication.getSendApi().add(createIocSendApi(sourceValueOsIocCommunication));
+		targetRte.getDependentIocCommunication().add(destValueIocCommunication);
 	}
 
-	private void createIocCommunication(Rte targetRte, OsIocCommunication iocCom) throws ModelException {
-		IocQueuedCommunication iocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
-		iocCommunication.setReceiveApi(createIocReceiveApi(iocCom));
-		iocCommunication.getSendApi().add(createIocSendApi(iocCom));
-		targetRte.getDependentIocCommunication().add(iocCommunication);
+	private IocReceiveApi createIocReceiveApi(OsIocCommunication sourceOsIocCommunication) throws ModelException {
+		IocReceiveApi destIocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveApi();
+		destIocReceiveApi.setSingleSource(sourceOsIocCommunication);
+		destIocReceiveApi.setSymbolName(SymbolNames.createIocReceiveApiName(sourceOsIocCommunication));
+		destIocReceiveApi.setMappingName(SymbolNames.createIocReceiveApiMappingName(sourceOsIocCommunication));
+		buildReceiverIocApiSignature(destIocReceiveApi, sourceOsIocCommunication);
+		return destIocReceiveApi;
 	}
 
-	private IocReceiveApi createIocReceiveApi(OsIocCommunication osIocCommunication) throws ModelException {
-		IocReceiveApi iocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveApi();
-		iocReceiveApi.setSingleSource(osIocCommunication);
-		iocReceiveApi.setSymbolName(SymbolNames.createIocReceiveApiName(osIocCommunication));
-		iocReceiveApi.setMappingName(SymbolNames.createIocReceiveApiMappingName(osIocCommunication));
-		buildReceiverIocApiSignature(iocReceiveApi, osIocCommunication);
-		return iocReceiveApi;
-	}
+	private IocSendApi createIocSendApi(OsIocCommunication sourceOsIocCommunication) throws ModelException {
+		// NOTE Complex用では送信プロパティは必ず1つ
+		OsIocSenderProperties sourceOsIocSenderProperties = sourceOsIocCommunication.getOsIocSenderProperties().get(0);
 
-	private IocSendApi createIocSendApi(OsIocCommunication osIocCommunication) throws ModelException {
-		// Complex用では送信プロパティは必ず1つ
-		IocSendApi iocSendApi = ModuleFactory.eINSTANCE.createIocSendApi();
-		OsIocSenderProperties osIocSenderProperties = osIocCommunication.getOsIocSenderProperties().get(0);
-		iocSendApi.setSingleSource(osIocSenderProperties);
-		iocSendApi.setSymbolName(SymbolNames.createIocSendApiName(osIocSenderProperties));
-		iocSendApi.setMappingName(SymbolNames.createIocSendApiMappingName(osIocSenderProperties));
-		buildSenderIocApiSignature(iocSendApi, osIocCommunication);
-		return iocSendApi;
+		IocSendApi destIocSendApi = ModuleFactory.eINSTANCE.createIocSendApi();
+		destIocSendApi.setSingleSource(sourceOsIocSenderProperties);
+		destIocSendApi.setSymbolName(SymbolNames.createIocSendApiName(sourceOsIocSenderProperties));
+		destIocSendApi.setMappingName(SymbolNames.createIocSendApiMappingName(sourceOsIocSenderProperties));
+		buildSenderIocApiSignature(destIocSendApi, sourceOsIocCommunication);
+		return destIocSendApi;
 	}
 
 	private void buildReceiverIocApiSignature(IocApi targetIocApi, OsIocCommunication sourceOsIocCommunication) throws ModelException {
 		targetIocApi.setReturnType(this.context.cache.osStatusType);
-		for (OsIocDataProperties osIocDataProperties : sourceOsIocCommunication.getOsIocDataProperties()) {
-			targetIocApi.getParam().add(createIocParam(osIocDataProperties, ParameterPassTypeEnum.REFERENCE));
+		for (OsIocDataProperties sourceOsIocDataProperties : sourceOsIocCommunication.getOsIocDataProperties()) {
+			targetIocApi.getParam().add(this.localSymbolModelBuilder.createIocOutDataParam(sourceOsIocDataProperties));
 		}
 	}
 
 	private void buildSenderIocApiSignature(IocApi targetIocApi, OsIocCommunication sourceOsIocCommunication) throws ModelException {
 		targetIocApi.setReturnType(this.context.cache.osStatusType);
-		for (OsIocDataProperties osIocDataProperties : sourceOsIocCommunication.getOsIocDataProperties()) {
-			targetIocApi.getParam().add(createIocParam(osIocDataProperties, localSymbolModelBuilder.getInParameterPassType(this.context.builtQuery.findType(osIocDataProperties.getOsIocDataType()))));
+		for (OsIocDataProperties sourceOsIocDataProperties : sourceOsIocCommunication.getOsIocDataProperties()) {
+			targetIocApi.getParam().add(this.localSymbolModelBuilder.createIocInDataParam(sourceOsIocDataProperties));
 		}
-	}
-
-	private Parameter createIocParam(OsIocDataProperties osIocDataProperties, ParameterPassTypeEnum type) throws ModelException {
-		Parameter iocParam = ModuleFactory.eINSTANCE.createParameter();
-		iocParam.setSymbolName(osIocDataProperties.getShortName());
-		iocParam.setType(this.context.builtQuery.findType(osIocDataProperties.getOsIocDataType()));
-		iocParam.setPassType(type);
-		return iocParam;
 	}
 }

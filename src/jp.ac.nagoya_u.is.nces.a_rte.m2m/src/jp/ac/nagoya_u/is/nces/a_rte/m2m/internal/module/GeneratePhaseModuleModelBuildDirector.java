@@ -72,15 +72,15 @@ public class GeneratePhaseModuleModelBuildDirector implements IModuleModelBuildD
 		context.cache.moduleRoot = moduleRoot;
 
 		try {
-			// 生成元モデルのキャッシュを構築
+			// モデル変換元モデルのキャッシュを構築
 			SourceModelCacheBuilder sourceModelCacheBuilder = new SourceModelCacheBuilder(context);
 			sourceModelCacheBuilder.build();
 
-			// モジュールモデルの論理構造の構築
+			// 論理区画モデルの構築
 			LogicalCompartmentModelBuilder logicalCompartmentModelBuilder = new LogicalCompartmentModelBuilder(context);
 			logicalCompartmentModelBuilder.buildFromSystem();
 
-			// 基底型モデルの構築
+			// 組込シンボルのモデルの構築
 			BuiltinSymbolModelBuilder builtinTypeBuilder = new BuiltinSymbolModelBuilder(context);
 			builtinTypeBuilder.build();
 
@@ -100,13 +100,15 @@ public class GeneratePhaseModuleModelBuildDirector implements IModuleModelBuildD
 			comApiModelBuilder.build();
 
 			// RTEの関数モデルの構築
-			RteFunctionModelBuilder rteApiBuilder = new RteFunctionModelBuilder(context);
-			rteApiBuilder.buildApiFunctions();
-			rteApiBuilder.buildImplFunctions();
+			RteFunctionModelBuilder rteFunctionBuilder = new RteFunctionModelBuilder(context);
+			rteFunctionBuilder.buildApiFunctions();
+			rteFunctionBuilder.buildImplFunctionsAndInternals();
+			rteFunctionBuilder.buildApiFunctionInternals();
 
 			// RTEのファイルモデルの構築
 			RteFileModelBuilder fileBuilder = new RteFileModelBuilder(context);
 			fileBuilder.buildRoot();
+			fileBuilder.buildDependentFiles();
 			fileBuilder.buildApiFiles();
 			fileBuilder.buildImplFiles();
 			if (context.options.doesGenerateMemoryMappingHeaderSkelton) {
@@ -117,6 +119,7 @@ public class GeneratePhaseModuleModelBuildDirector implements IModuleModelBuildD
 
 			// モデルにIDを割り振る
 			buildModelIds(context);
+
 		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new M2MException("Internal error occurred while building RTE code structures.", e);
 		}

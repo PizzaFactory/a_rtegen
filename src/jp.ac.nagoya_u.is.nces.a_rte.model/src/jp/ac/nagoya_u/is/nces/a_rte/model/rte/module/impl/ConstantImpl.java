@@ -47,7 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import org.eclipse.emf.common.notify.Notification;
@@ -68,9 +68,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getSymbolName <em>Symbol Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getExternalSymbolName <em>External Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getType <em>Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getValue <em>Value</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getConstantType <em>Constant Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getConstantValueType <em>Constant Value Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getMember <em>Member</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getRepresentedVariableName <em>Represented Variable Name</em>}</li>
  * </ul>
@@ -98,6 +99,26 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * @ordered
 	 */
 	protected String symbolName = SYMBOL_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExternalSymbolName() <em>External Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalSymbolName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXTERNAL_SYMBOL_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExternalSymbolName() <em>External Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExternalSymbolName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String externalSymbolName = EXTERNAL_SYMBOL_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
@@ -130,24 +151,24 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getConstantType() <em>Constant Type</em>}' attribute.
+	 * The default value of the '{@link #getConstantValueType() <em>Constant Value Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConstantType()
+	 * @see #getConstantValueType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ConstantTypeEnum CONSTANT_TYPE_EDEFAULT = ConstantTypeEnum.NUMERICAL_VALUE;
+	protected static final ConstantValueTypeEnum CONSTANT_VALUE_TYPE_EDEFAULT = ConstantValueTypeEnum.NUMERICAL_VALUE;
 
 	/**
-	 * The cached value of the '{@link #getConstantType() <em>Constant Type</em>}' attribute.
+	 * The cached value of the '{@link #getConstantValueType() <em>Constant Value Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConstantType()
+	 * @see #getConstantValueType()
 	 * @generated
 	 * @ordered
 	 */
-	protected ConstantTypeEnum constantType = CONSTANT_TYPE_EDEFAULT;
+	protected ConstantValueTypeEnum constantValueType = CONSTANT_VALUE_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getMember() <em>Member</em>}' containment reference list.
@@ -224,6 +245,27 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExternalSymbolName() {
+		return externalSymbolName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExternalSymbolName(String newExternalSymbolName) {
+		String oldExternalSymbolName = externalSymbolName;
+		externalSymbolName = newExternalSymbolName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CONSTANT__EXTERNAL_SYMBOL_NAME, oldExternalSymbolName, externalSymbolName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Type getType() {
 		if (type != null && ((EObject)type).eIsProxy()) {
 			InternalEObject oldType = (InternalEObject)type;
@@ -283,8 +325,8 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConstantTypeEnum getConstantType() {
-		return constantType;
+	public ConstantValueTypeEnum getConstantValueType() {
+		return constantValueType;
 	}
 
 	/**
@@ -292,11 +334,11 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setConstantType(ConstantTypeEnum newConstantType) {
-		ConstantTypeEnum oldConstantType = constantType;
-		constantType = newConstantType == null ? CONSTANT_TYPE_EDEFAULT : newConstantType;
+	public void setConstantValueType(ConstantValueTypeEnum newConstantValueType) {
+		ConstantValueTypeEnum oldConstantValueType = constantValueType;
+		constantValueType = newConstantValueType == null ? CONSTANT_VALUE_TYPE_EDEFAULT : newConstantValueType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CONSTANT__CONSTANT_TYPE, oldConstantType, constantType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CONSTANT__CONSTANT_VALUE_TYPE, oldConstantValueType, constantValueType));
 	}
 
 	/**
@@ -371,13 +413,15 @@ public class ConstantImpl extends ValueImpl implements Constant {
 		switch (featureID) {
 			case ModulePackage.CONSTANT__SYMBOL_NAME:
 				return getSymbolName();
+			case ModulePackage.CONSTANT__EXTERNAL_SYMBOL_NAME:
+				return getExternalSymbolName();
 			case ModulePackage.CONSTANT__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
 			case ModulePackage.CONSTANT__VALUE:
 				return getValue();
-			case ModulePackage.CONSTANT__CONSTANT_TYPE:
-				return getConstantType();
+			case ModulePackage.CONSTANT__CONSTANT_VALUE_TYPE:
+				return getConstantValueType();
 			case ModulePackage.CONSTANT__MEMBER:
 				return getMember();
 			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
@@ -398,14 +442,17 @@ public class ConstantImpl extends ValueImpl implements Constant {
 			case ModulePackage.CONSTANT__SYMBOL_NAME:
 				setSymbolName((String)newValue);
 				return;
+			case ModulePackage.CONSTANT__EXTERNAL_SYMBOL_NAME:
+				setExternalSymbolName((String)newValue);
+				return;
 			case ModulePackage.CONSTANT__TYPE:
 				setType((Type)newValue);
 				return;
 			case ModulePackage.CONSTANT__VALUE:
 				setValue((String)newValue);
 				return;
-			case ModulePackage.CONSTANT__CONSTANT_TYPE:
-				setConstantType((ConstantTypeEnum)newValue);
+			case ModulePackage.CONSTANT__CONSTANT_VALUE_TYPE:
+				setConstantValueType((ConstantValueTypeEnum)newValue);
 				return;
 			case ModulePackage.CONSTANT__MEMBER:
 				getMember().clear();
@@ -429,14 +476,17 @@ public class ConstantImpl extends ValueImpl implements Constant {
 			case ModulePackage.CONSTANT__SYMBOL_NAME:
 				setSymbolName(SYMBOL_NAME_EDEFAULT);
 				return;
+			case ModulePackage.CONSTANT__EXTERNAL_SYMBOL_NAME:
+				setExternalSymbolName(EXTERNAL_SYMBOL_NAME_EDEFAULT);
+				return;
 			case ModulePackage.CONSTANT__TYPE:
 				setType((Type)null);
 				return;
 			case ModulePackage.CONSTANT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case ModulePackage.CONSTANT__CONSTANT_TYPE:
-				setConstantType(CONSTANT_TYPE_EDEFAULT);
+			case ModulePackage.CONSTANT__CONSTANT_VALUE_TYPE:
+				setConstantValueType(CONSTANT_VALUE_TYPE_EDEFAULT);
 				return;
 			case ModulePackage.CONSTANT__MEMBER:
 				getMember().clear();
@@ -458,12 +508,14 @@ public class ConstantImpl extends ValueImpl implements Constant {
 		switch (featureID) {
 			case ModulePackage.CONSTANT__SYMBOL_NAME:
 				return SYMBOL_NAME_EDEFAULT == null ? symbolName != null : !SYMBOL_NAME_EDEFAULT.equals(symbolName);
+			case ModulePackage.CONSTANT__EXTERNAL_SYMBOL_NAME:
+				return EXTERNAL_SYMBOL_NAME_EDEFAULT == null ? externalSymbolName != null : !EXTERNAL_SYMBOL_NAME_EDEFAULT.equals(externalSymbolName);
 			case ModulePackage.CONSTANT__TYPE:
 				return type != null;
 			case ModulePackage.CONSTANT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case ModulePackage.CONSTANT__CONSTANT_TYPE:
-				return constantType != CONSTANT_TYPE_EDEFAULT;
+			case ModulePackage.CONSTANT__CONSTANT_VALUE_TYPE:
+				return constantValueType != CONSTANT_VALUE_TYPE_EDEFAULT;
 			case ModulePackage.CONSTANT__MEMBER:
 				return member != null && !member.isEmpty();
 			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
@@ -484,10 +536,12 @@ public class ConstantImpl extends ValueImpl implements Constant {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (symbolName: ");
 		result.append(symbolName);
+		result.append(", externalSymbolName: ");
+		result.append(externalSymbolName);
 		result.append(", value: ");
 		result.append(value);
-		result.append(", constantType: ");
-		result.append(constantType);
+		result.append(", constantValueType: ");
+		result.append(constantValueType);
 		result.append(", representedVariableName: ");
 		result.append(representedVariableName);
 		result.append(')');

@@ -42,24 +42,93 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
+
 public class FileNames { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+	// ファイル名の接頭辞・接尾辞
+	public static final String SOURCE_FILE_NAME_POSTFIX = ".c";
+	public static final String HEADER_FILE_NAME_POSTFIX = ".h";
+	private static final String RTE_FILE_NAME_PREFIX = "Rte_";
+	private static final String SCHM_FILE_NAME_PREFIX = "SchM_";
+
+	// ヘッダガードマクロ名の接頭辞・接尾辞
+	private static final String HEADER_GUARD_NAME_POSTFIX = "_H";
+	private static final String RTE_HEADER_GUARD_NAME_PREFIX = "RTE_";
+	private static final String SCHM_HEADER_GUARD_NAME_PREFIX = "SCHM_";
+
 	// ファイル名
-	public static final String C_POSTFIX = ".c";
-	public static final String H_POSTFIX = ".h";
-	public static final String COM_HEADER_NAME = "Com" + H_POSTFIX;
-	public static final String IOC_HEADER_NAME = "Ioc" + H_POSTFIX;
-	public static final String RTE_FILE_NAME_PREFIX = "Rte_";
-	public static final String RTE_SOURCE_NAME = "Rte" + C_POSTFIX;
-	public static final String RTE_HEADER_NAME = "Rte" + H_POSTFIX;
-	public static final String SCHM_FILE_NAME_PREFIX = "SchM_";
-	public static final String BSW_MEMORY_MAPPING_HEADER_NAME = "MemMap.h";
-	public static final String SWC_MEMORY_MAPPING_HEADER_POSTFIX = "_MemMap.h";
-	public static final String RTE_BSW_API_HEADER_NAME = "Rte_Bsw_Api" + H_POSTFIX;
+	public static final String BSW_MEMORY_MAPPING_HEADER_FILE_NAME = "MemMap" + HEADER_FILE_NAME_POSTFIX;
+	public static final String IOC_HEADER_FILE_NAME = "Ioc" + HEADER_FILE_NAME_POSTFIX;
+	public static final String COM_HEADER_FILE_NAME = "Com" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_HEADER_FILE_NAME = "Rte" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_TYPE_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Type" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_LIFECYCLE_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Main" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_CONFIGURATION_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Cfg" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_VFB_TRACE_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Hook" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_CALLBACK_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Cbk" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_BSW_API_HEADER_NAME = RTE_FILE_NAME_PREFIX + "Bsw_Api" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_UTILITY_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Util" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_COMMON_RTE_INTERNAL_HEADER_FILE_NAME = RTE_FILE_NAME_PREFIX + "Common" + HEADER_FILE_NAME_POSTFIX;
+	public static final String RTE_SOURCE_FILE_NAME = "Rte" + SOURCE_FILE_NAME_POSTFIX;
 
 	// ヘッダガードマクロ名
-	public static final String HEADER_GUARD_POSTFIX = "_H";
-	public static final String RTE_HEADER_GUARD_NAME_PREFIX = "RTE_";
-	public static final String RTE_HEADER_GUARD_NAME = "RTE_H";
-	public static final String SCHM_HEADER_GUARD_NAME_PREFIX = "SCHM_";
-	public static final String RTE_BSW_API_HEADER_GUARD_NAME = "RTE_BSW_API_H";
+	public static final String RTE_HEADER_GUARD_NAME = "RTE" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_TYPE_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "TYPE" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_LIFECYCLE_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "MAIN" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_CONFIGURATION_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "CFG" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_VFB_TRACE_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "HOOK" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_CALLBACK_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "CBK" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_BSW_API_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "BSW_API" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_UTILITY_HEEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "UTIL" + HEADER_GUARD_NAME_POSTFIX;
+	public static final String RTE_COMMON_RTE_INTERNAL_HEADER_GUARD_NAME = RTE_HEADER_GUARD_NAME_PREFIX + "COMMON" + HEADER_GUARD_NAME_POSTFIX;
+
+	public static String createRteApplicationTypeHeaderFileName(Swc sourceSwc) {
+		return RTE_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + "_Type" + HEADER_FILE_NAME_POSTFIX;
+	}
+
+	public static String createRteApplicationTypeHeaderGuardName(Swc sourceSwc) {
+		return RTE_HEADER_GUARD_NAME_PREFIX + sourceSwc.getCompartmentName() + "_Type" + HEADER_GUARD_NAME_POSTFIX;
+	}
+
+	public static String createRteApplicationHeaderFileName(Swc sourceSwc) {
+		return RTE_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + HEADER_FILE_NAME_POSTFIX;
+	}
+
+	public static String createRteApplicationHeaderGuardName(Swc sourceSwc) {
+		return RTE_HEADER_GUARD_NAME_PREFIX + sourceSwc.getCompartmentName() + HEADER_GUARD_NAME_POSTFIX;
+	}
+
+	public static String createSchmModuleInterlinkTypeHeaderFileName(Bswm sourceBswm) {
+		return SCHM_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + "_Type" + HEADER_FILE_NAME_POSTFIX;
+	}
+
+	public static String createSchmModuleInterlinkTypeHeaderGuardName(Bswm sourceBswm) {
+		return SCHM_HEADER_GUARD_NAME_PREFIX + sourceBswm.getCompartmentName() + "_Type" + HEADER_GUARD_NAME_POSTFIX;
+	}
+
+	public static String createSchmModuleInterlinkHeaderFileName(Bswm sourceBswm) {
+		return SCHM_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + HEADER_FILE_NAME_POSTFIX;
+	}
+
+	public static String createSchmModuleInterlinkHeaderGuardName(Bswm sourceBswm) {
+		return SCHM_HEADER_GUARD_NAME_PREFIX + sourceBswm.getCompartmentName() + HEADER_GUARD_NAME_POSTFIX;
+	}
+
+	public static String createPartitionRteInternalHeaderFileName(Partition sourcePartition) {
+		return RTE_FILE_NAME_PREFIX + "Partition_" + sourcePartition.getCompartmentName() + HEADER_FILE_NAME_POSTFIX;
+	}
+
+	public static String createPartitionRteInternalHeaderGuardName(Partition sourcePartition) {
+		return RTE_HEADER_GUARD_NAME_PREFIX + "PARTITION_" + sourcePartition.getCompartmentName() + HEADER_GUARD_NAME_POSTFIX;
+	}
+
+	public static String createPartitionRteSourceFileName(Partition sourcePartition) {
+		return RTE_FILE_NAME_PREFIX + "Partition_" + sourcePartition.getCompartmentName() + SOURCE_FILE_NAME_POSTFIX;
+	}
+
+	public static String createSwcMemoryMappingHeaderFileName(Swc sourceSwc) {
+		return sourceSwc.getCompartmentName() + "_MemMap" + HEADER_FILE_NAME_POSTFIX;
+	}
 }

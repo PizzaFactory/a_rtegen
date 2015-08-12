@@ -51,6 +51,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Os Task Events Triggered By Mode</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * SchmSwitchApiと、モードにより起動するOSタスク・OSイベントとの関連を表す。
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
@@ -63,7 +67,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface OsTaskEventsTriggeredByMode extends ModuleReferrable {
+public interface OsTaskEventsTriggeredByMode extends ModuleObject {
 	/**
 	 * Returns the value of the '<em><b>Start Mode</b></em>' reference.
 	 * <!-- begin-user-doc -->

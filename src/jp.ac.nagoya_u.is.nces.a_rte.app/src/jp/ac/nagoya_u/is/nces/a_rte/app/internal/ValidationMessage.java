@@ -42,6 +42,9 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 
+/**
+ *　検証メッセージを表す。
+ */
 public class ValidationMessage {	// COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 	public static String NRTE_SWS_0226_MESSAGE = "[nrte_sws_0226] A BswImplementation must be defined.";
 }

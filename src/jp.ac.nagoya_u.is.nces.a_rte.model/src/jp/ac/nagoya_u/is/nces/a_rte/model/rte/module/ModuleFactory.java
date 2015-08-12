@@ -154,6 +154,15 @@ public interface ModuleFactory extends EFactory {
 	GlobalVariableSet createGlobalVariableSet();
 
 	/**
+	 * Returns a new object of class '<em>Com Proxy Function Table Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Proxy Function Table Variable</em>'.
+	 * @generated
+	 */
+	ComProxyFunctionTableVariable createComProxyFunctionTableVariable();
+
+	/**
 	 * Returns a new object of class '<em>Rte Source</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,13 +370,13 @@ public interface ModuleFactory extends EFactory {
 	ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType();
 
 	/**
-	 * Returns a new object of class '<em>Com Cs Trusted Function Param Type</em>'.
+	 * Returns a new object of class '<em>Cs Trusted Function Param Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Cs Trusted Function Param Type</em>'.
+	 * @return a new object of class '<em>Cs Trusted Function Param Type</em>'.
 	 * @generated
 	 */
-	ComCsTrustedFunctionParamType createComCsTrustedFunctionParamType();
+	CsTrustedFunctionParamType createCsTrustedFunctionParamType();
 
 	/**
 	 * Returns a new object of class '<em>Never Read Operation</em>'.
@@ -415,76 +424,76 @@ public interface ModuleFactory extends EFactory {
 	BswMemoryMapping createBswMemoryMapping();
 
 	/**
-	 * Returns a new object of class '<em>Global Variable Group</em>'.
+	 * Returns a new object of class '<em>Global Variable File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Global Variable Group</em>'.
+	 * @return a new object of class '<em>Global Variable File Contents Group</em>'.
 	 * @generated
 	 */
-	GlobalVariableGroup createGlobalVariableGroup();
+	GlobalVariableFileContentsGroup createGlobalVariableFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Rte Api Group</em>'.
+	 * Returns a new object of class '<em>Rte Api File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Api Group</em>'.
+	 * @return a new object of class '<em>Rte Api File Contents Group</em>'.
 	 * @generated
 	 */
-	RteApiGroup createRteApiGroup();
+	RteApiFileContentsGroup createRteApiFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Rte Lifecycle Api Group</em>'.
+	 * Returns a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Lifecycle Api Group</em>'.
+	 * @return a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
 	 * @generated
 	 */
-	RteLifecycleApiGroup createRteLifecycleApiGroup();
+	RteLifecycleApiFileContentsGroup createRteLifecycleApiFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Task Body Group</em>'.
+	 * Returns a new object of class '<em>Task Body File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task Body Group</em>'.
+	 * @return a new object of class '<em>Task Body File Contents Group</em>'.
 	 * @generated
 	 */
-	TaskBodyGroup createTaskBodyGroup();
+	TaskBodyFileContentsGroup createTaskBodyFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Bsw Schedulable Entity Group</em>'.
+	 * Returns a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bsw Schedulable Entity Group</em>'.
+	 * @return a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
 	 * @generated
 	 */
-	BswSchedulableEntityGroup createBswSchedulableEntityGroup();
+	BswSchedulableEntityFileContentsGroup createBswSchedulableEntityFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Com Callback Group</em>'.
+	 * Returns a new object of class '<em>Com Callback File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Callback Group</em>'.
+	 * @return a new object of class '<em>Com Callback File Contents Group</em>'.
 	 * @generated
 	 */
-	ComCallbackGroup createComCallbackGroup();
+	ComCallbackFileContentsGroup createComCallbackFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Trusted Function Group</em>'.
+	 * Returns a new object of class '<em>Trusted Function File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Trusted Function Group</em>'.
+	 * @return a new object of class '<em>Trusted Function File Contents Group</em>'.
 	 * @generated
 	 */
-	TrustedFunctionGroup createTrustedFunctionGroup();
+	TrustedFunctionFileContentsGroup createTrustedFunctionFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Executable Entity Group</em>'.
+	 * Returns a new object of class '<em>Executable Entity File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Executable Entity Group</em>'.
+	 * @return a new object of class '<em>Executable Entity File Contents Group</em>'.
 	 * @generated
 	 */
-	ExecutableEntityGroup createExecutableEntityGroup();
+	ExecutableEntityFileContentsGroup createExecutableEntityFileContentsGroup();
 
 	/**
 	 * Returns a new object of class '<em>Bsw Memory Mapping Header</em>'.
@@ -523,31 +532,31 @@ public interface ModuleFactory extends EFactory {
 	Macro createMacro();
 
 	/**
-	 * Returns a new object of class '<em>Proxy Api</em>'.
+	 * Returns a new object of class '<em>Com Proxy Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Api</em>'.
+	 * @return a new object of class '<em>Com Proxy Function</em>'.
 	 * @generated
 	 */
-	ProxyApi createProxyApi();
+	ComProxyFunction createComProxyFunction();
 
 	/**
-	 * Returns a new object of class '<em>Send Signal Api</em>'.
+	 * Returns a new object of class '<em>Com Send Signal Api Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Send Signal Api</em>'.
+	 * @return a new object of class '<em>Com Send Signal Api Wrapper</em>'.
 	 * @generated
 	 */
-	SendSignalApi createSendSignalApi();
+	ComSendSignalApiWrapper createComSendSignalApiWrapper();
 
 	/**
-	 * Returns a new object of class '<em>Receive Signal Api</em>'.
+	 * Returns a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Receive Signal Api</em>'.
+	 * @return a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
 	 * @generated
 	 */
-	ReceiveSignalApi createReceiveSignalApi();
+	ComReceiveSignalApiWrapper createComReceiveSignalApiWrapper();
 
 	/**
 	 * Returns a new object of class '<em>Schm Enter Api</em>'.
@@ -622,31 +631,31 @@ public interface ModuleFactory extends EFactory {
 	ModuleInterlinkHeader createModuleInterlinkHeader();
 
 	/**
-	 * Returns a new object of class '<em>Schm Api Group</em>'.
+	 * Returns a new object of class '<em>Schm Api File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Api Group</em>'.
+	 * @return a new object of class '<em>Schm Api File Contents Group</em>'.
 	 * @generated
 	 */
-	SchmApiGroup createSchmApiGroup();
+	SchmApiFileContentsGroup createSchmApiFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Signal Api Group</em>'.
+	 * Returns a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Signal Api Group</em>'.
+	 * @return a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
 	 * @generated
 	 */
-	SignalApiGroup createSignalApiGroup();
+	ComSignalApiWrapperFileContentsGroup createComSignalApiWrapperFileContentsGroup();
 
 	/**
-	 * Returns a new object of class '<em>Proxy Api Group</em>'.
+	 * Returns a new object of class '<em>Com Proxy Function File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Api Group</em>'.
+	 * @return a new object of class '<em>Com Proxy Function File Contents Group</em>'.
 	 * @generated
 	 */
-	ProxyApiGroup createProxyApiGroup();
+	ComProxyFunctionFileContentsGroup createComProxyFunctionFileContentsGroup();
 
 	/**
 	 * Returns a new object of class '<em>Interlink Type Header</em>'.
@@ -658,13 +667,13 @@ public interface ModuleFactory extends EFactory {
 	ModuleInterlinkTypeHeader createModuleInterlinkTypeHeader();
 
 	/**
-	 * Returns a new object of class '<em>Schm Lifecycle Api Group</em>'.
+	 * Returns a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Lifecycle Api Group</em>'.
+	 * @return a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
 	 * @generated
 	 */
-	SchmLifecycleApiGroup createSchmLifecycleApiGroup();
+	SchmLifecycleApiFileContentsGroup createSchmLifecycleApiFileContentsGroup();
 
 	/**
 	 * Returns a new object of class '<em>Parted Bswm</em>'.
@@ -1261,13 +1270,13 @@ public interface ModuleFactory extends EFactory {
 	CallApi createCallApi();
 
 	/**
-	 * Returns a new object of class '<em>Call Trusted Api</em>'.
+	 * Returns a new object of class '<em>Tf Call Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Call Trusted Api</em>'.
+	 * @return a new object of class '<em>Tf Call Api</em>'.
 	 * @generated
 	 */
-	CallTrustedApi createCallTrustedApi();
+	TfCallApi createTfCallApi();
 
 	/**
 	 * Returns a new object of class '<em>Disabled In Mode</em>'.
@@ -1279,13 +1288,22 @@ public interface ModuleFactory extends EFactory {
 	DisabledInMode createDisabledInMode();
 
 	/**
-	 * Returns a new object of class '<em>Executable Entity</em>'.
+	 * Returns a new object of class '<em>Bsw Schedulable Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Executable Entity</em>'.
+	 * @return a new object of class '<em>Bsw Schedulable Entity</em>'.
 	 * @generated
 	 */
-	ExecutableEntity createExecutableEntity();
+	BswSchedulableEntity createBswSchedulableEntity();
+
+	/**
+	 * Returns a new object of class '<em>Runnable Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Runnable Entity</em>'.
+	 * @generated
+	 */
+	RunnableEntity createRunnableEntity();
 
 	/**
 	 * Returns a new object of class '<em>All Interrupt Block Exclude Operation</em>'.
@@ -1486,22 +1504,22 @@ public interface ModuleFactory extends EFactory {
 	ComSendSignalImmediateTaskBody createComSendSignalImmediateTaskBody();
 
 	/**
-	 * Returns a new object of class '<em>Com Send Proxy Operation</em>'.
+	 * Returns a new object of class '<em>Primitive Com Send Proxy Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Send Proxy Operation</em>'.
+	 * @return a new object of class '<em>Primitive Com Send Proxy Operation</em>'.
 	 * @generated
 	 */
-	ComSendProxyOperation createComSendProxyOperation();
+	PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation();
 
 	/**
-	 * Returns a new object of class '<em>Com Send Proxy Complex Operation</em>'.
+	 * Returns a new object of class '<em>Complex Com Send Proxy Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Send Proxy Complex Operation</em>'.
+	 * @return a new object of class '<em>Complex Com Send Proxy Operation</em>'.
 	 * @generated
 	 */
-	ComSendProxyComplexOperation createComSendProxyComplexOperation();
+	ComplexComSendProxyOperation createComplexComSendProxyOperation();
 
 	/**
 	 * Returns a new object of class '<em>Ioc Receive Group Api</em>'.
@@ -1585,22 +1603,31 @@ public interface ModuleFactory extends EFactory {
 	RteBufferWriteTrustedFunction createRteBufferWriteTrustedFunction();
 
 	/**
-	 * Returns a new object of class '<em>Rte Cs Trusted Function</em>'.
+	 * Returns a new object of class '<em>Cs Trusted Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Cs Trusted Function</em>'.
+	 * @return a new object of class '<em>Cs Trusted Function</em>'.
 	 * @generated
 	 */
-	RteCsTrustedFunction createRteCsTrustedFunction();
+	CsTrustedFunction createCsTrustedFunction();
 
 	/**
-	 * Returns a new object of class '<em>Rte Cs Trusted Runnables</em>'.
+	 * Returns a new object of class '<em>Cs Tf Called Runnable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Cs Trusted Runnables</em>'.
+	 * @return a new object of class '<em>Cs Tf Called Runnable</em>'.
 	 * @generated
 	 */
-	RteCsTrustedRunnables createRteCsTrustedRunnables();
+	CsTfCalledRunnable createCsTfCalledRunnable();
+
+	/**
+	 * Returns a new object of class '<em>Server Runnable Start Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Server Runnable Start Operation</em>'.
+	 * @generated
+	 */
+	ServerRunnableStartOperation createServerRunnableStartOperation();
 
 	/**
 	 * Returns a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
@@ -1630,15 +1657,6 @@ public interface ModuleFactory extends EFactory {
 	IocQueuedGroupCommunication createIocQueuedGroupCommunication();
 
 	/**
-	 * Returns a new object of class '<em>Direct Executable Start Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Direct Executable Start Operation</em>'.
-	 * @generated
-	 */
-	DirectExecutableStartOperation createDirectExecutableStartOperation();
-
-	/**
 	 * Returns a new object of class '<em>Singlecore Rte Start Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1657,13 +1675,13 @@ public interface ModuleFactory extends EFactory {
 	RteInternalHeader createRteInternalHeader();
 
 	/**
-	 * Returns a new object of class '<em>Mode Request Variable Set</em>'.
+	 * Returns a new object of class '<em>Mode Declaration Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Request Variable Set</em>'.
+	 * @return a new object of class '<em>Mode Declaration Group</em>'.
 	 * @generated
 	 */
-	ModeRequestVariableSet createModeRequestVariableSet();
+	ModeDeclarationGroup createModeDeclarationGroup();
 
 	/**
 	 * Returns a new object of class '<em>Mode Machine Instance</em>'.
@@ -1675,15 +1693,6 @@ public interface ModuleFactory extends EFactory {
 	ModeMachineInstance createModeMachineInstance();
 
 	/**
-	 * Returns a new object of class '<em>Function Macro Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Function Macro Group</em>'.
-	 * @generated
-	 */
-	FunctionMacroGroup createFunctionMacroGroup();
-
-	/**
 	 * Returns a new object of class '<em>Function Macro</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1693,13 +1702,13 @@ public interface ModuleFactory extends EFactory {
 	FunctionMacro createFunctionMacro();
 
 	/**
-	 * Returns a new object of class '<em>Proxy Function Table Group</em>'.
+	 * Returns a new object of class '<em>Com Proxy Function Table File Contents Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Function Table Group</em>'.
+	 * @return a new object of class '<em>Com Proxy Function Table File Contents Group</em>'.
 	 * @generated
 	 */
-	ProxyFunctionTableGroup createProxyFunctionTableGroup();
+	ComProxyFunctionTableFileContentsGroup createComProxyFunctionTableFileContentsGroup();
 
 	/**
 	 * Returns the package supported by this factory.

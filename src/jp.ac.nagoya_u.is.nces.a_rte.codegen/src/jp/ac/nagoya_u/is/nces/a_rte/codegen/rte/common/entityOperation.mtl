@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: entityOperation.mtl 14066 2015-04-27 07:05:47Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -63,17 +63,13 @@
 	[/let]
 [/template]
 
-[template private genDisabledModeIf(aExecutableStartOperation : ExecutableStartOperation) ]
-	[for (aDisabledMode : DisabledInMode | aExecutableStartOperation.disabledMode) ]
-		[if (aDisabledMode <> aExecutableStartOperation.disabledMode->first())]&& [/if]RTE_MODE_IS_NOT_DISABLED([aDisabledMode.disabledMode.symbolName/], [aDisabledMode.currentModeVariable.symbolName/], [aDisabledMode.nextModeVariable.symbolName/])
+[template private genDisabledInModeIf(aExecutableStartOperation : ExecutableStartOperation) ]
+	[for (aDisabledInMode : DisabledInMode | aExecutableStartOperation.disabledInMode) ]
+		[if (aDisabledInMode <> aExecutableStartOperation.disabledInMode->first())]&& [/if]RTE_MODE_IS_NOT_DISABLED([aDisabledInMode.disabledMode.symbolName/], [aDisabledInMode.modeMachineInstance.currentModeVariable.symbolName/], [aDisabledInMode.modeMachineInstance.nextModeVariable.symbolName/])
 	[/for]
 [/template]
 
 [template private genExecutableStartOperation (aExecutableStartOperation : ExecutableStartOperation) /]
-
-[template private genExecutableStartOperation (aExecutableStartOperation : DirectExecutableStartOperation) ]
-[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
-[/template]
 
 [template private genExecutableStartOperation (aExecutableStartOperation : TimingTriggeringExecutableStartOperation) ]
 [if (aExecutableStartOperation.cyclePeriodConstant.oclIsUndefined() and aExecutableStartOperation.startOffsetConstant.oclIsUndefined())]
@@ -99,11 +95,11 @@
 [/template]
 
 [template private genDoExecutableStartOperationBlock (aExecutableStartOperation : ExecutableStartOperation) ]
-[if (aExecutableStartOperation.disabledMode->isEmpty()) ]
+[if (aExecutableStartOperation.disabledInMode->isEmpty()) ]
 	[aExecutableStartOperation.genDoExecutableStartOperation()/]
 [else]
 	Rte_Call_Bsw_SuspendAllInterrupts();
-	if ([aExecutableStartOperation.genDisabledModeIf() /]){
+	if ([aExecutableStartOperation.genDisabledInModeIf() /]){
 		Rte_Call_Bsw_ResumeAllInterrupts();
 		[aExecutableStartOperation.genDoExecutableStartOperation()/]
 	} else {
@@ -113,11 +109,11 @@
 [/template]
 
 [template public genDoExecutableStartOperation(aExecutableStartOperation : ExecutableStartOperation) ]
-	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.excludeOperation)]
+	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.rieaExcludeOperation)]
 		[aExcludeOperation.genExcludeOperationEnter()/]
 	[/for]
 	[aExecutableStartOperation.startExecutable.symbolName/]();
-	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.excludeOperation->reverse())]
+	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.rieaExcludeOperation->reverse())]
 		[aExcludeOperation.genExcludeOperationExit()/]
 	[/for]
 [/template]

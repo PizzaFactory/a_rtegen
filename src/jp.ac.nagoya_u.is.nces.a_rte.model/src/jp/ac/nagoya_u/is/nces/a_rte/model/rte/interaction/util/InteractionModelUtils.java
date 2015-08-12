@@ -42,8 +42,13 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.util;
 
+/**
+ * RTE連携モデルに関するユーティリティ機能を提供する。
+ */
 public class InteractionModelUtils {
 
+	/**
+	 * RTE連携モデルのID接頭辞
+	 */
 	public static final String ID_PREFIX = "interaction.";
-
 }

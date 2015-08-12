@@ -157,7 +157,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInvalidationEnabled() {
+	public boolean isInvalidationEnabled() {
 		try {
 			return (Boolean)IS_INVALIDATION_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -205,7 +205,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isFilterEnabled() {
+	public boolean isFilterEnabled() {
 		try {
 			return (Boolean)IS_FILTER_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -253,7 +253,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isAliveTimeoutEnabled() {
+	public boolean isAliveTimeoutEnabled() {
 		try {
 			return (Boolean)IS_ALIVE_TIMEOUT_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

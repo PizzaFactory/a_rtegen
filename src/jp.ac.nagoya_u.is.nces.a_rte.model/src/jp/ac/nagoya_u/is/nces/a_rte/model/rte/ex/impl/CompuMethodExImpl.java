@@ -101,7 +101,7 @@ public class CompuMethodExImpl extends ExtendedEObjectImpl implements CompuMetho
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesEnumConstant(CompuMethod this_) {
+	public boolean providesEnumConstant(CompuMethod this_) {
 		try {
 			return (Boolean)PROVIDES_ENUM_CONSTANT_COMPU_METHOD__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

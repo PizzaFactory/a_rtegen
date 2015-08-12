@@ -50,9 +50,9 @@ public class TestFileNames { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	public static final String STUB_FILE_NAME_PREFIX = "Stub";
 	public static final String MOCK_FILE_NAME_PREFIX = "Mock";
 
-	public static final String OS_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Os" + FileNames.H_POSTFIX;
-	public static final String COM_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Com" + FileNames.H_POSTFIX;
-	public static final String IOC_MOCK_HEADER_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + FileNames.H_POSTFIX;
+	public static final String OS_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Os" + FileNames.HEADER_FILE_NAME_POSTFIX;
+	public static final String COM_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Com" + FileNames.HEADER_FILE_NAME_POSTFIX;
+	public static final String IOC_MOCK_HEADER_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + FileNames.HEADER_FILE_NAME_POSTFIX;
 	public static final String IOC_MOCK_SOURCE_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + TestFileNames.CC_POSTFIX;
 
 	public static final String STUB_HEADER_GUARD_NAME_PREFIX = "STUB_";

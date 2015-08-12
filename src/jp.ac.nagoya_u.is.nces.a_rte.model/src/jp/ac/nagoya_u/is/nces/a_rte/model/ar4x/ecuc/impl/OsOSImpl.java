@@ -187,7 +187,7 @@ public class OsOSImpl extends EcucContainerImpl implements OsOS {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isMulticoreOs() {
+	public boolean isMulticoreOs() {
 		try {
 			return (Boolean)IS_MULTICORE_OS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

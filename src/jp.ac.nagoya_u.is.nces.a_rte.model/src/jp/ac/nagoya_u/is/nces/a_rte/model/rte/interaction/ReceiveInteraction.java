@@ -179,19 +179,19 @@ public interface ReceiveInteraction extends Interaction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.sendInteraction->exists(isInterCore())'"
 	 * @generated
 	 */
-	Boolean receivesInterCore();
+	boolean receivesInterCore();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.sendInteraction.sender.getOwnerCore()->asSet()->size() > 1'"
 	 * @generated
 	 */
-	Boolean receivesFromMultipleCores();
+	boolean receivesFromMultipleCores();
 
 } // ReceiveInteraction

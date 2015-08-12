@@ -315,6 +315,11 @@ endpackage
 
 package ar4x::instance
 
+	context VariableDataInstanceInSwc
+
+	def:
+	valueSpecificationEx : rte::ex::ValueSpecificationEx = rte::ex::ValueSpecificationEx.allInstances()->any(true)
+
 	/*
 	 * PVariableDataInstanceInSwc
 	 */
@@ -343,6 +348,15 @@ package ar4x::instance
 		true
 	endif
 
+	inv nrte_sws_0350:
+	not self.isInvalidationEnabled()
+	or
+	self.isEventSemantics()
+	or
+	self.getInvalidationPolicy().handleInvalid <> m2::HandleInvalidEnum::replace
+	or
+	valueSpecificationEx.getValueSpecAsText(self.getInvalidValue()) <> valueSpecificationEx.getValueSpecAsText(self.getInitValue())
+
 	/*
 	 * RVariableDataInstanceInSwc
 	 */
@@ -361,6 +375,20 @@ package ar4x::instance
 
 	inv nrte_sws_0145:
 	self.getInvalidationPolicy().oclIsUndefined() or not self.isEventSemantics()
+
+	inv nrte_sws_0349:
+	not self.isEventSemantics()
+	or
+	(not self.getQueueLength().oclIsUndefined() and self.getQueueLength() > 0)
+
+	inv nrte_sws_0350:
+	not self.isInvalidationEnabled()
+	or
+	self.isEventSemantics()
+	or
+	self.getInvalidationPolicy().handleInvalid <> m2::HandleInvalidEnum::replace
+	or
+	valueSpecificationEx.getValueSpecAsText(self.getInvalidValue()) <> valueSpecificationEx.getValueSpecAsText(self.getInitValue())
 
 	/*
 	 * POperationInstanceInSwc

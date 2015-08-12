@@ -277,7 +277,7 @@ public abstract class VariableDataInstanceInSwcImpl extends VariableDataInstance
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isEventSemantics() {
+	public boolean isEventSemantics() {
 		try {
 			return (Boolean)IS_EVENT_SEMANTICS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

@@ -101,7 +101,7 @@ public interface ModeDeclarationGroup extends ArElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Mode Declaration</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeDeclarationGroup_ModeDeclaration()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<ModeDeclaration> getModeDeclaration();

@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -61,10 +60,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwPointerTargetProps()
  * @model
- * @extends ExtendedEObject
  * @generated
  */
-public interface SwPointerTargetProps extends ExtendedEObject {
+public interface SwPointerTargetProps extends M2Object {
 	/**
 	 * Returns the value of the '<em><b>Target Category</b></em>' attribute.
 	 * <!-- begin-user-doc -->

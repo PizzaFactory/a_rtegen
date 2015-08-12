@@ -42,6 +42,10 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucInstanceReferenceValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucParameterValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucReferenceValue;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.NameStringUtils;
@@ -52,10 +56,21 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.google.common.base.Optional;
 
+/**
+ * ECUCモデルに関するユーティリティ機能を提供する。
+ */
 public class EcucModelUtils {
 
+	/**
+	 * ECUCモデルのID接頭辞
+	 */
 	public static final String ID_PREFIX = "ecuc.";
+
+	/**
+	 * ECUCモデルからEcucDefへのリファレンスの接頭辞
+	 */
 	public static final String DEFAULT_ECUC_DEFINITION_REFERENCE_PREFIX = "/AUTOSAR/EcucDefs/";
+
 	private static final String REFERENCE_ROLE_SUFFIX = "Ref";
 	private static final String INSTANCE_REFERENCE_ROLE_SUFFIX = "InstanceRef";
 	private static final String NON_ECUC_STEREOTYPE = "nonEcuc";
@@ -63,40 +78,76 @@ public class EcucModelUtils {
 	// ECUCに関するタグ
 	private static final String DEFINITION_SHORT_NAME_TAG = "ecuc.definitionShortName";
 
-	public static String getRefRoleNameOfRoleFeature(EReference eReference) {
-		return eReference.getName() + M2ModelUtils.REFERENCE_ROLE_SUFFIX;
-	}
-
+	/**
+	 * DefinitionRefからショートネーム部を抽出する。
+	 * @param definitionRef DefinitionRefの文字列
+	 * @return DefinitionRefのショートネーム部
+	 */
 	public static String getShortNameOfDefinitionRef(String definitionRef) {
 		String[] shortNames = definitionRef.split(M2ModelUtils.REFERENCE_SEPARATOR);
 		return shortNames[shortNames.length - 1];
 	}
 
+	/**
+	 * {@link EAttribute}に対応するDefinitionRefのショートネーム部を取得する。
+	 * @param eAttribute 取得元の{@link EAttribute}
+	 * @return DefinitionRefのショートネーム部
+	 */
 	public static String getParameterDefinitionShortNameOfRoleFeature(EAttribute eAttribute) {
 		return NameStringUtils.camelCaseToPascalCase(eAttribute.getName());
 	}
 
+	/**
+	 * {@link EReference}に対応するDefinitionRefのショートネーム部を取得する。
+	 * @param eReference 取得元の{@link EReference}
+	 * @return DefinitionRefのショートネーム部
+	 */
 	public static String getReferenceDefinitionShortNameOfRoleFeature(EReference eReference) {
 		Optional<String> definitionShortName = getDefinitionShortName(eReference);
 		return definitionShortName.or(NameStringUtils.camelCaseToPascalCase(eReference.getName() + REFERENCE_ROLE_SUFFIX));
 	}
 
+	/**
+	 * {@link EcucContainer}のDefinitionRefに対応するロール名を取得する。
+	 * @param definitionRef {@link EcucContainer}のDefinitionRef
+	 * @return {@link EcucContainer}のDefinitionRefに対応するロール名
+	 */
 	public static String getRoleNameOfContainerDef(String definitionRef) {
 		return NameStringUtils.pascalCaseToCamelCase(getShortNameOfDefinitionRef(definitionRef));
 	}
 
+	/**
+	 * {@link EcucParameterValue}のDefinitionRefに対応するロール名を取得する。
+	 * @param definitionRef {@link EcucParameterValue}のDefinitionRef
+	 * @return {@link EcucParameterValue}のDefinitionRefに対応するロール名
+	 */
 	public static String getRoleNameOfParameterDef(String definitionRef) {
 		return NameStringUtils.pascalCaseToCamelCase(getShortNameOfDefinitionRef(definitionRef));
 	}
 
+	/**
+	 * {@link EcucReferenceValue}のDefinitionRefに対応するロール名を取得する。
+	 * @param definitionRef {@link EcucReferenceValue}のDefinitionRef
+	 * @return {@link EcucReferenceValue}のDefinitionRefに対応するロール名
+	 */
 	public static String getRoleNameOfReferenceDef(String definitionRef) {
 		return NameStringUtils.pascalCaseToCamelCase(getShortNameOfDefinitionRef(definitionRef)).replace(REFERENCE_ROLE_SUFFIX, "");
 	}
 
+	/**
+	 * {@link EcucInstanceReferenceValue}のDefinitionRefに対応するロール名を取得する。
+	 * @param definitionRef {@link EcucInstanceReferenceValue}のDefinitionRef
+	 * @return {@link EcucInstanceReferenceValue}のDefinitionRefに対応するロール名
+	 */
 	public static String getRoleNameOfInstanceReferenceDef(String definitionRef) {
 		return NameStringUtils.pascalCaseToCamelCase(getShortNameOfDefinitionRef(definitionRef)).replace(INSTANCE_REFERENCE_ROLE_SUFFIX, "");
 	}
 
+	/**
+	 * AUTOSARのEcucParamDefで定義されていない属性／リファレンスかどうかを判定する。
+	 * @param eStructuralFeature 判定対象の{@link EStructuralFeature}
+	 * @return AUTOSARのEcucParamDefで定義されていない属性／リファレンスの場合、true。それ以外の場合、false。
+	 */
 	public static boolean isNonEcucFeature(EStructuralFeature eStructuralFeature) {
 		return EmfUtils.hasStereotype(eStructuralFeature, NON_ECUC_STEREOTYPE);
 	}

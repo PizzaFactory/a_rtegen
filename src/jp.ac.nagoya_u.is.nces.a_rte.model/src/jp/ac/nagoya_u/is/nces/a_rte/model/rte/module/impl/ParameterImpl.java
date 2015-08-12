@@ -46,6 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -59,8 +60,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getPassType <em>Pass Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getHasConst <em>Has Const</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getIsIn <em>Is In</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +89,26 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	protected ParameterPassTypeEnum passType = PASS_TYPE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ParameterDirectionEnum DIRECTION_EDEFAULT = ParameterDirectionEnum.IN;
+
+	/**
+	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDirection()
+	 * @generated
+	 * @ordered
+	 */
+	protected ParameterDirectionEnum direction = DIRECTION_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #getHasConst() <em>Has Const</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,26 +127,6 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	 * @ordered
 	 */
 	protected Boolean hasConst = HAS_CONST_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getIsIn() <em>Is In</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Boolean IS_IN_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getIsIn() <em>Is In</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsIn()
-	 * @generated
-	 * @ordered
-	 */
-	protected Boolean isIn = IS_IN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,6 +173,27 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ParameterDirectionEnum getDirection() {
+		return direction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDirection(ParameterDirectionEnum newDirection) {
+		ParameterDirectionEnum oldDirection = direction;
+		direction = newDirection == null ? DIRECTION_EDEFAULT : newDirection;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARAMETER__DIRECTION, oldDirection, direction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Boolean getHasConst() {
 		return hasConst;
 	}
@@ -193,36 +215,15 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsIn() {
-		return isIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsIn(Boolean newIsIn) {
-		Boolean oldIsIn = isIn;
-		isIn = newIsIn;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARAMETER__IS_IN, oldIsIn, isIn));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				return getPassType();
+			case ModulePackage.PARAMETER__DIRECTION:
+				return getDirection();
 			case ModulePackage.PARAMETER__HAS_CONST:
 				return getHasConst();
-			case ModulePackage.PARAMETER__IS_IN:
-				return getIsIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -238,11 +239,11 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				setPassType((ParameterPassTypeEnum)newValue);
 				return;
+			case ModulePackage.PARAMETER__DIRECTION:
+				setDirection((ParameterDirectionEnum)newValue);
+				return;
 			case ModulePackage.PARAMETER__HAS_CONST:
 				setHasConst((Boolean)newValue);
-				return;
-			case ModulePackage.PARAMETER__IS_IN:
-				setIsIn((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -259,11 +260,11 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				setPassType(PASS_TYPE_EDEFAULT);
 				return;
+			case ModulePackage.PARAMETER__DIRECTION:
+				setDirection(DIRECTION_EDEFAULT);
+				return;
 			case ModulePackage.PARAMETER__HAS_CONST:
 				setHasConst(HAS_CONST_EDEFAULT);
-				return;
-			case ModulePackage.PARAMETER__IS_IN:
-				setIsIn(IS_IN_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -279,10 +280,10 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		switch (featureID) {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				return passType != PASS_TYPE_EDEFAULT;
+			case ModulePackage.PARAMETER__DIRECTION:
+				return direction != DIRECTION_EDEFAULT;
 			case ModulePackage.PARAMETER__HAS_CONST:
 				return HAS_CONST_EDEFAULT == null ? hasConst != null : !HAS_CONST_EDEFAULT.equals(hasConst);
-			case ModulePackage.PARAMETER__IS_IN:
-				return IS_IN_EDEFAULT == null ? isIn != null : !IS_IN_EDEFAULT.equals(isIn);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -299,10 +300,10 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (passType: ");
 		result.append(passType);
+		result.append(", direction: ");
+		result.append(direction);
 		result.append(", hasConst: ");
 		result.append(hasConst);
-		result.append(", isIn: ");
-		result.append(isIn);
 		result.append(')');
 		return result.toString();
 	}

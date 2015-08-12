@@ -128,6 +128,7 @@ public interface RteBswModuleInstance extends EcucContainer {
 	/**
 	 * Returns the value of the '<em><b>Rte Bsw Required Mode Group Connection</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Bsw Required Mode Group Connection</em>' containment reference isn't clear,
@@ -136,7 +137,8 @@ public interface RteBswModuleInstance extends EcucContainer {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Rte Bsw Required Mode Group Connection</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswModuleInstance_RteBswRequiredModeGroupConnection()
-	 * @model containment="true" ordered="false"
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent
+	 * @model opposite="parent" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<RteBswRequiredModeGroupConnection> getRteBswRequiredModeGroupConnection();

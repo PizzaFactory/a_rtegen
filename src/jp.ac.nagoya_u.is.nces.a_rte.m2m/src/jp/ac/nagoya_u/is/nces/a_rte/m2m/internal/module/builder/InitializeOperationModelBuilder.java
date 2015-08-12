@@ -42,7 +42,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_START__VARIABLEDATAINSTANCEINCOMPOSITION;
@@ -51,7 +50,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIA
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.CYCLE_COUNTER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.FILTER_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___RECEIVES_FROM_MULTIPLE_CORES;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___RECEIVES_INTER_CORE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RTE_VALUE_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.START_OFFSET_COUNTER_IMPLEMENTATION;
@@ -64,27 +62,20 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_QUEUED_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.STRUCT_TYPE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.refExists;
 
-import java.util.Collection;
 import java.util.List;
 
-import javax.lang.model.type.ArrayType;
-
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.Types;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.SwComponentInstanceInSystem;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction;
@@ -98,24 +89,21 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInt
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 
-@SuppressWarnings("unused")
+import com.google.common.base.Optional;
+
 public class InitializeOperationModelBuilder {
 
 	private ModuleModelBuildContext context;
@@ -127,156 +115,119 @@ public class InitializeOperationModelBuilder {
 	}
 
 	public VariableInitializeOperation createRteVariableInitializeOperationAtStart(Core sourceCore) throws ModelException {
-		VariableInitializeOperation variableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
+		VariableInitializeOperation destVariableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
 		for (Partition partition : sourceCore.getPartition()) {
-			EcucPartition sourcePartition = (EcucPartition) partition.getSingleSource();
+			EcucPartition sourceEcucPartition = (EcucPartition) partition.getSingleSource();
 
-			buildRteBufferInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_START__VARIABLEDATAINSTANCEINCOMPOSITION);
-			buildFilterBufferInitVariables(variableInitializeOperation, sourcePartition);
-			buildRunnableEntityInitVariables(variableInitializeOperation, sourcePartition);
-			buildIrvInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE);
+			buildSrBufferInitVariables(destVariableInitializeOperation, sourceEcucPartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_START__VARIABLEDATAINSTANCEINCOMPOSITION);
+			buildSrFilterInitVariables(destVariableInitializeOperation, sourceEcucPartition);
+			buildEntityStartInitVariables(destVariableInitializeOperation, sourceEcucPartition);
+			buildIrvInitVariables(destVariableInitializeOperation, Optional.fromNullable(sourceEcucPartition), VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE);
 		}
-		return variableInitializeOperation;
-	}
-
-	public VariableInitializeOperation createSchmVariableInitializeOperationAtStart(Core sourceCore) throws ModelException {
-		VariableInitializeOperation variableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
-		for (Partition partition : sourceCore.getPartition()) {
-			EcucPartition sourcePartition = (EcucPartition) partition.getSingleSource();
-			buildBswSchedulableEntityInitVariables(variableInitializeOperation, sourcePartition);
-		}
-		return variableInitializeOperation;
+		return destVariableInitializeOperation;
 	}
 
 	public VariableInitializeOperation createRteVariableInitializeOperationAtPartitionRestart(EcucPartition sourcePartition) throws ModelException {
-		VariableInitializeOperation variableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
-		buildRteBufferInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION);
-		buildRunnableEntityInitVariables(variableInitializeOperation, sourcePartition);
-		buildIrvInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE);
-		buildExcludeOperation(variableInitializeOperation);
-		return variableInitializeOperation;
+		VariableInitializeOperation destVariableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
+		buildSrBufferInitVariables(destVariableInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION);
+		buildIrvInitVariables(destVariableInitializeOperation, Optional.of(sourcePartition), VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE);
+		buildEntityStartInitVariables(destVariableInitializeOperation, sourcePartition);
+		buildExcludeOperation(destVariableInitializeOperation);
+		return destVariableInitializeOperation;
 	}
 
-	private void buildRteBufferInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition, EOperation initPredicateOperation) throws ModelException {
-		for (RteValueBufferImplementation valueBufferImplementation : this.context.query.<RteValueBufferImplementation> find(isKindOf(RTE_VALUE_BUFFER_IMPLEMENTATION).AND(
+	private void buildSrBufferInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition, EOperation initPredicateOperation) throws ModelException {
+		for (RteValueBufferImplementation sourceValueBufferImplementation : this.context.query.<RteValueBufferImplementation> find(isKindOf(RTE_VALUE_BUFFER_IMPLEMENTATION).AND(
 				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
 
-			InternalEcuReceiver receiver = valueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
-			VariableDataInstanceInComposition dataInstanceInComposition = receiver.getSource();
+			InternalEcuReceiver sourceReceiver = sourceValueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
+			VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceReceiver.getSource();
+			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInComposition.getPrototype();
 
-			if (this.context.query.get(dataInstanceInComposition, initPredicateOperation)) {
-				GlobalVariable rteBufferVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, valueBufferImplementation);
-				targetInitializeOperation.getInitVariable().add(rteBufferVariable);
+			if (this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
+				if (sourceDataInstanceInSwc.isEventSemantics()) {
+					// イベントセマンティクスの場合
+					RteBufferQueuedVariable srRteBufferQueue = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, sourceValueBufferImplementation);
+					targetInitializeOperation.getInitVariable().add(srRteBufferQueue);
+
+				} else {
+					// データセマンティクスの場合
+					RteBufferVariableSet srRteBufferVariableSet = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceValueBufferImplementation);
+					targetInitializeOperation.getInitVariable().add(srRteBufferVariableSet);
+				}
 			}
 		}
 	}
 
-	private void buildFilterBufferInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
-		for (FilterBufferImplementation filterBufferImplementation : this.context.query.<FilterBufferImplementation> find(isKindOf(FILTER_BUFFER_IMPLEMENTATION).AND(
+	private void buildSrFilterInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
+		for (FilterBufferImplementation sourceFilterBufferImplementation : this.context.query.<FilterBufferImplementation> find(isKindOf(FILTER_BUFFER_IMPLEMENTATION).AND(
 				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
 
-			GlobalVariable rteBufferVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, filterBufferImplementation);
-			targetInitializeOperation.getInitVariable().add(rteBufferVariable);
+			GlobalVariable filterVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceFilterBufferImplementation);
+			targetInitializeOperation.getInitVariable().add(filterVariable);
 		}
 	}
 
-	private void buildRunnableEntityInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
-		for (StartOffsetCounterImplementation counterImplementation : this.context.query.<StartOffsetCounterImplementation> find(isKindOf(START_OFFSET_COUNTER_IMPLEMENTATION).AND(
+	private void buildEntityStartInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
+		for (StartOffsetCounterImplementation sourceCounterImplementation : this.context.query.<StartOffsetCounterImplementation> find(isKindOf(START_OFFSET_COUNTER_IMPLEMENTATION).AND(
 				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
-			if (counterImplementation.getParent().getStartInteraction().get(0) instanceof RunnableEntityStartInteraction) {
-				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, counterImplementation);
-				targetInitializeOperation.getInitVariable().add(initVariable);
+			if (sourceCounterImplementation.getParent().getStartInteraction().get(0) instanceof RunnableEntityStartInteraction) {
+				GlobalVariable counterVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceCounterImplementation);
+				targetInitializeOperation.getInitVariable().add(counterVariable);
 			}
 		}
 
-		for (CycleCounterImplementation counterImplementation : this.context.query.<CycleCounterImplementation> find(isKindOf(CYCLE_COUNTER_IMPLEMENTATION).AND(
+		for (CycleCounterImplementation sourceCounterImplementation : this.context.query.<CycleCounterImplementation> find(isKindOf(CYCLE_COUNTER_IMPLEMENTATION).AND(
 				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
-			if (counterImplementation.getParent().getStartInteraction().get(0) instanceof RunnableEntityStartInteraction) {
-				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, counterImplementation);
-				targetInitializeOperation.getInitVariable().add(initVariable);
+			if (sourceCounterImplementation.getParent().getStartInteraction().get(0) instanceof RunnableEntityStartInteraction) {
+				GlobalVariable counterVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceCounterImplementation);
+				targetInitializeOperation.getInitVariable().add(counterVariable);
 			}
 		}
 	}
-	
-	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition, EOperation initPredicateOperation) throws ModelException {
-		if (sourcePartition == null) {
+
+	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, Optional<EcucPartition> sourcePartition, EOperation initPredicateOperation) throws ModelException {
+		if (!sourcePartition.isPresent()) {
 			// noPartitionの場合は、queryでSwComponentInstanceInSystemを取得する
-			for (SwComponentInstanceInSystem swInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
-				setInitVariable(targetInitializeOperation, initPredicateOperation, swInstanceInSystem.getPrototype().getType());
+			for (SwComponentInstanceInSystem sourceSwComponentInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
+				buildIrvInitVariables(targetInitializeOperation, initPredicateOperation, sourceSwComponentInstanceInSystem.getPrototype().getType());
 			}
 		} else {
-			for (SwComponentInstanceInSystem swInstanceInSystem : sourcePartition.getEcucPartitionSoftwareComponent()) {
-				setInitVariable(targetInitializeOperation, initPredicateOperation, swInstanceInSystem.getPrototype().getType());
+			for (SwComponentInstanceInSystem sourceSwComponentInstanceInSystem : sourcePartition.get().getEcucPartitionSoftwareComponent()) {
+				buildIrvInitVariables(targetInitializeOperation, initPredicateOperation, sourceSwComponentInstanceInSystem.getPrototype().getType());
 			}
 		}
 	}
 
-	private void setInitVariable(VariableInitializeOperation targetInitializeOperation, EOperation initPredicateOperation, SwComponentType swComponentType)
+	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, EOperation initPredicateOperation, SwComponentType swComponentType)
 			throws ModelException {
 		if (!(swComponentType instanceof AtomicSwComponentType)) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			return;
 		}
-		if (((AtomicSwComponentType) swComponentType).getInternalBehavior() == null) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			return;
-		}
-		for (VariableDataPrototype dataPrototype : ((AtomicSwComponentType) swComponentType).getInternalBehavior().getExplicitInterRunnableVariable()) {
-			GlobalVariable initVariable = getInitVariableForIrv(dataPrototype, initPredicateOperation);
-			if (initVariable != null) {
-				targetInitializeOperation.getInitVariable().add(initVariable);
-			}
-		}
-	}
 
-	private GlobalVariable getInitVariableForIrv(VariableDataPrototype dataPrototype, EOperation initPredicateOperation) throws ModelException {
-		if (this.context.query.get(dataPrototype, initPredicateOperation)) {
-			return this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, dataPrototype);
-		}
-		return null;
-	}
-
-	private void buildBswSchedulableEntityInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
-		for (StartOffsetCounterImplementation counterImplementation : this.context.query.<StartOffsetCounterImplementation> find(isKindOf(START_OFFSET_COUNTER_IMPLEMENTATION).AND(
-				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
-			if (counterImplementation.getParent().getStartInteraction().get(0) instanceof BswSchedulableEntityStartInteraction) {
-				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, counterImplementation);
-				targetInitializeOperation.getInitVariable().add(initVariable);
-			}
-		}
-
-		for (CycleCounterImplementation counterImplementation : this.context.query.<CycleCounterImplementation> find(isKindOf(CYCLE_COUNTER_IMPLEMENTATION).AND(
-				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
-			if (counterImplementation.getParent().getStartInteraction().get(0) instanceof BswSchedulableEntityStartInteraction) {
-				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, counterImplementation);
-				targetInitializeOperation.getInitVariable().add(initVariable);
+		for (VariableDataPrototype sourceDataPrototype : ((AtomicSwComponentType) swComponentType).getInternalBehavior().getExplicitInterRunnableVariable()) {
+			if (this.context.query.get(sourceDataPrototype, initPredicateOperation)) {
+				RteBufferVariableSet irvBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceDataPrototype);
+				targetInitializeOperation.getInitVariable().add(irvBuffer);
 			}
 		}
 	}
 
 	private void buildExcludeOperation(VariableInitializeOperation targetInitializeOperation) {
+		// NOTE RteBufferVariableSetはS/Rの内部通信バッファ以外に、IOC初期値定数、IRVバッファ、COM受信バッファ、COMプロキシバッファにも使用されているため、以下のクエリで一緒に取得されることに注意。
 		List<RteBufferVariableSet> rteBufferVariableSets = this.context.query.selectByKind(targetInitializeOperation.getInitVariable(), RTE_BUFFER_VARIABLE_SET);
 		boolean isRteBufferWithStatusExists = this.context.query.exists(rteBufferVariableSets, refExists(RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE));
-		boolean isQueueExists = this.context.query.exists(targetInitializeOperation.getInitVariable(), isKindOf(RTE_BUFFER_QUEUED_VARIABLE));
-		boolean isComplexTypeExists = false;
-		boolean isFloat64 = false;
+		boolean isSrQueueExists = this.context.query.exists(targetInitializeOperation.getInitVariable(), isKindOf(RTE_BUFFER_QUEUED_VARIABLE));
 
-		for (RteBufferVariableSet variableSet : rteBufferVariableSets) {
-			Type type = variableSet.getValueVariable().getType();
-			if (! (type instanceof PrimitiveType || type instanceof PointerType)) {
-				isComplexTypeExists = true;
-				break;
-			}
-			if (type instanceof PrimitiveType) {
-				SwBaseType baseType = ((ImplementationDataType)type.getSingleSource()).getBaseType();
-				if (baseType != null
-						&& Identifiers.BASE_TYPE_ENCODING_IEEE754.equals(baseType.getBaseTypeEncoding())
-						&& type.getSize() == 64) {
-					isFloat64 = true;
-					break;
-				}
+		boolean isNonAtomicTypeExists = false;
+		for (RteBufferVariableSet rteBufferVariableSet : rteBufferVariableSets) {
+			Type type = rteBufferVariableSet.getValueVariable().getType();
+			if (!Types.isAtomicType(type)) {
+				isNonAtomicTypeExists = true;
 			}
 		}
 
-		if (isQueueExists || isRteBufferWithStatusExists || isComplexTypeExists || isFloat64) {
+		if (isSrQueueExists || isRteBufferWithStatusExists || isNonAtomicTypeExists) {
 			boolean accessedInterCore = anyVariableAccessedInterCore(targetInitializeOperation);
 			targetInitializeOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(accessedInterCore));
 		}
@@ -284,32 +235,62 @@ public class InitializeOperationModelBuilder {
 
 	private boolean anyVariableAccessedInterCore(VariableInitializeOperation targetInitializeOperation) {
 		List<EObject> sources = this.context.query.collect(targetInitializeOperation.getInitVariable(), MODULE_OBJECT__SOURCE);
-		List<RteValueBufferImplementation> sourceBufferImplementations = this.context.query.selectByKind(sources, RTE_VALUE_BUFFER_IMPLEMENTATION);
-		List<ReceiveInteraction> receiveInteractions = this.context.query.collect(sourceBufferImplementations, VALUE_BUFFER_IMPLEMENTATION__PARENT);
-		return this.context.query.exists(receiveInteractions, hasOp(RECEIVE_INTERACTION___RECEIVES_INTER_CORE, true));
+
+		// NOTE 現状、S/Rのみがコア間通信を行うため、S/Rの連携モデルからコア間通信の有無を判定
+		List<RteValueBufferImplementation> sourceValueBufferImplementations = this.context.query.selectByKind(sources, RTE_VALUE_BUFFER_IMPLEMENTATION);
+		List<ReceiveInteraction> sourceReceiveInteractions = this.context.query.collect(sourceValueBufferImplementations, VALUE_BUFFER_IMPLEMENTATION__PARENT);
+		return this.context.query.exists(sourceReceiveInteractions, hasOp(RECEIVE_INTERACTION___RECEIVES_INTER_CORE, true));
 	}
 
 	public IocInitializeOperation createIocInitializeOperationAtPartitionRestart(EcucPartition sourcePartition) throws ModelException {
-		IocInitializeOperation iocInitializeOperation = ModuleFactory.eINSTANCE.createIocInitializeOperation();
-		buildInitIocApis(iocInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION);
-		return iocInitializeOperation;
+		IocInitializeOperation destIocInitializeOperation = ModuleFactory.eINSTANCE.createIocInitializeOperation();
+		buildInitIocApis(destIocInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION);
+		return destIocInitializeOperation;
 	}
 
 	private void buildInitIocApis(IocInitializeOperation targetInitializeOperation, EcucPartition sourcePartition, EOperation initPredicateOperation) throws ModelException {
-		for (IocValueBufferImplementation valueBufferImplementation : this.context.query.<IocValueBufferImplementation> find(isKindOf(IOC_VALUE_BUFFER_IMPLEMENTATION).AND(
+		for (IocValueBufferImplementation sourceValueBufferImplementation : this.context.query.<IocValueBufferImplementation> find(isKindOf(IOC_VALUE_BUFFER_IMPLEMENTATION).AND(
 				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
 
-			InternalEcuReceiver receiver = valueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
-			VariableDataInstanceInComposition dataInstanceInComposition = receiver.getSource();
+			InternalEcuReceiver sourceReceiver = sourceValueBufferImplementation.getParent().getInternalEcuReceivers().get(0);
+			VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceReceiver.getSource();
+			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInComposition.getPrototype();
 
-			if (this.context.query.get(dataInstanceInComposition, initPredicateOperation)) {
-				if (dataInstanceInComposition.getPrototype().isEventSemantics()) {
-					IocEmptyQueueApi iocEmptyQueueApi = this.context.builtQuery.findDest(IOC_EMPTY_QUEUE_API, valueBufferImplementation.getOsIocCommunication());
+			if (this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
+				if (sourceDataInstanceInSwc.isEventSemantics()) {
+					IocEmptyQueueApi iocEmptyQueueApi = this.context.builtQuery.findDest(IOC_EMPTY_QUEUE_API, sourceValueBufferImplementation.getOsIocCommunication());
 					targetInitializeOperation.getInitIocApi().add(iocEmptyQueueApi);
 				} else {
-					IocWriteApi iocWriteApi = this.context.builtQuery.findDest(IOC_WRITE_API, valueBufferImplementation.getOsIocCommunication().getLoopbackSenderProperties());
-					targetInitializeOperation.getInitIocApi().add(iocWriteApi);
+					IocWriteApi loopbackIocWriteApi = this.context.builtQuery.findDest(IOC_WRITE_API, sourceValueBufferImplementation.getOsIocCommunication().getLoopbackSenderProperties());
+					targetInitializeOperation.getInitIocApi().add(loopbackIocWriteApi);
 				}
+			}
+		}
+	}
+
+	public VariableInitializeOperation createSchmVariableInitializeOperationAtStart(Core sourceCore) throws ModelException {
+		VariableInitializeOperation destVariableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
+		for (Partition partition : sourceCore.getPartition()) {
+			EcucPartition sourceEcucPartition = (EcucPartition) partition.getSingleSource();
+			buildSchmEntityStartInitVariables(destVariableInitializeOperation, sourceEcucPartition);
+		}
+		return destVariableInitializeOperation;
+	}
+
+	private void buildSchmEntityStartInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
+		for (StartOffsetCounterImplementation sourceCounterImplementation : this.context.query.<StartOffsetCounterImplementation> find(isKindOf(START_OFFSET_COUNTER_IMPLEMENTATION).AND(
+				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
+			if (sourceCounterImplementation.getParent().getStartInteraction().get(0) instanceof BswSchedulableEntityStartInteraction) {
+				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceCounterImplementation);
+				targetInitializeOperation.getInitVariable().add(initVariable);
+			}
+		}
+
+		for (CycleCounterImplementation sourceCounterImplementation : this.context.query.<CycleCounterImplementation> find(isKindOf(CYCLE_COUNTER_IMPLEMENTATION).AND(
+				ref(VARIABLE_IMPLEMENTATION__OWNER_PARTITION, sourcePartition)))) {
+			if (sourceCounterImplementation.getParent().getStartInteraction().get(0) instanceof BswSchedulableEntityStartInteraction) {
+				GlobalVariable initVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceCounterImplementation);
+				targetInitializeOperation.getInitVariable().add(initVariable);
 			}
 		}
 	}

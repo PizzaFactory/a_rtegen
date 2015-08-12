@@ -145,7 +145,7 @@ public class GeneratedEcucModelExtractor {
 				destOs.getOsApplication().add(destOsApplication);
 			}
 			/*
-			 * TODO：#91, #93対応
+			 * NOTE：#91, #93対応
 			 * 本来はAUTOSAR標準仕様に従ってツールチェーンの仕様定義およびRTEジェネレータの出力仕様を定義するべきだが，
 			 * 2014/3末リリースに向けて暫定的に以下の対応とする．
 			 *　・OsTrustedは出力しない(#91)

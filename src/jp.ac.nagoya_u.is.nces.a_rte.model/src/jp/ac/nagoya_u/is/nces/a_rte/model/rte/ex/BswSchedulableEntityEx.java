@@ -101,8 +101,8 @@ public interface BswSchedulableEntityEx extends ExtendedEObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * BSWスケジューラブルにアクセスしているパーティションを取得する。
-	 * NOTE validation向けにBswImplementationのチェックを入れているが、本来このオペレーションに含めるべきかは要検討。
+	 * <p>BSWスケジューラブルにアクセスしているパーティションを取得する。</p>
+	 * <p>NOTE validation向けにBswImplementationのチェックを入れているが、本来このオペレーションに含めるべきかは要検討。</p>
 	 * <!-- end-model-doc -->
 	 * @model ordered="false" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if ar4x::m2::BswImplementation.allInstances()->exists(behavior = this_.parent) then\n\t\t\t\t\t\t\tgetCallRootBswSchedulableEntities(this_)->collect(m | getMappedTasks(m)).ownerApplication.osAppEcucPartition->asSet()\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\tendif'"

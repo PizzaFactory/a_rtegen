@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,10 +61,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecRecordElementMapping()
  * @model
- * @extends ExtendedEObject
  * @generated
  */
-public interface SenderRecRecordElementMapping extends ExtendedEObject {
+public interface SenderRecRecordElementMapping extends M2Object {
 	/**
 	 * Returns the value of the '<em><b>Implementation Record Element</b></em>' reference.
 	 * <!-- begin-user-doc -->

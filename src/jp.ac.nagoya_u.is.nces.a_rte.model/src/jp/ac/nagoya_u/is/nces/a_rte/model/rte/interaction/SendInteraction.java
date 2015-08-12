@@ -160,19 +160,19 @@ public interface SendInteraction extends Interaction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let senderCores : Set(m2::Integer) = self.sender.getOwnerCore()->asOrderedSet(),\n\t\t\t\t\t\treceiverCores : Set(m2::Integer) = self.receiveInteraction.receiver.getOwnerCore()->asOrderedSet()\n\t\t\t\tin senderCores->symmetricDifference(receiverCores)->notEmpty()'"
 	 * @generated
 	 */
-	Boolean isInterCore();
+	boolean isInterCore();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let senderPartitions : Set(ecuc::EcucPartition) = self.sender.ownerPartition->asOrderedSet(),\n\t\t\t\t\t\treceiverPartitions : Set(ecuc::EcucPartition) = self.receiveInteraction.receiver.ownerPartition->asOrderedSet()\n\t\t\t\tin senderPartitions->symmetricDifference(receiverPartitions)->notEmpty()'"
 	 * @generated
 	 */
-	Boolean isInterPartition();
+	boolean isInterPartition();
 
 } // SendInteraction

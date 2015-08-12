@@ -45,8 +45,16 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.M2MException;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder.ModuleModelBuildContext;
 
+/**
+ * モジュールモデル構築のシーケンスを実行する。
+ */
 public interface IModuleModelBuildDirector {
 
+	/**
+	 * モジュールモデルを構築する。
+	 * 
+	 * @param context モジュールモデル構築の実行コンテキスト
+	 * @throws M2MException モジュールモデルの変換中にエラーが発生した場合
+	 */
 	void build(ModuleModelBuildContext context) throws M2MException;
-
 }

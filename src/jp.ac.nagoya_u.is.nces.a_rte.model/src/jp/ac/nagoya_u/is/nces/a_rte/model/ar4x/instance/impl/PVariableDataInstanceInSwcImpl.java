@@ -112,24 +112,6 @@ public class PVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PPortPrototype basicGetContextPPort() {
-		return (PPortPrototype)CONTEXT_PPORT__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContextPPort(PPortPrototype newContextPPort) {
-		CONTEXT_PPORT__ESETTING_DELEGATE.dynamicSet(this, null, 0, newContextPPort);
-	}
-
-	/**
 	 * The cached invocation delegate for the '{@link #isInvalidationEnabled() <em>Is Invalidation Enabled</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,7 +126,7 @@ public class PVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInvalidationEnabled() {
+	public boolean isInvalidationEnabled() {
 		try {
 			return (Boolean)IS_INVALIDATION_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -234,40 +216,9 @@ public class PVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PPORT:
-				if (resolve) return getContextPPort();
-				return basicGetContextPPort();
+				return getContextPPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PPORT:
-				setContextPPort((PPortPrototype)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PPORT:
-				setContextPPort((PPortPrototype)null);
-				return;
-		}
-		super.eUnset(featureID);
 	}
 
 	/**

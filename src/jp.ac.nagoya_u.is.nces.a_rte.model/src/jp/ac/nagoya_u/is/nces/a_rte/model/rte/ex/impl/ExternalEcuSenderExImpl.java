@@ -155,7 +155,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresRteFilter(ExternalEcuSender this_) {
+	public boolean requiresRteFilter(ExternalEcuSender this_) {
 		try {
 			return (Boolean)REQUIRES_RTE_FILTER_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -179,7 +179,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresRteInvalidation(ExternalEcuSender this_) {
+	public boolean requiresRteInvalidation(ExternalEcuSender this_) {
 		try {
 			return (Boolean)REQUIRES_RTE_INVALIDATION_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -203,7 +203,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresRteInitialization(ExternalEcuSender this_) {
+	public boolean requiresRteInitialization(ExternalEcuSender this_) {
 		try {
 			return (Boolean)REQUIRES_RTE_INITIALIZATION_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -227,7 +227,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesComReceiveCallback(ExternalEcuSender this_) {
+	public boolean providesComReceiveCallback(ExternalEcuSender this_) {
 		try {
 			return (Boolean)PROVIDES_COM_RECEIVE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -251,7 +251,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesComInvalidateCallback(ExternalEcuSender this_) {
+	public boolean providesComInvalidateCallback(ExternalEcuSender this_) {
 		try {
 			return (Boolean)PROVIDES_COM_INVALIDATE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -275,7 +275,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_) {
+	public boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_) {
 		try {
 			return (Boolean)PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -298,7 +298,7 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesComCallback(ExternalEcuSender this_) {
+	public boolean providesComCallback(ExternalEcuSender this_) {
 		try {
 			return (Boolean)PROVIDES_COM_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

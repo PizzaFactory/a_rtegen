@@ -48,7 +48,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-#  $Id: PowerWindowController2.yaml 429 2015-03-24 03:56:41Z mtakada $
+#  $Id: PowerWindowController2.yaml 527 2015-07-10 05:57:18Z mtakada $
 #
 
 Ecuc:
@@ -394,7 +394,7 @@ Ecuc:
 
     WdgSettingsConfig_0:
       DefinitionRef: WdgSettingsConfig
-      WdgDefaultMode: WDG_SLOW_MODE
+      WdgDefaultMode: WDGIF_FAST_MODE
       WdgSettingsFast:
         WdgTriggerMode: WDG_TOGGLE
         WdgTimeout: 5.0

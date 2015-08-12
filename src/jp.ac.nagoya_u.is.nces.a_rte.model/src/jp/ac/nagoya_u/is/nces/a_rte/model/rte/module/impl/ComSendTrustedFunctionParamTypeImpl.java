@@ -64,7 +64,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ComSendTrustedFunctionParamTypeImpl extends BlackboxTypeImpl implements ComSendTrustedFunctionParamType {
+public class ComSendTrustedFunctionParamTypeImpl extends TypeImpl implements ComSendTrustedFunctionParamType {
 	/**
 	 * The default value of the '{@link #getIsGroup() <em>Is Group</em>}' attribute.
 	 * <!-- begin-user-doc -->

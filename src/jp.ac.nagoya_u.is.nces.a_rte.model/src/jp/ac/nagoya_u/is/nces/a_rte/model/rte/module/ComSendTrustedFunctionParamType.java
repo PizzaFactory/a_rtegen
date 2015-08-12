@@ -61,7 +61,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface ComSendTrustedFunctionParamType extends BlackboxType {
+public interface ComSendTrustedFunctionParamType extends Type {
 
 	/**
 	 * Returns the value of the '<em><b>Is Group</b></em>' attribute.

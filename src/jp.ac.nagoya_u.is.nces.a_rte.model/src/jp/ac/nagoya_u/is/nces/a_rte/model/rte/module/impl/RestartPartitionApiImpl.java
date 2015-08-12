@@ -45,19 +45,13 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -68,8 +62,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl#getEReference0 <em>EReference0</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl#getEReference1 <em>EReference1</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
@@ -77,24 +69,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements RestartPartitionApi {
-	/**
-	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEReference0()
-	 * @generated
-	 * @ordered
-	 */
-	protected GlobalVariable eReference0;
-	/**
-	 * The cached value of the '{@link #getEReference1() <em>EReference1</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEReference1()
-	 * @generated
-	 * @ordered
-	 */
-	protected IocApi eReference1;
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -122,82 +96,6 @@ public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements Rest
 	@Override
 	protected EClass eStaticClass() {
 		return ModulePackage.Literals.RESTART_PARTITION_API;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariable getEReference0() {
-		if (eReference0 != null && ((EObject)eReference0).eIsProxy()) {
-			InternalEObject oldEReference0 = (InternalEObject)eReference0;
-			eReference0 = (GlobalVariable)eResolveProxy(oldEReference0);
-			if (eReference0 != oldEReference0) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.RESTART_PARTITION_API__EREFERENCE0, oldEReference0, eReference0));
-			}
-		}
-		return eReference0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariable basicGetEReference0() {
-		return eReference0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEReference0(GlobalVariable newEReference0) {
-		GlobalVariable oldEReference0 = eReference0;
-		eReference0 = newEReference0;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RESTART_PARTITION_API__EREFERENCE0, oldEReference0, eReference0));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IocApi getEReference1() {
-		if (eReference1 != null && ((EObject)eReference1).eIsProxy()) {
-			InternalEObject oldEReference1 = (InternalEObject)eReference1;
-			eReference1 = (IocApi)eResolveProxy(oldEReference1);
-			if (eReference1 != oldEReference1) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.RESTART_PARTITION_API__EREFERENCE1, oldEReference1, eReference1));
-			}
-		}
-		return eReference1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IocApi basicGetEReference1() {
-		return eReference1;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEReference1(IocApi newEReference1) {
-		IocApi oldEReference1 = eReference1;
-		eReference1 = newEReference1;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RESTART_PARTITION_API__EREFERENCE1, oldEReference1, eReference1));
 	}
 
 	/**
@@ -234,12 +132,6 @@ public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements Rest
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE0:
-				if (resolve) return getEReference0();
-				return basicGetEReference0();
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE1:
-				if (resolve) return getEReference1();
-				return basicGetEReference1();
 			case ModulePackage.RESTART_PARTITION_API__OPERATION:
 				return getOperation();
 		}
@@ -255,12 +147,6 @@ public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements Rest
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE0:
-				setEReference0((GlobalVariable)newValue);
-				return;
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE1:
-				setEReference1((IocApi)newValue);
-				return;
 			case ModulePackage.RESTART_PARTITION_API__OPERATION:
 				getOperation().clear();
 				getOperation().addAll((Collection<? extends InitializeOperation>)newValue);
@@ -277,12 +163,6 @@ public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements Rest
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE0:
-				setEReference0((GlobalVariable)null);
-				return;
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE1:
-				setEReference1((IocApi)null);
-				return;
 			case ModulePackage.RESTART_PARTITION_API__OPERATION:
 				getOperation().clear();
 				return;
@@ -298,10 +178,6 @@ public class RestartPartitionApiImpl extends RteLifecycleApiImpl implements Rest
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE0:
-				return eReference0 != null;
-			case ModulePackage.RESTART_PARTITION_API__EREFERENCE1:
-				return eReference1 != null;
 			case ModulePackage.RESTART_PARTITION_API__OPERATION:
 				return operation != null && !operation.isEmpty();
 		}

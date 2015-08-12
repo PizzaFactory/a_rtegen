@@ -121,7 +121,7 @@ public class SchmCoreInitApiImplImpl extends SchmInitApiImpl implements SchmCore
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newParent != null)
-				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModulePackage.CORE__SCHM_INIT_API, Core.class, msgs);
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL, Core.class, msgs);
 			msgs = basicSetParent(newParent, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -168,7 +168,7 @@ public class SchmCoreInitApiImplImpl extends SchmInitApiImpl implements SchmCore
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
-				return eInternalContainer().eInverseRemove(this, ModulePackage.CORE__SCHM_INIT_API, Core.class, msgs);
+				return eInternalContainer().eInverseRemove(this, ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL, Core.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -192,7 +192,6 @@ public class SchmCoreInitApiImplImpl extends SchmInitApiImpl implements SchmCore
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

@@ -124,10 +124,10 @@ public interface InvalidationPolicy extends M2Object {
 	 * <!-- begin-model-doc -->
 	 * 無効化が有効かどうか
 	 * <!-- end-model-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not handleInvalid.oclIsUndefined() and (handleInvalid = m2::HandleInvalidEnum::keep or handleInvalid =\n\t\t\t\t\tm2::HandleInvalidEnum::replace)'"
 	 * @generated
 	 */
-	Boolean isInvalidationEnabled();
+	boolean isInvalidationEnabled();
 
 } // InvalidationPolicy

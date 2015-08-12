@@ -42,6 +42,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util;
 
+import com.google.common.base.Optional;
+
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
@@ -51,6 +53,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
@@ -60,17 +64,13 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 
 /**
- * 識別子を提供します．
+ * AUTOSARコンフィグレーションの識別子を提供．
+ * NOTE C言語のシンボル名とは異なることに注意。
  */
 public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
 	// RTEで予約されている識別子のための接頭辞
 	public static final String RTE_ID_PREFIX = "Rte_";
-
-	// ベース型のエンコーディング名
-	public static final String BASE_TYPE_ENCODING_NONE = "NONE";
-	public static final String BASE_TYPE_ENCODING_BOOLEAN = "BOOLEAN";
-	public static final String BASE_TYPE_ENCODING_IEEE754 = "IEEE754";
 
 	// ソフトウェアアドレッシング方式の種別／初期化ポリシー／アラインメントの定数名
 	public static final String SECTION_TYPE_VAR = "VAR";
@@ -78,7 +78,7 @@ public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていな
 	public static final String SECTION_INITIALIZATION_POLICY_INIT = "INIT";
 	public static final String ALIGNMENT_TYPE_UNSPECIFIED = "UNSPECIFIED";
 
-	// 規定のAUTOSARリファレンス
+	// RTE実装用の組込AUTOSARリファレンス
 	private static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE = M2ModelUtils.ID_PREFIX + "/Rte_InternalDataTypes/";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT8 = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "uint8";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT16 = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "uint16";
@@ -96,47 +96,39 @@ public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていな
 	public static final String COM_PROXY_DATA_DATA_NAME = "comData";
 	public static final String COM_PROXY_FUNCTION_INDEX_NAME = "funcIndex";
 
-	public static final String COM_SEND_SIGNAL_TRUSTED_FUNCTION_NAME = "Rte_ComSendSignalTf";
-	public static final String COM_SEND_SIGNAL_GROUP_TRUSTED_FUNCTION_NAME = "Rte_ComSendSignalGroupTf";
-	
-	public static final String COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME = "Rte_ComSendSignalProxyImmediateTask";
-	public static final String COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME = "Rte_ComSendSignalProxyImmediateEvent";
+	public static final String COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME = RTE_ID_PREFIX + "ComSendSignalProxyImmediateTask";
+	public static final String COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME = RTE_ID_PREFIX + "ComSendSignalProxyImmediateEvent";
 
-	public static final String RTE_INTERNAL_SPINLOCK_NAME = "Rte_InternalSpinlock";
+	public static final String RTE_INTERNAL_SPINLOCK_NAME = RTE_ID_PREFIX + "InternalSpinlock";
 
-
-	public static String createOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc) {
+	public static String createSrInterPartitionOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_ID_PREFIX + "Sr" + getImplExtension(dataInstanceInSwc);
 	}
 
-	public static String createOsIocCommunicationPeriodicDataName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable ecuc) {
-		return RTE_ID_PREFIX + "ComProxyPeriodic" + getImplExtension(dataInstanceInSwc) + "_" + ecuc.getShortName();
-	}
-
-	public static String createOsIocCommunicationImmediateDataName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable ecuc) {
-		return RTE_ID_PREFIX + "ComProxyImmediate" + getImplExtension(dataInstanceInSwc) + "_" + ecuc.getShortName();
-	}
-
-	public static String createOsIocCommunicationPeriodicName(ComSendProxyInteraction proxyInteraction) {
+	public static String createPeriodicComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
 		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
 	}
 
-	public static String createOsIocCommunicationImmediateName(ComSendProxyInteraction proxyInteraction) {
+	public static String createImmediateComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
 		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
 	}
 	
-	public static String createOsIocCommunicationPeriodicComplexName(ComSendProxyInteraction proxyInteraction) {
+	public static String createPeriodicComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
 		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
 	}
 
-	public static String createOsIocCommunicationImmediateComplexName(ComSendProxyInteraction proxyInteraction) {
+	public static String createImmediateComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
 		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
 	}
 
-	public static String createProxyFunctionTableName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable signal) {
-		return "RTE_SR_WRITE_PROXY_FUNCTION_TABLE_INDEX" + getImplExtension(dataInstanceInSwc) + "_" + signal.getShortName();
+	public static String createPeriodicComProxyValueOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable comSignalOrComSignalGroup) {
+		return RTE_ID_PREFIX + "ComProxyPeriodic" + getImplExtension(dataInstanceInSwc) + "_" + comSignalOrComSignalGroup.getShortName();
 	}
-	
+
+	public static String createImmediateComProxyValueOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable comSignalOrComSignalGroup) {
+		return RTE_ID_PREFIX + "ComProxyImmediate" + getImplExtension(dataInstanceInSwc) + "_" + comSignalOrComSignalGroup.getShortName();
+	}
+
 	public static String createOsIocSenderPropertiesName(VariableDataInstanceInComposition dataInstanceInComposition) {
 		return DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME_PREFIX + getImplExtension(dataInstanceInComposition.getPrototype());
 	}
@@ -153,60 +145,75 @@ public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていな
 		return DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME_PREFIX + "_" + comSignalGroup.getShortName();
 	}
 
-	public static String createRteBufferWriteTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
+	public static String createSrRteBufferWriteTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return RTE_ID_PREFIX + "SrWriteTf" + getImplExtension(pDataInstanceInComposition.getPrototype()) + getImplExtension(rDataInstanceInComposition.getPrototype());
 	}
 
-	public static String createRteBufferSendTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
+	public static String createSrRteBufferSendTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return RTE_ID_PREFIX + "SrSendTf" + getImplExtension(pDataInstanceInComposition.getPrototype()) + getImplExtension(rDataInstanceInComposition.getPrototype());
 	}
 	
-	public static String createRteBufferInvalidateTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
+	public static String createSrRteBufferInvalidateTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return RTE_ID_PREFIX + "SrInvalidateTf" + getImplExtension(pDataInstanceInComposition.getPrototype()) + getImplExtension(rDataInstanceInComposition.getPrototype());
 	}
 
-	public static String getImplExtension(VariableDataInstanceInSwc dataInstanceInSwc) {
-		return "_" + dataInstanceInSwc.getContextPort().getParent().getShortName() + Identifiers.getExtension(dataInstanceInSwc);
+	public static String createComSendSignalTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
+		return RTE_ID_PREFIX + "ComSendSignalTf" + "_" + sourceMasterBswPartition.getShortName();
 	}
 
-	public static String getExtension(VariableDataInstanceInSwc dataInstanceInSwc) {
+	public static String createComSendSignalGroupTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
+		return RTE_ID_PREFIX + "ComSendSignalGroupTf" + "_" + sourceMasterBswPartition.getShortName();
+	}
+
+	public static String createCsCallTfName(AtomicSwComponentType sourceSwComponentType) {
+		return RTE_ID_PREFIX + "CsCallTf_" + sourceSwComponentType.getShortName();
+	}
+
+	public static String getApiExtension(VariableDataInstanceInSwc dataInstanceInSwc) {
 		return "_" + dataInstanceInSwc.getContextPort().getShortName() + "_" + dataInstanceInSwc.getPrototype().getShortName();
 	}
 
-	public static String getImplExtension(OperationInstanceInSwc operationInstanceInSwc) {
-		return "_" + operationInstanceInSwc.getContextPort().getParent().getShortName() + Identifiers.getExtension(operationInstanceInSwc);
+	public static String getImplExtension(VariableDataInstanceInSwc dataInstanceInSwc) {
+		return "_" + dataInstanceInSwc.getContextPort().getParent().getShortName() + Identifiers.getApiExtension(dataInstanceInSwc);
 	}
 
-	public static String getExtension(OperationInstanceInSwc operationInstanceInSwc) {
+	public static String getApiExtension(OperationInstanceInSwc operationInstanceInSwc) {
 		return "_" + operationInstanceInSwc.getContextPort().getShortName() + "_" + operationInstanceInSwc.getPrototype().getShortName();
 	}
 
-	public static String getImplExtension(ExclusiveArea exclusiveArea) {
-		return "_" + exclusiveArea.getParent().getParent().getShortName() + getExtension(exclusiveArea);
+	public static String getImplExtension(OperationInstanceInSwc operationInstanceInSwc) {
+		return "_" + operationInstanceInSwc.getContextPort().getParent().getShortName() + Identifiers.getApiExtension(operationInstanceInSwc);
 	}
 
-	public static String getExtension(ExclusiveArea exclusiveArea) {
+	public static String getApiExtension(ExclusiveArea exclusiveArea) {
 		return "_" + exclusiveArea.getShortName();
 	}
 
-	public static String getImplExtension(OsTask osTask, OsEvent osEvent) {
+	public static String getImplExtension(ExclusiveArea exclusiveArea) {
+		return "_" + exclusiveArea.getParent().getParent().getShortName() + getApiExtension(exclusiveArea);
+	}
+
+	public static String getImplExtension(OsTask osTask, Optional<OsEvent> osEvent) {
 		return "_" + osTask.getShortName() + getOsEventPostfix(osEvent);
 	}
 
-	public static String getImplExtension(OsTask osTask, OsEvent osEvent, ExecutableEntity executableEntity) {
+	public static String getImplExtension(OsTask osTask, Optional<OsEvent> osEvent, ExecutableEntity executableEntity) {
 		String implExtension = "";
 		if (executableEntity instanceof RunnableEntity) {
 			// NOTE シンボル名の重複を避けるため，ランナブルのショートネームではなく，シンボル名を使用する．
 			implExtension = getImplExtension(osTask, osEvent) + "_" + ((RunnableEntity) executableEntity).getSymbol();
 		} else if (executableEntity instanceof BswSchedulableEntity) { // COVERAGE 常にtrue(RunnableEntity, BswSchedulableEntityのみ対象)
 			// NOTE ModuleEntryのショートネームを使用する．
-			implExtension = getImplExtension(osTask, osEvent) + "_" + ((BswSchedulableEntity) executableEntity).getImplementedEntry().getShortName();
+			BswSchedulableEntity bswSchedulableEntity = (BswSchedulableEntity) executableEntity;
+			implExtension = getImplExtension(osTask, osEvent)
+							+ "_" + bswSchedulableEntity.getParent().getParent().getShortName()
+							+ "_" + bswSchedulableEntity.getImplementedEntry().getShortName();
 		}
 		return implExtension;
 	}
 
-	private static String getOsEventPostfix(OsEvent osEvent) {
-		return osEvent == null ? "" : "_" + osEvent.getShortName();
+	private static String getOsEventPostfix(Optional<OsEvent> osEvent) {
+		return !osEvent.isPresent() ? "" : "_" + osEvent.get().getShortName();
 	}
 
 	public static String getExtension(EcucPartition sourcePartition) {
@@ -215,5 +222,11 @@ public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていな
 
 	public static String getImplExtension(PortPrototype port) {
 		return "_" + port.getParent().getShortName() + "_" + port.getShortName();
+	}
+
+	public static String getBswSchedulerNamePrefix(BswModuleDescription sourceBswModuleDescription) {
+		// 現実装は単純にBswModuleDescriptionのショートネームを<bsnp>とする.
+		// BswSchedulerNamePrefixクラスを使用した<bsnp>生成に対応する場合は、本関数を修正すること.
+		return sourceBswModuleDescription.getShortName();
 	}
 }

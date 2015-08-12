@@ -42,21 +42,32 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
+/**
+ * 連携モデル構築の実行コンテキストを表す。
+ */
 public class InteractionModelBuildContext {
-	public final Resource eResource;
-	public final ModelQuery query;
-	public final InteractionModelBuildCache cache;
-	public final RteModuleModelBuilderOptions options;
 
-	public InteractionModelBuildContext(Resource eResource, RteModuleModelBuilderOptions  options) {
+	/** モデル変換元・モデル変換先のモデルを格納する{@link Resource} */
+	public final Resource eResource;
+
+	/** モジュールモデル構築の指定オプション */
+	public final RteInteractionModelBuilderOptions options;
+
+	/** モデル変換元・モデル変換先のモデル検索に使用するユーティリティ */
+	public final ModelQuery query;
+
+	/** モデル変換元・モデル変換先のモデルを一時的に格納するキャッシュ */
+	public final InteractionModelBuildCache cache;
+
+	public InteractionModelBuildContext(Resource eResource, RteInteractionModelBuilderOptions  options) {
 		this.eResource = eResource;
+		this.options = options;
 		this.query = new ModelQuery(eResource);
 		this.cache = new InteractionModelBuildCache();
-		this.options = options;
 	}
 }

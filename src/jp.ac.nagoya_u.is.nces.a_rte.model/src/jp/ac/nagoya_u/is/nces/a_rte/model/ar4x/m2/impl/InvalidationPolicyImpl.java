@@ -198,7 +198,7 @@ public class InvalidationPolicyImpl extends M2ObjectImpl implements Invalidation
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInvalidationEnabled() {
+	public boolean isInvalidationEnabled() {
 		try {
 			return (Boolean)IS_INVALIDATION_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

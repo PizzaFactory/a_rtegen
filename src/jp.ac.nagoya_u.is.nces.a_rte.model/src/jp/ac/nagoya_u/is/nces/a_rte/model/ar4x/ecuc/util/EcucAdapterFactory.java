@@ -256,14 +256,6 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 				return createRteBswEventToTaskMappingAdapter();
 			}
 			@Override
-			public Adapter caseRteBswProvidedModeGroupRef(RteBswProvidedModeGroupRef object) {
-				return createRteBswProvidedModeGroupRefAdapter();
-			}
-			@Override
-			public Adapter caseRteBswRequiredModeGroupRef(RteBswRequiredModeGroupRef object) {
-				return createRteBswRequiredModeGroupRefAdapter();
-			}
-			@Override
 			public Adapter caseRteBswRequiredModeGroupConnection(RteBswRequiredModeGroupConnection object) {
 				return createRteBswRequiredModeGroupConnectionAdapter();
 			}
@@ -810,34 +802,6 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRteBswEventToTaskMappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef <em>Rte Bsw Provided Mode Group Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef
-	 * @generated
-	 */
-	public Adapter createRteBswProvidedModeGroupRefAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef <em>Rte Bsw Required Mode Group Ref</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef
-	 * @generated
-	 */
-	public Adapter createRteBswRequiredModeGroupRefAdapter() {
 		return null;
 	}
 

@@ -104,7 +104,7 @@ public class NonqueuedSenderComSpecExImpl extends ExtendedEObjectImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean hasValidInitValue(NonqueuedSenderComSpec this_) {
+	public boolean hasValidInitValue(NonqueuedSenderComSpec this_) {
 		try {
 			return (Boolean)HAS_VALID_INIT_VALUE_NONQUEUED_SENDER_COM_SPEC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

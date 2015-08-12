@@ -49,15 +49,28 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.Ar4xPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.RtePackage;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 
 import com.google.common.collect.Maps;
 
+/**
+ *　モデルをシリアライズする。
+ */
 public class ModelSerializer {
 
+	/**
+	 * {@link ModelSerializer}を構築する。
+	 */
 	public ModelSerializer() {
 	}
 
+	/**
+	 * モデルをシリアライズする。
+	 * @param eResource シリアライズ対象のモデルを含む{@link Resource}
+	 * @param file シリアライズ先のファイル
+	 * @throws ModelException シリアライズ中にエラーが発生した場合
+	 */
 	public void serialize(XMIResource eResource, String file) throws ModelException {
 		URI oldRtePackageResourceURI = RtePackage.eINSTANCE.eResource().getURI();
 		RtePackage.eINSTANCE.eResource().setURI(URI.createPlatformResourceURI("/jp.ac.nagoya_u.is.nces.a_rte.model/model/rte.ecore", true));

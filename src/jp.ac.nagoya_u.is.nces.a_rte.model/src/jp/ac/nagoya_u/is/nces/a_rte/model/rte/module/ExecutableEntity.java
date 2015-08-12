@@ -55,13 +55,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam <em>Role Param</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock <em>Is No Mock</em>}</li>
  * </ul>
  * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableEntity()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ExecutableEntity extends Function {
@@ -80,34 +79,6 @@ public interface ExecutableEntity extends Function {
 	 * @generated
 	 */
 	EList<Parameter> getRoleParam();
-
-	/**
-	 * Returns the value of the '<em><b>Parent Parted Bswm</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentExecutableEntity <em>Dependent Executable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parent Parted Bswm</em>' container reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Parted Bswm</em>' container reference.
-	 * @see #setParentPartedBswm(PartedBswm)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableEntity_ParentPartedBswm()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentExecutableEntity
-	 * @model opposite="dependentExecutableEntity" transient="false"
-	 * @generated
-	 */
-	PartedBswm getParentPartedBswm();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Parted Bswm</em>' container reference.
-	 * @see #getParentPartedBswm()
-	 * @generated
-	 */
-	void setParentPartedBswm(PartedBswm value);
 
 	/**
 	 * Returns the value of the '<em><b>Is No Mock</b></em>' attribute.

@@ -50,8 +50,8 @@
 [template public genRteBswApiHeader(aRteHeader : RteBswApiHeader)]
 [file (aRteHeader.fileName, false, 'ASCII')]
 	[aRteHeader.genFileHeader()/]
-	[aRteHeader.genRteCallApiDefinitions()/]
-	[aRteHeader.genRteApiDefinitions()/]
+	[aRteHeader.genBuiltinBswApiAliasDefinitions()/]
+	[aRteHeader.genIocApiAliasDefinitions()/]
 	[aRteHeader.genFileFooter()/]
 [/file]
 [/template]
@@ -66,7 +66,7 @@
 [aRteHeader.genGuardDeclarationEnd()/]
 [/template]
 
-[template private genRteCallApiDefinitions(aRteHeader : RteBswApiHeader)]
+[template private genBuiltinBswApiAliasDefinitions(aRteHeader : RteBswApiHeader)]
 /*
  * RTE API Definitions
  */
@@ -100,12 +100,12 @@
 #define Rte_Call_Bsw_OSMEMORY_IS_WRITEABLE OSMEMORY_IS_WRITEABLE
 [/template]
 
-[template private genRteApiDefinitions (aHeader : RteBswApiHeader) ]
+[template private genIocApiAliasDefinitions (aHeader : RteBswApiHeader) ]
 [for (aApi : IocApi | aHeader.iocApi)]
-	[aApi.genRteApiMapping()/]
+	[aApi.genIocApiAlias()/]
 [/for]
 [/template]
 
-[template private genRteApiMapping(aApi : IocApi)]
+[template private genIocApiAlias(aApi : IocApi)]
 #define [aApi.symbolName/] [aApi.mappingName/]
 [/template]

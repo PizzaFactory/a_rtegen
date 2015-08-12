@@ -241,7 +241,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 			case REFERENCE:
 			case TYPE_REFERENCE:
 				return currentXmlContext.createReferenceContext(localName, m2feature, wrapType);
-			default:
+			default: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない) 
 				break;
 			}
 		}
@@ -252,14 +252,14 @@ public class M2ModelLoadHandler extends DefaultHandler {
 	private XmlContext startElementInWrapper(String localName) {
 		XmlContext currentXmlContext = getCurrentXmlContext();
 		switch (currentXmlContext.wrapType) {
-		case ROLE_WRAPPER_AND_ROLE: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない) 
+		case ROLE_WRAPPER_AND_ROLE:
 			if (localName.equals(getCurrentXmlRoleName())) {
 				if (currentXmlContext.contextM2Feature.getEType() instanceof EClass) {
 					EClass eClass = (EClass) currentXmlContext.contextM2Feature.getEType();
 					ExtendedEObject newElement = createM2Element(eClass);
 					setValueToCurrentContextM2Element(getCurrentXmlContext().contextM2Feature, newElement);
 					return currentXmlContext.createEClassRoleContextInWrapper(localName, newElement);
-				} else if (currentXmlContext.contextM2Feature.getEType() instanceof EDataType) {
+				} else if (currentXmlContext.contextM2Feature.getEType() instanceof EDataType) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない) 
 					return currentXmlContext.createEDataTypeRoleContextInWrapper(localName);
 				}
 			}
@@ -278,7 +278,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 				return currentXmlContext.createReferenceContextInWrapper(localName);
 			}
 			break;
-		default:
+		default: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない) 
 			break;
 		}
 		return currentXmlContext.createUnknownContext(localName); // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)

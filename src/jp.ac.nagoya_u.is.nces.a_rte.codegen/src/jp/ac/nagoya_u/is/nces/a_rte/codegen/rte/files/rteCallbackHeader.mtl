@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: rteCallbackHeader.mtl 14054 2015-04-25 02:25:32Z t-inoue $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -78,7 +78,7 @@
 /*
  * COM Callback Declarations
  */
-[for (aGroup : ComCallbackGroup | aRteCallbackHeader.comCallbackGroup)]
+[for (aGroup : ComCallbackFileContentsGroup | aRteCallbackHeader.comCallbackGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aComCallback : ComCallback | aGroup.comCallback)]

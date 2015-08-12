@@ -118,10 +118,10 @@ public interface OsOS extends EcucContainer {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.osNumberOfCores.oclIsUndefined()'"
 	 * @generated
 	 */
-	Boolean isMulticoreOs();
+	boolean isMulticoreOs();
 
 } // OsOS

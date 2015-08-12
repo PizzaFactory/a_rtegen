@@ -62,10 +62,10 @@ public interface ApplicationDataTypeEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.dataConstr.getUpperLimitValue().oclIsUndefined() and not\n\t\t\t\t\tthis_.dataConstr.getLowerLimitValue().oclIsUndefined()'"
 	 * @generated
 	 */
-	Boolean providesUpperLowerLimitConstant(ApplicationDataType this_);
+	boolean providesUpperLowerLimitConstant(ApplicationDataType this_);
 
 } // ApplicationDataTypeEx

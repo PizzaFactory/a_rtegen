@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: rteUtilityHeader.mtl 14598 2015-06-04 08:23:54Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -92,15 +92,15 @@ do {	\
 	for (rte_arraymemcpy_inx = 0U; rte_arraymemcpy_inx < sizeof(type); rte_arraymemcpy_inx++) {	\
 		((uint8*)(dest))['['/]rte_arraymemcpy_inx[']'/] = ((uint8*)(src))['['/]rte_arraymemcpy_inx[']'/];	\
 	}	\
-} while (0)
+} while (0) /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the arguments are managed by RTE codes */
 #define Rte_StructMemcpy(dest, src, type)	\
 do {	\
-	*((type *)dest)  = *((type *)src);	\
-} while (0)
+	*((type *)(dest))  = *((type *)(src)); /* MISRA RULE 19.10 VIOLATION: "((type) *)" causes a compile error.  */	\
+} while (0) /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the arguments are managed by RTE codes */
 #define Rte_UnionMemcpy(dest, src, type)	\
 do {	\
-	*((type *)dest)  = *((type *)src);	\
-} while (0)
+	*((type *)(dest))  = *((type *)(src));  /* MISRA RULE 19.10 VIOLATION: "((type) *)" causes a compile error.  */	\
+} while (0) /* MISRA RULE 11.4, 11.5, 17.4 VIOLATION : It is safe because the arguments are managed by RTE codes */
 [/template]
 
 [comment]
@@ -140,7 +140,7 @@ do {	\
 	    ((queue)->element['['/] ((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0]))[']'/]) = (value);	\
 	    ++((queue)->quecnt);	\
 	}	\
-} while (0)
+} while (0) /* MISRA RULE 11.4 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_Dequeue(queue, dest, ercd)	\
 do {	\
@@ -178,7 +178,7 @@ do {	\
         Rte_ArrayMemcpy((queue)->element['['/]((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0[']'/]))[']'/], value, type);	\
         ++((queue)->quecnt);	\
     }	\
-} while (0)
+} while (0) /* MISRA RULE 11.4, 11.5, 17.4 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_EnqueueStruct(queue, value, type, max_quecnt, ercd)	\
 do {	\
@@ -190,7 +190,7 @@ do {	\
         Rte_StructMemcpy(&((queue)->element['['/]((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0[']'/]))[']'/]), value, type);	\
         ++((queue)->quecnt);	\
     }	\
-} while (0)
+} while (0) /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_EnqueueUnion(queue, value, type, max_quecnt, ercd)	\
 	do {	\
@@ -202,7 +202,7 @@ do {	\
 			Rte_UnionMemcpy(&((queue)->element['['/]((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0[']'/]))[']'/]), value, type);	\
 			++((queue)->quecnt);	\
 		}	\
-	} while (0)
+	} while (0) /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_DequeueArray(queue, dest, type, ercd)	\
 do {	\
@@ -221,7 +221,7 @@ do {	\
     else {	\
         *(ercd) = RTE_E_NO_DATA;	\
     }	\
-} while (0)
+} while (0) /* MISRA RULE 11.4, 17.4 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_DequeueStruct(queue, dest, type, ercd)	\
 do {	\
@@ -270,7 +270,7 @@ do {	\
 			Rte_ArrayMemcpy(((queue)->element['['/]((queue)->head  + (queue)->quecnt) % (sizeof((queue)->element) / sizeof((queue)->element['['/]0[']'/]))[']'/]), value, type);	\
 			++((queue)->quecnt);	\
 		}	\
-	} while (0)
+	} while (0) /* MISRA RULE 11.4 VIOLATION : It is safe because the arguments are managed by RTE codes */
 
 #define Rte_EnqueueStructNoReturn(queue, value, type, max_quecnt)	\
 	do {	\
@@ -305,7 +305,7 @@ do {	\
  * 	<size_type> head:<head_bitsize>;
  * 	<mode_type> element['['/]<max_quecnt>[']'/];
  */
-#define SchM_Queue_Count(queue)	((queue).quecnt)
+#define SchM_Queue_Count(queue)	((queue).quecnt) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
 
 #define SchM_SwitchMode_Enqueue(queue, value, max_quecnt, ercd)	\
 	do {	\
@@ -323,7 +323,7 @@ do {	\
 		if (SchM_Queue_Count(queue) > 0U) {	\
 			(queue).head = ((queue).head + 1U) % (sizeof((queue).element) / sizeof((queue).element['['/]0[']'/]));	\
 			--((queue).quecnt);	\
-			if ((queue).quecnt > 0) {								 \
+			if ((queue).quecnt > 0U) {								 \
 				(next_mode) = (queue).element['['/](queue).head[']'/];	\
 			}														 \
 		}	\
@@ -331,15 +331,15 @@ do {	\
 
 #define SchM_SwitchMode_Initqueue(queue)	\
 	do {	\
-		(queue).head = 0;	\
-		(queue).quecnt = 0;	\
+		(queue).head = 0U;	\
+		(queue).quecnt = 0U;	\
 	} while (0)
 
 /*
  * Mode Macro Definitions
  */
-#define RTE_MODE_IS_START(startMode, next)	((boolean) ((startMode) == (next)))
-#define RTE_MODE_IS_NOT_DISABLED(disabledMode, current, next)	((boolean) ((disabledMode) != (current) && (disabledMode) != (next)))
+#define RTE_MODE_IS_START(startMode, next)	((startMode) == (next)) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
+#define RTE_MODE_IS_NOT_DISABLED(disabledMode, current, next)	(((disabledMode) != (current)) && ((disabledMode) != (next))) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization */
 [/template]
 
 [template private genFilterCheckMacroDefinitions(aRteUtilityHeader : RteUtilityHeader)]
@@ -359,19 +359,15 @@ do {	\
  * Common Macro Definitions
  */
 #ifndef Rte_offsetof
-#define Rte_offsetof(structure, field)	((uintptr) & (((structure *) 0)->field))
+#define Rte_offsetof(structure, field)	((uintptr) & (((structure *) 0)->field)) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization. MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification. MISRA RULE 19.10 VIOLATION: "((structure) *)" causes a compile error.  */
 #endif /* Rte_offsetof */
 
-#ifndef Rte_alignof
-#define Rte_alignof(type)	Rte_offsetof(struct { uint8 field1; type field2; }, field2)
-#endif /* Rte_alignof */
-
 #ifndef RTE_SUPPRESS_API_CHECK_ARGS
-#define RTE_DECLARE_TASK_ID(val)    TaskType (val);
+#define RTE_DECLARE_TASK_ID(val)    TaskType (val) /* MISRA RULE 19.7 VIOLATION: use macro func for optimization. */
 #define RTE_GET_TASK_ID(val)	\
 	do {	\
 		ercd = Rte_Call_Bsw_GetTaskID(&(val));	\
-		if (ercd != E_OK || (val) == INVALID_TASK) {	\
+		if ((ercd != E_OK) || ((val) == INVALID_TASK)) {	\
 			ercd = RTE_E_DEV_DEFECT;	\
 			goto err_return;	\
 		}	\
@@ -397,7 +393,7 @@ do {	\
 	#define RTE_CHECK_ARG_POINTER_IN(val, arg, type)	\
 	do {	\
 		AccessType rte_status;	\
-		rte_status = Rte_Call_Bsw_CheckTaskMemoryAccess((val), (MemoryStartAddressType)(arg), 1);	\
+		rte_status = Rte_Call_Bsw_CheckTaskMemoryAccess((val), (MemoryStartAddressType)(arg), 1U);	\
 		if (Rte_Call_Bsw_OSMEMORY_IS_READABLE(rte_status) == FALSE) {	\
 			ercd = RTE_E_SEG_FAULT;	\
 			goto err_return;	\

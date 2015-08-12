@@ -62,7 +62,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface RteBufferQueueType extends BlackboxType {
+public interface RteBufferQueueType extends Type {
 	/**
 	 * Returns the value of the '<em><b>Max Length Constant</b></em>' reference.
 	 * <!-- begin-user-doc -->

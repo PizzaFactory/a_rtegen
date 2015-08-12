@@ -94,10 +94,10 @@ public interface AssemblyDataInstanceConnectorEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='variableDataInstanceInCompositionEx.getPartition(this_.provider) <>\n\t\t\t\t\tvariableDataInstanceInCompositionEx.getPartition(this_.requester)'"
 	 * @generated
 	 */
-	Boolean isInterPartition(AssemblyDataInstanceConnector this_);
+	boolean isInterPartition(AssemblyDataInstanceConnector this_);
 
 } // AssemblyDataInstanceConnectorEx

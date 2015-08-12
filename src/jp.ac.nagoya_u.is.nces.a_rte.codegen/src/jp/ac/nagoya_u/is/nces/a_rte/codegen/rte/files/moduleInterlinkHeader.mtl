@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: moduleInterlinkHeader.mtl 14054 2015-04-25 02:25:32Z t-inoue $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -83,7 +83,7 @@
 /*
  * Internal Global Variable Declarations
  */
-[for (aGroup : GlobalVariableGroup | aModuleInterlinkHeader.globalVariableGroup)]
+[for (aGroup : GlobalVariableFileContentsGroup | aModuleInterlinkHeader.globalVariableGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aGlobalVariable : GlobalVariable | aGroup.globalVariable)]
@@ -99,7 +99,7 @@
 /*
  * Basic Software Scheduler API Implementation Function Declarations
  */
-[for (aGroup : SchmApiGroup | aModuleInterlinkHeader.schmApiGroup)]
+[for (aGroup : SchmApiFileContentsGroup | aModuleInterlinkHeader.schmApiGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aSchmApi : SchmApi | aGroup.schmApi)]
@@ -116,7 +116,7 @@
 /*
  * BswSchedulableEntity Declarations
  */
-[for (aGroup : ExecutableEntityGroup | aModuleInterlinkHeader.dependentExecutableEntityGroup)]
+[for (aGroup : ExecutableEntityFileContentsGroup | aModuleInterlinkHeader.dependentExecutableEntityGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aExecutableEntity : ExecutableEntity | aGroup.executableEntity)]

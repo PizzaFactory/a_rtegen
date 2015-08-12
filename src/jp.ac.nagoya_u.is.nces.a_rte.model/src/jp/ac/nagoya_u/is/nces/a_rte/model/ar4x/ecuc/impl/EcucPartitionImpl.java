@@ -241,7 +241,7 @@ public class EcucPartitionImpl extends EcucContainerImpl implements EcucPartitio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isTrusted() {
+	public boolean isTrusted() {
 		try {
 			return (Boolean)IS_TRUSTED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

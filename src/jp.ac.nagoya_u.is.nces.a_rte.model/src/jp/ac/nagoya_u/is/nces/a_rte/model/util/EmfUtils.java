@@ -69,6 +69,9 @@ import org.eclipse.emf.query.statements.WHERE;
 
 import com.google.common.base.Optional;
 
+/**
+ * EMF¤Ë´Ø¤¹¤ë¥æ¡¼¥Æ¥£¥ê¥Æ¥£µ¡Ç½¤òÄó¶¡¤¹¤ë¡£
+ */
 public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤¬¡¤¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
 	private static final char ID_PREFIX_SEPARATOR = '.';
 
@@ -129,7 +132,14 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		return foundObject.get();
 	}
 
-	public static EObject findOrCreateExtensionObject(Resource eResource, EClass extensionClass) {
+	/**
+	 * ¥ê¥½¡¼¥¹Æâ¤ËÂ¸ºß¤¹¤ë¡¢»ØÄê¤µ¤ì¤¿·¿¤Î³ÈÄ¥¥ª¥Ö¥¸¥§¥¯¥È¤ò¸¡º÷¤¹¤ë¡£
+	 * ³ÈÄ¥¥ª¥Ö¥¸¥§¥¯¥È¤¬¸«¤Ä¤«¤é¤Ê¤¤¾ì¹ç¤Ï¡¢³ÈÄ¥¥ª¥Ö¥¸¥§¥¯¥È¤ò¹½ÃÛ¤·¡¢¥ê¥½¡¼¥¹¤ËÄÉ²Ã¤¹¤ë¡£
+	 * @param eResource ¸¡º÷ÂÐ¾Ý¤Î{@link Resource}
+	 * @param extensionClass ³ÈÄ¥¥ª¥Ö¥¸¥§¥¯¥È¤Î·¿
+	 * @return ¥ê¥½¡¼¥¹Æâ¤ËÂ¸ºß¤¹¤ë³ÈÄ¥¥ª¥Ö¥¸¥§¥¯¥È
+	 */
+	public static EObject findOrBuildExtensionObject(Resource eResource, EClass extensionClass) {
 		Optional<EObject> foundExtensionObject = tryFindExtensionObject(eResource, extensionClass);
 		if (!foundExtensionObject.isPresent()) {
 			// ³ÈÄ¥¥ª¥Ú¥ì¡¼¥·¥ç¥ó¤òÊÝ»ý¤¹¤ë¥ª¥Ö¥¸¥§¥¯¥È¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç¡¤À¸À®¤¹¤ë¡¥
@@ -139,7 +149,7 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 			for (EReference eReference : extensionObject.eClass().getEAllReferences()) {
 				EClass eReferenceeClass = (EClass) eReference.getEType();
 				if (isExtensionClass(eReferenceeClass)) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ïfalse¤òÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
-					extensionObject.eSet(eReference, findOrCreateExtensionObject(eResource, eReferenceeClass));
+					extensionObject.eSet(eReference, findOrBuildExtensionObject(eResource, eReferenceeClass));
 				}
 			}
 			return extensionObject;
@@ -153,6 +163,12 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		return result.isEmpty() ? Optional.<EObject> absent() : Optional.of(result.iterator().next());
 	}
 
+	/**
+	 * <p>¥ª¥Ö¥¸¥§¥¯¥È¤ËÂÐ¤·¡¢»ØÄê¤·¤¿{@link EOperation}¤¬Å¬ÍÑ¤Ç¤­¤ë¤«¤òÈ½Äê¤¹¤ë¡£</p>
+	 * @param eObject È½ÄêÂÐ¾Ý¤Î{@link EObject}
+	 * @param eOperation È½ÄêÂÐ¾Ý¤Î{@link EOperation}
+	 * @return ¥ª¥Ö¥¸¥§¥¯¥È¤ËÂÐ¤·¡¢»ØÄê¤·¤¿{@link EOperation}¤¬Å¬ÍÑ¤Ç¤­¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 */
 	public static boolean isOperationApplicable(EObject eObject, EOperation eOperation) {
 		if (isExtensionOperation(eOperation)) {
 			// ³ÈÄ¥¥ª¥Ú¥ì¡¼¥·¥ç¥ó
@@ -179,8 +195,14 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		return ANNOTATION_ENABLED_VALUE.equals(EcoreUtil.getAnnotation(ePackage, STEREOTYPES_ANNOTATION, EX_PACKAGE_STEREOTYPE));
 	}
 
+	/**
+	 * ¥â¥Ç¥ë¥Ä¥ê¡¼¾å¤Î¾å°Ì¥ª¥Ö¥¸¥§¥¯¥È¤Î¤¦¤Á¡¢»ØÄê¤µ¤ì¤¿·¿¤Ç¤¢¤ê¡¢¤«¤ÄÄ¾¶á¤Î¥ª¥Ö¥¸¥§¥¯¥È¤ò¸¡º÷¤¹¤ë¡£
+	 * @param eObject ¸¡º÷¤Îµ¯ÅÀ¤È¤Ê¤ë¥ª¥Ö¥¸¥§¥¯¥È
+	 * @param eClass ¸¡º÷ÂÐ¾Ý¤Î¾å°Ì¥ª¥Ö¥¸¥§¥¯¥È¤Î·¿
+	 * @return ¥â¥Ç¥ë¥Ä¥ê¡¼¾å¤Î¾å°Ì¥ª¥Ö¥¸¥§¥¯¥È¤Î¤¦¤Á¡¢»ØÄê¤µ¤ì¤¿·¿¤Ç¤¢¤ê¡¢¤«¤ÄÄ¾¶á¤Î¥ª¥Ö¥¸¥§¥¯¥È
+	 */
 	@SuppressWarnings("unchecked")
-	public static <T> Optional<T> tryFindParentOfType(EObject eObject, EClass eClass) {
+	public static <T> Optional<T> tryFindNearestAncestorOfType(EObject eObject, EClass eClass) {
 		EObject parent = eObject.eContainer();
 		while (parent != null) {
 			if (eClass.isInstance(parent)) {
@@ -191,10 +213,22 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		return Optional.absent();
 	}
 
+	/**
+	 * <p>»ØÄê¤µ¤ì¤¿¥ª¥Ö¥¸¥§¥¯¥È¤È¤½¤ÎÇÛ²¼¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Î¥³¥Ô¡¼¤òºîÀ®¤¹¤ë¡£</p>
+	 * <p>NOTE ÇÛ²¼¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ë¤Ä¤¤¤Æ¤âÆ±ÍÍ¤Ë¥³¥Ô¡¼¤µ¤ì¤ë¤³¤È¤ËÃí°Õ¡£</p>
+	 * @param eObject ¥³¥Ô¡¼¸µ¤Î¥ª¥Ö¥¸¥§¥¯¥È
+	 * @return ¥³¥Ô¡¼·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
+	 */
 	public static <T extends EObject> T copy(T eObject) {
 		return EcoreUtil.copy(eObject);
 	}
 
+	/**
+	 * <p>»ØÄê¤µ¤ì¤¿¥ª¥Ö¥¸¥§¥¯¥È¤Î¥³¥Ô¡¼¤òºîÀ®¤¹¤ë¡£</p>
+	 * <p>NOTE ÇÛ²¼¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ï¥³¥Ô¡¼¤·¤Ê¤¤¤³¤È¤ËÃí°Õ¡£</p>
+	 * @param eObject ¥³¥Ô¡¼¸µ¤Î¥ª¥Ö¥¸¥§¥¯¥È
+	 * @return ¥³¥Ô¡¼·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
+	 */
 	public static <T extends EObject> T copyItself(T eObject) {
 		Copier copier = new ItselfCopier();
 		EObject result = copier.copy(eObject);
@@ -214,6 +248,12 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		}
 	}
 
+	/**
+	 * ¥ª¥Ö¥¸¥§¥¯¥È¤«¤é{@link EStructuralFeature}¤ÎÃÍ¤Î¥ê¥¹¥È¤ò¼èÆÀ¤¹¤ë¡£
+	 * @param eObject ¼èÆÀÂÐ¾Ý¤Î{@link EObject}
+	 * @param eReference ¼èÆÀÂÐ¾Ý¤Î{@link EStructuralFeature}
+	 * @return ¥ª¥Ö¥¸¥§¥¯¥È¤«¤é¼èÆÀ¤·¤¿{@link EStructuralFeature}¤ÎÃÍ¤Î¥ê¥¹¥È
+	 */
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> getFeatureValues(EObject eObject, EStructuralFeature eReference) {
 		if (eReference.isMany()) {
@@ -224,6 +264,12 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		}
 	}
 
+	/**
+	 * <p>¥ª¥Ö¥¸¥§¥¯¥È¤ÎID¤ò¥ê¥Õ¥¡¥ì¥ó¥¹¤ËÊÑ´¹¤¹¤ë¡£</p>
+	 * <p>NOTE ¥ê¥Õ¥¡¥ì¥ó¥¹¤Ï¤¢¤ë¥â¥Ç¥ëÆâ¤Ç¥ª¥Ö¥¸¥§¥¯¥È¤ò°ì°Õ¤Ë¼±ÊÌ¡¦»²¾È¤¹¤ëÊ¸»úÎó(ID¤«¤éIDÀÜÆ¬¼­¤ò½ü¤¤¤¿¤â¤Î)¤Ç¤¢¤ë¡£</p>
+	 * @param id ÊÑ´¹ÂÐ¾Ý¤Î¥ª¥Ö¥¸¥§¥¯¥ÈID
+	 * @return ÊÑ´¹·ë²Ì¤Î¥ê¥Õ¥¡¥ì¥ó¥¹
+	 */
 	public static String idToReference(String id) {
 		int idPrefixEnd = id.indexOf(ID_PREFIX_SEPARATOR);
 		if (idPrefixEnd == -1) {// COVERAGE ¾ï¤Ëfalse(true¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æþ»þ¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ð¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
@@ -233,15 +279,35 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 		return id.substring(idPrefixEnd + 1);
 	}
 
+	/**
+	 * {@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿¥¿¥°¾ðÊó(tags¥¢¥Î¥Æ¡¼¥·¥ç¥ó)¤ÎÊ¸»úÎó¤ò¼èÆÀ¤¹¤ë¡£
+	 * @param eStructuralFeature ¼èÆÀÂÐ¾Ý¤Î{@link EStructuralFeature}
+	 * @param tag ¥¿¥°¾ðÊóÌ¾
+	 * @return {@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿¥¿¥°¾ðÊó(tags)
+	 */
 	public static Optional<String> tryGetTag(EStructuralFeature eStructuralFeature, String tag) {
 		String tagValue = EcoreUtil.getAnnotation(eStructuralFeature, TAGS_ANNOTATION, tag);
 		return Optional.fromNullable(tagValue);
 	}
 
+	/**
+	 * {@link EModelElement}¤¬»ØÄê¤µ¤ì¤¿¥¹¥Æ¥ì¥ª¥¿¥¤¥×¤ò»ý¤Ä¤«¤òÈ½Äê¤¹¤ë¡£
+	 * @param eModelElement È½ÄêÂÐ¾Ý¤Î{@link EModelElement}
+	 * @param stereotype È½ÄêÂÐ¾Ý¤Î¥¹¥Æ¥ì¥ª¥¿¥¤¥×
+	 * @return {@link EModelElement}¤¬»ØÄê¤µ¤ì¤¿¥¹¥Æ¥ì¥ª¥¿¥¤¥×¤ò»ý¤Ä¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 */
 	public static boolean hasStereotype(EModelElement eModelElement, String stereotype) {
 		return ANNOTATION_ENABLED_VALUE.equals(EcoreUtil.getAnnotation(eModelElement, STEREOTYPES_ANNOTATION, stereotype));
 	}
 
+	/**
+	 * {@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿¥¿¥°¾ðÊó(tags¥¢¥Î¥Æ¡¼¥·¥ç¥ó)¤Î¿¿µ¶ÃÍ¤ò¼èÆÀ¤¹¤ë¡£
+	 * ¥¿¥°¾ðÊó¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¡¢¥Ç¥Õ¥©¥ë¥ÈÃÍ¤òÊÖ¤¹¡£
+	 * @param eStructuralFeature ¼èÆÀÂÐ¾Ý¤Î{@link EStructuralFeature}
+	 * @param tag ¥¿¥°¾ðÊóÌ¾
+	 * @param defaultValue ¥Ç¥Õ¥©¥ë¥ÈÃÍ
+	 * @return ¥¿¥°¾ðÊó¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¡¢{@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿¥¿¥°¾ðÊó(tags¥¢¥Î¥Æ¡¼¥·¥ç¥ó)¤Î¿¿µ¶ÃÍ¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢¥Ç¥Õ¥©¥ë¥ÈÃÍ¡£
+	 */
 	public static boolean getBooleanTagValue(EStructuralFeature eStructuralFeature, String tag, boolean defaultValue) {
 		Optional<String> tagValue = tryGetTag(eStructuralFeature, tag);
 		return tagValue.isPresent() ? ANNOTATION_ENABLED_VALUE.equals(tagValue.get()) : defaultValue;

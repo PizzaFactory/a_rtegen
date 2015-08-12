@@ -699,13 +699,22 @@ public interface ExPackage extends EPackage {
 	int EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA = 0;
 
 	/**
-	 * The operation id for the '<em>Provides Enter Exit Api</em>' operation.
+	 * The operation id for the '<em>Provides Rte Enter Exit Api</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA = 1;
+	int EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA = 1;
+
+	/**
+	 * The operation id for the '<em>Provides Schm Enter Exit Api</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA = 2;
 
 	/**
 	 * The number of operations of the '<em>Exclusive Area Ex</em>' class.
@@ -714,7 +723,7 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_AREA_EX_OPERATION_COUNT = 2;
+	int EXCLUSIVE_AREA_EX_OPERATION_COUNT = 3;
 
 	/**
 	 * The number of structural features of the '<em>Sender Receiver To Signal Mapping Ex</em>' class.
@@ -3032,14 +3041,24 @@ public interface ExPackage extends EPackage {
 	EOperation getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea();
 
 	/**
-	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Enter Exit Api</em>}' operation.
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesRteEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Rte Enter Exit Api</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Provides Enter Exit Api</em>' operation.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
+	 * @return the meta object for the '<em>Provides Rte Enter Exit Api</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesRteEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
 	 * @generated
 	 */
-	EOperation getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea();
+	EOperation getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesSchmEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Schm Enter Exit Api</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Provides Schm Enter Exit Api</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesSchmEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
+	 * @generated
+	 */
+	EOperation getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -4121,12 +4140,20 @@ public interface ExPackage extends EPackage {
 		EOperation EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA = eINSTANCE.getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea();
 
 		/**
-		 * The meta object literal for the '<em><b>Provides Enter Exit Api</b></em>' operation.
+		 * The meta object literal for the '<em><b>Provides Rte Enter Exit Api</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA = eINSTANCE.getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea();
+		EOperation EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA = eINSTANCE.getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides Schm Enter Exit Api</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA = eINSTANCE.getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea();
 
 	}
 

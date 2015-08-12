@@ -51,13 +51,16 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.resource.Resource;
 import com.google.common.collect.Iterables;
 
+/**
+ *¡¡RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î¼Â¹Ô»þ¤ËÉ¬Í×¤È¤Ê¤ëEMF¥â¥Ç¥ë´Ä¶­ÀßÄê¤ò¼Â»Ü¤¹¤ë¡£
+ */
 public class ModelEnvironment { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤¬¡¤¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+
+	/**
+	 * EMF¥â¥Ç¥ë´Ä¶­¤ò½é´ü²½¤¹¤ë¡£
+	 */
 	public static void initializeEnvironment() {
 		registerPackages();
-	}
-
-	public static void initResource(Resource eResource) {
-		buildExModels(eResource);
 	}
 
 	private static void registerPackages() {
@@ -65,9 +68,17 @@ public class ModelEnvironment { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤
 		RtePackage.eINSTANCE.eClass();
 	}
 
+	/**
+	 * {@link Resource}¤ËÂÐ¤·¡¢RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î¼Â¹Ô»þ¤ËÉ¬Í×¤È¤Ê¤ë½é´üÀßÄê¤ò¹Ô¤¦¡£
+	 * @param eResource ÀßÄêÂÐ¾Ý¤Î{@link Resource}
+	 */
+	public static void initResource(Resource eResource) {
+		buildExModels(eResource);
+	}
+
 	private static void buildExModels(Resource eResource) {
 		for (EClass eClass : Iterables.filter(ExPackage.eINSTANCE.getEClassifiers(), EClass.class)) {
-			EmfUtils.findOrCreateExtensionObject(eResource, eClass);
+			EmfUtils.findOrBuildExtensionObject(eResource, eClass);
 		}
 	}
 }

@@ -54,9 +54,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 public class ExcludeOperationModelBuilder {
 
@@ -68,30 +65,30 @@ public class ExcludeOperationModelBuilder {
 	}
 
 	public ExcludeOperation createExcludeOperation(ExclusiveArea sourceExclusiveArea) {
-		RteExclusiveAreaImplMechanismEnum rteExclusiveAreaImplMechanismEnum;
+		RteExclusiveAreaImplMechanismEnum sourceRteExclusiveAreaImplMechanismEnum;
 		String osResourceId = "", osSpinlockId = "";
 
 		if (sourceExclusiveArea.getSwcConfig().isEmpty() == false) {
-			RteExclusiveAreaImplementation rteExclusiveAreaImplementation = sourceExclusiveArea.getSwcConfig().get(0);
-			rteExclusiveAreaImplMechanismEnum = rteExclusiveAreaImplementation.getRteExclusiveAreaImplMechanism();
-			if (rteExclusiveAreaImplementation.getRteExclusiveAreaOsResource() != null) {
-				osResourceId = rteExclusiveAreaImplementation.getRteExclusiveAreaOsResource().getShortName();
+			RteExclusiveAreaImplementation sourceRteExclusiveAreaImplementation = sourceExclusiveArea.getSwcConfig().get(0);
+			sourceRteExclusiveAreaImplMechanismEnum = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaImplMechanism();
+			if (sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsResource() != null) {
+				osResourceId = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsResource().getShortName();
 			}
-			if (rteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock() != null) {
-				osSpinlockId = rteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock().getShortName();
+			if (sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock() != null) {
+				osSpinlockId = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock().getShortName();
 			}
 		} else {
-			RteBswExclusiveAreaImpl rteBswExclusiveAreaImpl = sourceExclusiveArea.getBswConfig().get(0);
-			rteExclusiveAreaImplMechanismEnum = sourceExclusiveArea.getBswConfig().get(0).getRteExclusiveAreaImplMechanism();
-			if (rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource() != null) {
-				osResourceId = rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource().getShortName();
+			RteBswExclusiveAreaImpl sourceRteBswExclusiveAreaImpl = sourceExclusiveArea.getBswConfig().get(0);
+			sourceRteExclusiveAreaImplMechanismEnum = sourceExclusiveArea.getBswConfig().get(0).getRteExclusiveAreaImplMechanism();
+			if (sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource() != null) {
+				osResourceId = sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource().getShortName();
 			}	
-			if (rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock() != null) {
-				osSpinlockId = rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock().getShortName();
+			if (sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock() != null) {
+				osSpinlockId = sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock().getShortName();
 			}
 		}
 		
-		switch (rteExclusiveAreaImplMechanismEnum) {
+		switch (sourceRteExclusiveAreaImplMechanismEnum) {
 		case OS_INTERRUPT_BLOCKING: {
 			return createOsInterruptBlockExcludeOperation();
 		}
@@ -132,25 +129,18 @@ public class ExcludeOperationModelBuilder {
 	}
 
 	private OsResourceExcludeOperation createOsResourceExcludeOperation(String osResourceId) {
-		OsResourceExcludeOperation excludeOperation = ModuleFactory.eINSTANCE.createOsResourceExcludeOperation();
-		excludeOperation.setOsResourceId(osResourceId);
-		return excludeOperation;
+		OsResourceExcludeOperation destExcludeOperation = ModuleFactory.eINSTANCE.createOsResourceExcludeOperation();
+		destExcludeOperation.setOsResourceId(osResourceId);
+		return destExcludeOperation;
 	}
 
 	private OsSpinlockExcludeOperation createOsSpinlockExcludeOperation(String osSpinlockId) {
-		OsSpinlockExcludeOperation excludeOperation = ModuleFactory.eINSTANCE.createOsSpinlockExcludeOperation();
-		excludeOperation.setOsSpinlockId(osSpinlockId);
-		return excludeOperation;
+		OsSpinlockExcludeOperation destExcludeOperation = ModuleFactory.eINSTANCE.createOsSpinlockExcludeOperation();
+		destExcludeOperation.setOsSpinlockId(osSpinlockId);
+		return destExcludeOperation;
 	}
 
 	private NoneExcludeOperation createNoneExcludeOperation() {
 		return ModuleFactory.eINSTANCE.createNoneExcludeOperation();
-	}
-
-	public ExcludeOperation createExcludeOperationForIrv(Type type) {
-		if (type instanceof PrimitiveType || type instanceof PointerType) {
-			return null;
-		}
-		return createExcludeOperationForRteInternalLock(false);
 	}
 }

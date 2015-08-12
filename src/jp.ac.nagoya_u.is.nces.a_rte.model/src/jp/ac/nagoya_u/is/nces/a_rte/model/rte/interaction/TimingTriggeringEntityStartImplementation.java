@@ -132,18 +132,18 @@ public interface TimingTriggeringEntityStartImplementation extends EntityStartIm
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.cyclePeriod > 1'"
 	 * @generated
 	 */
-	Boolean requiresCycleAdjust();
+	boolean requiresCycleAdjust();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.startOffset > 0'"
 	 * @generated
 	 */
-	Boolean requiresStartOffsetAdjust();
+	boolean requiresStartOffsetAdjust();
 } // TimingTriggeringEntityStartImplementation

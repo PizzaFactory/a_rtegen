@@ -46,9 +46,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
 import java.math.BigDecimal;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsAlarm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Event To Task Mapping</b></em>'.
@@ -60,8 +57,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getActivationOffset <em>Activation Offset</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getPositionInTask <em>Position In Task</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsAlarm <em>Used Os Alarm</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsEvent <em>Used Os Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,57 +142,5 @@ public interface EventToTaskMapping extends InteractionObject {
 	 * @generated
 	 */
 	void setPositionInTask(Integer value);
-
-	/**
-	 * Returns the value of the '<em><b>Used Os Alarm</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Used Os Alarm</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Used Os Alarm</em>' reference.
-	 * @see #setUsedOsAlarm(OsAlarm)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEventToTaskMapping_UsedOsAlarm()
-	 * @model
-	 * @generated
-	 */
-	OsAlarm getUsedOsAlarm();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsAlarm <em>Used Os Alarm</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Used Os Alarm</em>' reference.
-	 * @see #getUsedOsAlarm()
-	 * @generated
-	 */
-	void setUsedOsAlarm(OsAlarm value);
-
-	/**
-	 * Returns the value of the '<em><b>Used Os Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Used Os Event</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Used Os Event</em>' reference.
-	 * @see #setUsedOsEvent(OsEvent)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEventToTaskMapping_UsedOsEvent()
-	 * @model
-	 * @generated
-	 */
-	OsEvent getUsedOsEvent();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getUsedOsEvent <em>Used Os Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Used Os Event</em>' reference.
-	 * @see #getUsedOsEvent()
-	 * @generated
-	 */
-	void setUsedOsEvent(OsEvent value);
 
 } // EventToTaskMapping

@@ -68,6 +68,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl#getOperation <em>Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl#getDataParam <em>Data Param</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl#getNeedsCheckArg <em>Needs Check Arg</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +94,26 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 	 * @ordered
 	 */
 	protected Parameter dataParam;
+
+	/**
+	 * The default value of the '{@link #getNeedsCheckArg() <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean NEEDS_CHECK_ARG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNeedsCheckArg() <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean needsCheckArg = NEEDS_CHECK_ARG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,6 +189,27 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getNeedsCheckArg() {
+		return needsCheckArg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNeedsCheckArg(Boolean newNeedsCheckArg) {
+		Boolean oldNeedsCheckArg = needsCheckArg;
+		needsCheckArg = newNeedsCheckArg;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.WRITE_API__NEEDS_CHECK_ARG, oldNeedsCheckArg, needsCheckArg));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -190,6 +232,8 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 			case ModulePackage.WRITE_API__DATA_PARAM:
 				if (resolve) return getDataParam();
 				return basicGetDataParam();
+			case ModulePackage.WRITE_API__NEEDS_CHECK_ARG:
+				return getNeedsCheckArg();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +254,9 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 			case ModulePackage.WRITE_API__DATA_PARAM:
 				setDataParam((Parameter)newValue);
 				return;
+			case ModulePackage.WRITE_API__NEEDS_CHECK_ARG:
+				setNeedsCheckArg((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -228,6 +275,9 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 			case ModulePackage.WRITE_API__DATA_PARAM:
 				setDataParam((Parameter)null);
 				return;
+			case ModulePackage.WRITE_API__NEEDS_CHECK_ARG:
+				setNeedsCheckArg(NEEDS_CHECK_ARG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,8 +294,26 @@ public class WriteApiImpl extends RteApiImpl implements WriteApi {
 				return operation != null && !operation.isEmpty();
 			case ModulePackage.WRITE_API__DATA_PARAM:
 				return dataParam != null;
+			case ModulePackage.WRITE_API__NEEDS_CHECK_ARG:
+				return NEEDS_CHECK_ARG_EDEFAULT == null ? needsCheckArg != null : !NEEDS_CHECK_ARG_EDEFAULT.equals(needsCheckArg);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (needsCheckArg: ");
+		result.append(needsCheckArg);
+		result.append(')');
+		return result.toString();
 	}
 
 } //WriteApiImpl

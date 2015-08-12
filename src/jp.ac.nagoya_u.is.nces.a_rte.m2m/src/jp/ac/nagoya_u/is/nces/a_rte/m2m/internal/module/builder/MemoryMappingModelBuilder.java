@@ -55,6 +55,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
@@ -80,7 +81,7 @@ public class MemoryMappingModelBuilder {
 		return buildRteMemoryMapping(memorySectionName);
 	}
 
-	public MemoryMapping buildDataElementMemoryMapping(Optional<EcucPartition> sourcePartition, VariableDataPrototype prototype) throws ModelException {
+	public MemoryMapping buildDataElementMemoryMapping(Optional<EcucPartition> sourcePartition, VariableDataPrototype prototype) {
 		SwAddrMethod swAddrMethod =prototype.getSwAddrMethod();
 		String alignment = prototype.getSwAlignment();
 		String memorySectionName = swAddrMethod != null ? SymbolNames.createVariableMemorySectionName(swAddrMethod, Optional.fromNullable(alignment)) : SymbolNames
@@ -89,22 +90,22 @@ public class MemoryMappingModelBuilder {
 		return buildRteMemoryMapping(memorySectionName);
 	}
 
-	public MemoryMapping buildModeDeclarationMemoryMapping(Optional<EcucPartition> sourcePartition, ModeDeclarationGroupPrototype prototype) throws ModelException {
+	public MemoryMapping buildModeDeclarationMemoryMapping(Optional<EcucPartition> sourcePartition, ModeDeclarationGroupPrototype prototype) {
 		String memorySectionName = SymbolNames.createVariableMemorySectionName(sourcePartition);
 		return buildRteMemoryMapping(memorySectionName);
 	}
 	
-	public MemoryMapping buildRteVariableMemoryMapping(Optional<EcucPartition> sourcePartition) throws ModelException {
+	public MemoryMapping buildRteVariableMemoryMapping(Optional<EcucPartition> sourcePartition) {
 		String memorySectionName = SymbolNames.createVariableMemorySectionName(sourcePartition);
 		return buildRteMemoryMapping(memorySectionName);
 	}
 
-	public MemoryMapping buildRteFunctionMemoryMapping(Optional<EcucPartition> sourcePartition) throws ModelException {
+	public MemoryMapping buildRteFunctionMemoryMapping(Optional<EcucPartition> sourcePartition) {
 		String memorySectionName = SymbolNames.createFunctionMemorySectionName(sourcePartition);
 		return buildRteMemoryMapping(memorySectionName);
 	}
 
-	private BswMemoryMapping buildRteMemoryMapping(String memorySectionName) throws ModelException {
+	private BswMemoryMapping buildRteMemoryMapping(String memorySectionName) {
 		Optional<BswMemoryMapping> foundMemoryMapping = this.context.query.trySelectSingle(this.context.cache.rte.getRteMemoryMapping(),
 				hasAttr(MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME, memorySectionName));
 		if (foundMemoryMapping.isPresent()) {
@@ -119,15 +120,15 @@ public class MemoryMappingModelBuilder {
 		}
 	}
 
-	public SwcMemoryMapping buildExecutableEntityMemoryMapping(Swc targetSwc, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity sourceExecutableEntity) throws ModelException {
-		String memorySectionName = sourceExecutableEntity.getSwAddrMethod() != null ? SymbolNames.createFunctionMemorySectionName(sourceExecutableEntity.getSwAddrMethod())
+	public SwcMemoryMapping buildRunnableEntityMemoryMapping(Swc targetSwc, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity sourceRunnableEntity) {
+		String memorySectionName = sourceRunnableEntity.getSwAddrMethod() != null ? SymbolNames.createFunctionMemorySectionName(sourceRunnableEntity.getSwAddrMethod())
 				: SymbolNames.createSwcFunctionMemorySectionName();
 
 		return buildSwcMemoryMapping(targetSwc, memorySectionName);
 	}
 
-	public BswMemoryMapping buildExecutableEntityMemoryMapping(PartedBswm targetPartedBswm, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity sourceExecutableEntity) throws ModelException {
-		String memorySectionName = sourceExecutableEntity.getSwAddrMethod() != null ? SymbolNames.createFunctionMemorySectionName(sourceExecutableEntity.getSwAddrMethod())
+	public BswMemoryMapping buildBswSchedulableEntityMemoryMapping(PartedBswm targetPartedBswm, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity sourceBswSchedulableEntity) {
+		String memorySectionName = sourceBswSchedulableEntity.getSwAddrMethod() != null ? SymbolNames.createFunctionMemorySectionName(sourceBswSchedulableEntity.getSwAddrMethod())
 				: SymbolNames.createSwcFunctionMemorySectionName();
 
 		return buildBswmMemoryMapping(targetPartedBswm, memorySectionName);
@@ -141,14 +142,14 @@ public class MemoryMappingModelBuilder {
 
 		} else {
 			BswMemoryMapping memoryMapping = ModuleFactory.eINSTANCE.createBswMemoryMapping();
-			memoryMapping.setPrefix(generateSnp(targetPartedBswm));
+			memoryMapping.setPrefix(generateSnp(targetPartedBswm.getBswm()));
 			memoryMapping.setMemorySectionSymbolName(memorySectionName);
 			targetPartedBswm.getBswMemoryMapping().add(memoryMapping);
 			return memoryMapping;
 		}
 	}
 
-	private SwcMemoryMapping buildSwcMemoryMapping(Swc targetSwc, String memorySectionName) throws ModelException {
+	private SwcMemoryMapping buildSwcMemoryMapping(Swc targetSwc, String memorySectionName) {
 		Optional<SwcMemoryMapping> foundMemoryMapping = this.context.query.trySelectSingle(targetSwc.getSwcMemoryMapping(),
 				hasAttr(MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME, memorySectionName));
 		if (foundMemoryMapping.isPresent()) {
@@ -163,8 +164,8 @@ public class MemoryMappingModelBuilder {
 		}
 	}
 	
-	private String generateSnp(PartedBswm targetPartedBswm) {
+	private String generateSnp(Bswm targetBswm) {
 		// SectionNamePrefixに対応する場合はここを変更する必要あり
-		return ((BswModuleDescription) targetPartedBswm.getBswm().getSingleSource()).getShortName();	
+		return ((BswModuleDescription) targetBswm.getSingleSource()).getShortName();	
 	}
 }

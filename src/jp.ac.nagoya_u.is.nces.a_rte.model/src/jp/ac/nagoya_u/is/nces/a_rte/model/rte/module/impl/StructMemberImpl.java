@@ -44,18 +44,13 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -72,7 +67,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class StructMemberImpl extends ExtendedEObjectImpl implements StructMember {
+public class StructMemberImpl extends ModuleObjectImpl implements StructMember {
 	/**
 	 * The default value of the '{@link #getMemberName() <em>Member Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

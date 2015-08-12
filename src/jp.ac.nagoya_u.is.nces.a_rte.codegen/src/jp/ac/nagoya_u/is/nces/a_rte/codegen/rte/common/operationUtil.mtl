@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: operationUtil.mtl 14111 2015-05-01 04:12:09Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -51,6 +51,9 @@
 [for (aVariable : LocalVariable | aFunction.localVariable)]
 	[aVariable.genLocalVariableDeclaration()/]
 [/for]
+[/template]
+
+[template public genLocalVariableInitializations(aFunction : Function) post (trim())]
 [for (aVariable : LocalVariable | aFunction.localVariable)]
 	[aVariable.genLocalVariableInitialization()/]
 [/for]

@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: rteTypeHeader.mtl 14598 2015-06-04 08:23:54Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -120,7 +120,7 @@ typedef struct {
 		#define [aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE UINT_C([aMember.type.oclAsType(ArrayType).arraySize/])
 	[/if]
 [/for]
-typedef union {
+typedef union { /* MISRA RULE 18.4 VIOLATION : It won't be fixed because of RTE Specification rte_sws_7144 */
 [for (aMember : UnionMember | aType.member)]
 	[if (aMember.type.oclIsTypeOf(ArrayType))]
 		[aMember.type.originalTypeSymbolName/] [aMember.memberName/]['['/][aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE[']'/];
@@ -150,8 +150,8 @@ typedef struct {
 
 [template private genRteTypeDefinition(aType : RteSendTrustedFunctionParamType) ]
 typedef struct {
-	const void			*data;
-	Std_ReturnType 		ercd;
+	const void			*tf_data;
+	Std_ReturnType 		tf_ercd;
 } [aType.symbolName/];
 [/template]
 
@@ -163,15 +163,15 @@ typedef struct {
 		Com_SignalIdType	com_sig_id;
 	[/if]
 	const void				*com_data;
-	Std_ReturnType 		ercd;
+	Std_ReturnType 		tf_ercd;
 } [aType.symbolName/];
 [/template]
 
-[template private genRteTypeDefinition(aType : ComCsTrustedFunctionParamType) ]
+[template private genRteTypeDefinition(aType : CsTrustedFunctionParamType) ]
 typedef struct {
-	void	**argv;
-	uint8	opid;
-	Std_ReturnType ercd;
+	void	**tf_argv;
+	uint8	tf_opid;
+	Std_ReturnType tf_ercd;
 } [aType.symbolName/];
 [/template]
 

@@ -67,27 +67,15 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getExcludeOperation <em>Exclude Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getStartExecutable <em>Start Executable</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getCurrentMode <em>Current Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getNextMode <em>Next Mode</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getDisabledMode <em>Disabled Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getRieaExcludeOperation <em>Riea Exclude Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getDisabledInMode <em>Disabled In Mode</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class ExecutableStartOperationImpl extends OperationImpl implements ExecutableStartOperation {
-	/**
-	 * The cached value of the '{@link #getExcludeOperation() <em>Exclude Operation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExcludeOperation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ExcludeOperation> excludeOperation;
-
 	/**
 	 * The cached value of the '{@link #getStartExecutable() <em>Start Executable</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -99,54 +87,24 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	protected ExecutableEntity startExecutable;
 
 	/**
-	 * The default value of the '{@link #getCurrentMode() <em>Current Mode</em>}' attribute.
+	 * The cached value of the '{@link #getRieaExcludeOperation() <em>Riea Exclude Operation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentMode()
+	 * @see #getRieaExcludeOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CURRENT_MODE_EDEFAULT = null;
+	protected EList<ExcludeOperation> rieaExcludeOperation;
 
 	/**
-	 * The cached value of the '{@link #getCurrentMode() <em>Current Mode</em>}' attribute.
+	 * The cached value of the '{@link #getDisabledInMode() <em>Disabled In Mode</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCurrentMode()
+	 * @see #getDisabledInMode()
 	 * @generated
 	 * @ordered
 	 */
-	protected String currentMode = CURRENT_MODE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getNextMode() <em>Next Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NEXT_MODE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNextMode() <em>Next Mode</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNextMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nextMode = NEXT_MODE_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDisabledMode() <em>Disabled Mode</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDisabledMode()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DisabledInMode> disabledMode;
+	protected EList<DisabledInMode> disabledInMode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,11 +130,11 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExcludeOperation> getExcludeOperation() {
-		if (excludeOperation == null) {
-			excludeOperation = new EObjectContainmentEList<ExcludeOperation>(ExcludeOperation.class, this, ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION);
+	public EList<DisabledInMode> getDisabledInMode() {
+		if (disabledInMode == null) {
+			disabledInMode = new EObjectContainmentEList<DisabledInMode>(DisabledInMode.class, this, ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE);
 		}
-		return excludeOperation;
+		return disabledInMode;
 	}
 
 	/**
@@ -222,53 +180,11 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCurrentMode() {
-		return currentMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCurrentMode(String newCurrentMode) {
-		String oldCurrentMode = currentMode;
-		currentMode = newCurrentMode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE, oldCurrentMode, currentMode));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getNextMode() {
-		return nextMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextMode(String newNextMode) {
-		String oldNextMode = nextMode;
-		nextMode = newNextMode;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE, oldNextMode, nextMode));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DisabledInMode> getDisabledMode() {
-		if (disabledMode == null) {
-			disabledMode = new EObjectContainmentEList<DisabledInMode>(DisabledInMode.class, this, ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE);
+	public EList<ExcludeOperation> getRieaExcludeOperation() {
+		if (rieaExcludeOperation == null) {
+			rieaExcludeOperation = new EObjectContainmentEList<ExcludeOperation>(ExcludeOperation.class, this, ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION);
 		}
-		return disabledMode;
+		return rieaExcludeOperation;
 	}
 
 	/**
@@ -279,10 +195,10 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return ((InternalEList<?>)getExcludeOperation()).basicRemove(otherEnd, msgs);
-			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
-				return ((InternalEList<?>)getDisabledMode()).basicRemove(otherEnd, msgs);
+			case ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION:
+				return ((InternalEList<?>)getRieaExcludeOperation()).basicRemove(otherEnd, msgs);
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE:
+				return ((InternalEList<?>)getDisabledInMode()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -295,17 +211,13 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return getExcludeOperation();
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				if (resolve) return getStartExecutable();
 				return basicGetStartExecutable();
-			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
-				return getCurrentMode();
-			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
-				return getNextMode();
-			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
-				return getDisabledMode();
+			case ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION:
+				return getRieaExcludeOperation();
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE:
+				return getDisabledInMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -319,22 +231,16 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				getExcludeOperation().clear();
-				getExcludeOperation().addAll((Collection<? extends ExcludeOperation>)newValue);
-				return;
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				setStartExecutable((ExecutableEntity)newValue);
 				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
-				setCurrentMode((String)newValue);
+			case ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION:
+				getRieaExcludeOperation().clear();
+				getRieaExcludeOperation().addAll((Collection<? extends ExcludeOperation>)newValue);
 				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
-				setNextMode((String)newValue);
-				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
-				getDisabledMode().clear();
-				getDisabledMode().addAll((Collection<? extends DisabledInMode>)newValue);
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE:
+				getDisabledInMode().clear();
+				getDisabledInMode().addAll((Collection<? extends DisabledInMode>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -348,20 +254,14 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				getExcludeOperation().clear();
-				return;
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				setStartExecutable((ExecutableEntity)null);
 				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
-				setCurrentMode(CURRENT_MODE_EDEFAULT);
+			case ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION:
+				getRieaExcludeOperation().clear();
 				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
-				setNextMode(NEXT_MODE_EDEFAULT);
-				return;
-			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
-				getDisabledMode().clear();
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE:
+				getDisabledInMode().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -375,36 +275,14 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return excludeOperation != null && !excludeOperation.isEmpty();
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				return startExecutable != null;
-			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
-				return CURRENT_MODE_EDEFAULT == null ? currentMode != null : !CURRENT_MODE_EDEFAULT.equals(currentMode);
-			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
-				return NEXT_MODE_EDEFAULT == null ? nextMode != null : !NEXT_MODE_EDEFAULT.equals(nextMode);
-			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
-				return disabledMode != null && !disabledMode.isEmpty();
+			case ModulePackage.EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION:
+				return rieaExcludeOperation != null && !rieaExcludeOperation.isEmpty();
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_IN_MODE:
+				return disabledInMode != null && !disabledInMode.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (currentMode: ");
-		result.append(currentMode);
-		result.append(", nextMode: ");
-		result.append(nextMode);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ExecutableStartOperationImpl

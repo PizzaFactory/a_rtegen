@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import org.eclipse.emf.common.notify.Notification;
@@ -63,7 +64,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getModeQueue <em>Mode Queue</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getRequestModeQueueType <em>Request Mode Queue Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getRequestModeQueue <em>Request Mode Queue</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getCurrentModeVariable <em>Current Mode Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getNextModeVariable <em>Next Mode Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl#getInitModeConstant <em>Init Mode Constant</em>}</li>
@@ -72,16 +74,26 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMachineInstance {
+public class ModeMachineInstanceImpl extends ModuleReferrableImpl implements ModeMachineInstance {
 	/**
-	 * The cached value of the '{@link #getModeQueue() <em>Mode Queue</em>}' containment reference.
+	 * The cached value of the '{@link #getRequestModeQueueType() <em>Request Mode Queue Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getModeQueue()
+	 * @see #getRequestModeQueueType()
 	 * @generated
 	 * @ordered
 	 */
-	protected ModeQueuedVariable modeQueue;
+	protected ModeQueueType requestModeQueueType;
+
+	/**
+	 * The cached value of the '{@link #getRequestModeQueue() <em>Request Mode Queue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequestModeQueue()
+	 * @generated
+	 * @ordered
+	 */
+	protected ModeQueuedVariable requestModeQueue;
 
 	/**
 	 * The cached value of the '{@link #getCurrentModeVariable() <em>Current Mode Variable</em>}' containment reference.
@@ -137,8 +149,8 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeQueuedVariable getModeQueue() {
-		return modeQueue;
+	public ModeQueueType getRequestModeQueueType() {
+		return requestModeQueueType;
 	}
 
 	/**
@@ -146,11 +158,11 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetModeQueue(ModeQueuedVariable newModeQueue, NotificationChain msgs) {
-		ModeQueuedVariable oldModeQueue = modeQueue;
-		modeQueue = newModeQueue;
+	public NotificationChain basicSetRequestModeQueueType(ModeQueueType newRequestModeQueueType, NotificationChain msgs) {
+		ModeQueueType oldRequestModeQueueType = requestModeQueueType;
+		requestModeQueueType = newRequestModeQueueType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE, oldModeQueue, newModeQueue);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE, oldRequestModeQueueType, newRequestModeQueueType);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -161,18 +173,61 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setModeQueue(ModeQueuedVariable newModeQueue) {
-		if (newModeQueue != modeQueue) {
+	public void setRequestModeQueueType(ModeQueueType newRequestModeQueueType) {
+		if (newRequestModeQueueType != requestModeQueueType) {
 			NotificationChain msgs = null;
-			if (modeQueue != null)
-				msgs = ((InternalEObject)modeQueue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE, null, msgs);
-			if (newModeQueue != null)
-				msgs = ((InternalEObject)newModeQueue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE, null, msgs);
-			msgs = basicSetModeQueue(newModeQueue, msgs);
+			if (requestModeQueueType != null)
+				msgs = ((InternalEObject)requestModeQueueType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE, null, msgs);
+			if (newRequestModeQueueType != null)
+				msgs = ((InternalEObject)newRequestModeQueueType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE, null, msgs);
+			msgs = basicSetRequestModeQueueType(newRequestModeQueueType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE, newModeQueue, newModeQueue));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE, newRequestModeQueueType, newRequestModeQueueType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeQueuedVariable getRequestModeQueue() {
+		return requestModeQueue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRequestModeQueue(ModeQueuedVariable newRequestModeQueue, NotificationChain msgs) {
+		ModeQueuedVariable oldRequestModeQueue = requestModeQueue;
+		requestModeQueue = newRequestModeQueue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE, oldRequestModeQueue, newRequestModeQueue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRequestModeQueue(ModeQueuedVariable newRequestModeQueue) {
+		if (newRequestModeQueue != requestModeQueue) {
+			NotificationChain msgs = null;
+			if (requestModeQueue != null)
+				msgs = ((InternalEObject)requestModeQueue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE, null, msgs);
+			if (newRequestModeQueue != null)
+				msgs = ((InternalEObject)newRequestModeQueue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE, null, msgs);
+			msgs = basicSetRequestModeQueue(newRequestModeQueue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE, newRequestModeQueue, newRequestModeQueue));
 	}
 
 	/**
@@ -307,8 +362,10 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE:
-				return basicSetModeQueue(null, msgs);
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE:
+				return basicSetRequestModeQueueType(null, msgs);
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE:
+				return basicSetRequestModeQueue(null, msgs);
 			case ModulePackage.MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE:
 				return basicSetCurrentModeVariable(null, msgs);
 			case ModulePackage.MODE_MACHINE_INSTANCE__NEXT_MODE_VARIABLE:
@@ -325,8 +382,10 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE:
-				return getModeQueue();
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE:
+				return getRequestModeQueueType();
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE:
+				return getRequestModeQueue();
 			case ModulePackage.MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE:
 				return getCurrentModeVariable();
 			case ModulePackage.MODE_MACHINE_INSTANCE__NEXT_MODE_VARIABLE:
@@ -346,8 +405,11 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE:
-				setModeQueue((ModeQueuedVariable)newValue);
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE:
+				setRequestModeQueueType((ModeQueueType)newValue);
+				return;
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE:
+				setRequestModeQueue((ModeQueuedVariable)newValue);
 				return;
 			case ModulePackage.MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE:
 				setCurrentModeVariable((GlobalVariable)newValue);
@@ -370,8 +432,11 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE:
-				setModeQueue((ModeQueuedVariable)null);
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE:
+				setRequestModeQueueType((ModeQueueType)null);
+				return;
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE:
+				setRequestModeQueue((ModeQueuedVariable)null);
 				return;
 			case ModulePackage.MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE:
 				setCurrentModeVariable((GlobalVariable)null);
@@ -394,8 +459,10 @@ public class ModeMachineInstanceImpl extends ModuleObjectImpl implements ModeMac
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.MODE_MACHINE_INSTANCE__MODE_QUEUE:
-				return modeQueue != null;
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE:
+				return requestModeQueueType != null;
+			case ModulePackage.MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE:
+				return requestModeQueue != null;
 			case ModulePackage.MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE:
 				return currentModeVariable != null;
 			case ModulePackage.MODE_MACHINE_INSTANCE__NEXT_MODE_VARIABLE:

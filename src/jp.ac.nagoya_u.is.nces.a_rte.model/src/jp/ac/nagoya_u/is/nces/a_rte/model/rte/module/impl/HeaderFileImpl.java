@@ -61,7 +61,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl#getGuardName <em>Guard Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl#getDependentHeaders <em>Dependent Headers</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl#getIncludeHeader <em>Include Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,14 +89,14 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 	protected String guardName = GUARD_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDependentHeaders() <em>Dependent Headers</em>}' reference list.
+	 * The cached value of the '{@link #getIncludeHeader() <em>Include Header</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentHeaders()
+	 * @see #getIncludeHeader()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<HeaderFile> dependentHeaders;
+	protected EList<HeaderFile> includeHeader;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,11 +143,11 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HeaderFile> getDependentHeaders() {
-		if (dependentHeaders == null) {
-			dependentHeaders = new EObjectResolvingEList<HeaderFile>(HeaderFile.class, this, ModulePackage.HEADER_FILE__DEPENDENT_HEADERS);
+	public EList<HeaderFile> getIncludeHeader() {
+		if (includeHeader == null) {
+			includeHeader = new EObjectResolvingEList<HeaderFile>(HeaderFile.class, this, ModulePackage.HEADER_FILE__INCLUDE_HEADER);
 		}
-		return dependentHeaders;
+		return includeHeader;
 	}
 
 	/**
@@ -160,8 +160,8 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 		switch (featureID) {
 			case ModulePackage.HEADER_FILE__GUARD_NAME:
 				return getGuardName();
-			case ModulePackage.HEADER_FILE__DEPENDENT_HEADERS:
-				return getDependentHeaders();
+			case ModulePackage.HEADER_FILE__INCLUDE_HEADER:
+				return getIncludeHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,9 +178,9 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 			case ModulePackage.HEADER_FILE__GUARD_NAME:
 				setGuardName((String)newValue);
 				return;
-			case ModulePackage.HEADER_FILE__DEPENDENT_HEADERS:
-				getDependentHeaders().clear();
-				getDependentHeaders().addAll((Collection<? extends HeaderFile>)newValue);
+			case ModulePackage.HEADER_FILE__INCLUDE_HEADER:
+				getIncludeHeader().clear();
+				getIncludeHeader().addAll((Collection<? extends HeaderFile>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -197,8 +197,8 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 			case ModulePackage.HEADER_FILE__GUARD_NAME:
 				setGuardName(GUARD_NAME_EDEFAULT);
 				return;
-			case ModulePackage.HEADER_FILE__DEPENDENT_HEADERS:
-				getDependentHeaders().clear();
+			case ModulePackage.HEADER_FILE__INCLUDE_HEADER:
+				getIncludeHeader().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -214,8 +214,8 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 		switch (featureID) {
 			case ModulePackage.HEADER_FILE__GUARD_NAME:
 				return GUARD_NAME_EDEFAULT == null ? guardName != null : !GUARD_NAME_EDEFAULT.equals(guardName);
-			case ModulePackage.HEADER_FILE__DEPENDENT_HEADERS:
-				return dependentHeaders != null && !dependentHeaders.isEmpty();
+			case ModulePackage.HEADER_FILE__INCLUDE_HEADER:
+				return includeHeader != null && !includeHeader.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

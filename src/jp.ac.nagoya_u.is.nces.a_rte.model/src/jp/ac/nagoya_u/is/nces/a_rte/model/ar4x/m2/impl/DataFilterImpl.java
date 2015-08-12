@@ -387,7 +387,7 @@ public class DataFilterImpl extends M2ObjectImpl implements DataFilter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isFilterEnabled() {
+	public boolean isFilterEnabled() {
 		try {
 			return (Boolean)IS_FILTER_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -411,7 +411,7 @@ public class DataFilterImpl extends M2ObjectImpl implements DataFilter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isCompatibleWith(DataFilter another) {
+	public boolean isCompatibleWith(DataFilter another) {
 		try {
 			return (Boolean)IS_COMPATIBLE_WITH_DATA_FILTER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{another}));
 		}

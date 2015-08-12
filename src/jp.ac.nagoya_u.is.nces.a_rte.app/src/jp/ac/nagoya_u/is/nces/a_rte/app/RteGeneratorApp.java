@@ -58,6 +58,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidationEnvironment;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
+/**
+ * RTEジェネレータのアプリケーション機能を提供する。
+ */
 public class RteGeneratorApp {
 	private static final Logger LOGGER = Logger.getLogger(RteGeneratorApp.class.getName());
 
@@ -66,20 +69,19 @@ public class RteGeneratorApp {
 
 	private final GeneratorInitOptions generatorInitOptions;
 
+	/**
+	 * RTEジェネレータのJavaアプリケーション実行時のエントリポイント。
+	 * @param args Javaアプリケーション実行引数
+	 */
 	public static void main(String[] args) {
-		RteGeneratorApp app;
-		try {
-			app = new RteGeneratorApp();
-		} catch (AppException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			System.out.println("RTE generator startup cancelled on error.");
-			LOGGER.log(Level.SEVERE, e.getMessage(), e);
-			return;
-		}
-
+		RteGeneratorApp app = new RteGeneratorApp();
 		app.execute(args);
 	}
 
-	public RteGeneratorApp() throws AppException {
+	/**
+	 * デフォルトの{@link RteGeneratorApp}を構築する。
+	 */
+	public RteGeneratorApp() {
 		GeneratorInitOptions generatorInitOptions = new GeneratorInitOptions();
 		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile();
 		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile();
@@ -88,10 +90,18 @@ public class RteGeneratorApp {
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
-	public RteGeneratorApp(GeneratorInitOptions generatorInitOptions) throws AppException {
+	/**
+	 * アプリケーションの初期設定を指定して{@link RteGeneratorApp}を構築する。
+	 * @param generatorInitOptions アプリケーションの初期化オプション
+	 */
+	public RteGeneratorApp(GeneratorInitOptions generatorInitOptions) {
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
+	/**
+	 * アプリケーションを実行する。
+	 * @param args アプリケーション実行引数
+	 */
 	public void execute(String[] args) {
 		GeneratorOptions options = new GeneratorOptions();
 

@@ -130,8 +130,6 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.OS_APPLICATION_TRUSTED_FUNCTION: return (EObject)createOsApplicationTrustedFunction();
 			case EcucPackage.OS_OS: return (EObject)createOsOS();
 			case EcucPackage.RTE_BSW_EVENT_TO_TASK_MAPPING: return (EObject)createRteBswEventToTaskMapping();
-			case EcucPackage.RTE_BSW_PROVIDED_MODE_GROUP_REF: return (EObject)createRteBswProvidedModeGroupRef();
-			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_REF: return (EObject)createRteBswRequiredModeGroupRef();
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION: return (EObject)createRteBswRequiredModeGroupConnection();
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE: return (EObject)createRteBswModuleInstance();
 			case EcucPackage.RTE_BSW_EXCLUSIVE_AREA_IMPL: return (EObject)createRteBswExclusiveAreaImpl();
@@ -514,26 +512,6 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	public RteBswEventToTaskMapping createRteBswEventToTaskMapping() {
 		RteBswEventToTaskMappingImpl rteBswEventToTaskMapping = new RteBswEventToTaskMappingImpl();
 		return rteBswEventToTaskMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteBswProvidedModeGroupRef createRteBswProvidedModeGroupRef() {
-		RteBswProvidedModeGroupRefImpl rteBswProvidedModeGroupRef = new RteBswProvidedModeGroupRefImpl();
-		return rteBswProvidedModeGroupRef;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteBswRequiredModeGroupRef createRteBswRequiredModeGroupRef() {
-		RteBswRequiredModeGroupRefImpl rteBswRequiredModeGroupRef = new RteBswRequiredModeGroupRefImpl();
-		return rteBswRequiredModeGroupRef;
 	}
 
 	/**

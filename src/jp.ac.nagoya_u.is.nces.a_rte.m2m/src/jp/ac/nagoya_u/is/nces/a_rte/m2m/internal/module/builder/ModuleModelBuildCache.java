@@ -45,6 +45,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Os;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
@@ -53,6 +54,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
 
 import com.google.common.base.Optional;
 
@@ -70,11 +72,11 @@ public class ModuleModelBuildCache {
 	public Rte rte;
 	public RteModule rteModule;
 
-	// 論理構造
+	// 論理区画
 	public Partition masterBswPartition;
 
-	// 規定の型
-	public PrimitiveType voidType;
+	// 組込の型
+	public BlackboxType voidType;
 	public PrimitiveType booleanType;
 	public PrimitiveType uint8Type;
 	public PrimitiveType uint16Type;
@@ -86,25 +88,26 @@ public class ModuleModelBuildCache {
 	public PrimitiveType osEventMaskType;
 	public PrimitiveType osResourceType;
 	public PrimitiveType osSpinlockIdType;
-	public PrimitiveType osTrustedFunctionIndexType;
-	public PrimitiveType osTrustedFunctionParamRefType;
+	public PrimitiveType osTfIndexType;
+	public BlackboxType osTfParamRefType;
 	public PrimitiveType comSignalIdType;
-	public PrimitiveType rteBufferTypeOffset;
-	public PrimitiveType SrWriteProxyFunctionTableIndex;
-	public PrimitiveType comMetaComplexDataType;
-	
-	// RTE実装向けの定義型
-	public Optional<ComSendTrustedFunctionParamType> comSendSignalTrustedFunctionParamType;
-	public Optional<ComSendTrustedFunctionParamType> comSendSignalGroupTrustedFunctionParamType;
+	public BlackboxType comMetaDataTypeMemberOffsetType;
+	public BlackboxType comMetaDataType;
+	public PrimitiveType comProxyFunctionTableIndexType;
 
-	// 規定の定数
+	// 組込の定数
 	public Constant rteErrorOkConstant;
 	public Constant rteErrorInvalidConstant;
 	public Constant rteErrorMaxAgeExceededConstant;
+	
+	// 内部実装用の定義型
+	public Optional<RteSendTrustedFunctionParamType> rteSendTfParamType;
+	public Optional<ComSendTrustedFunctionParamType> comSendSignalTfParamType;
+	public Optional<ComSendTrustedFunctionParamType> comSendSignalGroupTfParamType;
 
-	// RTE実装向けの定義関数
-	public Optional<ComSendSignalTrustedFunction> comSendSignalTrustedFunction;
-	public Optional<ComSendSignalTrustedFunction> comSendSignalGroupTrustedFunction;
+	// R内部実装用の定義関数
+	public Optional<ComSendSignalTrustedFunction> comSendSignalTf;
+	public Optional<ComSendSignalTrustedFunction> comSendSignalGroupTf;
 
 	// ファイル
 	public Optional<BlackboxHeader> comHeader;

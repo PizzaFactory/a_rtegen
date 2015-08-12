@@ -67,7 +67,7 @@ public interface RteCallbackHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Com Callback Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Com Callback Group</em>' reference list isn't clear,
@@ -79,5 +79,5 @@ public interface RteCallbackHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComCallbackGroup> getComCallbackGroup();
+	EList<ComCallbackFileContentsGroup> getComCallbackGroup();
 } // RteCallbackHeader

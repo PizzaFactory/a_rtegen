@@ -48,7 +48,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: CddLockLed.c 480 2015-04-10 04:12:16Z mtakada $
+ *  $Id: CddLockLed.c 488 2015-04-14 08:39:42Z mtakada $
  */
 
 #include "Os.h"

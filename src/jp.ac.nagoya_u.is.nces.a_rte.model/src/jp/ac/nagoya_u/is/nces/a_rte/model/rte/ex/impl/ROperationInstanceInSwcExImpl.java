@@ -101,7 +101,7 @@ public class ROperationInstanceInSwcExImpl extends ExtendedEObjectImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesCallApi(ROperationInstanceInSwc this_) {
+	public boolean providesCallApi(ROperationInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_CALL_API_ROPERATION_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

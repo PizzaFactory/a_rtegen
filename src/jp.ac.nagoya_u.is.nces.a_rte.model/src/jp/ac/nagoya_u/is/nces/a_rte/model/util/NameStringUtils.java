@@ -41,6 +41,10 @@
  *  $Id $
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.util;
+
+/**
+ * 名称の文字列を操作する機能をユーティリティ提供する。
+ */
 public class NameStringUtils { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
 	public static String pascalCaseToCamelCase(String in) {

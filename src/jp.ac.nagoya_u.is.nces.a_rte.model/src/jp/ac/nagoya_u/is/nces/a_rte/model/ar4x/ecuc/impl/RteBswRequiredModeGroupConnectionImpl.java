@@ -45,13 +45,16 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +63,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl#getRteBswProvidedModeGroup <em>Rte Bsw Provided Mode Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl#getRteBswRequiredModeGroup <em>Rte Bsw Required Mode Group</em>}</li>
  * </ul>
@@ -105,6 +109,47 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	@Override
 	protected EClass eStaticClass() {
 		return EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswModuleInstance getParent() {
+		if (eContainerFeatureID() != EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT) return null;
+		return (RteBswModuleInstance)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParent(RteBswModuleInstance newParent, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParent, EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParent(RteBswModuleInstance newParent) {
+		if (newParent != eInternalContainer() || (eContainerFeatureID() != EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT && newParent != null)) {
+			if (EcoreUtil.isAncestor(this, (EObject)newParent))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParent != null)
+				msgs = ((InternalEObject)newParent).eInverseAdd(this, EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION, RteBswModuleInstance.class, msgs);
+			msgs = basicSetParent(newParent, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT, newParent, newParent));
 	}
 
 	/**
@@ -189,8 +234,54 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParent((RteBswModuleInstance)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				return basicSetParent(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				return eInternalContainer().eInverseRemove(this, EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION, RteBswModuleInstance.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				return getParent();
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP:
 				if (resolve) return getRteBswProvidedModeGroup();
 				return basicGetRteBswProvidedModeGroup();
@@ -209,6 +300,9 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				setParent((RteBswModuleInstance)newValue);
+				return;
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP:
 				setRteBswProvidedModeGroup((ModeDeclarationGroupPrototype)newValue);
 				return;
@@ -227,6 +321,9 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				setParent((RteBswModuleInstance)null);
+				return;
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP:
 				setRteBswProvidedModeGroup((ModeDeclarationGroupPrototype)null);
 				return;
@@ -245,6 +342,8 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT:
+				return getParent() != null;
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP:
 				return rteBswProvidedModeGroup != null;
 			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP:

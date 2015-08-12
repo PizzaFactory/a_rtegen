@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,10 +61,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecArrayElementMapping()
  * @model
- * @extends ExtendedEObject
  * @generated
  */
-public interface SenderRecArrayElementMapping extends ExtendedEObject {
+public interface SenderRecArrayElementMapping extends M2Object {
 	/**
 	 * Returns the value of the '<em><b>Indexed Array Element</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

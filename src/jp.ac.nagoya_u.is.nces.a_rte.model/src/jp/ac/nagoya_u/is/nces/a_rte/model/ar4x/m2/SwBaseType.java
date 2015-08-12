@@ -67,6 +67,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  */
 public interface SwBaseType extends ArElement {
 
+	// ベース型のエンコーディング名
+	public static final String BASE_TYPE_ENCODING_NONE = "NONE";
+	public static final String BASE_TYPE_ENCODING_BOOLEAN = "BOOLEAN";
+	public static final String BASE_TYPE_ENCODING_IEEE754 = "IEEE754";
+
 	/**
 	 * Returns the value of the '<em><b>Base Type Encoding</b></em>' attribute.
 	 * <!-- begin-user-doc -->

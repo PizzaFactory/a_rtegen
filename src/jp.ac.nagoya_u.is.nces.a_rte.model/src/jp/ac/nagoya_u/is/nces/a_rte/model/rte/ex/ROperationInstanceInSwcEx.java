@@ -65,10 +65,10 @@ public interface ROperationInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * Call APIを生成するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.getOwnerAtomicSwc().internalBehavior.runnable.serverCallPoint\n\t\t\t\t\t->exists(operation = this_)'"
 	 * @generated
 	 */
-	Boolean providesCallApi(ROperationInstanceInSwc this_);
+	boolean providesCallApi(ROperationInstanceInSwc this_);
 
 } // ROperationInstanceInSwcEx

@@ -53,7 +53,8 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getModeQueue <em>Mode Queue</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getRequestModeQueueType <em>Request Mode Queue Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getRequestModeQueue <em>Request Mode Queue</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getCurrentModeVariable <em>Current Mode Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getNextModeVariable <em>Next Mode Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getInitModeConstant <em>Init Mode Constant</em>}</li>
@@ -64,32 +65,58 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface ModeMachineInstance extends ModuleObject {
+public interface ModeMachineInstance extends ModuleReferrable {
 	/**
-	 * Returns the value of the '<em><b>Mode Queue</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Request Mode Queue Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Mode Queue</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Request Mode Queue Type</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mode Queue</em>' containment reference.
-	 * @see #setModeQueue(ModeQueuedVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModeMachineInstance_ModeQueue()
+	 * @return the value of the '<em>Request Mode Queue Type</em>' containment reference.
+	 * @see #setRequestModeQueueType(ModeQueueType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModeMachineInstance_RequestModeQueueType()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ModeQueuedVariable getModeQueue();
+	ModeQueueType getRequestModeQueueType();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getModeQueue <em>Mode Queue</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getRequestModeQueueType <em>Request Mode Queue Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mode Queue</em>' containment reference.
-	 * @see #getModeQueue()
+	 * @param value the new value of the '<em>Request Mode Queue Type</em>' containment reference.
+	 * @see #getRequestModeQueueType()
 	 * @generated
 	 */
-	void setModeQueue(ModeQueuedVariable value);
+	void setRequestModeQueueType(ModeQueueType value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Mode Queue</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Mode Queue</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Request Mode Queue</em>' containment reference.
+	 * @see #setRequestModeQueue(ModeQueuedVariable)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModeMachineInstance_RequestModeQueue()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	ModeQueuedVariable getRequestModeQueue();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance#getRequestModeQueue <em>Request Mode Queue</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Mode Queue</em>' containment reference.
+	 * @see #getRequestModeQueue()
+	 * @generated
+	 */
+	void setRequestModeQueue(ModeQueuedVariable value);
 
 	/**
 	 * Returns the value of the '<em><b>Current Mode Variable</b></em>' containment reference.

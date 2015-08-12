@@ -186,7 +186,7 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtDeclaration(VariableDataInstanceInComposition this_) {
+	public boolean initAtDeclaration(VariableDataInstanceInComposition this_) {
 		try {
 			return (Boolean)INIT_AT_DECLARATION_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -210,7 +210,7 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtStart(VariableDataInstanceInComposition this_) {
+	public boolean initAtStart(VariableDataInstanceInComposition this_) {
 		try {
 			return (Boolean)INIT_AT_START_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -234,7 +234,7 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean initAtPartitionRestart(VariableDataInstanceInComposition this_) {
+	public boolean initAtPartitionRestart(VariableDataInstanceInComposition this_) {
 		try {
 			return (Boolean)INIT_AT_PARTITION_RESTART_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -473,7 +473,7 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean equalsInitValue(VariableDataInstanceInComposition v1, VariableDataInstanceInComposition v2) {
+	public boolean equalsInitValue(VariableDataInstanceInComposition v1, VariableDataInstanceInComposition v2) {
 		try {
 			return (Boolean)EQUALS_INIT_VALUE_VARIABLE_DATA_INSTANCE_IN_COMPOSITION_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{v1, v2}));
 		}

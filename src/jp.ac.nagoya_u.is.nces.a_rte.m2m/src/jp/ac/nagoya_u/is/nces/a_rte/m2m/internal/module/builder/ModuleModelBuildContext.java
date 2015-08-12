@@ -47,19 +47,32 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
+/**
+ * モジュールモデル構築の実行コンテキストを表す。
+ */
 public class ModuleModelBuildContext {
+	/** モデル変換元・モデル変換先のモデルを格納する{@link Resource} */
 	public final Resource eResource;
+
+	/** モジュールモデル構築の指定オプション */
 	public final RteModuleModelBuilderOptions options;
+
+	/** モデル検索に使用する汎用ユーティリティ */
 	public final ModelQuery query;
 
+	/** モデル変換元・モデル変換先のモデルを一時的に格納するキャッシュ */
 	public final ModuleModelBuildCache cache;
+
+	/**
+	 * <p>モデル変換先のモデル検索に使用するユーティリティ</p>
+	 * <p>NOTE: {@link ModelQuery}は汎用のモデル検索ユーティリティであり特化した検索クエリを持たないが、{@link BuiltModuleModelQuery}はモジュールモデル変換で生成したモデルに特化した検索クエリを持つ。</p>
+	 */
 	public final BuiltModuleModelQuery builtQuery;
 
 	public ModuleModelBuildContext(Resource eResource, RteModuleModelBuilderOptions options) {
 		this.eResource = eResource;
 		this.options = options;
 		this.query = new ModelQuery(eResource);
-
 		this.cache = new ModuleModelBuildCache();
 		this.builtQuery = new BuiltModuleModelQuery(this.query, this.cache);
 	}

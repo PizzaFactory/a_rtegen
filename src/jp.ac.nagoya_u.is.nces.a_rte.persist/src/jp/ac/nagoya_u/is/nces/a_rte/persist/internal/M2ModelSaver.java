@@ -268,7 +268,7 @@ public class M2ModelSaver {
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-CONTAINER-DEF");
 			} else if (ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature)) {
 				/*
-				 * TODO：#91対応
+				 * NOTE：#91対応
 				 * 本来はモデルからの修正する必要があるが，2014/3末リリースに向けて暫定的に以下の対応とする．
 				 */
 				if ("/AUTOSAR/EcucDefs/Os/OsApplication/OsApplicationTrustedFunction/OsTrustedFunctionName".equals(value)) {
@@ -286,7 +286,7 @@ public class M2ModelSaver {
 			this.writer.writeEndElement();
 		}
 
-		private boolean isDefinitionRefRole(EStructuralFeature eStructuralFeature) throws XMLStreamException {
+		private boolean isDefinitionRefRole(EStructuralFeature eStructuralFeature) {
 			return ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF.equals(eStructuralFeature) || ECUC_CONTAINER_VALUE__DEFINITION_REF.equals(eStructuralFeature)
 					|| ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature) || ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF.equals(eStructuralFeature);
 		}

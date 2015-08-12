@@ -1512,8 +1512,17 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea() {
+	public EOperation getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea() {
 		return exclusiveAreaExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea() {
+		return exclusiveAreaExEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -1587,7 +1596,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		exclusiveAreaExEClass = createEClass(EXCLUSIVE_AREA_EX);
 		createEReference(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX__BSW_SCHEDULABLE_ENTITY_EX);
 		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA);
-		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA);
+		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA);
+		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA);
 
 		senderReceiverToSignalMappingExEClass = createEClass(SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX);
 		createEOperation(senderReceiverToSignalMappingExEClass, SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALMAPPING);
@@ -1737,11 +1747,11 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(timeValueExEClass, TimeValueEx.class, "TimeValueEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = initEOperation(getTimeValueEx__IsGreaterThanOrEquals__BigDecimal_BigDecimal(), theM2Package.getBoolean(), "isGreaterThanOrEquals", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getTimeValueEx__IsGreaterThanOrEquals__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isGreaterThanOrEquals", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getTimeValueEx__IsMultiplesOf__BigDecimal_BigDecimal(), theM2Package.getBoolean(), "isMultiplesOf", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeValueEx__IsMultiplesOf__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isMultiplesOf", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1764,45 +1774,45 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getValueSpecificationEx__GetValueSpecAsText__ValueSpecification(), theM2Package.getString(), "getValueSpecAsText", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsForVALUE__ValueSpecification(), theM2Package.getBoolean(), "isForVALUE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForVALUE__ValueSpecification(), ecorePackage.getEBoolean(), "isForVALUE", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForARRAY", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForARRAY", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForSTRUCTURE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForSTRUCTURE", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForUNION", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForUNION", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), theM2Package.getBoolean(), "isForDATA_REFERENCE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), ecorePackage.getEBoolean(), "isForDATA_REFERENCE", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isValidValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isValidValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), theM2Package.getBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(nonqueuedSenderComSpecExEClass, NonqueuedSenderComSpecEx.class, "NonqueuedSenderComSpecEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), theM2Package.getBoolean(), "hasValidInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), ecorePackage.getEBoolean(), "hasValidInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getNonqueuedSenderComSpec(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(compuMethodExEClass, CompuMethodEx.class, "CompuMethodEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), theM2Package.getBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getCompuMethod(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(compuScaleExEClass, CompuScaleEx.class, "CompuScaleEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getCompuScaleEx__ProvidesEnumConstant__CompuScale(), theM2Package.getBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompuScaleEx__ProvidesEnumConstant__CompuScale(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getCompuScale(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getCompuScaleEx__GetEnumLiteral__CompuScale(), theM2Package.getCIdentifier(), "getEnumLiteral", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1810,16 +1820,16 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		initEClass(applicationDataTypeExEClass, ApplicationDataTypeEx.class, "ApplicationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), theM2Package.getBoolean(), "providesUpperLowerLimitConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), ecorePackage.getEBoolean(), "providesUpperLowerLimitConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getApplicationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(implementationDataTypeExEClass, ImplementationDataTypeEx.class, "ImplementationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationDataTypeEx_CompuMethodEx(), this.getCompuMethodEx(), null, "compuMethodEx", null, 1, 1, ImplementationDataTypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), theM2Package.getBoolean(), "providesTypeDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), ecorePackage.getEBoolean(), "providesTypeDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), theM2Package.getBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1833,7 +1843,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), theEcucPackage.getEcucPartition(), "getUsingPartitionsOfBswExclusiveArea", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea(), theM2Package.getBoolean(), "providesEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesRteEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesSchmEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(senderReceiverToSignalMappingExEClass, SenderReceiverToSignalMappingEx.class, "SenderReceiverToSignalMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1854,10 +1867,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		initEClass(comSignalExEClass, ComSignalEx.class, "ComSignalEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSignalEx_SenderReceiverToSignalMappingEx(), this.getSenderReceiverToSignalMappingEx(), null, "senderReceiverToSignalMappingEx", null, 1, 1, ComSignalEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getComSignalEx__IsSender__ComSignal(), theM2Package.getBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalEx__IsSender__ComSignal(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getComSignalEx__IsReceiver__ComSignal(), theM2Package.getBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalEx__IsReceiver__ComSignal(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
@@ -1866,10 +1879,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		initEClass(comSignalGroupExEClass, ComSignalGroupEx.class, "ComSignalGroupEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx(), this.getSenderReceiverToSignalGroupMappingEx(), null, "senderReceiverToSignalGroupMappingEx", null, 1, 1, ComSignalGroupEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getComSignalGroupEx__IsSender__ComSignalGroup(), theM2Package.getBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalGroupEx__IsSender__ComSignalGroup(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getComSignalGroupEx__IsReceiver__ComSignalGroup(), theM2Package.getBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalGroupEx__IsReceiver__ComSignalGroup(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
@@ -1877,27 +1890,27 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		initEClass(ecucPartitionExEClass, EcucPartitionEx.class, "EcucPartitionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getEcucPartitionEx__IsInMasterCore__EcucPartition(), theM2Package.getBoolean(), "isInMasterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__IsInMasterCore__EcucPartition(), ecorePackage.getEBoolean(), "isInMasterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getEcucPartitionEx__IsMasterBswPartition__EcucPartition(), theM2Package.getBoolean(), "isMasterBswPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__IsMasterBswPartition__EcucPartition(), ecorePackage.getEBoolean(), "isMasterBswPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getEcucPartitionEx__ProvidesRestartPartitionApi__EcucPartition(), theM2Package.getBoolean(), "providesRestartPartitionApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__ProvidesRestartPartitionApi__EcucPartition(), ecorePackage.getEBoolean(), "providesRestartPartitionApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), theM2Package.getBoolean(), "providesPartitionRestartingApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), ecorePackage.getEBoolean(), "providesPartitionRestartingApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableDataPrototypeExEClass, VariableDataPrototypeEx.class, "VariableDataPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), theM2Package.getBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), theM2Package.getBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), theM2Package.getBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1915,13 +1928,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getVariableDataInstanceInCompositionEx__GetPartition__VariableDataInstanceInComposition(), theEcucPackage.getEcucPartition(), "getPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtDeclaration__VariableDataInstanceInComposition(), theM2Package.getBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtDeclaration__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtStart__VariableDataInstanceInComposition(), theM2Package.getBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtStart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtPartitionRestart__VariableDataInstanceInComposition(), theM2Package.getBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtPartitionRestart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitValueAsText__VariableDataInstanceInComposition(), theM2Package.getString(), "getInitValueAsText", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1951,14 +1964,14 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSenderSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), theM2Package.getBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableDataInstanceInSwcExEClass, VariableDataInstanceInSwcEx.class, "VariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableDataInstanceInSwcEx_AlignmentTypeEx(), this.getAlignmentTypeEx(), null, "alignmentTypeEx", null, 1, 1, VariableDataInstanceInSwcEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesInitValueConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInitValueConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getVariableDataInstanceInSwcEx__GetMemoryMappingAlignment__VariableDataInstanceInSwc(), theM2Package.getAlignmentType(), "getMemoryMappingAlignment", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1966,41 +1979,41 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		initEClass(pVariableDataInstanceInSwcExEClass, PVariableDataInstanceInSwcEx.class, "PVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesWriteApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesWriteApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesInvalidateApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInvalidateApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), theM2Package.getBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOldValueVariable__RVariableDataInstanceInSwc(), theM2Package.getBoolean(), "requiresFilterOldValueVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOldValueVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOldValueVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOccurrenceVariable__RVariableDataInstanceInSwc(), theM2Package.getBoolean(), "requiresFilterOccurrenceVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOccurrenceVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOccurrenceVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReadApi__RVariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesReadApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReadApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReadApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReceiveApi__RVariableDataInstanceInSwc(), theM2Package.getBoolean(), "providesReceiveApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReceiveApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReceiveApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rOperationInstanceInSwcExEClass, ROperationInstanceInSwcEx.class, "ROperationInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = initEOperation(getROperationInstanceInSwcEx__ProvidesCallApi__ROperationInstanceInSwc(), theM2Package.getBoolean(), "providesCallApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getROperationInstanceInSwcEx__ProvidesCallApi__ROperationInstanceInSwc(), ecorePackage.getEBoolean(), "providesCallApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getROperationInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(assemblyDataInstanceConnectorExEClass, AssemblyDataInstanceConnectorEx.class, "AssemblyDataInstanceConnectorEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssemblyDataInstanceConnectorEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, AssemblyDataInstanceConnectorEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAssemblyDataInstanceConnectorEx__IsInterPartition__AssemblyDataInstanceConnector(), theM2Package.getBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAssemblyDataInstanceConnectorEx__IsInterPartition__AssemblyDataInstanceConnector(), ecorePackage.getEBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getAssemblyDataInstanceConnector(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(receiverExEClass, ReceiverEx.class, "ReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2008,25 +2021,25 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		initEClass(externalEcuSenderExEClass, ExternalEcuSenderEx.class, "ExternalEcuSenderEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getExternalEcuSenderEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, ExternalEcuSenderEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteFilter__ExternalEcuSender(), theM2Package.getBoolean(), "requiresRteFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteFilter__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteInvalidation__ExternalEcuSender(), theM2Package.getBoolean(), "requiresRteInvalidation", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteInvalidation__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInvalidation", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), theM2Package.getBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComReceiveCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComInvalidateCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvalidateCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2098,7 +2111,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "extension", "true"
-		   });																																																																																																																																												
+		   });																																																																																																																																														
 	}
 
 	/**
@@ -2116,7 +2129,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																																																																																																											
+		   });																																																																																																																																													
 	}
 
 	/**
@@ -2233,14 +2246,22 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity)->select(runsInsideExclusiveArea->includes(this_))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
-			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
+			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
 		   });			
 		addAnnotation
-		  (getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea(), 
+		  (getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)\n\t\t\t\t\tthen \n\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\telse \n\t\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tthen\n\t\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\t\telse false\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
+			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)",
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"
+		   });			
+		addAnnotation
+		  (getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)",
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
 		   });			
 		addAnnotation
 		  (getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), 

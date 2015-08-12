@@ -91,6 +91,7 @@ public class ContractPhaseModuleModelBuildDirector implements IModuleModelBuildD
 			// RTEのファイルモデルの構築
 			RteFileModelBuilder fileBuilder = new RteFileModelBuilder(context);
 			fileBuilder.buildRoot();
+			fileBuilder.buildDependentFiles();
 			fileBuilder.buildApiFiles();
 			if (context.options.doesGenerateMemoryMappingHeaderSkelton) {
 				fileBuilder.buildMemoryMappingHeaders();

@@ -62,10 +62,10 @@ public interface CompuMethodEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Set{\'TEXTTABLE\', \'SCALE_LINEAR_AND_TEXTTABLE\', \'SCALE_RATIONAL_AND_TEXTTABLE\'}\n\t\t\t\t\t->includes(this_.category) and not this_.compuInternalToPhys.oclIsUndefined()'"
 	 * @generated
 	 */
-	Boolean providesEnumConstant(CompuMethod this_);
+	boolean providesEnumConstant(CompuMethod this_);
 
 } // CompuMethodEx

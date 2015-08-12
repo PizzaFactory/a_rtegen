@@ -44,6 +44,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
@@ -52,7 +53,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -252,6 +255,30 @@ public class ImplementationDataTypeElementImpl extends IdentifiableImpl implemen
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isRedefinitionType() <em>Is Redefinition Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRedefinitionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_REDEFINITION_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE_ELEMENT___IS_REDEFINITION_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRedefinitionType() {
+		try {
+			return (Boolean)IS_REDEFINITION_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -355,6 +382,20 @@ public class ImplementationDataTypeElementImpl extends IdentifiableImpl implemen
 				return swDataDefProps != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT___IS_REDEFINITION_TYPE:
+				return isRedefinitionType();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

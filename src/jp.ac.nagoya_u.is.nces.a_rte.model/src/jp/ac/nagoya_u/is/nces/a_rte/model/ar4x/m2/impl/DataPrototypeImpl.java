@@ -197,35 +197,8 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwAddrMethod basicGetSwAddrMethod() {
-		return (SwAddrMethod)SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSwAddrMethod(SwAddrMethod newSwAddrMethod) {
-		SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAddrMethod);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getSwAlignment() {
 		return (String)SW_ALIGNMENT__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSwAlignment(String newSwAlignment) {
-		SW_ALIGNMENT__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAlignment);
 	}
 
 	/**
@@ -315,8 +288,7 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				return getSwDataDefProps();
 			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				if (resolve) return getSwAddrMethod();
-				return basicGetSwAddrMethod();
+				return getSwAddrMethod();
 			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
 				return getSwAlignment();
 			case M2Package.DATA_PROTOTYPE__TYPE:
@@ -337,12 +309,6 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)newValue);
 				return;
-			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)newValue);
-				return;
-			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
-				setSwAlignment((String)newValue);
-				return;
 			case M2Package.DATA_PROTOTYPE__TYPE:
 				setType((AutosarDataType)newValue);
 				return;
@@ -360,12 +326,6 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 		switch (featureID) {
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)null);
-				return;
-			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)null);
-				return;
-			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
-				SW_ALIGNMENT__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
 			case M2Package.DATA_PROTOTYPE__TYPE:
 				setType((AutosarDataType)null);
