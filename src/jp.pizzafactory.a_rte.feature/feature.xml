@@ -2,7 +2,7 @@
 <feature
       id="jp.pizzafactory.a_rte"
       label="A-RTE for PizzaFactory"
-      version="1.0.1.qualifier"
+      version="1.2.2.qualifier"
       provider-name="Monami-ya LLC, JAPAN">
 
    <description>
@@ -97,6 +97,13 @@ com.google.guava is licensed under APL2.
 
    <plugin
          id="jp.ac.nagoya_u.is.nces.a_rte.persist"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jp.ac.nagoya_u.is.nces.a_rte.validation"
          download-size="0"
          install-size="0"
          version="0.0.0"

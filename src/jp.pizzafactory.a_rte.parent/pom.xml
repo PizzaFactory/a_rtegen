@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>parent</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.2.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<groupId>jp.pizzafactory.a_rte</groupId>
 	<name>A-RTEGEN tuned by PizzaFactory</name>
@@ -16,6 +16,7 @@
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.model</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.persist</module>
+		<module>../jp.ac.nagoya_u.is.nces.a_rte.validation</module>
 	</modules>
 
 	<properties>

@@ -4,7 +4,7 @@
   <groupId>jp.pizzafactory.a_rte</groupId>
   <artifactId>root</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.2.2-SNAPSHOT</version>
   <name>A-RTE for PizzaFactory (Project root)</name>
   <url>http://www.pizzafactory.jp/</url>
 
