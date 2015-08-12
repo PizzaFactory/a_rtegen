@@ -19,11 +19,7 @@ AutoWiperController/SystemDesk.arxml
 HelloAutosar/configure.sh
 HelloAutosar/HelloAutosar.yaml
 
-HelloAutosarWithCom/ecu1/configure.sh
-HelloAutosarWithCom/ecu1/HelloAutosarWithCom_ECU1.yaml
-
-HelloAutosarWithCom/ecu2/configure.sh
-HelloAutosarWithCom/ecu2/HelloAutosarWithCom_ECU2.yaml
+HelloAutosarWithCom
 
 PowerWindowController/CddButton.c
 PowerWindowController/CddButton_MemMap.h
@@ -31,9 +27,8 @@ PowerWindowController/CddWindow.c
 PowerWindowController/CddWindow_MemMap.h
 PowerWindowController/configure.sh
 PowerWindowController/PowerWindowController.c
-PowerWindowController/PowerWindowController_MemMap.h
 PowerWindowController/PowerWindowController.yaml
-PowerWindowController_MemMap.h
+PowerWindowController/PowerWindowController_MemMap.h
 PowerWindowController/PWCTopLevel.png
 PowerWindowController/SensorButton.c
 PowerWindowController/SensorButton_MemMap.h

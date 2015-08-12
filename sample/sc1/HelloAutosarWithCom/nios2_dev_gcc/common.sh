@@ -46,7 +46,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: configure.sh 141 2014-09-26 09:13:20Z mtakada $
+# $Id: common.sh 200 2014-11-28 08:49:41Z mtakada $
 #
 
 #
@@ -54,22 +54,16 @@
 #
 
 # ATK2ソースコードまでの相対パス
-OS_PATH=../../../../../atk2-sc1
+OS_PATH=../../../../../../atk2-sc1
 
 # 共通ソースコードまでの相対パス
-GENERAL_PATH=../../../general
+GENERAL_PATH=../../../../general
 
 # A-COMSTACKまでの相対パス
-COMSTACK_PATH=../../../../../a-comstack
+COMSTACK_PATH=../../../../../../a-comstack
 
 # ターゲット名
 TARGET=nios2_dev_gcc
-
-# アプリケーション名(OSコンフィギュレーションファイル名)
-APPLICATION=HelloAutosarWithCom_ECU1
-
-# ビルドモジュール名
-MODULE="SWC1.o"
 
 # A-COMソースコードまでの相対パス
 COM_PATH=$COMSTACK_PATH/com
@@ -86,6 +80,7 @@ CAN_PATH=$COMSTACK_PATH/can
 # その他必要なソースコードまでの相対パス
 COM_STUB_PATH=$COMSTACK_PATH/stub
 COM_GENERAL_PATH=$COMSTACK_PATH/general
+CAN_TARGET_PATH=$COMSTACK_PATH/can/target/$TARGET
 
 # A-COMSTACKで必要なモジュール
 MODULE="$MODULE Com.o Com_PBcfg.o CanIf.o CanIf_PBcfg.o CanIf_Lcfg.o Can.o Can_Irq.o Can_PBcfg.o"
@@ -95,54 +90,57 @@ MODULE="$MODULE Com.o Com_PBcfg.o CanIf.o CanIf_PBcfg.o CanIf_Lcfg.o Can.o Can_I
 # 性能評価用定義
 #
 CMP_OPT="-o -DTOPPERS_USE_COMSTACK"
-if [ $1 ] && [ $1 == "perf" ]
-then
-	MODULE="$MODULE histogram.o measure_swc1.o"
+define_perf()
+{
+	MODULE="$MODULE histogram.o measure_swc$1.o"
 	INCLUDE="$GENERAL_PATH/HelloAutosar/performance $GENERAL_PATH/HelloAutosar/performance/$TARGET"
 	CFG_OPT="-s"
 	CMP_OPT="$CMP_OPT -DTOPPERS_PERFORMANCE -DMEASURE_100_NANO"
-fi
+}
 
 
 #
 # 生成コード一括削除処理
 #
-if [ $1 ] && [ $1 == "del" ]
-then
+delete_all_code()
+{
 	make realclean
 	rm -f Rte* SchM* Com* PduR* CanIf* Can* Makefile* $APPLICATION.arxml
 	exit
-fi
+}
 
 
 #
 # コード生成
 #
+generate_code()
+{
+	# configureスクリプトによるMakefile作成
+	perl $OS_PATH/configure -T $TARGET -A Rte $CFG_OPT \
+		-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH $COM_STUB_PATH $COM_GENERAL_PATH $CAN_TARGET_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
+		-C $APPLICATION \
+		-U "$MODULE C_Init_Code.o EcuM.o EcuM_StartupTask.o Os_Hook.o" "$CMP_OPT"
 
-# configureスクリプトによるMakefile作成
-perl $OS_PATH/configure -T $TARGET -A Rte $CFG_OPT \
-	-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH $COM_STUB_PATH $COM_GENERAL_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
-	-C $APPLICATION \
-	-U "$MODULE C_Init_Code.o EcuM.o EcuM_StartupTask.o Os_Hook.o" "$CMP_OPT"
+	# ABREXによるARXMLの作成
+	ruby $OS_PATH/utils/abrex/abrex.rb ../../$APPLICATION.yaml ../nios2_dev_gcc_common.yaml
+	mv -f ../../$APPLICATION.arxml .
 
-# ABREXによるARXMLの作成
-ruby $OS_PATH/utils/abrex/abrex.rb $APPLICATION.yaml
+	# A-RTEGENによるA-RTEモジュール作成
+	../../../../../bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/$SYSTEM_DESC.arxml $APPLICATION.arxml
 
-# A-RTEGENによるA-RTEモジュール作成
-../../../../bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance1.arxml $APPLICATION.arxml
+	# A-COMジェネレータによるA-COMモジュール作成
+	echo "Generate Com"
+	$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $COM_PATH/com.ini --api-table $COM_PATH/com.csv -T $COM_PATH/com.tf $APPLICATION.arxml
 
-# A-COMジェネレータによるA-COMモジュール作成
-echo "Generate Com"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $COM_PATH/com.ini --api-table $COM_PATH/com.csv -T $COM_PATH/com.tf $APPLICATION.arxml
+	# A-PDURジェネレータによるA-PDURモジュール作成
+	echo "Generate PduR"
+	$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $PDUR_PATH/pdur.ini --api-table $PDUR_PATH/pdur.csv -T $PDUR_PATH/pdur.tf $APPLICATION.arxml
 
-# A-PDURジェネレータによるA-PDURモジュール作成
-echo "Generate PduR"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $PDUR_PATH/pdur.ini --api-table $PDUR_PATH/pdur.csv -T $PDUR_PATH/pdur.tf $APPLICATION.arxml
+	# A-CANIFジェネレータによるA-CANIFモジュール作成
+	echo "Generate CanIf"
+	$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CANIF_PATH/canif.ini --api-table $CANIF_PATH/canif.csv -T $CANIF_PATH/canif.tf $APPLICATION.arxml
 
-# A-CANIFジェネレータによるA-CANIFモジュール作成
-echo "Generate CanIf"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CANIF_PATH/canif.ini --api-table $CANIF_PATH/canif.csv -T $CANIF_PATH/canif.tf $APPLICATION.arxml
-
-# A-CANジェネレータによるA-CANモジュール作成
-echo "Generate Can"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -T $CAN_PATH/can.tf $APPLICATION.arxml
+	# A-CANジェネレータによるA-CANモジュール作成
+	echo "Generate Can"
+	$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -I $CAN_PATH -T $CAN_PATH/target/$TARGET/Can_Target.tf $APPLICATION.arxml $OS_PATH/target/$TARGET/target_hw_counter.arxml
+}

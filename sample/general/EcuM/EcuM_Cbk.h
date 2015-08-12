@@ -45,7 +45,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: EcuM_Cbk.h 141 2014-09-26 09:13:20Z mtakada $
+ *  $Id: EcuM_Cbk.h 194 2014-11-27 12:13:00Z mtakada $
  */
 
 #ifndef ECUM_CBK_H
@@ -56,6 +56,12 @@
 /* CanIfモジュールで使用する */
 LOCAL_INLINE void
 EcuM_ValidateWakeupEvent(EcuM_WakeupSourceType sources)
+{
+	return;
+}
+
+LOCAL_INLINE void
+EcuM_CheckWakeup(EcuM_WakeupSourceType sources)
 {
 	return;
 }

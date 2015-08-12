@@ -46,7 +46,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: configure.sh 141 2014-09-26 09:13:20Z mtakada $
+# $Id: configure.sh 194 2014-11-27 12:13:00Z mtakada $
 #
 
 #
@@ -123,7 +123,7 @@ fi
 
 # configureスクリプトによるMakefile作成
 perl $OS_PATH/configure -T $TARGET -A Rte $CFG_OPT \
-	-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH $COM_STUB_PATH $COM_GENERAL_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
+	-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH/target/$TARGET $CAN_PATH $COM_STUB_PATH $COM_GENERAL_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
 	-C "$APPLICATION $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2 Rte_GeneratedEcuc" \
 	-U "$MODULE C_Init_Code.o EcuM.o EcuM_StartupTask.o Os_Hook.o" "$CMP_OPT"
 
@@ -150,4 +150,4 @@ $OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CANIF_
 
 # A-CANジェネレータによるA-CANモジュール作成
 echo "Generate Can"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -T $CAN_PATH/can.tf $APPLICATION.arxml
+$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -I $CAN_PATH -T $CAN_PATH/target/$TARGET/Can_Target.tf $APPLICATION.arxml $OS_PATH/target/$TARGET/target_hw_counter.arxml

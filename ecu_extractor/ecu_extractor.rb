@@ -45,7 +45,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: ecu_extractor.rb 141 2014-09-26 09:13:20Z mtakada $
+# $Id: ecu_extractor.rb 212 2014-12-03 05:51:22Z shigihara $
 
 require "pp"
 require "rexml/document.rb"
@@ -80,24 +80,34 @@ if (aEcuInstances.size() == 0)
   abort("ECU Instance not found !! [#{sFileName}]")
 end
 
-# ECUインスタンス毎のSW-C情報を格納するハッシュ定義
-hEcuData = {}
+# ECUインスタンス毎のSW-C情報を格納するハッシュ
+hSwcOfEcu = {}
 aEcuInstances.each{|sEcu|
-  hEcuData[sEcu] = []
+  hSwcOfEcu[sEcu] = []
 }
 
-# 各ECUインスタンスに所属するSW-Cを取得
+# ECUインスタンス毎のルートコンポジション情報を格納するハッシュ
+hCompositionOfEcu = {}
+aEcuInstances.each{|sEcu|
+  hCompositionOfEcu[sEcu] = nil
+}
+
+# 各ECUインスタンスに所属するSW-C、コンポジションを取得
 XPath.each(cXmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   sEcuName = File.basename(cElement.elements["ECU-INSTANCE-REF"].text())
-  if (!hEcuData.has_key?(sEcuName))
+  if (!hSwcOfEcu.has_key?(sEcuName))
     abort("Unknown ECU Instance !! [#{sEcuName}]")
   end
-  hEcuData[sEcuName].push(File.basename(cElement.elements["COMPONENT-IREFS"].elements["COMPONENT-IREF"].elements["CONTEXT-COMPONENT-REF"].text()))
-}
 
-# CONNECTORSコンテナを削除
-XPath.each(cXmlData, "//COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS"){|cElement|
-  cElement.parent().delete_element(cElement)
+  hSwcOfEcu[sEcuName].push(File.basename(cElement.elements["COMPONENT-IREFS"].elements["COMPONENT-IREF"].elements["CONTEXT-COMPONENT-REF"].text()))
+
+  if (hCompositionOfEcu[sEcuName].nil?)
+    hCompositionOfEcu[sEcuName] = File.basename(cElement.elements["COMPONENT-IREFS"].elements["COMPONENT-IREF"].elements["CONTEXT-COMPOSITION-REF"].text())
+  else
+    if (hCompositionOfEcu[sEcuName] != File.basename(cElement.elements["COMPONENT-IREFS"].elements["COMPONENT-IREF"].elements["CONTEXT-COMPOSITION-REF"].text()))
+      abort("Different compositions exist on 1 ECU Instance !! [#{sEcuName}]")
+    end
+  end
 }
 
 # ECU-INSTANCEコンテナを削除
@@ -110,10 +120,15 @@ XPath.each(cXmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
+# SWC-BSW-MAPPINGコンテナを削除
+XPath.each(cXmlData, "//ELEMENTS/SWC-BSW-MAPPING"){|cElement|
+  cElement.parent().delete_element(cElement)
+}
+
 cXmlData.freeze()
 
 # ECU毎にARXMLを作成する
-hEcuData.each{|sEcu, aSwc|
+hSwcOfEcu.each{|sEcu, aSwc|
   cTempXml = cXmlData.deep_clone()
 
   # 対象外のAPPLICATION-SW-COMPONENT-TYPEを削除
@@ -147,6 +162,36 @@ hEcuData.each{|sEcu, aSwc|
   # 対象外のSW-COMPONENT-PROTOTYPEを削除
   XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/COMPONENTS/SW-COMPONENT-PROTOTYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
+      cElement.parent().delete_element(cElement)
+    end
+  }
+
+  # SW-COMPONENT-PROTOTYPEが無くなり空になったCOMPOSITION-SW-COMPONENT-TYPEを削除
+  XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/"){|cElement|
+    if (cElement.elements["COMPONENTS"].has_elements?() == false)
+      cElement.parent().delete_element(cElement)
+    end
+  }
+
+  # 対象外のROOT-SW-COMPOSITION-PROTOTYPEを削除
+  XPath.each(cTempXml, "//ROOT-SOFTWARE-COMPOSITIONS/ROOT-SW-COMPOSITION-PROTOTYPE"){|cElement|
+    if (hCompositionOfEcu[sEcu] != cElement.elements["SHORT-NAME"].text())
+      cElement.parent().delete_element(cElement)
+    end
+  }
+
+  # 対象外のASSEMBLY-SW-CONNECTORを削除
+  XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS/ASSEMBLY-SW-CONNECTOR"){|cElement|
+    sProvider =  File.basename(cElement.elements["PROVIDER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
+    sRequester =  File.basename(cElement.elements["REQUESTER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
+    if (!aSwc.include?(sProvider) || !aSwc.include?(sRequester))
+      cElement.parent().delete_element(cElement)
+    end
+  }
+
+  # ASSEMBLY-SW-CONNECTORが無くなり空になったCONNECTORSを削除
+  XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS"){|cElement|
+    if (cElement.has_elements?() == false)
       cElement.parent().delete_element(cElement)
     end
   }
