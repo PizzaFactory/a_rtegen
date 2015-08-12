@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -200,7 +200,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getReceiverEx()
 	 * @generated
 	 */
-	int RECEIVER_EX = 19;
+	int RECEIVER_EX = 23;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExternalEcuSenderExImpl <em>External Ecu Sender Ex</em>}' class.
@@ -210,7 +210,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getExternalEcuSenderEx()
 	 * @generated
 	 */
-	int EXTERNAL_ECU_SENDER_EX = 20;
+	int EXTERNAL_ECU_SENDER_EX = 24;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.AssemblyDataInstanceConnectorExImpl <em>Assembly Data Instance Connector Ex</em>}' class.
@@ -220,7 +220,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getAssemblyDataInstanceConnectorEx()
 	 * @generated
 	 */
-	int ASSEMBLY_DATA_INSTANCE_CONNECTOR_EX = 18;
+	int ASSEMBLY_DATA_INSTANCE_CONNECTOR_EX = 22;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataInstanceInCompositionExImpl <em>Variable Data Instance In Composition Ex</em>}' class.
@@ -230,7 +230,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getVariableDataInstanceInCompositionEx()
 	 * @generated
 	 */
-	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX = 13;
+	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX = 17;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalExImpl <em>Com Signal Ex</em>}' class.
@@ -240,7 +240,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getComSignalEx()
 	 * @generated
 	 */
-	int COM_SIGNAL_EX = 11;
+	int COM_SIGNAL_EX = 13;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataInstanceInSwcExImpl <em>Variable Data Instance In Swc Ex</em>}' class.
@@ -250,7 +250,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getVariableDataInstanceInSwcEx()
 	 * @generated
 	 */
-	int VARIABLE_DATA_INSTANCE_IN_SWC_EX = 14;
+	int VARIABLE_DATA_INSTANCE_IN_SWC_EX = 18;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.RVariableDataInstanceInSwcExImpl <em>RVariable Data Instance In Swc Ex</em>}' class.
@@ -260,7 +260,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getRVariableDataInstanceInSwcEx()
 	 * @generated
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC_EX = 16;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC_EX = 20;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.PVariableDataInstanceInSwcExImpl <em>PVariable Data Instance In Swc Ex</em>}' class.
@@ -270,7 +270,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getPVariableDataInstanceInSwcEx()
 	 * @generated
 	 */
-	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX = 15;
+	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX = 19;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ROperationInstanceInSwcExImpl <em>ROperation Instance In Swc Ex</em>}' class.
@@ -280,7 +280,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getROperationInstanceInSwcEx()
 	 * @generated
 	 */
-	int ROPERATION_INSTANCE_IN_SWC_EX = 17;
+	int ROPERATION_INSTANCE_IN_SWC_EX = 21;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.SenderReceiverToSignalMappingExImpl <em>Sender Receiver To Signal Mapping Ex</em>}' class.
@@ -290,7 +290,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getSenderReceiverToSignalMappingEx()
 	 * @generated
 	 */
-	int SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX = 9;
+	int SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX = 10;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.EcucPartitionExImpl <em>Ecuc Partition Ex</em>}' class.
@@ -300,7 +300,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getEcucPartitionEx()
 	 * @generated
 	 */
-	int ECUC_PARTITION_EX = 12;
+	int ECUC_PARTITION_EX = 15;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.AtomicSwComponentTypeExImpl <em>Atomic Sw Component Type Ex</em>}' class.
@@ -368,14 +368,114 @@ public interface ExPackage extends EPackage {
 	int VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION = 1;
 
 	/**
+	 * The operation id for the '<em>Is For VALUE</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_FOR_VALUE__VALUESPECIFICATION = 2;
+
+	/**
+	 * The operation id for the '<em>Is For ARRAY</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_FOR_ARRAY__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = 3;
+
+	/**
+	 * The operation id for the '<em>Is For STRUCTURE</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_FOR_STRUCTURE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = 4;
+
+	/**
+	 * The operation id for the '<em>Is For UNION</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_FOR_UNION__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = 5;
+
+	/**
+	 * The operation id for the '<em>Is For DATA REFERENCE</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_FOR_DATA_REFERENCE__VALUESPECIFICATION = 6;
+
+	/**
+	 * The operation id for the '<em>Is Valid Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___IS_VALID_VALUE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = 7;
+
+	/**
+	 * The operation id for the '<em>Equals Init Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SPECIFICATION_EX___EQUALS_INIT_VALUE__VALUESPECIFICATION_VALUESPECIFICATION = 8;
+
+	/**
 	 * The number of operations of the '<em>Value Specification Ex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SPECIFICATION_EX_OPERATION_COUNT = 2;
+	int VALUE_SPECIFICATION_EX_OPERATION_COUNT = 9;
 
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.NonqueuedSenderComSpecExImpl <em>Nonqueued Sender Com Spec Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.NonqueuedSenderComSpecExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getNonqueuedSenderComSpecEx()
+	 * @generated
+	 */
+	int NONQUEUED_SENDER_COM_SPEC_EX = 4;
+
+	/**
+	 * The number of structural features of the '<em>Nonqueued Sender Com Spec Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NONQUEUED_SENDER_COM_SPEC_EX_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Has Valid Init Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NONQUEUED_SENDER_COM_SPEC_EX___HAS_VALID_INIT_VALUE__NONQUEUEDSENDERCOMSPEC = 0;
+
+	/**
+	 * The number of operations of the '<em>Nonqueued Sender Com Spec Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NONQUEUED_SENDER_COM_SPEC_EX_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.CompuMethodExImpl <em>Compu Method Ex</em>}' class.
@@ -385,7 +485,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getCompuMethodEx()
 	 * @generated
 	 */
-	int COMPU_METHOD_EX = 4;
+	int COMPU_METHOD_EX = 5;
 
 	/**
 	 * The number of structural features of the '<em>Compu Method Ex</em>' class.
@@ -422,7 +522,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getCompuScaleEx()
 	 * @generated
 	 */
-	int COMPU_SCALE_EX = 5;
+	int COMPU_SCALE_EX = 6;
 
 	/**
 	 * The number of structural features of the '<em>Compu Scale Ex</em>' class.
@@ -468,7 +568,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getApplicationDataTypeEx()
 	 * @generated
 	 */
-	int APPLICATION_DATA_TYPE_EX = 6;
+	int APPLICATION_DATA_TYPE_EX = 7;
 
 	/**
 	 * The number of structural features of the '<em>Application Data Type Ex</em>' class.
@@ -505,7 +605,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getImplementationDataTypeEx()
 	 * @generated
 	 */
-	int IMPLEMENTATION_DATA_TYPE_EX = 7;
+	int IMPLEMENTATION_DATA_TYPE_EX = 8;
 
 	/**
 	 * The feature id for the '<em><b>Compu Method Ex</b></em>' reference.
@@ -569,7 +669,16 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getExclusiveAreaEx()
 	 * @generated
 	 */
-	int EXCLUSIVE_AREA_EX = 8;
+	int EXCLUSIVE_AREA_EX = 9;
+
+	/**
+	 * The feature id for the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_AREA_EX__BSW_SCHEDULABLE_ENTITY_EX = 0;
 
 	/**
 	 * The number of structural features of the '<em>Exclusive Area Ex</em>' class.
@@ -578,7 +687,16 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_AREA_EX_FEATURE_COUNT = 0;
+	int EXCLUSIVE_AREA_EX_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Using Partitions Of Bsw Exclusive Area</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA = 0;
 
 	/**
 	 * The operation id for the '<em>Provides Enter Exit Api</em>' operation.
@@ -587,7 +705,7 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA = 0;
+	int EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA = 1;
 
 	/**
 	 * The number of operations of the '<em>Exclusive Area Ex</em>' class.
@@ -596,7 +714,7 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCLUSIVE_AREA_EX_OPERATION_COUNT = 1;
+	int EXCLUSIVE_AREA_EX_OPERATION_COUNT = 2;
 
 	/**
 	 * The number of structural features of the '<em>Sender Receiver To Signal Mapping Ex</em>' class.
@@ -626,6 +744,43 @@ public interface ExPackage extends EPackage {
 	int SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX_OPERATION_COUNT = 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.SenderReceiverToSignalGroupMappingExImpl <em>Sender Receiver To Signal Group Mapping Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.SenderReceiverToSignalGroupMappingExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getSenderReceiverToSignalGroupMappingEx()
+	 * @generated
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX = 11;
+
+	/**
+	 * The number of structural features of the '<em>Sender Receiver To Signal Group Mapping Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Mapped Data Instance In Composition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALGROUPMAPPING = 0;
+
+	/**
+	 * The number of operations of the '<em>Sender Receiver To Signal Group Mapping Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX_OPERATION_COUNT = 1;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.OsTaskExImpl <em>Os Task Ex</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -633,7 +788,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getOsTaskEx()
 	 * @generated
 	 */
-	int OS_TASK_EX = 10;
+	int OS_TASK_EX = 12;
 
 	/**
 	 * The number of structural features of the '<em>Os Task Ex</em>' class.
@@ -717,6 +872,70 @@ public interface ExPackage extends EPackage {
 	int COM_SIGNAL_EX_OPERATION_COUNT = 3;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalGroupExImpl <em>Com Signal Group Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalGroupExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getComSignalGroupEx()
+	 * @generated
+	 */
+	int COM_SIGNAL_GROUP_EX = 14;
+
+	/**
+	 * The feature id for the '<em><b>Sender Receiver To Signal Group Mapping Ex</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX__SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX = 0;
+
+	/**
+	 * The number of structural features of the '<em>Com Signal Group Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Is Sender</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP = 0;
+
+	/**
+	 * The operation id for the '<em>Is Receiver</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX___IS_RECEIVER__COMSIGNALGROUP = 1;
+
+	/**
+	 * The operation id for the '<em>Get Variable Data Instance In Compositions</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP = 2;
+
+	/**
+	 * The number of operations of the '<em>Com Signal Group Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_EX_OPERATION_COUNT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Ecuc Partition Ex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -769,6 +988,88 @@ public interface ExPackage extends EPackage {
 	 * @ordered
 	 */
 	int ECUC_PARTITION_EX_OPERATION_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataPrototypeExImpl <em>Variable Data Prototype Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataPrototypeExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getVariableDataPrototypeEx()
+	 * @generated
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX = 16;
+
+	/**
+	 * The number of structural features of the '<em>Variable Data Prototype Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Init At Declaration</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_DECLARATION__VARIABLEDATAPROTOTYPE = 0;
+
+	/**
+	 * The operation id for the '<em>Init At Start</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE = 1;
+
+	/**
+	 * The operation id for the '<em>Init At Partition Restart</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE = 2;
+
+	/**
+	 * The operation id for the '<em>Get Initialization Strategy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___GET_INITIALIZATION_STRATEGY__VARIABLEDATAPROTOTYPE = 3;
+
+	/**
+	 * The operation id for the '<em>Get Section Initialization Policy</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___GET_SECTION_INITIALIZATION_POLICY__VARIABLEDATAPROTOTYPE = 4;
+
+	/**
+	 * The operation id for the '<em>Get Sw Addr Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX___GET_SW_ADDR_METHOD__VARIABLEDATAPROTOTYPE = 5;
+
+	/**
+	 * The number of operations of the '<em>Variable Data Prototype Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE_EX_OPERATION_COUNT = 6;
 
 	/**
 	 * The feature id for the '<em><b>Value Specification Ex</b></em>' reference.
@@ -906,13 +1207,22 @@ public interface ExPackage extends EPackage {
 	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_SENDER_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION = 12;
 
 	/**
+	 * The operation id for the '<em>Equals Init Value</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___EQUALS_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION_VARIABLEDATAINSTANCEINCOMPOSITION = 13;
+
+	/**
 	 * The number of operations of the '<em>Variable Data Instance In Composition Ex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX_OPERATION_COUNT = 13;
+	int VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX_OPERATION_COUNT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Alignment Type Ex</b></em>' reference.
@@ -1221,13 +1531,22 @@ public interface ExPackage extends EPackage {
 	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER = 5;
 
 	/**
+	 * The operation id for the '<em>Provides Com Callback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER = 6;
+
+	/**
 	 * The number of operations of the '<em>External Ecu Sender Ex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER_EX_OPERATION_COUNT = 6;
+	int EXTERNAL_ECU_SENDER_EX_OPERATION_COUNT = 7;
 
 
 	/**
@@ -1238,7 +1557,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getEntityStarterEx()
 	 * @generated
 	 */
-	int ENTITY_STARTER_EX = 21;
+	int ENTITY_STARTER_EX = 25;
 
 	/**
 	 * The number of structural features of the '<em>Entity Starter Ex</em>' class.
@@ -1266,6 +1585,190 @@ public interface ExPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITY_STARTER_EX_OPERATION_COUNT = 1;
+
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.BswSchedulableEntityExImpl <em>Bsw Schedulable Entity Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.BswSchedulableEntityExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getBswSchedulableEntityEx()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX = 26;
+
+	/**
+	 * The feature id for the '<em><b>Mode Declaration Group Prototype Ex</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX__MODE_DECLARATION_GROUP_PROTOTYPE_EX = 0;
+
+	/**
+	 * The number of structural features of the '<em>Bsw Schedulable Entity Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Using Partition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY = 0;
+
+	/**
+	 * The operation id for the '<em>Get Call Root Bsw Schedulable Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX___GET_CALL_ROOT_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY = 1;
+
+	/**
+	 * The operation id for the '<em>Get Mapped Tasks</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX___GET_MAPPED_TASKS__BSWSCHEDULABLEENTITY = 2;
+
+	/**
+	 * The operation id for the '<em>Get Caller Bsw Schedulable Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY = 3;
+
+	/**
+	 * The operation id for the '<em>Get Caller Bsw Schedulable Entities By Mode</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES_BY_MODE__BSWSCHEDULABLEENTITY = 4;
+
+	/**
+	 * The number of operations of the '<em>Bsw Schedulable Entity Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_EX_OPERATION_COUNT = 5;
+
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ModeDeclarationGroupPrototypeExImpl <em>Mode Declaration Group Prototype Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ModeDeclarationGroupPrototypeExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getModeDeclarationGroupPrototypeEx()
+	 * @generated
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX = 27;
+
+	/**
+	 * The feature id for the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX__BSW_SCHEDULABLE_ENTITY_EX = 0;
+
+	/**
+	 * The number of structural features of the '<em>Mode Declaration Group Prototype Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX_FEATURE_COUNT = 1;
+
+	/**
+	 * The operation id for the '<em>Get Using Partition For Manager</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_MANAGER__MODEDECLARATIONGROUPPROTOTYPE = 0;
+
+	/**
+	 * The operation id for the '<em>Get Using Partition For User</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_USER__MODEDECLARATIONGROUPPROTOTYPE = 1;
+
+	/**
+	 * The operation id for the '<em>Get Using Partition</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE = 2;
+
+	/**
+	 * The operation id for the '<em>Get Mode Manager Bsw Schedulable Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_MANAGER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE = 3;
+
+	/**
+	 * The operation id for the '<em>Get Mode User Bsw Schedulable Entities</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_USER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE = 4;
+
+	/**
+	 * The operation id for the '<em>Get Parent Bsw Module Description</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_PARENT_BSW_MODULE_DESCRIPTION__MODEDECLARATIONGROUPPROTOTYPE = 5;
+
+	/**
+	 * The operation id for the '<em>Get Connected Provided Mode Prototypes</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_CONNECTED_PROVIDED_MODE_PROTOTYPES__MODEDECLARATIONGROUPPROTOTYPE = 6;
+
+	/**
+	 * The number of operations of the '<em>Mode Declaration Group Prototype Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX_OPERATION_COUNT = 7;
 
 
 	/**
@@ -1420,6 +1923,16 @@ public interface ExPackage extends EPackage {
 	EOperation getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Callback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Provides Com Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @generated
+	 */
+	EOperation getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EntityStarterEx <em>Entity Starter Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1438,6 +1951,168 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bsw Schedulable Entity Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx
+	 * @generated
+	 */
+	EClass getBswSchedulableEntityEx();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getModeDeclarationGroupPrototypeEx <em>Mode Declaration Group Prototype Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getModeDeclarationGroupPrototypeEx()
+	 * @see #getBswSchedulableEntityEx()
+	 * @generated
+	 */
+	EReference getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getUsingPartition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) <em>Get Using Partition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Using Partition</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getUsingPartition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+	 * @generated
+	 */
+	EOperation getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallRootBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) <em>Get Call Root Bsw Schedulable Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Call Root Bsw Schedulable Entities</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallRootBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+	 * @generated
+	 */
+	EOperation getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getMappedTasks(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) <em>Get Mapped Tasks</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mapped Tasks</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getMappedTasks(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+	 * @generated
+	 */
+	EOperation getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallerBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) <em>Get Caller Bsw Schedulable Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Caller Bsw Schedulable Entities</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallerBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+	 * @generated
+	 */
+	EOperation getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallerBswSchedulableEntitiesByMode(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) <em>Get Caller Bsw Schedulable Entities By Mode</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Caller Bsw Schedulable Entities By Mode</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx#getCallerBswSchedulableEntitiesByMode(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+	 * @generated
+	 */
+	EOperation getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx <em>Mode Declaration Group Prototype Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx
+	 * @generated
+	 */
+	EClass getModeDeclarationGroupPrototypeEx();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getBswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bsw Schedulable Entity Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getBswSchedulableEntityEx()
+	 * @see #getModeDeclarationGroupPrototypeEx()
+	 * @generated
+	 */
+	EReference getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartitionForManager(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Using Partition For Manager</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Using Partition For Manager</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartitionForManager(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartitionForUser(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Using Partition For User</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Using Partition For User</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartitionForUser(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Using Partition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Using Partition</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getUsingPartition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getModeManagerBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Mode Manager Bsw Schedulable Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mode Manager Bsw Schedulable Entities</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getModeManagerBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getModeUserBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Mode User Bsw Schedulable Entities</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mode User Bsw Schedulable Entities</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getModeUserBswSchedulableEntities(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getParentBswModuleDescription(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Parent Bsw Module Description</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Parent Bsw Module Description</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getParentBswModuleDescription(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getConnectedProvidedModePrototypes(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype) <em>Get Connected Provided Mode Prototypes</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Connected Provided Mode Prototypes</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx#getConnectedProvidedModePrototypes(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype)
+	 * @generated
+	 */
+	EOperation getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AssemblyDataInstanceConnectorEx <em>Assembly Data Instance Connector Ex</em>}'.
@@ -1622,6 +2297,16 @@ public interface ExPackage extends EPackage {
 	EOperation getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataInstanceInCompositionEx#equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition) <em>Equals Init Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals Init Value</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataInstanceInCompositionEx#equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition)
+	 * @generated
+	 */
+	EOperation getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalEx <em>Com Signal Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1671,6 +2356,57 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx <em>Com Signal Group Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Signal Group Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx
+	 * @generated
+	 */
+	EClass getComSignalGroupEx();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#getSenderReceiverToSignalGroupMappingEx <em>Sender Receiver To Signal Group Mapping Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#getSenderReceiverToSignalGroupMappingEx()
+	 * @see #getComSignalGroupEx()
+	 * @generated
+	 */
+	EReference getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#isSender(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup) <em>Is Sender</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Sender</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#isSender(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup)
+	 * @generated
+	 */
+	EOperation getComSignalGroupEx__IsSender__ComSignalGroup();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#isReceiver(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup) <em>Is Receiver</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Receiver</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#isReceiver(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup)
+	 * @generated
+	 */
+	EOperation getComSignalGroupEx__IsReceiver__ComSignalGroup();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#getVariableDataInstanceInCompositions(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup) <em>Get Variable Data Instance In Compositions</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Variable Data Instance In Compositions</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx#getVariableDataInstanceInCompositions(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup)
+	 * @generated
+	 */
+	EOperation getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataInstanceInSwcEx <em>Variable Data Instance In Swc Ex</em>}'.
@@ -1854,6 +2590,26 @@ public interface ExPackage extends EPackage {
 	EOperation getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx <em>Sender Receiver To Signal Group Mapping Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx
+	 * @generated
+	 */
+	EClass getSenderReceiverToSignalGroupMappingEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx#getMappedDataInstanceInComposition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping) <em>Get Mapped Data Instance In Composition</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Mapped Data Instance In Composition</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx#getMappedDataInstanceInComposition(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping)
+	 * @generated
+	 */
+	EOperation getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.OsTaskEx <em>Os Task Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1924,6 +2680,76 @@ public interface ExPackage extends EPackage {
 	EOperation getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx <em>Variable Data Prototype Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Data Prototype Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx
+	 * @generated
+	 */
+	EClass getVariableDataPrototypeEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtDeclaration(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Init At Declaration</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init At Declaration</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtDeclaration(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtStart(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Init At Start</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init At Start</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtStart(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtPartitionRestart(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Init At Partition Restart</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Init At Partition Restart</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#initAtPartitionRestart(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getInitializationStrategy(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Get Initialization Strategy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Initialization Strategy</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getInitializationStrategy(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getSectionInitializationPolicy(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Get Section Initialization Policy</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Section Initialization Policy</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getSectionInitializationPolicy(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getSwAddrMethod(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype) <em>Get Sw Addr Method</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Sw Addr Method</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx#getSwAddrMethod(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype)
+	 * @generated
+	 */
+	EOperation getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AtomicSwComponentTypeEx <em>Atomic Sw Component Type Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,6 +2788,96 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getValueSpecificationEx__GetValueSpecAsText__ValueSpecification();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForVALUE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Is For VALUE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is For VALUE</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForVALUE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsForVALUE__ValueSpecification();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForARRAY(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For ARRAY</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is For ARRAY</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForARRAY(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForSTRUCTURE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For STRUCTURE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is For STRUCTURE</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForSTRUCTURE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForUNION(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For UNION</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is For UNION</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForUNION(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForDATA_REFERENCE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Is For DATA REFERENCE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is For DATA REFERENCE</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isForDATA_REFERENCE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isValidValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is Valid Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Value</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#isValidValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Equals Init Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals Init Value</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx#equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 */
+	EOperation getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx <em>Nonqueued Sender Com Spec Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Nonqueued Sender Com Spec Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx
+	 * @generated
+	 */
+	EClass getNonqueuedSenderComSpecEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx#hasValidInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedSenderComSpec) <em>Has Valid Init Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Valid Init Value</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx#hasValidInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedSenderComSpec)
+	 * @generated
+	 */
+	EOperation getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.CompuMethodEx <em>Compu Method Ex</em>}'.
@@ -2093,6 +3009,27 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExclusiveAreaEx();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getBswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bsw Schedulable Entity Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getBswSchedulableEntityEx()
+	 * @see #getExclusiveAreaEx()
+	 * @generated
+	 */
+	EReference getExclusiveAreaEx_BswSchedulableEntityEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getUsingPartitionsOfBswExclusiveArea(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Get Using Partitions Of Bsw Exclusive Area</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Using Partitions Of Bsw Exclusive Area</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getUsingPartitionsOfBswExclusiveArea(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea)
+	 * @generated
+	 */
+	EOperation getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea();
 
 	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#providesEnterExitApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea) <em>Provides Enter Exit Api</em>}' operation.
@@ -2256,6 +3193,14 @@ public interface ExPackage extends EPackage {
 		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender();
 
 		/**
+		 * The meta object literal for the '<em><b>Provides Com Callback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.EntityStarterExImpl <em>Entity Starter Ex</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2272,6 +3217,138 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER = eINSTANCE.getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.BswSchedulableEntityExImpl <em>Bsw Schedulable Entity Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.BswSchedulableEntityExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getBswSchedulableEntityEx()
+		 * @generated
+		 */
+		EClass BSW_SCHEDULABLE_ENTITY_EX = eINSTANCE.getBswSchedulableEntityEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Declaration Group Prototype Ex</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_SCHEDULABLE_ENTITY_EX__MODE_DECLARATION_GROUP_PROTOTYPE_EX = eINSTANCE.getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Using Partition</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY = eINSTANCE.getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Call Root Bsw Schedulable Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_SCHEDULABLE_ENTITY_EX___GET_CALL_ROOT_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY = eINSTANCE.getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mapped Tasks</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_SCHEDULABLE_ENTITY_EX___GET_MAPPED_TASKS__BSWSCHEDULABLEENTITY = eINSTANCE.getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Caller Bsw Schedulable Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY = eINSTANCE.getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Caller Bsw Schedulable Entities By Mode</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES_BY_MODE__BSWSCHEDULABLEENTITY = eINSTANCE.getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ModeDeclarationGroupPrototypeExImpl <em>Mode Declaration Group Prototype Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ModeDeclarationGroupPrototypeExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getModeDeclarationGroupPrototypeEx()
+		 * @generated
+		 */
+		EClass MODE_DECLARATION_GROUP_PROTOTYPE_EX = eINSTANCE.getModeDeclarationGroupPrototypeEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_DECLARATION_GROUP_PROTOTYPE_EX__BSW_SCHEDULABLE_ENTITY_EX = eINSTANCE.getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Using Partition For Manager</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_MANAGER__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Using Partition For User</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_USER__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Using Partition</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mode Manager Bsw Schedulable Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_MANAGER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mode User Bsw Schedulable Entities</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_USER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Parent Bsw Module Description</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_PARENT_BSW_MODULE_DESCRIPTION__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Connected Provided Mode Prototypes</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_CONNECTED_PROVIDED_MODE_PROTOTYPES__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.AssemblyDataInstanceConnectorExImpl <em>Assembly Data Instance Connector Ex</em>}' class.
@@ -2422,6 +3499,14 @@ public interface ExPackage extends EPackage {
 		EOperation VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_SENDER_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION = eINSTANCE.getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition();
 
 		/**
+		 * The meta object literal for the '<em><b>Equals Init Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___EQUALS_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION_VARIABLEDATAINSTANCEINCOMPOSITION = eINSTANCE.getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalExImpl <em>Com Signal Ex</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2462,6 +3547,48 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COM_SIGNAL_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNAL = eINSTANCE.getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalGroupExImpl <em>Com Signal Group Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ComSignalGroupExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getComSignalGroupEx()
+		 * @generated
+		 */
+		EClass COM_SIGNAL_GROUP_EX = eINSTANCE.getComSignalGroupEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Sender Receiver To Signal Group Mapping Ex</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SIGNAL_GROUP_EX__SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX = eINSTANCE.getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Sender</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP = eINSTANCE.getComSignalGroupEx__IsSender__ComSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Receiver</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COM_SIGNAL_GROUP_EX___IS_RECEIVER__COMSIGNALGROUP = eINSTANCE.getComSignalGroupEx__IsReceiver__ComSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Variable Data Instance In Compositions</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP = eINSTANCE.getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataInstanceInSwcExImpl <em>Variable Data Instance In Swc Ex</em>}' class.
@@ -2618,6 +3745,24 @@ public interface ExPackage extends EPackage {
 		EOperation SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALMAPPING = eINSTANCE.getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.SenderReceiverToSignalGroupMappingExImpl <em>Sender Receiver To Signal Group Mapping Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.SenderReceiverToSignalGroupMappingExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getSenderReceiverToSignalGroupMappingEx()
+		 * @generated
+		 */
+		EClass SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX = eINSTANCE.getSenderReceiverToSignalGroupMappingEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Mapped Data Instance In Composition</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALGROUPMAPPING = eINSTANCE.getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.OsTaskExImpl <em>Os Task Ex</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2678,6 +3823,64 @@ public interface ExPackage extends EPackage {
 		EOperation ECUC_PARTITION_EX___PROVIDES_PARTITION_RESTARTING_API__ECUCPARTITION = eINSTANCE.getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataPrototypeExImpl <em>Variable Data Prototype Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.VariableDataPrototypeExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getVariableDataPrototypeEx()
+		 * @generated
+		 */
+		EClass VARIABLE_DATA_PROTOTYPE_EX = eINSTANCE.getVariableDataPrototypeEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Init At Declaration</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_DECLARATION__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Init At Start</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Init At Partition Restart</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Initialization Strategy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___GET_INITIALIZATION_STRATEGY__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Section Initialization Policy</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___GET_SECTION_INITIALIZATION_POLICY__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Sw Addr Method</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VARIABLE_DATA_PROTOTYPE_EX___GET_SW_ADDR_METHOD__VARIABLEDATAPROTOTYPE = eINSTANCE.getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.AtomicSwComponentTypeExImpl <em>Atomic Sw Component Type Ex</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2712,6 +3915,80 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION = eINSTANCE.getValueSpecificationEx__GetValueSpecAsText__ValueSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Is For VALUE</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_FOR_VALUE__VALUESPECIFICATION = eINSTANCE.getValueSpecificationEx__IsForVALUE__ValueSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Is For ARRAY</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_FOR_ARRAY__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = eINSTANCE.getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is For STRUCTURE</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_FOR_STRUCTURE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = eINSTANCE.getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is For UNION</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_FOR_UNION__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = eINSTANCE.getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is For DATA REFERENCE</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_FOR_DATA_REFERENCE__VALUESPECIFICATION = eINSTANCE.getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___IS_VALID_VALUE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE = eINSTANCE.getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals Init Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE_SPECIFICATION_EX___EQUALS_INIT_VALUE__VALUESPECIFICATION_VALUESPECIFICATION = eINSTANCE.getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.NonqueuedSenderComSpecExImpl <em>Nonqueued Sender Com Spec Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.NonqueuedSenderComSpecExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getNonqueuedSenderComSpecEx()
+		 * @generated
+		 */
+		EClass NONQUEUED_SENDER_COM_SPEC_EX = eINSTANCE.getNonqueuedSenderComSpecEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Valid Init Value</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NONQUEUED_SENDER_COM_SPEC_EX___HAS_VALID_INIT_VALUE__NONQUEUEDSENDERCOMSPEC = eINSTANCE.getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.CompuMethodExImpl <em>Compu Method Ex</em>}' class.
@@ -2826,6 +4103,22 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXCLUSIVE_AREA_EX = eINSTANCE.getExclusiveAreaEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXCLUSIVE_AREA_EX__BSW_SCHEDULABLE_ENTITY_EX = eINSTANCE.getExclusiveAreaEx_BswSchedulableEntityEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Using Partitions Of Bsw Exclusive Area</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA = eINSTANCE.getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea();
 
 		/**
 		 * The meta object literal for the '<em><b>Provides Enter Exit Api</b></em>' operation.

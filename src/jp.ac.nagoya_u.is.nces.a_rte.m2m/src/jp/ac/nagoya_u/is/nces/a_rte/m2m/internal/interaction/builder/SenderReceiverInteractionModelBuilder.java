@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,18 +43,23 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.ASSEMBLY_DATA_INSTANCE_CONNECTOR;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION___IS_PROVIDED;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION___IS_REQUIRED;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.COM_SIGNAL_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNAL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.COM_SIGNAL_EX___IS_SENDER__COMSIGNAL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_FILTER__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INVALIDATION__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_PARTITION__VARIABLEDATAINSTANCEINCOMPOSITION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER__SOURCE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_RECEIVER__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_SENDER__SOURCE;
@@ -65,6 +70,8 @@ import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.AssemblyDataInstanceConnector;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
@@ -144,20 +151,44 @@ public class SenderReceiverInteractionModelBuilder {
 				targetInteractionRoot.getInteractionEnd().add(createExternalEcuSender(signal));
 			}
 		}
+
+		for (ComSignalGroup signalGroup : this.context.query.<ComSignalGroup> findByKind(COM_SIGNAL_GROUP)) {
+			List<VariableDataInstanceInComposition> dataInstanceInCompositionList = this.context.query.get(signalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
+			if (dataInstanceInCompositionList.isEmpty()) {
+				continue;
+			}
+
+			if (this.context.query.get(signalGroup, COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP)) {
+				targetInteractionRoot.getInteractionEnd().add(createExternalEcuReceiver(signalGroup));
+			} else {
+				targetInteractionRoot.getInteractionEnd().add(createExternalEcuSender(signalGroup));
+			}
+		}
 	}
 
-	private ExternalEcuSender createExternalEcuSender(ComSignal sourceComSignal) {
+	private ExternalEcuSender createExternalEcuSender(EcucContainer sourceComSignal) {
 		ExternalEcuSender sender = InteractionFactory.eINSTANCE.createExternalEcuSender();
-		sender.setSource(sourceComSignal);
+		if (sourceComSignal instanceof ComSignal) {
+			sender.setSourceSignal((ComSignal)sourceComSignal);
+		} else { 
+			sender.setSourceSignalGroup((ComSignalGroup)sourceComSignal);
+		}
+
 		if (this.context.cache.masterBswPartition.isPresent()) {
 			sender.setOwnerPartition(this.context.cache.masterBswPartition.get());
 		}
 		return sender;
 	}
 
-	private ExternalEcuReceiver createExternalEcuReceiver(ComSignal sourceComSignal) {
+	private ExternalEcuReceiver createExternalEcuReceiver(EcucContainer sourceComSignal) {
 		ExternalEcuReceiver receiver = InteractionFactory.eINSTANCE.createExternalEcuReceiver();
-		receiver.setSource(sourceComSignal);
+		if (sourceComSignal instanceof ComSignal) {
+			receiver.setSourceSignal((ComSignal)sourceComSignal);
+		} else {
+			receiver.setSourceSignalGroup((ComSignalGroup)sourceComSignal);
+		}
+
+
 		if (this.context.cache.masterBswPartition.isPresent()) {
 			receiver.setOwnerPartition(this.context.cache.masterBswPartition.get());
 		}
@@ -194,31 +225,37 @@ public class SenderReceiverInteractionModelBuilder {
 
 	private void buildInterEcuInteractions(InteractionRoot targetInteractionRoot) throws ModelException {
 		// ECU間の送信側，および受信側データ要素間のインタラクションを生成
+		buildInterEcuInteractionsSignal(targetInteractionRoot);
+		buildInterEcuInteractionsSignalGroup(targetInteractionRoot);
+	}
+
+
+	private void buildInterEcuInteractionsSignal(InteractionRoot targetInteractionRoot) throws ModelException {
 		for (ComSignal signal : this.context.query.<ComSignal> findByKind(COM_SIGNAL)) {
 			List<VariableDataInstanceInComposition> dataInstanceInCompositionList = this.context.query.get(signal, COM_SIGNAL_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNAL);
 			if (dataInstanceInCompositionList.isEmpty()) {
 				continue;
 			}
 
-			Optional<ExternalEcuReceiver> optionalExtReceiver = this.context.query.tryFindSingle(ref(EXTERNAL_ECU_RECEIVER__SOURCE, signal));
+			Optional<ExternalEcuReceiver> optionalExtReceiver = this.context.query.tryFindSingle(ref(EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL, signal));
 			if (optionalExtReceiver.isPresent()) {
 				// ECU内->ECU外のインタラクションを構築
 				ExternalEcuReceiver extReceiver = optionalExtReceiver.get();
 
 				for (VariableDataInstanceInComposition dataInstanceInComposition : dataInstanceInCompositionList) {
-					ReceiveInteraction receiveInteraction = createReceiveInteractionToExternalEcu(dataInstanceInComposition, signal, extReceiver);
-					SendInteraction sendInteraction = createSendInteractionFromInternalEcu(dataInstanceInComposition, signal, extReceiver, receiveInteraction);
+					ReceiveInteraction receiveInteraction = createReceiveInteractionToExternalEcu(dataInstanceInComposition, extReceiver);
+					SendInteraction sendInteraction = createSendInteractionFromInternalEcu(dataInstanceInComposition, extReceiver, receiveInteraction);
 
 					targetInteractionRoot.getInteraction().add(sendInteraction);
 					targetInteractionRoot.getInteraction().add(receiveInteraction);
 				}
 			} else {
 				// ECU外->ECU内のインタラクションを構築
-				ExternalEcuSender extSender = this.context.query.<ExternalEcuSender> findSingle(ref(EXTERNAL_ECU_SENDER__SOURCE, signal));
+				ExternalEcuSender extSender = this.context.query.<ExternalEcuSender> findSingle(ref(EXTERNAL_ECU_SENDER__SOURCE_SIGNAL, signal));
 				for (VariableDataInstanceInComposition dataInstanceInComposition : dataInstanceInCompositionList) {
 					InternalEcuReceiver receiver = this.context.query.findSingle(ref(INTERNAL_ECU_RECEIVER__SOURCE, dataInstanceInComposition));
 
-					ReceiveInteraction receiveInteraction = createReceiveInteractionFromExternalEcu(signal, dataInstanceInComposition, receiver);
+					ReceiveInteraction receiveInteraction = createReceiveInteractionFromExternalEcu(dataInstanceInComposition, receiver);
 					SendInteraction sendInteraction = createSendInteraction(signal, dataInstanceInComposition, extSender, receiver, receiveInteraction);
 
 					targetInteractionRoot.getInteraction().add(sendInteraction);
@@ -228,7 +265,42 @@ public class SenderReceiverInteractionModelBuilder {
 		}
 	}
 
-	private SendInteraction createSendInteraction(ComSignal sourceComSignal, VariableDataInstanceInComposition sourceDataInstanceInComposition, ExternalEcuSender extSender,
+	private void buildInterEcuInteractionsSignalGroup(InteractionRoot targetInteractionRoot) throws ModelException {
+		for (ComSignalGroup signalGroup : this.context.query.<ComSignalGroup> findByKind(COM_SIGNAL_GROUP)) {
+			List<VariableDataInstanceInComposition> dataInstanceInCompositionList = this.context.query.get(signalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
+			if (dataInstanceInCompositionList.isEmpty()) {
+				continue;
+			}
+			
+			Optional<ExternalEcuReceiver> optionalExtReceiver = this.context.query.tryFindSingle(ref(EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP, signalGroup));
+			if (optionalExtReceiver.isPresent()) {
+				// ECU内->ECU外のインタラクションを構築
+				ExternalEcuReceiver extReceiver = optionalExtReceiver.get();
+				
+				for (VariableDataInstanceInComposition dataInstanceInComposition : dataInstanceInCompositionList) {
+					ReceiveInteraction receiveInteraction = createReceiveInteractionToExternalEcu(dataInstanceInComposition, extReceiver);
+					SendInteraction sendInteraction = createSendInteractionFromInternalEcu(dataInstanceInComposition, extReceiver, receiveInteraction);
+					
+					targetInteractionRoot.getInteraction().add(sendInteraction);
+					targetInteractionRoot.getInteraction().add(receiveInteraction);
+				}
+			} else {
+				// ECU外->ECU内のインタラクションを構築
+				ExternalEcuSender extSender = this.context.query.<ExternalEcuSender> findSingle(ref(EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP, signalGroup));
+				for (VariableDataInstanceInComposition dataInstanceInComposition : dataInstanceInCompositionList) {
+					InternalEcuReceiver receiver = this.context.query.findSingle(ref(INTERNAL_ECU_RECEIVER__SOURCE, dataInstanceInComposition));
+					
+					ReceiveInteraction receiveInteraction = createReceiveInteractionFromExternalEcu(dataInstanceInComposition, receiver);
+					SendInteraction sendInteraction = createSendInteraction(signalGroup, dataInstanceInComposition, extSender, receiver, receiveInteraction);
+					
+					targetInteractionRoot.getInteraction().add(sendInteraction);
+					targetInteractionRoot.getInteraction().add(receiveInteraction);
+				}
+			}
+		}
+	}
+
+	private SendInteraction createSendInteraction(EcucContainer sourceComSignal, VariableDataInstanceInComposition sourceDataInstanceInComposition, ExternalEcuSender extSender,
 			InternalEcuReceiver receiver, ReceiveInteraction receiveInteraction) {
 		SendInteraction sendInteraction = InteractionFactory.eINSTANCE.createSendInteraction();
 		sendInteraction.getSender().add(extSender);
@@ -236,13 +308,13 @@ public class SenderReceiverInteractionModelBuilder {
 		return sendInteraction;
 	}
 
-	private ReceiveInteraction createReceiveInteractionFromExternalEcu(ComSignal sourceComSignal, VariableDataInstanceInComposition sourceDataInstanceInComposition, InternalEcuReceiver receiver) {
+	private ReceiveInteraction createReceiveInteractionFromExternalEcu(VariableDataInstanceInComposition sourceDataInstanceInComposition, InternalEcuReceiver receiver) {
 		ReceiveInteraction receiveInteraction = InteractionFactory.eINSTANCE.createReceiveInteraction();
 		receiveInteraction.getReceiver().add(receiver);
 		return receiveInteraction;
 	}
 
-	private SendInteraction createSendInteractionFromInternalEcu(VariableDataInstanceInComposition sourceDataInstanceInComposition, ComSignal sourceComSignal, ExternalEcuReceiver extReceiver,
+	private SendInteraction createSendInteractionFromInternalEcu(VariableDataInstanceInComposition sourceDataInstanceInComposition, ExternalEcuReceiver extReceiver,
 			ReceiveInteraction receiveInteraction) throws ModelException {
 		InternalEcuSender sender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
 		SendInteraction sendInteraction = InteractionFactory.eINSTANCE.createSendInteraction();
@@ -251,7 +323,7 @@ public class SenderReceiverInteractionModelBuilder {
 		return sendInteraction;
 	}
 
-	private ReceiveInteraction createReceiveInteractionToExternalEcu(VariableDataInstanceInComposition sourceDataInstanceInComposition, ComSignal sourceComSignal, ExternalEcuReceiver extReceiver) {
+	private ReceiveInteraction createReceiveInteractionToExternalEcu(VariableDataInstanceInComposition sourceDataInstanceInComposition, ExternalEcuReceiver extReceiver) {
 		ReceiveInteraction receiveInteraction = InteractionFactory.eINSTANCE.createReceiveInteraction();
 		receiveInteraction.getReceiver().add(extReceiver);
 		return receiveInteraction;

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,11 +43,14 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucReferrable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocSenderProperties;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.ROperationInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
@@ -55,10 +58,18 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInCo
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationError;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 
@@ -68,11 +79,12 @@ import com.google.common.base.Strings;
 /**
  * 生成するRTEソースコード中で使用する識別子を提供します．
  */
-public class SymbolNames {
+public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，staticメソッド群のクラスであるため問題ない)
 
 	// シンボルの接頭辞
 	private static final String IOC_SYMBOL_NAME_PREFIX = "Ioc";
 	private static final String RTE_SYMBOL_NAME_PREFIX = "Rte_";
+	private static final String RTE_CONSTANT_SYMBOL_NAME_PREFIX = "RTE_";
 	private static final String TRUSTED_FUNCTION_NAME_PREFIX = "TRUSTED_";
 	private static final String SCHM_SYMBOL_NAME_PREFIX = "SchM_";
 
@@ -90,6 +102,7 @@ public class SymbolNames {
 	public static final String UINT16_TYPE_NAME = "uint16";
 	public static final String UINT32_TYPE_NAME = "uint32";
 	public static final String STD_RETURN_TYPE_NAME = "Std_ReturnType";
+	public static final String RTE_BUFFER_TYPE_OFFSET = "Rte_BufferTypeOffset";
 	public static final String OS_STATUS_TYPE_NAME = "StatusType";
 	public static final String OS_APPLICATION_TYPE_NAME = "ApplicationType";
 	public static final String OS_TASK_TYPE_NAME = "TaskType";
@@ -99,22 +112,53 @@ public class SymbolNames {
 	public static final String OS_TRUSTED_FUNCTION_INDEX_TYPE_NAME = "TrustedFunctionIndexType";
 	public static final String OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME = "TrustedFunctionParameterRefType";
 	public static final String COM_SIGNAL_ID_TYPE_NAME = "Com_SignalIdType";
+	public static final String RTE_SEND_SIGNAL_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_SendTrustedFunctionParamType";
 	public static final String COM_SEND_SIGNAL_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_ComSendTrustedFunctionParamType";
-
+	public static final String COM_SEND_GROUP_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_ComSendGroupTrustedFunctionParamType";
+	public static final String COM_META_COMPLEX_DATA_TYPE_NAME = "Rte_ComMetaComplexDataType";
+	public static final String COM_SR_WRITE_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME = "Rte_SrWriteProxyFunctionTableIndex";
+	public static final String RTE_ARGS_TRUSTED_FUNCTION_PARAM_TYPE = "ArgsTrustedFunctionParamType";
+	
 	// 定数のシンボル名
 	private static final String RTE_CONSTANT_NAME_PREFIX = "RTE_";
+	private static final String SCHM_CONSTANT_NAME_PREFIX = "SCHM_";
 	public static final String RTE_E_OK_CONSTANT_NAME = "RTE_E_OK";
 	public static final String RTE_E_INVALID_CONSTANT_NAME = "RTE_E_INVALID";
 	public static final String RTE_E_MAX_AGE_EXCEEDED_CONSTANT_NAME = "RTE_E_MAX_AGE_EXCEEDED";
-
+	public static final String RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE_NAME = "RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE";
+	
 	// 関数のシンボル名
+	public static final String RTE_CALL_BSW = "Rte_Call_Bsw_";
 	private static final String OS_TASK_MACRO_NAME = "TASK";
-	public static final String OS_SET_EVENT_API_NAME = "SetEvent";
-	public static final String COM_SEND_SIGNAL_API_NAME = "Com_SendSignal";
-	public static final String COM_RECEIVE_SIGNAL_API_NAME = "Com_ReceiveSignal";
+	public static final String OS_SET_EVENT_API_NAME = "Rte_Call_Bsw_SetEvent";
+	public static final String RTE_CALL_BSW_COM_SEND_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_SendSignal";
+	public static final String RTE_CALL_BSW_COM_RECEIVE_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_ReceiveSignal";
+	public static final String COM_RECEIVE_SHADOW_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_ReceiveShadowSignal";
+	public static final String COM_UPDATE_SHADOW_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_UpdateShadowSignal";
+	public static final String RTE_CALL_BSW_COM_RECEIVE_SIGNAL_GROUP_API_NAME = "Rte_Call_Bsw_Com_ReceiveSignalGroup";
+	public static final String RTE_CALL_BSW_COM_SEND_SIGNAL_GROUP_API_NAME = "Rte_Call_Bsw_Com_SendSignalGroup";
+	public static final String COM_SEND_SIGNAL_API_NAME = "Rte_ComSendSignal";
+	public static final String COM_RECEIVE_SIGNAL_API_NAME = "Rte_ComReceiveSignal";
+	public static final String COM_RECEIVE_SIGNAL_GROUP_API_NAME = "Rte_ComReceiveSignalGroup";
+	public static final String COM_SEND_SIGNAL_GROUP_API_NAME = "Rte_ComSendSignalGroup";
 	public static final String COM_SEND_SIGNAL_PERIODIC_ENTITY_NAME = "Rte_ComSendSignalProxyPeriodic";
 	public static final String COM_SEND_SIGNAL_IMMEDIATE_ENTITY_NAME = "Rte_ComSendSignalProxyImmediate";
 	public static final String COM_SEND_SIGNAL_TRUSTED_FUNCTION_NAME = TRUSTED_FUNCTION_NAME_PREFIX + "Rte_ComSendSignal";
+	public static final String COM_SEND_SIGNAL_GROUP_TRUSTED_FUNCTION_NAME = TRUSTED_FUNCTION_NAME_PREFIX + "Rte_ComSendSignalGroup";
+	public static final String COM_SEND_SIGNAL_GROUP_FUNCTION_NAME = "Rte_ComSendSignalGroup";
+	public static final String CS_TRUSTED_FUNCTION_NAME = TRUSTED_FUNCTION_NAME_PREFIX + "Rte_CsCallTf";
+	public static final String RTE_BUFFER_COM_META_COMPLEX_DATA_NAME = "Rte_BufferComMetaComplexData";
+	public static final String RTE_BUFFER_COM_VALUE_COMPLEX_DATA_NAME = "Rte_BufferComValueComplexData";
+	public static final String RTE_BUFFER_TYPE_COM_SIGNAL_NAME = "Rte_BufferTypeComSignal";
+	public static final String RTE_BUFFER_TYPE_OFFSET_NAME = "Rte_BufferTypeOffset";
+	public static final String RTE_SR_WRITE_PROXY_NAME = "Rte_SrWriteProxy";
+	public static final String RTE_SR_WRITE_PROXY_FUNCTION_TABLE_NAME = "Rte_SrWriteProxy_FunctionTable";
+	
+	public static final String RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_RECEIVE_SHADOW_SIGNAL_NAME = "Rte_ComReceiveSignalGroupWithReceiveShadowSignal";
+	public static final String RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_OUT_RECEIVE_SHADOW_SIGNAL_NAME = "Rte_ComReceiveSignalGroupWithoutReceiveShadowSignal";
+	public static final String RTE_COM_SEND_SIGNAL_GROUP_WITH_UPDATE_SHADOW_SIGNAL_NAME = "Rte_ComSendSignalGroupWithUpdateShadowSignal";
+	public static final String RTE_COM_SEND_SIGNAL_GROUP_WITH_OUT_UPDATE_SHADOW_SIGNAL_NAME = "Rte_ComSendSignalGroupWithoutUpdateShadowSignal";
+	
 	public static final String RTE_START_API_NAME = RTE_SYMBOL_NAME_PREFIX + "Start";
 	public static final String RTE_STOP_API_NAME = RTE_SYMBOL_NAME_PREFIX + "Stop";
 	public static final String SCHM_INIT_API_NAME = SCHM_SYMBOL_NAME_PREFIX + "Init";
@@ -123,6 +167,7 @@ public class SymbolNames {
 	// 引数のシンボル名
 	public static final String DATA_PARAM_NAME = "data";
 	public static final String DATA_REFERENCE_PARAM_NAME = "p_data";
+	public static final String DATA_REFERENCE_PARAM_META_NAME = "p_meta";
 	public static final String PORT_ARG_VALUE_PARAM_NAME_PREFIX = "port_arg_val_";
 	public static final String OS_TRUSTED_FUNCTION_INDEX_PARAM_NAME = "tfn_idx";
 	public static final String OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME = "tfn_prm";
@@ -132,11 +177,16 @@ public class SymbolNames {
 	public static final String TEMP_RETURN_VALUE_LOCAL_VAR_NAME = "tmp_ercd";
 	public static final String DATA_VAR_NAME = "data";
 	public static final String INVALID_VALUE_VAR_NAME = "inv_val";
-	public static final String TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
+	public static final String COM_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
+	public static final String COM_GROUP_TRUSTED_FUNCTION_GROUP_PARAM_VAR_NAME = "tfn_g_prm";
 	public static final String FILTER_RESULT_VAR_NAME = "flt_res";
 	public static final String SIGNAL_ID_VAR_NAME = "sig_id";
+	public static final String INX_VAR_NAME = "inx";
 	public static final String EVENT_VAR_NAME = "evt";
+	public static final String MODE_VAR_NAME = "mode";
 	public static final String PROXY_UNION_DATA_VARIABLE = "proxy_data";
+	public static final String BUFFER_COM_PROXY_PERIODIC_NAME = "Rte_BufferComProxyPeriodic";
+	public static final String BUFFER_COM_PROXY_IMMEDIATE_NAME = "Rte_BufferComProxyImmediate";
 
 	public static String createTaskBodyName(OsTask osTask) {
 		return OS_TASK_MACRO_NAME + "(" + osTask.getShortName() + ")";
@@ -174,6 +224,10 @@ public class SymbolNames {
 		return RTE_SYMBOL_NAME_PREFIX + "BufferValue" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
 	}
 
+	public static String createRteBufferInitValueVariableName(VariableDataInstanceInComposition dataInstanceInComposition) {
+		return RTE_SYMBOL_NAME_PREFIX + "BufferInitValue" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
+	}
+	
 	public static String createRteBufferStatusVariableName(VariableDataInstanceInComposition dataInstanceInComposition) {
 		return RTE_SYMBOL_NAME_PREFIX + "BufferStatus" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
 	}
@@ -186,6 +240,10 @@ public class SymbolNames {
 		return RTE_CONSTANT_NAME_PREFIX + "BUFFER_QUEUE_MAX_LENGTH" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
 	}
 
+	public static String createRteQueuedVariableMaxLengthConstantName(BswModuleDescription bswModuleDescription, ModeDeclarationGroupPrototype modeDeclarationGroupPrototype) {
+		return SCHM_CONSTANT_NAME_PREFIX + "MODE_QUEUE_MAX_LENGTH" + "_" + bswModuleDescription.getShortName() + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
 	public static String createRteBufferQueuedVariableName(VariableDataInstanceInComposition dataInstanceInComposition) {
 		return RTE_SYMBOL_NAME_PREFIX + "BufferQueue" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
 	}
@@ -209,7 +267,7 @@ public class SymbolNames {
 	public static String createFilterOccurrenceInitValueConstantName(VariableDataInstanceInComposition dataInstanceInComposition) {
 		return RTE_CONSTANT_NAME_PREFIX + "FILTER_OCCURRENCE_INIT_VALUE" + Identifiers.getImplExtension(dataInstanceInComposition.getPrototype());
 	}
-
+	
 	public static String createFilterMaskConstantName(RVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_CONSTANT_NAME_PREFIX + "FILTER_MASK" + Identifiers.getImplExtension(dataInstanceInSwc);
 	}
@@ -242,10 +300,19 @@ public class SymbolNames {
 		return RTE_CONSTANT_NAME_PREFIX + "PORT_ARG_VALUE" + Identifiers.getImplExtension(port) + "_" + index;
 	}
 
-	public static String createComSignalSymbolicName(ComSignal comSignal) {
-		return "ComConf_ComSignal_" + comSignal.getShortName();
+	public static String createPortArgValueVariableName(PortDefinedArgumentValue sourcePortDefinedArgumentValue, int index) {
+		PortPrototype port = sourcePortDefinedArgumentValue.getParent().getPort();
+		return RTE_SYMBOL_NAME_PREFIX + "CsPortArgValue" + Identifiers.getImplExtension(port) + "_" + index;
 	}
 
+	public static String createComSignalSymbolicName(EcucReferrable comSignal) {
+		if (comSignal == null) {
+			// COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+			return "ComConf_ComSignal";
+		}
+		return "ComConf_ComSignal_" + comSignal.getShortName();
+	}
+	
 	public static String createWriteApiName(PVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Write" + Identifiers.getExtension(dataInstanceInSwc);
 	}
@@ -286,6 +353,95 @@ public class SymbolNames {
 		return RTE_SYMBOL_NAME_PREFIX + "Receive" + Identifiers.getImplExtension(dataInstanceInSwc);
 	}
 
+	public static String createBufferComMetaComplexDataName(EcucReferrable comSignal) {
+		return RTE_BUFFER_COM_META_COMPLEX_DATA_NAME + "_" + comSignal.getShortName();
+	}
+	
+	public static String createBufferComValueComplexDataName(EcucReferrable comSignal) {
+		return RTE_BUFFER_COM_VALUE_COMPLEX_DATA_NAME + "_" + comSignal.getShortName();
+	}
+	
+	public static String createBufferTypeComSignalName(EcucReferrable comSignal) {
+		return RTE_BUFFER_TYPE_COM_SIGNAL_NAME + "_" + comSignal.getShortName();
+	}
+
+	public static String createBufferTypeOffsetName(EcucReferrable comSignal) {
+		return RTE_BUFFER_TYPE_OFFSET_NAME  + "_" + comSignal.getShortName();
+	}
+
+	public static String createSrWriteProxyName(PVariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable ecuc) {
+		return RTE_SR_WRITE_PROXY_NAME + Identifiers.getImplExtension(dataInstanceInSwc) + "_" + ecuc.getShortName();
+	}
+
+	public static String createBufferComProxyPeriodicName(PVariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable ecuc) {
+		return BUFFER_COM_PROXY_PERIODIC_NAME + Identifiers.getImplExtension(dataInstanceInSwc) + "_" + ecuc.getShortName();
+	}
+	
+	public static String createBufferComProxyImmediateName(PVariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable ecuc) {
+		return BUFFER_COM_PROXY_IMMEDIATE_NAME + Identifiers.getImplExtension(dataInstanceInSwc) + "_" + ecuc.getShortName();
+	}
+
+	public static String createComReceiveSignalGroupFunctionName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return COM_RECEIVE_SIGNAL_GROUP_API_NAME;
+		}
+		return COM_RECEIVE_SIGNAL_GROUP_API_NAME + Identifiers.getExtension(sourcePartition);
+	}
+	
+	public static String createComSendSignalGroupFunctionName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return COM_SEND_SIGNAL_GROUP_API_NAME;
+		}
+		return COM_SEND_SIGNAL_GROUP_API_NAME + Identifiers.getExtension(sourcePartition);
+	}
+	
+	public static String createComReceiveSignalGroupWithReceiveShadowSignalName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_RECEIVE_SHADOW_SIGNAL_NAME;
+		}
+		return RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_RECEIVE_SHADOW_SIGNAL_NAME + Identifiers.getExtension(sourcePartition);
+	}
+	
+	public static String createComReceiveSignalGroupWithoutReceiveShadowSignalName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_OUT_RECEIVE_SHADOW_SIGNAL_NAME;
+		}
+		return RTE_COM_RECEIVE_SIGNAL_GROUP_WITH_OUT_RECEIVE_SHADOW_SIGNAL_NAME + Identifiers.getExtension(sourcePartition);
+	}
+
+	public static String createRteComSendSignalGroupFunctionName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return COM_SEND_SIGNAL_GROUP_FUNCTION_NAME;
+		}
+		return COM_SEND_SIGNAL_GROUP_FUNCTION_NAME + Identifiers.getExtension(sourcePartition);
+	}
+	
+	public static String createCsTrustedFunctionName(ROperationInstanceInSwc operationInstanceInSwc) {
+		return CS_TRUSTED_FUNCTION_NAME + "_" + operationInstanceInSwc.getContextPort().getParent().getShortName();
+	}
+	
+	public static String createComSendSignalGroupWithUpdateShadowSignalName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return RTE_COM_SEND_SIGNAL_GROUP_WITH_UPDATE_SHADOW_SIGNAL_NAME;
+		}
+		return RTE_COM_SEND_SIGNAL_GROUP_WITH_UPDATE_SHADOW_SIGNAL_NAME + Identifiers.getExtension(sourcePartition);
+	}
+	
+	public static String createComSendSignalGroupWithoutUpdateShadowSignalName(EcucPartition sourcePartition) {
+		if (sourcePartition == null) {
+			return RTE_COM_SEND_SIGNAL_GROUP_WITH_OUT_UPDATE_SHADOW_SIGNAL_NAME;
+		}
+		return RTE_COM_SEND_SIGNAL_GROUP_WITH_OUT_UPDATE_SHADOW_SIGNAL_NAME + Identifiers.getExtension(sourcePartition);
+	}
+
+	public static String createIocReceiveComProxyPeriodicApiName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable signal) {
+		return RTE_CALL_BSW + IOC_SYMBOL_NAME_PREFIX + "Receive_Rte_ComProxyPeriodic" + Identifiers.getImplExtension(dataInstanceInSwc) + "_" + signal.getShortName();
+	}
+
+	public static String createIocReceiveComProxyImmediateApiName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable signal) {
+		return RTE_CALL_BSW + IOC_SYMBOL_NAME_PREFIX + "Receive_Rte_ComProxyImmediate" + Identifiers.getImplExtension(dataInstanceInSwc) + "_" + signal.getShortName();
+	}
+	
 	public static String createCallApiName(ROperationInstanceInSwc operationInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Call" + Identifiers.getExtension(operationInstanceInSwc);
 	}
@@ -326,12 +482,12 @@ public class SymbolNames {
 		return RTE_SYMBOL_NAME_PREFIX + "PartitionTerminated" + Identifiers.getExtension(sourcePartition);
 	}
 
-	public static String createComReceiveCallbackName(ComSignal comSignal) {
-		return RTE_SYMBOL_NAME_PREFIX + "COMCbk_" + comSignal.getShortName();
+	public static String createComReceiveCallbackName(EcucContainer ecucContainer) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbk_" + ecucContainer.getShortName();
 	}
 
-	public static String createComReceiveTimeoutCallbackName(ComSignal comSignal) {
-		return RTE_SYMBOL_NAME_PREFIX + "COMCbkRxTOut_" + comSignal.getShortName();
+	public static String createComReceiveTimeoutCallbackName(EcucContainer ecucContainer) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkRxTOut_" + ecucContainer.getShortName();
 	}
 
 	public static String createComInvalidateCallbackName(ComSignal comSignal) {
@@ -343,31 +499,31 @@ public class SymbolNames {
 	}
 
 	public static String createIocWriteApiName(OsIocSenderProperties osIocSenderProperties) {
-		return IOC_SYMBOL_NAME_PREFIX + "Write_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
+		return RTE_CALL_BSW + "IocWrite_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
 	public static String createIocSendApiName(OsIocSenderProperties osIocSenderProperties) {
-		return IOC_SYMBOL_NAME_PREFIX + "Send_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
+		return RTE_CALL_BSW + "IocSend_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
 	public static String createIocSendGroupApiName(OsIocSenderProperties osIocSenderProperties) {
-		return IOC_SYMBOL_NAME_PREFIX + "SendGroup_" + osIocSenderProperties.getParent().getShortName();
+		return RTE_CALL_BSW + "IocSendGroup_" + osIocSenderProperties.getParent().getShortName();
 	}
 
 	public static String createIocReadApiName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "Read_" + osIocCommunication.getShortName();
+		return RTE_CALL_BSW + "IocRead_" + osIocCommunication.getShortName();
 	}
 
 	public static String createIocReceiveApiName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "Receive_" + osIocCommunication.getShortName();
+		return RTE_CALL_BSW + "IocReceive_" + osIocCommunication.getShortName();
 	}
 
 	public static String createIocEmptyQueueApiName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "EmptyQueue_" + osIocCommunication.getShortName();
+		return RTE_CALL_BSW + "IocEmptyQueue_" + osIocCommunication.getShortName();
 	}
 
 	public static String createIocReceiveGroupApiName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "ReceiveGroup_" + osIocCommunication.getShortName();
+		return RTE_CALL_BSW + "IocReceiveGroup_" + osIocCommunication.getShortName();
 	}
 
 	private static String getSenderIdSuffix(OsIocSenderProperties osIocSenderProperties) {
@@ -413,6 +569,10 @@ public class SymbolNames {
 	public static String createRteBufferWriteTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.createRteBufferWriteTrustedFunctionName(pDataInstanceInComposition, rDataInstanceInComposition);
 	}
+	
+	public static String createRteBufferSendTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
+		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.createRteBufferSendTrustedFunctionName(pDataInstanceInComposition, rDataInstanceInComposition);
+	}
 
 	public static String createRteBufferInvalidateTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.createRteBufferInvalidateTrustedFunctionName(pDataInstanceInComposition, rDataInstanceInComposition);
@@ -453,7 +613,143 @@ public class SymbolNames {
 		return SCHM_SYMBOL_NAME_PREFIX + "Exit_" + bsnp + Identifiers.getExtension(sourceExclusiveArea);
 	}
 	
+	public static String createSchmSwitchApiName(ModeDeclarationGroupPrototype modeDeclarationGroupPrototype, String bsnp) {
+		return SCHM_SYMBOL_NAME_PREFIX + "Switch_" + bsnp + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
+	public static String createSchmModeApiName(ModeDeclarationGroupPrototype modeDeclarationGroupPrototype, String bsnp) {
+		return SCHM_SYMBOL_NAME_PREFIX + "Mode_" + bsnp + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
 	public static String createSchmCoreStartApiImplName(Core core) {
 		return SCHM_SYMBOL_NAME_PREFIX + "Init_" + core.getCoreId();
+	}
+
+	public static String createRteModeQueueTypeName(BswModuleDescription bswModuleDescription, ModeDeclarationGroupPrototype modeDeclarationGroupPrototype) {
+		return RTE_SYMBOL_NAME_PREFIX + "ModeQueueType_" + bswModuleDescription.getShortName() + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
+	public static String createSchmCurrentModeName(BswModuleDescription bswModuleDescription, ModeDeclarationGroupPrototype modeDeclarationGroupPrototype) {
+		return SCHM_SYMBOL_NAME_PREFIX + "CurrentMode_" + bswModuleDescription.getShortName() + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
+	public static String createSchmNextModeName(BswModuleDescription bswModuleDescription, ModeDeclarationGroupPrototype modeDeclarationGroupPrototype) {
+		return SCHM_SYMBOL_NAME_PREFIX + "NextMode_" + bswModuleDescription.getShortName() + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
+	public static String createSchmModeRequestQueueTypeName(BswModuleDescription bswModuleDescription, ModeDeclarationGroupPrototype modeDeclarationGroupPrototype) {
+		return SCHM_SYMBOL_NAME_PREFIX + "Mode_request_queue_" + bswModuleDescription.getShortName() + "_" + modeDeclarationGroupPrototype.getShortName();
+	}
+	
+	public static String createRteModeTypeName(ModeDeclarationGroup modeDeclarationGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "ModeType_" + modeDeclarationGroup.getShortName();
+	}
+	
+	public static String createRteInitModeTypeName(ModeDeclarationGroup modeDeclarationGroup) {
+		return RTE_CONSTANT_SYMBOL_NAME_PREFIX + "INITMODE_" + modeDeclarationGroup.getShortName();
+	}
+	
+	public static String createRteTransitionName(ModeDeclarationGroup modeDeclarationGroup) {
+		return RTE_CONSTANT_SYMBOL_NAME_PREFIX + "TRANSITION_" + modeDeclarationGroup.getShortName();
+	}
+	
+	public static String createCallArgcName(ROperationInstanceInSwc operationInstanceInSwc) {
+		return RTE_MEMORY_MAPPING_PREFIX + "_CALL_ARGC" + Identifiers.getImplExtension(operationInstanceInSwc);
+	}
+
+	public static String createCallOpidName(ROperationInstanceInSwc operationInstanceInSwc) {
+		return RTE_MEMORY_MAPPING_PREFIX + "_CALL_OPID" + Identifiers.getImplExtension(operationInstanceInSwc);
+	}
+	
+	public static String createCallCstfName(ROperationInstanceInSwc operationInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "CsCallTf_" + operationInstanceInSwc.getContextPort().getParent().getShortName();
+	}
+
+	public static String createRteCsArgsTrustedFunctionParamName(OperationInstanceInSwc operationInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "Cs" + operationInstanceInSwc.getContextPort().getParent().getShortName() + RTE_ARGS_TRUSTED_FUNCTION_PARAM_TYPE;
+	}
+	
+	public static String createRteIrvBufferInitValueConstantName(AtomicSwComponentType swComponentType, VariableDataPrototype variable) {
+		return RTE_CONSTANT_NAME_PREFIX + "IRV_BUFFER_INIT_VALUE_" + swComponentType.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvBufferVariableName(AtomicSwComponentType swComponentType, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "IrvBuffer_" + swComponentType.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvBufferValueVariableName(AtomicSwComponentType swComponentType, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "IrvBufferValue_" + swComponentType.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvBufferInitValueVariableName(AtomicSwComponentType swComponentType, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "IrvBufferInitValue_" + swComponentType.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvWriteApiName(RunnableEntity re, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "Irv_Write_" + re.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvWriteApiImplName(AtomicSwComponentType swComponentType, RunnableEntity re, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "Irv_Write_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvReadApiName(RunnableEntity re, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "Irv_Read_" + re.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createRteIrvReadApiImplName(AtomicSwComponentType swComponentType, RunnableEntity re, VariableDataPrototype variable) {
+		return RTE_SYMBOL_NAME_PREFIX + "Irv_Read_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
+	}
+
+	public static String createIocWriteApiMappingName(OsIocSenderProperties osIocSenderProperties) {
+		return IOC_SYMBOL_NAME_PREFIX + "Write_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
+	}
+
+	public static String createIocSendApiMappingName(OsIocSenderProperties osIocSenderProperties) {
+		return IOC_SYMBOL_NAME_PREFIX + "Send_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
+	}
+
+	public static String createIocSendGroupApiMappingName(OsIocSenderProperties osIocSenderProperties) {
+		return IOC_SYMBOL_NAME_PREFIX + "SendGroup_" + osIocSenderProperties.getParent().getShortName();
+	}
+
+	public static String createIocReadApiMappingName(OsIocCommunication osIocCommunication) {
+		return IOC_SYMBOL_NAME_PREFIX + "Read_" + osIocCommunication.getShortName();
+	}
+
+	public static String createIocReceiveApiMappingName(OsIocCommunication osIocCommunication) {
+		return IOC_SYMBOL_NAME_PREFIX + "Receive_" + osIocCommunication.getShortName();
+	}
+
+	public static String createIocEmptyQueueApiMappingName(OsIocCommunication osIocCommunication) {
+		return IOC_SYMBOL_NAME_PREFIX + "EmptyQueue_" + osIocCommunication.getShortName();
+	}
+
+	public static String createIocReceiveGroupApiMappingName(OsIocCommunication osIocCommunication) {
+		return IOC_SYMBOL_NAME_PREFIX + "ReceiveGroup_" + osIocCommunication.getShortName();
+	}
+
+	public static String createComSignalGroupSymbolicName(EcucContainer comSignalGroup) {
+		return "ComConf_ComSignal_" + comSignalGroup.getShortName();
+	}
+
+	public static String createComGroupSignalSymbolicName(EcucContainer comGroupSignal) {
+		return "ComConf_ComSignal_" + comGroupSignal.getShortName();
+	}
+
+	public static String createGlobalSetName(EcucContainer signalGroup) {
+		return "Global_Variable_Set" + signalGroup.getShortName();
+	}
+
+	public static String createFunctionTableName() {
+		return "(*" + RTE_SR_WRITE_PROXY_FUNCTION_TABLE_NAME + "[" + RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE_NAME + "])()";
+	}
+
+	public static String createModeConstantName(ModeDeclarationGroup group, ModeDeclaration modeDeclaration) {
+		return RTE_CONSTANT_SYMBOL_NAME_PREFIX + "MODE_" + group.getShortName() + "_" + modeDeclaration.getShortName();
+	}
+
+	public static String createModeConstantName(ModeInBswModuleDescriptionInstanceRef iref) {
+		return createModeConstantName(iref.getContextModeDeclarationGroup().getType(), iref.getTargetMode());
 	}
 }

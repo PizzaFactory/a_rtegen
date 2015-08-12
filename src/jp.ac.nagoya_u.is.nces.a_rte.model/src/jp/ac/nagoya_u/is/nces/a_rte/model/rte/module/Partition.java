@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -72,6 +72,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getOsTrustedMacro <em>Os Trusted Macro</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm <em>Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getFunctionMacroGroup <em>Function Macro Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteInternalVariable <em>Rte Internal Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSignalApi <em>Signal Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getProxyApi <em>Proxy Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -433,5 +437,73 @@ public interface Partition extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<PartedBswm> getPartedBswm();
+
+	/**
+	 * Returns the value of the '<em><b>Function Macro Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacroGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Function Macro Group</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Function Macro Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_FunctionMacroGroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<FunctionMacroGroup> getFunctionMacroGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Rte Internal Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rte Internal Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rte Internal Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_RteInternalVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GlobalVariable> getRteInternalVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Signal Api</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Signal Api</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Signal Api</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_SignalApi()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	EList<SignalApi> getSignalApi();
+
+	/**
+	 * Returns the value of the '<em><b>Proxy Api</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Proxy Api</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Proxy Api</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartition_ProxyApi()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	EList<ProxyApi> getProxyApi();
 
 } // Partition

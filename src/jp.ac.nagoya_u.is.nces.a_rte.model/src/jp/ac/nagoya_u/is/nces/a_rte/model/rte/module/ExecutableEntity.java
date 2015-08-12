@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam <em>Role Param</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock <em>Is No Mock</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,5 +108,31 @@ public interface ExecutableEntity extends Function {
 	 * @generated
 	 */
 	void setParentPartedBswm(PartedBswm value);
+
+	/**
+	 * Returns the value of the '<em><b>Is No Mock</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is No Mock</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is No Mock</em>' attribute.
+	 * @see #setIsNoMock(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableEntity_IsNoMock()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getIsNoMock();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock <em>Is No Mock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is No Mock</em>' attribute.
+	 * @see #getIsNoMock()
+	 * @generated
+	 */
+	void setIsNoMock(Boolean value);
 
 } // ExecutableEntity

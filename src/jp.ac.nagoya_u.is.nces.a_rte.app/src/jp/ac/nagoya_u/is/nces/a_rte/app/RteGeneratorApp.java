@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,6 +53,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.app.internal.GeneratorOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.app.internal.IRteGenerator;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.GeneratorInfos;
+import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidationEnvironment;
 
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
@@ -167,6 +168,7 @@ public class RteGeneratorApp {
 	private GeneratePhaseRteGenerator getGeneratePhaseRteGenerator() throws AppException {
 		if (this.generatePhaseRteGenerator == null) {
 			ModelEnvironment.initializeEnvironment();
+			ModelValidationEnvironment.initializeEnvironment();
 
 			GeneratePhaseRteGenerator generator = new GeneratePhaseRteGenerator(this.generatorInitOptions);
 			this.generatePhaseRteGenerator = generator;
@@ -177,6 +179,7 @@ public class RteGeneratorApp {
 	private ContractPhaseRteGenerator getContractPhaseRteGenerator() throws AppException {
 		if (this.contractPhaseRteGenerator == null) {
 			ModelEnvironment.initializeEnvironment();
+			ModelValidationEnvironment.initializeEnvironment();
 
 			ContractPhaseRteGenerator generator = new ContractPhaseRteGenerator(this.generatorInitOptions);
 			this.contractPhaseRteGenerator = generator;

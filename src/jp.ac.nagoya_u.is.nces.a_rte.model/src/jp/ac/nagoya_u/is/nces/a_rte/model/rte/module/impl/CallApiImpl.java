@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,11 +46,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DirectExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -105,7 +105,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> portArgValue;
+	protected EList<Value> portArgValue;
 
 	/**
 	 * The cached value of the '{@link #getReturnVariable() <em>Return Variable</em>}' reference.
@@ -196,9 +196,9 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constant> getPortArgValue() {
+	public EList<Value> getPortArgValue() {
 		if (portArgValue == null) {
-			portArgValue = new EObjectResolvingEList<Constant>(Constant.class, this, ModulePackage.CALL_API__PORT_ARG_VALUE);
+			portArgValue = new EObjectResolvingEList<Value>(Value.class, this, ModulePackage.CALL_API__PORT_ARG_VALUE);
 		}
 		return portArgValue;
 	}
@@ -294,7 +294,7 @@ public class CallApiImpl extends RteApiImpl implements CallApi {
 				return;
 			case ModulePackage.CALL_API__PORT_ARG_VALUE:
 				getPortArgValue().clear();
-				getPortArgValue().addAll((Collection<? extends Constant>)newValue);
+				getPortArgValue().addAll((Collection<? extends Value>)newValue);
 				return;
 			case ModulePackage.CALL_API__RETURN_VARIABLE:
 				setReturnVariable((LocalVariable)newValue);

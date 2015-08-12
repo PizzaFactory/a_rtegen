@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -307,6 +307,15 @@ public interface InteractionFactory extends EFactory {
 	TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation();
 
 	/**
+	 * Returns a new object of class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * @generated
+	 */
+	ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation();
+
+	/**
 	 * Returns a new object of class '<em>Runnable Entity Start Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -377,6 +386,15 @@ public interface InteractionFactory extends EFactory {
 	 * @generated
 	 */
 	TimingEvent createTimingEvent();
+
+	/**
+	 * Returns a new object of class '<em>Mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Switch Event</em>'.
+	 * @generated
+	 */
+	ModeSwitchEvent createModeSwitchEvent();
 
 	/**
 	 * Returns the package supported by this factory.

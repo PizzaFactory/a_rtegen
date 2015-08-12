@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -63,6 +64,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl#getAccessVariable <em>Access Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl#getTempReturnVariable <em>Temp Return Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +90,16 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 	 * @ordered
 	 */
 	protected Variable tempReturnVariable;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,6 +201,44 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Type getType() {
+		if (type != null && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Type newType) {
+		Type oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -198,6 +248,9 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				if (resolve) return getTempReturnVariable();
 				return basicGetTempReturnVariable();
+			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +268,9 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 				return;
 			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				setTempReturnVariable((Variable)newValue);
+				return;
+			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE:
+				setType((Type)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,6 +290,9 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				setTempReturnVariable((Variable)null);
 				return;
+			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE:
+				setType((Type)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +309,8 @@ public class RteBufferQueuedSendOperationImpl extends SendOperationImpl implemen
 				return accessVariable != null;
 			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				return tempReturnVariable != null;
+			case ModulePackage.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl#getBswEvent <em>Bsw Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 	 * @ordered
 	 */
 	protected ExecutableEntity startOnEvent;
+
+	/**
+	 * The cached value of the '{@link #getBswEvent() <em>Bsw Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBswEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected BswEvent bswEvent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,12 +155,53 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BswEvent getBswEvent() {
+		if (bswEvent != null && ((EObject)bswEvent).eIsProxy()) {
+			InternalEObject oldBswEvent = (InternalEObject)bswEvent;
+			bswEvent = (BswEvent)eResolveProxy(oldBswEvent);
+			if (bswEvent != oldBswEvent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EVENT__BSW_EVENT, oldBswEvent, bswEvent));
+			}
+		}
+		return bswEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswEvent basicGetBswEvent() {
+		return bswEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBswEvent(BswEvent newBswEvent) {
+		BswEvent oldBswEvent = bswEvent;
+		bswEvent = newBswEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EVENT__BSW_EVENT, oldBswEvent, bswEvent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				if (resolve) return getStartOnEvent();
 				return basicGetStartOnEvent();
+			case InteractionPackage.EVENT__BSW_EVENT:
+				if (resolve) return getBswEvent();
+				return basicGetBswEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +216,9 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				setStartOnEvent((ExecutableEntity)newValue);
+				return;
+			case InteractionPackage.EVENT__BSW_EVENT:
+				setBswEvent((BswEvent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,6 +235,9 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				setStartOnEvent((ExecutableEntity)null);
 				return;
+			case InteractionPackage.EVENT__BSW_EVENT:
+				setBswEvent((BswEvent)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +252,8 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				return startOnEvent != null;
+			case InteractionPackage.EVENT__BSW_EVENT:
+				return bswEvent != null;
 		}
 		return super.eIsSet(featureID);
 	}

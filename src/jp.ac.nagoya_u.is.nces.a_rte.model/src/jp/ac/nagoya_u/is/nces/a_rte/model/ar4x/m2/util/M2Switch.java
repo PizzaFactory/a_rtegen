@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,7 +47,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.*;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System;
 /**
@@ -325,6 +324,16 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.MODE_SWITCH_EVENT: {
+				modeSwitchEvent modeSwitchEvent = (modeSwitchEvent)theEObject;
+				T result = casemodeSwitchEvent(modeSwitchEvent);
+				if (result == null) result = caseRteEvent(modeSwitchEvent);
+				if (result == null) result = caseIdentifiable(modeSwitchEvent);
+				if (result == null) result = caseReferrable(modeSwitchEvent);
+				if (result == null) result = caseM2Object(modeSwitchEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.ECUC_MODULE_CONFIGURATION_VALUES: {
 				EcucModuleConfigurationValues ecucModuleConfigurationValues = (EcucModuleConfigurationValues)theEObject;
 				T result = caseEcucModuleConfigurationValues(ecucModuleConfigurationValues);
@@ -583,6 +592,43 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiable(dataTypeMappingSet);
 				if (result == null) result = caseReferrable(dataTypeMappingSet);
 				if (result == null) result = caseM2Object(dataTypeMappingSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.MODE_DECLARATION_GROUP_PROTOTYPE: {
+				ModeDeclarationGroupPrototype modeDeclarationGroupPrototype = (ModeDeclarationGroupPrototype)theEObject;
+				T result = caseModeDeclarationGroupPrototype(modeDeclarationGroupPrototype);
+				if (result == null) result = caseArElement(modeDeclarationGroupPrototype);
+				if (result == null) result = caseIdentifiable(modeDeclarationGroupPrototype);
+				if (result == null) result = caseReferrable(modeDeclarationGroupPrototype);
+				if (result == null) result = caseM2Object(modeDeclarationGroupPrototype);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.MODE_REQUEST_TYPE_MAP: {
+				ModeRequestTypeMap modeRequestTypeMap = (ModeRequestTypeMap)theEObject;
+				T result = caseModeRequestTypeMap(modeRequestTypeMap);
+				if (result == null) result = caseM2Object(modeRequestTypeMap);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.MODE_DECLARATION: {
+				ModeDeclaration modeDeclaration = (ModeDeclaration)theEObject;
+				T result = caseModeDeclaration(modeDeclaration);
+				if (result == null) result = caseArElement(modeDeclaration);
+				if (result == null) result = caseIdentifiable(modeDeclaration);
+				if (result == null) result = caseReferrable(modeDeclaration);
+				if (result == null) result = caseM2Object(modeDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.MODE_DECLARATION_GROUP: {
+				ModeDeclarationGroup modeDeclarationGroup = (ModeDeclarationGroup)theEObject;
+				T result = caseModeDeclarationGroup(modeDeclarationGroup);
+				if (result == null) result = caseArElement(modeDeclarationGroup);
+				if (result == null) result = caseIdentifiable(modeDeclarationGroup);
+				if (result == null) result = caseReferrable(modeDeclarationGroup);
+				if (result == null) result = caseM2Object(modeDeclarationGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -876,6 +922,14 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING: {
+				SenderReceiverToSignalGroupMapping senderReceiverToSignalGroupMapping = (SenderReceiverToSignalGroupMapping)theEObject;
+				T result = caseSenderReceiverToSignalGroupMapping(senderReceiverToSignalGroupMapping);
+				if (result == null) result = caseDataMapping(senderReceiverToSignalGroupMapping);
+				if (result == null) result = caseM2Object(senderReceiverToSignalGroupMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF: {
 				VariableDataPrototypeInSystemInstanceRef variableDataPrototypeInSystemInstanceRef = (VariableDataPrototypeInSystemInstanceRef)theEObject;
 				T result = caseVariableDataPrototypeInSystemInstanceRef(variableDataPrototypeInSystemInstanceRef);
@@ -1134,6 +1188,13 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.BSW_MODE_SENDER_POLICY: {
+				BswModeSenderPolicy bswModeSenderPolicy = (BswModeSenderPolicy)theEObject;
+				T result = caseBswModeSenderPolicy(bswModeSenderPolicy);
+				if (result == null) result = caseM2Object(bswModeSenderPolicy);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.IMPLEMENTATION: {
 				Implementation implementation = (Implementation)theEObject;
 				T result = caseImplementation(implementation);
@@ -1205,6 +1266,24 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.BSW_MODE_SWITCH_EVENT: {
+				BswModeSwitchEvent bswModeSwitchEvent = (BswModeSwitchEvent)theEObject;
+				T result = caseBswModeSwitchEvent(bswModeSwitchEvent);
+				if (result == null) result = caseBswEvent(bswModeSwitchEvent);
+				if (result == null) result = caseIdentifiable(bswModeSwitchEvent);
+				if (result == null) result = caseReferrable(bswModeSwitchEvent);
+				if (result == null) result = caseM2Object(bswModeSwitchEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF: {
+				ModeInBswModuleDescriptionInstanceRef modeInBswModuleDescriptionInstanceRef = (ModeInBswModuleDescriptionInstanceRef)theEObject;
+				T result = caseModeInBswModuleDescriptionInstanceRef(modeInBswModuleDescriptionInstanceRef);
+				if (result == null) result = caseM2Object(modeInBswModuleDescriptionInstanceRef);
+				if (result == null) result = caseIInstanceRef(modeInBswModuleDescriptionInstanceRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.BSW_TIMING_EVENT: {
 				BswTimingEvent bswTimingEvent = (BswTimingEvent)theEObject;
 				T result = caseBswTimingEvent(bswTimingEvent);
@@ -1234,6 +1313,79 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiable(bswInterruptEntity);
 				if (result == null) result = caseReferrable(bswInterruptEntity);
 				if (result == null) result = caseM2Object(bswInterruptEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: {
+				ImplementationDataTypeElement implementationDataTypeElement = (ImplementationDataTypeElement)theEObject;
+				T result = caseImplementationDataTypeElement(implementationDataTypeElement);
+				if (result == null) result = caseIdentifiable(implementationDataTypeElement);
+				if (result == null) result = caseReferrable(implementationDataTypeElement);
+				if (result == null) result = caseM2Object(implementationDataTypeElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SYSTEM_SIGNAL_GROUP: {
+				SystemSignalGroup systemSignalGroup = (SystemSignalGroup)theEObject;
+				T result = caseSystemSignalGroup(systemSignalGroup);
+				if (result == null) result = caseArElement(systemSignalGroup);
+				if (result == null) result = caseIdentifiable(systemSignalGroup);
+				if (result == null) result = caseReferrable(systemSignalGroup);
+				if (result == null) result = caseM2Object(systemSignalGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.ISIGNAL_GROUP: {
+				ISignalGroup iSignalGroup = (ISignalGroup)theEObject;
+				T result = caseISignalGroup(iSignalGroup);
+				if (result == null) result = caseArElement(iSignalGroup);
+				if (result == null) result = caseIdentifiable(iSignalGroup);
+				if (result == null) result = caseReferrable(iSignalGroup);
+				if (result == null) result = caseM2Object(iSignalGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SENDER_REC_COMPOSITE_TYPE_MAPPING: {
+				SenderRecCompositeTypeMapping senderRecCompositeTypeMapping = (SenderRecCompositeTypeMapping)theEObject;
+				T result = caseSenderRecCompositeTypeMapping(senderRecCompositeTypeMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SENDER_REC_RECORD_TYPE_MAPPING: {
+				SenderRecRecordTypeMapping senderRecRecordTypeMapping = (SenderRecRecordTypeMapping)theEObject;
+				T result = caseSenderRecRecordTypeMapping(senderRecRecordTypeMapping);
+				if (result == null) result = caseSenderRecCompositeTypeMapping(senderRecRecordTypeMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SENDER_REC_RECORD_ELEMENT_MAPPING: {
+				SenderRecRecordElementMapping senderRecRecordElementMapping = (SenderRecRecordElementMapping)theEObject;
+				T result = caseSenderRecRecordElementMapping(senderRecRecordElementMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SENDER_REC_ARRAY_TYPE_MAPPING: {
+				SenderRecArrayTypeMapping senderRecArrayTypeMapping = (SenderRecArrayTypeMapping)theEObject;
+				T result = caseSenderRecArrayTypeMapping(senderRecArrayTypeMapping);
+				if (result == null) result = caseSenderRecCompositeTypeMapping(senderRecArrayTypeMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.INDEXED_ARRAY_ELEMENT: {
+				IndexedArrayElement indexedArrayElement = (IndexedArrayElement)theEObject;
+				T result = caseIndexedArrayElement(indexedArrayElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SENDER_REC_ARRAY_ELEMENT_MAPPING: {
+				SenderRecArrayElementMapping senderRecArrayElementMapping = (SenderRecArrayElementMapping)theEObject;
+				T result = caseSenderRecArrayElementMapping(senderRecArrayElementMapping);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.SW_POINTER_TARGET_PROPS: {
+				SwPointerTargetProps swPointerTargetProps = (SwPointerTargetProps)theEObject;
+				T result = caseSwPointerTargetProps(swPointerTargetProps);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1598,6 +1750,21 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingEvent(TimingEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>mode Switch Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casemodeSwitchEvent(modeSwitchEvent object) {
 		return null;
 	}
 
@@ -2033,6 +2200,66 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataTypeMappingSet(DataTypeMappingSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Declaration Group Prototype</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Declaration Group Prototype</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeDeclarationGroupPrototype(ModeDeclarationGroupPrototype object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Request Type Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Request Type Map</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeRequestTypeMap(ModeRequestTypeMap object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeDeclaration(ModeDeclaration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Declaration Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Declaration Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeDeclarationGroup(ModeDeclarationGroup object) {
 		return null;
 	}
 
@@ -2532,6 +2759,21 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Receiver To Signal Group Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Receiver To Signal Group Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderReceiverToSignalGroupMapping(SenderReceiverToSignalGroupMapping object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Variable Data Prototype In System Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2967,6 +3209,21 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bsw Mode Sender Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bsw Mode Sender Policy</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBswModeSenderPolicy(BswModeSenderPolicy object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3072,6 +3329,36 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bsw Mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bsw Mode Switch Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBswModeSwitchEvent(BswModeSwitchEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode In Bsw Module Description Instance Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode In Bsw Module Description Instance Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeInBswModuleDescriptionInstanceRef(ModeInBswModuleDescriptionInstanceRef object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Bsw Timing Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3113,6 +3400,156 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBswInterruptEntity(BswInterruptEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Data Type Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Data Type Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseImplementationDataTypeElement(ImplementationDataTypeElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>System Signal Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>System Signal Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSystemSignalGroup(SystemSignalGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>ISignal Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>ISignal Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseISignalGroup(ISignalGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Rec Composite Type Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Rec Composite Type Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderRecCompositeTypeMapping(SenderRecCompositeTypeMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Rec Record Type Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Rec Record Type Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderRecRecordTypeMapping(SenderRecRecordTypeMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Rec Record Element Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Rec Record Element Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderRecRecordElementMapping(SenderRecRecordElementMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Rec Array Type Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Rec Array Type Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderRecArrayTypeMapping(SenderRecArrayTypeMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Indexed Array Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Indexed Array Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIndexedArrayElement(IndexedArrayElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Rec Array Element Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Rec Array Element Mapping</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderRecArrayElementMapping(SenderRecArrayElementMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sw Pointer Target Props</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sw Pointer Target Props</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwPointerTargetProps(SwPointerTargetProps object) {
 		return null;
 	}
 

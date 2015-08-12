@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -80,6 +80,147 @@ package ar4x::m2
 	self.component
 	->size() > 0
 
+	/*
+	 * ISignalGroup
+	 */
+	context ISignalGroup
+
+	inv nrte_sws_0278:
+	self.systemSignalGroup.systemSignal->size() = self.iSignal->size()
+	and
+	self.systemSignalGroup.systemSignal->forAll(ss | self.iSignal->select(systemSignal = ss)->notEmpty())
+	and
+	self.iSignal->forAll(is | self.systemSignalGroup.systemSignal->select(ss | ss = is.systemSignal)->notEmpty())
+
+	/*
+	 * SenderReceiverToSignalMapping
+	 */
+	context SenderReceiverToSignalMapping
+
+	def: isUint8(type : ar4x::m2::ImplementationDataType) : Boolean =
+		if type.category = 'VALUE' and type.baseType.nativeDeclaration.oclIsUndefined() then
+			type.shortName = 'uint8'
+		else
+			type.baseType.nativeDeclaration = 'uint8'
+		endif
+
+	inv nrte_sws_0285:
+	not self.dataElementIref.targetDataPrototype.type.oclIsTypeOf(ar4x::m2::ImplementationDataType)
+	or
+	let type : ar4x::m2::ImplementationDataType = self.dataElementIref.targetDataPrototype.type.oclAsType(ar4x::m2::ImplementationDataType).getLeafImplementationDataType()
+	in
+	type.category = 'VALUE'
+		or (type.category = 'ARRAY'
+			and (type.subElement->at(1).swDataDefProps.baseType.nativeDeclaration = 'uint8'
+				or isUint8(type.subElement->at(1).swDataDefProps.implementationDataType)))
+
+	/*
+	 * SenderReceiverToSignalGroupMapping
+	 */
+	context SenderReceiverToSignalGroupMapping
+
+	def: getElementNum(orgType : ar4x::m2::ImplementationDataType) : Integer =
+		let type : ar4x::m2::ImplementationDataType = orgType.getLeafImplementationDataType()
+		in
+		if type.category = 'ARRAY' then
+			type.subElement->first().arraySize
+		else if type.category = 'UNION' then
+			1
+		else
+			type.subElement->size()
+		endif endif
+		
+	inv nrte_sws_0279:
+	self.dataElementIref.targetDataPrototype.type.oclIsTypeOf(ImplementationDataType)
+	and
+	self.signalGroup.systemSignal->size() = getElementNum(self.dataElementIref.targetDataPrototype.type.oclAsType(ImplementationDataType))
+
+	inv nrte_sws_0280:
+	if self.typeMapping.oclIsTypeOf(SenderRecArrayTypeMapping) then
+		let mapping : SenderRecArrayTypeMapping = self.typeMapping.oclAsType(SenderRecArrayTypeMapping)
+		in
+		self.signalGroup.systemSignal->forAll(ss | mapping.arrayElementMapping->select(systemSignal = ss)->notEmpty())
+		and
+		mapping.arrayElementMapping->forAll(map | self.signalGroup.systemSignal->select(ss | map.systemSignal = ss)->notEmpty())
+	else if self.typeMapping.oclIsTypeOf(SenderRecRecordTypeMapping) then
+		let mapping : SenderRecRecordTypeMapping = self.typeMapping.oclAsType(SenderRecRecordTypeMapping)
+		in
+		self.signalGroup.systemSignal->forAll(ss | mapping.recordElementMapping->select(systemSignal = ss)->notEmpty())
+		and
+		mapping.recordElementMapping->forAll(map | self.signalGroup.systemSignal->select(ss | map.systemSignal = ss)->notEmpty())
+	else
+		false
+	endif endif
+
+	inv nrte_sws_0281:
+	not self.dataElementIref.targetDataPrototype.type.oclIsTypeOf(ImplementationDataType)
+	or
+	let type : ar4x::m2::ImplementationDataType = self.dataElementIref.targetDataPrototype.type.oclAsType(ar4x::m2::ImplementationDataType).getLeafImplementationDataType()
+	in
+	if self.typeMapping.oclIsTypeOf(SenderRecArrayTypeMapping) then
+		let mapping : SenderRecArrayTypeMapping = self.typeMapping.oclAsType(SenderRecArrayTypeMapping)
+		in
+		mapping.arrayElementMapping->forAll(indexedArrayElement.implementationArrayElement = type.subElement->first())
+		and
+		mapping.arrayElementMapping->size() = type.subElement->first().arraySize
+		and
+		Sequence{1..(mapping.arrayElementMapping->size())}->iterate(i : Integer; flag : Boolean = true |
+			flag and mapping.arrayElementMapping->select(indexedArrayElement.index = i-1)->notEmpty())
+	else
+		true
+	endif
+
+	inv nrte_sws_0282:
+	not self.dataElementIref.targetDataPrototype.type.oclIsTypeOf(ImplementationDataType)
+	or
+	let type : ar4x::m2::ImplementationDataType = self.dataElementIref.targetDataPrototype.type.oclAsType(ar4x::m2::ImplementationDataType).getLeafImplementationDataType()
+	in
+	if self.typeMapping.oclIsTypeOf(SenderRecRecordTypeMapping) then
+		let mapping : SenderRecRecordTypeMapping = self.typeMapping.oclAsType(SenderRecRecordTypeMapping)
+		in
+		if type.category = 'STRUCTURE' then
+			type.subElement->forAll(te | mapping.recordElementMapping->select(implementationRecordElement = te)->notEmpty())
+			and
+			mapping.recordElementMapping->forAll(map | type.subElement->select(te | map.implementationRecordElement = te)->notEmpty())
+		else
+			mapping.recordElementMapping->forAll(map | type.subElement->select(te | map.implementationRecordElement = te)->notEmpty())
+		endif
+	else
+		true
+	endif
+
+	/*
+	 * AssemblySwConnector
+	 */
+	context AssemblySwConnector
+
+	def: ecucPartition : Set(ar4x::ecuc::EcucPartition) = ar4x::ecuc::EcucPartition.allInstances()
+
+	inv nrte_sws_0284:
+	not self.providerIref.targetPPort.providedInterface.oclIsTypeOf(ClientServerInterface)
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->isEmpty()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.requesterIref.contextComponent)->notEmpty())->isEmpty()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->asSequence()->first()
+	= ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.requesterIref.contextComponent)->notEmpty())->asSequence()->first()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->asSequence()->first().getOwnerCore()
+	= ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.requesterIref.contextComponent)->notEmpty())->asSequence()->first().getOwnerCore()
+
+	inv nrte_sws_0286:
+	not self.providerIref.targetPPort.providedInterface.oclIsTypeOf(ClientServerInterface)
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->isEmpty()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.requesterIref.contextComponent)->notEmpty())->isEmpty()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->asSequence()->first()
+	= ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.requesterIref.contextComponent)->notEmpty())->asSequence()->first()
+	or
+	ecucPartition->select(ecucPartitionSoftwareComponent->select(prototype = self.providerIref.contextComponent)->notEmpty())->asSequence()->first().isTrusted()
+	
 endpackage
 
 package ar4x::instance
@@ -198,4 +339,63 @@ package ar4x::ecuc
 	not RteEventToTaskMapping.allInstances()->exists(rteUsedOsAlarm = self)
 	or self.expectedConfig->size() = 1
 
+	/*
+	 * ComSignal
+	 */
+	context ComSignal
+
+	def:
+	comSignalEx : rte::ex::ComSignalEx = rte::ex::ComSignalEx.allInstances()->any(true)
+
+	inv nrte_sws_0287:
+	self.comSystemTemplateSystemSignal.oclIsUndefined()
+	or
+	comSignalEx.getVariableDataInstanceInCompositions(self).prototype.prototype
+		->select(type.oclIsTypeOf(ar4x::m2::ImplementationDataType) and type.oclAsType(ar4x::m2::ImplementationDataType).category = 'DATA_REFERENCE')->isEmpty()
+
+	/*
+	 * ComSignalGroup
+	 */
+	context ComSignalGroup
+
+	inv nrte_sws_0277:
+	self.comSystemTemplateSignalGroup.oclIsUndefined()
+	or
+	(self.comSystemTemplateSignalGroup.iSignalGroup.iSignal->size() = self.comGroupSignal->size()
+		and
+		self.comSystemTemplateSignalGroup.iSignalGroup.iSignal->forAll(isg | self.comGroupSignal->select(comSystemTemplateSystemSignal.iSignal = isg)->notEmpty())
+		and
+		self.comGroupSignal->forAll(cgs | self.comSystemTemplateSignalGroup.iSignalGroup.iSignal->select(is | is = cgs.comSystemTemplateSystemSignal.iSignal)->notEmpty()))
+
+	/*
+	 * ComGroupSignal
+	 */
+	context ComGroupSignal
+
+	inv nrte_sws_0283:
+	self.comSystemTemplateSystemSignal.oclIsUndefined()
+	or
+	(self.comSystemTemplateSystemSignal.iSignalGroup.oclIsUndefined()
+		and
+		not self.comSystemTemplateSystemSignal.iSignal.oclIsUndefined())
+
+	/*
+	 * OsIocDataProperties
+	 */
+	context OsIocDataProperties
+
+	inv nrte_sws_0299:
+	self.osIocInitValue.oclIsUndefined() or self.osIocInitValue.size() < 1
+	or
+	let type : ar4x::m2::ImplementationDataType = self.osIocDataType.getLeafImplementationDataType()
+	in
+	if type.category = 'VALUE' or type.category = 'DATA_REFERENCE' then
+		true
+	else
+		let startIndex : Integer = self.osIocInitValue.indexOf('{'),
+			endIndex : Integer = self.osIocInitValue.lastIndexOf('}')
+		in
+		startIndex > 0 and endIndex > 0 and startIndex < endIndex
+	endif
+	
 endpackage

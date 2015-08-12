@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -47,21 +47,22 @@
 
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::fileUtil /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::symbolUtil /]
+[import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::rteApi /]
 
 [template public genRteApplicationHeader(aRteApplicationHeader : RteApplicationHeader)]
 [file (aRteApplicationHeader.fileName, false, 'ASCII')]
 	[aRteApplicationHeader.genFileHeader()/]
 
-	[aRteApplicationHeader.genFileIncludes()/]
-
 	[aRteApplicationHeader.genRteApiConstantDefinitions()/]
 	
-	[aRteApplicationHeader.genRteApiImplFunctionDeclarations()/]
-	
+	[aRteApplicationHeader.genInternalGlobalVariableDeclarations()/]
+
 	[aRteApplicationHeader.genRteApiDefinitions()/]
 	
 	[aRteApplicationHeader.genExecutableEntityDeclarations()/]
 
+	[aRteApplicationHeader.genRteApiImplFunctionDeclarations()/]
+	
 	[aRteApplicationHeader.genFileFooter()/]
 [/file]
 [/template]
@@ -74,6 +75,13 @@
 #endif /* RTE_APPLICATION_HEADER_FILE */
 #define RTE_APPLICATION_HEADER_FILE
 
+[aRteApplicationHeader.genSourceMacroDefinitions()/]
+
+[if (aRteApplicationHeader.hasInlineApi)]
+	#include "Os.h"
+[/if]
+[aRteApplicationHeader.genFileIncludes()/]
+
 [aRteApplicationHeader.genExternCDeclarationStart()/]
 [/template]
 
@@ -81,12 +89,37 @@
 [aRteApplicationHeader.genExternCDeclarationEnd()/]
 [/template]
 
+[comment]
+ソース固有のマクロ定義
+[/comment]
+[template private genSourceMacroDefinitions (aRteApplicationHeader : RteApplicationHeader) ]
+[for (aMacro : Macro | aRteApplicationHeader.sourceMacro)]
+	[aMacro.genMacroDefinition()/]
+[/for]
+[/template]
+
 [template private genRteApiConstantDefinitions (aRteApplicationHeader : RteApplicationHeader) ]
 /*
  * RTE API Constant Definitions
  */
 [for (aConstant : Constant | aRteApplicationHeader.constant)]
-	[aConstant.genConstantDefinition()/]
+	[aConstant.genApplicationConstantDefinition()/]
+[/for]
+[/template]
+
+[template private genInternalGlobalVariableDeclarations (aRteApplicationHeader : RteApplicationHeader) ]
+/*
+ * Internal Global Variable Declarations
+ */
+[for (aGroup : GlobalVariableGroup | aRteApplicationHeader.globalVariableGroup)]
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aGlobalVariable : GlobalVariable | aGroup.globalVariable)]
+		[aGlobalVariable.genGlobalVariableDeclaration()/]
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
 [/for]
 [/template]
 
@@ -94,11 +127,15 @@
 /*
  * RTE API Implementation Function Declarations
  */
-[for (aGroup : RteApiGroup | aRteApplicationHeader.rteApiGroup)]
+[for (aGroup : RteApiGroup | aRteApplicationHeader.DeclarationsRteApiGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aRteApi : RteApi | aGroup.rteApi)]
-		[aRteApi.genFunctionDeclaration()/]
+		[if (aRteApi.isInline)]
+			LOCAL_INLINE [aRteApi.genRteApi()/]
+		[else]
+			[aRteApi.genFunctionDeclaration()/]
+		[/if]
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]
@@ -119,6 +156,22 @@
 
 [template private genRteApiMapping(aRteApi : RteApi)]
 #define [aRteApi.apiMappingName/] [aRteApi.symbolName/]
+[/template]
+
+[template private genRteApiMapping(aRteApi : RteEnterApi)]
+	[if (aRteApi.isNoneExclude)]
+		#define [aRteApi.apiMappingName/]()
+	[else]
+		#define [aRteApi.apiMappingName/] [aRteApi.symbolName/]
+	[/if]
+[/template]
+
+[template private genRteApiMapping(aRteApi : RteExitApi)]
+	[if (aRteApi.isNoneExclude)]
+		#define [aRteApi.apiMappingName/]()
+	[else]
+		#define [aRteApi.apiMappingName/] [aRteApi.symbolName/]
+	[/if]
 [/template]
 
 [template private genExecutableEntityDeclarations (aRteApplicationHeader : RteApplicationHeader) ]

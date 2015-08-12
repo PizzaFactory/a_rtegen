@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,21 +45,17 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl;
 
 import java.util.Collection;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswExclusiveAreaImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -74,6 +70,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl#getRteBswEventToTaskMapping <em>Rte Bsw Event To Task Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl#getRteBswExclusiveAreaImpl <em>Rte Bsw Exclusive Area Impl</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl#getRteBswImplementation <em>Rte Bsw Implementation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl#getRteBswRequiredModeGroupConnection <em>Rte Bsw Required Mode Group Connection</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +106,16 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 	 * @ordered
 	 */
 	protected BswImplementation rteBswImplementation;
+
+	/**
+	 * The cached value of the '{@link #getRteBswRequiredModeGroupConnection() <em>Rte Bsw Required Mode Group Connection</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteBswRequiredModeGroupConnection> rteBswRequiredModeGroupConnection;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -201,6 +208,18 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<RteBswRequiredModeGroupConnection> getRteBswRequiredModeGroupConnection() {
+		if (rteBswRequiredModeGroupConnection == null) {
+			rteBswRequiredModeGroupConnection = new EObjectContainmentEList<RteBswRequiredModeGroupConnection>(RteBswRequiredModeGroupConnection.class, this, EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION);
+		}
+		return rteBswRequiredModeGroupConnection;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -210,6 +229,8 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 				return ((InternalEList<?>)getRteBswExclusiveAreaImpl()).basicRemove(otherEnd, msgs);
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION:
 				return basicSetRteBswImplementation(null, msgs);
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				return ((InternalEList<?>)getRteBswRequiredModeGroupConnection()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -228,6 +249,8 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 				return getRteBswExclusiveAreaImpl();
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION:
 				return getRteBswImplementation();
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				return getRteBswRequiredModeGroupConnection();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -252,6 +275,10 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION:
 				setRteBswImplementation((BswImplementation)newValue);
 				return;
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				getRteBswRequiredModeGroupConnection().clear();
+				getRteBswRequiredModeGroupConnection().addAll((Collection<? extends RteBswRequiredModeGroupConnection>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -273,6 +300,9 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION:
 				setRteBswImplementation((BswImplementation)null);
 				return;
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				getRteBswRequiredModeGroupConnection().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,6 +321,8 @@ public class RteBswModuleInstanceImpl extends EcucContainerImpl implements RteBs
 				return rteBswExclusiveAreaImpl != null && !rteBswExclusiveAreaImpl.isEmpty();
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION:
 				return rteBswImplementation != null;
+			case EcucPackage.RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION:
+				return rteBswRequiredModeGroupConnection != null && !rteBswRequiredModeGroupConnection.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

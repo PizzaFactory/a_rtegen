@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,16 +44,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -63,13 +61,25 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getType <em>Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getAccessProxyApi <em>Access Proxy Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getAccessIocApi <em>Access Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl implements ProxyComSendOperation {
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected Type type;
 	/**
 	 * The cached value of the '{@link #getAccessProxyApi() <em>Access Proxy Api</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -78,7 +88,36 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected IocSendGroupApi accessProxyApi;
+	protected IocSendApi accessProxyApi;
+
+	/**
+	 * The cached value of the '{@link #getAccessIocApi() <em>Access Ioc Api</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccessIocApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected IocSendApi accessIocApi;
+
+	/**
+	 * The default value of the '{@link #getFunctionTableSymbolName() <em>Function Table Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctionTableSymbolName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getFunctionTableSymbolName() <em>Function Table Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctionTableSymbolName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String functionTableSymbolName = FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,10 +143,48 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendGroupApi getAccessProxyApi() {
+	public Type getType() {
+		if (type != null && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (Type)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(Type newType) {
+		Type oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IocSendApi getAccessProxyApi() {
 		if (accessProxyApi != null && ((EObject)accessProxyApi).eIsProxy()) {
 			InternalEObject oldAccessProxyApi = (InternalEObject)accessProxyApi;
-			accessProxyApi = (IocSendGroupApi)eResolveProxy(oldAccessProxyApi);
+			accessProxyApi = (IocSendApi)eResolveProxy(oldAccessProxyApi);
 			if (accessProxyApi != oldAccessProxyApi) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API, oldAccessProxyApi, accessProxyApi));
@@ -121,7 +198,7 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IocSendGroupApi basicGetAccessProxyApi() {
+	public IocSendApi basicGetAccessProxyApi() {
 		return accessProxyApi;
 	}
 
@@ -130,8 +207,8 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAccessProxyApi(IocSendGroupApi newAccessProxyApi) {
-		IocSendGroupApi oldAccessProxyApi = accessProxyApi;
+	public void setAccessProxyApi(IocSendApi newAccessProxyApi) {
+		IocSendApi oldAccessProxyApi = accessProxyApi;
 		accessProxyApi = newAccessProxyApi;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API, oldAccessProxyApi, accessProxyApi));
@@ -142,12 +219,79 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IocSendApi getAccessIocApi() {
+		if (accessIocApi != null && ((EObject)accessIocApi).eIsProxy()) {
+			InternalEObject oldAccessIocApi = (InternalEObject)accessIocApi;
+			accessIocApi = (IocSendApi)eResolveProxy(oldAccessIocApi);
+			if (accessIocApi != oldAccessIocApi) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API, oldAccessIocApi, accessIocApi));
+			}
+		}
+		return accessIocApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IocSendApi basicGetAccessIocApi() {
+		return accessIocApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAccessIocApi(IocSendApi newAccessIocApi) {
+		IocSendApi oldAccessIocApi = accessIocApi;
+		accessIocApi = newAccessIocApi;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API, oldAccessIocApi, accessIocApi));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFunctionTableSymbolName() {
+		return functionTableSymbolName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFunctionTableSymbolName(String newFunctionTableSymbolName) {
+		String oldFunctionTableSymbolName = functionTableSymbolName;
+		functionTableSymbolName = newFunctionTableSymbolName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME, oldFunctionTableSymbolName, functionTableSymbolName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
 				if (resolve) return getAccessProxyApi();
 				return basicGetAccessProxyApi();
+			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
+				if (resolve) return getAccessIocApi();
+				return basicGetAccessIocApi();
+			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
+				return getFunctionTableSymbolName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,8 +304,17 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
+				setType((Type)newValue);
+				return;
 			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				setAccessProxyApi((IocSendGroupApi)newValue);
+				setAccessProxyApi((IocSendApi)newValue);
+				return;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
+				setAccessIocApi((IocSendApi)newValue);
+				return;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
+				setFunctionTableSymbolName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,8 +328,17 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
+				setType((Type)null);
+				return;
 			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
-				setAccessProxyApi((IocSendGroupApi)null);
+				setAccessProxyApi((IocSendApi)null);
+				return;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
+				setAccessIocApi((IocSendApi)null);
+				return;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
+				setFunctionTableSymbolName(FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,10 +352,32 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModulePackage.PROXY_COM_SEND_OPERATION__TYPE:
+				return type != null;
 			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API:
 				return accessProxyApi != null;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__ACCESS_IOC_API:
+				return accessIocApi != null;
+			case ModulePackage.PROXY_COM_SEND_OPERATION__FUNCTION_TABLE_SYMBOL_NAME:
+				return FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT == null ? functionTableSymbolName != null : !FUNCTION_TABLE_SYMBOL_NAME_EDEFAULT.equals(functionTableSymbolName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (functionTableSymbolName: ");
+		result.append(functionTableSymbolName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ProxyComSendOperationImpl

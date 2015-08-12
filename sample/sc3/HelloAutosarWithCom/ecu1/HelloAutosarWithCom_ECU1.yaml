@@ -2,14 +2,17 @@
 #  TOPPERS/A-RTEGEN
 #      Automotive Runtime Environment Generator
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +48,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-#  $Id: HelloAutosarWithCom_ECU1.yaml 208 2014-12-01 10:41:24Z mtakada $
+#  $Id: HelloAutosarWithCom_ECU1.yaml 437 2015-03-24 10:03:37Z mtakada $
 #
 
 Ecuc:
@@ -380,6 +383,7 @@ Ecuc:
   Rte:
     RteBswGeneral:
       RteSchMVersionInfoApi: false
+      RteUseComShadowSignalApi: false
     RteGeneration:
       RteCalibrationSupport: NONE
       RteCodeVendorId: 65
@@ -424,22 +428,22 @@ Ecuc:
         DefinitionRef: RteBswExclusiveAreaImpl
         RteExclusiveAreaImplMechanism: OS_RESOURCE
         RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT0
-        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant_0
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_0
       RteBswExclusiveAreaImpl_exclusiveArea1:
         DefinitionRef: RteBswExclusiveAreaImpl
         RteExclusiveAreaImplMechanism: OS_RESOURCE
         RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT1
-        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant_1
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_1
       RteBswExclusiveAreaImpl_exclusiveArea2:
         DefinitionRef: RteBswExclusiveAreaImpl
         RteExclusiveAreaImplMechanism: OS_RESOURCE
         RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT2
-        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant_2
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_2
       RteBswEventToTaskMapping_timingEvent1:
         DefinitionRef: RteBswEventToTaskMapping
         RteBswImmediateRestart: 0
         RteBswPositionInTask: 0
-        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/TimingEvent_MainFunctionRx
+        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/TimingEvent_MainFunctionRx
         RteBswMappedToTaskRef: /Ecuc/Os/SCHM_TASK
         RteBswUsedOsAlarmRef: /Ecuc/Os/ALARM2
         RteBswActivationOffset: 0.1
@@ -447,7 +451,7 @@ Ecuc:
         DefinitionRef: RteBswEventToTaskMapping
         RteBswImmediateRestart: 0
         RteBswPositionInTask: 1
-        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/TimingEvent_MainFunctionTx
+        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/TimingEvent_MainFunctionTx
         RteBswMappedToTaskRef: /Ecuc/Os/SCHM_TASK
         RteBswUsedOsAlarmRef: /Ecuc/Os/ALARM2
         RteBswActivationOffset: 0.1

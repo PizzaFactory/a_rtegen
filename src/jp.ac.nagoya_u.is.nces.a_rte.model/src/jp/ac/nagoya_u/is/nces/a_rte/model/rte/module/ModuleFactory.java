@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -100,6 +100,42 @@ public interface ModuleFactory extends EFactory {
 	ReadApi createReadApi();
 
 	/**
+	 * Returns a new object of class '<em>Irv Read Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Irv Read Operation</em>'.
+	 * @generated
+	 */
+	IrvReadOperation createIrvReadOperation();
+
+	/**
+	 * Returns a new object of class '<em>Irv Read Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Irv Read Api</em>'.
+	 * @generated
+	 */
+	IrvReadApi createIrvReadApi();
+
+	/**
+	 * Returns a new object of class '<em>Irv Write Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Irv Write Operation</em>'.
+	 * @generated
+	 */
+	IrvWriteOperation createIrvWriteOperation();
+
+	/**
+	 * Returns a new object of class '<em>Irv Write Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Irv Write Api</em>'.
+	 * @generated
+	 */
+	IrvWriteApi createIrvWriteApi();
+
+	/**
 	 * Returns a new object of class '<em>Rte Buffer Variable Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,6 +143,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	RteBufferVariableSet createRteBufferVariableSet();
+
+	/**
+	 * Returns a new object of class '<em>Global Variable Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Global Variable Set</em>'.
+	 * @generated
+	 */
+	GlobalVariableSet createGlobalVariableSet();
 
 	/**
 	 * Returns a new object of class '<em>Rte Source</em>'.
@@ -154,6 +199,42 @@ public interface ModuleFactory extends EFactory {
 	PrimitiveType createPrimitiveType();
 
 	/**
+	 * Returns a new object of class '<em>Mode Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Type</em>'.
+	 * @generated
+	 */
+	ModeType createModeType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Primitive Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Primitive Type</em>'.
+	 * @generated
+	 */
+	RedefinitionPrimitiveType createRedefinitionPrimitiveType();
+
+	/**
+	 * Returns a new object of class '<em>Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Array Type</em>'.
+	 * @generated
+	 */
+	ArrayType createArrayType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Array Type</em>'.
+	 * @generated
+	 */
+	RedefinitionArrayType createRedefinitionArrayType();
+
+	/**
 	 * Returns a new object of class '<em>Union Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,6 +242,33 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	UnionType createUnionType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Union Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Union Type</em>'.
+	 * @generated
+	 */
+	RedefinitionUnionType createRedefinitionUnionType();
+
+	/**
+	 * Returns a new object of class '<em>Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Struct Type</em>'.
+	 * @generated
+	 */
+	StructType createStructType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Struct Type</em>'.
+	 * @generated
+	 */
+	RedefinitionStructType createRedefinitionStructType();
 
 	/**
 	 * Returns a new object of class '<em>Blackbox Type</em>'.
@@ -179,6 +287,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	UnionMember createUnionMember();
+
+	/**
+	 * Returns a new object of class '<em>Struct Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Struct Member</em>'.
+	 * @generated
+	 */
+	StructMember createStructMember();
 
 	/**
 	 * Returns a new object of class '<em>Variable Member</em>'.
@@ -217,6 +334,24 @@ public interface ModuleFactory extends EFactory {
 	RteBufferQueueType createRteBufferQueueType();
 
 	/**
+	 * Returns a new object of class '<em>Mode Queue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Queue Type</em>'.
+	 * @generated
+	 */
+	ModeQueueType createModeQueueType();
+
+	/**
+	 * Returns a new object of class '<em>Rte Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	RteSendTrustedFunctionParamType createRteSendTrustedFunctionParamType();
+
+	/**
 	 * Returns a new object of class '<em>Com Send Trusted Function Param Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +359,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Com Cs Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Cs Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	ComCsTrustedFunctionParamType createComCsTrustedFunctionParamType();
 
 	/**
 	 * Returns a new object of class '<em>Never Read Operation</em>'.
@@ -379,6 +523,33 @@ public interface ModuleFactory extends EFactory {
 	Macro createMacro();
 
 	/**
+	 * Returns a new object of class '<em>Proxy Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Api</em>'.
+	 * @generated
+	 */
+	ProxyApi createProxyApi();
+
+	/**
+	 * Returns a new object of class '<em>Send Signal Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Send Signal Api</em>'.
+	 * @generated
+	 */
+	SendSignalApi createSendSignalApi();
+
+	/**
+	 * Returns a new object of class '<em>Receive Signal Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Receive Signal Api</em>'.
+	 * @generated
+	 */
+	ReceiveSignalApi createReceiveSignalApi();
+
+	/**
 	 * Returns a new object of class '<em>Schm Enter Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,6 +568,51 @@ public interface ModuleFactory extends EFactory {
 	SchmExitApi createSchmExitApi();
 
 	/**
+	 * Returns a new object of class '<em>Schm Switch Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Switch Api</em>'.
+	 * @generated
+	 */
+	SchmSwitchApi createSchmSwitchApi();
+
+	/**
+	 * Returns a new object of class '<em>Os Task Events Triggered By Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Task Events Triggered By Mode</em>'.
+	 * @generated
+	 */
+	OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode();
+
+	/**
+	 * Returns a new object of class '<em>Os Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Task Event</em>'.
+	 * @generated
+	 */
+	OsTaskEvent createOsTaskEvent();
+
+	/**
+	 * Returns a new object of class '<em>Mode Queued Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Queued Variable</em>'.
+	 * @generated
+	 */
+	ModeQueuedVariable createModeQueuedVariable();
+
+	/**
+	 * Returns a new object of class '<em>Schm Mode Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Mode Api</em>'.
+	 * @generated
+	 */
+	SchmModeApi createSchmModeApi();
+
+	/**
 	 * Returns a new object of class '<em>Interlink Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,6 +629,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	SchmApiGroup createSchmApiGroup();
+
+	/**
+	 * Returns a new object of class '<em>Signal Api Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Signal Api Group</em>'.
+	 * @generated
+	 */
+	SignalApiGroup createSignalApiGroup();
+
+	/**
+	 * Returns a new object of class '<em>Proxy Api Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Api Group</em>'.
+	 * @generated
+	 */
+	ProxyApiGroup createProxyApiGroup();
 
 	/**
 	 * Returns a new object of class '<em>Interlink Type Header</em>'.
@@ -460,6 +694,15 @@ public interface ModuleFactory extends EFactory {
 	SchmDeinitApi createSchmDeinitApi();
 
 	/**
+	 * Returns a new object of class '<em>Schm Init Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Init Api</em>'.
+	 * @generated
+	 */
+	SchmInitApi createSchmInitApi();
+
+	/**
 	 * Returns a new object of class '<em>Singlecore Schm Init Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -485,6 +728,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	SchmCoreInitApiImpl createSchmCoreInitApiImpl();
+
+	/**
+	 * Returns a new object of class '<em>Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pointer Type</em>'.
+	 * @generated
+	 */
+	PointerType createPointerType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Pointer Type</em>'.
+	 * @generated
+	 */
+	RedefinitionPointerType createRedefinitionPointerType();
 
 	/**
 	 * Returns a new object of class '<em>Local Variable</em>'.
@@ -539,6 +800,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	RteHeader createRteHeader();
+
+	/**
+	 * Returns a new object of class '<em>Rte Bsw Api Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Bsw Api Header</em>'.
+	 * @generated
+	 */
+	RteBswApiHeader createRteBswApiHeader();
 
 	/**
 	 * Returns a new object of class '<em>Rte Lifecycle Header</em>'.
@@ -620,6 +890,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	DirectComSendOperation createDirectComSendOperation();
+
+	/**
+	 * Returns a new object of class '<em>Trusted Function Rte Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trusted Function Rte Operation</em>'.
+	 * @generated
+	 */
+	TrustedFunctionRteOperation createTrustedFunctionRteOperation();
+
+	/**
+	 * Returns a new object of class '<em>Trusted Function Rte Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trusted Function Rte Send Operation</em>'.
+	 * @generated
+	 */
+	TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation();
 
 	/**
 	 * Returns a new object of class '<em>Trusted Function Com Send Operation</em>'.
@@ -737,6 +1025,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ComInvalidateCallback createComInvalidateCallback();
+
+	/**
+	 * Returns a new object of class '<em>Com Send Signal Proxy Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Send Signal Proxy Entity</em>'.
+	 * @generated
+	 */
+	ComSendSignalProxyEntity createComSendSignalProxyEntity();
 
 	/**
 	 * Returns a new object of class '<em>Com Send Signal Immediate Entity</em>'.
@@ -928,6 +1225,15 @@ public interface ModuleFactory extends EFactory {
 	IocSendApi createIocSendApi();
 
 	/**
+	 * Returns a new object of class '<em>Ioc Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ioc Send Operation</em>'.
+	 * @generated
+	 */
+	IocSendOperation createIocSendOperation();
+
+	/**
 	 * Returns a new object of class '<em>Ioc Queued Send Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -953,6 +1259,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	CallApi createCallApi();
+
+	/**
+	 * Returns a new object of class '<em>Call Trusted Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Trusted Api</em>'.
+	 * @generated
+	 */
+	CallTrustedApi createCallTrustedApi();
+
+	/**
+	 * Returns a new object of class '<em>Disabled In Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disabled In Mode</em>'.
+	 * @generated
+	 */
+	DisabledInMode createDisabledInMode();
 
 	/**
 	 * Returns a new object of class '<em>Executable Entity</em>'.
@@ -1000,6 +1324,15 @@ public interface ModuleFactory extends EFactory {
 	OsResourceExcludeOperation createOsResourceExcludeOperation();
 
 	/**
+	 * Returns a new object of class '<em>None Exclude Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>None Exclude Operation</em>'.
+	 * @generated
+	 */
+	NoneExcludeOperation createNoneExcludeOperation();
+
+	/**
 	 * Returns a new object of class '<em>Constant</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,6 +1340,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	Constant createConstant();
+
+	/**
+	 * Returns a new object of class '<em>Constant Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Constant Member</em>'.
+	 * @generated
+	 */
+	ConstantMember createConstantMember();
 
 	/**
 	 * Returns a new object of class '<em>Rte Enter Api</em>'.
@@ -1070,6 +1412,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation();
+
+	/**
+	 * Returns a new object of class '<em>Mode Switch Triggering Executable Start Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Switch Triggering Executable Start Operation</em>'.
+	 * @generated
+	 */
+	ModeSwitchTriggeringExecutableStartOperation createModeSwitchTriggeringExecutableStartOperation();
 
 	/**
 	 * Returns a new object of class '<em>Cycle Countup Operation</em>'.
@@ -1142,6 +1493,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ComSendProxyOperation createComSendProxyOperation();
+
+	/**
+	 * Returns a new object of class '<em>Com Send Proxy Complex Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Send Proxy Complex Operation</em>'.
+	 * @generated
+	 */
+	ComSendProxyComplexOperation createComSendProxyComplexOperation();
 
 	/**
 	 * Returns a new object of class '<em>Ioc Receive Group Api</em>'.
@@ -1225,6 +1585,24 @@ public interface ModuleFactory extends EFactory {
 	RteBufferWriteTrustedFunction createRteBufferWriteTrustedFunction();
 
 	/**
+	 * Returns a new object of class '<em>Rte Cs Trusted Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Cs Trusted Function</em>'.
+	 * @generated
+	 */
+	RteCsTrustedFunction createRteCsTrustedFunction();
+
+	/**
+	 * Returns a new object of class '<em>Rte Cs Trusted Runnables</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Cs Trusted Runnables</em>'.
+	 * @generated
+	 */
+	RteCsTrustedRunnables createRteCsTrustedRunnables();
+
+	/**
 	 * Returns a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1655,51 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	RteInternalHeader createRteInternalHeader();
+
+	/**
+	 * Returns a new object of class '<em>Mode Request Variable Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Request Variable Set</em>'.
+	 * @generated
+	 */
+	ModeRequestVariableSet createModeRequestVariableSet();
+
+	/**
+	 * Returns a new object of class '<em>Mode Machine Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Machine Instance</em>'.
+	 * @generated
+	 */
+	ModeMachineInstance createModeMachineInstance();
+
+	/**
+	 * Returns a new object of class '<em>Function Macro Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Macro Group</em>'.
+	 * @generated
+	 */
+	FunctionMacroGroup createFunctionMacroGroup();
+
+	/**
+	 * Returns a new object of class '<em>Function Macro</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Macro</em>'.
+	 * @generated
+	 */
+	FunctionMacro createFunctionMacro();
+
+	/**
+	 * Returns a new object of class '<em>Proxy Function Table Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Function Table Group</em>'.
+	 * @generated
+	 */
+	ProxyFunctionTableGroup createProxyFunctionTableGroup();
 
 	/**
 	 * Returns the package supported by this factory.

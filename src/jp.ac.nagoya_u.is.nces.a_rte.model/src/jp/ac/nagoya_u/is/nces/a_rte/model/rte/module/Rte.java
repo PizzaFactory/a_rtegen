@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -168,30 +168,20 @@ public interface Rte extends LogicalCompartment {
 	void setComSendSignalImmediateEntity(ComSendSignalImmediateEntity value);
 
 	/**
-	 * Returns the value of the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Com Send Signal Trusted Function</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Send Signal Trusted Function</em>' containment reference.
-	 * @see #setComSendSignalTrustedFunction(ComSendSignalTrustedFunction)
+	 * @return the value of the '<em>Com Send Signal Trusted Function</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalTrustedFunction()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
-	ComSendSignalTrustedFunction getComSendSignalTrustedFunction();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Send Signal Trusted Function</em>' containment reference.
-	 * @see #getComSendSignalTrustedFunction()
-	 * @generated
-	 */
-	void setComSendSignalTrustedFunction(ComSendSignalTrustedFunction value);
+	EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Type</b></em>' containment reference list.

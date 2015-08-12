@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,10 +54,12 @@ public class FileNames { // COVERAGE 常に未達(インスタンス生成が行なわれていない
 	public static final String SCHM_FILE_NAME_PREFIX = "SchM_";
 	public static final String BSW_MEMORY_MAPPING_HEADER_NAME = "MemMap.h";
 	public static final String SWC_MEMORY_MAPPING_HEADER_POSTFIX = "_MemMap.h";
+	public static final String RTE_BSW_API_HEADER_NAME = "Rte_Bsw_Api" + H_POSTFIX;
 
 	// ヘッダガードマクロ名
 	public static final String HEADER_GUARD_POSTFIX = "_H";
 	public static final String RTE_HEADER_GUARD_NAME_PREFIX = "RTE_";
 	public static final String RTE_HEADER_GUARD_NAME = "RTE_H";
 	public static final String SCHM_HEADER_GUARD_NAME_PREFIX = "SCHM_";
+	public static final String RTE_BSW_API_HEADER_GUARD_NAME = "RTE_BSW_API_H";
 }

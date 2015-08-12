@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +57,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getBaseType <em>Base Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSwAlignment <em>Sw Alignment</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSubElement <em>Sub Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,4 +120,32 @@ public interface ImplementationDataType extends AutosarDataType {
 	 * @generated
 	 */
 	void setSwAlignment(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Sub Element</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sub Element</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Element</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataType_SubElement()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ImplementationDataTypeElement> getSubElement();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 末端の実装データ型の取得
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if swDataDefProps.implementationDataType.oclIsUndefined()\n\t\t\t\tthen self\n\t\t\t\telse swDataDefProps.implementationDataType.getLeafImplementationDataType()\n\t\t\t\tendif'"
+	 * @generated
+	 */
+	ImplementationDataType getLeafImplementationDataType();
 } // ImplementationDataType

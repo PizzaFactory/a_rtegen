@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getPortArgValue <em>Port Arg Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getPort <em>Port</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getEnableTakeAddress <em>Enable Take Address</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,5 +110,31 @@ public interface PortApiOption extends M2Object {
 	 * @generated
 	 */
 	void setPort(PortPrototype value);
+
+	/**
+	 * Returns the value of the '<em><b>Enable Take Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enable Take Address</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enable Take Address</em>' attribute.
+	 * @see #setEnableTakeAddress(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortApiOption_EnableTakeAddress()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getEnableTakeAddress();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getEnableTakeAddress <em>Enable Take Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enable Take Address</em>' attribute.
+	 * @see #getEnableTakeAddress()
+	 * @generated
+	 */
+	void setEnableTakeAddress(Boolean value);
 
 } // PortApiOption

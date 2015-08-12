@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -132,6 +132,12 @@ public class ExSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExPackage.NONQUEUED_SENDER_COM_SPEC_EX: {
+				NonqueuedSenderComSpecEx nonqueuedSenderComSpecEx = (NonqueuedSenderComSpecEx)theEObject;
+				T result = caseNonqueuedSenderComSpecEx(nonqueuedSenderComSpecEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExPackage.COMPU_METHOD_EX: {
 				CompuMethodEx compuMethodEx = (CompuMethodEx)theEObject;
 				T result = caseCompuMethodEx(compuMethodEx);
@@ -168,6 +174,12 @@ public class ExSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExPackage.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX: {
+				SenderReceiverToSignalGroupMappingEx senderReceiverToSignalGroupMappingEx = (SenderReceiverToSignalGroupMappingEx)theEObject;
+				T result = caseSenderReceiverToSignalGroupMappingEx(senderReceiverToSignalGroupMappingEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExPackage.OS_TASK_EX: {
 				OsTaskEx osTaskEx = (OsTaskEx)theEObject;
 				T result = caseOsTaskEx(osTaskEx);
@@ -180,9 +192,21 @@ public class ExSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExPackage.COM_SIGNAL_GROUP_EX: {
+				ComSignalGroupEx comSignalGroupEx = (ComSignalGroupEx)theEObject;
+				T result = caseComSignalGroupEx(comSignalGroupEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExPackage.ECUC_PARTITION_EX: {
 				EcucPartitionEx ecucPartitionEx = (EcucPartitionEx)theEObject;
 				T result = caseEcucPartitionEx(ecucPartitionEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExPackage.VARIABLE_DATA_PROTOTYPE_EX: {
+				VariableDataPrototypeEx variableDataPrototypeEx = (VariableDataPrototypeEx)theEObject;
+				T result = caseVariableDataPrototypeEx(variableDataPrototypeEx);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -237,6 +261,18 @@ public class ExSwitch<T> extends Switch<T> {
 			case ExPackage.ENTITY_STARTER_EX: {
 				EntityStarterEx entityStarterEx = (EntityStarterEx)theEObject;
 				T result = caseEntityStarterEx(entityStarterEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExPackage.BSW_SCHEDULABLE_ENTITY_EX: {
+				BswSchedulableEntityEx bswSchedulableEntityEx = (BswSchedulableEntityEx)theEObject;
+				T result = caseBswSchedulableEntityEx(bswSchedulableEntityEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExPackage.MODE_DECLARATION_GROUP_PROTOTYPE_EX: {
+				ModeDeclarationGroupPrototypeEx modeDeclarationGroupPrototypeEx = (ModeDeclarationGroupPrototypeEx)theEObject;
+				T result = caseModeDeclarationGroupPrototypeEx(modeDeclarationGroupPrototypeEx);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -320,6 +356,36 @@ public class ExSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bsw Schedulable Entity Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bsw Schedulable Entity Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBswSchedulableEntityEx(BswSchedulableEntityEx object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeDeclarationGroupPrototypeEx(ModeDeclarationGroupPrototypeEx object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Assembly Data Instance Connector Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -361,6 +427,21 @@ public class ExSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComSignalEx(ComSignalEx object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Signal Group Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Signal Group Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComSignalGroupEx(ComSignalGroupEx object) {
 		return null;
 	}
 
@@ -440,6 +521,21 @@ public class ExSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSenderReceiverToSignalGroupMappingEx(SenderReceiverToSignalGroupMappingEx object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Os Task Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -470,6 +566,21 @@ public class ExSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Data Prototype Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Data Prototype Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableDataPrototypeEx(VariableDataPrototypeEx object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Atomic Sw Component Type Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -496,6 +607,21 @@ public class ExSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseValueSpecificationEx(ValueSpecificationEx object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Nonqueued Sender Com Spec Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Nonqueued Sender Com Spec Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNonqueuedSenderComSpecEx(NonqueuedSenderComSpecEx object) {
 		return null;
 	}
 

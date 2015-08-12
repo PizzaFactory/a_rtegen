@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,8 +42,12 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_START__VARIABLEDATAINSTANCEINCOMPOSITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.CYCLE_COUNTER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.FILTER_BUFFER_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
@@ -60,16 +64,29 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_QUEUED_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.STRUCT_TYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.refExists;
 
+import java.util.Collection;
 import java.util.List;
 
+import javax.lang.model.type.ArrayType;
+
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.SwComponentInstanceInSystem;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.CycleCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementation;
@@ -81,12 +98,17 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInt
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
@@ -112,6 +134,7 @@ public class InitializeOperationModelBuilder {
 			buildRteBufferInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_START__VARIABLEDATAINSTANCEINCOMPOSITION);
 			buildFilterBufferInitVariables(variableInitializeOperation, sourcePartition);
 			buildRunnableEntityInitVariables(variableInitializeOperation, sourcePartition);
+			buildIrvInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE);
 		}
 		return variableInitializeOperation;
 	}
@@ -129,6 +152,7 @@ public class InitializeOperationModelBuilder {
 		VariableInitializeOperation variableInitializeOperation = ModuleFactory.eINSTANCE.createVariableInitializeOperation();
 		buildRteBufferInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAINSTANCEINCOMPOSITION);
 		buildRunnableEntityInitVariables(variableInitializeOperation, sourcePartition);
+		buildIrvInitVariables(variableInitializeOperation, sourcePartition, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE);
 		buildExcludeOperation(variableInitializeOperation);
 		return variableInitializeOperation;
 	}
@@ -173,6 +197,42 @@ public class InitializeOperationModelBuilder {
 			}
 		}
 	}
+	
+	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition, EOperation initPredicateOperation) throws ModelException {
+		if (sourcePartition == null) {
+			// noPartitionの場合は、queryでSwComponentInstanceInSystemを取得する
+			for (SwComponentInstanceInSystem swInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
+				setInitVariable(targetInitializeOperation, initPredicateOperation, swInstanceInSystem.getPrototype().getType());
+			}
+		} else {
+			for (SwComponentInstanceInSystem swInstanceInSystem : sourcePartition.getEcucPartitionSoftwareComponent()) {
+				setInitVariable(targetInitializeOperation, initPredicateOperation, swInstanceInSystem.getPrototype().getType());
+			}
+		}
+	}
+
+	private void setInitVariable(VariableInitializeOperation targetInitializeOperation, EOperation initPredicateOperation, SwComponentType swComponentType)
+			throws ModelException {
+		if (!(swComponentType instanceof AtomicSwComponentType)) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return;
+		}
+		if (((AtomicSwComponentType) swComponentType).getInternalBehavior() == null) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return;
+		}
+		for (VariableDataPrototype dataPrototype : ((AtomicSwComponentType) swComponentType).getInternalBehavior().getExplicitInterRunnableVariable()) {
+			GlobalVariable initVariable = getInitVariableForIrv(dataPrototype, initPredicateOperation);
+			if (initVariable != null) {
+				targetInitializeOperation.getInitVariable().add(initVariable);
+			}
+		}
+	}
+
+	private GlobalVariable getInitVariableForIrv(VariableDataPrototype dataPrototype, EOperation initPredicateOperation) throws ModelException {
+		if (this.context.query.get(dataPrototype, initPredicateOperation)) {
+			return this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, dataPrototype);
+		}
+		return null;
+	}
 
 	private void buildBswSchedulableEntityInitVariables(VariableInitializeOperation targetInitializeOperation, EcucPartition sourcePartition) throws ModelException {
 		for (StartOffsetCounterImplementation counterImplementation : this.context.query.<StartOffsetCounterImplementation> find(isKindOf(START_OFFSET_COUNTER_IMPLEMENTATION).AND(
@@ -196,8 +256,27 @@ public class InitializeOperationModelBuilder {
 		List<RteBufferVariableSet> rteBufferVariableSets = this.context.query.selectByKind(targetInitializeOperation.getInitVariable(), RTE_BUFFER_VARIABLE_SET);
 		boolean isRteBufferWithStatusExists = this.context.query.exists(rteBufferVariableSets, refExists(RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE));
 		boolean isQueueExists = this.context.query.exists(targetInitializeOperation.getInitVariable(), isKindOf(RTE_BUFFER_QUEUED_VARIABLE));
+		boolean isComplexTypeExists = false;
+		boolean isFloat64 = false;
 
-		if (isQueueExists || isRteBufferWithStatusExists) {
+		for (RteBufferVariableSet variableSet : rteBufferVariableSets) {
+			Type type = variableSet.getValueVariable().getType();
+			if (! (type instanceof PrimitiveType || type instanceof PointerType)) {
+				isComplexTypeExists = true;
+				break;
+			}
+			if (type instanceof PrimitiveType) {
+				SwBaseType baseType = ((ImplementationDataType)type.getSingleSource()).getBaseType();
+				if (baseType != null
+						&& Identifiers.BASE_TYPE_ENCODING_IEEE754.equals(baseType.getBaseTypeEncoding())
+						&& type.getSize() == 64) {
+					isFloat64 = true;
+					break;
+				}
+			}
+		}
+
+		if (isQueueExists || isRteBufferWithStatusExists || isComplexTypeExists || isFloat64) {
 			boolean accessedInterCore = anyVariableAccessedInterCore(targetInitializeOperation);
 			targetInitializeOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(accessedInterCore));
 		}
@@ -234,5 +313,4 @@ public class InitializeOperationModelBuilder {
 			}
 		}
 	}
-
 }

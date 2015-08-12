@@ -2,14 +2,17 @@
 #
 #  ECU Extractor
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +48,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: ecu_extractor.rb 212 2014-12-03 05:51:22Z shigihara $
+# $Id: ecu_extractor.rb 427 2015-03-23 12:38:40Z mtakada $
 
 require "pp"
 require "rexml/document.rb"
@@ -54,30 +57,48 @@ include REXML
 if (ARGV.size() == 0)
   abort("Argument error !!")
 end
-sFileName = ARGV[0]
 
-# ファイルが存在しない場合エラー
-if (!File.exist?(sFileName))
-  abort("Argument error !! [#{sFileName}]")
-end
+# 入力された全てのarxmlをマージする
+sOutputFilePrefix = nil
+cAllArxmlData = nil
+ARGV.each{|sFileName|
+  # ファイルが存在しない場合エラー
+  if (!File.exist?(sFileName))
+    abort("Argument error !! [#{sFileName}]")
+  end
 
-# 出力ファイル名作成
-if (File.extname(sFileName) != ".arxml")
-  abort("not ARXML file !! [#{sFileName}]")
-end
+  # arxmlファイルでない場合エラー
+  if (File.extname(sFileName) != ".arxml")
+    abort("not ARXML file !! [#{sFileName}]")
+  end
 
-# XMLライブラリでの読み込み
-cXmlData = REXML::Document.new(open(sFileName))
+  # 出力ファイル名プレフィックス作成
+  if (sOutputFilePrefix.nil?())
+    sOutputFilePrefix = File.dirname(sFileName) + "/" + File.basename(sFileName, File.extname(sFileName)) + "_"
+  end
+
+  # XMLライブラリでの読み込み
+  if (cAllArxmlData.nil?())
+    cAllArxmlData = REXML::Document.new(open(sFileName))
+  else
+    # 複数のarxmlをマージしていく
+    cTempXml = REXML::Document.new(open(sFileName))
+    XPath.each(cTempXml, "//AUTOSAR/AR-PACKAGES/AR-PACKAGE"){|cElement|
+      cAllArxmlData.elements["AUTOSAR/AR-PACKAGES"].add_element(cElement)
+    }
+  end
+}
+
 
 # ECUインスタンスを検索
 aEcuInstances = []
-XPath.each(cXmlData, "//ECU-INSTANCE/SHORT-NAME"){|cElement|
+XPath.each(cAllArxmlData, "//ECU-INSTANCE/SHORT-NAME"){|cElement|
   aEcuInstances.push(cElement.text())
 }
 
 # ECUインスタンスが存在しない場合エラー
 if (aEcuInstances.size() == 0)
-  abort("ECU Instance not found !! [#{sFileName}]")
+  abort("ECU Instance not found !!")
 end
 
 # ECUインスタンス毎のSW-C情報を格納するハッシュ
@@ -93,7 +114,7 @@ aEcuInstances.each{|sEcu|
 }
 
 # 各ECUインスタンスに所属するSW-C、コンポジションを取得
-XPath.each(cXmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
+XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   sEcuName = File.basename(cElement.elements["ECU-INSTANCE-REF"].text())
   if (!hSwcOfEcu.has_key?(sEcuName))
     abort("Unknown ECU Instance !! [#{sEcuName}]")
@@ -111,25 +132,25 @@ XPath.each(cXmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
 }
 
 # ECU-INSTANCEコンテナを削除
-XPath.each(cXmlData, "//ELEMENTS/ECU-INSTANCE"){|cElement|
+XPath.each(cAllArxmlData, "//ELEMENTS/ECU-INSTANCE"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
 # SWC-TO-ECU-MAPPINGコンテナを削除
-XPath.each(cXmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
+XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
 # SWC-BSW-MAPPINGコンテナを削除
-XPath.each(cXmlData, "//ELEMENTS/SWC-BSW-MAPPING"){|cElement|
+XPath.each(cAllArxmlData, "//ELEMENTS/SWC-BSW-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
-cXmlData.freeze()
+cAllArxmlData.freeze()
 
 # ECU毎にARXMLを作成する
 hSwcOfEcu.each{|sEcu, aSwc|
-  cTempXml = cXmlData.deep_clone()
+  cTempXml = cAllArxmlData.deep_clone()
 
   # 対象外のAPPLICATION-SW-COMPONENT-TYPEを削除
   XPath.each(cTempXml, "//ELEMENTS/APPLICATION-SW-COMPONENT-TYPE"){|cElement|
@@ -204,8 +225,8 @@ hSwcOfEcu.each{|sEcu, aSwc|
   sXmlCode.gsub!("    ", "\t")
   sXmlCode.gsub!("\n", "\r\n")
 
-  # 出力ファイル名：<元のファイル名>_<ECUインスタンス名>.arxml
-  sOutputName = File.dirname(sFileName) + "/" + File.basename(sFileName, File.extname(sFileName)) + "_" + sEcu + File.extname(sFileName)
+  # 出力ファイル名：<先頭のファイル名>_<ECUインスタンス名>.arxml
+  sOutputName = sOutputFilePrefix + sEcu + ".arxml"
   File.open(sOutputName, "w") {|io|
     io.print(sXmlCode)
   }

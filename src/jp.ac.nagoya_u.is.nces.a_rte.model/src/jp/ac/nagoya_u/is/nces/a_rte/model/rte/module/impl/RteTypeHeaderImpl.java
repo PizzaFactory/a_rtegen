@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,8 +50,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteTypeHeader;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
@@ -63,6 +65,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl#getRteType <em>Rte Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl#getRteTypeConstant <em>Rte Type Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl#getProvidesSignalGroupTransmission <em>Provides Signal Group Transmission</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +90,24 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 	 * @ordered
 	 */
 	protected EList<Constant> rteTypeConstant;
+	/**
+	 * The default value of the '{@link #getProvidesSignalGroupTransmission() <em>Provides Signal Group Transmission</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidesSignalGroupTransmission()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean PROVIDES_SIGNAL_GROUP_TRANSMISSION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getProvidesSignalGroupTransmission() <em>Provides Signal Group Transmission</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidesSignalGroupTransmission()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean providesSignalGroupTransmission = PROVIDES_SIGNAL_GROUP_TRANSMISSION_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,6 +156,27 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getProvidesSignalGroupTransmission() {
+		return providesSignalGroupTransmission;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProvidesSignalGroupTransmission(Boolean newProvidesSignalGroupTransmission) {
+		Boolean oldProvidesSignalGroupTransmission = providesSignalGroupTransmission;
+		providesSignalGroupTransmission = newProvidesSignalGroupTransmission;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION, oldProvidesSignalGroupTransmission, providesSignalGroupTransmission));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -142,6 +184,8 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 				return getRteType();
 			case ModulePackage.RTE_TYPE_HEADER__RTE_TYPE_CONSTANT:
 				return getRteTypeConstant();
+			case ModulePackage.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION:
+				return getProvidesSignalGroupTransmission();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +207,9 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 				getRteTypeConstant().clear();
 				getRteTypeConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
+			case ModulePackage.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION:
+				setProvidesSignalGroupTransmission((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -181,6 +228,9 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 			case ModulePackage.RTE_TYPE_HEADER__RTE_TYPE_CONSTANT:
 				getRteTypeConstant().clear();
 				return;
+			case ModulePackage.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION:
+				setProvidesSignalGroupTransmission(PROVIDES_SIGNAL_GROUP_TRANSMISSION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -197,8 +247,26 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 				return rteType != null && !rteType.isEmpty();
 			case ModulePackage.RTE_TYPE_HEADER__RTE_TYPE_CONSTANT:
 				return rteTypeConstant != null && !rteTypeConstant.isEmpty();
+			case ModulePackage.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION:
+				return PROVIDES_SIGNAL_GROUP_TRANSMISSION_EDEFAULT == null ? providesSignalGroupTransmission != null : !PROVIDES_SIGNAL_GROUP_TRANSMISSION_EDEFAULT.equals(providesSignalGroupTransmission);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (providesSignalGroupTransmission: ");
+		result.append(providesSignalGroupTransmission);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RteTypeHeaderImpl

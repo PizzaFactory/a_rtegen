@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -462,6 +462,14 @@ public class InteractionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InteractionPackage.MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION: {
+				ModeSwitchTriggeringEntityStartImplementation modeSwitchTriggeringEntityStartImplementation = (ModeSwitchTriggeringEntityStartImplementation)theEObject;
+				T result = caseModeSwitchTriggeringEntityStartImplementation(modeSwitchTriggeringEntityStartImplementation);
+				if (result == null) result = caseEntityStartImplementation(modeSwitchTriggeringEntityStartImplementation);
+				if (result == null) result = caseInteractionObject(modeSwitchTriggeringEntityStartImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case InteractionPackage.RUNNABLE_ENTITY_START_INTERACTION: {
 				RunnableEntityStartInteraction runnableEntityStartInteraction = (RunnableEntityStartInteraction)theEObject;
 				T result = caseRunnableEntityStartInteraction(runnableEntityStartInteraction);
@@ -526,6 +534,14 @@ public class InteractionSwitch<T> extends Switch<T> {
 				T result = caseTimingEvent(timingEvent);
 				if (result == null) result = caseEvent(timingEvent);
 				if (result == null) result = caseInteractionObject(timingEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.MODE_SWITCH_EVENT: {
+				ModeSwitchEvent modeSwitchEvent = (ModeSwitchEvent)theEObject;
+				T result = caseModeSwitchEvent(modeSwitchEvent);
+				if (result == null) result = caseEvent(modeSwitchEvent);
+				if (result == null) result = caseInteractionObject(modeSwitchEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1119,6 +1135,21 @@ public class InteractionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeSwitchTriggeringEntityStartImplementation(ModeSwitchTriggeringEntityStartImplementation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Runnable Entity Start Interaction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1235,6 +1266,21 @@ public class InteractionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingEvent(TimingEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Switch Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeSwitchEvent(ModeSwitchEvent object) {
 		return null;
 	}
 

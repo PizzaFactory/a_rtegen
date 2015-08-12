@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -485,13 +485,22 @@ public interface InteractionPackage extends EPackage {
 	int EXTERNAL_ECU_SENDER__SEND_INTERACTION = SENDER__SEND_INTERACTION;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The feature id for the '<em><b>Source Signal</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER__SOURCE = SENDER_FEATURE_COUNT + 0;
+	int EXTERNAL_ECU_SENDER__SOURCE_SIGNAL = SENDER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP = SENDER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Requires Rte Filter</b></em>' attribute.
@@ -500,7 +509,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER = SENDER_FEATURE_COUNT + 1;
+	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER = SENDER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Requires Rte Invalidation</b></em>' attribute.
@@ -509,7 +518,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION = SENDER_FEATURE_COUNT + 2;
+	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION = SENDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Requires Rte Initialization</b></em>' attribute.
@@ -518,7 +527,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_INITIALIZATION = SENDER_FEATURE_COUNT + 3;
+	int EXTERNAL_ECU_SENDER__REQUIRES_RTE_INITIALIZATION = SENDER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>External Ecu Sender</em>' class.
@@ -527,7 +536,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER_FEATURE_COUNT = SENDER_FEATURE_COUNT + 4;
+	int EXTERNAL_ECU_SENDER_FEATURE_COUNT = SENDER_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Owner Core</em>' operation.
@@ -1251,13 +1260,31 @@ public interface InteractionPackage extends EPackage {
 	int RTE_VALUE_BUFFER_IMPLEMENTATION__HAS_STATUS = VALUE_BUFFER_IMPLEMENTATION__HAS_STATUS;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Rte Value Buffer Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 0;
+	int RTE_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Rte Value Buffer Implementation</em>' class.
@@ -1307,13 +1334,22 @@ public interface InteractionPackage extends EPackage {
 	int EXTERNAL_ECU_RECEIVER__RECEIVE_INTERACTION = RECEIVER__RECEIVE_INTERACTION;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * The feature id for the '<em><b>Source Signal</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_RECEIVER__SOURCE = RECEIVER_FEATURE_COUNT + 0;
+	int EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL = RECEIVER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP = RECEIVER_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>External Ecu Receiver</em>' class.
@@ -1322,7 +1358,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_RECEIVER_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
+	int EXTERNAL_ECU_RECEIVER_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Owner Core</em>' operation.
@@ -1563,13 +1599,22 @@ public interface InteractionPackage extends EPackage {
 	int COM_SEND_IMPLEMENTATION__COM_SIGNAL = SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = SEND_IMPLEMENTATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 1;
+	int COM_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Com Send Implementation</em>' class.
@@ -1616,6 +1661,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int DIRECT_COM_SEND_IMPLEMENTATION__COM_SIGNAL = COM_SEND_IMPLEMENTATION__COM_SIGNAL;
+
+	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIRECT_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 
 	/**
 	 * The number of structural features of the '<em>Direct Com Send Implementation</em>' class.
@@ -1673,6 +1727,15 @@ public interface InteractionPackage extends EPackage {
 	int TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION__COM_SIGNAL = COM_SEND_IMPLEMENTATION__COM_SIGNAL;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
+
+	/**
 	 * The number of structural features of the '<em>Trusted Function Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1726,6 +1789,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL = COM_SEND_IMPLEMENTATION__COM_SIGNAL;
+
+	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Proxy Interaction</b></em>' reference.
@@ -1792,6 +1864,15 @@ public interface InteractionPackage extends EPackage {
 	int PERIODIC_PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL = PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERIODIC_PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Proxy Interaction</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1854,6 +1935,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL = PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL;
+
+	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = PROXY_COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Proxy Interaction</b></em>' reference.
@@ -2066,13 +2156,22 @@ public interface InteractionPackage extends EPackage {
 	int COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Com Value Buffer Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 1;
+	int COM_VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT = VALUE_BUFFER_IMPLEMENTATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Com Value Buffer Implementation</em>' class.
@@ -2252,13 +2351,22 @@ public interface InteractionPackage extends EPackage {
 	int COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION = INTERACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Os Ioc Communication For Complex Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION_FOR_COMPLEX_VALUE = INTERACTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Proxy</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_PROXY_INTERACTION__PROXY = INTERACTION_FEATURE_COUNT + 3;
+	int COM_SEND_PROXY_INTERACTION__PROXY = INTERACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Com Send Proxy Interaction</em>' class.
@@ -2267,7 +2375,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_PROXY_INTERACTION_FEATURE_COUNT = INTERACTION_FEATURE_COUNT + 4;
+	int COM_SEND_PROXY_INTERACTION_FEATURE_COUNT = INTERACTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Com Send Proxy Interaction</em>' class.
@@ -2973,6 +3081,34 @@ public interface InteractionPackage extends EPackage {
 	int TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = ENTITY_START_IMPLEMENTATION_OPERATION_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl <em>Mode Switch Triggering Entity Start Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchTriggeringEntityStartImplementation()
+	 * @generated
+	 */
+	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION = 39;
+
+	/**
+	 * The number of structural features of the '<em>Mode Switch Triggering Entity Start Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION_FEATURE_COUNT = ENTITY_START_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mode Switch Triggering Entity Start Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = ENTITY_START_IMPLEMENTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl <em>Runnable Entity Start Interaction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2980,7 +3116,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getRunnableEntityStartInteraction()
 	 * @generated
 	 */
-	int RUNNABLE_ENTITY_START_INTERACTION = 39;
+	int RUNNABLE_ENTITY_START_INTERACTION = 40;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3045,7 +3181,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getStartOffsetCounterImplementation()
 	 * @generated
 	 */
-	int START_OFFSET_COUNTER_IMPLEMENTATION = 40;
+	int START_OFFSET_COUNTER_IMPLEMENTATION = 41;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3109,7 +3245,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getCycleCounterImplementation()
 	 * @generated
 	 */
-	int CYCLE_COUNTER_IMPLEMENTATION = 41;
+	int CYCLE_COUNTER_IMPLEMENTATION = 42;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3174,7 +3310,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getGeneratedEcuConfiguration()
 	 * @generated
 	 */
-	int GENERATED_ECU_CONFIGURATION = 42;
+	int GENERATED_ECU_CONFIGURATION = 43;
 
 	/**
 	 * The feature id for the '<em><b>Generated Os Task</b></em>' reference list.
@@ -3248,7 +3384,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getBswSchedulableEntityStartInteraction()
 	 * @generated
 	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION = 43;
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3312,7 +3448,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEventToTaskMapping()
 	 * @generated
 	 */
-	int EVENT_TO_TASK_MAPPING = 44;
+	int EVENT_TO_TASK_MAPPING = 45;
 
 	/**
 	 * The feature id for the '<em><b>Activation Offset</b></em>' attribute.
@@ -3385,7 +3521,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEvent()
 	 * @generated
 	 */
-	int EVENT = 45;
+	int EVENT = 46;
 
 	/**
 	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
@@ -3397,13 +3533,22 @@ public interface InteractionPackage extends EPackage {
 	int EVENT__START_ON_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__BSW_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
+	int EVENT_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Event</em>' class.
@@ -3422,7 +3567,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingEvent()
 	 * @generated
 	 */
-	int TIMING_EVENT = 46;
+	int TIMING_EVENT = 47;
 
 	/**
 	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
@@ -3432,6 +3577,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIMING_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_EVENT__BSW_EVENT = EVENT__BSW_EVENT;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -3459,6 +3613,53 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int TIMING_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl <em>Mode Switch Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchEvent()
+	 * @generated
+	 */
+	int MODE_SWITCH_EVENT = 48;
+
+	/**
+	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Bsw Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_EVENT__BSW_EVENT = EVENT__BSW_EVENT;
+
+	/**
+	 * The number of structural features of the '<em>Mode Switch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mode Switch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_SWITCH_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
 
 
 	/**
@@ -3595,15 +3796,26 @@ public interface InteractionPackage extends EPackage {
 	EClass getExternalEcuSender();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSourceSignal <em>Source Signal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSource()
+	 * @return the meta object for the reference '<em>Source Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSourceSignal()
 	 * @see #getExternalEcuSender()
 	 * @generated
 	 */
-	EReference getExternalEcuSender_Source();
+	EReference getExternalEcuSender_SourceSignal();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSourceSignalGroup <em>Source Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getSourceSignalGroup()
+	 * @see #getExternalEcuSender()
+	 * @generated
+	 */
+	EReference getExternalEcuSender_SourceSignalGroup();
 
 	/**
 	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender#getRequiresRteFilter <em>Requires Rte Filter</em>}'.
@@ -3990,6 +4202,28 @@ public interface InteractionPackage extends EPackage {
 	EClass getRteValueBufferImplementation();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal <em>Com Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignal()
+	 * @see #getRteValueBufferImplementation()
+	 * @generated
+	 */
+	EReference getRteValueBufferImplementation_ComSignal();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation#getComSignalGroup()
+	 * @see #getRteValueBufferImplementation()
+	 * @generated
+	 */
+	EReference getRteValueBufferImplementation_ComSignalGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver <em>External Ecu Receiver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4000,15 +4234,26 @@ public interface InteractionPackage extends EPackage {
 	EClass getExternalEcuReceiver();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSource <em>Source</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignal <em>Source Signal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSource()
+	 * @return the meta object for the reference '<em>Source Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignal()
 	 * @see #getExternalEcuReceiver()
 	 * @generated
 	 */
-	EReference getExternalEcuReceiver_Source();
+	EReference getExternalEcuReceiver_SourceSignal();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignalGroup <em>Source Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignalGroup()
+	 * @see #getExternalEcuReceiver()
+	 * @generated
+	 */
+	EReference getExternalEcuReceiver_SourceSignalGroup();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendImplementation <em>Send Implementation</em>}'.
@@ -4166,6 +4411,17 @@ public interface InteractionPackage extends EPackage {
 	EReference getComValueBufferImplementation_ComSignal();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation#getComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation#getComSignalGroup()
+	 * @see #getComValueBufferImplementation()
+	 * @generated
+	 */
+	EReference getComValueBufferImplementation_ComSignalGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.VariableImplementation <em>Variable Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4237,6 +4493,17 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComSendImplementation_ComSignal();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendImplementation#getComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendImplementation#getComSignalGroup()
+	 * @see #getComSendImplementation()
+	 * @generated
+	 */
+	EReference getComSendImplementation_ComSignalGroup();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot <em>Root</em>}'.
@@ -4376,6 +4643,17 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getComSendProxyInteraction_OsIocCommunication();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue <em>Os Ioc Communication For Complex Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Os Ioc Communication For Complex Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue()
+	 * @see #getComSendProxyInteraction()
+	 * @generated
+	 */
+	EReference getComSendProxyInteraction_OsIocCommunicationForComplexValue();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getProxy <em>Proxy</em>}'.
@@ -4683,6 +4961,16 @@ public interface InteractionPackage extends EPackage {
 	EOperation getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation <em>Mode Switch Triggering Entity Start Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation
+	 * @generated
+	 */
+	EClass getModeSwitchTriggeringEntityStartImplementation();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction <em>Runnable Entity Start Interaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4918,6 +5206,17 @@ public interface InteractionPackage extends EPackage {
 	EReference getEvent_StartOnEvent();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Bsw Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EReference getEvent_BswEvent();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent <em>Timing Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4937,6 +5236,16 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTimingEvent_Period();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent <em>Mode Switch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Switch Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent
+	 * @generated
+	 */
+	EClass getModeSwitchEvent();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5076,12 +5385,20 @@ public interface InteractionPackage extends EPackage {
 		EClass EXTERNAL_ECU_SENDER = eINSTANCE.getExternalEcuSender();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source Signal</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTERNAL_ECU_SENDER__SOURCE = eINSTANCE.getExternalEcuSender_Source();
+		EReference EXTERNAL_ECU_SENDER__SOURCE_SIGNAL = eINSTANCE.getExternalEcuSender_SourceSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP = eINSTANCE.getExternalEcuSender_SourceSignalGroup();
 
 		/**
 		 * The meta object literal for the '<em><b>Requires Rte Filter</b></em>' attribute feature.
@@ -5392,6 +5709,22 @@ public interface InteractionPackage extends EPackage {
 		EClass RTE_VALUE_BUFFER_IMPLEMENTATION = eINSTANCE.getRteValueBufferImplementation();
 
 		/**
+		 * The meta object literal for the '<em><b>Com Signal</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = eINSTANCE.getRteValueBufferImplementation_ComSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = eINSTANCE.getRteValueBufferImplementation_ComSignalGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuReceiverImpl <em>External Ecu Receiver</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5402,12 +5735,20 @@ public interface InteractionPackage extends EPackage {
 		EClass EXTERNAL_ECU_RECEIVER = eINSTANCE.getExternalEcuReceiver();
 
 		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Source Signal</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference EXTERNAL_ECU_RECEIVER__SOURCE = eINSTANCE.getExternalEcuReceiver_Source();
+		EReference EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL = eINSTANCE.getExternalEcuReceiver_SourceSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP = eINSTANCE.getExternalEcuReceiver_SourceSignalGroup();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.SendImplementationImpl <em>Send Implementation</em>}' class.
@@ -5550,6 +5891,14 @@ public interface InteractionPackage extends EPackage {
 		EReference COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL = eINSTANCE.getComValueBufferImplementation_ComSignal();
 
 		/**
+		 * The meta object literal for the '<em><b>Com Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP = eINSTANCE.getComValueBufferImplementation_ComSignalGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.VariableImplementationImpl <em>Variable Implementation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5610,6 +5959,14 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COM_SEND_IMPLEMENTATION__COM_SIGNAL = eINSTANCE.getComSendImplementation_ComSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP = eINSTANCE.getComSendImplementation_ComSignalGroup();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionRootImpl <em>Root</em>}' class.
@@ -5722,6 +6079,14 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION = eINSTANCE.getComSendProxyInteraction_OsIocCommunication();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Ioc Communication For Complex Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION_FOR_COMPLEX_VALUE = eINSTANCE.getComSendProxyInteraction_OsIocCommunicationForComplexValue();
 
 		/**
 		 * The meta object literal for the '<em><b>Proxy</b></em>' reference feature.
@@ -5976,6 +6341,16 @@ public interface InteractionPackage extends EPackage {
 		EOperation TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST = eINSTANCE.getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl <em>Mode Switch Triggering Entity Start Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchTriggeringEntityStartImplementation()
+		 * @generated
+		 */
+		EClass MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION = eINSTANCE.getModeSwitchTriggeringEntityStartImplementation();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl <em>Runnable Entity Start Interaction</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6166,6 +6541,14 @@ public interface InteractionPackage extends EPackage {
 		EReference EVENT__START_ON_EVENT = eINSTANCE.getEvent_StartOnEvent();
 
 		/**
+		 * The meta object literal for the '<em><b>Bsw Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EVENT__BSW_EVENT = eINSTANCE.getEvent_BswEvent();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl <em>Timing Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6182,6 +6565,16 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TIMING_EVENT__PERIOD = eINSTANCE.getTimingEvent_Period();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl <em>Mode Switch Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchEvent()
+		 * @generated
+		 */
+		EClass MODE_SWITCH_EVENT = eINSTANCE.getModeSwitchEvent();
 
 	}
 

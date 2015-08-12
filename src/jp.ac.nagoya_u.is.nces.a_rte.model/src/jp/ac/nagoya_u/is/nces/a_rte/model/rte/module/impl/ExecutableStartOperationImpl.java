@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,6 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation;
@@ -68,6 +69,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getExcludeOperation <em>Exclude Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getStartExecutable <em>Start Executable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getCurrentMode <em>Current Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getNextMode <em>Next Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl#getDisabledMode <em>Disabled Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +97,56 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	 * @ordered
 	 */
 	protected ExecutableEntity startExecutable;
+
+	/**
+	 * The default value of the '{@link #getCurrentMode() <em>Current Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CURRENT_MODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCurrentMode() <em>Current Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCurrentMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String currentMode = CURRENT_MODE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNextMode() <em>Next Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_MODE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNextMode() <em>Next Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNextMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nextMode = NEXT_MODE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDisabledMode() <em>Disabled Mode</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisabledMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DisabledInMode> disabledMode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -168,11 +222,67 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCurrentMode() {
+		return currentMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCurrentMode(String newCurrentMode) {
+		String oldCurrentMode = currentMode;
+		currentMode = newCurrentMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE, oldCurrentMode, currentMode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getNextMode() {
+		return nextMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNextMode(String newNextMode) {
+		String oldNextMode = nextMode;
+		nextMode = newNextMode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE, oldNextMode, nextMode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DisabledInMode> getDisabledMode() {
+		if (disabledMode == null) {
+			disabledMode = new EObjectContainmentEList<DisabledInMode>(DisabledInMode.class, this, ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE);
+		}
+		return disabledMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
 				return ((InternalEList<?>)getExcludeOperation()).basicRemove(otherEnd, msgs);
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
+				return ((InternalEList<?>)getDisabledMode()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -190,6 +300,12 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				if (resolve) return getStartExecutable();
 				return basicGetStartExecutable();
+			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
+				return getCurrentMode();
+			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
+				return getNextMode();
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
+				return getDisabledMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +326,16 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				setStartExecutable((ExecutableEntity)newValue);
 				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
+				setCurrentMode((String)newValue);
+				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
+				setNextMode((String)newValue);
+				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
+				getDisabledMode().clear();
+				getDisabledMode().addAll((Collection<? extends DisabledInMode>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -228,6 +354,15 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				setStartExecutable((ExecutableEntity)null);
 				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
+				setCurrentMode(CURRENT_MODE_EDEFAULT);
+				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
+				setNextMode(NEXT_MODE_EDEFAULT);
+				return;
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
+				getDisabledMode().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,8 +379,32 @@ public abstract class ExecutableStartOperationImpl extends OperationImpl impleme
 				return excludeOperation != null && !excludeOperation.isEmpty();
 			case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE:
 				return startExecutable != null;
+			case ModulePackage.EXECUTABLE_START_OPERATION__CURRENT_MODE:
+				return CURRENT_MODE_EDEFAULT == null ? currentMode != null : !CURRENT_MODE_EDEFAULT.equals(currentMode);
+			case ModulePackage.EXECUTABLE_START_OPERATION__NEXT_MODE:
+				return NEXT_MODE_EDEFAULT == null ? nextMode != null : !NEXT_MODE_EDEFAULT.equals(nextMode);
+			case ModulePackage.EXECUTABLE_START_OPERATION__DISABLED_MODE:
+				return disabledMode != null && !disabledMode.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (currentMode: ");
+		result.append(currentMode);
+		result.append(", nextMode: ");
+		result.append(nextMode);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExecutableStartOperationImpl

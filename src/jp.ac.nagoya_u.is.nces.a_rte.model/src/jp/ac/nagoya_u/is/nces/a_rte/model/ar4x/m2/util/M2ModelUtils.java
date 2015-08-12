@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -88,9 +88,9 @@ public class M2ModelUtils {
 	private static final String NON_M2_STEREOTYPE = "nonM2";
 
 	// XML永続化に関するアノテーション
-	private static final String XML_ROLE_WRAPPER_ELEMENT_TAG = "xml.roleWrapperElement";
-	private static final String XML_NAME_TAG = "xml.name";
-	private static final String XML_NAME_PLURAL_TAG = "xml.namePlural";
+	private static final String XML_ROLE_WRAPPER_ELEMENT_TAG = "xml.roleWrapperElement"; // ロールラッパーを強制的に有効にする
+	private static final String XML_NAME_TAG = "xml.name"; // ロールに対応するXMLタグ名(単数形)
+	private static final String XML_NAME_PLURAL_TAG = "xml.namePlural"; // ロールに対応するXMLタグ名(複数形)
 
 	public static final String DEFAULT_ECUC_DEF_EDITION = "4.2.0";
 
@@ -199,7 +199,7 @@ public class M2ModelUtils {
 		return String.class.equals(type.getInstanceClass());
 	}
 
-	private static BigDecimal parseNumerical(String originalValue) {
+	public static BigDecimal parseNumerical(String originalValue) {
 		if ("true".equals(originalValue)) {
 			originalValue = "1";
 		} else if ("false".equals(originalValue)) {

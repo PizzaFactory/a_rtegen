@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,26 +45,21 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -82,6 +77,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getSchmApi <em>Schm Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getBswMemoryMapping <em>Bsw Memory Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,6 +123,16 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 	 * @ordered
 	 */
 	protected Bswm bswm;
+
+	/**
+	 * The cached value of the '{@link #getModeMachineInstance() <em>Mode Machine Instance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeMachineInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeMachineInstance> modeMachineInstance;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -289,6 +295,18 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModeMachineInstance> getModeMachineInstance() {
+		if (modeMachineInstance == null) {
+			modeMachineInstance = new EObjectContainmentEList<ModeMachineInstance>(ModeMachineInstance.class, this, ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE);
+		}
+		return modeMachineInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -327,6 +345,8 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 				return ((InternalEList<?>)getBswMemoryMapping()).basicRemove(otherEnd, msgs);
 			case ModulePackage.PARTED_BSWM__BSWM:
 				return basicSetBswm(null, msgs);
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return ((InternalEList<?>)getModeMachineInstance()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -364,6 +384,8 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			case ModulePackage.PARTED_BSWM__BSWM:
 				if (resolve) return getBswm();
 				return basicGetBswm();
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return getModeMachineInstance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -395,6 +417,10 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			case ModulePackage.PARTED_BSWM__BSWM:
 				setBswm((Bswm)newValue);
 				return;
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				getModeMachineInstance().addAll((Collection<? extends ModeMachineInstance>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -422,6 +448,9 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			case ModulePackage.PARTED_BSWM__BSWM:
 				setBswm((Bswm)null);
 				return;
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -444,6 +473,8 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 				return bswMemoryMapping != null && !bswMemoryMapping.isEmpty();
 			case ModulePackage.PARTED_BSWM__BSWM:
 				return bswm != null;
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return modeMachineInstance != null && !modeMachineInstance.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -196,7 +196,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 			pushXmlContext(currentXmlContext.createConditionalContext(localName));
 			return;
 		}
-
+		
 		switch (currentXmlContext.wrapType) {
 		case ROLE_WRAPPER_AND_ROLE:
 		case ROLE_WRAPPER_AND_TYPE:
@@ -325,7 +325,6 @@ public class M2ModelLoadHandler extends DefaultHandler {
 					// ジェネレータで未使用のEcucContainerValueのNumerical値のパースエラー時に、仮の値に置き換えることで、
 					// 未使用パラメータの型エラーにより生成処理が止まることを防ぐ。
 					if (isSkippableNumericalParameter()) {
-						LOGGER.warning("Ignore the invaild parameter '" + valueFeature.getName() + "' of " + ModelLabels.getLabel(getCurrentXmlContext().contextM2Element) + ". " + e.getMessage());
 						// 使用しないNumericalパラメータであるため、仮の値(0)をセットすることで対処する。
 						// 未使用であるためソース出力に影響せず、また、不足コンフィグ情報の出力対象にもならないため、仮の値を入れても問題ない。
 						value = new BigDecimal(0);

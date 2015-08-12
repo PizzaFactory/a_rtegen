@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,12 +44,22 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -60,6 +70,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getBaseType <em>Base Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getSwAlignment <em>Sw Alignment</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeImpl#getSubElement <em>Sub Element</em>}</li>
  * </ul>
  * </p>
  *
@@ -85,6 +96,16 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate SW_ALIGNMENT__ESETTING_DELEGATE = ((EStructuralFeature.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT).getSettingDelegate();
+
+	/**
+	 * The cached value of the '{@link #getSubElement() <em>Sub Element</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ImplementationDataTypeElement> subElement;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +176,56 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ImplementationDataTypeElement> getSubElement() {
+		if (subElement == null) {
+			subElement = new EObjectContainmentEList<ImplementationDataTypeElement>(ImplementationDataTypeElement.class, this, M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT);
+		}
+		return subElement;
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getLeafImplementationDataType() <em>Get Leaf Implementation Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeafImplementationDataType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_LEAF_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationDataType getLeafImplementationDataType() {
+		try {
+			return (ImplementationDataType)GET_LEAF_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				return ((InternalEList<?>)getSubElement()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -163,6 +234,8 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 				return basicGetBaseType();
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
 				return getSwAlignment();
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				return getSubElement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +245,7 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -180,6 +254,10 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 				return;
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
 				setSwAlignment((String)newValue);
+				return;
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				getSubElement().clear();
+				getSubElement().addAll((Collection<? extends ImplementationDataTypeElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -199,6 +277,9 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
 				SW_ALIGNMENT__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
 				return;
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				getSubElement().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -215,8 +296,24 @@ public class ImplementationDataTypeImpl extends AutosarDataTypeImpl implements I
 				return BASE_TYPE__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case M2Package.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT:
 				return SW_ALIGNMENT__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case M2Package.IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT:
+				return subElement != null && !subElement.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case M2Package.IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE:
+				return getLeafImplementationDataType();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ImplementationDataTypeImpl

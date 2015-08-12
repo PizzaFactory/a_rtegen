@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -103,7 +103,12 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.RTE_BUFFER_NONQUEUED_SEND_OPERATION: return (EObject)createRteBufferNonqueuedSendOperation();
 			case ModulePackage.RTE_BUFFER_NONQUEUED_READ_OPERATION: return (EObject)createRteBufferNonqueuedReadOperation();
 			case ModulePackage.READ_API: return (EObject)createReadApi();
+			case ModulePackage.IRV_READ_OPERATION: return (EObject)createIrvReadOperation();
+			case ModulePackage.IRV_READ_API: return (EObject)createIrvReadApi();
+			case ModulePackage.IRV_WRITE_OPERATION: return (EObject)createIrvWriteOperation();
+			case ModulePackage.IRV_WRITE_API: return (EObject)createIrvWriteApi();
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET: return (EObject)createRteBufferVariableSet();
+			case ModulePackage.GLOBAL_VARIABLE_SET: return (EObject)createGlobalVariableSet();
 			case ModulePackage.RTE_SOURCE: return (EObject)createRteSource();
 			case ModulePackage.RTE_MODULE: return (EObject)createRteModule();
 			case ModulePackage.GLOBAL_VARIABLE: return (EObject)createGlobalVariable();
@@ -114,6 +119,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.PARTITION: return (EObject)createPartition();
 			case ModulePackage.SWC: return (EObject)createSwc();
 			case ModulePackage.RTE_HEADER: return (EObject)createRteHeader();
+			case ModulePackage.RTE_BSW_API_HEADER: return (EObject)createRteBswApiHeader();
 			case ModulePackage.RTE_LIFECYCLE_HEADER: return (EObject)createRteLifecycleHeader();
 			case ModulePackage.RTE_APPLICATION_TYPE_HEADER: return (EObject)createRteApplicationTypeHeader();
 			case ModulePackage.RTE_VFB_TRACE_HEADER: return (EObject)createRteVfbTraceHeader();
@@ -123,6 +129,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.INVALIDATE_API: return (EObject)createInvalidateApi();
 			case ModulePackage.IOC_NONQUEUED_SEND_OPERATION: return (EObject)createIocNonqueuedSendOperation();
 			case ModulePackage.DIRECT_COM_SEND_OPERATION: return (EObject)createDirectComSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_OPERATION: return (EObject)createTrustedFunctionRteOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_SEND_OPERATION: return (EObject)createTrustedFunctionRteSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferWriteSendOperation();
 			case ModulePackage.TRUSTED_FUNCTION_COM_SEND_OPERATION: return (EObject)createTrustedFunctionComSendOperation();
 			case ModulePackage.IMMEDIATE_PROXY_COM_SEND_OPERATION: return (EObject)createImmediateProxyComSendOperation();
 			case ModulePackage.PERIODIC_PROXY_COM_SEND_OPERATION: return (EObject)createPeriodicProxyComSendOperation();
@@ -136,6 +145,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.COM_RECEIVE_CALLBACK: return (EObject)createComReceiveCallback();
 			case ModulePackage.COM_RECEIVE_TIMEOUT_CALLBACK: return (EObject)createComReceiveTimeoutCallback();
 			case ModulePackage.COM_INVALIDATE_CALLBACK: return (EObject)createComInvalidateCallback();
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY: return (EObject)createComSendSignalProxyEntity();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_ENTITY: return (EObject)createComSendSignalImmediateEntity();
 			case ModulePackage.COM_SEND_SIGNAL_PERIODIC_ENTITY: return (EObject)createComSendSignalPeriodicEntity();
 			case ModulePackage.MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION: return (EObject)createMaskedNewDiffersMaskedOldFilterOperation();
@@ -157,15 +167,20 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.IOC_QUEUED_COMMUNICATION: return (EObject)createIocQueuedCommunication();
 			case ModulePackage.IOC_RECEIVE_API: return (EObject)createIocReceiveApi();
 			case ModulePackage.IOC_SEND_API: return (EObject)createIocSendApi();
+			case ModulePackage.IOC_SEND_OPERATION: return (EObject)createIocSendOperation();
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION: return (EObject)createIocQueuedSendOperation();
 			case ModulePackage.IOC_QUEUED_READ_OPERATION: return (EObject)createIocQueuedReadOperation();
 			case ModulePackage.CALL_API: return (EObject)createCallApi();
+			case ModulePackage.CALL_TRUSTED_API: return (EObject)createCallTrustedApi();
+			case ModulePackage.DISABLED_IN_MODE: return (EObject)createDisabledInMode();
 			case ModulePackage.EXECUTABLE_ENTITY: return (EObject)createExecutableEntity();
 			case ModulePackage.ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION: return (EObject)createAllInterruptBlockExcludeOperation();
 			case ModulePackage.OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION: return (EObject)createOsInterruptBlockExcludeOperation();
 			case ModulePackage.OS_SPINLOCK_EXCLUDE_OPERATION: return (EObject)createOsSpinlockExcludeOperation();
 			case ModulePackage.OS_RESOURCE_EXCLUDE_OPERATION: return (EObject)createOsResourceExcludeOperation();
+			case ModulePackage.NONE_EXCLUDE_OPERATION: return (EObject)createNoneExcludeOperation();
 			case ModulePackage.CONSTANT: return (EObject)createConstant();
+			case ModulePackage.CONSTANT_MEMBER: return (EObject)createConstantMember();
 			case ModulePackage.RTE_ENTER_API: return (EObject)createRteEnterApi();
 			case ModulePackage.RTE_EXIT_API: return (EObject)createRteExitApi();
 			case ModulePackage.OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY: return (EObject)createOsTaskActivationExecutableTaskBody();
@@ -173,6 +188,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.OS_TASK_ACTIVATION_OPERATION: return (EObject)createOsTaskActivationOperation();
 			case ModulePackage.OS_EVENT_SET_ACTIVATION_OPERATION: return (EObject)createOsEventSetActivationOperation();
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createTimingTriggeringExecutableStartOperation();
+			case ModulePackage.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createModeSwitchTriggeringExecutableStartOperation();
 			case ModulePackage.CYCLE_COUNTUP_OPERATION: return (EObject)createCycleCountupOperation();
 			case ModulePackage.START_OFFSET_COUNTUP_OPERATION: return (EObject)createStartOffsetCountupOperation();
 			case ModulePackage.IOC_EMPTY_QUEUE_API: return (EObject)createIocEmptyQueueApi();
@@ -181,6 +197,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.OS_SET_EVENT_API: return (EObject)createOsSetEventApi();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY: return (EObject)createComSendSignalImmediateTaskBody();
 			case ModulePackage.COM_SEND_PROXY_OPERATION: return (EObject)createComSendProxyOperation();
+			case ModulePackage.COM_SEND_PROXY_COMPLEX_OPERATION: return (EObject)createComSendProxyComplexOperation();
 			case ModulePackage.IOC_RECEIVE_GROUP_API: return (EObject)createIocReceiveGroupApi();
 			case ModulePackage.MODULE_ROOT: return (EObject)createModuleRoot();
 			case ModulePackage.INTER_PARTITION_TIMEOUT_OPERATION: return (EObject)createInterPartitionTimeoutOperation();
@@ -190,21 +207,38 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.OS_GET_SPINLOCK_API: return (EObject)createOsGetSpinlockApi();
 			case ModulePackage.MULTICORE_RTE_START_API: return (EObject)createMulticoreRteStartApi();
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION: return (EObject)createRteBufferWriteTrustedFunction();
-			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferWriteSendOperation();
+			case ModulePackage.RTE_CS_TRUSTED_FUNCTION: return (EObject)createRteCsTrustedFunction();
+			case ModulePackage.RTE_CS_TRUSTED_RUNNABLES: return (EObject)createRteCsTrustedRunnables();
 			case ModulePackage.IOC_SEND_GROUP_API: return (EObject)createIocSendGroupApi();
 			case ModulePackage.IOC_QUEUED_GROUP_COMMUNICATION: return (EObject)createIocQueuedGroupCommunication();
 			case ModulePackage.DIRECT_EXECUTABLE_START_OPERATION: return (EObject)createDirectExecutableStartOperation();
 			case ModulePackage.SINGLECORE_RTE_START_API: return (EObject)createSinglecoreRteStartApi();
 			case ModulePackage.RTE_INTERNAL_HEADER: return (EObject)createRteInternalHeader();
+			case ModulePackage.MODE_REQUEST_VARIABLE_SET: return (EObject)createModeRequestVariableSet();
+			case ModulePackage.MODE_MACHINE_INSTANCE: return (EObject)createModeMachineInstance();
+			case ModulePackage.FUNCTION_MACRO_GROUP: return (EObject)createFunctionMacroGroup();
+			case ModulePackage.FUNCTION_MACRO: return (EObject)createFunctionMacro();
+			case ModulePackage.PROXY_FUNCTION_TABLE_GROUP: return (EObject)createProxyFunctionTableGroup();
 			case ModulePackage.PRIMITIVE_TYPE: return (EObject)createPrimitiveType();
+			case ModulePackage.REDEFINITION_PRIMITIVE_TYPE: return (EObject)createRedefinitionPrimitiveType();
+			case ModulePackage.ARRAY_TYPE: return (EObject)createArrayType();
+			case ModulePackage.REDEFINITION_ARRAY_TYPE: return (EObject)createRedefinitionArrayType();
 			case ModulePackage.UNION_TYPE: return (EObject)createUnionType();
+			case ModulePackage.REDEFINITION_UNION_TYPE: return (EObject)createRedefinitionUnionType();
+			case ModulePackage.STRUCT_TYPE: return (EObject)createStructType();
+			case ModulePackage.REDEFINITION_STRUCT_TYPE: return (EObject)createRedefinitionStructType();
 			case ModulePackage.BLACKBOX_TYPE: return (EObject)createBlackboxType();
 			case ModulePackage.UNION_MEMBER: return (EObject)createUnionMember();
+			case ModulePackage.STRUCT_MEMBER: return (EObject)createStructMember();
+			case ModulePackage.MODE_TYPE: return (EObject)createModeType();
 			case ModulePackage.VARIABLE_MEMBER: return (EObject)createVariableMember();
 			case ModulePackage.RTE_UTILITY_HEADER: return (EObject)createRteUtilityHeader();
 			case ModulePackage.BLACKBOX_HEADER: return (EObject)createBlackboxHeader();
 			case ModulePackage.RTE_BUFFER_QUEUE_TYPE: return (EObject)createRteBufferQueueType();
+			case ModulePackage.MODE_QUEUE_TYPE: return (EObject)createModeQueueType();
+			case ModulePackage.RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteSendTrustedFunctionParamType();
 			case ModulePackage.COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createComSendTrustedFunctionParamType();
+			case ModulePackage.COM_CS_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createComCsTrustedFunctionParamType();
 			case ModulePackage.NEVER_READ_OPERATION: return (EObject)createNeverReadOperation();
 			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION: return (EObject)createRteBufferInvalidateTrustedFunction();
 			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferInvalidateSendOperation();
@@ -222,18 +256,31 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.SWC_MEMORY_MAPPING_HEADER: return (EObject)createSwcMemoryMappingHeader();
 			case ModulePackage.GENERATION_INFO: return (EObject)createGenerationInfo();
 			case ModulePackage.MACRO: return (EObject)createMacro();
+			case ModulePackage.PROXY_API: return (EObject)createProxyApi();
+			case ModulePackage.SEND_SIGNAL_API: return (EObject)createSendSignalApi();
+			case ModulePackage.RECEIVE_SIGNAL_API: return (EObject)createReceiveSignalApi();
 			case ModulePackage.SCHM_ENTER_API: return (EObject)createSchmEnterApi();
 			case ModulePackage.SCHM_EXIT_API: return (EObject)createSchmExitApi();
+			case ModulePackage.SCHM_MODE_API: return (EObject)createSchmModeApi();
+			case ModulePackage.SCHM_SWITCH_API: return (EObject)createSchmSwitchApi();
+			case ModulePackage.OS_TASK_EVENTS_TRIGGERED_BY_MODE: return (EObject)createOsTaskEventsTriggeredByMode();
+			case ModulePackage.OS_TASK_EVENT: return (EObject)createOsTaskEvent();
+			case ModulePackage.MODE_QUEUED_VARIABLE: return (EObject)createModeQueuedVariable();
 			case ModulePackage.MODULE_INTERLINK_HEADER: return (EObject)createModuleInterlinkHeader();
 			case ModulePackage.SCHM_API_GROUP: return (EObject)createSchmApiGroup();
+			case ModulePackage.SIGNAL_API_GROUP: return (EObject)createSignalApiGroup();
+			case ModulePackage.PROXY_API_GROUP: return (EObject)createProxyApiGroup();
 			case ModulePackage.MODULE_INTERLINK_TYPE_HEADER: return (EObject)createModuleInterlinkTypeHeader();
 			case ModulePackage.SCHM_LIFECYCLE_API_GROUP: return (EObject)createSchmLifecycleApiGroup();
 			case ModulePackage.PARTED_BSWM: return (EObject)createPartedBswm();
 			case ModulePackage.BSWM: return (EObject)createBswm();
 			case ModulePackage.SCHM_DEINIT_API: return (EObject)createSchmDeinitApi();
+			case ModulePackage.SCHM_INIT_API: return (EObject)createSchmInitApi();
 			case ModulePackage.SINGLECORE_SCHM_INIT_API: return (EObject)createSinglecoreSchmInitApi();
 			case ModulePackage.MULTICORE_SCHM_INIT_API: return (EObject)createMulticoreSchmInitApi();
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL: return (EObject)createSchmCoreInitApiImpl();
+			case ModulePackage.POINTER_TYPE: return (EObject)createPointerType();
+			case ModulePackage.REDEFINITION_POINTER_TYPE: return (EObject)createRedefinitionPointerType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -342,9 +389,59 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IrvReadOperation createIrvReadOperation() {
+		IrvReadOperationImpl irvReadOperation = new IrvReadOperationImpl();
+		return irvReadOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IrvReadApi createIrvReadApi() {
+		IrvReadApiImpl irvReadApi = new IrvReadApiImpl();
+		return irvReadApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IrvWriteOperation createIrvWriteOperation() {
+		IrvWriteOperationImpl irvWriteOperation = new IrvWriteOperationImpl();
+		return irvWriteOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IrvWriteApi createIrvWriteApi() {
+		IrvWriteApiImpl irvWriteApi = new IrvWriteApiImpl();
+		return irvWriteApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RteBufferVariableSet createRteBufferVariableSet() {
 		RteBufferVariableSetImpl rteBufferVariableSet = new RteBufferVariableSetImpl();
 		return rteBufferVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalVariableSet createGlobalVariableSet() {
+		GlobalVariableSetImpl globalVariableSet = new GlobalVariableSetImpl();
+		return globalVariableSet;
 	}
 
 	/**
@@ -402,9 +499,79 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeType createModeType() {
+		ModeTypeImpl modeType = new ModeTypeImpl();
+		return modeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionPrimitiveType createRedefinitionPrimitiveType() {
+		RedefinitionPrimitiveTypeImpl redefinitionPrimitiveType = new RedefinitionPrimitiveTypeImpl();
+		return redefinitionPrimitiveType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrayType createArrayType() {
+		ArrayTypeImpl arrayType = new ArrayTypeImpl();
+		return arrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionArrayType createRedefinitionArrayType() {
+		RedefinitionArrayTypeImpl redefinitionArrayType = new RedefinitionArrayTypeImpl();
+		return redefinitionArrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UnionType createUnionType() {
 		UnionTypeImpl unionType = new UnionTypeImpl();
 		return unionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionUnionType createRedefinitionUnionType() {
+		RedefinitionUnionTypeImpl redefinitionUnionType = new RedefinitionUnionTypeImpl();
+		return redefinitionUnionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructType createStructType() {
+		StructTypeImpl structType = new StructTypeImpl();
+		return structType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionStructType createRedefinitionStructType() {
+		RedefinitionStructTypeImpl redefinitionStructType = new RedefinitionStructTypeImpl();
+		return redefinitionStructType;
 	}
 
 	/**
@@ -425,6 +592,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public UnionMember createUnionMember() {
 		UnionMemberImpl unionMember = new UnionMemberImpl();
 		return unionMember;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructMember createStructMember() {
+		StructMemberImpl structMember = new StructMemberImpl();
+		return structMember;
 	}
 
 	/**
@@ -472,9 +649,39 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeQueueType createModeQueueType() {
+		ModeQueueTypeImpl modeQueueType = new ModeQueueTypeImpl();
+		return modeQueueType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteSendTrustedFunctionParamType createRteSendTrustedFunctionParamType() {
+		RteSendTrustedFunctionParamTypeImpl rteSendTrustedFunctionParamType = new RteSendTrustedFunctionParamTypeImpl();
+		return rteSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType() {
 		ComSendTrustedFunctionParamTypeImpl comSendTrustedFunctionParamType = new ComSendTrustedFunctionParamTypeImpl();
 		return comSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComCsTrustedFunctionParamType createComCsTrustedFunctionParamType() {
+		ComCsTrustedFunctionParamTypeImpl comCsTrustedFunctionParamType = new ComCsTrustedFunctionParamTypeImpl();
+		return comCsTrustedFunctionParamType;
 	}
 
 	/**
@@ -652,6 +859,36 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ProxyApi createProxyApi() {
+		ProxyApiImpl proxyApi = new ProxyApiImpl();
+		return proxyApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SendSignalApi createSendSignalApi() {
+		SendSignalApiImpl sendSignalApi = new SendSignalApiImpl();
+		return sendSignalApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ReceiveSignalApi createReceiveSignalApi() {
+		ReceiveSignalApiImpl receiveSignalApi = new ReceiveSignalApiImpl();
+		return receiveSignalApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SchmEnterApi createSchmEnterApi() {
 		SchmEnterApiImpl schmEnterApi = new SchmEnterApiImpl();
 		return schmEnterApi;
@@ -672,6 +909,56 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SchmSwitchApi createSchmSwitchApi() {
+		SchmSwitchApiImpl schmSwitchApi = new SchmSwitchApiImpl();
+		return schmSwitchApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode() {
+		OsTaskEventsTriggeredByModeImpl osTaskEventsTriggeredByMode = new OsTaskEventsTriggeredByModeImpl();
+		return osTaskEventsTriggeredByMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsTaskEvent createOsTaskEvent() {
+		OsTaskEventImpl osTaskEvent = new OsTaskEventImpl();
+		return osTaskEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeQueuedVariable createModeQueuedVariable() {
+		ModeQueuedVariableImpl modeQueuedVariable = new ModeQueuedVariableImpl();
+		return modeQueuedVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmModeApi createSchmModeApi() {
+		SchmModeApiImpl schmModeApi = new SchmModeApiImpl();
+		return schmModeApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModuleInterlinkHeader createModuleInterlinkHeader() {
 		ModuleInterlinkHeaderImpl moduleInterlinkHeader = new ModuleInterlinkHeaderImpl();
 		return moduleInterlinkHeader;
@@ -685,6 +972,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public SchmApiGroup createSchmApiGroup() {
 		SchmApiGroupImpl schmApiGroup = new SchmApiGroupImpl();
 		return schmApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SignalApiGroup createSignalApiGroup() {
+		SignalApiGroupImpl signalApiGroup = new SignalApiGroupImpl();
+		return signalApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyApiGroup createProxyApiGroup() {
+		ProxyApiGroupImpl proxyApiGroup = new ProxyApiGroupImpl();
+		return proxyApiGroup;
 	}
 
 	/**
@@ -742,6 +1049,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SchmInitApi createSchmInitApi() {
+		SchmInitApiImpl schmInitApi = new SchmInitApiImpl();
+		return schmInitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SinglecoreSchmInitApi createSinglecoreSchmInitApi() {
 		SinglecoreSchmInitApiImpl singlecoreSchmInitApi = new SinglecoreSchmInitApiImpl();
 		return singlecoreSchmInitApi;
@@ -765,6 +1082,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public SchmCoreInitApiImpl createSchmCoreInitApiImpl() {
 		SchmCoreInitApiImplImpl schmCoreInitApiImpl = new SchmCoreInitApiImplImpl();
 		return schmCoreInitApiImpl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PointerType createPointerType() {
+		PointerTypeImpl pointerType = new PointerTypeImpl();
+		return pointerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionPointerType createRedefinitionPointerType() {
+		RedefinitionPointerTypeImpl redefinitionPointerType = new RedefinitionPointerTypeImpl();
+		return redefinitionPointerType;
 	}
 
 	/**
@@ -825,6 +1162,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public RteHeader createRteHeader() {
 		RteHeaderImpl rteHeader = new RteHeaderImpl();
 		return rteHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswApiHeader createRteBswApiHeader() {
+		RteBswApiHeaderImpl rteBswApiHeader = new RteBswApiHeaderImpl();
+		return rteBswApiHeader;
 	}
 
 	/**
@@ -915,6 +1262,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public DirectComSendOperation createDirectComSendOperation() {
 		DirectComSendOperationImpl directComSendOperation = new DirectComSendOperationImpl();
 		return directComSendOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrustedFunctionRteOperation createTrustedFunctionRteOperation() {
+		TrustedFunctionRteOperationImpl trustedFunctionRteOperation = new TrustedFunctionRteOperationImpl();
+		return trustedFunctionRteOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation() {
+		TrustedFunctionRteSendOperationImpl trustedFunctionRteSendOperation = new TrustedFunctionRteSendOperationImpl();
+		return trustedFunctionRteSendOperation;
 	}
 
 	/**
@@ -1045,6 +1412,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ComInvalidateCallback createComInvalidateCallback() {
 		ComInvalidateCallbackImpl comInvalidateCallback = new ComInvalidateCallbackImpl();
 		return comInvalidateCallback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendSignalProxyEntity createComSendSignalProxyEntity() {
+		ComSendSignalProxyEntityImpl comSendSignalProxyEntity = new ComSendSignalProxyEntityImpl();
+		return comSendSignalProxyEntity;
 	}
 
 	/**
@@ -1262,6 +1639,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IocSendOperation createIocSendOperation() {
+		IocSendOperationImpl iocSendOperation = new IocSendOperationImpl();
+		return iocSendOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public IocQueuedSendOperation createIocQueuedSendOperation() {
 		IocQueuedSendOperationImpl iocQueuedSendOperation = new IocQueuedSendOperationImpl();
 		return iocQueuedSendOperation;
@@ -1285,6 +1672,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public CallApi createCallApi() {
 		CallApiImpl callApi = new CallApiImpl();
 		return callApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallTrustedApi createCallTrustedApi() {
+		CallTrustedApiImpl callTrustedApi = new CallTrustedApiImpl();
+		return callTrustedApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DisabledInMode createDisabledInMode() {
+		DisabledInModeImpl disabledInMode = new DisabledInModeImpl();
+		return disabledInMode;
 	}
 
 	/**
@@ -1342,9 +1749,29 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NoneExcludeOperation createNoneExcludeOperation() {
+		NoneExcludeOperationImpl noneExcludeOperation = new NoneExcludeOperationImpl();
+		return noneExcludeOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Constant createConstant() {
 		ConstantImpl constant = new ConstantImpl();
 		return constant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConstantMember createConstantMember() {
+		ConstantMemberImpl constantMember = new ConstantMemberImpl();
+		return constantMember;
 	}
 
 	/**
@@ -1415,6 +1842,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation() {
 		TimingTriggeringExecutableStartOperationImpl timingTriggeringExecutableStartOperation = new TimingTriggeringExecutableStartOperationImpl();
 		return timingTriggeringExecutableStartOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeSwitchTriggeringExecutableStartOperation createModeSwitchTriggeringExecutableStartOperation() {
+		ModeSwitchTriggeringExecutableStartOperationImpl modeSwitchTriggeringExecutableStartOperation = new ModeSwitchTriggeringExecutableStartOperationImpl();
+		return modeSwitchTriggeringExecutableStartOperation;
 	}
 
 	/**
@@ -1495,6 +1932,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ComSendProxyOperation createComSendProxyOperation() {
 		ComSendProxyOperationImpl comSendProxyOperation = new ComSendProxyOperationImpl();
 		return comSendProxyOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendProxyComplexOperation createComSendProxyComplexOperation() {
+		ComSendProxyComplexOperationImpl comSendProxyComplexOperation = new ComSendProxyComplexOperationImpl();
+		return comSendProxyComplexOperation;
 	}
 
 	/**
@@ -1592,6 +2039,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RteCsTrustedFunction createRteCsTrustedFunction() {
+		RteCsTrustedFunctionImpl rteCsTrustedFunction = new RteCsTrustedFunctionImpl();
+		return rteCsTrustedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteCsTrustedRunnables createRteCsTrustedRunnables() {
+		RteCsTrustedRunnablesImpl rteCsTrustedRunnables = new RteCsTrustedRunnablesImpl();
+		return rteCsTrustedRunnables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation() {
 		TrustedFunctionRteBufferWriteSendOperationImpl trustedFunctionRteBufferWriteSendOperation = new TrustedFunctionRteBufferWriteSendOperationImpl();
 		return trustedFunctionRteBufferWriteSendOperation;
@@ -1645,6 +2112,56 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public RteInternalHeader createRteInternalHeader() {
 		RteInternalHeaderImpl rteInternalHeader = new RteInternalHeaderImpl();
 		return rteInternalHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeRequestVariableSet createModeRequestVariableSet() {
+		ModeRequestVariableSetImpl modeRequestVariableSet = new ModeRequestVariableSetImpl();
+		return modeRequestVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeMachineInstance createModeMachineInstance() {
+		ModeMachineInstanceImpl modeMachineInstance = new ModeMachineInstanceImpl();
+		return modeMachineInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionMacroGroup createFunctionMacroGroup() {
+		FunctionMacroGroupImpl functionMacroGroup = new FunctionMacroGroupImpl();
+		return functionMacroGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FunctionMacro createFunctionMacro() {
+		FunctionMacroImpl functionMacro = new FunctionMacroImpl();
+		return functionMacro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyFunctionTableGroup createProxyFunctionTableGroup() {
+		ProxyFunctionTableGroupImpl proxyFunctionTableGroup = new ProxyFunctionTableGroupImpl();
+		return proxyFunctionTableGroup;
 	}
 
 	/**

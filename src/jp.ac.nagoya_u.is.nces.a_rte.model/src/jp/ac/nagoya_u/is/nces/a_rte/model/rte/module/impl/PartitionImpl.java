@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacroGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
@@ -54,9 +55,11 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
@@ -97,6 +100,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getOsTrustedMacro <em>Os Trusted Macro</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getPartedBswm <em>Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getFunctionMacroGroup <em>Function Macro Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getRteInternalVariable <em>Rte Internal Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getSignalApi <em>Signal Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getProxyApi <em>Proxy Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -282,6 +289,46 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 	 * @ordered
 	 */
 	protected EList<PartedBswm> partedBswm;
+
+	/**
+	 * The cached value of the '{@link #getFunctionMacroGroup() <em>Function Macro Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctionMacroGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FunctionMacroGroup> functionMacroGroup;
+
+	/**
+	 * The cached value of the '{@link #getRteInternalVariable() <em>Rte Internal Variable</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteInternalVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GlobalVariable> rteInternalVariable;
+
+	/**
+	 * The cached value of the '{@link #getSignalApi() <em>Signal Api</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignalApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SignalApi> signalApi;
+
+	/**
+	 * The cached value of the '{@link #getProxyApi() <em>Proxy Api</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProxyApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProxyApi> proxyApi;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -685,6 +732,54 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FunctionMacroGroup> getFunctionMacroGroup() {
+		if (functionMacroGroup == null) {
+			functionMacroGroup = new EObjectContainmentEList<FunctionMacroGroup>(FunctionMacroGroup.class, this, ModulePackage.PARTITION__FUNCTION_MACRO_GROUP);
+		}
+		return functionMacroGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getRteInternalVariable() {
+		if (rteInternalVariable == null) {
+			rteInternalVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE);
+		}
+		return rteInternalVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SignalApi> getSignalApi() {
+		if (signalApi == null) {
+			signalApi = new EObjectContainmentWithInverseEList<SignalApi>(SignalApi.class, this, ModulePackage.PARTITION__SIGNAL_API, ModulePackage.SIGNAL_API__PARENT);
+		}
+		return signalApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProxyApi> getProxyApi() {
+		if (proxyApi == null) {
+			proxyApi = new EObjectContainmentWithInverseEList<ProxyApi>(ProxyApi.class, this, ModulePackage.PARTITION__PROXY_API, ModulePackage.PROXY_API__PARENT);
+		}
+		return proxyApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -697,6 +792,10 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSwc()).basicAdd(otherEnd, msgs);
 			case ModulePackage.PARTITION__PARTED_BSWM:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPartedBswm()).basicAdd(otherEnd, msgs);
+			case ModulePackage.PARTITION__SIGNAL_API:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSignalApi()).basicAdd(otherEnd, msgs);
+			case ModulePackage.PARTITION__PROXY_API:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProxyApi()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -743,6 +842,14 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return basicSetOsTrustedMacro(null, msgs);
 			case ModulePackage.PARTITION__PARTED_BSWM:
 				return ((InternalEList<?>)getPartedBswm()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTITION__FUNCTION_MACRO_GROUP:
+				return ((InternalEList<?>)getFunctionMacroGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE:
+				return ((InternalEList<?>)getRteInternalVariable()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTITION__SIGNAL_API:
+				return ((InternalEList<?>)getSignalApi()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTITION__PROXY_API:
+				return ((InternalEList<?>)getProxyApi()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -805,6 +912,14 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return getOsTrustedMacro();
 			case ModulePackage.PARTITION__PARTED_BSWM:
 				return getPartedBswm();
+			case ModulePackage.PARTITION__FUNCTION_MACRO_GROUP:
+				return getFunctionMacroGroup();
+			case ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE:
+				return getRteInternalVariable();
+			case ModulePackage.PARTITION__SIGNAL_API:
+				return getSignalApi();
+			case ModulePackage.PARTITION__PROXY_API:
+				return getProxyApi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -884,6 +999,22 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				getPartedBswm().clear();
 				getPartedBswm().addAll((Collection<? extends PartedBswm>)newValue);
 				return;
+			case ModulePackage.PARTITION__FUNCTION_MACRO_GROUP:
+				getFunctionMacroGroup().clear();
+				getFunctionMacroGroup().addAll((Collection<? extends FunctionMacroGroup>)newValue);
+				return;
+			case ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE:
+				getRteInternalVariable().clear();
+				getRteInternalVariable().addAll((Collection<? extends GlobalVariable>)newValue);
+				return;
+			case ModulePackage.PARTITION__SIGNAL_API:
+				getSignalApi().clear();
+				getSignalApi().addAll((Collection<? extends SignalApi>)newValue);
+				return;
+			case ModulePackage.PARTITION__PROXY_API:
+				getProxyApi().clear();
+				getProxyApi().addAll((Collection<? extends ProxyApi>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -950,6 +1081,18 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 			case ModulePackage.PARTITION__PARTED_BSWM:
 				getPartedBswm().clear();
 				return;
+			case ModulePackage.PARTITION__FUNCTION_MACRO_GROUP:
+				getFunctionMacroGroup().clear();
+				return;
+			case ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE:
+				getRteInternalVariable().clear();
+				return;
+			case ModulePackage.PARTITION__SIGNAL_API:
+				getSignalApi().clear();
+				return;
+			case ModulePackage.PARTITION__PROXY_API:
+				getProxyApi().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -998,6 +1141,14 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return osTrustedMacro != null;
 			case ModulePackage.PARTITION__PARTED_BSWM:
 				return partedBswm != null && !partedBswm.isEmpty();
+			case ModulePackage.PARTITION__FUNCTION_MACRO_GROUP:
+				return functionMacroGroup != null && !functionMacroGroup.isEmpty();
+			case ModulePackage.PARTITION__RTE_INTERNAL_VARIABLE:
+				return rteInternalVariable != null && !rteInternalVariable.isEmpty();
+			case ModulePackage.PARTITION__SIGNAL_API:
+				return signalApi != null && !signalApi.isEmpty();
+			case ModulePackage.PARTITION__PROXY_API:
+				return proxyApi != null && !proxyApi.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,6 +59,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getPassType <em>Pass Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getHasConst <em>Has Const</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl#getIsIn <em>Is In</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +86,46 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	 * @ordered
 	 */
 	protected ParameterPassTypeEnum passType = PASS_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHasConst() <em>Has Const</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasConst()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean HAS_CONST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getHasConst() <em>Has Const</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasConst()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean hasConst = HAS_CONST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getIsIn() <em>Is In</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsIn()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_IN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getIsIn() <em>Is In</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsIn()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isIn = IS_IN_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -130,11 +172,57 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getHasConst() {
+		return hasConst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasConst(Boolean newHasConst) {
+		Boolean oldHasConst = hasConst;
+		hasConst = newHasConst;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARAMETER__HAS_CONST, oldHasConst, hasConst));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getIsIn() {
+		return isIn;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsIn(Boolean newIsIn) {
+		Boolean oldIsIn = isIn;
+		isIn = newIsIn;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARAMETER__IS_IN, oldIsIn, isIn));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				return getPassType();
+			case ModulePackage.PARAMETER__HAS_CONST:
+				return getHasConst();
+			case ModulePackage.PARAMETER__IS_IN:
+				return getIsIn();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -149,6 +237,12 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		switch (featureID) {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				setPassType((ParameterPassTypeEnum)newValue);
+				return;
+			case ModulePackage.PARAMETER__HAS_CONST:
+				setHasConst((Boolean)newValue);
+				return;
+			case ModulePackage.PARAMETER__IS_IN:
+				setIsIn((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -165,6 +259,12 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				setPassType(PASS_TYPE_EDEFAULT);
 				return;
+			case ModulePackage.PARAMETER__HAS_CONST:
+				setHasConst(HAS_CONST_EDEFAULT);
+				return;
+			case ModulePackage.PARAMETER__IS_IN:
+				setIsIn(IS_IN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -179,6 +279,10 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		switch (featureID) {
 			case ModulePackage.PARAMETER__PASS_TYPE:
 				return passType != PASS_TYPE_EDEFAULT;
+			case ModulePackage.PARAMETER__HAS_CONST:
+				return HAS_CONST_EDEFAULT == null ? hasConst != null : !HAS_CONST_EDEFAULT.equals(hasConst);
+			case ModulePackage.PARAMETER__IS_IN:
+				return IS_IN_EDEFAULT == null ? isIn != null : !IS_IN_EDEFAULT.equals(isIn);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -195,6 +299,10 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (passType: ");
 		result.append(passType);
+		result.append(", hasConst: ");
+		result.append(hasConst);
+		result.append(", isIn: ");
+		result.append(isIn);
 		result.append(')');
 		return result.toString();
 	}

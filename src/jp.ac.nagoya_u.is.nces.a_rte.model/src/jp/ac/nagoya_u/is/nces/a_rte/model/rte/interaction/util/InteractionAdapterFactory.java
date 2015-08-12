@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -266,6 +266,10 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createTimingTriggeringEntityStartImplementationAdapter();
 			}
 			@Override
+			public Adapter caseModeSwitchTriggeringEntityStartImplementation(ModeSwitchTriggeringEntityStartImplementation object) {
+				return createModeSwitchTriggeringEntityStartImplementationAdapter();
+			}
+			@Override
 			public Adapter caseRunnableEntityStartInteraction(RunnableEntityStartInteraction object) {
 				return createRunnableEntityStartInteractionAdapter();
 			}
@@ -296,6 +300,10 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTimingEvent(TimingEvent object) {
 				return createTimingEventAdapter();
+			}
+			@Override
+			public Adapter caseModeSwitchEvent(ModeSwitchEvent object) {
+				return createModeSwitchEventAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -864,6 +872,20 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation <em>Mode Switch Triggering Entity Start Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation
+	 * @generated
+	 */
+	public Adapter createModeSwitchTriggeringEntityStartImplementationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction <em>Runnable Entity Start Interaction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -972,6 +994,20 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent <em>Mode Switch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent
+	 * @generated
+	 */
+	public Adapter createModeSwitchEventAdapter() {
 		return null;
 	}
 

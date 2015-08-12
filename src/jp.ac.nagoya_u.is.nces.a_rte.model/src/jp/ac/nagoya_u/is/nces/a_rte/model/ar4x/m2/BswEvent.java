@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,6 +59,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getStartsOnEvent <em>Starts On Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getConfig <em>Config</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getDisabledInMode <em>Disabled In Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -140,5 +141,22 @@ public interface BswEvent extends Identifiable {
 	 * @generated
 	 */
 	void setParent(BswInternalBehavior value);
+
+	/**
+	 * Returns the value of the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Disabled In Mode</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Disabled In Mode</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswEvent_DisabledInMode()
+	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='DISABLED-IN-MODE-IREFS' xml.name='DISABLED-IN-MODE-IREF'"
+	 * @generated
+	 */
+	EList<ModeInBswModuleDescriptionInstanceRef> getDisabledInMode();
 
 } // BswEvent

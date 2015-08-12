@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 
 /**
@@ -55,6 +56,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,5 +90,31 @@ public interface Event extends InteractionObject {
 	 * @generated
 	 */
 	void setStartOnEvent(ExecutableEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Bsw Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bsw Event</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bsw Event</em>' reference.
+	 * @see #setBswEvent(BswEvent)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEvent_BswEvent()
+	 * @model
+	 * @generated
+	 */
+	BswEvent getBswEvent();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getBswEvent <em>Bsw Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bsw Event</em>' reference.
+	 * @see #getBswEvent()
+	 * @generated
+	 */
+	void setBswEvent(BswEvent value);
 
 } // Event

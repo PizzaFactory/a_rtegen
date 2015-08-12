@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import java.util.Collection;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteGeneration;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteInitializationBehavior;
@@ -71,6 +72,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl#getRteGeneration <em>Rte Generation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl#getRteBswGeneral <em>Rte Bsw General</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl#getRteSwComponentInstance <em>Rte Sw Component Instance</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl#getRteOsInteraction <em>Rte Os Interaction</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl#getRteInitializationBehavior <em>Rte Initialization Behavior</em>}</li>
@@ -90,6 +92,16 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 	 * @ordered
 	 */
 	protected RteGeneration rteGeneration;
+
+	/**
+	 * The cached value of the '{@link #getRteBswGeneral() <em>Rte Bsw General</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteBswGeneral()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteBswGeneral rteBswGeneral;
 
 	/**
 	 * The cached value of the '{@link #getRteSwComponentInstance() <em>Rte Sw Component Instance</em>}' containment reference list.
@@ -198,6 +210,49 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RteBswGeneral getRteBswGeneral() {
+		return rteBswGeneral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRteBswGeneral(RteBswGeneral newRteBswGeneral, NotificationChain msgs) {
+		RteBswGeneral oldRteBswGeneral = rteBswGeneral;
+		rteBswGeneral = newRteBswGeneral;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EcucPackage.RTE__RTE_BSW_GENERAL, oldRteBswGeneral, newRteBswGeneral);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRteBswGeneral(RteBswGeneral newRteBswGeneral) {
+		if (newRteBswGeneral != rteBswGeneral) {
+			NotificationChain msgs = null;
+			if (rteBswGeneral != null)
+				msgs = ((InternalEObject)rteBswGeneral).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EcucPackage.RTE__RTE_BSW_GENERAL, null, msgs);
+			if (newRteBswGeneral != null)
+				msgs = ((InternalEObject)newRteBswGeneral).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EcucPackage.RTE__RTE_BSW_GENERAL, null, msgs);
+			msgs = basicSetRteBswGeneral(newRteBswGeneral, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EcucPackage.RTE__RTE_BSW_GENERAL, newRteBswGeneral, newRteBswGeneral));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<RteSwComponentInstance> getRteSwComponentInstance() {
 		if (rteSwComponentInstance == null) {
 			rteSwComponentInstance = new EObjectContainmentEList<RteSwComponentInstance>(RteSwComponentInstance.class, this, EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE);
@@ -251,6 +306,8 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 		switch (featureID) {
 			case EcucPackage.RTE__RTE_GENERATION:
 				return basicSetRteGeneration(null, msgs);
+			case EcucPackage.RTE__RTE_BSW_GENERAL:
+				return basicSetRteBswGeneral(null, msgs);
 			case EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE:
 				return ((InternalEList<?>)getRteSwComponentInstance()).basicRemove(otherEnd, msgs);
 			case EcucPackage.RTE__RTE_OS_INTERACTION:
@@ -273,6 +330,8 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 		switch (featureID) {
 			case EcucPackage.RTE__RTE_GENERATION:
 				return getRteGeneration();
+			case EcucPackage.RTE__RTE_BSW_GENERAL:
+				return getRteBswGeneral();
 			case EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE:
 				return getRteSwComponentInstance();
 			case EcucPackage.RTE__RTE_OS_INTERACTION:
@@ -296,6 +355,9 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 		switch (featureID) {
 			case EcucPackage.RTE__RTE_GENERATION:
 				setRteGeneration((RteGeneration)newValue);
+				return;
+			case EcucPackage.RTE__RTE_BSW_GENERAL:
+				setRteBswGeneral((RteBswGeneral)newValue);
 				return;
 			case EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE:
 				getRteSwComponentInstance().clear();
@@ -328,6 +390,9 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 			case EcucPackage.RTE__RTE_GENERATION:
 				setRteGeneration((RteGeneration)null);
 				return;
+			case EcucPackage.RTE__RTE_BSW_GENERAL:
+				setRteBswGeneral((RteBswGeneral)null);
+				return;
 			case EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE:
 				getRteSwComponentInstance().clear();
 				return;
@@ -354,6 +419,8 @@ public class RteImpl extends EcucModuleImpl implements Rte {
 		switch (featureID) {
 			case EcucPackage.RTE__RTE_GENERATION:
 				return rteGeneration != null;
+			case EcucPackage.RTE__RTE_BSW_GENERAL:
+				return rteBswGeneral != null;
 			case EcucPackage.RTE__RTE_SW_COMPONENT_INSTANCE:
 				return rteSwComponentInstance != null && !rteSwComponentInstance.isEmpty();
 			case EcucPackage.RTE__RTE_OS_INTERACTION:

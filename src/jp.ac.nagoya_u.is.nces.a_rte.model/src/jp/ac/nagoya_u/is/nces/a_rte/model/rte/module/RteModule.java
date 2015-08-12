@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -73,6 +73,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getSwcMemoryMappingHeader <em>Swc Memory Mapping Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkHeader <em>Module Interlink Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkTypeHeader <em>Module Interlink Type Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteBswApiHeader <em>Rte Bsw Api Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -469,5 +470,31 @@ public interface RteModule extends ExtendedEObject {
 	 * @generated
 	 */
 	EList<ModuleInterlinkTypeHeader> getModuleInterlinkTypeHeader();
+
+	/**
+	 * Returns the value of the '<em><b>Rte Bsw Api Header</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rte Bsw Api Header</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rte Bsw Api Header</em>' containment reference.
+	 * @see #setRteBswApiHeader(RteBswApiHeader)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteModule_RteBswApiHeader()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	RteBswApiHeader getRteBswApiHeader();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteBswApiHeader <em>Rte Bsw Api Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rte Bsw Api Header</em>' containment reference.
+	 * @see #getRteBswApiHeader()
+	 * @generated
+	 */
+	void setRteBswApiHeader(RteBswApiHeader value);
 
 } // RteModule

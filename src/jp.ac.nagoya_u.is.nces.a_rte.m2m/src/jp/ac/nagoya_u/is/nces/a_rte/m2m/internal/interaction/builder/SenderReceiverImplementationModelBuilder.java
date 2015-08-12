@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,6 +42,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION___GET_OWNER_CORE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_VARIABLE__RVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_PARTITION__VARIABLEDATAINSTANCEINCOMPOSITION;
@@ -53,6 +55,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilterTypeEnum;
@@ -116,7 +119,7 @@ public class SenderReceiverImplementationModelBuilder {
 
 		// 値保持用のバッファを生成
 		EcucPartition ownerPartition = this.context.query.get(receiver.getSource(), VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_PARTITION__VARIABLEDATAINSTANCEINCOMPOSITION);
-		if (!isInterPartitionExists || dataInstance.isFilterEnabled() || dataInstance.isAliveTimeoutEnabled() || dataInstance.isInvalidationEnabled()) {
+		if (isMakeRteValueBuffer(targetReceiveInteraction, receiver, dataInstance)) {
 			RteValueBufferImplementation valueBufferImplementation = InteractionFactory.eINSTANCE.createRteValueBufferImplementation();
 			valueBufferImplementation.setOwnerPartition(ownerPartition);
 			targetReceiveInteraction.setValueBufferImplementation(valueBufferImplementation);
@@ -125,6 +128,7 @@ public class SenderReceiverImplementationModelBuilder {
 			iocBufferImplementation.setOwnerPartition(ownerPartition);
 			targetReceiveInteraction.setValueBufferImplementation(iocBufferImplementation);
 		}
+
 		targetReceiveInteraction.getValueBufferImplementation().setHasStatus(dataInstance.isAliveTimeoutEnabled() && (isInterEcuExists || isInterPartitionExists));
 
 		// フィルタ用のバッファを生成
@@ -133,6 +137,36 @@ public class SenderReceiverImplementationModelBuilder {
 			FilterBufferImplementation filterBufferImplementation = InteractionFactory.eINSTANCE.createFilterBufferImplementation();
 			filterBufferImplementation.setOwnerPartition(ownerPartition);
 			targetReceiveInteraction.setFilterBufferImplementation(filterBufferImplementation);
+		}
+	}
+
+	private boolean isMakeRteValueBuffer(ReceiveInteraction targetReceiveInteraction, InternalEcuReceiver receiver, RVariableDataInstanceInSwc dataInstance) {
+		boolean isInterEcuExists = !receiver.getExternalEcuSenders().isEmpty();
+		boolean isInterPartitionExists = this.context.query.exists(targetReceiveInteraction.getSendInteraction(), hasOp(SEND_INTERACTION___IS_INTER_PARTITION, true));
+		if (!isInterPartitionExists) {
+			return true;
+		}
+		if (dataInstance.isFilterEnabled()) {
+			return true;
+		}
+		if (dataInstance.isAliveTimeoutEnabled()) {
+			return true;
+		}
+		if (dataInstance.isInvalidationEnabled()) {
+			return true;
+		}
+		if (!isInterEcuExists) {
+			// targetReceiveInteraction中のSenderの中に１つでもOwnerPartitionがUntrustedであれば、falseを返す
+			for (SendInteraction sendInteraction : targetReceiveInteraction.getSendInteraction()) {
+				for (Sender sender : sendInteraction.getSender()) {
+					if (!sender.getOwnerPartition().isTrusted()) {
+						return false;
+					}
+				}
+			}
+			return true;
+		} else {
+			return true;
 		}
 	}
 
@@ -167,11 +201,13 @@ public class SenderReceiverImplementationModelBuilder {
 		} else {
 			// ECU間
 			ExternalEcuReceiver externalEcuReceiver = (ExternalEcuReceiver) receiver;
-			ComSignal comSignal = externalEcuReceiver.getSource();
+			ComSignal comSignal = externalEcuReceiver.getSourceSignal();
+			ComSignalGroup comSignalGroup = externalEcuReceiver.getSourceSignalGroup();
 			if (sender.getOwnerPartition() == null) {
 				// パーティション構成なしの場合，直接COM送信
 				DirectComSendImplementation directComSendImplementation = InteractionFactory.eINSTANCE.createDirectComSendImplementation();
 				directComSendImplementation.setComSignal(comSignal);
+				directComSendImplementation.setComSignalGroup(comSignalGroup);
 				targetSendInteraction.setImplementation(directComSendImplementation);
 			} else if (this.context.query.get(sender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
 				// マスタコア
@@ -179,22 +215,27 @@ public class SenderReceiverImplementationModelBuilder {
 					// 信頼パーティションの場合，直接COM送信
 					DirectComSendImplementation directComSendImplementation = InteractionFactory.eINSTANCE.createDirectComSendImplementation();
 					directComSendImplementation.setComSignal(comSignal);
+					directComSendImplementation.setComSignalGroup(comSignalGroup);
 					targetSendInteraction.setImplementation(directComSendImplementation);
 				} else {
 					// 非信頼パーティションの場合，信頼関数経由COM送信
 					TrustedFunctionComSendImplementation trustedFunctionComSendImplementation = InteractionFactory.eINSTANCE.createTrustedFunctionComSendImplementation();
 					trustedFunctionComSendImplementation.setComSignal(comSignal);
+					trustedFunctionComSendImplementation.setComSignalGroup(comSignalGroup);
 					targetSendInteraction.setImplementation(trustedFunctionComSendImplementation);
 				}
 			} else {
 				// スレーブコア
-				if (comSignal.transfersImmediately()) {
+				if ((comSignal != null && comSignal.transfersImmediately()) ||
+					(comSignalGroup != null && comSignalGroup.transfersImmediately())) {
 					ImmediateProxyComSendImplementation immediateProxyComSendImplementation = InteractionFactory.eINSTANCE.createImmediateProxyComSendImplementation();
 					immediateProxyComSendImplementation.setComSignal(comSignal);
+					immediateProxyComSendImplementation.setComSignalGroup(comSignalGroup);
 					targetSendInteraction.setImplementation(immediateProxyComSendImplementation);
 				} else {
 					PeriodicProxyComSendImplementation periodicProxyComSendImplementation = InteractionFactory.eINSTANCE.createPeriodicProxyComSendImplementation();
 					periodicProxyComSendImplementation.setComSignal(comSignal);
+					periodicProxyComSendImplementation.setComSignalGroup(comSignalGroup);
 					targetSendInteraction.setImplementation(periodicProxyComSendImplementation);
 				}
 			}
@@ -213,7 +254,7 @@ public class SenderReceiverImplementationModelBuilder {
 		}
 	}
 
-	private void optimizeComValueBufferImplementation(ReceiveInteraction targetReceiveInteraction, InternalEcuReceiver receiver) {
+	private void optimizeComValueBufferImplementation(ReceiveInteraction targetReceiveInteraction, InternalEcuReceiver receiver) throws ModelException {
 		RVariableDataInstanceInSwc dataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
 
 		// Receive RTEバッファでない場合は最適化対象外
@@ -243,6 +284,27 @@ public class SenderReceiverImplementationModelBuilder {
 			return;
 		}
 
+		// A-COM独自仕様オプション指定時以外はマスタコアのBSWPartitionでない場合は最適化対象外
+		if (!this.context.options.comMultiCore) {
+			if (receiver.getOwnerPartition() != null) {
+				EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
+						hasOp(ECUC_PARTITION___GET_OWNER_CORE, receiver.getOwnerCore())));
+				if ((receiver.getOwnerPartition() != bswPartition) || 
+					(this.context.query.get(receiver.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION) == Boolean.FALSE)) {
+					return;
+				}
+			}
+		} else {
+			// BSWPartitionでない場合は最適化対象外
+			if (receiver.getOwnerPartition() != null) {
+				EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
+						hasOp(ECUC_PARTITION___GET_OWNER_CORE, receiver.getOwnerCore())));
+				if (receiver.getOwnerPartition() != bswPartition) {
+					return;
+				}
+			}
+		}
+
 		// 最適化を実施
 		// SendInteractionのImplementationを削除する。
 		for (SendInteraction targetSendInteraction : targetReceiveInteraction.getSendInteraction()) {
@@ -250,9 +312,11 @@ public class SenderReceiverImplementationModelBuilder {
 		}
 
 		// ReceiveInteractionのImplementaitionをComバッファに変更する。
-		ComSignal comSignal = externalEcuSender.getSource();
+		ComSignal comSignal = externalEcuSender.getSourceSignal();
+		ComSignalGroup comSignalGroup = externalEcuSender.getSourceSignalGroup();
 		ComValueBufferImplementation comValueBufferImplementation = InteractionFactory.eINSTANCE.createComValueBufferImplementation();
 		comValueBufferImplementation.setComSignal(comSignal);
+		comValueBufferImplementation.setComSignalGroup(comSignalGroup);
 		targetReceiveInteraction.setValueBufferImplementation(comValueBufferImplementation);
 	}
 }

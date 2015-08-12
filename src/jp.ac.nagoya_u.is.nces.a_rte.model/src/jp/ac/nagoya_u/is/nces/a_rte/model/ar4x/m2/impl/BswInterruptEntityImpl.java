@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,14 +44,10 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -61,7 +57,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl#getInterruptCategory <em>Interrupt Category</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl#getInterruptSource <em>Interrupt Source</em>}</li>
  * </ul>
  * </p>
@@ -69,26 +64,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswInterruptEntity {
-	/**
-	 * The default value of the '{@link #getInterruptCategory() <em>Interrupt Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterruptCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final BswInterruptCategory INTERRUPT_CATEGORY_EDEFAULT = BswInterruptCategory.CAT1;
-
-	/**
-	 * The cached value of the '{@link #getInterruptCategory() <em>Interrupt Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterruptCategory()
-	 * @generated
-	 * @ordered
-	 */
-	protected BswInterruptCategory interruptCategory = INTERRUPT_CATEGORY_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getInterruptSource() <em>Interrupt Source</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -133,27 +108,6 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BswInterruptCategory getInterruptCategory() {
-		return interruptCategory;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInterruptCategory(BswInterruptCategory newInterruptCategory) {
-		BswInterruptCategory oldInterruptCategory = interruptCategory;
-		interruptCategory = newInterruptCategory == null ? INTERRUPT_CATEGORY_EDEFAULT : newInterruptCategory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY, oldInterruptCategory, interruptCategory));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getInterruptSource() {
 		return interruptSource;
 	}
@@ -178,8 +132,6 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY:
-				return getInterruptCategory();
 			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE:
 				return getInterruptSource();
 		}
@@ -194,9 +146,6 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY:
-				setInterruptCategory((BswInterruptCategory)newValue);
-				return;
 			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE:
 				setInterruptSource((String)newValue);
 				return;
@@ -212,9 +161,6 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY:
-				setInterruptCategory(INTERRUPT_CATEGORY_EDEFAULT);
-				return;
 			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE:
 				setInterruptSource(INTERRUPT_SOURCE_EDEFAULT);
 				return;
@@ -230,8 +176,6 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY:
-				return interruptCategory != INTERRUPT_CATEGORY_EDEFAULT;
 			case M2Package.BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE:
 				return INTERRUPT_SOURCE_EDEFAULT == null ? interruptSource != null : !INTERRUPT_SOURCE_EDEFAULT.equals(interruptSource);
 		}
@@ -248,9 +192,7 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (interruptCategory: ");
-		result.append(interruptCategory);
-		result.append(", interruptSource: ");
+		result.append(" (interruptSource: ");
 		result.append(interruptSource);
 		result.append(')');
 		return result.toString();

@@ -3,7 +3,7 @@ rem #
 rem #  TOPPERS/A-RTEGEN
 rem #      Automotive Runtime Environment Generator
 rem #
-rem #  Copyright (C) 2014 by FUJI SOFT INCORPORATED, JAPAN
+rem #  Copyright (C) 2014-2015 by FUJI SOFT INCORPORATED, JAPAN
 rem #
 rem #  上記著作権者は，以下の(1)～(4)の条件を満たす場合に限り，本ソフトウェ
 rem #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,7 +43,9 @@ rem #  $Id: hsbv850e2fg4_cx_common.yaml 470 2014-10-10 05:33:29Z ksigihar $
 rem #
 
 set RUBY_HOME=c:/cygwin/bin
-set PATH=%RUBY_HOME%;%PATH%
+set PATH=%PATH%;%RUBY_HOME%
+set PATH=%PATH%;C:\Program Files\Renesas Electronics\CS+\CACX
+set PATH=%PATH%;C:\Program Files (x86)\Renesas Electronics\CS+\CACX
 
 set OS_DIR=../../../../../../atk2-sc1
 set CFG_DIR=%OS_DIR%/cfg/cfg
@@ -72,7 +74,16 @@ echo execute cfg CanIf
 start /b %CFG_DIR%/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file %COMSTACK_PATH%/canif/canif.ini --api-table %COMSTACK_PATH%/canif/canif.csv -T %COMSTACK_PATH%/canif/canif.tf %APP_NAME%.arxml
 
 echo execute cfg Can
-start /b %CFG_DIR%/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file %COMSTACK_PATH%/can/can.ini --api-table %COMSTACK_PATH%/can/can.csv -I %COMSTACK_PATH%/can -I %COMSTACK_PATH%/can/arch/v850e2 -T %COMSTACK_PATH%/can/target/hsbv850e2fg4_cx/Can_Target.tf %APP_NAME%.arxml %TARGET_DIR%/target_hw_counter.arxml
+
+if exist cfg1_out.* del /F cfg1_out.*
+if exist cancfg rmdir /S /Q cancfg
+echo /* this is dummy */ > Can_Cfg.h
+copy configure.mtpj cancfg.mtpj > nul
+copy ..\cancfg.py .  > nul
+CubeSuite+.exe /ps cancfg.py cancfg.mtpj
+move .\cancfg\cfg1_out.srec . > nul
+
+start /b %CFG_DIR%/cfg.exe --cfg1-def-table %COMSTACK_PATH%/can/arch/fcn/prc_def.csv --pass 2 --kernel atk2 --ini-file %COMSTACK_PATH%/can/can.ini --api-table %COMSTACK_PATH%/can/can.csv -I %COMSTACK_PATH%/can -I %COMSTACK_PATH%/can/arch/fcn -T %COMSTACK_PATH%/can/target/hsbv850e2fg4_cx/Can_Target.tf %APP_NAME%.arxml %TARGET_DIR%/target_hw_counter.arxml
 
 pause
 exit

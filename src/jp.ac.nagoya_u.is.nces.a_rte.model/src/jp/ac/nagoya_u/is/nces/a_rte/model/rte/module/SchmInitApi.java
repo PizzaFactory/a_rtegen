@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,16 +44,91 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Schm Init Api</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi#getExecutableStartOperation <em>Executable Start Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi#getOsTaskEvent <em>Os Task Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmInitApi()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface SchmInitApi extends SchmLifecycleApi {
+
+	/**
+	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmInitApi_Operation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<InitializeOperation> getOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Executable Start Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Executable Start Operation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Executable Start Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmInitApi_ExecutableStartOperation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ModeSwitchTriggeringExecutableStartOperation> getExecutableStartOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Os Task Event</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Os Task Event</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Os Task Event</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmInitApi_OsTaskEvent()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<OsTaskEvent> getOsTaskEvent();
+
+	/**
+	 * Returns the value of the '<em><b>Mode Machine Instance</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode Machine Instance</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode Machine Instance</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmInitApi_ModeMachineInstance()
+	 * @model
+	 * @generated
+	 */
+	EList<ModeMachineInstance> getModeMachineInstance();
 } // SchmInitApi

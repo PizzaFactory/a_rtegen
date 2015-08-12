@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
-import org.eclipse.emf.common.util.EList;
 
 
 /**
@@ -52,32 +51,10 @@ import org.eclipse.emf.common.util.EList;
  * A representation of the model object '<em><b>Com Send Signal Immediate Entity</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity#getOperation <em>Operation</em>}</li>
- * </ul>
- * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComSendSignalImmediateEntity()
  * @model
  * @generated
  */
-public interface ComSendSignalImmediateEntity extends BswSchedulableEntity {
-
-	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComSendSignalImmediateEntity_Operation()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ComSendProxyOperation> getOperation();
+public interface ComSendSignalImmediateEntity extends ComSendSignalProxyEntity {
 } // ComSendSignalImmediateEntity

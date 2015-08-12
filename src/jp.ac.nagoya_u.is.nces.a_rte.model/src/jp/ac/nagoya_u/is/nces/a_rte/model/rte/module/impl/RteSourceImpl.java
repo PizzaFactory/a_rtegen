@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,11 +50,13 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionGroup;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -82,6 +84,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSourceMacro <em>Source Macro</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSchmLifecycleApiGroup <em>Schm Lifecycle Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSchmApiGroup <em>Schm Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getSignalApiGroup <em>Signal Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl#getProxyApiGroup <em>Proxy Api Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -187,6 +191,26 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * @ordered
 	 */
 	protected EList<SchmApiGroup> schmApiGroup;
+
+	/**
+	 * The cached value of the '{@link #getSignalApiGroup() <em>Signal Api Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignalApiGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SignalApiGroup> signalApiGroup;
+
+	/**
+	 * The cached value of the '{@link #getProxyApiGroup() <em>Proxy Api Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProxyApiGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProxyApiGroup> proxyApiGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -332,6 +356,30 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SignalApiGroup> getSignalApiGroup() {
+		if (signalApiGroup == null) {
+			signalApiGroup = new EObjectContainmentEList<SignalApiGroup>(SignalApiGroup.class, this, ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP);
+		}
+		return signalApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProxyApiGroup> getProxyApiGroup() {
+		if (proxyApiGroup == null) {
+			proxyApiGroup = new EObjectContainmentEList<ProxyApiGroup>(ProxyApiGroup.class, this, ModulePackage.RTE_SOURCE__PROXY_API_GROUP);
+		}
+		return proxyApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -353,6 +401,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return ((InternalEList<?>)getSchmLifecycleApiGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return ((InternalEList<?>)getSchmApiGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
+				return ((InternalEList<?>)getSignalApiGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
+				return ((InternalEList<?>)getProxyApiGroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -385,6 +437,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return getSchmLifecycleApiGroup();
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return getSchmApiGroup();
+			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
+				return getSignalApiGroup();
+			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
+				return getProxyApiGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -438,6 +494,14 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				getSchmApiGroup().clear();
 				getSchmApiGroup().addAll((Collection<? extends SchmApiGroup>)newValue);
 				return;
+			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
+				getSignalApiGroup().clear();
+				getSignalApiGroup().addAll((Collection<? extends SignalApiGroup>)newValue);
+				return;
+			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
+				getProxyApiGroup().clear();
+				getProxyApiGroup().addAll((Collection<? extends ProxyApiGroup>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -480,6 +544,12 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				getSchmApiGroup().clear();
 				return;
+			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
+				getSignalApiGroup().clear();
+				return;
+			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
+				getProxyApiGroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -512,6 +582,10 @@ public class RteSourceImpl extends SourceFileImpl implements RteSource {
 				return schmLifecycleApiGroup != null && !schmLifecycleApiGroup.isEmpty();
 			case ModulePackage.RTE_SOURCE__SCHM_API_GROUP:
 				return schmApiGroup != null && !schmApiGroup.isEmpty();
+			case ModulePackage.RTE_SOURCE__SIGNAL_API_GROUP:
+				return signalApiGroup != null && !signalApiGroup.isEmpty();
+			case ModulePackage.RTE_SOURCE__PROXY_API_GROUP:
+				return proxyApiGroup != null && !proxyApiGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -91,12 +91,12 @@ public interface ComReceiveTimeoutCallback extends ComCallback {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Variable</em>' reference.
-	 * @see #setDataVariable(LocalVariable)
+	 * @see #setDataVariable(Variable)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComReceiveTimeoutCallback_DataVariable()
 	 * @model required="true"
 	 * @generated
 	 */
-	LocalVariable getDataVariable();
+	Variable getDataVariable();
 
 	/**
 	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getDataVariable <em>Data Variable</em>}' reference.
@@ -106,7 +106,7 @@ public interface ComReceiveTimeoutCallback extends ComCallback {
 	 * @see #getDataVariable()
 	 * @generated
 	 */
-	void setDataVariable(LocalVariable value);
+	void setDataVariable(Variable value);
 
 	/**
 	 * Returns the value of the '<em><b>Access Api</b></em>' reference.

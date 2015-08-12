@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -52,6 +52,9 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.L
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC_VALUE_COLLECTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.PPORT_PROTOTYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.RPORT_PROTOTYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_MAPPING;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.SW_CONNECTOR;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
@@ -87,6 +90,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RootSwCompositionPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverInterface;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwConnector;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System;
@@ -100,6 +105,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.common.base.Optional;
 
@@ -126,8 +132,14 @@ public class InstanceModelBuilder {
 			this.instanceRoot = instanceRoot;
 
 			buildInstanceModelsInSwc();
-			buildInstanceModelsInComposition();
-			buildInstanceModelsInSystem();
+			if (this.rootSwCompositionPrototype != null) {
+				buildInstanceModelsInComposition();
+				buildInstanceModelsInSystem();
+			} else {
+				removeInstanceWhichHasModelsInComposition();
+				removeInstanceWhichHasModelsInSystem();
+			}
+
 			resolveReference();
 
 			buildConnectionOfInstanceModels();
@@ -138,6 +150,21 @@ public class InstanceModelBuilder {
 
 		} catch (InternalPersistException e) {
 			throw new PersistException("Error occurred while resolving AUTOSAR instance references. " + e.getMessage(), e);
+		}
+	}
+
+	private void removeInstanceWhichHasModelsInComposition() {
+		for (SwConnector connector : this.query.<SwConnector> findByKind(SW_CONNECTOR)) {
+			EcoreUtil.remove(connector);
+		}
+	}
+
+	private void removeInstanceWhichHasModelsInSystem() {
+		for (SenderReceiverToSignalMapping map : this.query.<SenderReceiverToSignalMapping> findByKind(SENDER_RECEIVER_TO_SIGNAL_MAPPING)) {
+			EcoreUtil.remove(map);
+		}
+		for (SenderReceiverToSignalGroupMapping map : this.query.<SenderReceiverToSignalGroupMapping> findByKind(SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING)) {
+			EcoreUtil.remove(map);
 		}
 	}
 
@@ -184,10 +211,6 @@ public class InstanceModelBuilder {
 	}
 
 	private void buildInstanceModelsInComposition() {
-		if (this.rootSwCompositionPrototype == null) {
-			return;
-		}
-
 		for (SwComponentPrototype swComponentPrototype : this.rootSwCompositionPrototype.getSoftwareComposition().getComponent()) {
 			for (PortPrototype portPrototype : swComponentPrototype.getType().getPort()) {
 				PortInstanceInComposition portInstanceInComposition = InstanceFactory.eINSTANCE.createPortInstanceInComposition();
@@ -211,10 +234,6 @@ public class InstanceModelBuilder {
 	}
 
 	private void buildInstanceModelsInSystem() {
-		if (this.rootSwCompositionPrototype == null) {
-			return;
-		}
-
 		for (SwComponentPrototype swComponentPrototype : this.rootSwCompositionPrototype.getSoftwareComposition().getComponent()) {
 			SwComponentInstanceInSystem componentInstanceInSystem = InstanceFactory.eINSTANCE.createSwComponentInstanceInSystem();
 			componentInstanceInSystem.setContextRootComposition(this.rootSwCompositionPrototype);
@@ -306,6 +325,12 @@ public class InstanceModelBuilder {
 			}
 
 			IInstanceRef instanceRef = (IInstanceRef) eObject.eGet(eIrefFeature);
+			if (instanceRef == null) { // 0..1のirefで0の場合に真
+				if (eIrefFeature.getLowerBound() > 0) { // 常に未達(不具合時のみ到達)
+					throw new InternalPersistException("The parameter '" + eReference.getName() + "' of " + ModelLabels.getLabel(eObject) + "does not exist.");
+				}
+				continue;
+			}
 			Optional<IInstanceObject> referred = resolveInstance(instanceRef);
 			if (!referred.isPresent()) {
 				throw new InternalPersistException("The referenced object " + ModelLabels.getLabelOfInstanceRef(instanceRef) + " does not exist for the parameter '" + eReference.getName() + "' of "

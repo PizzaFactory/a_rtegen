@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,6 +53,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationTypeHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBswApiHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCallbackHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteConfigurationHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteHeader;
@@ -98,6 +99,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getSwcMemoryMappingHeader <em>Swc Memory Mapping Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getModuleInterlinkHeader <em>Module Interlink Header</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getModuleInterlinkTypeHeader <em>Module Interlink Type Header</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl#getRteBswApiHeader <em>Rte Bsw Api Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -283,6 +285,16 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * @ordered
 	 */
 	protected EList<ModuleInterlinkTypeHeader> moduleInterlinkTypeHeader;
+
+	/**
+	 * The cached value of the '{@link #getRteBswApiHeader() <em>Rte Bsw Api Header</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteBswApiHeader()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteBswApiHeader rteBswApiHeader;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -834,6 +846,49 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RteBswApiHeader getRteBswApiHeader() {
+		return rteBswApiHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRteBswApiHeader(RteBswApiHeader newRteBswApiHeader, NotificationChain msgs) {
+		RteBswApiHeader oldRteBswApiHeader = rteBswApiHeader;
+		rteBswApiHeader = newRteBswApiHeader;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, oldRteBswApiHeader, newRteBswApiHeader);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRteBswApiHeader(RteBswApiHeader newRteBswApiHeader) {
+		if (newRteBswApiHeader != rteBswApiHeader) {
+			NotificationChain msgs = null;
+			if (rteBswApiHeader != null)
+				msgs = ((InternalEObject)rteBswApiHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
+			if (newRteBswApiHeader != null)
+				msgs = ((InternalEObject)newRteBswApiHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
+			msgs = basicSetRteBswApiHeader(newRteBswApiHeader, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, newRteBswApiHeader, newRteBswApiHeader));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -873,6 +928,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 				return ((InternalEList<?>)getModuleInterlinkHeader()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return ((InternalEList<?>)getModuleInterlinkTypeHeader()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
+				return basicSetRteBswApiHeader(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -921,6 +978,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 				return getModuleInterlinkHeader();
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return getModuleInterlinkTypeHeader();
+			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
+				return getRteBswApiHeader();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -996,6 +1055,9 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 				getModuleInterlinkTypeHeader().clear();
 				getModuleInterlinkTypeHeader().addAll((Collection<? extends ModuleInterlinkTypeHeader>)newValue);
 				return;
+			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
+				setRteBswApiHeader((RteBswApiHeader)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1062,6 +1124,9 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				getModuleInterlinkTypeHeader().clear();
 				return;
+			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
+				setRteBswApiHeader((RteBswApiHeader)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1110,6 +1175,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 				return moduleInterlinkHeader != null && !moduleInterlinkHeader.isEmpty();
 			case ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER:
 				return moduleInterlinkTypeHeader != null && !moduleInterlinkTypeHeader.isEmpty();
+			case ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER:
+				return rteBswApiHeader != null;
 		}
 		return super.eIsSet(featureID);
 	}

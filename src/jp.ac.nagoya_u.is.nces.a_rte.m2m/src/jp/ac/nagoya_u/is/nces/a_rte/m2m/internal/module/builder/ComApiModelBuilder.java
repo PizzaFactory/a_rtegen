@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,7 +44,12 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER;
+
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
@@ -60,36 +65,62 @@ public class ComApiModelBuilder {
 		this.context = context;
 	}
 
-	public void build() {
+	public void build() throws ModelException {
 		buildSendApis(this.context.cache.rte);
 		buildReceiveApis(this.context.cache.rte);
 	}
 
-	private void buildSendApis(Rte targetRte) {
+	private void buildSendApis(Rte targetRte) throws ModelException {
 		for (ExternalEcuReceiver externalEcuReceiver : this.context.query.<ExternalEcuReceiver> findByKind(EXTERNAL_ECU_RECEIVER)) {
 			targetRte.getDependentComApi().add(createComSendSignalApi(externalEcuReceiver));
 		}
 	}
 
-	private ComSendSignalApi createComSendSignalApi(ExternalEcuReceiver sourceExternalEcuReceiver) {
+	private ComSendSignalApi createComSendSignalApi(ExternalEcuReceiver sourceExternalEcuReceiver) throws ModelException {
 		ComSendSignalApi comSendSignalApi = ModuleFactory.eINSTANCE.createComSendSignalApi();
-		comSendSignalApi.setSymbolName(SymbolNames.COM_SEND_SIGNAL_API_NAME);
-		comSendSignalApi.setSingleSource(sourceExternalEcuReceiver.getSource());
-		comSendSignalApi.setComSignalSymbolName(SymbolNames.createComSignalSymbolicName(sourceExternalEcuReceiver.getSource()));
+		EcucContainer ecucContainer = sourceExternalEcuReceiver.getSourceSignal() != null ? sourceExternalEcuReceiver.getSourceSignal() : sourceExternalEcuReceiver.getSourceSignalGroup();
+		comSendSignalApi.setSingleSource(ecucContainer);
+		setComSendSignalApi(sourceExternalEcuReceiver, comSendSignalApi, ecucContainer);
 		return comSendSignalApi;
 	}
 
-	private void buildReceiveApis(Rte targetRte) {
+	private void setComSendSignalApi(ExternalEcuReceiver sourceExternalEcuReceiver, ComSendSignalApi comSendSignalApi, EcucContainer ecucContainer) throws ModelException {
+		if (ecucContainer instanceof ComSignal) {
+			comSendSignalApi.setIsSignalGroup(false);
+			comSendSignalApi.setSymbolName(SymbolNames.RTE_CALL_BSW_COM_SEND_SIGNAL_API_NAME);
+			comSendSignalApi.setComSignalSymbolName(SymbolNames.createComSignalSymbolicName(ecucContainer));
+		} else {
+			ComSignalGroup signalGroup = sourceExternalEcuReceiver.getSourceSignalGroup();
+			comSendSignalApi.setIsSignalGroup(true);
+			comSendSignalApi.setSymbolName(SymbolNames.createRteComSendSignalGroupFunctionName(sourceExternalEcuReceiver.getOwnerPartition()));
+			comSendSignalApi.setComSignalSymbolName(SymbolNames.createBufferComMetaComplexDataName(signalGroup));
+		}
+	}
+	
+	private void buildReceiveApis(Rte targetRte) throws ModelException {
 		for (ExternalEcuSender externalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
 			targetRte.getDependentComApi().add(createComReceiveSignalApi(externalEcuSender));
 		}
 	}
 
-	private ComReceiveSignalApi createComReceiveSignalApi(ExternalEcuSender sourceExternalEcuSender) {
+	private ComReceiveSignalApi createComReceiveSignalApi(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
 		ComReceiveSignalApi comReceiveSignalApi = ModuleFactory.eINSTANCE.createComReceiveSignalApi();
-		comReceiveSignalApi.setSymbolName(SymbolNames.COM_RECEIVE_SIGNAL_API_NAME);
-		comReceiveSignalApi.setSingleSource(sourceExternalEcuSender.getSource());
-		comReceiveSignalApi.setComSignalSymbolName(SymbolNames.createComSignalSymbolicName(sourceExternalEcuSender.getSource()));
+		EcucContainer ecucContainer = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
+		comReceiveSignalApi.setSingleSource(ecucContainer);
+		setReceiveComSignalApi(sourceExternalEcuSender, comReceiveSignalApi, ecucContainer);
 		return comReceiveSignalApi;
+	}
+
+	private void setReceiveComSignalApi(ExternalEcuSender sourceExternalEcuSender, ComReceiveSignalApi comReceiveSignalApi, EcucContainer ecucContainer) throws ModelException {
+		if (ecucContainer instanceof ComSignal) {
+			comReceiveSignalApi.setIsSignalGroup(false);
+			comReceiveSignalApi.setSymbolName(SymbolNames.RTE_CALL_BSW_COM_RECEIVE_SIGNAL_API_NAME);
+			comReceiveSignalApi.setComSignalSymbolName(SymbolNames.createComSignalSymbolicName(ecucContainer));
+		} else {
+			ComSignalGroup signalGroup = sourceExternalEcuSender.getSourceSignalGroup();
+			comReceiveSignalApi.setIsSignalGroup(true);
+			comReceiveSignalApi.setSymbolName(SymbolNames.createComReceiveSignalGroupFunctionName(sourceExternalEcuSender.getOwnerPartition()));
+			comReceiveSignalApi.setComSignalSymbolName(SymbolNames.createBufferComMetaComplexDataName(signalGroup));
+		}
 	}
 }

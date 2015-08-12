@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -252,6 +252,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass modeSwitchEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass ecucModuleConfigurationValuesEClass = null;
 
 	/**
@@ -449,6 +456,34 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	private EClass dataTypeMappingSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeDeclarationGroupPrototypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeRequestTypeMapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeDeclarationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeDeclarationGroupEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -686,6 +721,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass senderReceiverToSignalGroupMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass variableDataPrototypeInSystemInstanceRefEClass = null;
 
 	/**
@@ -889,6 +931,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bswModeSenderPolicyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass implementationEClass = null;
 
 	/**
@@ -938,6 +987,20 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bswModeSwitchEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeInBswModuleDescriptionInstanceRefEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass bswTimingEventEClass = null;
 
 	/**
@@ -953,6 +1016,76 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	private EClass bswInterruptEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass implementationDataTypeElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass systemSignalGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iSignalGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass senderRecCompositeTypeMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass senderRecRecordTypeMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass senderRecRecordElementMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass senderRecArrayTypeMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass indexedArrayElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass senderRecArrayElementMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swPointerTargetPropsEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1001,6 +1134,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum modeActivationKindEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum bswCallTypeEnumEEnum = null;
 
 	/**
@@ -1015,7 +1155,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum bswInterruptCategoryEEnum = null;
+	private EEnum arraySizeSemanticsEnumEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1376,6 +1516,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSwBaseType__GetUpperLimitForUnsignedInteger() {
+		return swBaseTypeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSenderReceiverInterface() {
 		return senderReceiverInterfaceEClass;
 	}
@@ -1405,6 +1554,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EClass getVariableDataPrototype() {
 		return variableDataPrototypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableDataPrototype_InitValue() {
+		return (EReference)variableDataPrototypeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1691,7 +1849,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwcInternalBehavior_DataTypeMapping() {
+	public EReference getSwcInternalBehavior_PortApiOption() {
 		return (EReference)swcInternalBehaviorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1700,7 +1858,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwcInternalBehavior_PortApiOption() {
+	public EReference getSwcInternalBehavior_IncludedDataTypeSet() {
 		return (EReference)swcInternalBehaviorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1709,7 +1867,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwcInternalBehavior_IncludedDataTypeSet() {
+	public EReference getSwcInternalBehavior_Parent() {
 		return (EReference)swcInternalBehaviorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1718,7 +1876,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwcInternalBehavior_Parent() {
+	public EReference getSwcInternalBehavior_ExplicitInterRunnableVariable() {
 		return (EReference)swcInternalBehaviorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1853,6 +2011,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRunnableEntity_WrittenLocalVariable() {
+		return (EReference)runnableEntityEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRunnableEntity_ReadLocalVariable() {
+		return (EReference)runnableEntityEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getRunnableEntity_ServerCallPoint() {
 		return (EReference)runnableEntityEClass.getEStructuralFeatures().get(2);
 	}
@@ -1925,6 +2101,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAutosarVariableRef_LocalVariable() {
+		return (EReference)autosarVariableRefEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableInAtomicSwcInstanceRef() {
 		return variableInAtomicSwcInstanceRefEClass;
 	}
@@ -1990,6 +2175,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EAttribute getTimingEvent_Period() {
 		return (EAttribute)timingEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getmodeSwitchEvent() {
+		return modeSwitchEventEClass;
 	}
 
 	/**
@@ -2609,6 +2803,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getImplementationDataType_SubElement() {
+		return (EReference)implementationDataTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getImplementationDataType__GetLeafImplementationDataType() {
+		return implementationDataTypeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSwDataDefProps() {
 		return swDataDefPropsEClass;
 	}
@@ -2681,6 +2893,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSwDataDefProps_ImplementationDataType() {
+		return (EReference)swDataDefPropsEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwDataDefProps_SwPointerTargetProps() {
+		return (EReference)swDataDefPropsEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataTypeMap() {
 		return dataTypeMapEClass;
 	}
@@ -2726,6 +2956,96 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDataTypeMappingSet_ModeRequestTypeMap() {
+		return (EReference)dataTypeMappingSetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroupPrototype_Type() {
+		return (EReference)modeDeclarationGroupPrototypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeRequestTypeMap() {
+		return modeRequestTypeMapEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeRequestTypeMap_ImplementationDataType() {
+		return (EReference)modeRequestTypeMapEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeRequestTypeMap_ModeGroup() {
+		return (EReference)modeRequestTypeMapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeDeclaration() {
+		return modeDeclarationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeDeclarationGroup() {
+		return modeDeclarationGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_InitialMode() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_ModeDeclaration() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getApplicationPrimitiveDataType() {
 		return applicationPrimitiveDataTypeEClass;
 	}
@@ -2744,8 +3064,35 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAutosarDataPrototype_Type() {
-		return (EReference)autosarDataPrototypeEClass.getEStructuralFeatures().get(0);
+	public EOperation getAutosarDataPrototype__GetSwAddrMethod() {
+		return autosarDataPrototypeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAutosarDataPrototype__GetSwAlignment() {
+		return autosarDataPrototypeEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAutosarDataPrototype__GetApplicationDataType() {
+		return autosarDataPrototypeEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getAutosarDataPrototype__GetImplementationDataType() {
+		return autosarDataPrototypeEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -2782,6 +3129,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EAttribute getDataPrototype_SwAlignment() {
 		return (EAttribute)dataPrototypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataPrototype_Type() {
+		return (EReference)dataPrototypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2924,8 +3280,26 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArrayValueSpecification_Element() {
+		return (EReference)arrayValueSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRecordValueSpecification() {
 		return recordValueSpecificationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecordValueSpecification_Field() {
+		return (EReference)recordValueSpecificationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3284,6 +3658,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPortApiOption_EnableTakeAddress() {
+		return (EAttribute)portApiOptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPortDefinedArgumentValue() {
 		return portDefinedArgumentValueEClass;
 	}
@@ -3482,6 +3865,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getISignalToIPduMapping_ISignalGroup() {
+		return (EReference)iSignalToIPduMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSenderReceiverToSignalMapping() {
 		return senderReceiverToSignalMappingEClass;
 	}
@@ -3511,6 +3903,51 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EReference getSenderReceiverToSignalMapping_DataElement() {
 		return (EReference)senderReceiverToSignalMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderReceiverToSignalGroupMapping() {
+		return senderReceiverToSignalGroupMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderReceiverToSignalGroupMapping_SignalGroup() {
+		return (EReference)senderReceiverToSignalGroupMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderReceiverToSignalGroupMapping_DataElementIref() {
+		return (EReference)senderReceiverToSignalGroupMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderReceiverToSignalGroupMapping_DataElement() {
+		return (EReference)senderReceiverToSignalGroupMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderReceiverToSignalGroupMapping_TypeMapping() {
+		return (EReference)senderReceiverToSignalGroupMappingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4040,8 +4477,17 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInternalBehavior_ExclusiveArea() {
+	public EReference getInternalBehavior_DataTypeMapping() {
 		return (EReference)internalBehaviorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalBehavior_ExclusiveArea() {
+		return (EReference)internalBehaviorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4166,6 +4612,51 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBswInternalBehavior_ModeSenderPolicy() {
+		return (EReference)bswInternalBehaviorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswInternalBehavior_BswSchedulableEntity() {
+		return (EReference)bswInternalBehaviorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswModeSenderPolicy() {
+		return bswModeSenderPolicyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswModeSenderPolicy_ProvidedModeGroup() {
+		return (EReference)bswModeSenderPolicyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBswModeSenderPolicy_QueueLength() {
+		return (EAttribute)bswModeSenderPolicyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImplementation() {
 		return implementationEClass;
 	}
@@ -4222,6 +4713,33 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EReference getBswModuleDescription_ProvidedEntry() {
 		return (EReference)bswModuleDescriptionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswModuleDescription_ProvidedModeGroup() {
+		return (EReference)bswModuleDescriptionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswModuleDescription_RequiredModeGroup() {
+		return (EReference)bswModuleDescriptionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswModuleDescription__GetEnableInternalBehavior() {
+		return bswModuleDescriptionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -4292,6 +4810,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBswModuleEntity_AccessedModeGroup() {
+		return (EReference)bswModuleEntityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswModuleEntity_ManagedModeGroup() {
+		return (EReference)bswModuleEntityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBswSchedulableEntity() {
 		return bswSchedulableEntityEClass;
 	}
@@ -4346,6 +4882,78 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBswEvent_DisabledInMode() {
+		return (EReference)bswEventEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswModeSwitchEvent() {
+		return bswModeSwitchEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBswModeSwitchEvent_Activation() {
+		return (EAttribute)bswModeSwitchEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswModeSwitchEvent_ModeIref() {
+		return (EReference)bswModeSwitchEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeInBswModuleDescriptionInstanceRef() {
+		return modeInBswModuleDescriptionInstanceRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup() {
+		return (EReference)modeInBswModuleDescriptionInstanceRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeInBswModuleDescriptionInstanceRef_TargetMode() {
+		return (EReference)modeInBswModuleDescriptionInstanceRefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getModeActivationKind() {
+		return modeActivationKindEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBswTimingEvent() {
 		return bswTimingEventEClass;
 	}
@@ -4382,7 +4990,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBswInterruptEntity_InterruptCategory() {
+	public EAttribute getBswInterruptEntity_InterruptSource() {
 		return (EAttribute)bswInterruptEntityEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -4391,8 +4999,260 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBswInterruptEntity_InterruptSource() {
-		return (EAttribute)bswInterruptEntityEClass.getEStructuralFeatures().get(1);
+	public EClass getImplementationDataTypeElement() {
+		return implementationDataTypeElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImplementationDataTypeElement_ArraySize() {
+		return (EAttribute)implementationDataTypeElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getImplementationDataTypeElement_ArraySizeSemantics() {
+		return (EAttribute)implementationDataTypeElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImplementationDataTypeElement_SubElement() {
+		return (EReference)implementationDataTypeElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getImplementationDataTypeElement_SwDataDefProps() {
+		return (EReference)implementationDataTypeElementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSystemSignalGroup() {
+		return systemSignalGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSystemSignalGroup_SystemSignal() {
+		return (EReference)systemSignalGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getISignalGroup() {
+		return iSignalGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getISignalGroup_SystemSignalGroup() {
+		return (EReference)iSignalGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getISignalGroup_ISignal() {
+		return (EReference)iSignalGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderRecCompositeTypeMapping() {
+		return senderRecCompositeTypeMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderRecRecordTypeMapping() {
+		return senderRecRecordTypeMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecRecordTypeMapping_RecordElementMapping() {
+		return (EReference)senderRecRecordTypeMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderRecRecordElementMapping() {
+		return senderRecRecordElementMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecRecordElementMapping_ImplementationRecordElement() {
+		return (EReference)senderRecRecordElementMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecRecordElementMapping_ComplexTypeMapping() {
+		return (EReference)senderRecRecordElementMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecRecordElementMapping_SystemSignal() {
+		return (EReference)senderRecRecordElementMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderRecArrayTypeMapping() {
+		return senderRecArrayTypeMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecArrayTypeMapping_ArrayElementMapping() {
+		return (EReference)senderRecArrayTypeMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIndexedArrayElement() {
+		return indexedArrayElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIndexedArrayElement_ImplementationArrayElement() {
+		return (EReference)indexedArrayElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIndexedArrayElement_Index() {
+		return (EAttribute)indexedArrayElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSenderRecArrayElementMapping() {
+		return senderRecArrayElementMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecArrayElementMapping_IndexedArrayElement() {
+		return (EReference)senderRecArrayElementMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecArrayElementMapping_ComplexTypeMapping() {
+		return (EReference)senderRecArrayElementMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSenderRecArrayElementMapping_SystemSignal() {
+		return (EReference)senderRecArrayElementMappingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwPointerTargetProps() {
+		return swPointerTargetPropsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSwPointerTargetProps_TargetCategory() {
+		return (EAttribute)swPointerTargetPropsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwPointerTargetProps_SwDataDefProps() {
+		return (EReference)swPointerTargetPropsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4472,8 +5332,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getBswInterruptCategory() {
-		return bswInterruptCategoryEEnum;
+	public EEnum getArraySizeSemanticsEnum() {
+		return arraySizeSemanticsEnumEEnum;
 	}
 
 	/**
@@ -4688,12 +5548,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEAttribute(swBaseTypeEClass, SW_BASE_TYPE__BASE_TYPE_ENCODING);
 		createEAttribute(swBaseTypeEClass, SW_BASE_TYPE__BASE_TYPE_SIZE);
 		createEAttribute(swBaseTypeEClass, SW_BASE_TYPE__NATIVE_DECLARATION);
+		createEOperation(swBaseTypeEClass, SW_BASE_TYPE___GET_UPPER_LIMIT_FOR_UNSIGNED_INTEGER);
 
 		senderReceiverInterfaceEClass = createEClass(SENDER_RECEIVER_INTERFACE);
 		createEReference(senderReceiverInterfaceEClass, SENDER_RECEIVER_INTERFACE__DATA_ELEMENT);
 		createEReference(senderReceiverInterfaceEClass, SENDER_RECEIVER_INTERFACE__INVALIDATION_POLICY);
 
 		variableDataPrototypeEClass = createEClass(VARIABLE_DATA_PROTOTYPE);
+		createEReference(variableDataPrototypeEClass, VARIABLE_DATA_PROTOTYPE__INIT_VALUE);
 
 		referrableEClass = createEClass(REFERRABLE);
 		createEAttribute(referrableEClass, REFERRABLE__ID);
@@ -4733,10 +5595,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		swcInternalBehaviorEClass = createEClass(SWC_INTERNAL_BEHAVIOR);
 		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__RUNNABLE);
 		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__EVENT);
-		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING);
 		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__PORT_API_OPTION);
 		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__INCLUDED_DATA_TYPE_SET);
 		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__PARENT);
+		createEReference(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE);
 		createEOperation(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR___GET_REFERENCER_INCLUDED_DATA_TYPE_SETS__APPLICATIONDATATYPE);
 		createEOperation(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR___GET_REFERENCER_INCLUDED_DATA_TYPE_SETS__IMPLEMENTATIONDATATYPE);
 		createEOperation(swcInternalBehaviorEClass, SWC_INTERNAL_BEHAVIOR___GET_USING_DATA_TYPES);
@@ -4756,6 +5618,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(runnableEntityEClass, RUNNABLE_ENTITY__EVENT);
 		createEReference(runnableEntityEClass, RUNNABLE_ENTITY__PARENT);
 		createEAttribute(runnableEntityEClass, RUNNABLE_ENTITY__SYMBOL);
+		createEReference(runnableEntityEClass, RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE);
+		createEReference(runnableEntityEClass, RUNNABLE_ENTITY__READ_LOCAL_VARIABLE);
 
 		variableAccessEClass = createEClass(VARIABLE_ACCESS);
 		createEReference(variableAccessEClass, VARIABLE_ACCESS__ACCESSED_VARIABLE);
@@ -4763,6 +5627,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		autosarVariableRefEClass = createEClass(AUTOSAR_VARIABLE_REF);
 		createEReference(autosarVariableRefEClass, AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE_IREF);
 		createEReference(autosarVariableRefEClass, AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE);
+		createEReference(autosarVariableRefEClass, AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE);
 
 		variableInAtomicSwcInstanceRefEClass = createEClass(VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF);
 		createEReference(variableInAtomicSwcInstanceRefEClass, VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__PORT_PROTOTYPE);
@@ -4774,6 +5639,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		timingEventEClass = createEClass(TIMING_EVENT);
 		createEAttribute(timingEventEClass, TIMING_EVENT__PERIOD);
+
+		modeSwitchEventEClass = createEClass(MODE_SWITCH_EVENT);
 
 		ecucModuleConfigurationValuesEClass = createEClass(ECUC_MODULE_CONFIGURATION_VALUES);
 		createEAttribute(ecucModuleConfigurationValuesEClass, ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF);
@@ -4871,6 +5738,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		implementationDataTypeEClass = createEClass(IMPLEMENTATION_DATA_TYPE);
 		createEReference(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__BASE_TYPE);
 		createEAttribute(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT);
+		createEReference(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT);
+		createEOperation(implementationDataTypeEClass, IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE);
 
 		swDataDefPropsEClass = createEClass(SW_DATA_DEF_PROPS);
 		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__INVALID_VALUE);
@@ -4880,6 +5749,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEAttribute(swDataDefPropsEClass, SW_DATA_DEF_PROPS__SW_ALIGNMENT);
 		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__COMPU_METHOD);
 		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__DATA_CONSTR);
+		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE);
+		createEReference(swDataDefPropsEClass, SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS);
 
 		dataTypeMapEClass = createEClass(DATA_TYPE_MAP);
 		createEReference(dataTypeMapEClass, DATA_TYPE_MAP__IMPLEMENTATION_DATA_TYPE);
@@ -4887,16 +5758,34 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		dataTypeMappingSetEClass = createEClass(DATA_TYPE_MAPPING_SET);
 		createEReference(dataTypeMappingSetEClass, DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP);
+		createEReference(dataTypeMappingSetEClass, DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP);
+
+		modeDeclarationGroupPrototypeEClass = createEClass(MODE_DECLARATION_GROUP_PROTOTYPE);
+		createEReference(modeDeclarationGroupPrototypeEClass, MODE_DECLARATION_GROUP_PROTOTYPE__TYPE);
+
+		modeRequestTypeMapEClass = createEClass(MODE_REQUEST_TYPE_MAP);
+		createEReference(modeRequestTypeMapEClass, MODE_REQUEST_TYPE_MAP__IMPLEMENTATION_DATA_TYPE);
+		createEReference(modeRequestTypeMapEClass, MODE_REQUEST_TYPE_MAP__MODE_GROUP);
+
+		modeDeclarationEClass = createEClass(MODE_DECLARATION);
+
+		modeDeclarationGroupEClass = createEClass(MODE_DECLARATION_GROUP);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__INITIAL_MODE);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__MODE_DECLARATION);
 
 		applicationPrimitiveDataTypeEClass = createEClass(APPLICATION_PRIMITIVE_DATA_TYPE);
 
 		autosarDataPrototypeEClass = createEClass(AUTOSAR_DATA_PROTOTYPE);
-		createEReference(autosarDataPrototypeEClass, AUTOSAR_DATA_PROTOTYPE__TYPE);
+		createEOperation(autosarDataPrototypeEClass, AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD);
+		createEOperation(autosarDataPrototypeEClass, AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT);
+		createEOperation(autosarDataPrototypeEClass, AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE);
+		createEOperation(autosarDataPrototypeEClass, AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE);
 
 		dataPrototypeEClass = createEClass(DATA_PROTOTYPE);
 		createEReference(dataPrototypeEClass, DATA_PROTOTYPE__SW_DATA_DEF_PROPS);
 		createEReference(dataPrototypeEClass, DATA_PROTOTYPE__SW_ADDR_METHOD);
 		createEAttribute(dataPrototypeEClass, DATA_PROTOTYPE__SW_ALIGNMENT);
+		createEReference(dataPrototypeEClass, DATA_PROTOTYPE__TYPE);
 		createEOperation(dataPrototypeEClass, DATA_PROTOTYPE___GET_SW_IMPL_POLICY);
 
 		exclusiveAreaEClass = createEClass(EXCLUSIVE_AREA);
@@ -4918,8 +5807,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		referenceValueSpecificationEClass = createEClass(REFERENCE_VALUE_SPECIFICATION);
 
 		arrayValueSpecificationEClass = createEClass(ARRAY_VALUE_SPECIFICATION);
+		createEReference(arrayValueSpecificationEClass, ARRAY_VALUE_SPECIFICATION__ELEMENT);
 
 		recordValueSpecificationEClass = createEClass(RECORD_VALUE_SPECIFICATION);
+		createEReference(recordValueSpecificationEClass, RECORD_VALUE_SPECIFICATION__FIELD);
 
 		applicationValueSpecificationEClass = createEClass(APPLICATION_VALUE_SPECIFICATION);
 
@@ -4971,6 +5862,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		portApiOptionEClass = createEClass(PORT_API_OPTION);
 		createEReference(portApiOptionEClass, PORT_API_OPTION__PORT_ARG_VALUE);
 		createEReference(portApiOptionEClass, PORT_API_OPTION__PORT);
+		createEAttribute(portApiOptionEClass, PORT_API_OPTION__ENABLE_TAKE_ADDRESS);
 
 		portDefinedArgumentValueEClass = createEClass(PORT_DEFINED_ARGUMENT_VALUE);
 		createEReference(portDefinedArgumentValueEClass, PORT_DEFINED_ARGUMENT_VALUE__VALUE);
@@ -5003,11 +5895,18 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		iSignalToIPduMappingEClass = createEClass(ISIGNAL_TO_IPDU_MAPPING);
 		createEReference(iSignalToIPduMappingEClass, ISIGNAL_TO_IPDU_MAPPING__ISIGNAL);
+		createEReference(iSignalToIPduMappingEClass, ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP);
 
 		senderReceiverToSignalMappingEClass = createEClass(SENDER_RECEIVER_TO_SIGNAL_MAPPING);
 		createEReference(senderReceiverToSignalMappingEClass, SENDER_RECEIVER_TO_SIGNAL_MAPPING__SYSTEM_SIGNAL);
 		createEReference(senderReceiverToSignalMappingEClass, SENDER_RECEIVER_TO_SIGNAL_MAPPING__DATA_ELEMENT_IREF);
 		createEReference(senderReceiverToSignalMappingEClass, SENDER_RECEIVER_TO_SIGNAL_MAPPING__DATA_ELEMENT);
+
+		senderReceiverToSignalGroupMappingEClass = createEClass(SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING);
+		createEReference(senderReceiverToSignalGroupMappingEClass, SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__SIGNAL_GROUP);
+		createEReference(senderReceiverToSignalGroupMappingEClass, SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT_IREF);
+		createEReference(senderReceiverToSignalGroupMappingEClass, SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT);
+		createEReference(senderReceiverToSignalGroupMappingEClass, SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__TYPE_MAPPING);
 
 		variableDataPrototypeInSystemInstanceRefEClass = createEClass(VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF);
 		createEReference(variableDataPrototypeInSystemInstanceRefEClass, VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF__CONTEXT_COMPONENT);
@@ -5089,6 +5988,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(rPortInCompositionInstanceRefEClass, RPORT_IN_COMPOSITION_INSTANCE_REF__TARGET_RPORT);
 
 		internalBehaviorEClass = createEClass(INTERNAL_BEHAVIOR);
+		createEReference(internalBehaviorEClass, INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING);
 		createEReference(internalBehaviorEClass, INTERNAL_BEHAVIOR__EXCLUSIVE_AREA);
 		createEOperation(internalBehaviorEClass, INTERNAL_BEHAVIOR___GET_PARENT);
 
@@ -5106,6 +6006,12 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(bswInternalBehaviorEClass, BSW_INTERNAL_BEHAVIOR__ENTITY);
 		createEReference(bswInternalBehaviorEClass, BSW_INTERNAL_BEHAVIOR__EVENT);
 		createEReference(bswInternalBehaviorEClass, BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION);
+		createEReference(bswInternalBehaviorEClass, BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY);
+		createEReference(bswInternalBehaviorEClass, BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY);
+
+		bswModeSenderPolicyEClass = createEClass(BSW_MODE_SENDER_POLICY);
+		createEReference(bswModeSenderPolicyEClass, BSW_MODE_SENDER_POLICY__PROVIDED_MODE_GROUP);
+		createEAttribute(bswModeSenderPolicyEClass, BSW_MODE_SENDER_POLICY__QUEUE_LENGTH);
 
 		implementationEClass = createEClass(IMPLEMENTATION);
 		createEReference(implementationEClass, IMPLEMENTATION__SWC_BSW_MAPPING);
@@ -5116,6 +6022,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswModuleDescriptionEClass = createEClass(BSW_MODULE_DESCRIPTION);
 		createEReference(bswModuleDescriptionEClass, BSW_MODULE_DESCRIPTION__INTERNAL_BEHAVIOR);
 		createEReference(bswModuleDescriptionEClass, BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY);
+		createEReference(bswModuleDescriptionEClass, BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP);
+		createEReference(bswModuleDescriptionEClass, BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP);
+		createEOperation(bswModuleDescriptionEClass, BSW_MODULE_DESCRIPTION___GET_ENABLE_INTERNAL_BEHAVIOR);
 
 		bswModuleEntryEClass = createEClass(BSW_MODULE_ENTRY);
 		createEAttribute(bswModuleEntryEClass, BSW_MODULE_ENTRY__SERVICE_ID);
@@ -5125,6 +6034,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswModuleEntityEClass = createEClass(BSW_MODULE_ENTITY);
 		createEReference(bswModuleEntityEClass, BSW_MODULE_ENTITY__IMPLEMENTED_ENTRY);
 		createEReference(bswModuleEntityEClass, BSW_MODULE_ENTITY__PARENT);
+		createEReference(bswModuleEntityEClass, BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP);
+		createEReference(bswModuleEntityEClass, BSW_MODULE_ENTITY__MANAGED_MODE_GROUP);
 
 		bswSchedulableEntityEClass = createEClass(BSW_SCHEDULABLE_ENTITY);
 		createEReference(bswSchedulableEntityEClass, BSW_SCHEDULABLE_ENTITY__EVENT);
@@ -5133,6 +6044,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(bswEventEClass, BSW_EVENT__STARTS_ON_EVENT);
 		createEReference(bswEventEClass, BSW_EVENT__CONFIG);
 		createEReference(bswEventEClass, BSW_EVENT__PARENT);
+		createEReference(bswEventEClass, BSW_EVENT__DISABLED_IN_MODE);
+
+		bswModeSwitchEventEClass = createEClass(BSW_MODE_SWITCH_EVENT);
+		createEAttribute(bswModeSwitchEventEClass, BSW_MODE_SWITCH_EVENT__ACTIVATION);
+		createEReference(bswModeSwitchEventEClass, BSW_MODE_SWITCH_EVENT__MODE_IREF);
+
+		modeInBswModuleDescriptionInstanceRefEClass = createEClass(MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF);
+		createEReference(modeInBswModuleDescriptionInstanceRefEClass, MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__CONTEXT_MODE_DECLARATION_GROUP);
+		createEReference(modeInBswModuleDescriptionInstanceRefEClass, MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__TARGET_MODE);
 
 		bswTimingEventEClass = createEClass(BSW_TIMING_EVENT);
 		createEAttribute(bswTimingEventEClass, BSW_TIMING_EVENT__PERIOD);
@@ -5140,8 +6060,46 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswCalledEntityEClass = createEClass(BSW_CALLED_ENTITY);
 
 		bswInterruptEntityEClass = createEClass(BSW_INTERRUPT_ENTITY);
-		createEAttribute(bswInterruptEntityEClass, BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY);
 		createEAttribute(bswInterruptEntityEClass, BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE);
+
+		implementationDataTypeElementEClass = createEClass(IMPLEMENTATION_DATA_TYPE_ELEMENT);
+		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE);
+		createEAttribute(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS);
+		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SUB_ELEMENT);
+		createEReference(implementationDataTypeElementEClass, IMPLEMENTATION_DATA_TYPE_ELEMENT__SW_DATA_DEF_PROPS);
+
+		systemSignalGroupEClass = createEClass(SYSTEM_SIGNAL_GROUP);
+		createEReference(systemSignalGroupEClass, SYSTEM_SIGNAL_GROUP__SYSTEM_SIGNAL);
+
+		iSignalGroupEClass = createEClass(ISIGNAL_GROUP);
+		createEReference(iSignalGroupEClass, ISIGNAL_GROUP__SYSTEM_SIGNAL_GROUP);
+		createEReference(iSignalGroupEClass, ISIGNAL_GROUP__ISIGNAL);
+
+		senderRecCompositeTypeMappingEClass = createEClass(SENDER_REC_COMPOSITE_TYPE_MAPPING);
+
+		senderRecRecordTypeMappingEClass = createEClass(SENDER_REC_RECORD_TYPE_MAPPING);
+		createEReference(senderRecRecordTypeMappingEClass, SENDER_REC_RECORD_TYPE_MAPPING__RECORD_ELEMENT_MAPPING);
+
+		senderRecRecordElementMappingEClass = createEClass(SENDER_REC_RECORD_ELEMENT_MAPPING);
+		createEReference(senderRecRecordElementMappingEClass, SENDER_REC_RECORD_ELEMENT_MAPPING__IMPLEMENTATION_RECORD_ELEMENT);
+		createEReference(senderRecRecordElementMappingEClass, SENDER_REC_RECORD_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING);
+		createEReference(senderRecRecordElementMappingEClass, SENDER_REC_RECORD_ELEMENT_MAPPING__SYSTEM_SIGNAL);
+
+		senderRecArrayTypeMappingEClass = createEClass(SENDER_REC_ARRAY_TYPE_MAPPING);
+		createEReference(senderRecArrayTypeMappingEClass, SENDER_REC_ARRAY_TYPE_MAPPING__ARRAY_ELEMENT_MAPPING);
+
+		indexedArrayElementEClass = createEClass(INDEXED_ARRAY_ELEMENT);
+		createEReference(indexedArrayElementEClass, INDEXED_ARRAY_ELEMENT__IMPLEMENTATION_ARRAY_ELEMENT);
+		createEAttribute(indexedArrayElementEClass, INDEXED_ARRAY_ELEMENT__INDEX);
+
+		senderRecArrayElementMappingEClass = createEClass(SENDER_REC_ARRAY_ELEMENT_MAPPING);
+		createEReference(senderRecArrayElementMappingEClass, SENDER_REC_ARRAY_ELEMENT_MAPPING__INDEXED_ARRAY_ELEMENT);
+		createEReference(senderRecArrayElementMappingEClass, SENDER_REC_ARRAY_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING);
+		createEReference(senderRecArrayElementMappingEClass, SENDER_REC_ARRAY_ELEMENT_MAPPING__SYSTEM_SIGNAL);
+
+		swPointerTargetPropsEClass = createEClass(SW_POINTER_TARGET_PROPS);
+		createEAttribute(swPointerTargetPropsEClass, SW_POINTER_TARGET_PROPS__TARGET_CATEGORY);
+		createEReference(swPointerTargetPropsEClass, SW_POINTER_TARGET_PROPS__SW_DATA_DEF_PROPS);
 
 		// Create enums
 		argumentDirectionEnumEEnum = createEEnum(ARGUMENT_DIRECTION_ENUM);
@@ -5150,9 +6108,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		swImplPolicyEnumEEnum = createEEnum(SW_IMPL_POLICY_ENUM);
 		memoryAllocationKeywordPolicyTypeEEnum = createEEnum(MEMORY_ALLOCATION_KEYWORD_POLICY_TYPE);
 		ecucConfigurationVariantEnumEEnum = createEEnum(ECUC_CONFIGURATION_VARIANT_ENUM);
+		modeActivationKindEEnum = createEEnum(MODE_ACTIVATION_KIND);
 		bswCallTypeEnumEEnum = createEEnum(BSW_CALL_TYPE_ENUM);
 		bswExecutionContextEnumEEnum = createEEnum(BSW_EXECUTION_CONTEXT_ENUM);
-		bswInterruptCategoryEEnum = createEEnum(BSW_INTERRUPT_CATEGORY);
+		arraySizeSemanticsEnumEEnum = createEEnum(ARRAY_SIZE_SEMANTICS_ENUM);
 
 		// Create data types
 		numericalEDataType = createEDataType(NUMERICAL);
@@ -5231,6 +6190,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		variableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		rteEventEClass.getESuperTypes().add(this.getIdentifiable());
 		timingEventEClass.getESuperTypes().add(this.getRteEvent());
+		modeSwitchEventEClass.getESuperTypes().add(this.getRteEvent());
 		ecucModuleConfigurationValuesEClass.getESuperTypes().add(this.getArElement());
 		ecucContainerValueEClass.getESuperTypes().add(this.getIdentifiable());
 		ecucParameterValueEClass.getESuperTypes().add(this.getM2Object());
@@ -5262,6 +6222,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		swDataDefPropsEClass.getESuperTypes().add(this.getM2Object());
 		dataTypeMapEClass.getESuperTypes().add(this.getM2Object());
 		dataTypeMappingSetEClass.getESuperTypes().add(this.getArElement());
+		modeDeclarationGroupPrototypeEClass.getESuperTypes().add(this.getArElement());
+		modeRequestTypeMapEClass.getESuperTypes().add(this.getM2Object());
+		modeDeclarationEClass.getESuperTypes().add(this.getArElement());
+		modeDeclarationGroupEClass.getESuperTypes().add(this.getArElement());
 		applicationPrimitiveDataTypeEClass.getESuperTypes().add(this.getApplicationDataType());
 		autosarDataPrototypeEClass.getESuperTypes().add(this.getDataPrototype());
 		dataPrototypeEClass.getESuperTypes().add(this.getIdentifiable());
@@ -5296,6 +6260,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		iSignalIPduEClass.getESuperTypes().add(this.getArElement());
 		iSignalToIPduMappingEClass.getESuperTypes().add(this.getIdentifiable());
 		senderReceiverToSignalMappingEClass.getESuperTypes().add(this.getDataMapping());
+		senderReceiverToSignalGroupMappingEClass.getESuperTypes().add(this.getDataMapping());
 		variableDataPrototypeInSystemInstanceRefEClass.getESuperTypes().add(this.getM2Object());
 		variableDataPrototypeInSystemInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		ecucValueCollectionEClass.getESuperTypes().add(this.getArElement());
@@ -5327,6 +6292,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		swcBswRunnableMappingEClass.getESuperTypes().add(this.getM2Object());
 		swcBswMappingEClass.getESuperTypes().add(this.getArElement());
 		bswInternalBehaviorEClass.getESuperTypes().add(this.getInternalBehavior());
+		bswModeSenderPolicyEClass.getESuperTypes().add(this.getM2Object());
 		implementationEClass.getESuperTypes().add(this.getArElement());
 		bswImplementationEClass.getESuperTypes().add(this.getImplementation());
 		bswModuleDescriptionEClass.getESuperTypes().add(this.getArElement());
@@ -5334,9 +6300,17 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		bswModuleEntityEClass.getESuperTypes().add(this.getExecutableEntity());
 		bswSchedulableEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
 		bswEventEClass.getESuperTypes().add(this.getIdentifiable());
+		bswModeSwitchEventEClass.getESuperTypes().add(this.getBswEvent());
+		modeInBswModuleDescriptionInstanceRefEClass.getESuperTypes().add(this.getM2Object());
+		modeInBswModuleDescriptionInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		bswTimingEventEClass.getESuperTypes().add(this.getBswEvent());
 		bswCalledEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
 		bswInterruptEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
+		implementationDataTypeElementEClass.getESuperTypes().add(this.getIdentifiable());
+		systemSignalGroupEClass.getESuperTypes().add(this.getArElement());
+		iSignalGroupEClass.getESuperTypes().add(this.getArElement());
+		senderRecRecordTypeMappingEClass.getESuperTypes().add(this.getSenderRecCompositeTypeMapping());
+		senderRecArrayTypeMappingEClass.getESuperTypes().add(this.getSenderRecCompositeTypeMapping());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(m2RootEClass, M2Root.class, "M2Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -5362,11 +6336,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEAttribute(getSwBaseType_BaseTypeSize(), this.getInteger(), "baseTypeSize", null, 0, 1, SwBaseType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSwBaseType_NativeDeclaration(), this.getNativeDeclarationString(), "nativeDeclaration", null, 0, 1, SwBaseType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getSwBaseType__GetUpperLimitForUnsignedInteger(), this.getInteger(), "getUpperLimitForUnsignedInteger", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(senderReceiverInterfaceEClass, SenderReceiverInterface.class, "SenderReceiverInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSenderReceiverInterface_DataElement(), this.getVariableDataPrototype(), null, "dataElement", null, 0, -1, SenderReceiverInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSenderReceiverInterface_InvalidationPolicy(), this.getInvalidationPolicy(), null, "invalidationPolicy", null, 0, -1, SenderReceiverInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableDataPrototypeEClass, VariableDataPrototype.class, "VariableDataPrototype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableDataPrototype_InitValue(), this.getValueSpecification(), null, "initValue", null, 0, 1, VariableDataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referrableEClass, Referrable.class, "Referrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getReferrable_Id(), this.getString(), "id", null, 1, 1, Referrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -5418,10 +6395,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(swcInternalBehaviorEClass, SwcInternalBehavior.class, "SwcInternalBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwcInternalBehavior_Runnable(), this.getRunnableEntity(), this.getRunnableEntity_Parent(), "runnable", null, 1, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwcInternalBehavior_Event(), this.getRteEvent(), null, "event", null, 0, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwcInternalBehavior_DataTypeMapping(), this.getDataTypeMappingSet(), null, "dataTypeMapping", null, 0, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwcInternalBehavior_PortApiOption(), this.getPortApiOption(), null, "portApiOption", null, 0, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwcInternalBehavior_IncludedDataTypeSet(), this.getIncludedDataTypeSet(), null, "includedDataTypeSet", null, 0, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwcInternalBehavior_Parent(), this.getAtomicSwComponentType(), this.getAtomicSwComponentType_InternalBehavior(), "parent", null, 1, 1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getSwcInternalBehavior_ExplicitInterRunnableVariable(), this.getVariableDataPrototype(), null, "explicitInterRunnableVariable", null, 0, -1, SwcInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getSwcInternalBehavior__GetReferencerIncludedDataTypeSets__ApplicationDataType(), this.getIncludedDataTypeSet(), "getReferencerIncludedDataTypeSets", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, this.getApplicationDataType(), "dataType", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -5452,6 +6429,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getRunnableEntity_Event(), this.getRteEvent(), this.getRteEvent_StartOnEvent(), "event", null, 0, -1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRunnableEntity_Parent(), this.getSwcInternalBehavior(), this.getSwcInternalBehavior_Runnable(), "parent", null, 1, 1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRunnableEntity_Symbol(), this.getCIdentifier(), "symbol", null, 0, 1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRunnableEntity_WrittenLocalVariable(), this.getVariableAccess(), null, "writtenLocalVariable", null, 0, -1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRunnableEntity_ReadLocalVariable(), this.getVariableAccess(), null, "readLocalVariable", null, 0, -1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableAccessEClass, VariableAccess.class, "VariableAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableAccess_AccessedVariable(), this.getAutosarVariableRef(), null, "accessedVariable", null, 1, 1, VariableAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5459,6 +6438,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(autosarVariableRefEClass, AutosarVariableRef.class, "AutosarVariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAutosarVariableRef_AutosarVariableIref(), this.getVariableInAtomicSwcInstanceRef(), null, "autosarVariableIref", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAutosarVariableRef_AutosarVariable(), theInstancePackage.getVariableDataInstanceInSwc(), null, "autosarVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarVariableRef_LocalVariable(), this.getVariableDataPrototype(), null, "localVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableInAtomicSwcInstanceRefEClass, VariableInAtomicSwcInstanceRef.class, "VariableInAtomicSwcInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableInAtomicSwcInstanceRef_PortPrototype(), this.getPortPrototype(), null, "portPrototype", null, 1, 1, VariableInAtomicSwcInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5470,6 +6450,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimingEvent_Period(), this.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeSwitchEventEClass, modeSwitchEvent.class, "modeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ecucModuleConfigurationValuesEClass, EcucModuleConfigurationValues.class, "EcucModuleConfigurationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEcucModuleConfigurationValues_DefinitionRef(), this.getRef(), "definitionRef", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5568,6 +6550,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(implementationDataTypeEClass, ImplementationDataType.class, "ImplementationDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationDataType_BaseType(), this.getSwBaseType(), null, "baseType", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getImplementationDataType_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, ImplementationDataType.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataType_SubElement(), this.getImplementationDataTypeElement(), null, "subElement", null, 0, -1, ImplementationDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getImplementationDataType__GetLeafImplementationDataType(), this.getImplementationDataType(), "getLeafImplementationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(swDataDefPropsEClass, SwDataDefProps.class, "SwDataDefProps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwDataDefProps_InvalidValue(), this.getValueSpecification(), null, "invalidValue", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5577,6 +6562,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEAttribute(getSwDataDefProps_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwDataDefProps_CompuMethod(), this.getCompuMethod(), null, "compuMethod", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwDataDefProps_DataConstr(), this.getDataConstr(), null, "dataConstr", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwDataDefProps_ImplementationDataType(), this.getImplementationDataType(), null, "implementationDataType", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwDataDefProps_SwPointerTargetProps(), this.getSwPointerTargetProps(), null, "swPointerTargetProps", null, 0, 1, SwDataDefProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataTypeMapEClass, DataTypeMap.class, "DataTypeMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataTypeMap_ImplementationDataType(), this.getImplementationDataType(), null, "implementationDataType", null, 1, 1, DataTypeMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5584,16 +6571,38 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(dataTypeMappingSetEClass, DataTypeMappingSet.class, "DataTypeMappingSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataTypeMappingSet_DataTypeMap(), this.getDataTypeMap(), null, "dataTypeMap", null, 0, -1, DataTypeMappingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataTypeMappingSet_ModeRequestTypeMap(), this.getModeRequestTypeMap(), null, "modeRequestTypeMap", null, 0, -1, DataTypeMappingSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeDeclarationGroupPrototypeEClass, ModeDeclarationGroupPrototype.class, "ModeDeclarationGroupPrototype", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeDeclarationGroupPrototype_Type(), this.getModeDeclarationGroup(), null, "type", null, 1, 1, ModeDeclarationGroupPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeRequestTypeMapEClass, ModeRequestTypeMap.class, "ModeRequestTypeMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeRequestTypeMap_ImplementationDataType(), this.getImplementationDataType(), null, "implementationDataType", null, 1, 1, ModeRequestTypeMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeRequestTypeMap_ModeGroup(), this.getModeDeclarationGroup(), null, "modeGroup", null, 1, 1, ModeRequestTypeMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeDeclarationEClass, ModeDeclaration.class, "ModeDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(modeDeclarationGroupEClass, ModeDeclarationGroup.class, "ModeDeclarationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeDeclarationGroup_InitialMode(), this.getModeDeclaration(), null, "initialMode", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeDeclarationGroup_ModeDeclaration(), this.getModeDeclaration(), null, "modeDeclaration", null, 0, -1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(applicationPrimitiveDataTypeEClass, ApplicationPrimitiveDataType.class, "ApplicationPrimitiveDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(autosarDataPrototypeEClass, AutosarDataPrototype.class, "AutosarDataPrototype", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAutosarDataPrototype_Type(), this.getAutosarDataType(), null, "type", null, 1, 1, AutosarDataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getAutosarDataPrototype__GetSwAddrMethod(), this.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAutosarDataPrototype__GetSwAlignment(), this.getAlignmentType(), "getSwAlignment", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAutosarDataPrototype__GetApplicationDataType(), this.getApplicationDataType(), "getApplicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getAutosarDataPrototype__GetImplementationDataType(), this.getImplementationDataType(), "getImplementationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dataPrototypeEClass, DataPrototype.class, "DataPrototype", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataPrototype_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, DataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataPrototype_SwAddrMethod(), this.getSwAddrMethod(), null, "swAddrMethod", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataPrototype_SwAlignment(), this.getAlignmentType(), "swAlignment", null, 0, 1, DataPrototype.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataPrototype_Type(), this.getAutosarDataType(), null, "type", null, 1, 1, DataPrototype.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getDataPrototype__GetSwImplPolicy(), this.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -5617,8 +6626,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(referenceValueSpecificationEClass, ReferenceValueSpecification.class, "ReferenceValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(arrayValueSpecificationEClass, ArrayValueSpecification.class, "ArrayValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArrayValueSpecification_Element(), this.getValueSpecification(), null, "element", null, 1, -1, ArrayValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recordValueSpecificationEClass, RecordValueSpecification.class, "RecordValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecordValueSpecification_Field(), this.getValueSpecification(), null, "field", null, 1, -1, RecordValueSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(applicationValueSpecificationEClass, ApplicationValueSpecification.class, "ApplicationValueSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -5674,6 +6685,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(portApiOptionEClass, PortApiOption.class, "PortApiOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPortApiOption_PortArgValue(), this.getPortDefinedArgumentValue(), this.getPortDefinedArgumentValue_Parent(), "portArgValue", null, 0, -1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPortApiOption_Port(), this.getPortPrototype(), this.getPortPrototype_PortApiOption(), "port", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPortApiOption_EnableTakeAddress(), this.getBoolean(), "enableTakeAddress", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portDefinedArgumentValueEClass, PortDefinedArgumentValue.class, "PortDefinedArgumentValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPortDefinedArgumentValue_Value(), this.getValueSpecification(), null, "value", null, 1, 1, PortDefinedArgumentValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5706,11 +6718,18 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEClass(iSignalToIPduMappingEClass, ISignalToIPduMapping.class, "ISignalToIPduMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getISignalToIPduMapping_ISignal(), this.getISignal(), null, "iSignal", null, 0, 1, ISignalToIPduMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getISignalToIPduMapping_ISignalGroup(), this.getISignalGroup(), null, "iSignalGroup", null, 0, 1, ISignalToIPduMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(senderReceiverToSignalMappingEClass, SenderReceiverToSignalMapping.class, "SenderReceiverToSignalMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSenderReceiverToSignalMapping_SystemSignal(), this.getSystemSignal(), null, "systemSignal", null, 1, 1, SenderReceiverToSignalMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSenderReceiverToSignalMapping_DataElementIref(), this.getVariableDataPrototypeInSystemInstanceRef(), null, "dataElementIref", null, 1, 1, SenderReceiverToSignalMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSenderReceiverToSignalMapping_DataElement(), theInstancePackage.getVariableDataInstance(), null, "dataElement", null, 1, 1, SenderReceiverToSignalMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(senderReceiverToSignalGroupMappingEClass, SenderReceiverToSignalGroupMapping.class, "SenderReceiverToSignalGroupMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderReceiverToSignalGroupMapping_SignalGroup(), this.getSystemSignalGroup(), null, "signalGroup", null, 1, 1, SenderReceiverToSignalGroupMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderReceiverToSignalGroupMapping_DataElementIref(), this.getVariableDataPrototypeInSystemInstanceRef(), null, "dataElementIref", null, 1, 1, SenderReceiverToSignalGroupMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderReceiverToSignalGroupMapping_DataElement(), theInstancePackage.getVariableDataInstance(), null, "dataElement", null, 1, 1, SenderReceiverToSignalGroupMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderReceiverToSignalGroupMapping_TypeMapping(), this.getSenderRecCompositeTypeMapping(), null, "typeMapping", null, 1, 1, SenderReceiverToSignalGroupMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableDataPrototypeInSystemInstanceRefEClass, VariableDataPrototypeInSystemInstanceRef.class, "VariableDataPrototypeInSystemInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableDataPrototypeInSystemInstanceRef_ContextComponent(), this.getSwComponentPrototype(), null, "contextComponent", null, 0, 1, VariableDataPrototypeInSystemInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5759,7 +6778,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getCompu_CompuScale(), this.getCompuScale(), null, "compuScale", null, 0, -1, Compu.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLimit_Value(), this.getVerbatimString(), "value", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLimit_Value(), this.getVerbatimString(), "value", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compuScaleEClass, CompuScale.class, "CompuScale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompuScale_LowerLimit(), this.getLimit(), null, "lowerLimit", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5794,6 +6813,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getRPortInCompositionInstanceRef_TargetRPort(), this.getRPortPrototype(), null, "targetRPort", null, 1, 1, RPortInCompositionInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internalBehaviorEClass, InternalBehavior.class, "InternalBehavior", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInternalBehavior_DataTypeMapping(), this.getDataTypeMappingSet(), null, "dataTypeMapping", null, 0, -1, InternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInternalBehavior_ExclusiveArea(), this.getExclusiveArea(), this.getExclusiveArea_Parent(), "exclusiveArea", null, 0, -1, InternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getInternalBehavior__GetParent(), this.getReferrable(), "getParent", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -5812,6 +6832,12 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getBswInternalBehavior_Entity(), this.getBswModuleEntity(), this.getBswModuleEntity_Parent(), "entity", null, 1, -1, BswInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswInternalBehavior_Event(), this.getBswEvent(), this.getBswEvent_Parent(), "event", null, 0, -1, BswInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswInternalBehavior_Implementation(), this.getBswImplementation(), this.getBswImplementation_Behavior(), "implementation", null, 0, -1, BswInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswInternalBehavior_ModeSenderPolicy(), this.getBswModeSenderPolicy(), null, "modeSenderPolicy", null, 0, -1, BswInternalBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswInternalBehavior_BswSchedulableEntity(), this.getBswSchedulableEntity(), null, "bswSchedulableEntity", null, 0, -1, BswInternalBehavior.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(bswModeSenderPolicyEClass, BswModeSenderPolicy.class, "BswModeSenderPolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBswModeSenderPolicy_ProvidedModeGroup(), this.getModeDeclarationGroupPrototype(), null, "providedModeGroup", null, 1, 1, BswModeSenderPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBswModeSenderPolicy_QueueLength(), this.getPositiveInteger(), "queueLength", null, 1, 1, BswModeSenderPolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(implementationEClass, Implementation.class, "Implementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementation_SwcBswMapping(), this.getSwcBswMapping(), null, "swcBswMapping", null, 0, 1, Implementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5822,6 +6848,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(bswModuleDescriptionEClass, BswModuleDescription.class, "BswModuleDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBswModuleDescription_InternalBehavior(), this.getBswInternalBehavior(), this.getBswInternalBehavior_Parent(), "internalBehavior", null, 0, -1, BswModuleDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswModuleDescription_ProvidedEntry(), this.getBswModuleEntry(), null, "providedEntry", null, 0, -1, BswModuleDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswModuleDescription_ProvidedModeGroup(), this.getModeDeclarationGroupPrototype(), null, "providedModeGroup", null, 0, -1, BswModuleDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBswModuleDescription_RequiredModeGroup(), this.getModeDeclarationGroupPrototype(), null, "requiredModeGroup", null, 0, -1, BswModuleDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEOperation(getBswModuleDescription__GetEnableInternalBehavior(), this.getBswInternalBehavior(), "getEnableInternalBehavior", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(bswModuleEntryEClass, BswModuleEntry.class, "BswModuleEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBswModuleEntry_ServiceId(), this.getPositiveInteger(), "serviceId", null, 0, 1, BswModuleEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5831,6 +6861,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(bswModuleEntityEClass, BswModuleEntity.class, "BswModuleEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBswModuleEntity_ImplementedEntry(), this.getBswModuleEntry(), null, "implementedEntry", null, 1, 1, BswModuleEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswModuleEntity_Parent(), this.getBswInternalBehavior(), this.getBswInternalBehavior_Entity(), "parent", null, 1, 1, BswModuleEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswModuleEntity_AccessedModeGroup(), this.getModeDeclarationGroupPrototype(), null, "accessedModeGroup", null, 0, -1, BswModuleEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswModuleEntity_ManagedModeGroup(), this.getModeDeclarationGroupPrototype(), null, "managedModeGroup", null, 0, -1, BswModuleEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bswSchedulableEntityEClass, BswSchedulableEntity.class, "BswSchedulableEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBswSchedulableEntity_Event(), this.getBswEvent(), this.getBswEvent_StartsOnEvent(), "event", null, 0, -1, BswSchedulableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5839,6 +6871,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEReference(getBswEvent_StartsOnEvent(), this.getBswSchedulableEntity(), this.getBswSchedulableEntity_Event(), "startsOnEvent", null, 0, 1, BswEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswEvent_Config(), theEcucPackage.getRteBswEventToTaskMapping(), theEcucPackage.getRteBswEventToTaskMapping_RteBswEvent(), "config", null, 0, -1, BswEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBswEvent_Parent(), this.getBswInternalBehavior(), this.getBswInternalBehavior_Event(), "parent", null, 1, 1, BswEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswEvent_DisabledInMode(), this.getModeInBswModuleDescriptionInstanceRef(), null, "disabledInMode", null, 0, -1, BswEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bswModeSwitchEventEClass, BswModeSwitchEvent.class, "BswModeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBswModeSwitchEvent_Activation(), this.getModeActivationKind(), "activation", null, 1, 1, BswModeSwitchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswModeSwitchEvent_ModeIref(), this.getModeInBswModuleDescriptionInstanceRef(), null, "modeIref", null, 1, 2, BswModeSwitchEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeInBswModuleDescriptionInstanceRefEClass, ModeInBswModuleDescriptionInstanceRef.class, "ModeInBswModuleDescriptionInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup(), this.getModeDeclarationGroupPrototype(), null, "contextModeDeclarationGroup", null, 1, 1, ModeInBswModuleDescriptionInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeInBswModuleDescriptionInstanceRef_TargetMode(), this.getModeDeclaration(), null, "targetMode", null, 1, 1, ModeInBswModuleDescriptionInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bswTimingEventEClass, BswTimingEvent.class, "BswTimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBswTimingEvent_Period(), this.getTimeValue(), "period", null, 0, 1, BswTimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -5846,8 +6887,46 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(bswCalledEntityEClass, BswCalledEntity.class, "BswCalledEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bswInterruptEntityEClass, BswInterruptEntity.class, "BswInterruptEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBswInterruptEntity_InterruptCategory(), this.getBswInterruptCategory(), "interruptCategory", null, 1, 1, BswInterruptEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBswInterruptEntity_InterruptSource(), this.getString(), "interruptSource", null, 1, 1, BswInterruptEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(implementationDataTypeElementEClass, ImplementationDataTypeElement.class, "ImplementationDataTypeElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getImplementationDataTypeElement_ArraySize(), this.getPositiveInteger(), "arraySize", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImplementationDataTypeElement_ArraySizeSemantics(), this.getArraySizeSemanticsEnum(), "arraySizeSemantics", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataTypeElement_SubElement(), this.getImplementationDataTypeElement(), null, "subElement", null, 0, -1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getImplementationDataTypeElement_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, ImplementationDataTypeElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(systemSignalGroupEClass, SystemSignalGroup.class, "SystemSignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSystemSignalGroup_SystemSignal(), this.getSystemSignal(), null, "systemSignal", null, 0, -1, SystemSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(iSignalGroupEClass, ISignalGroup.class, "ISignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getISignalGroup_SystemSignalGroup(), this.getSystemSignalGroup(), null, "systemSignalGroup", null, 1, 1, ISignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getISignalGroup_ISignal(), this.getISignal(), null, "iSignal", null, 0, -1, ISignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(senderRecCompositeTypeMappingEClass, SenderRecCompositeTypeMapping.class, "SenderRecCompositeTypeMapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(senderRecRecordTypeMappingEClass, SenderRecRecordTypeMapping.class, "SenderRecRecordTypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderRecRecordTypeMapping_RecordElementMapping(), this.getSenderRecRecordElementMapping(), null, "recordElementMapping", null, 0, -1, SenderRecRecordTypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(senderRecRecordElementMappingEClass, SenderRecRecordElementMapping.class, "SenderRecRecordElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderRecRecordElementMapping_ImplementationRecordElement(), this.getImplementationDataTypeElement(), null, "implementationRecordElement", null, 0, 1, SenderRecRecordElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderRecRecordElementMapping_ComplexTypeMapping(), this.getSenderRecCompositeTypeMapping(), null, "complexTypeMapping", null, 0, 1, SenderRecRecordElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderRecRecordElementMapping_SystemSignal(), this.getSystemSignal(), null, "systemSignal", null, 0, 1, SenderRecRecordElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(senderRecArrayTypeMappingEClass, SenderRecArrayTypeMapping.class, "SenderRecArrayTypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderRecArrayTypeMapping_ArrayElementMapping(), this.getSenderRecArrayElementMapping(), null, "arrayElementMapping", null, 0, -1, SenderRecArrayTypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(indexedArrayElementEClass, IndexedArrayElement.class, "IndexedArrayElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIndexedArrayElement_ImplementationArrayElement(), this.getImplementationDataTypeElement(), null, "implementationArrayElement", null, 0, 1, IndexedArrayElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIndexedArrayElement_Index(), this.getInteger(), "index", null, 1, 1, IndexedArrayElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(senderRecArrayElementMappingEClass, SenderRecArrayElementMapping.class, "SenderRecArrayElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderRecArrayElementMapping_IndexedArrayElement(), this.getIndexedArrayElement(), null, "indexedArrayElement", null, 1, 1, SenderRecArrayElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderRecArrayElementMapping_ComplexTypeMapping(), this.getSenderRecCompositeTypeMapping(), null, "complexTypeMapping", null, 0, 1, SenderRecArrayElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderRecArrayElementMapping_SystemSignal(), this.getSystemSignal(), null, "systemSignal", null, 0, 1, SenderRecArrayElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(swPointerTargetPropsEClass, SwPointerTargetProps.class, "SwPointerTargetProps", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSwPointerTargetProps_TargetCategory(), this.getIdentifier(), "targetCategory", null, 0, 1, SwPointerTargetProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwPointerTargetProps_SwDataDefProps(), this.getSwDataDefProps(), null, "swDataDefProps", null, 0, 1, SwPointerTargetProps.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(argumentDirectionEnumEEnum, ArgumentDirectionEnum.class, "ArgumentDirectionEnum");
@@ -5891,6 +6970,11 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		addEEnumLiteral(ecucConfigurationVariantEnumEEnum, EcucConfigurationVariantEnum.VARIANT_LINK_TIME);
 		addEEnumLiteral(ecucConfigurationVariantEnumEEnum, EcucConfigurationVariantEnum.RECOMMENDED_CONFIGURATION);
 
+		initEEnum(modeActivationKindEEnum, ModeActivationKind.class, "ModeActivationKind");
+		addEEnumLiteral(modeActivationKindEEnum, ModeActivationKind.ON_ENTRY);
+		addEEnumLiteral(modeActivationKindEEnum, ModeActivationKind.ON_EXIT);
+		addEEnumLiteral(modeActivationKindEEnum, ModeActivationKind.ON_TRANSITION);
+
 		initEEnum(bswCallTypeEnumEEnum, BswCallTypeEnum.class, "BswCallTypeEnum");
 		addEEnumLiteral(bswCallTypeEnumEEnum, BswCallTypeEnum.REGULAR);
 		addEEnumLiteral(bswCallTypeEnumEEnum, BswCallTypeEnum.CALLBACK);
@@ -5904,9 +6988,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		addEEnumLiteral(bswExecutionContextEnumEEnum, BswExecutionContextEnum.HOOK);
 		addEEnumLiteral(bswExecutionContextEnumEEnum, BswExecutionContextEnum.UNSPECIFIED);
 
-		initEEnum(bswInterruptCategoryEEnum, BswInterruptCategory.class, "BswInterruptCategory");
-		addEEnumLiteral(bswInterruptCategoryEEnum, BswInterruptCategory.CAT1);
-		addEEnumLiteral(bswInterruptCategoryEEnum, BswInterruptCategory.CAT2);
+		initEEnum(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.class, "ArraySizeSemanticsEnum");
+		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.FIXED_SIZE);
+		addEEnumLiteral(arraySizeSemanticsEnumEEnum, ArraySizeSemanticsEnum.VARIABLE_SIZE);
 
 		// Initialize data types
 		initEDataType(numericalEDataType, BigDecimal.class, "Numerical", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -5954,7 +7038,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																														
+		   });																																																																														
 	}
 
 	/**
@@ -5982,13 +7066,19 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "isOfType", "true"
-		   });									
+		   });											
 		addAnnotation
-		  (getAutosarDataPrototype_Type(), 
+		  (getModeDeclarationGroupPrototype_Type(), 
 		   source, 
 		   new String[] {
 			 "isOfType", "true"
-		   });															
+		   });													
+		addAnnotation
+		  (getDataPrototype_Type(), 
+		   source, 
+		   new String[] {
+			 "isOfType", "true"
+		   });											
 		addAnnotation
 		  (getPortDefinedArgumentValue_ValueType(), 
 		   source, 
@@ -6006,7 +7096,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "atpMixedString", "true"
-		   });	
+		   });							
 	}
 
 	/**
@@ -6142,6 +7232,12 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "derivation", "if swDataDefProps.swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAddrMethod\n\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getImplementationDataType__GetLeafImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "if swDataDefProps.implementationDataType.oclIsUndefined()\n\t\t\t\tthen self\n\t\t\t\telse swDataDefProps.implementationDataType.getLeafImplementationDataType()\n\t\t\t\tendif"
 		   });		
 		addAnnotation
 		  (getImplementationDataType_BaseType(), 
@@ -6154,7 +7250,31 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "derivation", "if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif"
+		   });				
+		addAnnotation
+		  (getAutosarDataPrototype__GetSwAddrMethod(), 
+		   source, 
+		   new String[] {
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif"
 		   });			
+		addAnnotation
+		  (getAutosarDataPrototype__GetSwAlignment(), 
+		   source, 
+		   new String[] {
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not self.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen self.swAlignment\n\t\t\t\t\telse if not implType.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAlignment\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
+		   });			
+		addAnnotation
+		  (getAutosarDataPrototype__GetApplicationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "if self.type.oclIsKindOf(m2::ApplicationDataType)\n\t\t\t\t\tthen self.type.oclAsType(m2::ApplicationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getAutosarDataPrototype__GetImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "if self.type.oclIsKindOf(m2::ImplementationDataType)\n\t\t\t\t\tthen self.type.oclAsType(m2::ImplementationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif"
+		   });		
 		addAnnotation
 		  (getDataPrototype__GetSwImplPolicy(), 
 		   source, 
@@ -6172,13 +7292,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "derivation", "if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif"
-		   });			
+		   });				
 		addAnnotation
 		  (getConstantReference__GetEndValueSpec(), 
 		   source, 
 		   new String[] {
 			 "body", "if constant.valueSpec.oclIsKindOf(ConstantReference)\n\t\t\t\t\tthen constant.valueSpec.oclAsType(ConstantReference).getEndValueSpec()\n\t\t\t\t\telse constant.valueSpec\n\t\t\t\t\tendif"
-		   });						
+		   });					
 		addAnnotation
 		  (getDataFilter__IsFilterEnabled(), 
 		   source, 
@@ -6208,7 +7328,19 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "body", "let upperLimit : Limit = self.dataConstrRule.internalConstrs.upperLimit->any(true)\n\t\t\t\t\t\t\tin if upperLimit.oclIsUndefined()\n\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\telse upperLimit.value\n\t\t\t\t\t\t\tendif"
-		   });		
+		   });				
+		addAnnotation
+		  (getBswInternalBehavior_BswSchedulableEntity(), 
+		   source, 
+		   new String[] {
+			 "derivation", "entity->select(oclIsKindOf(BswSchedulableEntity)).oclAsType(BswSchedulableEntity)->asOrderedSet()"
+		   });			
+		addAnnotation
+		  (getBswModuleDescription__GetEnableInternalBehavior(), 
+		   source, 
+		   new String[] {
+			 "body", "let behavior : Set(BswInternalBehavior) = self.internalBehavior->select(implementation->size() > 0)\n\t\t\t\t\t\t\tin if behavior->isEmpty() then\n\t\t\t\t\t\t\t\tnull\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tbehavior->any(true)\n\t\t\t\t\t\t\tendif"
+		   });			
 	}
 
 	/**
@@ -6224,7 +7356,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "xml.roleWrapperElement", "true"
-		   });																																									
+		   });																																																			
 		addAnnotation
 		  (getSystem_RootSoftwareComposition(), 
 		   source, 
@@ -6243,6 +7375,27 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   source, 
 		   new String[] {
 			 "xml.roleWrapperElement", "false"
+		   });					
+		addAnnotation
+		  (getBswModuleEntity_AccessedModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "ACCESSED-MODE-GROUPS",
+			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF"
+		   });		
+		addAnnotation
+		  (getBswModuleEntity_ManagedModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "MANAGED-MODE-GROUPS",
+			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF"
+		   });		
+		addAnnotation
+		  (getBswEvent_DisabledInMode(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "DISABLED-IN-MODE-IREFS",
+			 "xml.name", "DISABLED-IN-MODE-IREF"
 		   });
 	}
 

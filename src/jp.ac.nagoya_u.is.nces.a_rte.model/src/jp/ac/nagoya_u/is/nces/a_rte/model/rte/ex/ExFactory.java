@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -109,6 +109,24 @@ public interface ExFactory extends EFactory {
 	EntityStarterEx createEntityStarterEx();
 
 	/**
+	 * Returns a new object of class '<em>Bsw Schedulable Entity Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Schedulable Entity Ex</em>'.
+	 * @generated
+	 */
+	BswSchedulableEntityEx createBswSchedulableEntityEx();
+
+	/**
+	 * Returns a new object of class '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Declaration Group Prototype Ex</em>'.
+	 * @generated
+	 */
+	ModeDeclarationGroupPrototypeEx createModeDeclarationGroupPrototypeEx();
+
+	/**
 	 * Returns a new object of class '<em>Assembly Data Instance Connector Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,6 +152,15 @@ public interface ExFactory extends EFactory {
 	 * @generated
 	 */
 	ComSignalEx createComSignalEx();
+
+	/**
+	 * Returns a new object of class '<em>Com Signal Group Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Signal Group Ex</em>'.
+	 * @generated
+	 */
+	ComSignalGroupEx createComSignalGroupEx();
 
 	/**
 	 * Returns a new object of class '<em>Variable Data Instance In Swc Ex</em>'.
@@ -181,6 +208,15 @@ public interface ExFactory extends EFactory {
 	SenderReceiverToSignalMappingEx createSenderReceiverToSignalMappingEx();
 
 	/**
+	 * Returns a new object of class '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Receiver To Signal Group Mapping Ex</em>'.
+	 * @generated
+	 */
+	SenderReceiverToSignalGroupMappingEx createSenderReceiverToSignalGroupMappingEx();
+
+	/**
 	 * Returns a new object of class '<em>Os Task Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -199,6 +235,15 @@ public interface ExFactory extends EFactory {
 	EcucPartitionEx createEcucPartitionEx();
 
 	/**
+	 * Returns a new object of class '<em>Variable Data Prototype Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Data Prototype Ex</em>'.
+	 * @generated
+	 */
+	VariableDataPrototypeEx createVariableDataPrototypeEx();
+
+	/**
 	 * Returns a new object of class '<em>Atomic Sw Component Type Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,6 +260,15 @@ public interface ExFactory extends EFactory {
 	 * @generated
 	 */
 	ValueSpecificationEx createValueSpecificationEx();
+
+	/**
+	 * Returns a new object of class '<em>Nonqueued Sender Com Spec Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Nonqueued Sender Com Spec Ex</em>'.
+	 * @generated
+	 */
+	NonqueuedSenderComSpecEx createNonqueuedSenderComSpecEx();
 
 	/**
 	 * Returns a new object of class '<em>Compu Method Ex</em>'.

@@ -5,14 +5,17 @@
 #      Toyohashi Open Platform for Embedded Real-Time Systems
 #      Automotive Kernel Version 2
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,11 +51,14 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: def.py 198 2014-11-28 05:52:07Z shigihara $
+# $Id: def.py 427 2015-03-23 12:38:40Z mtakada $
 #
 
+# Root Dir
+ROOTDIR = "../../../../../.."
+
 # Source Dir
-SRCDIR = "../../../../../../atk2-sc1/"
+SRCDIR = ROOTDIR + "/atk2-sc1/"
 
 # Configfile name
 CFGNAME = ['HelloAutosarWithCom_ECU2','target_hw_counter','target_serial','uart']
@@ -61,13 +67,37 @@ CFGNAME = ['HelloAutosarWithCom_ECU2','target_hw_counter','target_serial','uart'
 TARGET = "hsbv850e2fg4_cx"
 
 # Target mcu
+#TARGET_MCU = 'uPD70F3580'
 TARGET_MCU = 'uPD70F4002'
 
 # Application files
-app_app_files = ['Rte.c', '../../../../../../a-rtegen/sample/general/HelloAutosar/SWC2.c', '../../../../../../a-rtegen/sample/general/EcuM/C_Init_Code.c', '../../../../../../a-rtegen/sample/general/EcuM/EcuM.c', '../../../../../../a-rtegen/sample/general/EcuM/EcuM_StartupTask.c', '../../../../../../a-rtegen/sample/general/EcuM/Os_Hook.c', '../../../../../../a-comstack/com/Com.c', 'Com_PBcfg.c', '../../../../../../a-comstack/canif/CanIf.c', 'CanIf_PBcfg.c', 'CanIf_Lcfg.c', '../../../../../../a-comstack/can/Can.c', '../../../../../../a-comstack/can/target/hsbv850e2fg4_cx/Can_Irq.c', 'Can_PBcfg.c']
+app_app_files = ['Rte.c',
+                 ROOTDIR + '/a-rtegen/sample/general/HelloAutosar/SWC2.c',
+                 ROOTDIR + '/a-rtegen/sample/general/EcuM/C_Init_Code.c',
+                 ROOTDIR + '/a-rtegen/sample/general/EcuM/EcuM.c',
+                 ROOTDIR + '/a-rtegen/sample/general/EcuM/EcuM_StartupTask.c',
+                 ROOTDIR + '/a-rtegen/sample/general/EcuM/Os_Hook.c',
+                 ROOTDIR + '/a-comstack/com/Com.c',
+                 ROOTDIR + '/a-comstack/canif/CanIf.c',
+                 ROOTDIR + '/a-comstack/can/Can.c',
+                 ROOTDIR + '/a-comstack/can/target/hsbv850e2fg4_cx/Can_Irq.c',
+                 'Com_PBcfg.c',
+                 'CanIf_PBcfg.c',
+                 'CanIf_Lcfg.c',
+                 'Can_PBcfg.c']
 
 # Addition Dir list (relative path from srcdir)
-USER_INCLUDE = ['../a-rtegen/sample/general/HelloAutosar', '../a-rtegen/sample/general/EcuM', '../a-comstack/com', '../a-comstack/pdur', '../a-comstack/canif', '../a-comstack/can', '../a-comstack/can/arch/v850e2', '../a-comstack/can/arch/cx', '../a-comstack/can/target/hsbv850e2fg4_cx', '../a-comstack/stub', '../a-comstack/general']
+USER_INCLUDE = ['../a-rtegen/sample/general/HelloAutosar',
+                '../a-rtegen/sample/general/EcuM',
+                '../a-comstack/com',
+                '../a-comstack/pdur',
+                '../a-comstack/canif',
+                '../a-comstack/can',
+                '../a-comstack/can/arch/fcn',
+                '../a-comstack/can/arch/cx',
+                '../a-comstack/can/target/hsbv850e2fg4_cx',
+                '../a-comstack/stub',
+                '../a-comstack/general']
 
 # Addition Macro Definitions
 USER_MACRO = ['TOPPERS_USE_COMSTACK']

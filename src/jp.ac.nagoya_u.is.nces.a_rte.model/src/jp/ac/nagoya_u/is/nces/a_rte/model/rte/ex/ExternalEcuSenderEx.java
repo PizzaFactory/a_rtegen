@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -123,7 +123,7 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * RTEによる初期化を要求するか
 	 * <!-- end-model-doc -->
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | variableDataInstanceInCompositionEx.getInitValueAsText(r1.source) <> variableDataInstanceInCompositionEx.getInitValueAsText(r2.source))'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))'"
 	 * @generated
 	 */
 	Boolean requiresRteInitialization(ExternalEcuSender this_);
@@ -163,5 +163,17 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * @generated
 	 */
 	Boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * COMコールバックかどうか
+	 * <!-- end-model-doc -->
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)'"
+	 * @generated
+	 */
+	Boolean providesComCallback(ExternalEcuSender this_);
 
 } // ExternalEcuSenderEx

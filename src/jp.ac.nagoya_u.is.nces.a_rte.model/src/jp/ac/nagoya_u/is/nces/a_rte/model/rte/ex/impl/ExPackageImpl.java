@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -57,7 +57,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AlignmentTypeEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ApplicationDataTypeEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AssemblyDataInstanceConnectorEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AtomicSwComponentTypeEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.CompuMethodEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.CompuScaleEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EcucPartitionEx;
@@ -67,16 +69,20 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ImplementationDataTypeEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.TimeValueEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.OsTaskEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.PVariableDataInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ROperationInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RVariableDataInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ReceiverEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalMappingEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataInstanceInCompositionEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataInstanceInSwcEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.impl.RtePackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl;
@@ -136,6 +142,20 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass bswSchedulableEntityExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeDeclarationGroupPrototypeExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass assemblyDataInstanceConnectorExEClass = null;
 
 	/**
@@ -151,6 +171,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	private EClass comSignalExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comSignalGroupExEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +219,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass senderReceiverToSignalGroupMappingExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass osTaskExEClass = null;
 
 	/**
@@ -206,6 +240,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass variableDataPrototypeExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass atomicSwComponentTypeExEClass = null;
 
 	/**
@@ -214,6 +255,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	private EClass valueSpecificationExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass nonqueuedSenderComSpecExEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -474,6 +522,15 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender() {
+		return externalEcuSenderExEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntityStarterEx() {
 		return entityStarterExEClass;
 	}
@@ -485,6 +542,150 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter() {
 		return entityStarterExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswSchedulableEntityEx() {
+		return bswSchedulableEntityExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx() {
+		return (EReference)bswSchedulableEntityExEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity() {
+		return bswSchedulableEntityExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity() {
+		return bswSchedulableEntityExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity() {
+		return bswSchedulableEntityExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity() {
+		return bswSchedulableEntityExEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity() {
+		return bswSchedulableEntityExEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeDeclarationGroupPrototypeEx() {
+		return modeDeclarationGroupPrototypeExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx() {
+		return (EReference)modeDeclarationGroupPrototypeExEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype() {
+		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(6);
 	}
 
 	/**
@@ -654,6 +855,15 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition() {
+		return variableDataInstanceInCompositionExEClass.getEOperations().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComSignalEx() {
 		return comSignalExEClass;
 	}
@@ -692,6 +902,51 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal() {
 		return comSignalExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComSignalGroupEx() {
+		return comSignalGroupExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx() {
+		return (EReference)comSignalGroupExEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getComSignalGroupEx__IsSender__ComSignalGroup() {
+		return comSignalGroupExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getComSignalGroupEx__IsReceiver__ComSignalGroup() {
+		return comSignalGroupExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup() {
+		return comSignalGroupExEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -861,6 +1116,24 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSenderReceiverToSignalGroupMappingEx() {
+		return senderReceiverToSignalGroupMappingExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping() {
+		return senderReceiverToSignalGroupMappingExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOsTaskEx() {
 		return osTaskExEClass;
 	}
@@ -924,6 +1197,69 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getVariableDataPrototypeEx() {
+		return variableDataPrototypeExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype() {
+		return variableDataPrototypeExEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAtomicSwComponentTypeEx() {
 		return atomicSwComponentTypeExEClass;
 	}
@@ -953,6 +1289,87 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getValueSpecificationEx__GetValueSpecAsText__ValueSpecification() {
 		return valueSpecificationExEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsForVALUE__ValueSpecification() {
+		return valueSpecificationExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType() {
+		return valueSpecificationExEClass.getEOperations().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType() {
+		return valueSpecificationExEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType() {
+		return valueSpecificationExEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification() {
+		return valueSpecificationExEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType() {
+		return valueSpecificationExEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification() {
+		return valueSpecificationExEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNonqueuedSenderComSpecEx() {
+		return nonqueuedSenderComSpecExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec() {
+		return nonqueuedSenderComSpecExEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1077,8 +1494,26 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea() {
+	public EReference getExclusiveAreaEx_BswSchedulableEntityEx() {
+		return (EReference)exclusiveAreaExEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea() {
 		return exclusiveAreaExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea() {
+		return exclusiveAreaExEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1122,6 +1557,16 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		valueSpecificationExEClass = createEClass(VALUE_SPECIFICATION_EX);
 		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___GET_END_VALUE_SPEC__VALUESPECIFICATION);
 		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_FOR_VALUE__VALUESPECIFICATION);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_FOR_ARRAY__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_FOR_STRUCTURE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_FOR_UNION__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_FOR_DATA_REFERENCE__VALUESPECIFICATION);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___IS_VALID_VALUE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE);
+		createEOperation(valueSpecificationExEClass, VALUE_SPECIFICATION_EX___EQUALS_INIT_VALUE__VALUESPECIFICATION_VALUESPECIFICATION);
+
+		nonqueuedSenderComSpecExEClass = createEClass(NONQUEUED_SENDER_COM_SPEC_EX);
+		createEOperation(nonqueuedSenderComSpecExEClass, NONQUEUED_SENDER_COM_SPEC_EX___HAS_VALID_INIT_VALUE__NONQUEUEDSENDERCOMSPEC);
 
 		compuMethodExEClass = createEClass(COMPU_METHOD_EX);
 		createEOperation(compuMethodExEClass, COMPU_METHOD_EX___PROVIDES_ENUM_CONSTANT__COMPUMETHOD);
@@ -1140,10 +1585,15 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(implementationDataTypeExEClass, IMPLEMENTATION_DATA_TYPE_EX___GET_COMPU_METHOD__IMPLEMENTATIONDATATYPE_APPLICATIONDATATYPE);
 
 		exclusiveAreaExEClass = createEClass(EXCLUSIVE_AREA_EX);
+		createEReference(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX__BSW_SCHEDULABLE_ENTITY_EX);
+		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA);
 		createEOperation(exclusiveAreaExEClass, EXCLUSIVE_AREA_EX___PROVIDES_ENTER_EXIT_API__EXCLUSIVEAREA);
 
 		senderReceiverToSignalMappingExEClass = createEClass(SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX);
 		createEOperation(senderReceiverToSignalMappingExEClass, SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALMAPPING);
+
+		senderReceiverToSignalGroupMappingExEClass = createEClass(SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX);
+		createEOperation(senderReceiverToSignalGroupMappingExEClass, SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX___GET_MAPPED_DATA_INSTANCE_IN_COMPOSITION__SENDERRECEIVERTOSIGNALGROUPMAPPING);
 
 		osTaskExEClass = createEClass(OS_TASK_EX);
 		createEOperation(osTaskExEClass, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
@@ -1154,11 +1604,25 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(comSignalExEClass, COM_SIGNAL_EX___IS_RECEIVER__COMSIGNAL);
 		createEOperation(comSignalExEClass, COM_SIGNAL_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNAL);
 
+		comSignalGroupExEClass = createEClass(COM_SIGNAL_GROUP_EX);
+		createEReference(comSignalGroupExEClass, COM_SIGNAL_GROUP_EX__SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX);
+		createEOperation(comSignalGroupExEClass, COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP);
+		createEOperation(comSignalGroupExEClass, COM_SIGNAL_GROUP_EX___IS_RECEIVER__COMSIGNALGROUP);
+		createEOperation(comSignalGroupExEClass, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
+
 		ecucPartitionExEClass = createEClass(ECUC_PARTITION_EX);
 		createEOperation(ecucPartitionExEClass, ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION);
 		createEOperation(ecucPartitionExEClass, ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION);
 		createEOperation(ecucPartitionExEClass, ECUC_PARTITION_EX___PROVIDES_RESTART_PARTITION_API__ECUCPARTITION);
 		createEOperation(ecucPartitionExEClass, ECUC_PARTITION_EX___PROVIDES_PARTITION_RESTARTING_API__ECUCPARTITION);
+
+		variableDataPrototypeExEClass = createEClass(VARIABLE_DATA_PROTOTYPE_EX);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_DECLARATION__VARIABLEDATAPROTOTYPE);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_START__VARIABLEDATAPROTOTYPE);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___INIT_AT_PARTITION_RESTART__VARIABLEDATAPROTOTYPE);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___GET_INITIALIZATION_STRATEGY__VARIABLEDATAPROTOTYPE);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___GET_SECTION_INITIALIZATION_POLICY__VARIABLEDATAPROTOTYPE);
+		createEOperation(variableDataPrototypeExEClass, VARIABLE_DATA_PROTOTYPE_EX___GET_SW_ADDR_METHOD__VARIABLEDATAPROTOTYPE);
 
 		variableDataInstanceInCompositionExEClass = createEClass(VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX);
 		createEReference(variableDataInstanceInCompositionExEClass, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX__VALUE_SPECIFICATION_EX);
@@ -1175,6 +1639,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(variableDataInstanceInCompositionExEClass, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION);
 		createEOperation(variableDataInstanceInCompositionExEClass, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_RECEIVER_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION);
 		createEOperation(variableDataInstanceInCompositionExEClass, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_SENDER_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION);
+		createEOperation(variableDataInstanceInCompositionExEClass, VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___EQUALS_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION_VARIABLEDATAINSTANCEINCOMPOSITION);
 
 		variableDataInstanceInSwcExEClass = createEClass(VARIABLE_DATA_INSTANCE_IN_SWC_EX);
 		createEReference(variableDataInstanceInSwcExEClass, VARIABLE_DATA_INSTANCE_IN_SWC_EX__ALIGNMENT_TYPE_EX);
@@ -1210,9 +1675,28 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER);
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER);
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER);
+		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER);
 
 		entityStarterExEClass = createEClass(ENTITY_STARTER_EX);
 		createEOperation(entityStarterExEClass, ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER);
+
+		bswSchedulableEntityExEClass = createEClass(BSW_SCHEDULABLE_ENTITY_EX);
+		createEReference(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX__MODE_DECLARATION_GROUP_PROTOTYPE_EX);
+		createEOperation(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY);
+		createEOperation(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX___GET_CALL_ROOT_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY);
+		createEOperation(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX___GET_MAPPED_TASKS__BSWSCHEDULABLEENTITY);
+		createEOperation(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES__BSWSCHEDULABLEENTITY);
+		createEOperation(bswSchedulableEntityExEClass, BSW_SCHEDULABLE_ENTITY_EX___GET_CALLER_BSW_SCHEDULABLE_ENTITIES_BY_MODE__BSWSCHEDULABLEENTITY);
+
+		modeDeclarationGroupPrototypeExEClass = createEClass(MODE_DECLARATION_GROUP_PROTOTYPE_EX);
+		createEReference(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX__BSW_SCHEDULABLE_ENTITY_EX);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_MANAGER__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_USER__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_MANAGER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_USER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_PARENT_BSW_MODULE_DESCRIPTION__MODEDECLARATIONGROUPPROTOTYPE);
+		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_CONNECTED_PROVIDED_MODE_PROTOTYPES__MODEDECLARATIONGROUPPROTOTYPE);
 	}
 
 	/**
@@ -1240,8 +1724,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		// Obtain other dependent packages
 		M2Package theM2Package = (M2Package)EPackage.Registry.INSTANCE.getEPackage(M2Package.eNS_URI);
-		InstancePackage theInstancePackage = (InstancePackage)EPackage.Registry.INSTANCE.getEPackage(InstancePackage.eNS_URI);
 		EcucPackage theEcucPackage = (EcucPackage)EPackage.Registry.INSTANCE.getEPackage(EcucPackage.eNS_URI);
+		InstancePackage theInstancePackage = (InstancePackage)EPackage.Registry.INSTANCE.getEPackage(InstancePackage.eNS_URI);
 		InteractionPackage theInteractionPackage = (InteractionPackage)EPackage.Registry.INSTANCE.getEPackage(InteractionPackage.eNS_URI);
 
 		// Create type parameters
@@ -1280,6 +1764,37 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getValueSpecificationEx__GetValueSpecAsText__ValueSpecification(), theM2Package.getString(), "getValueSpecAsText", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getValueSpecificationEx__IsForVALUE__ValueSpecification(), theM2Package.getBoolean(), "isForVALUE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForARRAY", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForSTRUCTURE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isForUNION", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), theM2Package.getBoolean(), "isForDATA_REFERENCE", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), theM2Package.getBoolean(), "isValidValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), theM2Package.getBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getValueSpecification(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(nonqueuedSenderComSpecExEClass, NonqueuedSenderComSpecEx.class, "NonqueuedSenderComSpecEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), theM2Package.getBoolean(), "hasValidInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getNonqueuedSenderComSpec(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(compuMethodExEClass, CompuMethodEx.class, "CompuMethodEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), theM2Package.getBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1313,6 +1828,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(exclusiveAreaExEClass, ExclusiveAreaEx.class, "ExclusiveAreaEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExclusiveAreaEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ExclusiveAreaEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), theEcucPackage.getEcucPartition(), "getUsingPartitionsOfBswExclusiveArea", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea(), theM2Package.getBoolean(), "providesEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1321,6 +1840,11 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		op = initEOperation(getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theM2Package.getSenderReceiverToSignalMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(senderReceiverToSignalGroupMappingExEClass, SenderReceiverToSignalGroupMappingEx.class, "SenderReceiverToSignalGroupMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getSenderReceiverToSignalGroupMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(osTaskExEClass, OsTaskEx.class, "OsTaskEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1339,6 +1863,18 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(comSignalGroupExEClass, ComSignalGroupEx.class, "ComSignalGroupEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx(), this.getSenderReceiverToSignalGroupMappingEx(), null, "senderReceiverToSignalGroupMappingEx", null, 1, 1, ComSignalGroupEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getComSignalGroupEx__IsSender__ComSignalGroup(), theM2Package.getBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComSignalGroupEx__IsReceiver__ComSignalGroup(), theM2Package.getBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(ecucPartitionExEClass, EcucPartitionEx.class, "EcucPartitionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getEcucPartitionEx__IsInMasterCore__EcucPartition(), theM2Package.getBoolean(), "isInMasterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1352,6 +1888,26 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		op = initEOperation(getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), theM2Package.getBoolean(), "providesPartitionRestartingApi", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(variableDataPrototypeExEClass, VariableDataPrototypeEx.class, "VariableDataPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), theM2Package.getBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), theM2Package.getBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), theM2Package.getBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype(), theM2Package.getString(), "getSectionInitializationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableDataInstanceInCompositionExEClass, VariableDataInstanceInCompositionEx.class, "VariableDataInstanceInCompositionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableDataInstanceInCompositionEx_ValueSpecificationEx(), this.getValueSpecificationEx(), null, "valueSpecificationEx", null, 1, 1, VariableDataInstanceInCompositionEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1394,6 +1950,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 
 		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSenderSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), theM2Package.getBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(variableDataInstanceInSwcExEClass, VariableDataInstanceInSwcEx.class, "VariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableDataInstanceInSwcEx_AlignmentTypeEx(), this.getAlignmentTypeEx(), null, "alignmentTypeEx", null, 1, 1, VariableDataInstanceInSwcEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1466,10 +2026,55 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), theM2Package.getBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), theInteractionPackage.getTimingTriggeringEntityStartImplementation(), "getTimingTriggeringEntityStartImplementations", 0, -1, IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, theInteractionPackage.getEntityStarter(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(bswSchedulableEntityExEClass, BswSchedulableEntityEx.class, "BswSchedulableEntityEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx(), this.getModeDeclarationGroupPrototypeEx(), null, "modeDeclarationGroupPrototypeEx", null, 1, 1, BswSchedulableEntityEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallRootBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity(), theEcucPackage.getOsTask(), "getMappedTasks", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntitiesByMode", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(modeDeclarationGroupPrototypeExEClass, ModeDeclarationGroupPrototypeEx.class, "ModeDeclarationGroupPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ModeDeclarationGroupPrototypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForManager", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForUser", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeManagerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeUserBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype(), theM2Package.getBswModuleDescription(), "getParentBswModuleDescription", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), theM2Package.getModeDeclarationGroupPrototype(), "getConnectedProvidedModePrototypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create annotations
 		// stereotypes
@@ -1493,7 +2098,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "extension", "true"
-		   });																																																																																						
+		   });																																																																																																																																												
 	}
 
 	/**
@@ -1511,7 +2116,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																																																					
+		   });																																																																																																																																											
 	}
 
 	/**
@@ -1533,6 +2138,54 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "body", "let endValueSpec : m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin if endValueSpec.oclIsKindOf(ar4x::m2::NumericalValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::NumericalValueSpecification).value.toString()\n\t\t\t\t\telse if endValueSpec.oclIsKindOf(ar4x::m2::TextValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::TextValueSpecification).value\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsForVALUE__ValueSpecification(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification) or end.oclIsKindOf(ar4x::m2::TextValueSpecification)"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::ArrayValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->size() = type.subElement->first().arraySize\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->forAll(v | isForVALUE(v))"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = type.subElement->size()\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->forAll(v | isForVALUE(v))"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = 1\n\t\t\t\tand\n\t\t\t\tisForVALUE(end.oclAsType(ar4x::m2::RecordValueSpecification).field->first())"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification)"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\tisForVALUE(value)\n\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\tisForARRAY(value, type)\n\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\tisForSTRUCTURE(value, type)\n\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\tisForUNION(value, type)\n\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\tisForDATA_REFERENCE(value)\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif endif endif endif"
+		   });		
+		addAnnotation
+		  (getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet endV1 : ar4x::m2::ValueSpecification = getEndValueSpec(v1),\n\t\t\t\t\tendV2 : ar4x::m2::ValueSpecification = getEndValueSpec(v2)\n\t\t\t\tin\n\t\t\t\tif endV1.oclIsTypeOf(ar4x::m2::ArrayValueSpecification) then\n\t\t\t\t\tlet arrayV1 : ar4x::m2::ArrayValueSpecification = endV1.oclAsType(ar4x::m2::ArrayValueSpecification),\n\t\t\t\t\t\tarrayV2 : ar4x::m2::ArrayValueSpecification = endV2.oclAsType(ar4x::m2::ArrayValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif arrayV1.element->size() <> arrayV2.element->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(arrayV1.element->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(arrayV1.element->at(i), arrayV2.element->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse if endV1.oclIsTypeOf(ar4x::m2::RecordValueSpecification) then\n\t\t\t\t\tlet recV1 : ar4x::m2::RecordValueSpecification = endV1.oclAsType(ar4x::m2::RecordValueSpecification),\n\t\t\t\t\t\trecV2 : ar4x::m2::RecordValueSpecification = endV2.oclAsType(ar4x::m2::RecordValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif recV1.field->size() <> recV2.field->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(recV1.field->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(recV1.field->at(i), recV2.field->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse\n\t\t\t\t\tgetValueSpecAsText(endV1) = getValueSpecAsText(endV2)\n\t\t\t\tendif endif"
+		   });		
+		addAnnotation
+		  (getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tif this_.initValue.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse if this_.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then\n\t\t\t\t\tlet type : ar4x::m2::ImplementationDataType = this_.dataElement.type.oclAsType(ar4x::m2::ImplementationDataType)\n\t\t\t\t\tin\n\t\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\t\tValueSpecificationEx::isForVALUE(this_.initValue)\n\t\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'TYPE_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse\n\t\t\t\t\t\tfalse\n\t\t\t\t\tendif endif endif endif endif endif\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif"
 		   });		
 		addAnnotation
 		  (getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), 
@@ -1562,7 +2215,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.baseType.nativeDeclaration.oclIsUndefined()"
+			 "body", "if this_.baseType.oclIsUndefined()\n\t\t\t\t\t then true\n\t\t\t\t\telse not this_.baseType.nativeDeclaration.oclIsUndefined()\n\t\t\t\t\tendif"
 		   });		
 		addAnnotation
 		  (getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), 
@@ -1577,13 +2230,26 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 			 "body", "if not applicationDataType.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applicationDataType.compuMethod\n\t\t\t\t\telse if not this_.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
 		   });			
 		addAnnotation
+		  (getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity)->select(runsInsideExclusiveArea->includes(this_))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
+		   });			
+		addAnnotation
 		  (getExclusiveAreaEx__ProvidesEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)\n\t\t\t\t\tthen \n\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\telse \n\t\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tthen\n\t\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::BswInternalBehavior).entity.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\t\telse false\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
+			 "body", "\n\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)\n\t\t\t\t\tthen \n\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\telse \n\t\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tthen\n\t\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\t\telse false\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
 		   });			
 		addAnnotation
 		  (getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), 
+		   source, 
+		   new String[] {
+			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping(), 
 		   source, 
 		   new String[] {
 			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
@@ -1611,6 +2277,24 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "body", "let systemSignal : ar4x::m2::SystemSignal = this_.comSystemTemplateSystemSignal.iSignal.systemSignal\n\t\t\t\tin if systemSignal.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.systemSignal = systemSignal)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif"
+		   });		
+		addAnnotation
+		  (getComSignalGroupEx__IsSender__ComSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())"
+		   });		
+		addAnnotation
+		  (getComSignalGroupEx__IsReceiver__ComSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())"
+		   });			
+		addAnnotation
+		  (getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "body", "let systemSignalGroup : ar4x::m2::SystemSignalGroup = this_.comSystemTemplateSignalGroup.iSignalGroup.systemSignalGroup\n\t\t\t\tin if systemSignalGroup.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalGroupMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.signalGroup = systemSignalGroup)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalGroupMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif"
 		   });			
 		addAnnotation
 		  (getEcucPartitionEx__IsInMasterCore__EcucPartition(), 
@@ -1635,6 +2319,42 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "body", "this_.partitionCanBeRestarted"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let behavior : ar4x::ecuc::RteInitializationBehavior = ecuc::RteInitializationBehavior.allInstances()\n\t\t\t\t\t->select(rteSectionInitializationPolicy\n\t\t\t\t\t\t->includes(getSectionInitializationPolicy(this_)))\n\t\t\t\t\t->any(true)\n\t\t\t\tin if behavior.oclIsUndefined()\n\t\t\t\t\tthen ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START\n\t\t\t\t\telse behavior.rteInitializationStrategy\n\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swAddrMethod.sectionInitializationPolicy\n\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if not swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen swAddrMethod\n\t\t\t\t\telse if not this_.getImplementationDataType().oclIsUndefined()\n\t\t\t\t\tthen this_.getImplementationDataType().getLeafImplementationDataType()\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
 		   });		
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetPartition__VariableDataInstanceInComposition(), 
@@ -1713,6 +2433,12 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "body", "if this_.prototype.oclIsKindOf(instance::PVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.getSwAddrMethod()\n\t\t\t\t\telse\n\t\t\t\t\tlet swAddrMethod : m2::SwAddrMethod =\n\t\t\t\t\t\tthis_.providerConnection.provider.prototype.getSwAddrMethod()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse swAddrMethod\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
+		   });		
+		addAnnotation
+		  (getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\tlet initValue1 : m2::ValueSpecification = getInitValue(v1),\n\t\t\t\t\tinitValue2 : m2::ValueSpecification = getInitValue(v2)\n\t\t\t\tin\n\t\t\t\tif initValue1.oclIsUndefined() and initValue2.oclIsUndefined() then\n\t\t\t\t\ttrue\n\t\t\t\telse if initValue1.oclIsUndefined() or initValue2.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse\n\t\t\t\t\tvalueSpecificationEx.equalsInitValue(initValue1, initValue2)\n\t\t\t\tendif endif"
 		   });			
 		addAnnotation
 		  (getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), 
@@ -1802,7 +2528,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | variableDataInstanceInCompositionEx.getInitValueAsText(r1.source) <> variableDataInstanceInCompositionEx.getInitValueAsText(r2.source))"
+			 "body", "this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))"
 		   });			
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), 
@@ -1821,12 +2547,84 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		   source, 
 		   new String[] {
 			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))"
+		   });			
+		addAnnotation
+		  (getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), 
+		   source, 
+		   new String[] {
+			 "body", "providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)"
 		   });		
 		addAnnotation
 		  (getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), 
 		   source, 
 		   new String[] {
 			 "body", "this_.startInteraction.implementation\n\t\t\t\t\t->select(oclIsKindOf(interaction::TimingTriggeringEntityStartImplementation)).oclAsType(interaction::TimingTriggeringEntityStartImplementation)\n\t\t\t\t\t->asOrderedSet()"
+		   });			
+		addAnnotation
+		  (getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity(), 
+		   source, 
+		   new String[] {
+			 "body", "if ar4x::m2::BswImplementation.allInstances()->exists(behavior = this_.parent) then\n\t\t\t\t\t\t\tgetCallRootBswSchedulableEntities(this_)->collect(m | getMappedTasks(m)).ownerApplication.osAppEcucPartition->asSet()\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\tendif"
+		   });				
+		addAnnotation
+		  (getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity(), 
+		   source, 
+		   new String[] {
+			 "body", "this_.event.config->select(not rteBswMappedToTask.oclIsUndefined()).rteBswMappedToTask->asSet()"
+		   });			
+		addAnnotation
+		  (getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity(), 
+		   source, 
+		   new String[] {
+			 "body", "getCallerBswSchedulableEntitiesByMode(this_)"
+		   });			
+		addAnnotation
+		  (getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity(), 
+		   source, 
+		   new String[] {
+			 "body", "let sourceEvent : Set(ar4x::m2::BswModeSwitchEvent) = this_.event->select(oclIsKindOf(ar4x::m2::BswModeSwitchEvent)).oclAsType(ar4x::m2::BswModeSwitchEvent)->select(config->exists(rteBswMappedToTask.oclIsUndefined()))->asSet(),\n\t\t\t\t\t\teventSourceRequiredModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = sourceEvent.modeIref.contextModeDeclarationGroup->select(m | this_.accessedModeGroup->includes(m))->asSet(),\n\t\t\t\t\t\teventSourceProvidedModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = eventSourceRequiredModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getConnectedProvidedModePrototypes(m))->asSet()\n\t\t\t\t\t\tin eventSourceProvidedModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getModeManagerBswSchedulableEntities(m))->asSet()"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\t\tgetModeManagerBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\t\tgetModeUserBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "\n\t\t\t\t\tgetUsingPartitionForManager(this_)->union(getUsingPartitionForUser(this_))->asOrderedSet()"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(managedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(accessedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "let providerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(providedModeGroup->includes(this_))->any(true),\n\t\t\t\t\t\trequirerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(requiredModeGroup->includes(this_))->any(true)\n\t\t\t\t\t\tin if not providerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\tproviderBswm\n\t\t\t\t\t\t\telse if not requirerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\trequirerBswm\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tnull\n\t\t\t\t\t\t\tendif endif"
+		   });			
+		addAnnotation
+		  (getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()"
 		   });
 	}
 

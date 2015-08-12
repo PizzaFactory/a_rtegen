@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -81,6 +81,10 @@ public class BuiltinSymbolModelBuilder {
 		this.context.cache.osTrustedFunctionParamRefType = buildBuiltinPrimitiveType(targetRte, SymbolNames.OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME, SignednessEnum.UNSIGNED);
 
 		this.context.cache.comSignalIdType = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_SIGNAL_ID_TYPE_NAME, SignednessEnum.UNSIGNED);
+		this.context.cache.rteBufferTypeOffset = buildBuiltinPrimitiveType(targetRte, SymbolNames.RTE_BUFFER_TYPE_OFFSET, SignednessEnum.UNSIGNED);
+		this.context.cache.SrWriteProxyFunctionTableIndex = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_SR_WRITE_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME, SignednessEnum.UNSIGNED);
+		
+		this.context.cache.comMetaComplexDataType = buildBuiltinPrimitiveType(targetRte, SymbolNames.COM_META_COMPLEX_DATA_TYPE_NAME, SignednessEnum.UNSIGNED);
 	}
 
 	private PrimitiveType buildBuiltinPrimitiveType(Rte targetRte, String symbolName, SignednessEnum signedness) {
@@ -90,7 +94,7 @@ public class BuiltinSymbolModelBuilder {
 		targetRte.getDependentType().add(type);
 		return type;
 	}
-
+	
 	private void buildBuiltinConstants(Rte targetRte) {
 		this.context.cache.rteErrorOkConstant = createBuiltinConstant(SymbolNames.RTE_E_OK_CONSTANT_NAME);
 		targetRte.getDependentConstant().add(this.context.cache.rteErrorOkConstant);

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -108,7 +108,15 @@ public enum RteExclusiveAreaImplMechanismEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OS_SPINLOCK(4, "OS_SPINLOCK", "OS_SPINLOCK");
+	OS_SPINLOCK(4, "OS_SPINLOCK", "OS_SPINLOCK"), /**
+	 * The '<em><b>NONE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NONE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NONE(5, "NONE", "NONE");
 
 	/**
 	 * The '<em><b>ALL INTERRUPT BLOCKING</b></em>' literal value.
@@ -186,6 +194,21 @@ public enum RteExclusiveAreaImplMechanismEnum implements Enumerator {
 	public static final int OS_SPINLOCK_VALUE = 4;
 
 	/**
+	 * The '<em><b>NONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>Rte Exclusive Area Impl Mechanism Enum</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +221,7 @@ public enum RteExclusiveAreaImplMechanismEnum implements Enumerator {
 			OS_INTERRUPT_BLOCKING,
 			OS_RESOURCE,
 			OS_SPINLOCK,
+			NONE,
 		};
 
 	/**
@@ -253,6 +277,7 @@ public enum RteExclusiveAreaImplMechanismEnum implements Enumerator {
 			case OS_INTERRUPT_BLOCKING_VALUE: return OS_INTERRUPT_BLOCKING;
 			case OS_RESOURCE_VALUE: return OS_RESOURCE;
 			case OS_SPINLOCK_VALUE: return OS_SPINLOCK;
+			case NONE_VALUE: return NONE;
 		}
 		return null;
 	}

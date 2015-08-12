@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
@@ -61,6 +62,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -83,6 +85,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInvalidValueConstant <em>Invalid Value Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getImplInitValueConstant <em>Impl Init Value Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getSwcMemoryMapping <em>Swc Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineGlobalVariables <em>Inline Global Variables</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineConstant <em>Inline Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl#getInlineExecutableEntity <em>Inline Executable Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -200,6 +205,36 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 	protected EList<SwcMemoryMapping> swcMemoryMapping;
 
 	/**
+	 * The cached value of the '{@link #getInlineGlobalVariables() <em>Inline Global Variables</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineGlobalVariables()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GlobalVariable> inlineGlobalVariables;
+
+	/**
+	 * The cached value of the '{@link #getInlineConstant() <em>Inline Constant</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineConstant()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constant> inlineConstant;
+
+	/**
+	 * The cached value of the '{@link #getInlineExecutableEntity() <em>Inline Executable Entity</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineExecutableEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ExecutableEntity> inlineExecutableEntity;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -288,6 +323,42 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 			swcMemoryMapping = new EObjectContainmentEList<SwcMemoryMapping>(SwcMemoryMapping.class, this, ModulePackage.SWC__SWC_MEMORY_MAPPING);
 		}
 		return swcMemoryMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getInlineGlobalVariables() {
+		if (inlineGlobalVariables == null) {
+			inlineGlobalVariables = new EObjectResolvingEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.SWC__INLINE_GLOBAL_VARIABLES);
+		}
+		return inlineGlobalVariables;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getInlineConstant() {
+		if (inlineConstant == null) {
+			inlineConstant = new EObjectResolvingEList<Constant>(Constant.class, this, ModulePackage.SWC__INLINE_CONSTANT);
+		}
+		return inlineConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ExecutableEntity> getInlineExecutableEntity() {
+		if (inlineExecutableEntity == null) {
+			inlineExecutableEntity = new EObjectResolvingEList<ExecutableEntity>(ExecutableEntity.class, this, ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY);
+		}
+		return inlineExecutableEntity;
 	}
 
 	/**
@@ -492,6 +563,12 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 				return getImplInitValueConstant();
 			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
 				return getSwcMemoryMapping();
+			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
+				return getInlineGlobalVariables();
+			case ModulePackage.SWC__INLINE_CONSTANT:
+				return getInlineConstant();
+			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
+				return getInlineExecutableEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -552,6 +629,18 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 				getSwcMemoryMapping().clear();
 				getSwcMemoryMapping().addAll((Collection<? extends SwcMemoryMapping>)newValue);
 				return;
+			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
+				getInlineGlobalVariables().clear();
+				getInlineGlobalVariables().addAll((Collection<? extends GlobalVariable>)newValue);
+				return;
+			case ModulePackage.SWC__INLINE_CONSTANT:
+				getInlineConstant().clear();
+				getInlineConstant().addAll((Collection<? extends Constant>)newValue);
+				return;
+			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
+				getInlineExecutableEntity().clear();
+				getInlineExecutableEntity().addAll((Collection<? extends ExecutableEntity>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -600,6 +689,15 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
 				getSwcMemoryMapping().clear();
 				return;
+			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
+				getInlineGlobalVariables().clear();
+				return;
+			case ModulePackage.SWC__INLINE_CONSTANT:
+				getInlineConstant().clear();
+				return;
+			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
+				getInlineExecutableEntity().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -636,6 +734,12 @@ public class SwcImpl extends LogicalCompartmentImpl implements Swc {
 				return implInitValueConstant != null && !implInitValueConstant.isEmpty();
 			case ModulePackage.SWC__SWC_MEMORY_MAPPING:
 				return swcMemoryMapping != null && !swcMemoryMapping.isEmpty();
+			case ModulePackage.SWC__INLINE_GLOBAL_VARIABLES:
+				return inlineGlobalVariables != null && !inlineGlobalVariables.isEmpty();
+			case ModulePackage.SWC__INLINE_CONSTANT:
+				return inlineConstant != null && !inlineConstant.isEmpty();
+			case ModulePackage.SWC__INLINE_EXECUTABLE_ENTITY:
+				return inlineExecutableEntity != null && !inlineExecutableEntity.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

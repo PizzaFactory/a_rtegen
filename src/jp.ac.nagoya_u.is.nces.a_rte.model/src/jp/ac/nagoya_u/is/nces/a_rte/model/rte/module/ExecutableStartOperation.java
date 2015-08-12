@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,9 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getExcludeOperation <em>Exclude Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable <em>Start Executable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getCurrentMode <em>Current Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getNextMode <em>Next Mode</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledMode <em>Disabled Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +108,73 @@ public interface ExecutableStartOperation extends Operation {
 	 * @generated
 	 */
 	void setStartExecutable(ExecutableEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Current Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Current Mode</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Current Mode</em>' attribute.
+	 * @see #setCurrentMode(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_CurrentMode()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @generated
+	 */
+	String getCurrentMode();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getCurrentMode <em>Current Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Current Mode</em>' attribute.
+	 * @see #getCurrentMode()
+	 * @generated
+	 */
+	void setCurrentMode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Next Mode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Next Mode</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Next Mode</em>' attribute.
+	 * @see #setNextMode(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_NextMode()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @generated
+	 */
+	String getNextMode();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getNextMode <em>Next Mode</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Next Mode</em>' attribute.
+	 * @see #getNextMode()
+	 * @generated
+	 */
+	void setNextMode(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Disabled Mode</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Disabled Mode</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Disabled Mode</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getExecutableStartOperation_DisabledMode()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DisabledInMode> getDisabledMode();
 
 } // ExecutableStartOperation

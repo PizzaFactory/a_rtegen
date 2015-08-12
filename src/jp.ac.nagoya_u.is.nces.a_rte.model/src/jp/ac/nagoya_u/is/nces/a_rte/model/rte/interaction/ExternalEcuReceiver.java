@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,6 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,7 +55,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSource <em>Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignal <em>Source Signal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignalGroup <em>Source Signal Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,29 +66,55 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
  */
 public interface ExternalEcuReceiver extends Receiver {
 	/**
-	 * Returns the value of the '<em><b>Source</b></em>' reference.
+	 * Returns the value of the '<em><b>Source Signal</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
+	 * If the meaning of the '<em>Source Signal</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(ComSignal)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getExternalEcuReceiver_Source()
+	 * @return the value of the '<em>Source Signal</em>' reference.
+	 * @see #setSourceSignal(ComSignal)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getExternalEcuReceiver_SourceSignal()
 	 * @model required="true"
 	 * @generated
 	 */
-	ComSignal getSource();
+	ComSignal getSourceSignal();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSource <em>Source</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignal <em>Source Signal</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Source</em>' reference.
-	 * @see #getSource()
+	 * @param value the new value of the '<em>Source Signal</em>' reference.
+	 * @see #getSourceSignal()
 	 * @generated
 	 */
-	void setSource(ComSignal value);
+	void setSourceSignal(ComSignal value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Signal Group</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Signal Group</em>' reference.
+	 * @see #setSourceSignalGroup(ComSignalGroup)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getExternalEcuReceiver_SourceSignalGroup()
+	 * @model required="true"
+	 * @generated
+	 */
+	ComSignalGroup getSourceSignalGroup();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver#getSourceSignalGroup <em>Source Signal Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Signal Group</em>' reference.
+	 * @see #getSourceSignalGroup()
+	 * @generated
+	 */
+	void setSourceSignalGroup(ComSignalGroup value);
 
 } // ExternalEcuReceiver

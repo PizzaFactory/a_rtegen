@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -53,6 +53,34 @@
 extern [aFunction.returnType.symbolName/]	[aFunction.symbolName/]([aFunction.genFunctionParams()/]);
 [/template]
 
+[template public genFunctionDeclaration(aApi : RteEnterApi) post (trim())]
+	[if (not aApi.isNoneExclude) ]
+		extern [aApi.returnType.symbolName/]	[aApi.symbolName/]([aApi.genFunctionParams()/]);
+	[/if]
+[/template]
+
+[template public genFunctionDeclaration(aApi : RteExitApi) post (trim())]
+	[if (not aApi.isNoneExclude) ]
+		extern [aApi.returnType.symbolName/]	[aApi.symbolName/]([aApi.genFunctionParams()/]);
+	[/if]
+[/template]
+
+[template public genFunctionDeclaration(aApi : SchmEnterApi) post (trim())]
+	[if (aApi.isNoneExclude.oclIsUndefined() or not aApi.isNoneExclude) ]
+		extern [aApi.returnType.symbolName/]	[aApi.symbolName/]([aApi.genFunctionParams()/]);
+	[else]
+		#define [aApi.symbolName/]()
+	[/if]
+[/template]
+
+[template public genFunctionDeclaration(aApi : SchmExitApi) post (trim())]
+	[if (aApi.isNoneExclude.oclIsUndefined() or not aApi.isNoneExclude) ]
+		extern [aApi.returnType.symbolName/]	[aApi.symbolName/]([aApi.genFunctionParams()/]);
+	[else]
+		#define [aApi.symbolName/]()
+	[/if]
+[/template]
+
 [template public genFunctionParams(aFunction : Function) post (trim())]
 [if (aFunction.param->isEmpty())]
 	void
@@ -62,11 +90,15 @@ extern [aFunction.returnType.symbolName/]	[aFunction.symbolName/]([aFunction.gen
 [/template]
 
 [template private genFunctionParam(aParam : Parameter) post (trim())]
-[if (aParam.passType = ParameterPassTypeEnum::value)]
-	[aParam.type.symbolName/] [aParam.symbolName/]
+[if (aParam.type.oclIsKindOf(ArrayType))]
+	[if (aParam.hasConst)]const[/if] [aParam.type.originalTypeSymbolName/] [aParam.symbolName/]['[]'/]
 [else]
-	[aParam.type.symbolName/] *[aParam.symbolName/]
+	[if (aParam.hasConst)]const[/if] [aParam.type.symbolName/] [if (aParam.passType = ParameterPassTypeEnum::reference)]*[/if] [aParam.symbolName/]
 [/if]
+[/template]
+
+[template public genSignalApiFunctionDeclaration(aSignalApi : SignalApi) post (trim())]
+extern uint8 [aSignalApi.symbolName/]([aSignalApi.genSignalApiParams()/]);
 [/template]
 
 [template public genFunctionParamTypes(aFunction : Function) post (trim())]
@@ -81,36 +113,136 @@ extern [aFunction.returnType.symbolName/]	[aFunction.symbolName/]([aFunction.gen
 [if (aParam.passType = ParameterPassTypeEnum::value)]
 	[aParam.type.symbolName/]
 [else]
-	[aParam.type.symbolName/] *
+	[if (aParam.type.oclIsKindOf(ArrayType))]
+		[if (aParam.hasConst)]const[/if] [aParam.type.originalTypeSymbolName/] *
+	[else]
+		[if (aParam.hasConst)]const[/if] [aParam.type.symbolName/] *
+	[/if]
 [/if]
 [/template]
 
+[template public genFunctionRunnableParams(aRteCsTrustedRunnables : RteCsTrustedRunnables) post (trim())]
+[for (aParam : Parameter | aRteCsTrustedRunnables.runnableParam)]
+	[if (aParam.passType = ParameterPassTypeEnum::value)]*[/if]([if (aParam.hasConst)]const[/if] [if (aParam.type.oclIsKindOf(ArrayType))][aParam.type.originalTypeSymbolName/][else][aParam.type.symbolName/][/if] *) p_tfn_prm->argv['['/][aRteCsTrustedRunnables.runnableParam->indexOf(aParam)-1/][']'/][if (aParam <> aRteCsTrustedRunnables.runnableParam->last())],[/if]
+[/for]
+[/template]
+
+[template public genSignalApiParams(aFunction : Function) post (trim())]
+	[aFunction.param.genSignalApiParam()->sep(', ')/]
+[/template]
+
+[template private genSignalApiParam(aParam : Parameter) post (trim())]
+	[if (aParam.hasConst)]const[/if] [aParam.type.symbolName/] [if (aParam.passType = ParameterPassTypeEnum::reference)]*[/if] [aParam.symbolName/][if (aParam.passType = ParameterPassTypeEnum::value)]['[]'/][/if]
+[/template]
+
+[template private genConstantValue(aConstant : Constant) post (trim())]
+[if (aConstant.type->isEmpty())]
+	[aConstant.value/]
+[else]
+	[if not aConstant.type.oclIsKindOf(UnionType)]([aConstant.type.symbolName/]) [/if][aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantType = ConstantTypeEnum::numericalValue))]U[/if]
+[/if]
+[/template]
+
+[template private genConstantValues(aConstant : Constant) post (trim())]
+{\
+	[for (aConstantMember : Constant | aConstant.member)]
+	[if aConstantMember.member->isEmpty()][aConstantMember.genConstantValue()/][else][aConstantMember.genConstantValues()/][/if][if (aConstantMember <> aConstant.member->last())],[/if]\
+	[/for]
+}
+[/template]
+
+[template private genMetaConstantValues(aConstant : Constant) post (trim())]
+{
+	[for (aConstantMember : Constant | aConstant.member)]
+	[if aConstantMember.member->isEmpty()][aConstantMember.genConstantValue()/][else][aConstantMember.genConstantValues()/][/if][if (aConstantMember <> aConstant.member->last())],[/if]
+	[/for]
+}
+[/template]
+
 [template public genConstantDefinition(aConstant : Constant) post (trim())]
+[if aConstant.member->isEmpty()]
+	#define [aConstant.symbolName/] ([aConstant.genConstantValue()/])
+[else]
+	#define [aConstant.symbolName/] [aConstant.genConstantValues()/]
+[/if]
+[/template]
+
+[template public genApplicationConstantDefinition(aConstant : Constant) post (trim())]
 #define [aConstant.symbolName/] (([aConstant.type.symbolName/]) [aConstant.value/][if ((aConstant.type.signedness = SignednessEnum::unsigned) and (aConstant.constantType = ConstantTypeEnum::numericalValue))]U[/if])
 [/template]
 
-[template public genGlobalVariableDeclaration(aGlobalVariable : GlobalVariable) post (trim())]
-extern [aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.symbolName/];
+[template public genVariableName(aVariable : Variable) /]
+
+[template private genVariableName(aGlobalVariable : GlobalVariable) post (trim())]
+[if (aGlobalVariable.type.oclIsTypeOf(ArrayType))]
+	[aGlobalVariable.symbolName/]['['/][aGlobalVariable.type.oclAsType(ArrayType).genArraySize()/][']'/]
+[elseif (aGlobalVariable.type.oclIsTypeOf(RedefinitionArrayType))]
+	[aGlobalVariable.symbolName/]['['/][aGlobalVariable.type.oclAsType(RedefinitionType).getLeafType().oclAsType(ArrayType).genArraySize()/][']'/]
+[else]
+	[aGlobalVariable.symbolName/]
+[/if]
 [/template]
 
-[template public genGlobalVariableDefinition(aGlobalVariable : GlobalVariable) post (trim())]
-[aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.symbolName/][aGlobalVariable.genInitPartOfVariableDeclaration()/];
+[template private genVariableName(aGlobalVariableSet : GlobalVariableSet) post (trim())]
+	[for (aGlobalVariable : GlobalVariable | aGlobalVariableSet.globalVariable)]
+		[aGlobalVariable.genVariableName()/]
+	[/for]
+[/template]
+
+[template public genGlobalVariableDeclaration(aVariable : Variable) /]
+
+[template private genGlobalVariableDeclaration(aGlobalVariable : GlobalVariable) post (trim())]
+[if (not aGlobalVariable.hasStatic)]extern [if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/];[/if]
+[/template]
+
+[template private genGlobalVariableDeclaration(aGlobalVariableSet : GlobalVariableSet) post (trim())]
+	[for (aGlobalVariable : GlobalVariable | aGlobalVariableSet.globalVariable)]
+		[aGlobalVariable.genGlobalVariableDeclaration()/]
+	[/for]
+[/template]
+
+[template public genGlobalVariableDefinition(aVariable : Variable) /]
+
+[template private genGlobalVariableDefinition(aGlobalVariable : GlobalVariable) post (trim())]
+[if (aGlobalVariable.hasStatic)]static [/if][if (aGlobalVariable.hasConst)]const [/if][aGlobalVariable.type.genTypePartOfVariableDeclaration()/] [aGlobalVariable.genVariableName()/][aGlobalVariable.genInitPartOfVariableDeclaration()/];
+[/template]
+
+[template private genGlobalVariableDefinition(aGlobalVariableSet : GlobalVariableSet) post (trim())]
+	[for (aGlobalVariable : GlobalVariable | aGlobalVariableSet.globalVariable)]
+		[aGlobalVariable.genGlobalVariableDefinition()/]
+	[/for]
+[/template]
+
+[template public genFunctionMacroDeclaration(aFunctionMacro : FunctionMacro) post (trim())]
+#define [aFunctionMacro.symbolName/] [aFunctionMacro.functionName/]
 [/template]
 
 [template private genInitPartOfVariableDeclaration(aGlobalVariable : GlobalVariable)]
 [if (aGlobalVariable.initAtDefinition)] = [aGlobalVariable.genInitValuePartOfVariableDeclaration()/][/if]
 [/template]
 
-[template private genInitValuePartOfVariableDeclaration(aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(PrimitiveType)) post (trim())]
-[let aInitValueConstant : Constant = aGlobalVariable.initValueConstant]
-	[aInitValueConstant.symbolName/]
+[template private genInitValuePartOfVariableDeclaration(aGlobalVariable : GlobalVariable) post (trim())]
+[if (aGlobalVariable.initWithConstantValue)]
+	[if aGlobalVariable.initValueConstant.member->isEmpty()]
+		([aGlobalVariable.initValueConstant.genConstantValue()/])
+	[else]
+		[aGlobalVariable.initValueConstant.genMetaConstantValues()/]
+	[/if]
 [else]
-	0[if (aGlobalVariable.type.oclAsType(PrimitiveType).signedness = SignednessEnum::unsigned)]U[/if]
-[/let]
+	[let aInitValueConstant : Constant = aGlobalVariable.initValueConstant]
+		[aInitValueConstant.symbolName/]
+	[else]
+		0[if (aGlobalVariable.type.oclAsType(PrimitiveType).signedness = SignednessEnum::unsigned)]U[/if]
+	[/let]
+[/if]
 [/template]
 
 [template public genTypePartOfVariableDeclaration(aType : Type) post (trim())]
+[if (aType.oclIsKindOf(ArrayType))]
+[aType.originalTypeSymbolName/]
+[else]
 [aType.symbolName/]
+[/if]
 [/template]
 
 [template private genTypePartOfVariableDeclaration(aType : UnionType) ? (isAnonymous) post (trim())]
@@ -151,4 +283,41 @@ union { /* MISRA RULE 18.4 VIOLATION : It is safe because the union data is not 
 
 [template public genMemoryMappingEndMacro(aMemoryMapping : MemoryMapping) post (trim())]
 [aMemoryMapping.prefix/]_STOP_SEC_[aMemoryMapping.memorySectionSymbolName/]
+[/template]
+
+[template public genArraySize(aType : Type) post (trim())]
+[aType.symbolName.toUpper()/]_ARRAY_SIZE
+[/template]
+
+[template public genSrWriteProxyFunctionTable(aProxyFunctionTableGroup : ProxyFunctionTableGroup)]
+[for (aSrWriteProxyName : CIdentifier | aProxyFunctionTableGroup.srWriteProxyName)]
+	extern void [aSrWriteProxyName/](void);
+[/for]
+[/template]
+
+[template public genModeTypeDefinition (aType : Type)]
+	#ifndef RTE_MODETYPE_[aType.symbolName /]
+	#define RTE_MODETYPE_[aType.symbolName /]
+	typedef [aType.originalTypeSymbolName /] Rte_ModeType_[aType.symbolName /];
+	#endif
+[/template]
+
+[template public genModeInitMacroDefinition (aModeRequestVariableSet : ModeRequestVariableSet)]
+	[let aInitMode : Constant = aModeRequestVariableSet.initValueConstant ]
+		#define [aInitMode.symbolName /] ((Rte_ModeType_[aInitMode.type.symbolName /])[aInitMode.value /]U)
+	[/let]
+[/template]
+
+[template public genModeMacroDefinition (aModeRequestVariableSet : ModeRequestVariableSet)]
+	[let aTransitionStatusConstant : Constant = aModeRequestVariableSet.modeTransitionStatusConstant ]
+		#ifndef [aTransitionStatusConstant.symbolName /]
+		#define [aTransitionStatusConstant.symbolName /] ((Rte_ModeType_[aTransitionStatusConstant.type.symbolName /])[aTransitionStatusConstant.value /]U)
+		#endif
+	[/let]
+
+	[for (aMode : Constant | aModeRequestVariableSet.modeConstant)]
+		#ifndef [aMode.symbolName /]
+		#define [aMode.symbolName /] ((Rte_ModeType_[aMode.type.symbolName /])[aMode.value /]U)
+		#endif
+	[/for]
 [/template]

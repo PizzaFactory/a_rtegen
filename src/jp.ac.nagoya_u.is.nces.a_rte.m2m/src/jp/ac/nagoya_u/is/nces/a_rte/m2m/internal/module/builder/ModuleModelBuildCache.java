@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,12 +42,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Os;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
@@ -60,12 +62,16 @@ import com.google.common.base.Optional;
  */
 public class ModuleModelBuildCache {
 	// 生成元モデル
-	public Optional<Os> os;
+	public Optional<Os> sourceOs;
+	public Optional<EcucPartition> sourceMasterBswPartition;
 
 	// ルートモデル
 	public ModuleRoot moduleRoot;
 	public Rte rte;
 	public RteModule rteModule;
+
+	// 論理構造
+	public Partition masterBswPartition;
 
 	// 規定の型
 	public PrimitiveType voidType;
@@ -83,9 +89,13 @@ public class ModuleModelBuildCache {
 	public PrimitiveType osTrustedFunctionIndexType;
 	public PrimitiveType osTrustedFunctionParamRefType;
 	public PrimitiveType comSignalIdType;
-
+	public PrimitiveType rteBufferTypeOffset;
+	public PrimitiveType SrWriteProxyFunctionTableIndex;
+	public PrimitiveType comMetaComplexDataType;
+	
 	// RTE実装向けの定義型
 	public Optional<ComSendTrustedFunctionParamType> comSendSignalTrustedFunctionParamType;
+	public Optional<ComSendTrustedFunctionParamType> comSendSignalGroupTrustedFunctionParamType;
 
 	// 規定の定数
 	public Constant rteErrorOkConstant;
@@ -94,8 +104,10 @@ public class ModuleModelBuildCache {
 
 	// RTE実装向けの定義関数
 	public Optional<ComSendSignalTrustedFunction> comSendSignalTrustedFunction;
+	public Optional<ComSendSignalTrustedFunction> comSendSignalGroupTrustedFunction;
 
 	// ファイル
 	public Optional<BlackboxHeader> comHeader;
 	public Optional<BlackboxHeader> iocHeader;
+
 }

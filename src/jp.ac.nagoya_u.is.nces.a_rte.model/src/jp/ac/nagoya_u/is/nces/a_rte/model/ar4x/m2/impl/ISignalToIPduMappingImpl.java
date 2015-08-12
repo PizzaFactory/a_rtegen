@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,6 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 
@@ -62,6 +63,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl#getISignal <em>ISignal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl#getISignalGroup <em>ISignal Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +79,16 @@ public class ISignalToIPduMappingImpl extends IdentifiableImpl implements ISigna
 	 * @ordered
 	 */
 	protected ISignal iSignal;
+
+	/**
+	 * The cached value of the '{@link #getISignalGroup() <em>ISignal Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getISignalGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected ISignalGroup iSignalGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,12 +152,53 @@ public class ISignalToIPduMappingImpl extends IdentifiableImpl implements ISigna
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ISignalGroup getISignalGroup() {
+		if (iSignalGroup != null && ((EObject)iSignalGroup).eIsProxy()) {
+			InternalEObject oldISignalGroup = (InternalEObject)iSignalGroup;
+			iSignalGroup = (ISignalGroup)eResolveProxy(oldISignalGroup);
+			if (iSignalGroup != oldISignalGroup) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP, oldISignalGroup, iSignalGroup));
+			}
+		}
+		return iSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ISignalGroup basicGetISignalGroup() {
+		return iSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setISignalGroup(ISignalGroup newISignalGroup) {
+		ISignalGroup oldISignalGroup = iSignalGroup;
+		iSignalGroup = newISignalGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP, oldISignalGroup, iSignalGroup));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL:
 				if (resolve) return getISignal();
 				return basicGetISignal();
+			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP:
+				if (resolve) return getISignalGroup();
+				return basicGetISignalGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +213,9 @@ public class ISignalToIPduMappingImpl extends IdentifiableImpl implements ISigna
 		switch (featureID) {
 			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL:
 				setISignal((ISignal)newValue);
+				return;
+			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP:
+				setISignalGroup((ISignalGroup)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +232,9 @@ public class ISignalToIPduMappingImpl extends IdentifiableImpl implements ISigna
 			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL:
 				setISignal((ISignal)null);
 				return;
+			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP:
+				setISignalGroup((ISignalGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,6 +249,8 @@ public class ISignalToIPduMappingImpl extends IdentifiableImpl implements ISigna
 		switch (featureID) {
 			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL:
 				return iSignal != null;
+			case M2Package.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP:
+				return iSignalGroup != null;
 		}
 		return super.eIsSet(featureID);
 	}

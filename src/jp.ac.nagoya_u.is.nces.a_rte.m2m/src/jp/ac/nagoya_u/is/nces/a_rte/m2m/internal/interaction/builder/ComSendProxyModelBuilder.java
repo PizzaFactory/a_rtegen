@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PERIODIC_PROXY_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
@@ -125,18 +126,36 @@ public class ComSendProxyModelBuilder {
 
 	private void buildComSendProxyInteractions(InteractionRoot targetInteractionRoot, ComSendProxy comSendProxy, EClass sourceSendImplementationKind) throws ModelException {
 		List<ProxyComSendImplementation> sourceSendImplementations = this.context.query.<ProxyComSendImplementation> findByKind(sourceSendImplementationKind);
-
+		List<ProxyComSendImplementation> primitiveImplementations = new ArrayList<ProxyComSendImplementation>();
+		
 		// プロキシ連携を構築
 		List<ComSendProxyInteraction> peridicProxyInteractions = Lists.newArrayList();
 		for (ProxyComSendImplementation proxyComSendImplementation : sourceSendImplementations) {
 			InternalEcuSender sender = proxyComSendImplementation.getParent().getInternalEcuSenders().get(0);
 
+			ImplementationDataType implDataType = sender.getSource().getPrototype().getImplementationDataType();
+			implDataType = implDataType.getLeafImplementationDataType();
 			ComSendProxyInteraction proxyInteraction = InteractionFactory.eINSTANCE.createComSendProxyInteraction();
 			proxyInteraction.setRequesterPartition(sender.getOwnerPartition());
-			proxyInteraction.setSignalDataType(getAppropriateType(sender.getSource().getPrototype().getImplementationDataType()));
-			peridicProxyInteractions.add(proxyInteraction);
+			proxyInteraction.setSignalDataType(getAppropriateType(implDataType));
+			
+			// Complex型はシグナルにも依存するかつ、IOCが2つ必要なのに1つは流用されるため、処理が複雑になる。
+			// IOCは出力ソース内に定義はでないため、間引かずにaddする。ただし、MockOsIoc内で重複しないように制御する。
+			if (implDataType.getBaseType() == null) {
+				proxyComSendImplementation.setProxyInteraction(proxyInteraction);
+				comSendProxy.getInteraction().add(proxyInteraction);
+				targetInteractionRoot.getInteraction().add(proxyInteraction);
+			} else {
+				peridicProxyInteractions.add(proxyInteraction);
+				primitiveImplementations.add(proxyComSendImplementation);
+			}
 		}
 
+		// primitiveがないならreturn
+		if (peridicProxyInteractions.isEmpty()) {
+			return;
+		}
+		
 		List<ComSendProxyInteraction> uniquePeridicProxyInteractions = this.context.query.uniqueByKeys(peridicProxyInteractions, COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION,
 				COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE);
 		targetInteractionRoot.getInteraction().addAll(uniquePeridicProxyInteractions);
@@ -145,18 +164,24 @@ public class ComSendProxyModelBuilder {
 		comSendProxy.getInteraction().addAll(uniquePeridicProxyInteractions);
 
 		// 実装に使用するプロキシ連携を設定
-		for (ProxyComSendImplementation sourceProxyComSendImplementation : sourceSendImplementations) {
+		for (ProxyComSendImplementation sourceProxyComSendImplementation : primitiveImplementations) {
 			InternalEcuSender sender = sourceProxyComSendImplementation.getParent().getInternalEcuSenders().get(0);
 			VariableDataInstanceInSwc dataInstanceInSwc = sender.getSource().getPrototype();
 
+			ImplementationDataType implDataType = dataInstanceInSwc.getImplementationDataType();
+			implDataType = implDataType.getLeafImplementationDataType();
+
 			ComSendProxyInteraction proxyInteraction = this.context.query.selectSingle(uniquePeridicProxyInteractions, ref(COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION, sender.getOwnerPartition())
-					.AND(ref(COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE, getAppropriateType(dataInstanceInSwc.getImplementationDataType()))));
+					.AND(ref(COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE, getAppropriateType(implDataType))));
 			sourceProxyComSendImplementation.setProxyInteraction(proxyInteraction);
 		}
 	}
 
 	private ImplementationDataType getAppropriateType(ImplementationDataType sourceImplementationDataType) {
-		return getAppropriateType(sourceImplementationDataType.getBaseType().getBaseTypeSize());
+		if (sourceImplementationDataType.getBaseType() != null) {
+			return getAppropriateType(sourceImplementationDataType.getBaseType().getBaseTypeSize());
+		}
+		return sourceImplementationDataType;
 	}
 
 	public ImplementationDataType getAppropriateType(int baseTypeSize) {

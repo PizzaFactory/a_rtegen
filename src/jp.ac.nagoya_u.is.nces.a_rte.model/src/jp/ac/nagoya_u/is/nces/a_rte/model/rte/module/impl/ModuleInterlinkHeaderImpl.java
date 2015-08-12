@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import java.util.Collection;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup;
@@ -70,6 +71,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkHeaderImpl#getGlobalVariableGroup <em>Global Variable Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkHeaderImpl#getSchmApiGroup <em>Schm Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkHeaderImpl#getDependentExecutableEntityGroup <em>Dependent Executable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkHeaderImpl#getConstant <em>Constant</em>}</li>
@@ -79,6 +81,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleInterlinkHeader {
+	/**
+	 * The cached value of the '{@link #getGlobalVariableGroup() <em>Global Variable Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getGlobalVariableGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<GlobalVariableGroup> globalVariableGroup;
+
 	/**
 	 * The cached value of the '{@link #getSchmApiGroup() <em>Schm Api Group</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -133,6 +145,18 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<GlobalVariableGroup> getGlobalVariableGroup() {
+		if (globalVariableGroup == null) {
+			globalVariableGroup = new EObjectContainmentEList<GlobalVariableGroup>(GlobalVariableGroup.class, this, ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP);
+		}
+		return globalVariableGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<SchmApiGroup> getSchmApiGroup() {
 		if (schmApiGroup == null) {
 			schmApiGroup = new EObjectContainmentEList<SchmApiGroup>(SchmApiGroup.class, this, ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP);
@@ -172,6 +196,8 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP:
+				return ((InternalEList<?>)getGlobalVariableGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP:
 				return ((InternalEList<?>)getSchmApiGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.MODULE_INTERLINK_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:
@@ -188,6 +214,8 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP:
+				return getGlobalVariableGroup();
 			case ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP:
 				return getSchmApiGroup();
 			case ModulePackage.MODULE_INTERLINK_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:
@@ -207,6 +235,10 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP:
+				getGlobalVariableGroup().clear();
+				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableGroup>)newValue);
+				return;
 			case ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP:
 				getSchmApiGroup().clear();
 				getSchmApiGroup().addAll((Collection<? extends SchmApiGroup>)newValue);
@@ -231,6 +263,9 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP:
+				getGlobalVariableGroup().clear();
+				return;
 			case ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP:
 				getSchmApiGroup().clear();
 				return;
@@ -252,6 +287,8 @@ public class ModuleInterlinkHeaderImpl extends HeaderFileImpl implements ModuleI
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ModulePackage.MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP:
+				return globalVariableGroup != null && !globalVariableGroup.isEmpty();
 			case ModulePackage.MODULE_INTERLINK_HEADER__SCHM_API_GROUP:
 				return schmApiGroup != null && !schmApiGroup.isEmpty();
 			case ModulePackage.MODULE_INTERLINK_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:

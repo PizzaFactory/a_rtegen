@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,12 +39,13 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
 [module moduleInterlinkHeader('http://nces.is.nagoya-u.ac.jp/a-rte/rte/module')]
 
+[import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::schmApi /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::fileUtil /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::symbolUtil /]
 
@@ -53,6 +54,8 @@
 	[aModuleInterlinkHeader.genFileHeader()/]
 
 	[aModuleInterlinkHeader.genFileIncludes()/]
+
+	[aModuleInterlinkHeader.genInternalGlobalVariableDeclarations()/]
 
 	[aModuleInterlinkHeader.genSchmApiFunctionDeclarations()/]
 	
@@ -76,6 +79,22 @@
 [aModuleInterlinkHeader.genGuardDeclarationEnd()/]
 [/template]
 
+[template private genInternalGlobalVariableDeclarations (aModuleInterlinkHeader : ModuleInterlinkHeader) ]
+/*
+ * Internal Global Variable Declarations
+ */
+[for (aGroup : GlobalVariableGroup | aModuleInterlinkHeader.globalVariableGroup)]
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aGlobalVariable : GlobalVariable | aGroup.globalVariable)]
+		[aGlobalVariable.genGlobalVariableDeclaration()/]
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
+[/for]
+[/template]
+
 [template private genSchmApiFunctionDeclarations (aModuleInterlinkHeader : ModuleInterlinkHeader) ]
 /*
  * Basic Software Scheduler API Implementation Function Declarations
@@ -85,6 +104,7 @@
 
 	[for (aSchmApi : SchmApi | aGroup.schmApi)]
 		[aSchmApi.genFunctionDeclaration()/]
+
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]

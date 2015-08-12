@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,10 +42,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_GROUP_API;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyComplexOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
@@ -61,13 +65,27 @@ public class ComProxyOperationModelBuilder {
 	}
 
 	public ComSendProxyOperation createComSendProxyOperation(ComSendProxyInteraction sourceProxyInteraction, Variable signalIdVariable, VariableMember dataVariable) throws ModelException {
+		// Primitive用
 		IocReceiveGroupApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_GROUP_API, sourceProxyInteraction.getOsIocCommunication());
-	
+		accessApi.setComSendSignalSymbolName(SymbolNames.RTE_CALL_BSW_COM_SEND_SIGNAL_API_NAME);
+
 		ComSendProxyOperation operation = ModuleFactory.eINSTANCE.createComSendProxyOperation();
 		operation.setSingleSource(sourceProxyInteraction);
 		operation.setAccessApi(accessApi);
 		operation.setSignalIdVariable(signalIdVariable);
 		operation.setReadValueVariable(dataVariable);
+		return operation;
+	}
+	
+	public ComSendProxyComplexOperation createComSendProxyComplexOperation(ComSendProxyInteraction sourceProxyInteraction, Variable index) throws ModelException {
+		// 複合型用
+		IocReceiveApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_API, sourceProxyInteraction.getOsIocCommunication());
+		
+		ComSendProxyComplexOperation operation = ModuleFactory.eINSTANCE.createComSendProxyComplexOperation();
+		operation.setFunctionTableSymbolName(SymbolNames.RTE_SR_WRITE_PROXY_FUNCTION_TABLE_NAME);
+		operation.setSingleSource(sourceProxyInteraction);
+		operation.setAccessApi(accessApi);
+		operation.setTableIndexVariable(index);
 		return operation;
 	}
 }

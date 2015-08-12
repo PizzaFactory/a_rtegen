@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËþ¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
  *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²þÊÑ¤·¤¿¤â¤Î¤ò´Þ¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²þ
@@ -113,6 +113,7 @@ public class EmfUtils { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤
 				BasicEList<Object> exArguments = new BasicEList<Object>();
 				exArguments.add(eObject);
 				Collections.addAll(exArguments, arguments);
+
 				return (T) extensionObject.eInvoke(eOperation, exArguments);
 			}
 		} catch (InvocationTargetException e) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æþ»þ¤Î¤ßÅþÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ð¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)

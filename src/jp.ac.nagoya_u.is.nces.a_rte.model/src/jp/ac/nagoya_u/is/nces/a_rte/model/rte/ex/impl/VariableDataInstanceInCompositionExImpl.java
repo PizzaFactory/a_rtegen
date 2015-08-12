@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -460,6 +460,29 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition) <em>Equals Init Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate EQUALS_INIT_VALUE_VARIABLE_DATA_INSTANCE_IN_COMPOSITION_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___EQUALS_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION_VARIABLEDATAINSTANCEINCOMPOSITION).getInvocationDelegate();
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean equalsInitValue(VariableDataInstanceInComposition v1, VariableDataInstanceInComposition v2) {
+		try {
+			return (Boolean)EQUALS_INIT_VALUE_VARIABLE_DATA_INSTANCE_IN_COMPOSITION_VARIABLE_DATA_INSTANCE_IN_COMPOSITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{v1, v2}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -552,6 +575,8 @@ public class VariableDataInstanceInCompositionExImpl extends ExtendedEObjectImpl
 				return getReceiverSwAddrMethod((VariableDataInstanceInComposition)arguments.get(0));
 			case ExPackage.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_SENDER_SW_ADDR_METHOD__VARIABLEDATAINSTANCEINCOMPOSITION:
 				return getSenderSwAddrMethod((VariableDataInstanceInComposition)arguments.get(0));
+			case ExPackage.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___EQUALS_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION_VARIABLEDATAINSTANCEINCOMPOSITION:
+				return equalsInitValue((VariableDataInstanceInComposition)arguments.get(0), (VariableDataInstanceInComposition)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

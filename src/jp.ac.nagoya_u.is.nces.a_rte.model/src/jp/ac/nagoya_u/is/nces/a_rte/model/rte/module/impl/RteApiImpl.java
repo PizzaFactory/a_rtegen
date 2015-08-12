@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -68,6 +68,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl#getIsConnected <em>Is Connected</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl#getIsInline <em>Is Inline</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,6 +120,24 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 	 * @ordered
 	 */
 	protected Boolean isConnected = IS_CONNECTED_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getIsInline() <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_INLINE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsInline() <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isInline = IS_INLINE_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,6 +283,27 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsInline() {
+		return isInline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsInline(Boolean newIsInline) {
+		Boolean oldIsInline = isInline;
+		isInline = newIsInline;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_API__IS_INLINE, oldIsInline, isInline));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -320,6 +360,8 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 				return getIsConnected();
 			case ModulePackage.RTE_API__PARENT:
 				return getParent();
+			case ModulePackage.RTE_API__IS_INLINE:
+				return getIsInline();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -343,6 +385,9 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 				return;
 			case ModulePackage.RTE_API__PARENT:
 				setParent((Swc)newValue);
+				return;
+			case ModulePackage.RTE_API__IS_INLINE:
+				setIsInline((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -368,6 +413,9 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 			case ModulePackage.RTE_API__PARENT:
 				setParent((Swc)null);
 				return;
+			case ModulePackage.RTE_API__IS_INLINE:
+				setIsInline(IS_INLINE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -388,6 +436,8 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 				return IS_CONNECTED_EDEFAULT == null ? isConnected != null : !IS_CONNECTED_EDEFAULT.equals(isConnected);
 			case ModulePackage.RTE_API__PARENT:
 				return getParent() != null;
+			case ModulePackage.RTE_API__IS_INLINE:
+				return IS_INLINE_EDEFAULT == null ? isInline != null : !IS_INLINE_EDEFAULT.equals(isInline);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -406,6 +456,8 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 		result.append(apiMappingName);
 		result.append(", isConnected: ");
 		result.append(isConnected);
+		result.append(", isInline: ");
+		result.append(isInline);
 		result.append(')');
 		return result.toString();
 	}

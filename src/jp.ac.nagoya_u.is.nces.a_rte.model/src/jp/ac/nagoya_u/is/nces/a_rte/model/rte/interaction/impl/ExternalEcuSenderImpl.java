@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,9 +45,9 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -61,7 +61,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getSourceSignal <em>Source Signal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getSourceSignalGroup <em>Source Signal Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getRequiresRteFilter <em>Requires Rte Filter</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getRequiresRteInvalidation <em>Requires Rte Invalidation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl#getRequiresRteInitialization <em>Requires Rte Initialization</em>}</li>
@@ -72,14 +73,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSender {
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
+	 * The cached value of the '{@link #getSourceSignal() <em>Source Signal</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSource()
+	 * @see #getSourceSignal()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComSignal source;
+	protected ComSignal sourceSignal;
+
+	/**
+	 * The cached value of the '{@link #getSourceSignalGroup() <em>Source Signal Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceSignalGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSignalGroup sourceSignalGroup;
 
 	/**
 	 * The default value of the '{@link #getRequiresRteFilter() <em>Requires Rte Filter</em>}' attribute.
@@ -165,16 +176,16 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComSignal getSource() {
-		if (source != null && ((EObject)source).eIsProxy()) {
-			InternalEObject oldSource = (InternalEObject)source;
-			source = (ComSignal)eResolveProxy(oldSource);
-			if (source != oldSource) {
+	public ComSignal getSourceSignal() {
+		if (sourceSignal != null && ((EObject)sourceSignal).eIsProxy()) {
+			InternalEObject oldSourceSignal = (InternalEObject)sourceSignal;
+			sourceSignal = (ComSignal)eResolveProxy(oldSourceSignal);
+			if (sourceSignal != oldSourceSignal) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE, oldSource, source));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL, oldSourceSignal, sourceSignal));
 			}
 		}
-		return source;
+		return sourceSignal;
 	}
 
 	/**
@@ -182,8 +193,8 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComSignal basicGetSource() {
-		return source;
+	public ComSignal basicGetSourceSignal() {
+		return sourceSignal;
 	}
 
 	/**
@@ -191,11 +202,49 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSource(ComSignal newSource) {
-		ComSignal oldSource = source;
-		source = newSource;
+	public void setSourceSignal(ComSignal newSourceSignal) {
+		ComSignal oldSourceSignal = sourceSignal;
+		sourceSignal = newSourceSignal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE, oldSource, source));
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL, oldSourceSignal, sourceSignal));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalGroup getSourceSignalGroup() {
+		if (sourceSignalGroup != null && ((EObject)sourceSignalGroup).eIsProxy()) {
+			InternalEObject oldSourceSignalGroup = (InternalEObject)sourceSignalGroup;
+			sourceSignalGroup = (ComSignalGroup)eResolveProxy(oldSourceSignalGroup);
+			if (sourceSignalGroup != oldSourceSignalGroup) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP, oldSourceSignalGroup, sourceSignalGroup));
+			}
+		}
+		return sourceSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalGroup basicGetSourceSignalGroup() {
+		return sourceSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceSignalGroup(ComSignalGroup newSourceSignalGroup) {
+		ComSignalGroup oldSourceSignalGroup = sourceSignalGroup;
+		sourceSignalGroup = newSourceSignalGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP, oldSourceSignalGroup, sourceSignalGroup));
 	}
 
 	/**
@@ -269,9 +318,12 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE:
-				if (resolve) return getSource();
-				return basicGetSource();
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL:
+				if (resolve) return getSourceSignal();
+				return basicGetSourceSignal();
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP:
+				if (resolve) return getSourceSignalGroup();
+				return basicGetSourceSignalGroup();
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER:
 				return getRequiresRteFilter();
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION:
@@ -290,8 +342,11 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE:
-				setSource((ComSignal)newValue);
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL:
+				setSourceSignal((ComSignal)newValue);
+				return;
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP:
+				setSourceSignalGroup((ComSignalGroup)newValue);
 				return;
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER:
 				setRequiresRteFilter((Boolean)newValue);
@@ -314,8 +369,11 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE:
-				setSource((ComSignal)null);
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL:
+				setSourceSignal((ComSignal)null);
+				return;
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP:
+				setSourceSignalGroup((ComSignalGroup)null);
 				return;
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER:
 				setRequiresRteFilter(REQUIRES_RTE_FILTER_EDEFAULT);
@@ -338,8 +396,10 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE:
-				return source != null;
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL:
+				return sourceSignal != null;
+			case InteractionPackage.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP:
+				return sourceSignalGroup != null;
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER:
 				return REQUIRES_RTE_FILTER_EDEFAULT == null ? requiresRteFilter != null : !REQUIRES_RTE_FILTER_EDEFAULT.equals(requiresRteFilter);
 			case InteractionPackage.EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION:

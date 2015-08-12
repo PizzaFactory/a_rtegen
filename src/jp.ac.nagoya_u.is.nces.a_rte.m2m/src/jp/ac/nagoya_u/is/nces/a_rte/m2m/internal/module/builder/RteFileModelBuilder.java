@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,11 +53,18 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.EXECUTABLE_ENTITY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.EXECUTABLE_ENTITY_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FILE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION_MACRO_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION__MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE_SET;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE__MEMORY_MAPPING;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IMMEDIATE_PROXY_COM_SEND_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MACRO;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PARTITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PERIODIC_PROXY_COM_SEND_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PROXY_API;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PROXY_API_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_API_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET;
@@ -67,15 +74,21 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_API_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_LIFECYCLE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_LIFECYCLE_API_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SIGNAL_API;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SIGNAL_API_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TASK_BODY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TASK_BODY_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TRUSTED_FUNCTION_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 
 import java.util.Collections;
 import java.util.List;
 
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.FileNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Com;
@@ -89,14 +102,19 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacroGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ImmediateProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalCompartment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
@@ -105,14 +123,21 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PeriodicProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyFunctionTableGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationTypeHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBswApiHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCallbackHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteConfigurationHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteInternalHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi;
@@ -125,8 +150,14 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteUtilityHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteVfbTraceHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmEnterApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmExitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignalApiGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMappingHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
@@ -206,6 +237,16 @@ public class RteFileModelBuilder {
 		return rteHeader;
 	}
 
+	private RteBswApiHeader createRteBswApiHeader() {
+		RteBswApiHeader rteHeader = ModuleFactory.eINSTANCE.createRteBswApiHeader();
+		Rte sourceRte = this.context.cache.rte;
+		rteHeader.setFileName(FileNames.RTE_BSW_API_HEADER_NAME);
+		rteHeader.setGuardName(FileNames.RTE_BSW_API_HEADER_GUARD_NAME);
+		List<IocApi> iocapis = this.context.query.<IocApi>findByKind(sourceRte, IOC_API);
+		rteHeader.getIocApi().addAll(iocapis);
+		return rteHeader;
+	}
+
 	private RteTypeHeader createRteTypeHeader(Rte sourceRte) {
 		RteTypeHeader rteTypeHeader = ModuleFactory.eINSTANCE.createRteTypeHeader();
 		rteTypeHeader.setFileName(FileNames.RTE_FILE_NAME_PREFIX + "Type" + FileNames.H_POSTFIX);
@@ -216,6 +257,7 @@ public class RteFileModelBuilder {
 		rteTypeHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteHeader());
 		rteTypeHeader.getRteType().addAll(sourceRte.getRteType());
 		rteTypeHeader.getRteTypeConstant().addAll(sourceRte.getRteTypeConstant());
+		rteTypeHeader.setProvidesSignalGroupTransmission(this.context.cache.comHeader.isPresent());
 		return rteTypeHeader;
 	}
 
@@ -239,6 +281,17 @@ public class RteFileModelBuilder {
 		return applicationTypeHeader;
 	}
 
+	private boolean hasInlineApi(RteApplicationHeader applicationHeader) {
+		for (RteApiGroup group : applicationHeader.getDeclarationsRteApiGroup()) {
+			for (RteApi api : group.getRteApi()) {
+				if (api.getIsInline()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	private RteApplicationHeader createRteApplicationHeader(Swc sourceSwc, RteApplicationTypeHeader applicationTypeHeader) {
 		RteApplicationHeader applicationHeader = ModuleFactory.eINSTANCE.createRteApplicationHeader();
 		applicationHeader.setSingleSource(sourceSwc);
@@ -248,15 +301,74 @@ public class RteFileModelBuilder {
 		applicationHeader.getConstant().addAll(sourceSwc.getApiInitValueConstant());
 		applicationHeader.getConstant().addAll(sourceSwc.getApiApplicationErrorConstant());
 		applicationHeader.getRteApiGroup().addAll(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, sourceSwc.getRteApi()));
+		setDeclarationsRteApiGroup(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, sourceSwc.getRteApi()), applicationHeader.getDeclarationsRteApiGroup());
 		applicationHeader.getDependentExecutableEntityGroup().addAll(this.<ExecutableEntityGroup> groupFunctionsByMemoryMapping(EXECUTABLE_ENTITY_GROUP, sourceSwc.getDependentExecutableEntity()));
+		applicationHeader.setHasInlineApi(hasInlineApi(applicationHeader));
+		if (applicationHeader.getHasInlineApi()) {
+			// Partition種別によるマクロを設定する(TOPPERS_TRUSTED等)
+			applicationHeader.getSourceMacro().addAll(this.context.query.<Macro> findByKind(sourceSwc.getParent(), MACRO));
+			
+			// Os.hは、hasInlineApiがtrueのときに、mtlで直接includeする
+			applicationHeader.getDependentHeaders().add(getAndPrepareRteUtilityHeader());
+			applicationHeader.getDependentHeaders().add(getAndPrepareRteBswApiHeader());
+
+			applicationHeader.getConstant().addAll(sourceSwc.getInlineConstant());
+			applicationHeader.getGlobalVariableGroup().addAll(groupGlobalVariablesByMemoryMapping(sourceSwc.getInlineGlobalVariables()));
+			applicationHeader.getDependentExecutableEntityGroup().addAll(this.<ExecutableEntityGroup> groupFunctionsByMemoryMapping(EXECUTABLE_ENTITY_GROUP, sourceSwc.getInlineExecutableEntity()));
+		}
 		return applicationHeader;
 	}
+
+	private void setDeclarationsRteApiGroup(List<RteApiGroup> rteApiGroup, List<RteApiGroup> declarationsGroup) {
+		for (int i = 0; i < rteApiGroup.size(); i++) {
+			RteApiGroup apiGroup = rteApiGroup.get(i);
+			if (isNeededGroup(apiGroup)) {
+				declarationsGroup.add(apiGroup);
+			}
+		}
+	}
+
+	private void setDeclarationsSchmApiGroup(List<SchmApiGroup> schmApiGroup, List<SchmApiGroup> declarationsGroup) {
+		for (int i = 0; i < schmApiGroup.size(); i++) {
+			SchmApiGroup apiGroup = schmApiGroup.get(i);
+			if (isNeededGroup(apiGroup)) {
+				declarationsGroup.add(apiGroup);
+			}
+		}
+	}
 	
+	private boolean isNeededGroup(RteApiGroup apiGroup) {
+		for (RteApi api : apiGroup.getRteApi()) {
+			if (api instanceof RteEnterApi && !((RteEnterApi)api).getIsNoneExclude()) {
+				return true;
+			} else if (api instanceof RteExitApi && !((RteExitApi)api).getIsNoneExclude()) {
+				return true;
+			} else if (!(api instanceof RteEnterApi) && !(api instanceof RteExitApi)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private boolean isNeededGroup(SchmApiGroup schmGroup) {
+		for (SchmApi api : schmGroup.getSchmApi()) {
+			if (api instanceof SchmEnterApi && !((SchmEnterApi)api).getIsNoneExclude()) {
+				return true;
+			} else if (api instanceof SchmExitApi && !((SchmExitApi)api).getIsNoneExclude()) {
+				return true;
+			} else if (api instanceof SchmModeApi && !((SchmModeApi)api).getIsNoneExclude()) {
+				return true;
+			} else if (api instanceof SchmSwitchApi && !((SchmSwitchApi)api).getIsNoneExclude()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private void buildModuleInterlinkHeaders(RteModule targetRteModule) {
 		for (Bswm bswm : this.context.query.<Bswm> findByKind(BSWM)) {
 			ModuleInterlinkTypeHeader moduleInterlinkTypeHeader = createModuleInterlinkTypeHeader(bswm, this.context.cache.rteModule.getRteTypeHeader());
 			targetRteModule.getModuleInterlinkTypeHeader().add(moduleInterlinkTypeHeader);
-
 			ModuleInterlinkHeader moduleInterlinkHeader = createModuleInterlinkHeader(bswm, moduleInterlinkTypeHeader);
 			moduleInterlinkHeader.setSingleSource(bswm);
 			targetRteModule.getModuleInterlinkHeader().add(moduleInterlinkHeader);
@@ -268,6 +380,9 @@ public class RteFileModelBuilder {
 		moduleInterlinkTypeHeader.setFileName(FileNames.SCHM_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + "_Type" + FileNames.H_POSTFIX);
 		moduleInterlinkTypeHeader.setGuardName(FileNames.SCHM_HEADER_GUARD_NAME_PREFIX + sourceBswm.getCompartmentName() + "_Type" + FileNames.HEADER_GUARD_POSTFIX);
 		moduleInterlinkTypeHeader.getDependentHeaders().add(rteTypeHeader);
+		// モード連携
+		moduleInterlinkTypeHeader.getModeType().addAll(sourceBswm.getModeType());
+		moduleInterlinkTypeHeader.getModeRequestVariable().addAll(sourceBswm.getModeRequestVariable());
 		return moduleInterlinkTypeHeader;
 	}
 
@@ -287,7 +402,7 @@ public class RteFileModelBuilder {
 		List<ExecutableEntity> entities = Lists.newArrayList();
 		for (PartedBswm partedBswm : sourceBswm.getPartedBswm()) {
 			for (ExecutableEntity entity : partedBswm.getDependentExecutableEntity()) {
-				if (entity.getSingleSource() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity)
+				if (entity.getSingleSource() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity) // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 				entities.add(entity);
 			}
 		}
@@ -296,8 +411,6 @@ public class RteFileModelBuilder {
 	}
 
 	public void buildImplFiles() throws ModelException {
-		Optional<EcucPartitionCollection> foundPartitionCollection = this.context.query.tryFindSingleByKind(ECUC_PARTITION_COLLECTION);
-
 		RteModule targetRteModule = this.context.cache.rteModule;
 		Rte sourceRte = this.context.cache.rte;
 
@@ -325,17 +438,36 @@ public class RteFileModelBuilder {
 		}
 
 		// RTEユーティリティヘッダの生成
-		RteUtilityHeader rteUtilityHeader = createRteUtilityHeader(sourceRte);
-		targetRteModule.setRteUtilityHeader(rteUtilityHeader);
+		getAndPrepareRteUtilityHeader();
+
+		// RTE BSW APIヘッダの構築
+		getAndPrepareRteBswApiHeader();
 
 		// RTEソースファイルの生成
-		if (foundPartitionCollection.isPresent()) {
+		if (isEcucPartitionCollectionExists()) {
 			// パーティション構成の場合
 			buildPartitionedSystemRteSources(targetRteModule, sourceRte);
 		} else {
 			// 非パーティション構成の場合
 			buildNonPartitionedSystemRteSource(targetRteModule, sourceRte);
 		}
+	}
+
+	private RteUtilityHeader getAndPrepareRteUtilityHeader() {
+		RteModule targetRteModule = this.context.cache.rteModule;
+		Rte sourceRte = this.context.cache.rte;
+		if (targetRteModule.getRteUtilityHeader() == null) {
+			targetRteModule.setRteUtilityHeader(createRteUtilityHeader(sourceRte));
+		}
+		return targetRteModule.getRteUtilityHeader();
+	}
+
+	private RteBswApiHeader getAndPrepareRteBswApiHeader() {
+		RteModule targetRteModule = this.context.cache.rteModule;
+		if (targetRteModule.getRteBswApiHeader() == null) {
+			targetRteModule.setRteBswApiHeader(createRteBswApiHeader());
+		}
+		return targetRteModule.getRteBswApiHeader();
 	}
 
 	private RteUtilityHeader createRteUtilityHeader(Rte sourceRte) {
@@ -381,12 +513,12 @@ public class RteFileModelBuilder {
 	}
 
 	private void buildNonPartitionedSystemRteSource(RteModule targetRteModule, Rte sourceRte) {
-		RteInternalHeader rteCommonHeader = createNonPartitionedSystemRteCommonHeader(sourceRte);
+		RteInternalHeader rteCommonHeader = createSystemCommonRteHeader(sourceRte);
 		targetRteModule.setRteCommonHeader(rteCommonHeader);
 		targetRteModule.setRteCommonSource(createNonPartitionedSystemRteSource(targetRteModule, sourceRte, rteCommonHeader));
 	}
 
-	private RteInternalHeader createNonPartitionedSystemRteCommonHeader(Rte sourceRte) {
+	private RteInternalHeader createSystemCommonRteHeader(Rte sourceRte) {
 		RteInternalHeader rteInternalHeader = ModuleFactory.eINSTANCE.createRteInternalHeader();
 		rteInternalHeader.setFileName(FileNames.RTE_FILE_NAME_PREFIX + "Common" + FileNames.H_POSTFIX);
 		rteInternalHeader.setGuardName(FileNames.RTE_HEADER_GUARD_NAME_PREFIX + "COMMON" + FileNames.HEADER_GUARD_POSTFIX);
@@ -394,11 +526,26 @@ public class RteFileModelBuilder {
 			rteInternalHeader.getDependentHeaders().add(this.context.cache.comHeader.get());
 		}
 		rteInternalHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		rteInternalHeader.getGlobalVariableGroup().addAll(this.groupGlobalVariablesByMemoryMapping(getGlobalVariablesDefinedInRteSource(sourceRte)));
+		rteInternalHeader.getGlobalVariableGroup().addAll(groupGlobalVariablesByMemoryMapping(getGlobalVariablesDefinedInRteSource(sourceRte)));
 		rteInternalHeader.getConstant().addAll(getConstantsDefinedInRteSource(sourceRte));
-		rteInternalHeader.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, this.context.query.<TrustedFunction> findByKind(sourceRte, TRUSTED_FUNCTION)));
-		rteInternalHeader.getDependentExecutableEntityGroup().addAll(this.<ExecutableEntityGroup> groupFunctionsByMemoryMapping(EXECUTABLE_ENTITY_GROUP, this.context.query.<ExecutableEntity> findByKind(sourceRte, EXECUTABLE_ENTITY)));
+
+		if (!isEcucPartitionCollectionExists()) {
+			rteInternalHeader.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, this.context.query.<TrustedFunction> findByKind(sourceRte, TRUSTED_FUNCTION)));
+			rteInternalHeader.getDependentExecutableEntityGroup().addAll(this.<ExecutableEntityGroup> groupFunctionsByMemoryMapping(EXECUTABLE_ENTITY_GROUP, this.context.query.<ExecutableEntity> findByKind(sourceRte, EXECUTABLE_ENTITY)));
+		}
+
+		rteInternalHeader.getFunctionMacroGroup().addAll(getFunctionMacroDefinedInRteSource(sourceRte));
+		rteInternalHeader.getSignalApiGroup().addAll(this.<SignalApiGroup> groupFunctionsByMemoryMapping(SIGNAL_API_GROUP, this.context.query.<SignalApi> findByKind(SIGNAL_API)));
+
+		// モード連携
+		createModeCommonHeader(sourceRte, rteInternalHeader);
+		
 		return rteInternalHeader;
+	}
+
+	private boolean isEcucPartitionCollectionExists() {
+		Optional<EcucPartitionCollection> foundPartitionCollection = this.context.query.tryFindSingleByKind(ECUC_PARTITION_COLLECTION);
+		return foundPartitionCollection.isPresent();
 	}
 
 	private RteSource createNonPartitionedSystemRteSource(RteModule targetRteModule, Rte sourceRte, RteInternalHeader rteCommonHeader) {
@@ -412,31 +559,45 @@ public class RteFileModelBuilder {
 		if (this.context.cache.rteModule.getRteCallbackHeader() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteCallbackHeader());
 		}
-		for (ModuleInterlinkHeader moduleInterlinkHeader : targetRteModule.getModuleInterlinkHeader()) {
-			rteSource.getDependentHeaders().add(moduleInterlinkHeader);
-		}
+
+		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
 		
 		rteSource.getGlobalVariableGroup().addAll(groupGlobalVariablesByMemoryMapping(getGlobalVariablesDefinedInRteSource(sourceRte)));
 		rteSource.getBswSchedulableEntityGroup().addAll(
 				this.<BswSchedulableEntityGroup> groupFunctionsByMemoryMapping(BSW_SCHEDULABLE_ENTITY_GROUP, this.context.query.<BswSchedulableEntity> findByKind(sourceRte, BSW_SCHEDULABLE_ENTITY)));
-		rteSource.getRteApiGroup().addAll(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, this.context.query.<RteApi> findByKind(sourceRte, RTE_API)));
+		setDeclarationsRteApiGroup(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, this.context.query.<RteApi> findByKind(sourceRte, RTE_API)), rteSource.getRteApiGroup());
 		rteSource.getRteLifecycleApiGroup().addAll(
 				this.<RteLifecycleApiGroup> groupFunctionsByMemoryMapping(RTE_LIFECYCLE_API_GROUP, this.context.query.<RteLifecycleApi> findByKind(sourceRte, RTE_LIFECYCLE_API)));
-		rteSource.getSchmApiGroup().addAll(this.<SchmApiGroup> groupFunctionsByMemoryMapping(SCHM_API_GROUP, this.context.query.<SchmApi> findByKind(sourceRte, SCHM_API)));
+		setDeclarationsSchmApiGroup(this.<SchmApiGroup> groupFunctionsByMemoryMapping(SCHM_API_GROUP, this.context.query.<SchmApi> findByKind(sourceRte, SCHM_API)), rteSource.getSchmApiGroup());
 		rteSource.getSchmLifecycleApiGroup().addAll(
 				this.<SchmLifecycleApiGroup> groupFunctionsByMemoryMapping(SCHM_LIFECYCLE_API_GROUP, this.context.query.<SchmLifecycleApi> findByKind(sourceRte, SCHM_LIFECYCLE_API)));
 		rteSource.getTaskBodyGroup().addAll(this.<TaskBodyGroup> groupFunctionsByMemoryMapping(TASK_BODY_GROUP, this.context.query.<TaskBody> findByKind(sourceRte, TASK_BODY)));
 		rteSource.getComCallbackGroup().addAll(this.<ComCallbackGroup> groupFunctionsByMemoryMapping(COM_CALLBACK_GROUP, sourceRte.getComCallback()));
 		rteSource.getTrustedFunctionGroup().addAll(
 				this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, this.context.query.<TrustedFunction> findByKind(sourceRte, TRUSTED_FUNCTION)));
+		rteSource.getSignalApiGroup().addAll(
+				this.<SignalApiGroup> groupFunctionsByMemoryMapping(SIGNAL_API_GROUP, this.context.query.<SignalApi> findByKind(sourceRte, SIGNAL_API)));
+		rteSource.getProxyApiGroup().addAll(
+				this.<ProxyApiGroup> groupFunctionsByMemoryMapping(PROXY_API_GROUP, this.context.query.<ProxyApi> findByKind(sourceRte, PROXY_API)));
+		
 		return rteSource;
 	}
 
-	private void buildPartitionedSystemRteSources(RteModule targetRteModule, Rte sourceRte) {
+	private void buildPartitionedSystemRteSources(RteModule targetRteModule, Rte sourceRte) throws ModelException {
 		// 共通のRTEソースファイルの生成
-		RteInternalHeader commonRteHeader = createPartitionedSystemCommonRteHeader(sourceRte);
+		RteInternalHeader commonRteHeader = createSystemCommonRteHeader(sourceRte);
 		targetRteModule.setRteCommonHeader(commonRteHeader);
 		targetRteModule.setRteCommonSource(createPartitionedSystemCommonRteSource(sourceRte, commonRteHeader));
+
+		// CommonにProxyFunctionTableGroup設定
+		Optional<PeriodicProxyComSendOperation> periodicProxyComSendOperation = this.context.query.tryFindSingleByKind(PERIODIC_PROXY_COM_SEND_OPERATION);
+		Optional<ImmediateProxyComSendOperation> immediateProxyComSendOperation = this.context.query.tryFindSingleByKind(IMMEDIATE_PROXY_COM_SEND_OPERATION);
+		if (periodicProxyComSendOperation.isPresent() || immediateProxyComSendOperation.isPresent()) {
+			ProxyFunctionTableGroup proxyFunctionTableGroup = getProxyFunctionTableGroup();
+			if (proxyFunctionTableGroup != null) {
+				commonRteHeader.getProxyFunctionTableGroup().add(proxyFunctionTableGroup);
+			}
+		}
 		
 		if (sourceRte.getDependentIocCommunication().isEmpty()) {
 			this.context.cache.iocHeader = Optional.absent();
@@ -454,22 +615,33 @@ public class RteFileModelBuilder {
 				targetRteModule.getRtePartitionSource().add(createPartitionRteSource(targetRteModule, sourcePartition, sourceRte, partitionRteHeader));
 			}
 		}
-
+		
 		// 共通のRTEソースファイルからコア毎のヘッダファイルを参照させる
 		targetRteModule.getRteCommonSource().getDependentHeaders().addAll(targetRteModule.getRtePartitionHeader());
 	}
 
-	private RteInternalHeader createPartitionedSystemCommonRteHeader(Rte sourceRte) {
-		RteInternalHeader rteInternalHeader = ModuleFactory.eINSTANCE.createRteInternalHeader();
-		rteInternalHeader.setFileName(FileNames.RTE_FILE_NAME_PREFIX + "Common" + FileNames.H_POSTFIX);
-		rteInternalHeader.setGuardName(FileNames.RTE_HEADER_GUARD_NAME_PREFIX + "COMMON" + FileNames.HEADER_GUARD_POSTFIX);
-		if (this.context.cache.comHeader.isPresent()) {
-			rteInternalHeader.getDependentHeaders().add(this.context.cache.comHeader.get());
+	private void createModeCommonHeader(Rte sourceRte, RteInternalHeader commonRteHeader) {
+		for (Bswm bswm : sourceRte.getBswm()) {
+			commonRteHeader.getModeType().addAll(bswm.getModeType());
+			commonRteHeader.getModeRequestVariable().addAll(bswm.getModeRequestVariable());
+
+			for (PartedBswm partedBswm : bswm.getPartedBswm()) {
+				commonRteHeader.getModeMachineInstance().addAll(partedBswm.getModeMachineInstance());
+			}
 		}
-		rteInternalHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		rteInternalHeader.getGlobalVariableGroup().addAll(groupGlobalVariablesByMemoryMapping(getGlobalVariablesDefinedInRteSource(sourceRte)));
-		rteInternalHeader.getConstant().addAll(getConstantsDefinedInRteSource(sourceRte));
-		return rteInternalHeader;
+	}
+
+	private ProxyFunctionTableGroup getProxyFunctionTableGroup() throws ModelException {
+		Optional<GlobalVariable> functionTable = this.context.query.tryFindSingle(isKindOf(GLOBAL_VARIABLE).AND(hasAttr(VARIABLE__SYMBOL_NAME, SymbolNames.createFunctionTableName())));
+		if (functionTable.isPresent()) {
+			ProxyFunctionTableGroup proxyFunctionTableGroup = ModuleFactory.eINSTANCE.createProxyFunctionTableGroup();
+			for (ConstantMember member : functionTable.get().getInitValueConstant().getMember()) {
+				// 先頭の'&'を削除して登録する
+				proxyFunctionTableGroup.getSrWriteProxyName().add(member.getValue().substring(1));
+			}
+			return proxyFunctionTableGroup;
+		}
+		return null;
 	}
 
 	private RteSource createPartitionedSystemCommonRteSource(Rte sourceRte, RteInternalHeader commonRteHeader) {
@@ -480,6 +652,8 @@ public class RteFileModelBuilder {
 		rteSource.getDependentHeaders().add(commonRteHeader);
 
 		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteLifecycleHeader());
+
+		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
 
 		Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = this.context.query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
 		if (rootSwCompositionPrototype.isPresent()) {
@@ -496,15 +670,13 @@ public class RteFileModelBuilder {
 		return rteSource;
 	}
 
-	private RteInternalHeader createPartitionRteHeader(Partition sourcePartition, Rte sourceRte, RteInternalHeader commonRteHeader) {
+	private RteInternalHeader createPartitionRteHeader(Partition sourcePartition, Rte sourceRte, RteInternalHeader commonRteHeader) throws ModelException {
 		List<TrustedFunction> trustedFunctions = Lists.newArrayList();
 		List<BswSchedulableEntity> bswSchedulableEntities = Lists.newArrayList();
 
 		trustedFunctions.addAll(this.context.query.<TrustedFunction> findByKind(sourcePartition, TRUSTED_FUNCTION));
 		if (sourcePartition.getParent().getIsMasterCore() && sourcePartition.getIsBswPartition()) {
-			if (sourceRte.getComSendSignalTrustedFunction() != null) {
-				trustedFunctions.add(sourceRte.getComSendSignalTrustedFunction());
-			}
+			trustedFunctions.addAll(sourceRte.getComSendSignalTrustedFunction());
 			bswSchedulableEntities.addAll(this.context.query.<BswSchedulableEntity> findByKind(sourceRte, BSW_SCHEDULABLE_ENTITY));
 		}
 
@@ -518,6 +690,7 @@ public class RteFileModelBuilder {
 			rteInternalHeader.getDependentHeaders().add(this.context.cache.iocHeader.get());
 		}
 		rteInternalHeader.getDependentHeaders().add(commonRteHeader);
+		rteInternalHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteUtilityHeader());
 		if (sourcePartition.getIsBswPartition()) {
 			if (sourcePartition.getParent().getRteStartApi() != null) {
 				rteInternalHeader.setRteCoreStartApiImpl(sourcePartition.getParent().getRteStartApi());
@@ -526,6 +699,7 @@ public class RteFileModelBuilder {
 				rteInternalHeader.setSchmCoreInitApiImpl(sourcePartition.getParent().getSchmInitApi());
 			}
 		}
+		
 		rteInternalHeader.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, trustedFunctions));
 		rteInternalHeader.getBswSchedulableEntityGroup().addAll(this.<BswSchedulableEntityGroup> groupFunctionsByMemoryMapping(BSW_SCHEDULABLE_ENTITY_GROUP, bswSchedulableEntities));
 		rteInternalHeader.getDependentExecutableEntityGroup().addAll(this.<ExecutableEntityGroup> groupFunctionsByMemoryMapping(EXECUTABLE_ENTITY_GROUP, this.context.query.<ExecutableEntity> findByKind(sourcePartition, EXECUTABLE_ENTITY)));
@@ -537,7 +711,7 @@ public class RteFileModelBuilder {
 		rteLifecycleApis.addAll(this.context.query.<RteLifecycleApi> findByKind(sourcePartition, RTE_LIFECYCLE_API));
 		List<SchmLifecycleApi> schmLifecycleApis = Lists.newArrayList();
 		schmLifecycleApis.addAll(this.context.query.<SchmLifecycleApi> findByKind(sourcePartition, SCHM_LIFECYCLE_API));
-
+		
 		if (sourcePartition.getIsBswPartition()) {
 			if (sourcePartition.getParent().getRteStartApi() != null) {
 				rteLifecycleApis.add(sourcePartition.getParent().getRteStartApi());
@@ -546,56 +720,41 @@ public class RteFileModelBuilder {
 				schmLifecycleApis.add(sourcePartition.getParent().getSchmInitApi());
 			}
 		}
-
+		
 		RteSource rteSource = ModuleFactory.eINSTANCE.createRteSource();
 		rteSource.setFileName(FileNames.RTE_FILE_NAME_PREFIX + "Partition_" + sourcePartition.getCompartmentName() + FileNames.C_POSTFIX);
 		rteSource.getSourceMacro().addAll(this.context.query.<Macro> findByKind(sourcePartition, MACRO));
 		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteVfbTraceHeader());
-		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteUtilityHeader());
 		rteSource.getDependentHeaders().add(coreRteHeader);
 		
 		if (this.context.cache.rteModule.getRteCallbackHeader() != null) {
 			rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteCallbackHeader());
 		}
-		//module interlink header include
-		for (Bswm bswm : this.context.query.<Bswm> findByKind(BSWM)) {
-			for (PartedBswm partedBswm : bswm.getPartedBswm()) {
-				if (!partedBswm.getParent().equals(sourcePartition)) {
-					continue;
-				}
-				for (ModuleInterlinkHeader moduleInterlinkHeader : targetRteModule.getModuleInterlinkHeader()) {
-					if (bswm.equals(moduleInterlinkHeader.getSingleSource())) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-						rteSource.getDependentHeaders().add(moduleInterlinkHeader);
-					}
-				}
-			}
-		}
+		rteSource.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
 		
 		rteSource.getGlobalVariableGroup().addAll(groupGlobalVariablesByMemoryMapping(getGlobalVariablesDefinedInRteSource(sourcePartition)));
-		rteSource.getRteApiGroup().addAll(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, this.context.query.<RteApi> findByKind(sourcePartition, RTE_API)));
-		rteSource.getRteLifecycleApiGroup().addAll(
-				this.<RteLifecycleApiGroup> groupFunctionsByMemoryMapping(RTE_LIFECYCLE_API_GROUP, rteLifecycleApis));
-		rteSource.getSchmApiGroup().addAll(this.<SchmApiGroup> groupFunctionsByMemoryMapping(SCHM_API_GROUP, this.context.query.<SchmApi> findByKind(sourcePartition, SCHM_API)));
-		rteSource.getSchmLifecycleApiGroup().addAll(
-				this.<SchmLifecycleApiGroup> groupFunctionsByMemoryMapping(SCHM_LIFECYCLE_API_GROUP, schmLifecycleApis));
+		setDeclarationsRteApiGroup(this.<RteApiGroup> groupFunctionsByMemoryMapping(RTE_API_GROUP, this.context.query.<RteApi> findByKind(sourcePartition, RTE_API)), rteSource.getRteApiGroup());
+		rteSource.getRteLifecycleApiGroup().addAll(this.<RteLifecycleApiGroup> groupFunctionsByMemoryMapping(RTE_LIFECYCLE_API_GROUP, rteLifecycleApis));
+		setDeclarationsSchmApiGroup(this.<SchmApiGroup> groupFunctionsByMemoryMapping(SCHM_API_GROUP, this.context.query.<SchmApi> findByKind(sourcePartition, SCHM_API)), rteSource.getSchmApiGroup());
+		rteSource.getSchmLifecycleApiGroup().addAll(this.<SchmLifecycleApiGroup> groupFunctionsByMemoryMapping(SCHM_LIFECYCLE_API_GROUP, schmLifecycleApis));
+		rteSource.getSignalApiGroup().addAll(this.<SignalApiGroup> groupFunctionsByMemoryMapping(SIGNAL_API_GROUP, this.context.query.<SignalApi> findByKind(sourcePartition, SIGNAL_API)));
+		rteSource.getProxyApiGroup().addAll(this.<ProxyApiGroup> groupFunctionsByMemoryMapping(PROXY_API_GROUP, this.context.query.<ProxyApi> findByKind(sourcePartition, PROXY_API)));
 		rteSource.getTaskBodyGroup().addAll(this.<TaskBodyGroup> groupFunctionsByMemoryMapping(TASK_BODY_GROUP, this.context.query.<TaskBody> findByKind(sourcePartition, TASK_BODY)));
-		rteSource.getTrustedFunctionGroup().addAll(
-				this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, this.context.query.<TrustedFunction> findByKind(sourcePartition, TRUSTED_FUNCTION)));
+		rteSource.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, this.context.query.<TrustedFunction> findByKind(sourcePartition, TRUSTED_FUNCTION)));
+
 		if (sourcePartition.getParent().getIsMasterCore() && sourcePartition.getIsBswPartition()) {
 			rteSource.getBswSchedulableEntityGroup().addAll(
 					this.<BswSchedulableEntityGroup> groupFunctionsByMemoryMapping(BSW_SCHEDULABLE_ENTITY_GROUP,
 							this.context.query.<BswSchedulableEntity> findByKind(sourceRte, BSW_SCHEDULABLE_ENTITY)));
 			rteSource.getComCallbackGroup().addAll(this.<ComCallbackGroup> groupFunctionsByMemoryMapping(COM_CALLBACK_GROUP, sourceRte.getComCallback()));
-			if (sourceRte.getComSendSignalTrustedFunction() != null) {
-				rteSource.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, sourceRte.getComSendSignalTrustedFunction()));
-			}
+			rteSource.getTrustedFunctionGroup().addAll(this.<TrustedFunctionGroup> groupFunctionsByMemoryMapping(TRUSTED_FUNCTION_GROUP, sourceRte.getComSendSignalTrustedFunction()));
 			if (sourceRte.getComSendSignalImmediateTaskBody() != null) {
 				rteSource.getTaskBodyGroup().addAll(this.<TaskBodyGroup> groupFunctionsByMemoryMapping(TASK_BODY_GROUP, sourceRte.getComSendSignalImmediateTaskBody()));
 			}
 		}
 		return rteSource;
 	}
-
+	
 	private List<Constant> getConstantsDefinedInRteSource(Rte sourceRte) {
 		List<Constant> constants = Lists.newArrayList();
 		constants.addAll(sourceRte.getIocInitValueConstant());
@@ -620,12 +779,24 @@ public class RteFileModelBuilder {
 		List<GlobalVariable> globalVariables = Lists.newArrayList();
 		globalVariables.addAll(this.context.query.<GlobalVariable> findByKind(sourceRte, GLOBAL_VARIABLE));
 		globalVariables.removeAll(this.context.query.<RteBufferVariableSet> findByKind(sourceRte, RTE_BUFFER_VARIABLE_SET));
+		List<GlobalVariableSet> setList =this.context.query.<GlobalVariableSet> findByKind(sourceRte, GLOBAL_VARIABLE_SET);
+
+		// GlobalVariableSet内にあるGlobalVariableは削除する
+		for (GlobalVariableSet variableSet : setList) {
+			globalVariables.removeAll(variableSet.getGlobalVariable());
+		}
+
 		return globalVariables;
 	}
-
+	
+	private List<FunctionMacroGroup> getFunctionMacroDefinedInRteSource(LogicalCompartment sourceRte) {
+		List<FunctionMacroGroup> functionMacroGroup = Lists.newArrayList();
+		functionMacroGroup.addAll(this.context.query.<FunctionMacroGroup> findByKind(sourceRte, FUNCTION_MACRO_GROUP));
+		return functionMacroGroup;
+	}
+	
 	private List<GlobalVariableGroup> groupGlobalVariablesByMemoryMapping(List<GlobalVariable> globalVariables) {
 		List<GlobalVariableGroup> groups = Lists.newArrayList();
-
 		ListMultimap<MemoryMapping, GlobalVariable> memmap2Vars = this.context.query.groupByKey(globalVariables, GLOBAL_VARIABLE__MEMORY_MAPPING);
 		for (MemoryMapping keyMemmap : memmap2Vars.keySet()) {
 			GlobalVariableGroup globalVariableGroup = ModuleFactory.eINSTANCE.createGlobalVariableGroup();
@@ -635,7 +806,7 @@ public class RteFileModelBuilder {
 		}
 		return groups;
 	}
-
+	
 	private <FG extends FunctionGroup> List<FG> groupFunctionsByMemoryMapping(EClass eGroupClass, Function function) {
 		return groupFunctionsByMemoryMapping(eGroupClass, Collections.singletonList(function));
 	}

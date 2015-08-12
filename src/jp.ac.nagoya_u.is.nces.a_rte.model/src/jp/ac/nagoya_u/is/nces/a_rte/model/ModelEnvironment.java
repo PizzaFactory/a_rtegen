@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËþ¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
  *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²þÊÑ¤·¤¿¤â¤Î¤ò´Þ¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²þ
@@ -43,33 +43,16 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.Ar4xPackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-import jp.ac.nagoya_u.is.nces.a_rte.model.internal.ValidationResourceLocator;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.RtePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.QueryDelegate;
-import org.eclipse.ocl.common.OCLConstants;
-import org.eclipse.ocl.ecore.delegate.OCLInvocationDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLQueryDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLSettingDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLValidationDelegateFactory;
-
 import com.google.common.collect.Iterables;
-import com.google.common.io.Resources;
 
 public class ModelEnvironment { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤¬¡¤¥æ¡¼¥Æ¥£¥ê¥Æ¥£¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
 	public static void initializeEnvironment() {
-		initializeOclEnvironment();
 		registerPackages();
 	}
 
@@ -77,34 +60,9 @@ public class ModelEnvironment { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤
 		buildExModels(eResource);
 	}
 
-	private static void initializeOclEnvironment() {
-		org.eclipse.ocl.ecore.OCL.initialize(null);
-
-		String delegationUri = OCLConstants.OCL_DELEGATE_URI_SLASH + "Pivot";
-		EOperation.Internal.InvocationDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLInvocationDelegateFactory(delegationUri));
-		EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLSettingDelegateFactory(delegationUri));
-		EValidator.ValidationDelegate.Registry.INSTANCE.put(delegationUri, new OCLValidationDelegateFactory(delegationUri));
-		QueryDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLQueryDelegateFactory(delegationUri));
-	}
-
 	private static void registerPackages() {
 		Ar4xPackage.eINSTANCE.eClass();
 		RtePackage.eINSTANCE.eClass();
-
-		EObjectValidator validator = createValidator();
-		EValidator.Registry.INSTANCE.put(M2Package.eINSTANCE, validator);
-		EValidator.Registry.INSTANCE.put(EcucPackage.eINSTANCE, validator);
-	}
-
-	private static EObjectValidator createValidator() {
-		return new EObjectValidator() {
-			private final ValidationResourceLocator resourceLocator = new ValidationResourceLocator(Resources.getResource(ModelEnvironment.class, ModelValidator.EMF_VALIDATION_MESSAGES_PROPERTIES));
-
-			@Override
-			protected ResourceLocator getEcoreResourceLocator() {
-				return this.resourceLocator;
-			}
-		};
 	}
 
 	private static void buildExModels(Resource eResource) {

@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -59,6 +59,10 @@
 
 	[aRteInternalHeader.genInternalGlobalVariableDeclarations()/]
 
+	[aRteInternalHeader.genInternalFuctionMacroDeclarations()/]
+
+	[aRteInternalHeader.genProxyFunctionTableDeclarations()/]
+
 	[aRteInternalHeader.genRteLifecycleApiImplFunctionDeclarations()/]
 
 	[aRteInternalHeader.genSchmLifecycleApiImplFunctionDeclarations()/]
@@ -68,6 +72,8 @@
 	[aRteInternalHeader.genBswSchedulableEntityDeclarations()/]
 
 	[aRteInternalHeader.genDependentExecutableEntityDeclarations()/]
+
+	[aRteInternalHeader.genSignalApiImplFunctionDeclarations()/]
 
 	[aRteInternalHeader.genFileFooter()/]
 [/file]
@@ -94,6 +100,27 @@
 [for (aConstant : Constant | aRteInternalHeader.constant)]
 	[aConstant.genConstantDefinition()/]
 [/for]
+
+[for (aModeType : ModeType | aRteInternalHeader.modeType)]
+	[aModeType.genModeTypeDefinition() /]
+[/for]
+
+[for (aModeRequestVariableSet : ModeRequestVariableSet | aRteInternalHeader.modeRequestVariable)]
+	[aModeRequestVariableSet.genModeInitMacroDefinition() /]
+	[aModeRequestVariableSet.genModeMacroDefinition() /]
+[/for]
+
+[for (aModeMachineInstance : ModeMachineInstance | aRteInternalHeader.modeMachineInstance) ]
+	[let aType : ModeQueueType = aModeMachineInstance.modeQueue.queueType ]
+		#define [aType.maxLengthConstant.symbolName /] ((uint32) [aType.maxLengthConstant.value /]U)	
+		typedef struct {	
+			uint32	quecnt;
+			uint32	head;
+			[aType.elementType.symbolName /]	element['['/][aType.maxLengthConstant.symbolName /][']'/];
+		} [aType.symbolName /];
+	[/let]
+[/for]
+
 [/template]
 
 [template private genInternalGlobalVariableDeclarations (aRteInternalHeader : RteInternalHeader) ]
@@ -109,6 +136,27 @@
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]
 
+[/for]
+[/template]
+
+[template private genInternalFuctionMacroDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Internal Function Macro Definitions
+ */
+[for (aGroup : FunctionMacroGroup | aRteInternalHeader.functionMacroGroup)]
+	[for (aFunctionMacro : FunctionMacro | aGroup.functionMacro)]
+		[aFunctionMacro.genFunctionMacroDeclaration()/]
+	[/for]
+[/for]
+
+[/template]
+
+[template private genProxyFunctionTableDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Proxy Function Table Declarations
+ */
+[for (aProxyFunctionTableGroup : ProxyFunctionTableGroup | aRteInternalHeader.proxyFunctionTableGroup)]
+	[aProxyFunctionTableGroup.genSrWriteProxyFunctionTable()/]
 [/for]
 [/template]
 
@@ -166,7 +214,6 @@
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]
-
 [/for]
 [/template]
 
@@ -179,6 +226,23 @@
 
 	[for (aExecutableEntity : ExecutableEntity | aGroup.executableEntity)]
 		[aExecutableEntity.genFunctionDeclaration()/]
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
+[/for]
+[/template]
+
+[template private genSignalApiImplFunctionDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Signal API Implementation Function Declarations
+ */
+[for (aGroup : SignalApiGroup | aRteInternalHeader.signalApiGroup)]
+
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aSignalApi : SignalApi | aGroup.signalApi)]
+		[aSignalApi.genSignalApiFunctionDeclaration() /]
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]

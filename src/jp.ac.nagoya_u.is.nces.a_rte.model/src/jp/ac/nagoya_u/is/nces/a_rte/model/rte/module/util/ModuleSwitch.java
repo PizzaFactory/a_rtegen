@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -182,6 +182,42 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.IRV_READ_OPERATION: {
+				IrvReadOperation irvReadOperation = (IrvReadOperation)theEObject;
+				T result = caseIrvReadOperation(irvReadOperation);
+				if (result == null) result = caseOperation(irvReadOperation);
+				if (result == null) result = caseModuleObject(irvReadOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.IRV_READ_API: {
+				IrvReadApi irvReadApi = (IrvReadApi)theEObject;
+				T result = caseIrvReadApi(irvReadApi);
+				if (result == null) result = caseRteApi(irvReadApi);
+				if (result == null) result = caseFunction(irvReadApi);
+				if (result == null) result = caseModuleReferrable(irvReadApi);
+				if (result == null) result = caseModuleObject(irvReadApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.IRV_WRITE_OPERATION: {
+				IrvWriteOperation irvWriteOperation = (IrvWriteOperation)theEObject;
+				T result = caseIrvWriteOperation(irvWriteOperation);
+				if (result == null) result = caseOperation(irvWriteOperation);
+				if (result == null) result = caseModuleObject(irvWriteOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.IRV_WRITE_API: {
+				IrvWriteApi irvWriteApi = (IrvWriteApi)theEObject;
+				T result = caseIrvWriteApi(irvWriteApi);
+				if (result == null) result = caseRteApi(irvWriteApi);
+				if (result == null) result = caseFunction(irvWriteApi);
+				if (result == null) result = caseModuleReferrable(irvWriteApi);
+				if (result == null) result = caseModuleObject(irvWriteApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET: {
 				RteBufferVariableSet rteBufferVariableSet = (RteBufferVariableSet)theEObject;
 				T result = caseRteBufferVariableSet(rteBufferVariableSet);
@@ -190,6 +226,17 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseValue(rteBufferVariableSet);
 				if (result == null) result = caseModuleReferrable(rteBufferVariableSet);
 				if (result == null) result = caseModuleObject(rteBufferVariableSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.GLOBAL_VARIABLE_SET: {
+				GlobalVariableSet globalVariableSet = (GlobalVariableSet)theEObject;
+				T result = caseGlobalVariableSet(globalVariableSet);
+				if (result == null) result = caseGlobalVariable(globalVariableSet);
+				if (result == null) result = caseVariable(globalVariableSet);
+				if (result == null) result = caseValue(globalVariableSet);
+				if (result == null) result = caseModuleReferrable(globalVariableSet);
+				if (result == null) result = caseModuleObject(globalVariableSet);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -327,6 +374,16 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.RTE_BSW_API_HEADER: {
+				RteBswApiHeader rteBswApiHeader = (RteBswApiHeader)theEObject;
+				T result = caseRteBswApiHeader(rteBswApiHeader);
+				if (result == null) result = caseHeaderFile(rteBswApiHeader);
+				if (result == null) result = caseFile(rteBswApiHeader);
+				if (result == null) result = caseModuleReferrable(rteBswApiHeader);
+				if (result == null) result = caseModuleObject(rteBswApiHeader);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.RTE_LIFECYCLE_HEADER: {
 				RteLifecycleHeader rteLifecycleHeader = (RteLifecycleHeader)theEObject;
 				T result = caseRteLifecycleHeader(rteLifecycleHeader);
@@ -400,6 +457,7 @@ public class ModuleSwitch<T> extends Switch<T> {
 			case ModulePackage.IOC_NONQUEUED_SEND_OPERATION: {
 				IocNonqueuedSendOperation iocNonqueuedSendOperation = (IocNonqueuedSendOperation)theEObject;
 				T result = caseIocNonqueuedSendOperation(iocNonqueuedSendOperation);
+				if (result == null) result = caseIocSendOperation(iocNonqueuedSendOperation);
 				if (result == null) result = caseSendOperation(iocNonqueuedSendOperation);
 				if (result == null) result = caseOperation(iocNonqueuedSendOperation);
 				if (result == null) result = caseModuleObject(iocNonqueuedSendOperation);
@@ -413,6 +471,35 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseSendOperation(directComSendOperation);
 				if (result == null) result = caseOperation(directComSendOperation);
 				if (result == null) result = caseModuleObject(directComSendOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.TRUSTED_FUNCTION_RTE_OPERATION: {
+				TrustedFunctionRteOperation trustedFunctionRteOperation = (TrustedFunctionRteOperation)theEObject;
+				T result = caseTrustedFunctionRteOperation(trustedFunctionRteOperation);
+				if (result == null) result = caseSendOperation(trustedFunctionRteOperation);
+				if (result == null) result = caseOperation(trustedFunctionRteOperation);
+				if (result == null) result = caseModuleObject(trustedFunctionRteOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.TRUSTED_FUNCTION_RTE_SEND_OPERATION: {
+				TrustedFunctionRteSendOperation trustedFunctionRteSendOperation = (TrustedFunctionRteSendOperation)theEObject;
+				T result = caseTrustedFunctionRteSendOperation(trustedFunctionRteSendOperation);
+				if (result == null) result = caseTrustedFunctionRteOperation(trustedFunctionRteSendOperation);
+				if (result == null) result = caseSendOperation(trustedFunctionRteSendOperation);
+				if (result == null) result = caseOperation(trustedFunctionRteSendOperation);
+				if (result == null) result = caseModuleObject(trustedFunctionRteSendOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: {
+				TrustedFunctionRteBufferWriteSendOperation trustedFunctionRteBufferWriteSendOperation = (TrustedFunctionRteBufferWriteSendOperation)theEObject;
+				T result = caseTrustedFunctionRteBufferWriteSendOperation(trustedFunctionRteBufferWriteSendOperation);
+				if (result == null) result = caseTrustedFunctionRteOperation(trustedFunctionRteBufferWriteSendOperation);
+				if (result == null) result = caseSendOperation(trustedFunctionRteBufferWriteSendOperation);
+				if (result == null) result = caseOperation(trustedFunctionRteBufferWriteSendOperation);
+				if (result == null) result = caseModuleObject(trustedFunctionRteBufferWriteSendOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -561,9 +648,20 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY: {
+				ComSendSignalProxyEntity comSendSignalProxyEntity = (ComSendSignalProxyEntity)theEObject;
+				T result = caseComSendSignalProxyEntity(comSendSignalProxyEntity);
+				if (result == null) result = caseBswSchedulableEntity(comSendSignalProxyEntity);
+				if (result == null) result = caseFunction(comSendSignalProxyEntity);
+				if (result == null) result = caseModuleReferrable(comSendSignalProxyEntity);
+				if (result == null) result = caseModuleObject(comSendSignalProxyEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_ENTITY: {
 				ComSendSignalImmediateEntity comSendSignalImmediateEntity = (ComSendSignalImmediateEntity)theEObject;
 				T result = caseComSendSignalImmediateEntity(comSendSignalImmediateEntity);
+				if (result == null) result = caseComSendSignalProxyEntity(comSendSignalImmediateEntity);
 				if (result == null) result = caseBswSchedulableEntity(comSendSignalImmediateEntity);
 				if (result == null) result = caseFunction(comSendSignalImmediateEntity);
 				if (result == null) result = caseModuleReferrable(comSendSignalImmediateEntity);
@@ -574,6 +672,7 @@ public class ModuleSwitch<T> extends Switch<T> {
 			case ModulePackage.COM_SEND_SIGNAL_PERIODIC_ENTITY: {
 				ComSendSignalPeriodicEntity comSendSignalPeriodicEntity = (ComSendSignalPeriodicEntity)theEObject;
 				T result = caseComSendSignalPeriodicEntity(comSendSignalPeriodicEntity);
+				if (result == null) result = caseComSendSignalProxyEntity(comSendSignalPeriodicEntity);
 				if (result == null) result = caseBswSchedulableEntity(comSendSignalPeriodicEntity);
 				if (result == null) result = caseFunction(comSendSignalPeriodicEntity);
 				if (result == null) result = caseModuleReferrable(comSendSignalPeriodicEntity);
@@ -778,9 +877,19 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.IOC_SEND_OPERATION: {
+				IocSendOperation iocSendOperation = (IocSendOperation)theEObject;
+				T result = caseIocSendOperation(iocSendOperation);
+				if (result == null) result = caseSendOperation(iocSendOperation);
+				if (result == null) result = caseOperation(iocSendOperation);
+				if (result == null) result = caseModuleObject(iocSendOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION: {
 				IocQueuedSendOperation iocQueuedSendOperation = (IocQueuedSendOperation)theEObject;
 				T result = caseIocQueuedSendOperation(iocQueuedSendOperation);
+				if (result == null) result = caseIocSendOperation(iocQueuedSendOperation);
 				if (result == null) result = caseSendOperation(iocQueuedSendOperation);
 				if (result == null) result = caseOperation(iocQueuedSendOperation);
 				if (result == null) result = caseModuleObject(iocQueuedSendOperation);
@@ -806,11 +915,30 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.CALL_TRUSTED_API: {
+				CallTrustedApi callTrustedApi = (CallTrustedApi)theEObject;
+				T result = caseCallTrustedApi(callTrustedApi);
+				if (result == null) result = caseCallApi(callTrustedApi);
+				if (result == null) result = caseRteApi(callTrustedApi);
+				if (result == null) result = caseFunction(callTrustedApi);
+				if (result == null) result = caseModuleReferrable(callTrustedApi);
+				if (result == null) result = caseModuleObject(callTrustedApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.EXECUTABLE_START_OPERATION: {
 				ExecutableStartOperation executableStartOperation = (ExecutableStartOperation)theEObject;
 				T result = caseExecutableStartOperation(executableStartOperation);
 				if (result == null) result = caseOperation(executableStartOperation);
 				if (result == null) result = caseModuleObject(executableStartOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.DISABLED_IN_MODE: {
+				DisabledInMode disabledInMode = (DisabledInMode)theEObject;
+				T result = caseDisabledInMode(disabledInMode);
+				if (result == null) result = caseModuleReferrable(disabledInMode);
+				if (result == null) result = caseModuleObject(disabledInMode);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -867,12 +995,31 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.NONE_EXCLUDE_OPERATION: {
+				NoneExcludeOperation noneExcludeOperation = (NoneExcludeOperation)theEObject;
+				T result = caseNoneExcludeOperation(noneExcludeOperation);
+				if (result == null) result = caseExcludeOperation(noneExcludeOperation);
+				if (result == null) result = caseOperation(noneExcludeOperation);
+				if (result == null) result = caseModuleObject(noneExcludeOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.CONSTANT: {
 				Constant constant = (Constant)theEObject;
 				T result = caseConstant(constant);
 				if (result == null) result = caseValue(constant);
 				if (result == null) result = caseModuleReferrable(constant);
 				if (result == null) result = caseModuleObject(constant);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.CONSTANT_MEMBER: {
+				ConstantMember constantMember = (ConstantMember)theEObject;
+				T result = caseConstantMember(constantMember);
+				if (result == null) result = caseConstant(constantMember);
+				if (result == null) result = caseValue(constantMember);
+				if (result == null) result = caseModuleReferrable(constantMember);
+				if (result == null) result = caseModuleObject(constantMember);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -957,6 +1104,15 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseExecutableStartOperation(timingTriggeringExecutableStartOperation);
 				if (result == null) result = caseOperation(timingTriggeringExecutableStartOperation);
 				if (result == null) result = caseModuleObject(timingTriggeringExecutableStartOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION: {
+				ModeSwitchTriggeringExecutableStartOperation modeSwitchTriggeringExecutableStartOperation = (ModeSwitchTriggeringExecutableStartOperation)theEObject;
+				T result = caseModeSwitchTriggeringExecutableStartOperation(modeSwitchTriggeringExecutableStartOperation);
+				if (result == null) result = caseExecutableStartOperation(modeSwitchTriggeringExecutableStartOperation);
+				if (result == null) result = caseOperation(modeSwitchTriggeringExecutableStartOperation);
+				if (result == null) result = caseModuleObject(modeSwitchTriggeringExecutableStartOperation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1095,9 +1251,18 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.COM_SEND_PROXY_COMPLEX_OPERATION: {
+				ComSendProxyComplexOperation comSendProxyComplexOperation = (ComSendProxyComplexOperation)theEObject;
+				T result = caseComSendProxyComplexOperation(comSendProxyComplexOperation);
+				if (result == null) result = caseOperation(comSendProxyComplexOperation);
+				if (result == null) result = caseModuleObject(comSendProxyComplexOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.IOC_RECEIVE_GROUP_API: {
 				IocReceiveGroupApi iocReceiveGroupApi = (IocReceiveGroupApi)theEObject;
 				T result = caseIocReceiveGroupApi(iocReceiveGroupApi);
+				if (result == null) result = caseIocReceiveApi(iocReceiveGroupApi);
 				if (result == null) result = caseIocApi(iocReceiveGroupApi);
 				if (result == null) result = caseFunction(iocReceiveGroupApi);
 				if (result == null) result = caseModuleReferrable(iocReceiveGroupApi);
@@ -1178,12 +1343,19 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: {
-				TrustedFunctionRteBufferWriteSendOperation trustedFunctionRteBufferWriteSendOperation = (TrustedFunctionRteBufferWriteSendOperation)theEObject;
-				T result = caseTrustedFunctionRteBufferWriteSendOperation(trustedFunctionRteBufferWriteSendOperation);
-				if (result == null) result = caseSendOperation(trustedFunctionRteBufferWriteSendOperation);
-				if (result == null) result = caseOperation(trustedFunctionRteBufferWriteSendOperation);
-				if (result == null) result = caseModuleObject(trustedFunctionRteBufferWriteSendOperation);
+			case ModulePackage.RTE_CS_TRUSTED_FUNCTION: {
+				RteCsTrustedFunction rteCsTrustedFunction = (RteCsTrustedFunction)theEObject;
+				T result = caseRteCsTrustedFunction(rteCsTrustedFunction);
+				if (result == null) result = caseTrustedFunction(rteCsTrustedFunction);
+				if (result == null) result = caseFunction(rteCsTrustedFunction);
+				if (result == null) result = caseModuleReferrable(rteCsTrustedFunction);
+				if (result == null) result = caseModuleObject(rteCsTrustedFunction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.RTE_CS_TRUSTED_RUNNABLES: {
+				RteCsTrustedRunnables rteCsTrustedRunnables = (RteCsTrustedRunnables)theEObject;
+				T result = caseRteCsTrustedRunnables(rteCsTrustedRunnables);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1206,6 +1378,7 @@ public class ModuleSwitch<T> extends Switch<T> {
 			case ModulePackage.IOC_SEND_GROUP_API: {
 				IocSendGroupApi iocSendGroupApi = (IocSendGroupApi)theEObject;
 				T result = caseIocSendGroupApi(iocSendGroupApi);
+				if (result == null) result = caseIocSendApi(iocSendGroupApi);
 				if (result == null) result = caseIocApi(iocSendGroupApi);
 				if (result == null) result = caseFunction(iocSendGroupApi);
 				if (result == null) result = caseModuleReferrable(iocSendGroupApi);
@@ -1278,6 +1451,40 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.MODE_REQUEST_VARIABLE_SET: {
+				ModeRequestVariableSet modeRequestVariableSet = (ModeRequestVariableSet)theEObject;
+				T result = caseModeRequestVariableSet(modeRequestVariableSet);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.MODE_MACHINE_INSTANCE: {
+				ModeMachineInstance modeMachineInstance = (ModeMachineInstance)theEObject;
+				T result = caseModeMachineInstance(modeMachineInstance);
+				if (result == null) result = caseModuleObject(modeMachineInstance);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.FUNCTION_MACRO_GROUP: {
+				FunctionMacroGroup functionMacroGroup = (FunctionMacroGroup)theEObject;
+				T result = caseFunctionMacroGroup(functionMacroGroup);
+				if (result == null) result = caseModuleObject(functionMacroGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.FUNCTION_MACRO: {
+				FunctionMacro functionMacro = (FunctionMacro)theEObject;
+				T result = caseFunctionMacro(functionMacro);
+				if (result == null) result = caseModuleObject(functionMacro);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.PROXY_FUNCTION_TABLE_GROUP: {
+				ProxyFunctionTableGroup proxyFunctionTableGroup = (ProxyFunctionTableGroup)theEObject;
+				T result = caseProxyFunctionTableGroup(proxyFunctionTableGroup);
+				if (result == null) result = caseModuleObject(proxyFunctionTableGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.PRIMITIVE_TYPE: {
 				PrimitiveType primitiveType = (PrimitiveType)theEObject;
 				T result = casePrimitiveType(primitiveType);
@@ -1287,12 +1494,74 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.REDEFINITION_PRIMITIVE_TYPE: {
+				RedefinitionPrimitiveType redefinitionPrimitiveType = (RedefinitionPrimitiveType)theEObject;
+				T result = caseRedefinitionPrimitiveType(redefinitionPrimitiveType);
+				if (result == null) result = casePrimitiveType(redefinitionPrimitiveType);
+				if (result == null) result = caseRedefinitionType(redefinitionPrimitiveType);
+				if (result == null) result = caseType(redefinitionPrimitiveType);
+				if (result == null) result = caseModuleReferrable(redefinitionPrimitiveType);
+				if (result == null) result = caseModuleObject(redefinitionPrimitiveType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.ARRAY_TYPE: {
+				ArrayType arrayType = (ArrayType)theEObject;
+				T result = caseArrayType(arrayType);
+				if (result == null) result = caseType(arrayType);
+				if (result == null) result = caseModuleReferrable(arrayType);
+				if (result == null) result = caseModuleObject(arrayType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.REDEFINITION_ARRAY_TYPE: {
+				RedefinitionArrayType redefinitionArrayType = (RedefinitionArrayType)theEObject;
+				T result = caseRedefinitionArrayType(redefinitionArrayType);
+				if (result == null) result = caseArrayType(redefinitionArrayType);
+				if (result == null) result = caseRedefinitionType(redefinitionArrayType);
+				if (result == null) result = caseType(redefinitionArrayType);
+				if (result == null) result = caseModuleReferrable(redefinitionArrayType);
+				if (result == null) result = caseModuleObject(redefinitionArrayType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.UNION_TYPE: {
 				UnionType unionType = (UnionType)theEObject;
 				T result = caseUnionType(unionType);
 				if (result == null) result = caseType(unionType);
 				if (result == null) result = caseModuleReferrable(unionType);
 				if (result == null) result = caseModuleObject(unionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.REDEFINITION_UNION_TYPE: {
+				RedefinitionUnionType redefinitionUnionType = (RedefinitionUnionType)theEObject;
+				T result = caseRedefinitionUnionType(redefinitionUnionType);
+				if (result == null) result = caseUnionType(redefinitionUnionType);
+				if (result == null) result = caseRedefinitionType(redefinitionUnionType);
+				if (result == null) result = caseType(redefinitionUnionType);
+				if (result == null) result = caseModuleReferrable(redefinitionUnionType);
+				if (result == null) result = caseModuleObject(redefinitionUnionType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.STRUCT_TYPE: {
+				StructType structType = (StructType)theEObject;
+				T result = caseStructType(structType);
+				if (result == null) result = caseType(structType);
+				if (result == null) result = caseModuleReferrable(structType);
+				if (result == null) result = caseModuleObject(structType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.REDEFINITION_STRUCT_TYPE: {
+				RedefinitionStructType redefinitionStructType = (RedefinitionStructType)theEObject;
+				T result = caseRedefinitionStructType(redefinitionStructType);
+				if (result == null) result = caseStructType(redefinitionStructType);
+				if (result == null) result = caseRedefinitionType(redefinitionStructType);
+				if (result == null) result = caseType(redefinitionStructType);
+				if (result == null) result = caseModuleReferrable(redefinitionStructType);
+				if (result == null) result = caseModuleObject(redefinitionStructType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1308,6 +1577,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 			case ModulePackage.UNION_MEMBER: {
 				UnionMember unionMember = (UnionMember)theEObject;
 				T result = caseUnionMember(unionMember);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.STRUCT_MEMBER: {
+				StructMember structMember = (StructMember)theEObject;
+				T result = caseStructMember(structMember);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.MODE_TYPE: {
+				ModeType modeType = (ModeType)theEObject;
+				T result = caseModeType(modeType);
+				if (result == null) result = caseType(modeType);
+				if (result == null) result = caseModuleReferrable(modeType);
+				if (result == null) result = caseModuleObject(modeType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1351,6 +1635,26 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.MODE_QUEUE_TYPE: {
+				ModeQueueType modeQueueType = (ModeQueueType)theEObject;
+				T result = caseModeQueueType(modeQueueType);
+				if (result == null) result = caseBlackboxType(modeQueueType);
+				if (result == null) result = caseType(modeQueueType);
+				if (result == null) result = caseModuleReferrable(modeQueueType);
+				if (result == null) result = caseModuleObject(modeQueueType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE: {
+				RteSendTrustedFunctionParamType rteSendTrustedFunctionParamType = (RteSendTrustedFunctionParamType)theEObject;
+				T result = caseRteSendTrustedFunctionParamType(rteSendTrustedFunctionParamType);
+				if (result == null) result = caseBlackboxType(rteSendTrustedFunctionParamType);
+				if (result == null) result = caseType(rteSendTrustedFunctionParamType);
+				if (result == null) result = caseModuleReferrable(rteSendTrustedFunctionParamType);
+				if (result == null) result = caseModuleObject(rteSendTrustedFunctionParamType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE: {
 				ComSendTrustedFunctionParamType comSendTrustedFunctionParamType = (ComSendTrustedFunctionParamType)theEObject;
 				T result = caseComSendTrustedFunctionParamType(comSendTrustedFunctionParamType);
@@ -1358,6 +1662,16 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = caseType(comSendTrustedFunctionParamType);
 				if (result == null) result = caseModuleReferrable(comSendTrustedFunctionParamType);
 				if (result == null) result = caseModuleObject(comSendTrustedFunctionParamType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.COM_CS_TRUSTED_FUNCTION_PARAM_TYPE: {
+				ComCsTrustedFunctionParamType comCsTrustedFunctionParamType = (ComCsTrustedFunctionParamType)theEObject;
+				T result = caseComCsTrustedFunctionParamType(comCsTrustedFunctionParamType);
+				if (result == null) result = caseBlackboxType(comCsTrustedFunctionParamType);
+				if (result == null) result = caseType(comCsTrustedFunctionParamType);
+				if (result == null) result = caseModuleReferrable(comCsTrustedFunctionParamType);
+				if (result == null) result = caseModuleObject(comCsTrustedFunctionParamType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1529,6 +1843,44 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.SIGNAL_API: {
+				SignalApi signalApi = (SignalApi)theEObject;
+				T result = caseSignalApi(signalApi);
+				if (result == null) result = caseFunction(signalApi);
+				if (result == null) result = caseModuleReferrable(signalApi);
+				if (result == null) result = caseModuleObject(signalApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.PROXY_API: {
+				ProxyApi proxyApi = (ProxyApi)theEObject;
+				T result = caseProxyApi(proxyApi);
+				if (result == null) result = caseFunction(proxyApi);
+				if (result == null) result = caseModuleReferrable(proxyApi);
+				if (result == null) result = caseModuleObject(proxyApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.SEND_SIGNAL_API: {
+				SendSignalApi sendSignalApi = (SendSignalApi)theEObject;
+				T result = caseSendSignalApi(sendSignalApi);
+				if (result == null) result = caseSignalApi(sendSignalApi);
+				if (result == null) result = caseFunction(sendSignalApi);
+				if (result == null) result = caseModuleReferrable(sendSignalApi);
+				if (result == null) result = caseModuleObject(sendSignalApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.RECEIVE_SIGNAL_API: {
+				ReceiveSignalApi receiveSignalApi = (ReceiveSignalApi)theEObject;
+				T result = caseReceiveSignalApi(receiveSignalApi);
+				if (result == null) result = caseSignalApi(receiveSignalApi);
+				if (result == null) result = caseFunction(receiveSignalApi);
+				if (result == null) result = caseModuleReferrable(receiveSignalApi);
+				if (result == null) result = caseModuleObject(receiveSignalApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.SCHM_LIFECYCLE_API: {
 				SchmLifecycleApi schmLifecycleApi = (SchmLifecycleApi)theEObject;
 				T result = caseSchmLifecycleApi(schmLifecycleApi);
@@ -1558,6 +1910,53 @@ public class ModuleSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ModulePackage.SCHM_MODE_API: {
+				SchmModeApi schmModeApi = (SchmModeApi)theEObject;
+				T result = caseSchmModeApi(schmModeApi);
+				if (result == null) result = caseSchmApi(schmModeApi);
+				if (result == null) result = caseFunction(schmModeApi);
+				if (result == null) result = caseModuleReferrable(schmModeApi);
+				if (result == null) result = caseModuleObject(schmModeApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.SCHM_SWITCH_API: {
+				SchmSwitchApi schmSwitchApi = (SchmSwitchApi)theEObject;
+				T result = caseSchmSwitchApi(schmSwitchApi);
+				if (result == null) result = caseSchmApi(schmSwitchApi);
+				if (result == null) result = caseFunction(schmSwitchApi);
+				if (result == null) result = caseModuleReferrable(schmSwitchApi);
+				if (result == null) result = caseModuleObject(schmSwitchApi);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.OS_TASK_EVENTS_TRIGGERED_BY_MODE: {
+				OsTaskEventsTriggeredByMode osTaskEventsTriggeredByMode = (OsTaskEventsTriggeredByMode)theEObject;
+				T result = caseOsTaskEventsTriggeredByMode(osTaskEventsTriggeredByMode);
+				if (result == null) result = caseModuleReferrable(osTaskEventsTriggeredByMode);
+				if (result == null) result = caseModuleObject(osTaskEventsTriggeredByMode);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.OS_TASK_EVENT: {
+				OsTaskEvent osTaskEvent = (OsTaskEvent)theEObject;
+				T result = caseOsTaskEvent(osTaskEvent);
+				if (result == null) result = caseModuleReferrable(osTaskEvent);
+				if (result == null) result = caseModuleObject(osTaskEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.MODE_QUEUED_VARIABLE: {
+				ModeQueuedVariable modeQueuedVariable = (ModeQueuedVariable)theEObject;
+				T result = caseModeQueuedVariable(modeQueuedVariable);
+				if (result == null) result = caseGlobalVariable(modeQueuedVariable);
+				if (result == null) result = caseVariable(modeQueuedVariable);
+				if (result == null) result = caseValue(modeQueuedVariable);
+				if (result == null) result = caseModuleReferrable(modeQueuedVariable);
+				if (result == null) result = caseModuleObject(modeQueuedVariable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ModulePackage.MODULE_INTERLINK_HEADER: {
 				ModuleInterlinkHeader moduleInterlinkHeader = (ModuleInterlinkHeader)theEObject;
 				T result = caseModuleInterlinkHeader(moduleInterlinkHeader);
@@ -1573,6 +1972,22 @@ public class ModuleSwitch<T> extends Switch<T> {
 				T result = caseSchmApiGroup(schmApiGroup);
 				if (result == null) result = caseFunctionGroup(schmApiGroup);
 				if (result == null) result = caseModuleObject(schmApiGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.SIGNAL_API_GROUP: {
+				SignalApiGroup signalApiGroup = (SignalApiGroup)theEObject;
+				T result = caseSignalApiGroup(signalApiGroup);
+				if (result == null) result = caseFunctionGroup(signalApiGroup);
+				if (result == null) result = caseModuleObject(signalApiGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.PROXY_API_GROUP: {
+				ProxyApiGroup proxyApiGroup = (ProxyApiGroup)theEObject;
+				T result = caseProxyApiGroup(proxyApiGroup);
+				if (result == null) result = caseFunctionGroup(proxyApiGroup);
+				if (result == null) result = caseModuleObject(proxyApiGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1657,10 +2072,40 @@ public class ModuleSwitch<T> extends Switch<T> {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL: {
 				SchmCoreInitApiImpl schmCoreInitApiImpl = (SchmCoreInitApiImpl)theEObject;
 				T result = caseSchmCoreInitApiImpl(schmCoreInitApiImpl);
+				if (result == null) result = caseSchmInitApi(schmCoreInitApiImpl);
 				if (result == null) result = caseSchmLifecycleApi(schmCoreInitApiImpl);
 				if (result == null) result = caseFunction(schmCoreInitApiImpl);
 				if (result == null) result = caseModuleReferrable(schmCoreInitApiImpl);
 				if (result == null) result = caseModuleObject(schmCoreInitApiImpl);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.POINTER_TYPE: {
+				PointerType pointerType = (PointerType)theEObject;
+				T result = casePointerType(pointerType);
+				if (result == null) result = caseType(pointerType);
+				if (result == null) result = caseModuleReferrable(pointerType);
+				if (result == null) result = caseModuleObject(pointerType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.REDEFINITION_POINTER_TYPE: {
+				RedefinitionPointerType redefinitionPointerType = (RedefinitionPointerType)theEObject;
+				T result = caseRedefinitionPointerType(redefinitionPointerType);
+				if (result == null) result = casePointerType(redefinitionPointerType);
+				if (result == null) result = caseRedefinitionType(redefinitionPointerType);
+				if (result == null) result = caseType(redefinitionPointerType);
+				if (result == null) result = caseModuleReferrable(redefinitionPointerType);
+				if (result == null) result = caseModuleObject(redefinitionPointerType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModulePackage.REDEFINITION_TYPE: {
+				RedefinitionType redefinitionType = (RedefinitionType)theEObject;
+				T result = caseRedefinitionType(redefinitionType);
+				if (result == null) result = caseType(redefinitionType);
+				if (result == null) result = caseModuleReferrable(redefinitionType);
+				if (result == null) result = caseModuleObject(redefinitionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1804,6 +2249,66 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Irv Read Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Irv Read Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIrvReadOperation(IrvReadOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Irv Read Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Irv Read Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIrvReadApi(IrvReadApi object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Irv Write Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Irv Write Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIrvWriteOperation(IrvWriteOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Irv Write Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Irv Write Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIrvWriteApi(IrvWriteApi object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Rte Buffer Variable Set</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1815,6 +2320,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRteBufferVariableSet(RteBufferVariableSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Global Variable Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Global Variable Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGlobalVariableSet(GlobalVariableSet object) {
 		return null;
 	}
 
@@ -2044,6 +2564,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Bsw Api Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Bsw Api Header</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteBswApiHeader(RteBswApiHeader object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Rte Lifecycle Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2175,6 +2710,36 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDirectComSendOperation(DirectComSendOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trusted Function Rte Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trusted Function Rte Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTrustedFunctionRteOperation(TrustedFunctionRteOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Trusted Function Rte Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Trusted Function Rte Send Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTrustedFunctionRteSendOperation(TrustedFunctionRteSendOperation object) {
 		return null;
 	}
 
@@ -2400,6 +2965,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComInvalidateCallback(ComInvalidateCallback object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Send Signal Proxy Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Send Signal Proxy Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComSendSignalProxyEntity(ComSendSignalProxyEntity object) {
 		return null;
 	}
 
@@ -2749,6 +3329,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Ioc Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Ioc Send Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIocSendOperation(IocSendOperation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ioc Queued Send Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2794,6 +3389,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Trusted Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Trusted Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallTrustedApi(CallTrustedApi object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Executable Start Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2805,6 +3415,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExecutableStartOperation(ExecutableStartOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Disabled In Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Disabled In Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisabledInMode(DisabledInMode object) {
 		return null;
 	}
 
@@ -2899,6 +3524,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>None Exclude Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>None Exclude Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNoneExcludeOperation(NoneExcludeOperation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Constant</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -2910,6 +3550,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConstant(Constant object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Constant Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Constant Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstantMember(ConstantMember object) {
 		return null;
 	}
 
@@ -3045,6 +3700,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingTriggeringExecutableStartOperation(TimingTriggeringExecutableStartOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Switch Triggering Executable Start Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Switch Triggering Executable Start Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeSwitchTriggeringExecutableStartOperation(ModeSwitchTriggeringExecutableStartOperation object) {
 		return null;
 	}
 
@@ -3274,6 +3944,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Send Proxy Complex Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Send Proxy Complex Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComSendProxyComplexOperation(ComSendProxyComplexOperation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Ioc Receive Group Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3420,6 +4105,36 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRteBufferWriteTrustedFunction(RteBufferWriteTrustedFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Cs Trusted Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Cs Trusted Function</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteCsTrustedFunction(RteCsTrustedFunction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Cs Trusted Runnables</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Cs Trusted Runnables</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteCsTrustedRunnables(RteCsTrustedRunnables object) {
 		return null;
 	}
 
@@ -3589,6 +4304,81 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Request Variable Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Request Variable Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeRequestVariableSet(ModeRequestVariableSet object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Machine Instance</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Machine Instance</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeMachineInstance(ModeMachineInstance object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Macro Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Macro Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionMacroGroup(FunctionMacroGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Function Macro</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Function Macro</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionMacro(FunctionMacro object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy Function Table Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy Function Table Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyFunctionTableGroup(ProxyFunctionTableGroup object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3604,6 +4394,66 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeType(ModeType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Primitive Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Primitive Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionPrimitiveType(RedefinitionPrimitiveType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Array Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArrayType(ArrayType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Array Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionArrayType(RedefinitionArrayType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Union Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3615,6 +4465,51 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnionType(UnionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Union Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Union Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionUnionType(RedefinitionUnionType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Struct Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStructType(StructType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Struct Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionStructType(RedefinitionStructType object) {
 		return null;
 	}
 
@@ -3645,6 +4540,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUnionMember(UnionMember object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Struct Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Struct Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseStructMember(StructMember object) {
 		return null;
 	}
 
@@ -3709,6 +4619,36 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Queue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Queue Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeQueueType(ModeQueueType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Send Trusted Function Param Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteSendTrustedFunctionParamType(RteSendTrustedFunctionParamType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Com Send Trusted Function Param Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3720,6 +4660,21 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComSendTrustedFunctionParamType(ComSendTrustedFunctionParamType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Cs Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Cs Trusted Function Param Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComCsTrustedFunctionParamType(ComCsTrustedFunctionParamType object) {
 		return null;
 	}
 
@@ -4024,6 +4979,66 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Signal Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Signal Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSignalApi(SignalApi object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyApi(ProxyApi object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Send Signal Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Send Signal Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSendSignalApi(SendSignalApi object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Receive Signal Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Receive Signal Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseReceiveSignalApi(ReceiveSignalApi object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Schm Lifecycle Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4069,6 +5084,81 @@ public class ModuleSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schm Switch Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schm Switch Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchmSwitchApi(SchmSwitchApi object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Os Task Events Triggered By Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Os Task Events Triggered By Mode</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOsTaskEventsTriggeredByMode(OsTaskEventsTriggeredByMode object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Os Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Os Task Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOsTaskEvent(OsTaskEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Mode Queued Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Mode Queued Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseModeQueuedVariable(ModeQueuedVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schm Mode Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schm Mode Api</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchmModeApi(SchmModeApi object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Interlink Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -4095,6 +5185,36 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchmApiGroup(SchmApiGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Signal Api Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Signal Api Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSignalApiGroup(SignalApiGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy Api Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy Api Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyApiGroup(ProxyApiGroup object) {
 		return null;
 	}
 
@@ -4230,6 +5350,51 @@ public class ModuleSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchmCoreInitApiImpl(SchmCoreInitApiImpl object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pointer Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePointerType(PointerType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Pointer Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionPointerType(RedefinitionPointerType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Redefinition Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Redefinition Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRedefinitionType(RedefinitionType object) {
 		return null;
 	}
 

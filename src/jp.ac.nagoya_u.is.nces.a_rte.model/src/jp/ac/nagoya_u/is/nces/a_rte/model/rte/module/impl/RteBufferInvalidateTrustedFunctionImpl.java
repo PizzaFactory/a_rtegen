@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,7 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -75,7 +75,7 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected RteBufferNonqueuedSendOperation operation;
+	protected SendOperation operation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,7 +101,7 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteBufferNonqueuedSendOperation getOperation() {
+	public SendOperation getOperation() {
 		return operation;
 	}
 
@@ -110,8 +110,8 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperation(RteBufferNonqueuedSendOperation newOperation, NotificationChain msgs) {
-		RteBufferNonqueuedSendOperation oldOperation = operation;
+	public NotificationChain basicSetOperation(SendOperation newOperation, NotificationChain msgs) {
+		SendOperation oldOperation = operation;
 		operation = newOperation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION, oldOperation, newOperation);
@@ -125,7 +125,7 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(RteBufferNonqueuedSendOperation newOperation) {
+	public void setOperation(SendOperation newOperation) {
 		if (newOperation != operation) {
 			NotificationChain msgs = null;
 			if (operation != null)
@@ -176,7 +176,7 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION:
-				setOperation((RteBufferNonqueuedSendOperation)newValue);
+				setOperation((SendOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,7 +191,7 @@ public class RteBufferInvalidateTrustedFunctionImpl extends TrustedFunctionImpl 
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION:
-				setOperation((RteBufferNonqueuedSendOperation)null);
+				setOperation((SendOperation)null);
 				return;
 		}
 		super.eUnset(featureID);

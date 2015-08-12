@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -149,14 +149,14 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected ComSendSignalImmediateEntity comSendSignalImmediateEntity;
 
 	/**
-	 * The cached value of the '{@link #getComSendSignalTrustedFunction() <em>Com Send Signal Trusted Function</em>}' containment reference.
+	 * The cached value of the '{@link #getComSendSignalTrustedFunction() <em>Com Send Signal Trusted Function</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComSendSignalTrustedFunction()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComSendSignalTrustedFunction comSendSignalTrustedFunction;
+	protected EList<ComSendSignalTrustedFunction> comSendSignalTrustedFunction;
 
 	/**
 	 * The cached value of the '{@link #getDependentType() <em>Dependent Type</em>}' containment reference list.
@@ -452,42 +452,11 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComSendSignalTrustedFunction getComSendSignalTrustedFunction() {
+	public EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction() {
+		if (comSendSignalTrustedFunction == null) {
+			comSendSignalTrustedFunction = new EObjectContainmentEList<ComSendSignalTrustedFunction>(ComSendSignalTrustedFunction.class, this, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION);
+		}
 		return comSendSignalTrustedFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComSendSignalTrustedFunction(ComSendSignalTrustedFunction newComSendSignalTrustedFunction, NotificationChain msgs) {
-		ComSendSignalTrustedFunction oldComSendSignalTrustedFunction = comSendSignalTrustedFunction;
-		comSendSignalTrustedFunction = newComSendSignalTrustedFunction;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, oldComSendSignalTrustedFunction, newComSendSignalTrustedFunction);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComSendSignalTrustedFunction(ComSendSignalTrustedFunction newComSendSignalTrustedFunction) {
-		if (newComSendSignalTrustedFunction != comSendSignalTrustedFunction) {
-			NotificationChain msgs = null;
-			if (comSendSignalTrustedFunction != null)
-				msgs = ((InternalEObject)comSendSignalTrustedFunction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, null, msgs);
-			if (newComSendSignalTrustedFunction != null)
-				msgs = ((InternalEObject)newComSendSignalTrustedFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, null, msgs);
-			msgs = basicSetComSendSignalTrustedFunction(newComSendSignalTrustedFunction, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, newComSendSignalTrustedFunction, newComSendSignalTrustedFunction));
 	}
 
 	/**
@@ -885,7 +854,7 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
 				return basicSetComSendSignalImmediateEntity(null, msgs);
 			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				return basicSetComSendSignalTrustedFunction(null, msgs);
+				return ((InternalEList<?>)getComSendSignalTrustedFunction()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				return ((InternalEList<?>)getDependentType()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__RTE_TYPE:
@@ -1000,7 +969,8 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)newValue);
 				return;
 			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				setComSendSignalTrustedFunction((ComSendSignalTrustedFunction)newValue);
+				getComSendSignalTrustedFunction().clear();
+				getComSendSignalTrustedFunction().addAll((Collection<? extends ComSendSignalTrustedFunction>)newValue);
 				return;
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				getDependentType().clear();
@@ -1085,7 +1055,7 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)null);
 				return;
 			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				setComSendSignalTrustedFunction((ComSendSignalTrustedFunction)null);
+				getComSendSignalTrustedFunction().clear();
 				return;
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				getDependentType().clear();
@@ -1156,7 +1126,7 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
 				return comSendSignalImmediateEntity != null;
 			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				return comSendSignalTrustedFunction != null;
+				return comSendSignalTrustedFunction != null && !comSendSignalTrustedFunction.isEmpty();
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				return dependentType != null && !dependentType.isEmpty();
 			case ModulePackage.RTE__RTE_TYPE:

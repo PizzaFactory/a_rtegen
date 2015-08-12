@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -84,6 +84,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
@@ -107,7 +109,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ValueBufferImplementat
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.VariableImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -400,6 +401,13 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass modeSwitchTriggeringEntityStartImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass runnableEntityStartInteractionEClass = null;
 
 	/**
@@ -450,6 +458,13 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * @generated
 	 */
 	private EClass timingEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeSwitchEventEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -657,7 +672,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExternalEcuSender_Source() {
+	public EReference getExternalEcuSender_SourceSignal() {
 		return (EReference)externalEcuSenderEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -666,8 +681,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalEcuSender_RequiresRteFilter() {
-		return (EAttribute)externalEcuSenderEClass.getEStructuralFeatures().get(1);
+	public EReference getExternalEcuSender_SourceSignalGroup() {
+		return (EReference)externalEcuSenderEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -675,7 +690,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalEcuSender_RequiresRteInvalidation() {
+	public EAttribute getExternalEcuSender_RequiresRteFilter() {
 		return (EAttribute)externalEcuSenderEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -684,8 +699,17 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getExternalEcuSender_RequiresRteInitialization() {
+	public EAttribute getExternalEcuSender_RequiresRteInvalidation() {
 		return (EAttribute)externalEcuSenderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExternalEcuSender_RequiresRteInitialization() {
+		return (EAttribute)externalEcuSenderEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -999,6 +1023,24 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRteValueBufferImplementation_ComSignal() {
+		return (EReference)rteValueBufferImplementationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteValueBufferImplementation_ComSignalGroup() {
+		return (EReference)rteValueBufferImplementationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExternalEcuReceiver() {
 		return externalEcuReceiverEClass;
 	}
@@ -1008,8 +1050,17 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExternalEcuReceiver_Source() {
+	public EReference getExternalEcuReceiver_SourceSignal() {
 		return (EReference)externalEcuReceiverEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExternalEcuReceiver_SourceSignalGroup() {
+		return (EReference)externalEcuReceiverEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1152,6 +1203,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getComValueBufferImplementation_ComSignalGroup() {
+		return (EReference)comValueBufferImplementationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVariableImplementation() {
 		return variableImplementationEClass;
 	}
@@ -1208,6 +1268,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EReference getComSendImplementation_ComSignal() {
 		return (EReference)comSendImplementationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSendImplementation_ComSignalGroup() {
+		return (EReference)comSendImplementationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1332,8 +1401,17 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendProxyInteraction_Proxy() {
+	public EReference getComSendProxyInteraction_OsIocCommunicationForComplexValue() {
 		return (EReference)comSendProxyInteractionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSendProxyInteraction_Proxy() {
+		return (EReference)comSendProxyInteractionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1593,6 +1671,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModeSwitchTriggeringEntityStartImplementation() {
+		return modeSwitchTriggeringEntityStartImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRunnableEntityStartInteraction() {
 		return runnableEntityStartInteractionEClass;
 	}
@@ -1791,6 +1878,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEvent_BswEvent() {
+		return (EReference)eventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTimingEvent() {
 		return timingEventEClass;
 	}
@@ -1802,6 +1898,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EAttribute getTimingEvent_Period() {
 		return (EAttribute)timingEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeSwitchEvent() {
+		return modeSwitchEventEClass;
 	}
 
 	/**
@@ -1849,7 +1954,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEReference(internalEcuSenderEClass, INTERNAL_ECU_SENDER__SOURCE);
 
 		externalEcuSenderEClass = createEClass(EXTERNAL_ECU_SENDER);
-		createEReference(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__SOURCE);
+		createEReference(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__SOURCE_SIGNAL);
+		createEReference(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP);
 		createEAttribute(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER);
 		createEAttribute(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION);
 		createEAttribute(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__REQUIRES_RTE_INITIALIZATION);
@@ -1893,9 +1999,12 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEAttribute(valueBufferImplementationEClass, VALUE_BUFFER_IMPLEMENTATION__HAS_STATUS);
 
 		rteValueBufferImplementationEClass = createEClass(RTE_VALUE_BUFFER_IMPLEMENTATION);
+		createEReference(rteValueBufferImplementationEClass, RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL);
+		createEReference(rteValueBufferImplementationEClass, RTE_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP);
 
 		externalEcuReceiverEClass = createEClass(EXTERNAL_ECU_RECEIVER);
-		createEReference(externalEcuReceiverEClass, EXTERNAL_ECU_RECEIVER__SOURCE);
+		createEReference(externalEcuReceiverEClass, EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL);
+		createEReference(externalEcuReceiverEClass, EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP);
 
 		sendImplementationEClass = createEClass(SEND_IMPLEMENTATION);
 		createEReference(sendImplementationEClass, SEND_IMPLEMENTATION__PARENT);
@@ -1921,6 +2030,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		comValueBufferImplementationEClass = createEClass(COM_VALUE_BUFFER_IMPLEMENTATION);
 		createEReference(comValueBufferImplementationEClass, COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL);
+		createEReference(comValueBufferImplementationEClass, COM_VALUE_BUFFER_IMPLEMENTATION__COM_SIGNAL_GROUP);
 
 		variableImplementationEClass = createEClass(VARIABLE_IMPLEMENTATION);
 		createEReference(variableImplementationEClass, VARIABLE_IMPLEMENTATION__OWNER_PARTITION);
@@ -1931,6 +2041,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		comSendImplementationEClass = createEClass(COM_SEND_IMPLEMENTATION);
 		createEReference(comSendImplementationEClass, COM_SEND_IMPLEMENTATION__COM_SIGNAL);
+		createEReference(comSendImplementationEClass, COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP);
 
 		interactionRootEClass = createEClass(INTERACTION_ROOT);
 		createEReference(interactionRootEClass, INTERACTION_ROOT__INTERACTION_END);
@@ -1948,6 +2059,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION);
+		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION_FOR_COMPLEX_VALUE);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__PROXY);
 
 		comSendProxyEClass = createEClass(COM_SEND_PROXY);
@@ -1988,6 +2100,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEOperation(timingTriggeringEntityStartImplementationEClass, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_CYCLE_ADJUST);
 		createEOperation(timingTriggeringEntityStartImplementationEClass, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST);
 
+		modeSwitchTriggeringEntityStartImplementationEClass = createEClass(MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION);
+
 		runnableEntityStartInteractionEClass = createEClass(RUNNABLE_ENTITY_START_INTERACTION);
 
 		startOffsetCounterImplementationEClass = createEClass(START_OFFSET_COUNTER_IMPLEMENTATION);
@@ -2016,9 +2130,12 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__START_ON_EVENT);
+		createEReference(eventEClass, EVENT__BSW_EVENT);
 
 		timingEventEClass = createEClass(TIMING_EVENT);
 		createEAttribute(timingEventEClass, TIMING_EVENT__PERIOD);
+
+		modeSwitchEventEClass = createEClass(MODE_SWITCH_EVENT);
 	}
 
 	/**
@@ -2092,6 +2209,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		entityStartInteractionEClass.getESuperTypes().add(this.getInteraction());
 		entityStartImplementationEClass.getESuperTypes().add(this.getInteractionObject());
 		timingTriggeringEntityStartImplementationEClass.getESuperTypes().add(this.getEntityStartImplementation());
+		modeSwitchTriggeringEntityStartImplementationEClass.getESuperTypes().add(this.getEntityStartImplementation());
 		runnableEntityStartInteractionEClass.getESuperTypes().add(this.getEntityStartInteraction());
 		startOffsetCounterImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
 		cycleCounterImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
@@ -2100,6 +2218,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		eventToTaskMappingEClass.getESuperTypes().add(this.getInteractionObject());
 		eventEClass.getESuperTypes().add(this.getInteractionObject());
 		timingEventEClass.getESuperTypes().add(this.getEvent());
+		modeSwitchEventEClass.getESuperTypes().add(this.getEvent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(interactionObjectEClass, InteractionObject.class, "InteractionObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2124,7 +2243,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEReference(getInternalEcuSender_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalEcuSenderEClass, ExternalEcuSender.class, "ExternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalEcuSender_Source(), theEcucPackage.getComSignal(), null, "source", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalEcuSender_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalEcuSender_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalEcuSender_RequiresRteFilter(), theM2Package.getBoolean(), "requiresRteFilter", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalEcuSender_RequiresRteInvalidation(), theM2Package.getBoolean(), "requiresRteInvalidation", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getExternalEcuSender_RequiresRteInitialization(), theM2Package.getBoolean(), "requiresRteInitialization", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2185,9 +2305,12 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEAttribute(getValueBufferImplementation_HasStatus(), theM2Package.getBoolean(), "hasStatus", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteValueBufferImplementationEClass, RteValueBufferImplementation.class, "RteValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteValueBufferImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, RteValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteValueBufferImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, RteValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(externalEcuReceiverEClass, ExternalEcuReceiver.class, "ExternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalEcuReceiver_Source(), theEcucPackage.getComSignal(), null, "source", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalEcuReceiver_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExternalEcuReceiver_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sendImplementationEClass, SendImplementation.class, "SendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSendImplementation_Parent(), this.getSendInteraction(), this.getSendInteraction_Implementation(), "parent", null, 1, 1, SendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2213,6 +2336,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEClass(comValueBufferImplementationEClass, ComValueBufferImplementation.class, "ComValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComValueBufferImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComValueBufferImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableImplementationEClass, VariableImplementation.class, "VariableImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableImplementation_OwnerPartition(), theEcucPackage.getEcucPartition(), null, "ownerPartition", null, 0, 1, VariableImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2224,6 +2348,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEClass(comSendImplementationEClass, ComSendImplementation.class, "ComSendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSendImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(interactionRootEClass, InteractionRoot.class, "InteractionRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInteractionRoot_InteractionEnd(), this.getInteractionEnd(), null, "interactionEnd", null, 0, -1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2241,6 +2366,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEReference(getComSendProxyInteraction_RequesterPartition(), theEcucPackage.getEcucPartition(), null, "requesterPartition", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComSendProxyInteraction_SignalDataType(), theM2Package.getImplementationDataType(), null, "signalDataType", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComSendProxyInteraction_OsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "osIocCommunication", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendProxyInteraction_OsIocCommunicationForComplexValue(), theEcucPackage.getOsIocCommunication(), null, "osIocCommunicationForComplexValue", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComSendProxyInteraction_Proxy(), this.getComSendProxy(), this.getComSendProxy_Interaction(), "proxy", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendProxyEClass, ComSendProxy.class, "ComSendProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2285,6 +2411,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust(), theM2Package.getBoolean(), "requiresStartOffsetAdjust", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(modeSwitchTriggeringEntityStartImplementationEClass, ModeSwitchTriggeringEntityStartImplementation.class, "ModeSwitchTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(runnableEntityStartInteractionEClass, RunnableEntityStartInteraction.class, "RunnableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(startOffsetCounterImplementationEClass, StartOffsetCounterImplementation.class, "StartOffsetCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2313,9 +2441,12 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_StartOnEvent(), theM2Package.getExecutableEntity(), null, "startOnEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEvent_BswEvent(), theM2Package.getBswEvent(), null, "bswEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTimingEvent_Period(), theM2Package.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeSwitchEventEClass, ModeSwitchEvent.class, "ModeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore

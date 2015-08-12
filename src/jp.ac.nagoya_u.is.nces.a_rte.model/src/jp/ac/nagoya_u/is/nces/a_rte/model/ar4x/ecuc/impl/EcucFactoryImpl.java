@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -99,6 +99,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 		switch (eClass.getClassifierID()) {
 			case EcucPackage.RTE: return (EObject)createRte();
 			case EcucPackage.RTE_GENERATION: return (EObject)createRteGeneration();
+			case EcucPackage.RTE_BSW_GENERAL: return (EObject)createRteBswGeneral();
 			case EcucPackage.ECUC_ROOT: return (EObject)createEcucRoot();
 			case EcucPackage.RTE_SW_COMPONENT_INSTANCE: return (EObject)createRteSwComponentInstance();
 			case EcucPackage.RTE_EVENT_TO_TASK_MAPPING: return (EObject)createRteEventToTaskMapping();
@@ -109,6 +110,8 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.COM: return (EObject)createCom();
 			case EcucPackage.COM_CONFIG: return (EObject)createComConfig();
 			case EcucPackage.COM_SIGNAL: return (EObject)createComSignal();
+			case EcucPackage.COM_SIGNAL_GROUP: return (EObject)createComSignalGroup();
+			case EcucPackage.COM_GROUP_SIGNAL: return (EObject)createComGroupSignal();
 			case EcucPackage.OS_ALARM: return (EObject)createOsAlarm();
 			case EcucPackage.OS_RESOURCE: return (EObject)createOsResource();
 			case EcucPackage.OS_APPLICATION: return (EObject)createOsApplication();
@@ -127,6 +130,9 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.OS_APPLICATION_TRUSTED_FUNCTION: return (EObject)createOsApplicationTrustedFunction();
 			case EcucPackage.OS_OS: return (EObject)createOsOS();
 			case EcucPackage.RTE_BSW_EVENT_TO_TASK_MAPPING: return (EObject)createRteBswEventToTaskMapping();
+			case EcucPackage.RTE_BSW_PROVIDED_MODE_GROUP_REF: return (EObject)createRteBswProvidedModeGroupRef();
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_REF: return (EObject)createRteBswRequiredModeGroupRef();
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION: return (EObject)createRteBswRequiredModeGroupConnection();
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE: return (EObject)createRteBswModuleInstance();
 			case EcucPackage.RTE_BSW_EXCLUSIVE_AREA_IMPL: return (EObject)createRteBswExclusiveAreaImpl();
 			default:
@@ -198,6 +204,16 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	public RteGeneration createRteGeneration() {
 		RteGenerationImpl rteGeneration = new RteGenerationImpl();
 		return rteGeneration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswGeneral createRteBswGeneral() {
+		RteBswGeneralImpl rteBswGeneral = new RteBswGeneralImpl();
+		return rteBswGeneral;
 	}
 
 	/**
@@ -298,6 +314,26 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	public ComSignal createComSignal() {
 		ComSignalImpl comSignal = new ComSignalImpl();
 		return comSignal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalGroup createComSignalGroup() {
+		ComSignalGroupImpl comSignalGroup = new ComSignalGroupImpl();
+		return comSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComGroupSignal createComGroupSignal() {
+		ComGroupSignalImpl comGroupSignal = new ComGroupSignalImpl();
+		return comGroupSignal;
 	}
 
 	/**
@@ -478,6 +514,36 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	public RteBswEventToTaskMapping createRteBswEventToTaskMapping() {
 		RteBswEventToTaskMappingImpl rteBswEventToTaskMapping = new RteBswEventToTaskMappingImpl();
 		return rteBswEventToTaskMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswProvidedModeGroupRef createRteBswProvidedModeGroupRef() {
+		RteBswProvidedModeGroupRefImpl rteBswProvidedModeGroupRef = new RteBswProvidedModeGroupRefImpl();
+		return rteBswProvidedModeGroupRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswRequiredModeGroupRef createRteBswRequiredModeGroupRef() {
+		RteBswRequiredModeGroupRefImpl rteBswRequiredModeGroupRef = new RteBswRequiredModeGroupRefImpl();
+		return rteBswRequiredModeGroupRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswRequiredModeGroupConnection createRteBswRequiredModeGroupConnection() {
+		RteBswRequiredModeGroupConnectionImpl rteBswRequiredModeGroupConnection = new RteBswRequiredModeGroupConnectionImpl();
+		return rteBswRequiredModeGroupConnection;
 	}
 
 	/**

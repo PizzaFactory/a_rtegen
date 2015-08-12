@@ -3,7 +3,7 @@ rem #
 rem #  TOPPERS/A-RTEGEN
 rem #      Automotive Runtime Environment Generator
 rem #
-rem #  Copyright (C) 2014 by FUJI SOFT INCORPORATED, JAPAN
+rem #  Copyright (C) 2014-2015 by FUJI SOFT INCORPORATED, JAPAN
 rem #
 rem #  上記著作権者は，以下の(1)～(4)の条件を満たす場合に限り，本ソフトウェ
 rem #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,9 +42,9 @@ rem #
 rem #  $Id: hsbv850e2fg4_cx_common.yaml 470 2014-10-10 05:33:29Z ksigihar $
 rem #
 
-del /F Rte* SchM* Com* PduR* CanIf* Can* Makefile* *.arxml
+del /F Rte* SchM* Com* PduR* CanIf* Can* Makefile* *.arxml cfg1_out.*
 del /F atk2-sc1.mtpj *.mtud
-rmdir /S /Q cfg kernel DefaultBuild
+rmdir /S /Q cancfg cfg kernel DefaultBuild
 
 @pause
 exit

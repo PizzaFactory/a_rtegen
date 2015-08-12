@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,7 +42,9 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.test_module.builder;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_GROUP_SIGNAL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_APPLICATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_APPLICATION_TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_EVENT;
@@ -66,7 +68,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.FileNames;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.test_module.util.TestFileNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplicationTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
@@ -75,6 +79,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsSpinlock;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader;
@@ -93,6 +98,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestModule;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.SwcMockHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.SwcMockSource;
+
+import com.google.common.collect.Lists;
 
 public class RteTestFileModelBuilder {
 
@@ -234,6 +241,8 @@ public class RteTestFileModelBuilder {
 
 	private void buildComStubConstants(RteTest targetRteTest) {
 		int comSignalIndex = 1;
+		int comSignalGroupIndex = 1;
+		int comGroupSignalIndex = 1;
 		for (ComSignal sourceComSignal : this.context.query.<ComSignal> findByKind(COM_SIGNAL)) {
 			Constant constant = ModuleFactory.eINSTANCE.createConstant();
 			constant.setSymbolName(SymbolNames.createComSignalSymbolicName(sourceComSignal));
@@ -242,6 +251,24 @@ public class RteTestFileModelBuilder {
 			targetRteTest.getComStubConstant().add(constant);
 
 			comSignalIndex++;
+		}
+		for (ComSignalGroup sourceComSignalGroup : this.context.query.<ComSignalGroup> findByKind(COM_SIGNAL_GROUP)) {
+			Constant constant = ModuleFactory.eINSTANCE.createConstant();
+			constant.setSymbolName(SymbolNames.createComSignalGroupSymbolicName(sourceComSignalGroup));
+			constant.setType(this.context.cache.comSignalIdType);
+			constant.setValue(String.valueOf(comSignalGroupIndex));
+			targetRteTest.getComStubConstant().add(constant);
+
+			comSignalGroupIndex++;
+		}
+		for (ComGroupSignal sourceComGroupSignal : this.context.query.<ComGroupSignal> findByKind(COM_GROUP_SIGNAL)) {
+			Constant constant = ModuleFactory.eINSTANCE.createConstant();
+			constant.setSymbolName(SymbolNames.createComGroupSignalSymbolicName(sourceComGroupSignal));
+			constant.setType(this.context.cache.comSignalIdType);
+			constant.setValue(String.valueOf(comGroupSignalIndex));
+			targetRteTest.getComStubConstant().add(constant);
+
+			comGroupSignalIndex++;
 		}
 	}
 
@@ -267,7 +294,7 @@ public class RteTestFileModelBuilder {
 		IocMockSource mockSource = RteTestFactory.eINSTANCE.createIocMockSource();
 		mockSource.setFileName(TestFileNames.IOC_MOCK_SOURCE_NAME);
 		mockSource.getDependentHeaders().add(mockHeader);
-		mockSource.getIocApi().addAll(this.context.query.<IocApi> findByKind(IOC_API));
+		mockSource.getIocApi().addAll(getUniqueIocApis());
 		return mockSource;
 	}
 
@@ -276,10 +303,30 @@ public class RteTestFileModelBuilder {
 		mockHeader.setFileName(TestFileNames.IOC_MOCK_HEADER_NAME);
 		mockHeader.setGuardName(TestFileNames.IOC_MOCK_HEADER_GUARD_NAME);
 		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
-		mockHeader.getIocApi().addAll(this.context.query.<IocApi> findByKind(IOC_API));
+		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
+		mockHeader.getIocApi().addAll(getUniqueIocApis());
 		return mockHeader;
 	}
 
+	private List<IocApi> getUniqueIocApis() {
+		List<IocApi> apis = Lists.newArrayList();
+		for (IocApi iocApi : this.context.query.<IocApi> findByKind(IOC_API)) {
+			if (!hasSameSymbolIocApi(apis, iocApi)) {
+				apis.add(iocApi);
+			}
+		}
+		return apis;
+	}
+	
+	private boolean hasSameSymbolIocApi(List<IocApi> apis, IocApi api) {
+		for (IocApi iocApi : apis) {
+			if (iocApi.getSymbolName().equals(api.getSymbolName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	private void buildSwcMocks(RteTestModule targetTestModule) throws ModelException {
 		for (Swc sourceSwc : this.context.query.<Swc> findByKind(SWC)) {
 			SwcMockHeader mockHeader = createSwcMockHeader(sourceSwc);
@@ -296,7 +343,11 @@ public class RteTestFileModelBuilder {
 		mockSource.getDependentHeaders().add(applicationHeader);
 		mockSource.getDependentHeaders().add(mockHeader);
 		mockSource.setSwcName(sourceSwc.getCompartmentName());
-		mockSource.getExecutableEntity().addAll(sourceSwc.getDependentExecutableEntity());
+		for (ExecutableEntity executableEntity : sourceSwc.getDependentExecutableEntity()) {
+			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) {
+				mockSource.getExecutableEntity().add(executableEntity);
+			}
+		}
 		return mockSource;
 	}
 
@@ -305,8 +356,13 @@ public class RteTestFileModelBuilder {
 		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceSwc.getCompartmentName() + FileNames.H_POSTFIX);
 		mockHeader.setGuardName(TestFileNames.MOCK_HEADER_GUARD_NAME_PREFIX + sourceSwc.getCompartmentName() + TestFileNames.HEADER_GUARD_NAME_POSTFIX);
 		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
+		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
 		mockHeader.setSwcName(sourceSwc.getCompartmentName());
-		mockHeader.getExecutableEntity().addAll(sourceSwc.getDependentExecutableEntity());
+		for (ExecutableEntity executableEntity : sourceSwc.getDependentExecutableEntity()) {
+			if (executableEntity.getIsNoMock() == null || !executableEntity.getIsNoMock()) {
+				mockHeader.getExecutableEntity().add(executableEntity);
+			}
+		}
 		return mockHeader;
 	}
 	private void buildBswmMocks(RteTestModule targetTestModule) throws ModelException {
@@ -336,6 +392,7 @@ public class RteTestFileModelBuilder {
 		mockHeader.setFileName(TestFileNames.MOCK_FILE_NAME_PREFIX + sourceBswm.getCompartmentName() + FileNames.H_POSTFIX);
 		mockHeader.setGuardName(TestFileNames.MOCK_HEADER_GUARD_NAME_PREFIX + sourceBswm.getCompartmentName() + TestFileNames.HEADER_GUARD_NAME_POSTFIX);
 		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteTypeHeader());
+		mockHeader.getDependentHeaders().add(this.context.cache.rteModule.getRteBswApiHeader());
 		mockHeader.setBswmName(sourceBswm.getCompartmentName());
 		for (PartedBswm partedBswm : sourceBswm.getPartedBswm()) {
 			mockHeader.getExecutableEntity().addAll(partedBswm.getDependentExecutableEntity());

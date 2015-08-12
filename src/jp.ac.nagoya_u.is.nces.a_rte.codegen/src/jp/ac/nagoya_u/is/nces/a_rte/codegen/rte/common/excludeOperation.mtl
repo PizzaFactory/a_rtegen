@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -50,35 +50,41 @@
 [template public genExcludeOperationEnter(aExcludeOperation : ExcludeOperation) /]
 
 [template private genExcludeOperationEnter(aExcludeOperation : AllInterruptBlockExcludeOperation) ]
-SuspendAllInterrupts();
+Rte_Call_Bsw_SuspendAllInterrupts();
 [/template]
 
 [template private genExcludeOperationEnter(aExcludeOperation : OsInterruptBlockExcludeOperation) ]
-SuspendOSInterrupts();
+Rte_Call_Bsw_SuspendOSInterrupts();
 [/template]
 
 [template private genExcludeOperationEnter(aExcludeOperation : OsSpinlockExcludeOperation) ]
-(void) GetSpinlock([aExcludeOperation.osSpinlockId/]);
+(void) Rte_Call_Bsw_GetSpinlock([aExcludeOperation.osSpinlockId/]);
 [/template]
 
 [template private genExcludeOperationEnter(aExcludeOperation : OsResourceExcludeOperation) ]
-(void) GetResource([aExcludeOperation.osResourceId/]);
+(void) Rte_Call_Bsw_GetResource([aExcludeOperation.osResourceId/]);
+[/template]
+
+[template private genExcludeOperationEnter(aExcludeOperation : NoneExcludeOperation) ]
 [/template]
 
 [template public genExcludeOperationExit(aExcludeOperation : ExcludeOperation) /]
 
 [template private genExcludeOperationExit(aExcludeOperation : AllInterruptBlockExcludeOperation) ]
-ResumeAllInterrupts();
+Rte_Call_Bsw_ResumeAllInterrupts();
 [/template]
 
 [template private genExcludeOperationExit(aExcludeOperation : OsInterruptBlockExcludeOperation) ]
-ResumeOSInterrupts();
+Rte_Call_Bsw_ResumeOSInterrupts();
 [/template]
 
 [template private genExcludeOperationExit(aExcludeOperation : OsSpinlockExcludeOperation) ]
-(void) ReleaseSpinlock([aExcludeOperation.osSpinlockId/]);
+(void) Rte_Call_Bsw_ReleaseSpinlock([aExcludeOperation.osSpinlockId/]);
 [/template]
 
 [template private genExcludeOperationExit(aExcludeOperation : OsResourceExcludeOperation) ]
-(void) ReleaseResource([aExcludeOperation.osResourceId/]);
+(void) Rte_Call_Bsw_ReleaseResource([aExcludeOperation.osResourceId/]);
+[/template]
+
+[template private genExcludeOperationExit(aExcludeOperation : NoneExcludeOperation) ]
 [/template]

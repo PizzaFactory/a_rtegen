@@ -7,14 +7,17 @@
 ----------------------------------------------------------------------
 ECU Extractor
 
-Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+Copyright (C) 2013-2015 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+Copyright (C) 2013-2015 by Witz Corporation
 
 上記著作権者は，以下の (1)〜(3)の条件を満たす場合に限り，本ドキュメ
 ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,7 +45,7 @@ Copyright (C) 2013-2014 by Witz Corporation, JAPAN
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 212 2014-12-03 05:51:22Z shigihara $
+$Id: readme.txt 427 2015-03-23 12:38:40Z mtakada $
 ----------------------------------------------------------------------
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -54,7 +57,7 @@ ECU Extractorは，複数のECUを有するシステムコンフィギュレーションファイ
 ECU毎に切り出して生成する．
 
 なお，本ツールで生成したEcuExtractは，A-RTEGENへの入力とすることを想定
-しており，A-RTEGENではECU-INTSANCEを必要としないため，ECU-INTSANCEの定
+しており，A-RTEGENではECU-INSTANCEを必要としないため，ECU-INSTANCEの定
 義は本ツールによって削除する．
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -67,7 +70,7 @@ ECU毎に切り出して生成する．
 ECU ExtractorはRubyによって記述されているため，Rubyの実行環境が必要であ
 る．Cygwinに含まれる以下のバージョンのRubyで動作確認済みである．
 
-ruby 1.9.3p327 (2012-11-10 revision 37606) [i386-cygwin]
+ruby 1.9.3p545 (2014-02-24) [i386-cygwin]
 
 ―――――――――――――――――――――――――――――――――――
 (2.2) EcuExtract作成
@@ -80,6 +83,9 @@ $ ruby ecu_extractor.rb SystemDesign.arxml
 
 各ECUインスタンスに設定されたショートネームを付与した名前で，指定したフ
 ァイルと同じフォルダに，ECU毎にEcuExtractを作成する．
+複数のarxmlを引数に指定した場合，AR-PACKAGEレベルでのマージを行った上で，
+EcuExtractを作成する．この場合，出力するファイル名は，先頭の引数で与え
+たファイル名を採用する．
 
 ―――――――――――――――――――――――――――――――――――
 (2.3) 注意事項

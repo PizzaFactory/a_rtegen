@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,9 +50,13 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 public class ExcludeOperationModelBuilder {
 
@@ -100,6 +104,9 @@ public class ExcludeOperationModelBuilder {
 		case ALL_INTERRUPT_BLOCKING: {
 			return createAllInterruptBlockExcludeOperation();
 		}
+		case NONE: {
+			return createNoneExcludeOperation();
+		}
 		case COOPERATIVE_RUNNABLE_PLACEMENT:
 		default: { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			assert false;
@@ -134,5 +141,16 @@ public class ExcludeOperationModelBuilder {
 		OsSpinlockExcludeOperation excludeOperation = ModuleFactory.eINSTANCE.createOsSpinlockExcludeOperation();
 		excludeOperation.setOsSpinlockId(osSpinlockId);
 		return excludeOperation;
+	}
+
+	private NoneExcludeOperation createNoneExcludeOperation() {
+		return ModuleFactory.eINSTANCE.createNoneExcludeOperation();
+	}
+
+	public ExcludeOperation createExcludeOperationForIrv(Type type) {
+		if (type instanceof PrimitiveType || type instanceof PointerType) {
+			return null;
+		}
+		return createExcludeOperationForRteInternalLock(false);
 	}
 }

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -102,15 +102,19 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 			case ExPackage.ALIGNMENT_TYPE_EX: return (EObject)createAlignmentTypeEx();
 			case ExPackage.ATOMIC_SW_COMPONENT_TYPE_EX: return (EObject)createAtomicSwComponentTypeEx();
 			case ExPackage.VALUE_SPECIFICATION_EX: return (EObject)createValueSpecificationEx();
+			case ExPackage.NONQUEUED_SENDER_COM_SPEC_EX: return (EObject)createNonqueuedSenderComSpecEx();
 			case ExPackage.COMPU_METHOD_EX: return (EObject)createCompuMethodEx();
 			case ExPackage.COMPU_SCALE_EX: return (EObject)createCompuScaleEx();
 			case ExPackage.APPLICATION_DATA_TYPE_EX: return (EObject)createApplicationDataTypeEx();
 			case ExPackage.IMPLEMENTATION_DATA_TYPE_EX: return (EObject)createImplementationDataTypeEx();
 			case ExPackage.EXCLUSIVE_AREA_EX: return (EObject)createExclusiveAreaEx();
 			case ExPackage.SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX: return (EObject)createSenderReceiverToSignalMappingEx();
+			case ExPackage.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX: return (EObject)createSenderReceiverToSignalGroupMappingEx();
 			case ExPackage.OS_TASK_EX: return (EObject)createOsTaskEx();
 			case ExPackage.COM_SIGNAL_EX: return (EObject)createComSignalEx();
+			case ExPackage.COM_SIGNAL_GROUP_EX: return (EObject)createComSignalGroupEx();
 			case ExPackage.ECUC_PARTITION_EX: return (EObject)createEcucPartitionEx();
+			case ExPackage.VARIABLE_DATA_PROTOTYPE_EX: return (EObject)createVariableDataPrototypeEx();
 			case ExPackage.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX: return (EObject)createVariableDataInstanceInCompositionEx();
 			case ExPackage.VARIABLE_DATA_INSTANCE_IN_SWC_EX: return (EObject)createVariableDataInstanceInSwcEx();
 			case ExPackage.PVARIABLE_DATA_INSTANCE_IN_SWC_EX: return (EObject)createPVariableDataInstanceInSwcEx();
@@ -120,6 +124,8 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 			case ExPackage.RECEIVER_EX: return (EObject)createReceiverEx();
 			case ExPackage.EXTERNAL_ECU_SENDER_EX: return (EObject)createExternalEcuSenderEx();
 			case ExPackage.ENTITY_STARTER_EX: return (EObject)createEntityStarterEx();
+			case ExPackage.BSW_SCHEDULABLE_ENTITY_EX: return (EObject)createBswSchedulableEntityEx();
+			case ExPackage.MODE_DECLARATION_GROUP_PROTOTYPE_EX: return (EObject)createModeDeclarationGroupPrototypeEx();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +186,26 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BswSchedulableEntityEx createBswSchedulableEntityEx() {
+		BswSchedulableEntityExImpl bswSchedulableEntityEx = new BswSchedulableEntityExImpl();
+		return bswSchedulableEntityEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeDeclarationGroupPrototypeEx createModeDeclarationGroupPrototypeEx() {
+		ModeDeclarationGroupPrototypeExImpl modeDeclarationGroupPrototypeEx = new ModeDeclarationGroupPrototypeExImpl();
+		return modeDeclarationGroupPrototypeEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AssemblyDataInstanceConnectorEx createAssemblyDataInstanceConnectorEx() {
 		AssemblyDataInstanceConnectorExImpl assemblyDataInstanceConnectorEx = new AssemblyDataInstanceConnectorExImpl();
 		return assemblyDataInstanceConnectorEx;
@@ -203,6 +229,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	public ComSignalEx createComSignalEx() {
 		ComSignalExImpl comSignalEx = new ComSignalExImpl();
 		return comSignalEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalGroupEx createComSignalGroupEx() {
+		ComSignalGroupExImpl comSignalGroupEx = new ComSignalGroupExImpl();
+		return comSignalGroupEx;
 	}
 
 	/**
@@ -260,6 +296,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SenderReceiverToSignalGroupMappingEx createSenderReceiverToSignalGroupMappingEx() {
+		SenderReceiverToSignalGroupMappingExImpl senderReceiverToSignalGroupMappingEx = new SenderReceiverToSignalGroupMappingExImpl();
+		return senderReceiverToSignalGroupMappingEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OsTaskEx createOsTaskEx() {
 		OsTaskExImpl osTaskEx = new OsTaskExImpl();
 		return osTaskEx;
@@ -280,6 +326,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VariableDataPrototypeEx createVariableDataPrototypeEx() {
+		VariableDataPrototypeExImpl variableDataPrototypeEx = new VariableDataPrototypeExImpl();
+		return variableDataPrototypeEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AtomicSwComponentTypeEx createAtomicSwComponentTypeEx() {
 		AtomicSwComponentTypeExImpl atomicSwComponentTypeEx = new AtomicSwComponentTypeExImpl();
 		return atomicSwComponentTypeEx;
@@ -293,6 +349,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	public ValueSpecificationEx createValueSpecificationEx() {
 		ValueSpecificationExImpl valueSpecificationEx = new ValueSpecificationExImpl();
 		return valueSpecificationEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NonqueuedSenderComSpecEx createNonqueuedSenderComSpecEx() {
+		NonqueuedSenderComSpecExImpl nonqueuedSenderComSpecEx = new NonqueuedSenderComSpecExImpl();
+		return nonqueuedSenderComSpecEx;
 	}
 
 	/**

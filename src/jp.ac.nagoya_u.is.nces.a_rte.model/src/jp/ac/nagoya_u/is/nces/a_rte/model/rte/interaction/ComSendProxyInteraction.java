@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,6 +59,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getRequesterPartition <em>Requester Partition</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getSignalDataType <em>Signal Data Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunication <em>Os Ioc Communication</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue <em>Os Ioc Communication For Complex Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
@@ -145,6 +146,32 @@ public interface ComSendProxyInteraction extends Interaction {
 	 * @generated
 	 */
 	void setOsIocCommunication(OsIocCommunication value);
+
+	/**
+	 * Returns the value of the '<em><b>Os Ioc Communication For Complex Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Os Ioc Communication For Complex Value</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Os Ioc Communication For Complex Value</em>' reference.
+	 * @see #setOsIocCommunicationForComplexValue(OsIocCommunication)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getComSendProxyInteraction_OsIocCommunicationForComplexValue()
+	 * @model required="true"
+	 * @generated
+	 */
+	OsIocCommunication getOsIocCommunicationForComplexValue();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getOsIocCommunicationForComplexValue <em>Os Ioc Communication For Complex Value</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Os Ioc Communication For Complex Value</em>' reference.
+	 * @see #getOsIocCommunicationForComplexValue()
+	 * @generated
+	 */
+	void setOsIocCommunicationForComplexValue(OsIocCommunication value);
 
 	/**
 	 * Returns the value of the '<em><b>Proxy</b></em>' reference.

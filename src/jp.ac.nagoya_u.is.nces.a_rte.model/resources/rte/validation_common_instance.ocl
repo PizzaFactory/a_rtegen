@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -115,6 +115,23 @@ package ar4x::m2
 	->selectByKind(ReceiverComSpec)
 	->isUnique(dataElement)
 
+	inv nrte_sws_0289:
+	self.requiredInterface.oclIsUndefined()
+	or
+	not self.parent.oclIsTypeOf(ApplicationSwComponentType)
+	or
+	if self.requiredInterface.oclIsTypeOf(ClientServerInterface) then
+		let i_f : ClientServerInterface = self.requiredInterface.oclAsType(ClientServerInterface)
+		in
+		i_f.operation.argument->select(type.oclIsTypeOf(ImplementationDataType) and type.category = 'DATA_REFERENCE')->isEmpty()
+	else if self.requiredInterface.oclIsTypeOf(SenderReceiverInterface) then
+		let i_f : SenderReceiverInterface = self.requiredInterface.oclAsType(SenderReceiverInterface)
+		in
+		i_f.dataElement->select(type.oclIsTypeOf(ImplementationDataType) and type.category = 'DATA_REFERENCE')->isEmpty()
+	else
+		true
+	endif endif
+	
 	/*
 	 * PPortPrototype
 	 */
@@ -126,17 +143,63 @@ package ar4x::m2
 	->selectByKind(SenderComSpec)
 	->isUnique(dataElement)
 
+	inv nrte_sws_0289:
+	self.providedInterface.oclIsUndefined()
+	or
+	not self.parent.oclIsTypeOf(ApplicationSwComponentType)
+	or
+	if self.providedInterface.oclIsTypeOf(ClientServerInterface) then
+		let i_f : ClientServerInterface = self.providedInterface.oclAsType(ClientServerInterface)
+		in
+		i_f.operation.argument->select(type.oclIsTypeOf(ImplementationDataType) and type.category = 'DATA_REFERENCE')->isEmpty()
+	else if self.providedInterface.oclIsTypeOf(SenderReceiverInterface) then
+		let i_f : SenderReceiverInterface = self.providedInterface.oclAsType(SenderReceiverInterface)
+		in
+		i_f.dataElement->select(type.oclIsTypeOf(ImplementationDataType) and type.category = 'DATA_REFERENCE')->isEmpty()
+	else
+		true
+	endif endif
+
+	/*
+	 * ClientServerInterface
+	 */
+	context ClientServerInterface
+	
+	inv nrte_sws_0288:
+	self.operation.argument->select(direction = ArgumentDirectionEnum::out or direction = ArgumentDirectionEnum::inout)
+		->select(type.oclIsTypeOf(ImplementationDataType) and type.category = 'DATA_REFERENCE')->isEmpty()
+
 	/*
 	 * NonqueuedReceiverComSpec
 	 */
-
 	context NonqueuedReceiverComSpec
 
 	def:
 	endInitValue : ValueSpecification = valueSpecificationEx.getEndValueSpec(self.initValue)
 
 	inv nrte_sws_0128:
-	endInitValue.oclIsKindOf(NumericalValueSpecification) or endInitValue.oclIsKindOf(TextValueSpecification)
+	if self.dataElement.type.oclIsKindOf(ar4x::m2::ApplicationDataType) then
+		endInitValue.oclIsKindOf(NumericalValueSpecification) or endInitValue.oclIsKindOf(TextValueSpecification)
+	else if self.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then
+		let type : ImplementationDataType = self.dataElement.type.oclAsType(ImplementationDataType)
+		in
+		valueSpecificationEx.isValidValue(self.initValue, type.getLeafImplementationDataType())
+	else
+		false
+	endif endif
+
+	inv nrte_sws_0290:
+	if self.dataElement.type.oclIsTypeOf(m2::ImplementationDataType) then
+		let type : m2::ImplementationDataType = self.dataElement.type.oclAsType(m2::ImplementationDataType)
+		in
+		if type.getLeafImplementationDataType().category = 'VALUE' then
+			true
+		else
+			self.filter.oclIsUndefined() or not self.filter.isFilterEnabled()
+		endif
+	else
+		true
+	endif
 
 	/*
 	 * NonqueuedSenderComSpec
@@ -148,8 +211,68 @@ package ar4x::m2
 	endInitValue : ValueSpecification = valueSpecificationEx.getEndValueSpec(self.initValue)
 
 	inv nrte_sws_0128:
-	endInitValue.oclIsKindOf(NumericalValueSpecification) or endInitValue.oclIsKindOf(TextValueSpecification)
+	if self.dataElement.type.oclIsKindOf(ar4x::m2::ApplicationDataType) then
+		endInitValue.oclIsKindOf(NumericalValueSpecification) or endInitValue.oclIsKindOf(TextValueSpecification)
+	else if self.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then
+		let type : ImplementationDataType = self.dataElement.type.oclAsType(ImplementationDataType)
+		in
+		valueSpecificationEx.isValidValue(self.initValue, type.getLeafImplementationDataType())
+	else
+		false
+	endif endif
 
+	/*
+	 * RunnableEntity
+	 */
+	context SwcInternalBehavior
+
+	def: isValidInterRunnableVariable(localVariable : ar4x::m2::VariableDataPrototype) : Boolean =
+		if localVariable.initValue.oclIsUndefined() then
+			false
+		else if localVariable.type.oclIsTypeOf(ImplementationDataType) then
+			let type : ImplementationDataType = localVariable.type.oclAsType(ImplementationDataType)
+			in
+			valueSpecificationEx.isValidValue(localVariable.initValue, type.getLeafImplementationDataType())
+		else
+			false
+		endif endif
+
+	inv nrte_sws_0292:
+	if self.explicitInterRunnableVariable->isEmpty() then
+		true
+	else
+		self.explicitInterRunnableVariable->forAll(localVariable | isValidInterRunnableVariable(localVariable))
+	endif
+
+	inv nrte_sws_0294:
+	if self.explicitInterRunnableVariable->isEmpty() then
+		true
+	else
+		self.explicitInterRunnableVariable->forAll(v | 
+			self.runnable.writtenLocalVariable.accessedVariable.localVariable->select(lv | lv = v)->size() > 0
+			or
+			self.runnable.readLocalVariable.accessedVariable.localVariable->select(lv | lv = v)->size() > 0
+		)
+	endif
+
+	inv nrte_sws_0300:
+	self.runnable.writtenLocalVariable->isEmpty()
+	or
+	self.runnable.writtenLocalVariable.accessedVariable.localVariable->forAll(t | self.explicitInterRunnableVariable->select(e | e = t)->size() > 0)
+
+	inv nrte_sws_0301:
+	self.runnable.readLocalVariable->isEmpty()
+	or
+	self.runnable.readLocalVariable.accessedVariable.localVariable->forAll(t | self.explicitInterRunnableVariable->select(e | e = t)->size() > 0)
+
+	/*
+	 * PortDefinedArgumentValue
+	 */
+	context PortDefinedArgumentValue
+	
+	inv nrte_sws_0293:
+	valueSpecificationEx.isValidValue(self.value, self.valueType.getLeafImplementationDataType())
+	
 	/*
 	 * DataFilter
 	 */
@@ -206,6 +329,19 @@ package ar4x::instance
 
 	inv nrte_sws_0145:
 	self.getInvalidationPolicy().oclIsUndefined() or not self.isEventSemantics()
+
+	inv nrte_sws_0291:
+	if self.prototype.type.oclIsTypeOf(m2::ImplementationDataType) then
+		let type : m2::ImplementationDataType = self.prototype.type.oclAsType(m2::ImplementationDataType)
+		in
+		if type.getLeafImplementationDataType().category = 'VALUE' then
+			true
+		else
+			not self.isInvalidationEnabled()
+		endif
+	else
+		true
+	endif
 
 	/*
 	 * RVariableDataInstanceInSwc

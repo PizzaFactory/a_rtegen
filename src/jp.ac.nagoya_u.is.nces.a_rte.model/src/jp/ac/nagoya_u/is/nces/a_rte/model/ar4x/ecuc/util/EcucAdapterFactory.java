@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -132,6 +132,10 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 				return createRteGenerationAdapter();
 			}
 			@Override
+			public Adapter caseRteBswGeneral(RteBswGeneral object) {
+				return createRteBswGeneralAdapter();
+			}
+			@Override
 			public Adapter caseEcucRoot(EcucRoot object) {
 				return createEcucRootAdapter();
 			}
@@ -170,6 +174,14 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComSignal(ComSignal object) {
 				return createComSignalAdapter();
+			}
+			@Override
+			public Adapter caseComSignalGroup(ComSignalGroup object) {
+				return createComSignalGroupAdapter();
+			}
+			@Override
+			public Adapter caseComGroupSignal(ComGroupSignal object) {
+				return createComGroupSignalAdapter();
 			}
 			@Override
 			public Adapter caseOsAlarm(OsAlarm object) {
@@ -244,6 +256,18 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 				return createRteBswEventToTaskMappingAdapter();
 			}
 			@Override
+			public Adapter caseRteBswProvidedModeGroupRef(RteBswProvidedModeGroupRef object) {
+				return createRteBswProvidedModeGroupRefAdapter();
+			}
+			@Override
+			public Adapter caseRteBswRequiredModeGroupRef(RteBswRequiredModeGroupRef object) {
+				return createRteBswRequiredModeGroupRefAdapter();
+			}
+			@Override
+			public Adapter caseRteBswRequiredModeGroupConnection(RteBswRequiredModeGroupConnection object) {
+				return createRteBswRequiredModeGroupConnectionAdapter();
+			}
+			@Override
 			public Adapter caseRteBswModuleInstance(RteBswModuleInstance object) {
 				return createRteBswModuleInstanceAdapter();
 			}
@@ -296,6 +320,20 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRteGenerationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral <em>Rte Bsw General</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral
+	 * @generated
+	 */
+	public Adapter createRteBswGeneralAdapter() {
 		return null;
 	}
 
@@ -492,6 +530,34 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComSignalAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup
+	 * @generated
+	 */
+	public Adapter createComSignalGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal <em>Com Group Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal
+	 * @generated
+	 */
+	public Adapter createComGroupSignalAdapter() {
 		return null;
 	}
 
@@ -744,6 +810,48 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRteBswEventToTaskMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef <em>Rte Bsw Provided Mode Group Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswProvidedModeGroupRef
+	 * @generated
+	 */
+	public Adapter createRteBswProvidedModeGroupRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef <em>Rte Bsw Required Mode Group Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupRef
+	 * @generated
+	 */
+	public Adapter createRteBswRequiredModeGroupRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection <em>Rte Bsw Required Mode Group Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection
+	 * @generated
+	 */
+	public Adapter createRteBswRequiredModeGroupConnectionAdapter() {
 		return null;
 	}
 

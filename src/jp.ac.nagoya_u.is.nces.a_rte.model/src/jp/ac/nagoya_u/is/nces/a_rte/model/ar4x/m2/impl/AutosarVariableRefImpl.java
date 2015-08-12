@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AutosarVariableRefImpl#getAutosarVariableIref <em>Autosar Variable Iref</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AutosarVariableRefImpl#getAutosarVariable <em>Autosar Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AutosarVariableRefImpl#getLocalVariable <em>Local Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -90,6 +92,16 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * @ordered
 	 */
 	protected VariableDataInstanceInSwc autosarVariable;
+
+	/**
+	 * The cached value of the '{@link #getLocalVariable() <em>Local Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLocalVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected VariableDataPrototype localVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -196,6 +208,44 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public VariableDataPrototype getLocalVariable() {
+		if (localVariable != null && ((EObject)localVariable).eIsProxy()) {
+			InternalEObject oldLocalVariable = (InternalEObject)localVariable;
+			localVariable = (VariableDataPrototype)eResolveProxy(oldLocalVariable);
+			if (localVariable != oldLocalVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE, oldLocalVariable, localVariable));
+			}
+		}
+		return localVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableDataPrototype basicGetLocalVariable() {
+		return localVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLocalVariable(VariableDataPrototype newLocalVariable) {
+		VariableDataPrototype oldLocalVariable = localVariable;
+		localVariable = newLocalVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE, oldLocalVariable, localVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -218,6 +268,9 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				if (resolve) return getAutosarVariable();
 				return basicGetAutosarVariable();
+			case M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE:
+				if (resolve) return getLocalVariable();
+				return basicGetLocalVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -235,6 +288,9 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 				return;
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				setAutosarVariable((VariableDataInstanceInSwc)newValue);
+				return;
+			case M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE:
+				setLocalVariable((VariableDataPrototype)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,6 +310,9 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				setAutosarVariable((VariableDataInstanceInSwc)null);
 				return;
+			case M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE:
+				setLocalVariable((VariableDataPrototype)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -270,6 +329,8 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 				return autosarVariableIref != null;
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				return autosarVariable != null;
+			case M2Package.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE:
+				return localVariable != null;
 		}
 		return super.eIsSet(featureID);
 	}

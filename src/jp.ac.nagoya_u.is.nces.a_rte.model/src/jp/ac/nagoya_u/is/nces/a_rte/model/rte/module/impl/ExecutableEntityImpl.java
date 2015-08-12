@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -72,6 +72,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getRoleParam <em>Role Param</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getParentPartedBswm <em>Parent Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getIsNoMock <em>Is No Mock</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +88,25 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 	 * @ordered
 	 */
 	protected EList<Parameter> roleParam;
+
+	/**
+	 * The default value of the '{@link #getIsNoMock() <em>Is No Mock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoMock()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_NO_MOCK_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsNoMock() <em>Is No Mock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoMock()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isNoMock = IS_NO_MOCK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,6 +185,27 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsNoMock() {
+		return isNoMock;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsNoMock(Boolean newIsNoMock) {
+		Boolean oldIsNoMock = isNoMock;
+		isNoMock = newIsNoMock;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK, oldIsNoMock, isNoMock));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -216,6 +257,8 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 				return getRoleParam();
 			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
 				return getParentPartedBswm();
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				return getIsNoMock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -236,6 +279,9 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
 				setParentPartedBswm((PartedBswm)newValue);
 				return;
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				setIsNoMock((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -254,6 +300,9 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
 				setParentPartedBswm((PartedBswm)null);
 				return;
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				setIsNoMock(IS_NO_MOCK_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -270,8 +319,26 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 				return roleParam != null && !roleParam.isEmpty();
 			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
 				return getParentPartedBswm() != null;
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				return IS_NO_MOCK_EDEFAULT == null ? isNoMock != null : !IS_NO_MOCK_EDEFAULT.equals(isNoMock);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isNoMock: ");
+		result.append(isNoMock);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExecutableEntityImpl

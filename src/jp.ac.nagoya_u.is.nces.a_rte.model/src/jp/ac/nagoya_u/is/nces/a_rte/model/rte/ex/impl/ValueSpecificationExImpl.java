@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,6 +47,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl;
 import java.lang.reflect.InvocationTargetException;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx;
@@ -135,6 +136,174 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isForVALUE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Is For VALUE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForVALUE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_FOR_VALUE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_FOR_VALUE__VALUESPECIFICATION).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isForVALUE(ValueSpecification this_) {
+		try {
+			return (Boolean)IS_FOR_VALUE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isForARRAY(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For ARRAY</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForARRAY(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_FOR_ARRAY_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_FOR_ARRAY__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isForARRAY(ValueSpecification value, ImplementationDataType type) {
+		try {
+			return (Boolean)IS_FOR_ARRAY_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isForSTRUCTURE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For STRUCTURE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForSTRUCTURE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_FOR_STRUCTURE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_FOR_STRUCTURE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isForSTRUCTURE(ValueSpecification value, ImplementationDataType type) {
+		try {
+			return (Boolean)IS_FOR_STRUCTURE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isForUNION(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is For UNION</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForUNION(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_FOR_UNION_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_FOR_UNION__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isForUNION(ValueSpecification value, ImplementationDataType type) {
+		try {
+			return (Boolean)IS_FOR_UNION_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isForDATA_REFERENCE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Is For DATA REFERENCE</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isForDATA_REFERENCE(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_FOR_DATA_REFERENCE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_FOR_DATA_REFERENCE__VALUESPECIFICATION).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isForDATA_REFERENCE(ValueSpecification value) {
+		try {
+			return (Boolean)IS_FOR_DATA_REFERENCE_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{value}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isValidValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType) <em>Is Valid Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isValidValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_VALID_VALUE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___IS_VALID_VALUE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean isValidValue(ValueSpecification value, ImplementationDataType type) {
+		try {
+			return (Boolean)IS_VALID_VALUE_VALUE_SPECIFICATION_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{value, type}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification) <em>Equals Init Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #equalsInitValue(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate EQUALS_INIT_VALUE_VALUE_SPECIFICATION_VALUE_SPECIFICATION__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.VALUE_SPECIFICATION_EX___EQUALS_INIT_VALUE__VALUESPECIFICATION_VALUESPECIFICATION).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean equalsInitValue(ValueSpecification v1, ValueSpecification v2) {
+		try {
+			return (Boolean)EQUALS_INIT_VALUE_VALUE_SPECIFICATION_VALUE_SPECIFICATION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(2, new Object[]{v1, v2}));
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -146,6 +315,20 @@ public class ValueSpecificationExImpl extends ExtendedEObjectImpl implements Val
 				return getEndValueSpec((ValueSpecification)arguments.get(0));
 			case ExPackage.VALUE_SPECIFICATION_EX___GET_VALUE_SPEC_AS_TEXT__VALUESPECIFICATION:
 				return getValueSpecAsText((ValueSpecification)arguments.get(0));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_FOR_VALUE__VALUESPECIFICATION:
+				return isForVALUE((ValueSpecification)arguments.get(0));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_FOR_ARRAY__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE:
+				return isForARRAY((ValueSpecification)arguments.get(0), (ImplementationDataType)arguments.get(1));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_FOR_STRUCTURE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE:
+				return isForSTRUCTURE((ValueSpecification)arguments.get(0), (ImplementationDataType)arguments.get(1));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_FOR_UNION__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE:
+				return isForUNION((ValueSpecification)arguments.get(0), (ImplementationDataType)arguments.get(1));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_FOR_DATA_REFERENCE__VALUESPECIFICATION:
+				return isForDATA_REFERENCE((ValueSpecification)arguments.get(0));
+			case ExPackage.VALUE_SPECIFICATION_EX___IS_VALID_VALUE__VALUESPECIFICATION_IMPLEMENTATIONDATATYPE:
+				return isValidValue((ValueSpecification)arguments.get(0), (ImplementationDataType)arguments.get(1));
+			case ExPackage.VALUE_SPECIFICATION_EX___EQUALS_INIT_VALUE__VALUESPECIFICATION_VALUESPECIFICATION:
+				return equalsInitValue((ValueSpecification)arguments.get(0), (ValueSpecification)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import java.util.Collection;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComConfig;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComConfigImpl#getComSignal <em>Com Signal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComConfigImpl#getComSignalGroup <em>Com Signal Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 	 * @ordered
 	 */
 	protected EList<ComSignal> comSignal;
+
+	/**
+	 * The cached value of the '{@link #getComSignalGroup() <em>Com Signal Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSignalGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComSignalGroup> comSignalGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +129,25 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ComSignalGroup> getComSignalGroup() {
+		if (comSignalGroup == null) {
+			comSignalGroup = new EObjectContainmentEList<ComSignalGroup>(ComSignalGroup.class, this, EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP);
+		}
+		return comSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EcucPackage.COM_CONFIG__COM_SIGNAL:
 				return ((InternalEList<?>)getComSignal()).basicRemove(otherEnd, msgs);
+			case EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP:
+				return ((InternalEList<?>)getComSignalGroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +162,8 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 		switch (featureID) {
 			case EcucPackage.COM_CONFIG__COM_SIGNAL:
 				return getComSignal();
+			case EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP:
+				return getComSignalGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,6 +181,10 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 				getComSignal().clear();
 				getComSignal().addAll((Collection<? extends ComSignal>)newValue);
 				return;
+			case EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP:
+				getComSignalGroup().clear();
+				getComSignalGroup().addAll((Collection<? extends ComSignalGroup>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -168,6 +200,9 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 			case EcucPackage.COM_CONFIG__COM_SIGNAL:
 				getComSignal().clear();
 				return;
+			case EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP:
+				getComSignalGroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,6 +217,8 @@ public class ComConfigImpl extends EcucContainerImpl implements ComConfig {
 		switch (featureID) {
 			case EcucPackage.COM_CONFIG__COM_SIGNAL:
 				return comSignal != null && !comSignal.isEmpty();
+			case EcucPackage.COM_CONFIG__COM_SIGNAL_GROUP:
+				return comSignalGroup != null && !comSignalGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

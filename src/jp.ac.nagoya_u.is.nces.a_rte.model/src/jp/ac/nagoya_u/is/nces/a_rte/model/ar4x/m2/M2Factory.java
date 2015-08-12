@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -199,6 +199,15 @@ public interface M2Factory extends EFactory {
 	TimingEvent createTimingEvent();
 
 	/**
+	 * Returns a new object of class '<em>mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>mode Switch Event</em>'.
+	 * @generated
+	 */
+	modeSwitchEvent createmodeSwitchEvent();
+
+	/**
 	 * Returns a new object of class '<em>Ecuc Module Configuration Values</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -368,6 +377,42 @@ public interface M2Factory extends EFactory {
 	 * @generated
 	 */
 	DataTypeMappingSet createDataTypeMappingSet();
+
+	/**
+	 * Returns a new object of class '<em>Mode Declaration Group Prototype</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Declaration Group Prototype</em>'.
+	 * @generated
+	 */
+	ModeDeclarationGroupPrototype createModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns a new object of class '<em>Mode Request Type Map</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Request Type Map</em>'.
+	 * @generated
+	 */
+	ModeRequestTypeMap createModeRequestTypeMap();
+
+	/**
+	 * Returns a new object of class '<em>Mode Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Declaration</em>'.
+	 * @generated
+	 */
+	ModeDeclaration createModeDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Mode Declaration Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Declaration Group</em>'.
+	 * @generated
+	 */
+	ModeDeclarationGroup createModeDeclarationGroup();
 
 	/**
 	 * Returns a new object of class '<em>Application Primitive Data Type</em>'.
@@ -640,6 +685,15 @@ public interface M2Factory extends EFactory {
 	SenderReceiverToSignalMapping createSenderReceiverToSignalMapping();
 
 	/**
+	 * Returns a new object of class '<em>Sender Receiver To Signal Group Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Receiver To Signal Group Mapping</em>'.
+	 * @generated
+	 */
+	SenderReceiverToSignalGroupMapping createSenderReceiverToSignalGroupMapping();
+
+	/**
 	 * Returns a new object of class '<em>Variable Data Prototype In System Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -856,6 +910,15 @@ public interface M2Factory extends EFactory {
 	BswInternalBehavior createBswInternalBehavior();
 
 	/**
+	 * Returns a new object of class '<em>Bsw Mode Sender Policy</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Mode Sender Policy</em>'.
+	 * @generated
+	 */
+	BswModeSenderPolicy createBswModeSenderPolicy();
+
+	/**
 	 * Returns a new object of class '<em>Bsw Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -892,6 +955,24 @@ public interface M2Factory extends EFactory {
 	BswSchedulableEntity createBswSchedulableEntity();
 
 	/**
+	 * Returns a new object of class '<em>Bsw Mode Switch Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Mode Switch Event</em>'.
+	 * @generated
+	 */
+	BswModeSwitchEvent createBswModeSwitchEvent();
+
+	/**
+	 * Returns a new object of class '<em>Mode In Bsw Module Description Instance Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode In Bsw Module Description Instance Ref</em>'.
+	 * @generated
+	 */
+	ModeInBswModuleDescriptionInstanceRef createModeInBswModuleDescriptionInstanceRef();
+
+	/**
 	 * Returns a new object of class '<em>Bsw Timing Event</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -917,6 +998,87 @@ public interface M2Factory extends EFactory {
 	 * @generated
 	 */
 	BswInterruptEntity createBswInterruptEntity();
+
+	/**
+	 * Returns a new object of class '<em>Implementation Data Type Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementation Data Type Element</em>'.
+	 * @generated
+	 */
+	ImplementationDataTypeElement createImplementationDataTypeElement();
+
+	/**
+	 * Returns a new object of class '<em>System Signal Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>System Signal Group</em>'.
+	 * @generated
+	 */
+	SystemSignalGroup createSystemSignalGroup();
+
+	/**
+	 * Returns a new object of class '<em>ISignal Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>ISignal Group</em>'.
+	 * @generated
+	 */
+	ISignalGroup createISignalGroup();
+
+	/**
+	 * Returns a new object of class '<em>Sender Rec Record Type Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Rec Record Type Mapping</em>'.
+	 * @generated
+	 */
+	SenderRecRecordTypeMapping createSenderRecRecordTypeMapping();
+
+	/**
+	 * Returns a new object of class '<em>Sender Rec Record Element Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Rec Record Element Mapping</em>'.
+	 * @generated
+	 */
+	SenderRecRecordElementMapping createSenderRecRecordElementMapping();
+
+	/**
+	 * Returns a new object of class '<em>Sender Rec Array Type Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Rec Array Type Mapping</em>'.
+	 * @generated
+	 */
+	SenderRecArrayTypeMapping createSenderRecArrayTypeMapping();
+
+	/**
+	 * Returns a new object of class '<em>Indexed Array Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Indexed Array Element</em>'.
+	 * @generated
+	 */
+	IndexedArrayElement createIndexedArrayElement();
+
+	/**
+	 * Returns a new object of class '<em>Sender Rec Array Element Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sender Rec Array Element Mapping</em>'.
+	 * @generated
+	 */
+	SenderRecArrayElementMapping createSenderRecArrayElementMapping();
+
+	/**
+	 * Returns a new object of class '<em>Sw Pointer Target Props</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sw Pointer Target Props</em>'.
+	 * @generated
+	 */
+	SwPointerTargetProps createSwPointerTargetProps();
 
 	/**
 	 * Returns the package supported by this factory.

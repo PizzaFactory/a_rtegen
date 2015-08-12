@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -71,6 +71,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteUsedOsActivation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswTimingEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimingEvent;
@@ -81,6 +82,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction;
@@ -120,6 +123,7 @@ public class EntityInteractionModelBuilder {
 				eventToTaskMapping = createEventToTaskMapping(sourceOsTask.getMappedRteBswEvent().get(0));
 			}
 
+			// OSイベントが設定されているかどうか
 			if (eventToTaskMapping.getUsedOsEvent() == null) {
 				// OSタスク起動によるエクスキュータブル起動
 				targetInteractionRoot.getInteractionEnd().add(createOsTaskEntityStarter(sourceOsTask, eventToTaskMapping));
@@ -174,6 +178,8 @@ public class EntityInteractionModelBuilder {
 				for (RteBswEventToTaskMapping sourceRteBswEventConfig : entityStarter.getSourceOsTask().getMappedRteBswEvent()) {
 					// BswImplementationが存在しているBswInternalBehaviorに属しているBswSchedulableEntityのみ生成の対象とする.
 					if (!sourceRteBswEventConfig.getRteBswEvent().getStartsOnEvent().getParent().getImplementation().isEmpty()) {
+						// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+						// BSWイベントが有効でない(有効なInternalBehavior)に含まれていない場合
 						targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceRteBswEventConfig, entityStarter));
 					}
 				}
@@ -237,6 +243,9 @@ public class EntityInteractionModelBuilder {
 			if (targetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) { // COVERAGE 常にtrue(現状，EntityStartInteractionは周期イベントに対してのみ生成されるため)
 				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent timingEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) targetStartInteraction.getEventToTaskMapping().getEvent();
 				targetStartInteraction.setImplementation(createTimingTriggeringEntityStartImplementation(targetStartInteraction, timingEvent.getPeriod()));
+			} else if (targetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent modeSwitchEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) targetStartInteraction.getEventToTaskMapping().getEvent();
+				targetStartInteraction.setImplementation(createModeSwitchTriggeringEntityStartImplementation(targetStartInteraction, modeSwitchEvent));
 			}
 		}
 	}
@@ -255,6 +264,11 @@ public class EntityInteractionModelBuilder {
 		return startImplementation;
 	}
 
+	private ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation(EntityStartInteraction targetStartInteraction, ModeSwitchEvent modeSwitchEvent) {
+		ModeSwitchTriggeringEntityStartImplementation startImplementation = InteractionFactory.eINSTANCE.createModeSwitchTriggeringEntityStartImplementation();
+		return startImplementation;
+	}
+	
 	private void buildStarterCounterImplementations(InteractionRoot targetInteractionRoot) throws ModelException {
 		for (EntityStarter targetEntityStarter : this.context.query.<EntityStarter> findByKind(ENTITY_STARTER)) {
 			List<TimingTriggeringEntityStartImplementation> startImplementations = EmfUtils.exInvoke(targetEntityStarter,
@@ -296,7 +310,7 @@ public class EntityInteractionModelBuilder {
 		eventToTaskMapping.setActivationOffset(rteEventToTaskMapping.getRteActivationOffset());
 		eventToTaskMapping.setPositionInTask(rteEventToTaskMapping.getRtePositionInTask());
 
-		if (rteEventToTaskMapping.getRteEvent() instanceof TimingEvent) {
+		if (rteEventToTaskMapping.getRteEvent() instanceof TimingEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			TimingEvent rteTimingEvent = (TimingEvent)rteEventToTaskMapping.getRteEvent();
 			eventToTaskMapping.setEvent(createTimingEvent(rteTimingEvent.getStartOnEvent(), rteTimingEvent.getPeriod()));
 		}
@@ -315,13 +329,22 @@ public class EntityInteractionModelBuilder {
 
 		if (rteBswEventToTaskMapping.getRteBswEvent() instanceof BswTimingEvent) {
 			BswTimingEvent rteBswTimingEvent = (BswTimingEvent)rteBswEventToTaskMapping.getRteBswEvent();
-			eventToTaskMapping.setEvent(createTimingEvent(rteBswTimingEvent.getStartsOnEvent(), rteBswTimingEvent.getPeriod()));
+			eventToTaskMapping.setEvent(createTimingEvent(rteBswTimingEvent.getStartsOnEvent(), rteBswTimingEvent.getPeriod(), rteBswTimingEvent));
+		} else if (rteBswEventToTaskMapping.getRteBswEvent() instanceof BswModeSwitchEvent) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			BswModeSwitchEvent rteBswModeSwitchEvent = (BswModeSwitchEvent)rteBswEventToTaskMapping.getRteBswEvent();
+			eventToTaskMapping.setEvent(createModeSwitchEvent(rteBswModeSwitchEvent.getStartsOnEvent(), rteBswModeSwitchEvent));
 		}
 		
 		eventToTaskMapping.setUsedOsAlarm(rteBswEventToTaskMapping.getRteBswUsedOsAlarm());
 		eventToTaskMapping.setUsedOsEvent(rteBswEventToTaskMapping.getRteBswUsedOsEvent());
 		
 		return eventToTaskMapping;
+	}
+
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity executableEntity, BigDecimal period, BswTimingEvent event) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent timingEvent = createTimingEvent(executableEntity, period);
+		timingEvent.setBswEvent(event);
+		return timingEvent;
 	}
 	
 	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity executableEntity, BigDecimal period) {
@@ -331,5 +354,14 @@ public class EntityInteractionModelBuilder {
 		timingEvent.setPeriod(period);
 		
 		return timingEvent;
+	}
+	
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent createModeSwitchEvent(ExecutableEntity executableEntity, BswModeSwitchEvent event) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent modeSwitchEvent = InteractionFactory.eINSTANCE.createModeSwitchEvent();
+		
+		modeSwitchEvent.setStartOnEvent(executableEntity);
+		modeSwitchEvent.setBswEvent(event);
+		
+		return modeSwitchEvent;
 	}
 }

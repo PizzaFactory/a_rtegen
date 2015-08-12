@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -66,14 +66,12 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__PREFIX;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_CORE_START_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_CORE_INIT_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_OPERATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
 
 import java.util.Comparator;
 
@@ -100,7 +98,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBod
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -125,11 +122,12 @@ public class ModuleModelSorter {
 	public void sortFileContents(File targetFile) {
 		for (EReference eReference : targetFile.eClass().getEAllReferences()) {
 			if (eReference.isMany()) {
-				if (TYPE.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<Type> targetTypes = (EList<Type>) targetFile.eGet(eReference);
-					sortTypes(targetTypes);
-
-				} else if (CONSTANT.isSuperTypeOf(eReference.getEReferenceType())) {
+//				if (TYPE.isSuperTypeOf(eReference.getEReferenceType())) {
+//					EList<Type> targetTypes = (EList<Type>) targetFile.eGet(eReference);
+//					sortTypes(targetTypes);
+//
+//				} else
+				if (CONSTANT.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<Constant> targetConstants = (EList<Constant>) targetFile.eGet(eReference);
 					sortConstants(targetConstants);
 
@@ -137,7 +135,7 @@ public class ModuleModelSorter {
 					EList<GlobalVariable> targetGlobalVariables = (EList<GlobalVariable>) targetFile.eGet(eReference);
 					sortGlobalVariables(targetGlobalVariables);
 
-				} else if (FUNCTION.isSuperTypeOf(eReference.getEReferenceType())) {		// COVERAGE 常にfalse(現状のツールワークフローではtrueを通らないが，コードレビュー済みであるため問題ない)
+				} else if (FUNCTION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<Function> targetFunctions = (EList<Function>) targetFile.eGet(eReference);
 					sortFunctions(targetFunctions);
 
@@ -260,7 +258,9 @@ public class ModuleModelSorter {
 		return new Comparator<ExternalEcuReceiver>() {
 			@Override
 			public int compare(ExternalEcuReceiver o1, ExternalEcuReceiver o2) {
-				return ComparisonChain.start().compare(o1.getSource().getShortName(), o2.getSource().getShortName()).result();
+				String o1Signal = o1.getSourceSignal() != null ? o1.getSourceSignal().getShortName() : o1.getSourceSignalGroup().getShortName();
+				String o2Signal = o2.getSourceSignal() != null ? o2.getSourceSignal().getShortName() : o2.getSourceSignalGroup().getShortName();
+				return ComparisonChain.start().compare(o1Signal, o2Signal).result();
 			}
 		};
 	}
@@ -310,11 +310,6 @@ public class ModuleModelSorter {
 
 	private void sortGlobalVariableGroupContents(GlobalVariableGroup targetGlobalVariableGroup) {
 		sortGlobalVariables(targetGlobalVariableGroup.getGlobalVariable());
-	}
-
-	private void sortTypes(EList<? extends Type> targetTypes) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(TYPE__SYMBOL_NAME));
-		ECollections.sort(targetTypes, ordering);
 	}
 
 	private void sortConstants(EList<? extends Constant> targetConstants) {

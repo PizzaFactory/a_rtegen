@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,6 +46,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_TYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
@@ -60,6 +61,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSw
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -89,12 +91,39 @@ public class BuiltModuleModelQuery {
 		}
 	}
 
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にnull(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param partition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 * @throws ModelException EcucPartitionに対応するPartitionが見つからない場合
+	 */
 	public Partition findPartition(EcucPartition partition) throws ModelException {
-		return partition == null ? this.query.<Partition> findSingleByKind(PARTITION) : this.<Partition> findDest(PARTITION, partition);
+		return partition == null ? this.cache.masterBswPartition : this.<Partition> findDest(PARTITION, partition);
+	}
+
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にnull(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param partition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 */
+	public Optional<Partition> tryFindPartition(EcucPartition partition) {
+		// COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+		// 現在使用していないメソッド
+		return partition == null ? Optional.of(this.cache.masterBswPartition) : this.<Partition> tryFindDest(PARTITION, partition);
+	}
+
+	public Type findType(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
+		return findType(dataInstanceInSwc.getImplementationDataType());
 	}
 
 	public PrimitiveType findPrimitiveType(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
 		return findPrimitiveType(dataInstanceInSwc.getImplementationDataType());
+	}
+
+	public Type findType(ImplementationDataType implementationDataType) throws ModelException {
+		return findDest(TYPE, implementationDataType);
 	}
 
 	public PrimitiveType findPrimitiveType(ImplementationDataType implementationDataType) throws ModelException {
@@ -131,7 +160,7 @@ public class BuiltModuleModelQuery {
 		return this.query.findSingle(isKindOf(kind).AND(ref(MODULE_OBJECT__SOURCE, source)).AND(hasAttr(MODULE_OBJECT__ROLE_NAME, roleName)));
 	}
 
-	public <T extends EObject> Optional<T> tryFindDest(EClass kind, EObject source) throws ModelException {
+	public <T extends EObject> Optional<T> tryFindDest(EClass kind, EObject source) {
 		return this.query.tryFindSingle(isKindOf(kind).AND(ref(MODULE_OBJECT__SOURCE, source)));
 	}
 }

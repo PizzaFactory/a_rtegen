@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,7 +53,10 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessProxyApi <em>Access Proxy Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessIocApi <em>Access Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +66,32 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  */
 public interface ProxyComSendOperation extends ComSendOperation {
 	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(Type)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	Type getType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(Type value);
+
+	/**
 	 * Returns the value of the '<em><b>Access Proxy Api</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -71,12 +100,12 @@ public interface ProxyComSendOperation extends ComSendOperation {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Access Proxy Api</em>' reference.
-	 * @see #setAccessProxyApi(IocSendGroupApi)
+	 * @see #setAccessProxyApi(IocSendApi)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_AccessProxyApi()
 	 * @model
 	 * @generated
 	 */
-	IocSendGroupApi getAccessProxyApi();
+	IocSendApi getAccessProxyApi();
 
 	/**
 	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessProxyApi <em>Access Proxy Api</em>}' reference.
@@ -86,6 +115,58 @@ public interface ProxyComSendOperation extends ComSendOperation {
 	 * @see #getAccessProxyApi()
 	 * @generated
 	 */
-	void setAccessProxyApi(IocSendGroupApi value);
+	void setAccessProxyApi(IocSendApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Access Ioc Api</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Access Ioc Api</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Access Ioc Api</em>' reference.
+	 * @see #setAccessIocApi(IocSendApi)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_AccessIocApi()
+	 * @model
+	 * @generated
+	 */
+	IocSendApi getAccessIocApi();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessIocApi <em>Access Ioc Api</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Access Ioc Api</em>' reference.
+	 * @see #getAccessIocApi()
+	 * @generated
+	 */
+	void setAccessIocApi(IocSendApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Function Table Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Function Table Symbol Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Function Table Symbol Name</em>' attribute.
+	 * @see #setFunctionTableSymbolName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_FunctionTableSymbolName()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @generated
+	 */
+	String getFunctionTableSymbolName();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Function Table Symbol Name</em>' attribute.
+	 * @see #getFunctionTableSymbolName()
+	 * @generated
+	 */
+	void setFunctionTableSymbolName(String value);
 
 } // ProxyComSendOperation

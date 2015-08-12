@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -65,6 +65,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl#getIsInline <em>Is Inline</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +81,25 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 	 * @ordered
 	 */
 	protected Value returnValue;
+
+	/**
+	 * The default value of the '{@link #getIsInline() <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_INLINE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsInline() <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isInline = IS_INLINE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,6 +204,27 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsInline() {
+		return isInline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsInline(Boolean newIsInline) {
+		Boolean oldIsInline = isInline;
+		isInline = newIsInline;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.SCHM_API__IS_INLINE, oldIsInline, isInline));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -236,6 +277,8 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 				return basicGetReturnValue();
 			case ModulePackage.SCHM_API__PARENT:
 				return getParent();
+			case ModulePackage.SCHM_API__IS_INLINE:
+				return getIsInline();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +296,9 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 				return;
 			case ModulePackage.SCHM_API__PARENT:
 				setParent((PartedBswm)newValue);
+				return;
+			case ModulePackage.SCHM_API__IS_INLINE:
+				setIsInline((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,6 +318,9 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 			case ModulePackage.SCHM_API__PARENT:
 				setParent((PartedBswm)null);
 				return;
+			case ModulePackage.SCHM_API__IS_INLINE:
+				setIsInline(IS_INLINE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -288,8 +337,26 @@ public abstract class SchmApiImpl extends FunctionImpl implements SchmApi {
 				return returnValue != null;
 			case ModulePackage.SCHM_API__PARENT:
 				return getParent() != null;
+			case ModulePackage.SCHM_API__IS_INLINE:
+				return IS_INLINE_EDEFAULT == null ? isInline != null : !IS_INLINE_EDEFAULT.equals(isInline);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isInline: ");
+		result.append(isInline);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SchmApiImpl

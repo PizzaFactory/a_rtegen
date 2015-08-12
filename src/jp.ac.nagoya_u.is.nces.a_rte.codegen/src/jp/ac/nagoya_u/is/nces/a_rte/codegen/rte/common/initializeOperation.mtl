@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -82,6 +82,26 @@ Rte_InitQueue([aGlobalVariable.genPointerAccess()/]);
 [aGlobalVariable.genValueAccess()/] = [let aInitValueConstant : Constant = aGlobalVariable.initValueConstant][aInitValueConstant.genValueAccess()/][else]0[if (aGlobalVariable.type.oclAsType(PrimitiveType).signedness = SignednessEnum::unsigned)]U[/if][/let];
 [/template]
 
+[template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(ArrayType))]
+Rte_ArrayMemcpy([aGlobalVariable.symbolName/], [aGlobalVariable.initValueConstant.representedVariableName/], [aGlobalVariable.type.symbolName/]);
+[/template]
+
+[template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(StructType))]
+Rte_StructMemcpy(&[aGlobalVariable.symbolName/], &[aGlobalVariable.initValueConstant.representedVariableName/], [aGlobalVariable.type.symbolName/]);
+[/template]
+
+[template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(UnionType))]
+Rte_UnionMemcpy(&[aGlobalVariable.symbolName/], &[aGlobalVariable.initValueConstant.representedVariableName/], [aGlobalVariable.type.symbolName/]);
+[/template]
+
+[template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(PointerType))]
+[aGlobalVariable.genValueAccess()/] = [let aInitValueConstant : Constant = aGlobalVariable.initValueConstant][aInitValueConstant.genValueAccess()/][else]0[/let];
+[/template]
+
+[template private genDoGlobalVariableInitialization (aGlobalVariable : GlobalVariable) ? (aGlobalVariable.type.oclIsKindOf(ModeQueueType))]
+SchM_SwitchMode_Initqueue([aGlobalVariable.symbolName/]);
+[/template]
+
 [template private genInitializeOperation(aInitializeOperation : IocInitializeOperation) ]
 [for (aIocApi : IocApi | aInitializeOperation.initIocApi)]
 	[aIocApi.genIocInitializeOperation()/]
@@ -91,7 +111,11 @@ Rte_InitQueue([aGlobalVariable.genPointerAccess()/]);
 [template private genIocInitializeOperation(aIocApi : IocApi) /]
 
 [template private genIocInitializeOperation(aIocApi : IocWriteApi) ]
-(void) [aIocApi.symbolName/]([aIocApi.parent.initValue.genValueAccess()/]);
+[if (aIocApi.parent.initValueVariable.oclIsUndefined()) ]
+	(void) [aIocApi.symbolName/]([aIocApi.parent.initValue.genPointerAccess()/]);
+[else]
+	(void) [aIocApi.symbolName/]([aIocApi.parent.initValueVariable.genPointerAccess()/]);
+[/if]
 [/template]
 
 [template private genIocInitializeOperation(aIocApi : IocEmptyQueueApi) ]

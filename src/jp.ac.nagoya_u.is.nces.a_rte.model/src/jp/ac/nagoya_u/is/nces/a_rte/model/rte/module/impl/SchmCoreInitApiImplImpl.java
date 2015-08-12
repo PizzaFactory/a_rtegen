@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,21 +44,16 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
-import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -68,23 +63,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmCoreInitApiImplImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmCoreInitApiImplImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements SchmCoreInitApiImpl {
-	/**
-	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<InitializeOperation> operation;
-
+public class SchmCoreInitApiImplImpl extends SchmInitApiImpl implements SchmCoreInitApiImpl {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,18 +134,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InitializeOperation> getOperation() {
-		if (operation == null) {
-			operation = new EObjectContainmentEList<InitializeOperation>(InitializeOperation.class, this, ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION);
-		}
-		return operation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -183,8 +155,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 		switch (featureID) {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
 				return basicSetParent(null, msgs);
-			case ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION:
-				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,8 +183,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 		switch (featureID) {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
 				return getParent();
-			case ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION:
-				return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,10 +199,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
 				setParent((Core)newValue);
 				return;
-			case ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION:
-				getOperation().clear();
-				getOperation().addAll((Collection<? extends InitializeOperation>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -250,9 +214,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
 				setParent((Core)null);
 				return;
-			case ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION:
-				getOperation().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -267,8 +228,6 @@ public class SchmCoreInitApiImplImpl extends SchmLifecycleApiImpl implements Sch
 		switch (featureID) {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT:
 				return getParent() != null;
-			case ModulePackage.SCHM_CORE_INIT_API_IMPL__OPERATION:
-				return operation != null && !operation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

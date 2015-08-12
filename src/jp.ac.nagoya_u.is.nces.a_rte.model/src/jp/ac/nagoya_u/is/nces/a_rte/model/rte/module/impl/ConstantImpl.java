@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,15 +44,21 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,6 +71,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getType <em>Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getValue <em>Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getConstantType <em>Constant Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl#getRepresentedVariableName <em>Represented Variable Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,7 +107,7 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * @generated
 	 * @ordered
 	 */
-	protected PrimitiveType type;
+	protected Type type;
 
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -140,6 +148,36 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * @ordered
 	 */
 	protected ConstantTypeEnum constantType = CONSTANT_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMember() <em>Member</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMember()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ConstantMember> member;
+
+	/**
+	 * The default value of the '{@link #getRepresentedVariableName() <em>Represented Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentedVariableName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REPRESENTED_VARIABLE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getRepresentedVariableName() <em>Represented Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRepresentedVariableName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String representedVariableName = REPRESENTED_VARIABLE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,10 +224,10 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveType getType() {
+	public Type getType() {
 		if (type != null && ((EObject)type).eIsProxy()) {
 			InternalEObject oldType = (InternalEObject)type;
-			type = (PrimitiveType)eResolveProxy(oldType);
+			type = (Type)eResolveProxy(oldType);
 			if (type != oldType) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.CONSTANT__TYPE, oldType, type));
@@ -203,7 +241,7 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveType basicGetType() {
+	public Type basicGetType() {
 		return type;
 	}
 
@@ -212,8 +250,8 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(PrimitiveType newType) {
-		PrimitiveType oldType = type;
+	public void setType(Type newType) {
+		Type oldType = type;
 		type = newType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CONSTANT__TYPE, oldType, type));
@@ -266,6 +304,68 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ConstantMember> getMember() {
+		if (member == null) {
+			member = new EObjectContainmentWithInverseEList<ConstantMember>(ConstantMember.class, this, ModulePackage.CONSTANT__MEMBER, ModulePackage.CONSTANT_MEMBER__PARENT);
+		}
+		return member;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRepresentedVariableName() {
+		return representedVariableName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRepresentedVariableName(String newRepresentedVariableName) {
+		String oldRepresentedVariableName = representedVariableName;
+		representedVariableName = newRepresentedVariableName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME, oldRepresentedVariableName, representedVariableName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModulePackage.CONSTANT__MEMBER:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMember()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ModulePackage.CONSTANT__MEMBER:
+				return ((InternalEList<?>)getMember()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -278,6 +378,10 @@ public class ConstantImpl extends ValueImpl implements Constant {
 				return getValue();
 			case ModulePackage.CONSTANT__CONSTANT_TYPE:
 				return getConstantType();
+			case ModulePackage.CONSTANT__MEMBER:
+				return getMember();
+			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
+				return getRepresentedVariableName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -287,6 +391,7 @@ public class ConstantImpl extends ValueImpl implements Constant {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -294,13 +399,20 @@ public class ConstantImpl extends ValueImpl implements Constant {
 				setSymbolName((String)newValue);
 				return;
 			case ModulePackage.CONSTANT__TYPE:
-				setType((PrimitiveType)newValue);
+				setType((Type)newValue);
 				return;
 			case ModulePackage.CONSTANT__VALUE:
 				setValue((String)newValue);
 				return;
 			case ModulePackage.CONSTANT__CONSTANT_TYPE:
 				setConstantType((ConstantTypeEnum)newValue);
+				return;
+			case ModulePackage.CONSTANT__MEMBER:
+				getMember().clear();
+				getMember().addAll((Collection<? extends ConstantMember>)newValue);
+				return;
+			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
+				setRepresentedVariableName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -318,13 +430,19 @@ public class ConstantImpl extends ValueImpl implements Constant {
 				setSymbolName(SYMBOL_NAME_EDEFAULT);
 				return;
 			case ModulePackage.CONSTANT__TYPE:
-				setType((PrimitiveType)null);
+				setType((Type)null);
 				return;
 			case ModulePackage.CONSTANT__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
 			case ModulePackage.CONSTANT__CONSTANT_TYPE:
 				setConstantType(CONSTANT_TYPE_EDEFAULT);
+				return;
+			case ModulePackage.CONSTANT__MEMBER:
+				getMember().clear();
+				return;
+			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
+				setRepresentedVariableName(REPRESENTED_VARIABLE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -346,6 +464,10 @@ public class ConstantImpl extends ValueImpl implements Constant {
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case ModulePackage.CONSTANT__CONSTANT_TYPE:
 				return constantType != CONSTANT_TYPE_EDEFAULT;
+			case ModulePackage.CONSTANT__MEMBER:
+				return member != null && !member.isEmpty();
+			case ModulePackage.CONSTANT__REPRESENTED_VARIABLE_NAME:
+				return REPRESENTED_VARIABLE_NAME_EDEFAULT == null ? representedVariableName != null : !REPRESENTED_VARIABLE_NAME_EDEFAULT.equals(representedVariableName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -366,6 +488,8 @@ public class ConstantImpl extends ValueImpl implements Constant {
 		result.append(value);
 		result.append(", constantType: ");
 		result.append(constantType);
+		result.append(", representedVariableName: ");
+		result.append(representedVariableName);
 		result.append(')');
 		return result.toString();
 	}

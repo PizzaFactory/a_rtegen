@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,34 +43,28 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION_COLLECTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_APPLICATION__OS_APP_ECUC_PARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_OS;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_TASK__OWNER_APPLICATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ATOMIC_SW_COMPONENT_TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_MODULE_DESCRIPTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CORE__CORE_ID;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 
 import java.text.SimpleDateFormat;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.ConfigValues;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartitionCollection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsOS;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.SwComponentInstanceInSystem;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
@@ -126,102 +120,44 @@ public class LogicalCompartmentModelBuilder {
 		}
 
 		for (BswModuleDescription bswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
-			if (!bswModuleDescription.getInternalBehavior().get(0).getImplementation().isEmpty()) {
-				Bswm bswm = createBswm(bswModuleDescription);
-				targetRte.getBswm().add(bswm);
+			BswInternalBehavior internalBehavior = bswModuleDescription.getEnableInternalBehavior();
+			if (internalBehavior == null) {
+				continue;
+			}
 
-				// エクスキュータブルをpartedBswmに登録する
-				for (BswInternalBehavior internalBehavior : bswModuleDescription.getInternalBehavior()) {
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						PartedBswm partedBswm = createPartedBswm(bswm, partition);
-						ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
-						partedBswm.getDependentExecutableEntity().add(executableEntity);
-					}
-				}
+			Bswm bswm = createBswm(bswModuleDescription);
+			targetRte.getBswm().add(bswm);
+
+			// エクスキュータブルをpartedBswmに登録する
+			for (BswSchedulableEntity entity : internalBehavior.getBswSchedulableEntity()) {
+				PartedBswm partedBswm = createPartedBswm(bswm, partition);
+				ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
+				partedBswm.getDependentExecutableEntity().add(executableEntity);
 			}
 		}
-	}
-	
-	private Partition getTargetPartition(BswSchedulableEntity entity) throws ModelException {
-		// BSWスケジューラブルが属するOSタスクを取得
-		OsTask osTask = ((BswSchedulableEntity) entity).getEvent().get(0).getConfig().get(0).getRteBswMappedToTask();
-	
-		// OSタスクが属するパーティションを取得
-		List<EcucPartition> partitions = this.context.query.collect(Collections.singletonList(osTask), OS_TASK__OWNER_APPLICATION, OS_APPLICATION__OS_APP_ECUC_PARTITION);
-		EcucPartition sourcePartition = Iterables.getFirst(partitions, null);
-		Partition targetPartition = this.context.builtQuery.findPartition(sourcePartition);
-		
-		return targetPartition;
-	}
-	
-	private Partition getMasterCoreBswPartition(Rte targetRte) throws ModelException {
-		Optional<EcucPartitionCollection> ecucPartitionCollection = this.context.query.tryFindSingleByKind(ECUC_PARTITION_COLLECTION);
-		Partition targetPartition = null;
-		if (ecucPartitionCollection.isPresent()) {
-			// パーティションあり構成
-			OsOS osOs = this.context.query.findSingleByKind(OS_OS);
-			Integer coreId = osOs.getOsNumberOfCores() != null ? osOs.getOsMasterCoreId() : 0;
-			Core masterCore = targetRte.getCore().get(coreId);
-			
-			// 以下の処理はマスタコアに必ずBSWM配置パーティションが1つある前提.
-			targetPartition = masterCore.getPartition().get(0);
-			for (Partition partition : masterCore.getPartition()) {	// COVERAGE 必ずbreak文でループを抜けるため、未カバレッジで問題ない.
-				if (partition.getIsBswPartition()) {
-					targetPartition = partition;
-					break;
-				}
-			}
-		} else {
-			// パーティションなし構成
-			targetPartition = targetRte.getCore().get(0).getPartition().get(0);
-		}
-		return targetPartition;
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = partition;
 	}
 	
 	private void buildBswm(Rte targetRte) throws ModelException {
-		Partition masterCorePartition = getMasterCoreBswPartition(targetRte);
 		for (BswModuleDescription bswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
-			if (!bswModuleDescription.getInternalBehavior().get(0).getImplementation().isEmpty()) {
-				Bswm bswm = createBswm(bswModuleDescription);
-				targetRte.getBswm().add(bswm);
+			BswInternalBehavior internalBehavior = bswModuleDescription.getEnableInternalBehavior();
+			if (internalBehavior == null) {
+				continue;
+			}
+			Bswm bswm = createBswm(bswModuleDescription);
+			targetRte.getBswm().add(bswm);
+
+			// エクスキュータブルをpartedBswmに登録する
+			for (BswSchedulableEntity entity : internalBehavior.getBswSchedulableEntity()) {
+				Collection<EcucPartition> usingEcucPartitions = this.context.query.get(entity, BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY);
+				EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345により、モード宣言グループプロトタイプを使用するパーティションの多重度は0..1
+				Partition targetPartition = this.context.builtQuery.findPartition(usingEcucPartition);
 				
-				for (BswInternalBehavior internalBehavior : bswModuleDescription.getInternalBehavior()) {
-
-					// BSWスケジューラブルのExclusiveAreaとパーティションの対応表を作成する
-					HashMap<ExclusiveArea, Partition> map = new HashMap<ExclusiveArea, Partition>();
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						if (entity instanceof BswSchedulableEntity) {
-							Partition targetPartition = getTargetPartition((BswSchedulableEntity)entity);
-							
-							//ExclusiveAreaとBSWスケジューラブルが所属するパーティションのハッシュマップを作る
-							for (ExclusiveArea exclusiveArea : entity.getCanEnterExclusiveArea()) {
-								map.put(exclusiveArea, targetPartition);
-							}
-						}
-					}
-
-					// エクスキュータブルをpartedBswmに登録する
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						Partition targetPartition = null;
-						if (entity instanceof BswSchedulableEntity) {
-							targetPartition = getTargetPartition((BswSchedulableEntity)entity);
-						} else {
-							for (ExclusiveArea exclusiveArea : entity.getCanEnterExclusiveArea()) {
-								targetPartition = map.get(exclusiveArea);
-								if (targetPartition != null) {
-									//BswSchedulableEntityと同じExclusiveAreaのときは、そのパーティションを使用する
-									break;
-								}
-							}
-							if (targetPartition == null) {
-								targetPartition = masterCorePartition;
-							}
-						}
-						PartedBswm partedBswm = createPartedBswm(bswm, targetPartition);
-						ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
-						partedBswm.getDependentExecutableEntity().add(executableEntity);
-					}
-				}
+				PartedBswm partedBswm = createPartedBswm(bswm, targetPartition);
+				ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
+				partedBswm.getDependentExecutableEntity().add(executableEntity);
 			}
 		}
 	}
@@ -262,6 +198,9 @@ public class LogicalCompartmentModelBuilder {
 				partition.getSwc().add(createSwc(swComponentInstanceInSystem.getPrototype().getType()));
 			}
 		}
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = this.context.builtQuery.findPartition(this.context.cache.sourceMasterBswPartition.get()); // NOTE パーティション構成ではマスタコアのBSWM配置パーティションは必ず存在する
 	}
 
 	private void buildFromNonPartitionedSystem(Rte targetRte) {
@@ -275,6 +214,9 @@ public class LogicalCompartmentModelBuilder {
 			Swc swc = createSwc(swComponentInstanceInSystem.getPrototype().getType());
 			partition.getSwc().add(swc);
 		}
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = partition;
 	}
 
 	private Core createDefaultCore() {

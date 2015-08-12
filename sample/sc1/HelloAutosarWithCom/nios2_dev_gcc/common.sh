@@ -3,14 +3,17 @@
 #  TOPPERS/A-RTEGEN
 #      Automotive Runtime Environment Generator
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,7 +49,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: common.sh 200 2014-11-28 08:49:41Z mtakada $
+# $Id: common.sh 427 2015-03-23 12:38:40Z mtakada $
 #
 
 #
@@ -56,8 +59,11 @@
 # ATK2ソースコードまでの相対パス
 OS_PATH=../../../../../../atk2-sc1
 
+# A-RTEGENまでの相対パス
+RTE_PATH=../../../../../
+
 # 共通ソースコードまでの相対パス
-GENERAL_PATH=../../../../general
+GENERAL_PATH=$RTE_PATH/sample/general
 
 # A-COMSTACKまでの相対パス
 COMSTACK_PATH=../../../../../../a-comstack
@@ -126,7 +132,7 @@ generate_code()
 	mv -f ../../$APPLICATION.arxml .
 
 	# A-RTEGENによるA-RTEモジュール作成
-	../../../../../bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/$SYSTEM_DESC.arxml $APPLICATION.arxml
+	$RTE_PATH/bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/$SYSTEM_DESC.arxml $APPLICATION.arxml
 
 	# A-COMジェネレータによるA-COMモジュール作成
 	echo "Generate Com"

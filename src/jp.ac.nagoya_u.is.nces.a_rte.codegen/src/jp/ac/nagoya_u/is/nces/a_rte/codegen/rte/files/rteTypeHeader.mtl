@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -64,6 +64,10 @@
 	/*
 	 * RTE Type Definitions
 	 */
+	[aRteTypeHeader.genTypedefProxyTableIndex()/]
+	[if (aRteTypeHeader.providesSignalGroupTransmission)]
+		[aRteTypeHeader.genTypedefRelatedCom()/]
+	[/if]
 	[for (aType : Type | aRteTypeHeader.rteType)]
 		[aType.genRteTypeDefinition()/]
 	[/for]
@@ -84,8 +88,55 @@
 
 [template private genRteTypeDefinition(aType : Type) /]
 
-[template private genRteTypeDefinition(aType : PrimitiveType) ]
+[template private genRteTypeDefinition(aType : PrimitiveType) ? (not aType.oclIsKindOf(RedefinitionType)) ]
 typedef [aType.originalTypeSymbolName/] [aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : ArrayType) ? (not aType.oclIsKindOf(RedefinitionType)) ]
+#define [aType.genArraySize()/] UINT_C([aType.arraySize/])
+typedef [aType.originalTypeSymbolName/]	[aType.symbolName/]['['/][aType.genArraySize()/][']'/];
+[/template]
+
+[template private genRteTypeDefinition(aType : StructType) ? (not aType.oclIsKindOf(RedefinitionType)) ]
+[for (aMember : StructMember | aType.member)]
+	[if (aMember.type.oclIsTypeOf(ArrayType))]
+		#define [aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE UINT_C([aMember.type.oclAsType(ArrayType).arraySize/])
+	[/if]
+[/for]
+typedef struct {
+[for (aMember : StructMember | aType.member)]
+	[if (aMember.type.oclIsTypeOf(ArrayType))]
+		[aMember.type.originalTypeSymbolName/] [aMember.memberName/]['['/][aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE[']'/];
+	[else]
+		[aMember.type.symbolName/] [aMember.memberName/];
+	[/if]
+[/for]
+} [aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : UnionType) ? (not aType.oclIsKindOf(RedefinitionType)) ]
+[for (aMember : UnionMember | aType.member)]
+	[if (aMember.type.oclIsTypeOf(ArrayType))]
+		#define [aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE UINT_C([aMember.type.oclAsType(ArrayType).arraySize/])
+	[/if]
+[/for]
+typedef union {
+[for (aMember : UnionMember | aType.member)]
+	[if (aMember.type.oclIsTypeOf(ArrayType))]
+		[aMember.type.originalTypeSymbolName/] [aMember.memberName/]['['/][aType.symbolName.toUpper()/]_[aMember.memberName.toUpper()/]_SIZE[']'/];
+	[else]
+		[aMember.type.symbolName/] [aMember.memberName/];
+	[/if]
+[/for]
+} [aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : PointerType) ? (not aType.oclIsKindOf(RedefinitionType)) ]
+typedef [aType.type.symbolName/]	*[aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : RedefinitionType) ]
+typedef [aType.sourceType.symbolName/] [aType.symbolName/];
 [/template]
 
 [template private genRteTypeDefinition(aType : RteBufferQueueType) ]
@@ -93,13 +144,47 @@ typedef struct {
 	uint32 quecnt:16;
 	uint32 head:15;
 	uint32 stat:1;
-	[aType.elementType.symbolName/] element['['/][aType.maxLengthConstant.symbolName/][']'/];
+	[aType.elementType.symbolName/]	element['['/][aType.maxLengthConstant.symbolName/][']'/];
+} [aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : RteSendTrustedFunctionParamType) ]
+typedef struct {
+	const void			*data;
+	Std_ReturnType 		ercd;
 } [aType.symbolName/];
 [/template]
 
 [template private genRteTypeDefinition(aType : ComSendTrustedFunctionParamType) ]
 typedef struct {
-	Com_SignalIdType	com_sig_id;
-	void				*com_data;
+	[if (aType.isGroup)]
+		Rte_ComMetaComplexDataType *meta;
+	[else]
+		Com_SignalIdType	com_sig_id;
+	[/if]
+	const void				*com_data;
+	Std_ReturnType 		ercd;
 } [aType.symbolName/];
+[/template]
+
+[template private genRteTypeDefinition(aType : ComCsTrustedFunctionParamType) ]
+typedef struct {
+	void	**argv;
+	uint8	opid;
+	Std_ReturnType ercd;
+} [aType.symbolName/];
+[/template]
+
+[template public genTypedefRelatedCom(aRteTypeHeader : RteTypeHeader)]
+typedef uint32 Rte_BufferTypeOffset;
+typedef struct {
+	Com_SignalGroupIdType com_sig_gid;
+	uint32 com_sig_id_cnt;
+	const Com_SignalIdType *com_sig_id;
+	const Rte_BufferTypeOffset *offset;
+} Rte_ComMetaComplexDataType;
+[/template]
+
+[template public genTypedefProxyTableIndex(aRteTypeHeader : RteTypeHeader)]
+typedef uint32 Rte_SrWriteProxyFunctionTableIndex;
 [/template]

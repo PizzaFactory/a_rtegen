@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -58,6 +58,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getEntity <em>Entity</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getImplementation <em>Implementation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getModeSenderPolicy <em>Mode Sender Policy</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getBswSchedulableEntity <em>Bsw Schedulable Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,5 +149,38 @@ public interface BswInternalBehavior extends InternalBehavior {
 	 * @generated
 	 */
 	EList<BswImplementation> getImplementation();
+
+	/**
+	 * Returns the value of the '<em><b>Mode Sender Policy</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode Sender Policy</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode Sender Policy</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_ModeSenderPolicy()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<BswModeSenderPolicy> getModeSenderPolicy();
+
+	/**
+	 * Returns the value of the '<em><b>Bsw Schedulable Entity</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bsw Schedulable Entity</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bsw Schedulable Entity</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_BswSchedulableEntity()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='entity->select(oclIsKindOf(BswSchedulableEntity)).oclAsType(BswSchedulableEntity)->asOrderedSet()'"
+	 * @generated
+	 */
+	EList<BswSchedulableEntity> getBswSchedulableEntity();
 
 } // BswInternalBehavior

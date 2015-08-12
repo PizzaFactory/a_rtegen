@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -126,6 +126,10 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 				return createValueSpecificationExAdapter();
 			}
 			@Override
+			public Adapter caseNonqueuedSenderComSpecEx(NonqueuedSenderComSpecEx object) {
+				return createNonqueuedSenderComSpecExAdapter();
+			}
+			@Override
 			public Adapter caseCompuMethodEx(CompuMethodEx object) {
 				return createCompuMethodExAdapter();
 			}
@@ -150,6 +154,10 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 				return createSenderReceiverToSignalMappingExAdapter();
 			}
 			@Override
+			public Adapter caseSenderReceiverToSignalGroupMappingEx(SenderReceiverToSignalGroupMappingEx object) {
+				return createSenderReceiverToSignalGroupMappingExAdapter();
+			}
+			@Override
 			public Adapter caseOsTaskEx(OsTaskEx object) {
 				return createOsTaskExAdapter();
 			}
@@ -158,8 +166,16 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 				return createComSignalExAdapter();
 			}
 			@Override
+			public Adapter caseComSignalGroupEx(ComSignalGroupEx object) {
+				return createComSignalGroupExAdapter();
+			}
+			@Override
 			public Adapter caseEcucPartitionEx(EcucPartitionEx object) {
 				return createEcucPartitionExAdapter();
+			}
+			@Override
+			public Adapter caseVariableDataPrototypeEx(VariableDataPrototypeEx object) {
+				return createVariableDataPrototypeExAdapter();
 			}
 			@Override
 			public Adapter caseVariableDataInstanceInCompositionEx(VariableDataInstanceInCompositionEx object) {
@@ -196,6 +212,14 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEntityStarterEx(EntityStarterEx object) {
 				return createEntityStarterExAdapter();
+			}
+			@Override
+			public Adapter caseBswSchedulableEntityEx(BswSchedulableEntityEx object) {
+				return createBswSchedulableEntityExAdapter();
+			}
+			@Override
+			public Adapter caseModeDeclarationGroupPrototypeEx(ModeDeclarationGroupPrototypeEx object) {
+				return createModeDeclarationGroupPrototypeExAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -288,6 +312,34 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.BswSchedulableEntityEx
+	 * @generated
+	 */
+	public Adapter createBswSchedulableEntityExAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx <em>Mode Declaration Group Prototype Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx
+	 * @generated
+	 */
+	public Adapter createModeDeclarationGroupPrototypeExAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AssemblyDataInstanceConnectorEx <em>Assembly Data Instance Connector Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -326,6 +378,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComSignalExAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx <em>Com Signal Group Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ComSignalGroupEx
+	 * @generated
+	 */
+	public Adapter createComSignalGroupExAdapter() {
 		return null;
 	}
 
@@ -400,6 +466,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx <em>Sender Receiver To Signal Group Mapping Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx
+	 * @generated
+	 */
+	public Adapter createSenderReceiverToSignalGroupMappingExAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.OsTaskEx <em>Os Task Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -428,6 +508,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx <em>Variable Data Prototype Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.VariableDataPrototypeEx
+	 * @generated
+	 */
+	public Adapter createVariableDataPrototypeExAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AtomicSwComponentTypeEx <em>Atomic Sw Component Type Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -452,6 +546,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValueSpecificationExAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx <em>Nonqueued Sender Com Spec Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.NonqueuedSenderComSpecEx
+	 * @generated
+	 */
+	public Adapter createNonqueuedSenderComSpecExAdapter() {
 		return null;
 	}
 

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,6 +50,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMap;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataTypeMappingSetImpl#getDataTypeMap <em>Data Type Map</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataTypeMappingSetImpl#getModeRequestTypeMap <em>Mode Request Type Map</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 	 * @ordered
 	 */
 	protected EList<DataTypeMap> dataTypeMap;
+
+	/**
+	 * The cached value of the '{@link #getModeRequestTypeMap() <em>Mode Request Type Map</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeRequestTypeMap()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeRequestTypeMap> modeRequestTypeMap;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +129,25 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModeRequestTypeMap> getModeRequestTypeMap() {
+		if (modeRequestTypeMap == null) {
+			modeRequestTypeMap = new EObjectContainmentEList<ModeRequestTypeMap>(ModeRequestTypeMap.class, this, M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP);
+		}
+		return modeRequestTypeMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case M2Package.DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP:
 				return ((InternalEList<?>)getDataTypeMap()).basicRemove(otherEnd, msgs);
+			case M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP:
+				return ((InternalEList<?>)getModeRequestTypeMap()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +162,8 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 		switch (featureID) {
 			case M2Package.DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP:
 				return getDataTypeMap();
+			case M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP:
+				return getModeRequestTypeMap();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,6 +181,10 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 				getDataTypeMap().clear();
 				getDataTypeMap().addAll((Collection<? extends DataTypeMap>)newValue);
 				return;
+			case M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP:
+				getModeRequestTypeMap().clear();
+				getModeRequestTypeMap().addAll((Collection<? extends ModeRequestTypeMap>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -168,6 +200,9 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 			case M2Package.DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP:
 				getDataTypeMap().clear();
 				return;
+			case M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP:
+				getModeRequestTypeMap().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -182,6 +217,8 @@ public class DataTypeMappingSetImpl extends ArElementImpl implements DataTypeMap
 		switch (featureID) {
 			case M2Package.DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP:
 				return dataTypeMap != null && !dataTypeMap.isEmpty();
+			case M2Package.DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP:
+				return modeRequestTypeMap != null && !modeRequestTypeMap.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

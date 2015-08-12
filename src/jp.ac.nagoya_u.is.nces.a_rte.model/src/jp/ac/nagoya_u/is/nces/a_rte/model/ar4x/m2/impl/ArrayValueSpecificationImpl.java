@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,21 +44,42 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Array Value Specification</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArrayValueSpecificationImpl#getElement <em>Element</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
 public class ArrayValueSpecificationImpl extends ValueSpecificationImpl implements ArrayValueSpecification {
+	/**
+	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElement()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueSpecification> element;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +97,92 @@ public class ArrayValueSpecificationImpl extends ValueSpecificationImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return M2Package.Literals.ARRAY_VALUE_SPECIFICATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ValueSpecification> getElement() {
+		if (element == null) {
+			element = new EObjectContainmentEList<ValueSpecification>(ValueSpecification.class, this, M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT);
+		}
+		return element;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT:
+				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT:
+				return getElement();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT:
+				getElement().clear();
+				getElement().addAll((Collection<? extends ValueSpecification>)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT:
+				getElement().clear();
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case M2Package.ARRAY_VALUE_SPECIFICATION__ELEMENT:
+				return element != null && !element.isEmpty();
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //ArrayValueSpecificationImpl
