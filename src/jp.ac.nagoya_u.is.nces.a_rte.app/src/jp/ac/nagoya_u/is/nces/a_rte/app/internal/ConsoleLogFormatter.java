@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,12 +47,18 @@ import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 
-public class ConsoleLogFormatter extends Formatter {
+/**
+ * コンソールへのログ出力のフォーマットを行う。
+ */
+public class ConsoleLogFormatter extends Formatter { // COVERAGE 常に未達(未カバレッジで問題ないことをコードレビューにより確認済み)
 
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	private final static String DATE_FORMAT = "{0,date} {0,time}";
 
+	/* (non-Javadoc)
+	 * @see java.util.logging.Formatter#format(java.util.logging.LogRecord)
+	 */
 	@Override
 	public String format(LogRecord record) {
 		StringBuilder sb = new StringBuilder();

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +54,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior#getDataTypeMapping <em>Data Type Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior#getExclusiveArea <em>Exclusive Area</em>}</li>
  * </ul>
  * </p>
@@ -63,6 +64,22 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface InternalBehavior extends Identifiable {
+	/**
+	 * Returns the value of the '<em><b>Data Type Mapping</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Type Mapping</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Type Mapping</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getInternalBehavior_DataTypeMapping()
+	 * @model
+	 * @generated
+	 */
+	EList<DataTypeMappingSet> getDataTypeMapping();
+
 	/**
 	 * Returns the value of the '<em><b>Exclusive Area</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea}.

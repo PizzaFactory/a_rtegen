@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,6 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocNonqueuedCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
@@ -70,6 +71,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl#getWriteApi <em>Write Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl#getReadApi <em>Read Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl#getInitValue <em>Init Value</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl#getInitValueVariable <em>Init Value Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,6 +107,16 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 	 * @ordered
 	 */
 	protected Constant initValue;
+
+	/**
+	 * The cached value of the '{@link #getInitValueVariable() <em>Init Value Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitValueVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected GlobalVariable initValueVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +235,44 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GlobalVariable getInitValueVariable() {
+		if (initValueVariable != null && ((EObject)initValueVariable).eIsProxy()) {
+			InternalEObject oldInitValueVariable = (InternalEObject)initValueVariable;
+			initValueVariable = (GlobalVariable)eResolveProxy(oldInitValueVariable);
+			if (initValueVariable != oldInitValueVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE, oldInitValueVariable, initValueVariable));
+			}
+		}
+		return initValueVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalVariable basicGetInitValueVariable() {
+		return initValueVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitValueVariable(GlobalVariable newInitValueVariable) {
+		GlobalVariable oldInitValueVariable = initValueVariable;
+		initValueVariable = newInitValueVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE, oldInitValueVariable, initValueVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -264,6 +314,9 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE:
 				if (resolve) return getInitValue();
 				return basicGetInitValue();
+			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE:
+				if (resolve) return getInitValueVariable();
+				return basicGetInitValueVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -287,6 +340,9 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE:
 				setInitValue((Constant)newValue);
 				return;
+			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE:
+				setInitValueVariable((GlobalVariable)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -308,6 +364,9 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE:
 				setInitValue((Constant)null);
 				return;
+			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE:
+				setInitValueVariable((GlobalVariable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -326,6 +385,8 @@ public class IocNonqueuedCommunicationImpl extends IocCommunicationImpl implemen
 				return readApi != null;
 			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE:
 				return initValue != null;
+			case ModulePackage.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE:
+				return initValueVariable != null;
 		}
 		return super.eIsSet(featureID);
 	}

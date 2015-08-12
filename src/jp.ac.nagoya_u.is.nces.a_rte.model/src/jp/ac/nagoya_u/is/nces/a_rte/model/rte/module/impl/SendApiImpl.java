@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -74,6 +74,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl#getStatusVariable <em>Status Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl#getFilterResultVariable <em>Filter Result Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl#getNeedsCheckArg <em>Needs Check Arg</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,6 +130,26 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 	 * @ordered
 	 */
 	protected LocalVariable filterResultVariable;
+
+	/**
+	 * The default value of the '{@link #getNeedsCheckArg() <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean NEEDS_CHECK_ARG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNeedsCheckArg() <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean needsCheckArg = NEEDS_CHECK_ARG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -318,6 +339,27 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getNeedsCheckArg() {
+		return needsCheckArg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNeedsCheckArg(Boolean newNeedsCheckArg) {
+		Boolean oldNeedsCheckArg = needsCheckArg;
+		needsCheckArg = newNeedsCheckArg;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.SEND_API__NEEDS_CHECK_ARG, oldNeedsCheckArg, needsCheckArg));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -349,6 +391,8 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 			case ModulePackage.SEND_API__FILTER_RESULT_VARIABLE:
 				if (resolve) return getFilterResultVariable();
 				return basicGetFilterResultVariable();
+			case ModulePackage.SEND_API__NEEDS_CHECK_ARG:
+				return getNeedsCheckArg();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -378,6 +422,9 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 			case ModulePackage.SEND_API__FILTER_RESULT_VARIABLE:
 				setFilterResultVariable((LocalVariable)newValue);
 				return;
+			case ModulePackage.SEND_API__NEEDS_CHECK_ARG:
+				setNeedsCheckArg((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -405,6 +452,9 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 			case ModulePackage.SEND_API__FILTER_RESULT_VARIABLE:
 				setFilterResultVariable((LocalVariable)null);
 				return;
+			case ModulePackage.SEND_API__NEEDS_CHECK_ARG:
+				setNeedsCheckArg(NEEDS_CHECK_ARG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -427,8 +477,26 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 				return trustedFunctionParamVariable != null;
 			case ModulePackage.SEND_API__FILTER_RESULT_VARIABLE:
 				return filterResultVariable != null;
+			case ModulePackage.SEND_API__NEEDS_CHECK_ARG:
+				return NEEDS_CHECK_ARG_EDEFAULT == null ? needsCheckArg != null : !NEEDS_CHECK_ARG_EDEFAULT.equals(needsCheckArg);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (needsCheckArg: ");
+		result.append(needsCheckArg);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SendApiImpl

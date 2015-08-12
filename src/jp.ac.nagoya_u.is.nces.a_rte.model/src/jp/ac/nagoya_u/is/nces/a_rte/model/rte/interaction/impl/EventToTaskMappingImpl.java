@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,21 +45,13 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
 import java.math.BigDecimal;
-
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsAlarm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsEvent;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -72,8 +64,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl#getActivationOffset <em>Activation Offset</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl#getPositionInTask <em>Position In Task</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl#getUsedOsAlarm <em>Used Os Alarm</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl#getUsedOsEvent <em>Used Os Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -129,26 +119,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 	 * @ordered
 	 */
 	protected Integer positionInTask = POSITION_IN_TASK_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getUsedOsAlarm() <em>Used Os Alarm</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUsedOsAlarm()
-	 * @generated
-	 * @ordered
-	 */
-	protected OsAlarm usedOsAlarm;
-
-	/**
-	 * The cached value of the '{@link #getUsedOsEvent() <em>Used Os Event</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getUsedOsEvent()
-	 * @generated
-	 * @ordered
-	 */
-	protected OsEvent usedOsEvent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -259,82 +229,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OsAlarm getUsedOsAlarm() {
-		if (usedOsAlarm != null && ((EObject)usedOsAlarm).eIsProxy()) {
-			InternalEObject oldUsedOsAlarm = (InternalEObject)usedOsAlarm;
-			usedOsAlarm = (OsAlarm)eResolveProxy(oldUsedOsAlarm);
-			if (usedOsAlarm != oldUsedOsAlarm) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM, oldUsedOsAlarm, usedOsAlarm));
-			}
-		}
-		return usedOsAlarm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OsAlarm basicGetUsedOsAlarm() {
-		return usedOsAlarm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsedOsAlarm(OsAlarm newUsedOsAlarm) {
-		OsAlarm oldUsedOsAlarm = usedOsAlarm;
-		usedOsAlarm = newUsedOsAlarm;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM, oldUsedOsAlarm, usedOsAlarm));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OsEvent getUsedOsEvent() {
-		if (usedOsEvent != null && ((EObject)usedOsEvent).eIsProxy()) {
-			InternalEObject oldUsedOsEvent = (InternalEObject)usedOsEvent;
-			usedOsEvent = (OsEvent)eResolveProxy(oldUsedOsEvent);
-			if (usedOsEvent != oldUsedOsEvent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT, oldUsedOsEvent, usedOsEvent));
-			}
-		}
-		return usedOsEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OsEvent basicGetUsedOsEvent() {
-		return usedOsEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setUsedOsEvent(OsEvent newUsedOsEvent) {
-		OsEvent oldUsedOsEvent = usedOsEvent;
-		usedOsEvent = newUsedOsEvent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT, oldUsedOsEvent, usedOsEvent));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -358,12 +252,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 				return getEvent();
 			case InteractionPackage.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK:
 				return getPositionInTask();
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM:
-				if (resolve) return getUsedOsAlarm();
-				return basicGetUsedOsAlarm();
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT:
-				if (resolve) return getUsedOsEvent();
-				return basicGetUsedOsEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -384,12 +272,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 				return;
 			case InteractionPackage.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK:
 				setPositionInTask((Integer)newValue);
-				return;
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM:
-				setUsedOsAlarm((OsAlarm)newValue);
-				return;
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT:
-				setUsedOsEvent((OsEvent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -412,12 +294,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 			case InteractionPackage.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK:
 				setPositionInTask(POSITION_IN_TASK_EDEFAULT);
 				return;
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM:
-				setUsedOsAlarm((OsAlarm)null);
-				return;
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT:
-				setUsedOsEvent((OsEvent)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -436,10 +312,6 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 				return event != null;
 			case InteractionPackage.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK:
 				return POSITION_IN_TASK_EDEFAULT == null ? positionInTask != null : !POSITION_IN_TASK_EDEFAULT.equals(positionInTask);
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_ALARM:
-				return usedOsAlarm != null;
-			case InteractionPackage.EVENT_TO_TASK_MAPPING__USED_OS_EVENT:
-				return usedOsEvent != null;
 		}
 		return super.eIsSet(featureID);
 	}

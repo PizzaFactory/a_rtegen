@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCallbackHeader;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -77,7 +77,7 @@ public class RteCallbackHeaderImpl extends HeaderFileImpl implements RteCallback
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComCallbackGroup> comCallbackGroup;
+	protected EList<ComCallbackFileContentsGroup> comCallbackGroup;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,9 +102,9 @@ public class RteCallbackHeaderImpl extends HeaderFileImpl implements RteCallback
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ComCallbackGroup> getComCallbackGroup() {
+	public EList<ComCallbackFileContentsGroup> getComCallbackGroup() {
 		if (comCallbackGroup == null) {
-			comCallbackGroup = new EObjectContainmentEList<ComCallbackGroup>(ComCallbackGroup.class, this, ModulePackage.RTE_CALLBACK_HEADER__COM_CALLBACK_GROUP);
+			comCallbackGroup = new EObjectContainmentEList<ComCallbackFileContentsGroup>(ComCallbackFileContentsGroup.class, this, ModulePackage.RTE_CALLBACK_HEADER__COM_CALLBACK_GROUP);
 		}
 		return comCallbackGroup;
 	}
@@ -148,7 +148,7 @@ public class RteCallbackHeaderImpl extends HeaderFileImpl implements RteCallback
 		switch (featureID) {
 			case ModulePackage.RTE_CALLBACK_HEADER__COM_CALLBACK_GROUP:
 				getComCallbackGroup().clear();
-				getComCallbackGroup().addAll((Collection<? extends ComCallbackGroup>)newValue);
+				getComCallbackGroup().addAll((Collection<? extends ComCallbackFileContentsGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

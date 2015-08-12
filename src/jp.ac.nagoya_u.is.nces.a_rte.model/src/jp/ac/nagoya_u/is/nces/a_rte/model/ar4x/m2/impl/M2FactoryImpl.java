@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -132,9 +132,14 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.PPORT_PROTOTYPE_IN_COMPOSITION_INSTANCE_REF: return (EObject)createPPortPrototypeInCompositionInstanceRef();
 			case M2Package.SW_COMPONENT_PROTOTYPE: return (EObject)createSwComponentPrototype();
 			case M2Package.IMPLEMENTATION_DATA_TYPE: return (EObject)createImplementationDataType();
+			case M2Package.IMPLEMENTATION_DATA_TYPE_ELEMENT: return (EObject)createImplementationDataTypeElement();
 			case M2Package.SW_DATA_DEF_PROPS: return (EObject)createSwDataDefProps();
 			case M2Package.DATA_TYPE_MAP: return (EObject)createDataTypeMap();
 			case M2Package.DATA_TYPE_MAPPING_SET: return (EObject)createDataTypeMappingSet();
+			case M2Package.MODE_DECLARATION_GROUP_PROTOTYPE: return (EObject)createModeDeclarationGroupPrototype();
+			case M2Package.MODE_REQUEST_TYPE_MAP: return (EObject)createModeRequestTypeMap();
+			case M2Package.MODE_DECLARATION: return (EObject)createModeDeclaration();
+			case M2Package.MODE_DECLARATION_GROUP: return (EObject)createModeDeclarationGroup();
 			case M2Package.APPLICATION_PRIMITIVE_DATA_TYPE: return (EObject)createApplicationPrimitiveDataType();
 			case M2Package.EXCLUSIVE_AREA: return (EObject)createExclusiveArea();
 			case M2Package.NUMERICAL_VALUE_SPECIFICATION: return (EObject)createNumericalValueSpecification();
@@ -165,6 +170,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.ISIGNAL_IPDU: return (EObject)createISignalIPdu();
 			case M2Package.ISIGNAL_TO_IPDU_MAPPING: return (EObject)createISignalToIPduMapping();
 			case M2Package.SENDER_RECEIVER_TO_SIGNAL_MAPPING: return (EObject)createSenderReceiverToSignalMapping();
+			case M2Package.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING: return (EObject)createSenderReceiverToSignalGroupMapping();
 			case M2Package.VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF: return (EObject)createVariableDataPrototypeInSystemInstanceRef();
 			case M2Package.ECUC_VALUE_COLLECTION: return (EObject)createEcucValueCollection();
 			case M2Package.SYNCHRONOUS_SERVER_CALL_POINT: return (EObject)createSynchronousServerCallPoint();
@@ -189,13 +195,24 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.SWC_BSW_RUNNABLE_MAPPING: return (EObject)createSwcBswRunnableMapping();
 			case M2Package.SWC_BSW_MAPPING: return (EObject)createSwcBswMapping();
 			case M2Package.BSW_INTERNAL_BEHAVIOR: return (EObject)createBswInternalBehavior();
+			case M2Package.BSW_MODE_SENDER_POLICY: return (EObject)createBswModeSenderPolicy();
 			case M2Package.BSW_IMPLEMENTATION: return (EObject)createBswImplementation();
 			case M2Package.BSW_MODULE_DESCRIPTION: return (EObject)createBswModuleDescription();
 			case M2Package.BSW_MODULE_ENTRY: return (EObject)createBswModuleEntry();
 			case M2Package.BSW_SCHEDULABLE_ENTITY: return (EObject)createBswSchedulableEntity();
+			case M2Package.BSW_MODE_SWITCH_EVENT: return (EObject)createBswModeSwitchEvent();
+			case M2Package.MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF: return (EObject)createModeInBswModuleDescriptionInstanceRef();
 			case M2Package.BSW_TIMING_EVENT: return (EObject)createBswTimingEvent();
 			case M2Package.BSW_CALLED_ENTITY: return (EObject)createBswCalledEntity();
 			case M2Package.BSW_INTERRUPT_ENTITY: return (EObject)createBswInterruptEntity();
+			case M2Package.SYSTEM_SIGNAL_GROUP: return (EObject)createSystemSignalGroup();
+			case M2Package.ISIGNAL_GROUP: return (EObject)createISignalGroup();
+			case M2Package.SENDER_REC_RECORD_TYPE_MAPPING: return (EObject)createSenderRecRecordTypeMapping();
+			case M2Package.SENDER_REC_RECORD_ELEMENT_MAPPING: return (EObject)createSenderRecRecordElementMapping();
+			case M2Package.SENDER_REC_ARRAY_TYPE_MAPPING: return (EObject)createSenderRecArrayTypeMapping();
+			case M2Package.INDEXED_ARRAY_ELEMENT: return (EObject)createIndexedArrayElement();
+			case M2Package.SENDER_REC_ARRAY_ELEMENT_MAPPING: return (EObject)createSenderRecArrayElementMapping();
+			case M2Package.SW_POINTER_TARGET_PROPS: return (EObject)createSwPointerTargetProps();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -209,6 +226,8 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
+				return createArraySizeSemanticsEnumFromString(eDataType, initialValue);
 			case M2Package.ARGUMENT_DIRECTION_ENUM:
 				return createArgumentDirectionEnumFromString(eDataType, initialValue);
 			case M2Package.DATA_FILTER_TYPE_ENUM:
@@ -221,12 +240,12 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 				return createMemoryAllocationKeywordPolicyTypeFromString(eDataType, initialValue);
 			case M2Package.ECUC_CONFIGURATION_VARIANT_ENUM:
 				return createEcucConfigurationVariantEnumFromString(eDataType, initialValue);
+			case M2Package.MODE_ACTIVATION_KIND:
+				return createModeActivationKindFromString(eDataType, initialValue);
 			case M2Package.BSW_CALL_TYPE_ENUM:
 				return createBswCallTypeEnumFromString(eDataType, initialValue);
 			case M2Package.BSW_EXECUTION_CONTEXT_ENUM:
 				return createBswExecutionContextEnumFromString(eDataType, initialValue);
-			case M2Package.BSW_INTERRUPT_CATEGORY:
-				return createBswInterruptCategoryFromString(eDataType, initialValue);
 			case M2Package.NUMERICAL:
 				return createNumericalFromString(eDataType, initialValue);
 			case M2Package.INTEGER:
@@ -276,6 +295,8 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case M2Package.ARRAY_SIZE_SEMANTICS_ENUM:
+				return convertArraySizeSemanticsEnumToString(eDataType, instanceValue);
 			case M2Package.ARGUMENT_DIRECTION_ENUM:
 				return convertArgumentDirectionEnumToString(eDataType, instanceValue);
 			case M2Package.DATA_FILTER_TYPE_ENUM:
@@ -288,12 +309,12 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 				return convertMemoryAllocationKeywordPolicyTypeToString(eDataType, instanceValue);
 			case M2Package.ECUC_CONFIGURATION_VARIANT_ENUM:
 				return convertEcucConfigurationVariantEnumToString(eDataType, instanceValue);
+			case M2Package.MODE_ACTIVATION_KIND:
+				return convertModeActivationKindToString(eDataType, instanceValue);
 			case M2Package.BSW_CALL_TYPE_ENUM:
 				return convertBswCallTypeEnumToString(eDataType, instanceValue);
 			case M2Package.BSW_EXECUTION_CONTEXT_ENUM:
 				return convertBswExecutionContextEnumToString(eDataType, instanceValue);
-			case M2Package.BSW_INTERRUPT_CATEGORY:
-				return convertBswInterruptCategoryToString(eDataType, instanceValue);
 			case M2Package.NUMERICAL:
 				return convertNumericalToString(eDataType, instanceValue);
 			case M2Package.INTEGER:
@@ -680,6 +701,46 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeDeclarationGroupPrototype createModeDeclarationGroupPrototype() {
+		ModeDeclarationGroupPrototypeImpl modeDeclarationGroupPrototype = new ModeDeclarationGroupPrototypeImpl();
+		return modeDeclarationGroupPrototype;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeRequestTypeMap createModeRequestTypeMap() {
+		ModeRequestTypeMapImpl modeRequestTypeMap = new ModeRequestTypeMapImpl();
+		return modeRequestTypeMap;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeDeclaration createModeDeclaration() {
+		ModeDeclarationImpl modeDeclaration = new ModeDeclarationImpl();
+		return modeDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeDeclarationGroup createModeDeclarationGroup() {
+		ModeDeclarationGroupImpl modeDeclarationGroup = new ModeDeclarationGroupImpl();
+		return modeDeclarationGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ApplicationPrimitiveDataType createApplicationPrimitiveDataType() {
 		ApplicationPrimitiveDataTypeImpl applicationPrimitiveDataType = new ApplicationPrimitiveDataTypeImpl();
 		return applicationPrimitiveDataType;
@@ -980,6 +1041,16 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SenderReceiverToSignalGroupMapping createSenderReceiverToSignalGroupMapping() {
+		SenderReceiverToSignalGroupMappingImpl senderReceiverToSignalGroupMapping = new SenderReceiverToSignalGroupMappingImpl();
+		return senderReceiverToSignalGroupMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public VariableDataPrototypeInSystemInstanceRef createVariableDataPrototypeInSystemInstanceRef() {
 		VariableDataPrototypeInSystemInstanceRefImpl variableDataPrototypeInSystemInstanceRef = new VariableDataPrototypeInSystemInstanceRefImpl();
 		return variableDataPrototypeInSystemInstanceRef;
@@ -1220,6 +1291,16 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BswModeSenderPolicy createBswModeSenderPolicy() {
+		BswModeSenderPolicyImpl bswModeSenderPolicy = new BswModeSenderPolicyImpl();
+		return bswModeSenderPolicy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BswImplementation createBswImplementation() {
 		BswImplementationImpl bswImplementation = new BswImplementationImpl();
 		return bswImplementation;
@@ -1260,6 +1341,26 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BswModeSwitchEvent createBswModeSwitchEvent() {
+		BswModeSwitchEventImpl bswModeSwitchEvent = new BswModeSwitchEventImpl();
+		return bswModeSwitchEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeInBswModuleDescriptionInstanceRef createModeInBswModuleDescriptionInstanceRef() {
+		ModeInBswModuleDescriptionInstanceRefImpl modeInBswModuleDescriptionInstanceRef = new ModeInBswModuleDescriptionInstanceRefImpl();
+		return modeInBswModuleDescriptionInstanceRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BswTimingEvent createBswTimingEvent() {
 		BswTimingEventImpl bswTimingEvent = new BswTimingEventImpl();
 		return bswTimingEvent;
@@ -1283,6 +1384,96 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	public BswInterruptEntity createBswInterruptEntity() {
 		BswInterruptEntityImpl bswInterruptEntity = new BswInterruptEntityImpl();
 		return bswInterruptEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationDataTypeElement createImplementationDataTypeElement() {
+		ImplementationDataTypeElementImpl implementationDataTypeElement = new ImplementationDataTypeElementImpl();
+		return implementationDataTypeElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SystemSignalGroup createSystemSignalGroup() {
+		SystemSignalGroupImpl systemSignalGroup = new SystemSignalGroupImpl();
+		return systemSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ISignalGroup createISignalGroup() {
+		ISignalGroupImpl iSignalGroup = new ISignalGroupImpl();
+		return iSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SenderRecRecordTypeMapping createSenderRecRecordTypeMapping() {
+		SenderRecRecordTypeMappingImpl senderRecRecordTypeMapping = new SenderRecRecordTypeMappingImpl();
+		return senderRecRecordTypeMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SenderRecRecordElementMapping createSenderRecRecordElementMapping() {
+		SenderRecRecordElementMappingImpl senderRecRecordElementMapping = new SenderRecRecordElementMappingImpl();
+		return senderRecRecordElementMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SenderRecArrayTypeMapping createSenderRecArrayTypeMapping() {
+		SenderRecArrayTypeMappingImpl senderRecArrayTypeMapping = new SenderRecArrayTypeMappingImpl();
+		return senderRecArrayTypeMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IndexedArrayElement createIndexedArrayElement() {
+		IndexedArrayElementImpl indexedArrayElement = new IndexedArrayElementImpl();
+		return indexedArrayElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SenderRecArrayElementMapping createSenderRecArrayElementMapping() {
+		SenderRecArrayElementMappingImpl senderRecArrayElementMapping = new SenderRecArrayElementMappingImpl();
+		return senderRecArrayElementMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwPointerTargetProps createSwPointerTargetProps() {
+		SwPointerTargetPropsImpl swPointerTargetProps = new SwPointerTargetPropsImpl();
+		return swPointerTargetProps;
 	}
 
 	/**
@@ -1410,6 +1601,26 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeActivationKind createModeActivationKindFromString(EDataType eDataType, String initialValue) {
+		ModeActivationKind result = ModeActivationKind.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertModeActivationKindToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BswCallTypeEnum createBswCallTypeEnumFromString(EDataType eDataType, String initialValue) {
 		BswCallTypeEnum result = BswCallTypeEnum.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -1450,8 +1661,8 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BswInterruptCategory createBswInterruptCategoryFromString(EDataType eDataType, String initialValue) {
-		BswInterruptCategory result = BswInterruptCategory.get(initialValue);
+	public ArraySizeSemanticsEnum createArraySizeSemanticsEnumFromString(EDataType eDataType, String initialValue) {
+		ArraySizeSemanticsEnum result = ArraySizeSemanticsEnum.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -1461,7 +1672,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertBswInterruptCategoryToString(EDataType eDataType, Object instanceValue) {
+	public String convertArraySizeSemanticsEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

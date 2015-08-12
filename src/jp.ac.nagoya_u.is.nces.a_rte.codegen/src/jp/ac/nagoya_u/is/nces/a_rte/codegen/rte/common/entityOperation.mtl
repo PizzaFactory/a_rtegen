@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: entityOperation.mtl 14066 2015-04-27 07:05:47Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -63,38 +63,57 @@
 	[/let]
 [/template]
 
+[template private genDisabledInModeIf(aExecutableStartOperation : ExecutableStartOperation) ]
+	[for (aDisabledInMode : DisabledInMode | aExecutableStartOperation.disabledInMode) ]
+		[if (aDisabledInMode <> aExecutableStartOperation.disabledInMode->first())]&& [/if]RTE_MODE_IS_NOT_DISABLED([aDisabledInMode.disabledMode.symbolName/], [aDisabledInMode.modeMachineInstance.currentModeVariable.symbolName/], [aDisabledInMode.modeMachineInstance.nextModeVariable.symbolName/])
+	[/for]
+[/template]
 
 [template private genExecutableStartOperation (aExecutableStartOperation : ExecutableStartOperation) /]
 
-[template private genExecutableStartOperation (aExecutableStartOperation : DirectExecutableStartOperation) ]
-[aExecutableStartOperation.genDoExecutableStartOperation()/]
-[/template]
-
 [template private genExecutableStartOperation (aExecutableStartOperation : TimingTriggeringExecutableStartOperation) ]
 [if (aExecutableStartOperation.cyclePeriodConstant.oclIsUndefined() and aExecutableStartOperation.startOffsetConstant.oclIsUndefined())]
-	[aExecutableStartOperation.genDoExecutableStartOperation()/]
+	[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
 [elseif (aExecutableStartOperation.cyclePeriodConstant.oclIsUndefined())]
 	if ([aExecutableStartOperation.startOffsetCounterVariable.genValueAccess()/] >= [aExecutableStartOperation.startOffsetConstant.genValueAccess()/]) {
-		[aExecutableStartOperation.genDoExecutableStartOperation()/]
+		[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
 	}
 [elseif (aExecutableStartOperation.startOffsetConstant.oclIsUndefined())]
 	if (([aExecutableStartOperation.cycleCounterVariable.genValueAccess()/] % [aExecutableStartOperation.cyclePeriodConstant.genValueAccess()/]) == [aExecutableStartOperation.cycleOffsetConstant.genValueAccess()/]) {
-		[aExecutableStartOperation.genDoExecutableStartOperation()/]
+		[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
 	}
 [else]
 	if (([aExecutableStartOperation.startOffsetCounterVariable.genValueAccess()/] >=  [aExecutableStartOperation.startOffsetConstant.genValueAccess()/])
 		&& (([aExecutableStartOperation.cycleCounterVariable.genValueAccess()/] % [aExecutableStartOperation.cyclePeriodConstant.genValueAccess()/]) == [aExecutableStartOperation.cycleOffsetConstant.genValueAccess()/])) {
-		[aExecutableStartOperation.genDoExecutableStartOperation()/]
+		[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
 	}
 [/if]
 [/template]
 
-[template private genDoExecutableStartOperation(aExecutableStartOperation : ExecutableStartOperation) ]
-	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.excludeOperation)]
+[template private genExecutableStartOperation (aExecutableStartOperation : ModeSwitchTriggeringExecutableStartOperation) ]
+	[aExecutableStartOperation.genDoExecutableStartOperationBlock()/]
+[/template]
+
+[template private genDoExecutableStartOperationBlock (aExecutableStartOperation : ExecutableStartOperation) ]
+[if (aExecutableStartOperation.disabledInMode->isEmpty()) ]
+	[aExecutableStartOperation.genDoExecutableStartOperation()/]
+[else]
+	Rte_Call_Bsw_SuspendAllInterrupts();
+	if ([aExecutableStartOperation.genDisabledInModeIf() /]){
+		Rte_Call_Bsw_ResumeAllInterrupts();
+		[aExecutableStartOperation.genDoExecutableStartOperation()/]
+	} else {
+		Rte_Call_Bsw_ResumeAllInterrupts();
+	}
+[/if]
+[/template]
+
+[template public genDoExecutableStartOperation(aExecutableStartOperation : ExecutableStartOperation) ]
+	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.rieaExcludeOperation)]
 		[aExcludeOperation.genExcludeOperationEnter()/]
 	[/for]
 	[aExecutableStartOperation.startExecutable.symbolName/]();
-	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.excludeOperation->reverse())]
+	[for (aExcludeOperation : ExcludeOperation | aExecutableStartOperation.rieaExcludeOperation->reverse())]
 		[aExcludeOperation.genExcludeOperationExit()/]
 	[/for]
 [/template]

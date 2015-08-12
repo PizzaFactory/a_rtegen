@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -157,7 +157,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInvalidationEnabled() {
+	public boolean isInvalidationEnabled() {
 		try {
 			return (Boolean)IS_INVALIDATION_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -205,7 +205,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isFilterEnabled() {
+	public boolean isFilterEnabled() {
 		try {
 			return (Boolean)IS_FILTER_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -253,7 +253,7 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isAliveTimeoutEnabled() {
+	public boolean isAliveTimeoutEnabled() {
 		try {
 			return (Boolean)IS_ALIVE_TIMEOUT_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}

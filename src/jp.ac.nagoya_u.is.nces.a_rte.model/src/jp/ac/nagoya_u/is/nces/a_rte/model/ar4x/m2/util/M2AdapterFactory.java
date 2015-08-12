@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,7 +46,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.*;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -313,6 +312,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createImplementationDataTypeAdapter();
 			}
 			@Override
+			public Adapter caseImplementationDataTypeElement(ImplementationDataTypeElement object) {
+				return createImplementationDataTypeElementAdapter();
+			}
+			@Override
 			public Adapter caseSwDataDefProps(SwDataDefProps object) {
 				return createSwDataDefPropsAdapter();
 			}
@@ -323,6 +326,22 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataTypeMappingSet(DataTypeMappingSet object) {
 				return createDataTypeMappingSetAdapter();
+			}
+			@Override
+			public Adapter caseModeDeclarationGroupPrototype(ModeDeclarationGroupPrototype object) {
+				return createModeDeclarationGroupPrototypeAdapter();
+			}
+			@Override
+			public Adapter caseModeRequestTypeMap(ModeRequestTypeMap object) {
+				return createModeRequestTypeMapAdapter();
+			}
+			@Override
+			public Adapter caseModeDeclaration(ModeDeclaration object) {
+				return createModeDeclarationAdapter();
+			}
+			@Override
+			public Adapter caseModeDeclarationGroup(ModeDeclarationGroup object) {
+				return createModeDeclarationGroupAdapter();
 			}
 			@Override
 			public Adapter caseApplicationPrimitiveDataType(ApplicationPrimitiveDataType object) {
@@ -457,6 +476,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createSenderReceiverToSignalMappingAdapter();
 			}
 			@Override
+			public Adapter caseSenderReceiverToSignalGroupMapping(SenderReceiverToSignalGroupMapping object) {
+				return createSenderReceiverToSignalGroupMappingAdapter();
+			}
+			@Override
 			public Adapter caseVariableDataPrototypeInSystemInstanceRef(VariableDataPrototypeInSystemInstanceRef object) {
 				return createVariableDataPrototypeInSystemInstanceRefAdapter();
 			}
@@ -569,6 +592,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createBswInternalBehaviorAdapter();
 			}
 			@Override
+			public Adapter caseBswModeSenderPolicy(BswModeSenderPolicy object) {
+				return createBswModeSenderPolicyAdapter();
+			}
+			@Override
 			public Adapter caseImplementation(Implementation object) {
 				return createImplementationAdapter();
 			}
@@ -597,6 +624,14 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createBswEventAdapter();
 			}
 			@Override
+			public Adapter caseBswModeSwitchEvent(BswModeSwitchEvent object) {
+				return createBswModeSwitchEventAdapter();
+			}
+			@Override
+			public Adapter caseModeInBswModuleDescriptionInstanceRef(ModeInBswModuleDescriptionInstanceRef object) {
+				return createModeInBswModuleDescriptionInstanceRefAdapter();
+			}
+			@Override
 			public Adapter caseBswTimingEvent(BswTimingEvent object) {
 				return createBswTimingEventAdapter();
 			}
@@ -607,6 +642,42 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBswInterruptEntity(BswInterruptEntity object) {
 				return createBswInterruptEntityAdapter();
+			}
+			@Override
+			public Adapter caseSystemSignalGroup(SystemSignalGroup object) {
+				return createSystemSignalGroupAdapter();
+			}
+			@Override
+			public Adapter caseISignalGroup(ISignalGroup object) {
+				return createISignalGroupAdapter();
+			}
+			@Override
+			public Adapter caseSenderRecCompositeTypeMapping(SenderRecCompositeTypeMapping object) {
+				return createSenderRecCompositeTypeMappingAdapter();
+			}
+			@Override
+			public Adapter caseSenderRecRecordTypeMapping(SenderRecRecordTypeMapping object) {
+				return createSenderRecRecordTypeMappingAdapter();
+			}
+			@Override
+			public Adapter caseSenderRecRecordElementMapping(SenderRecRecordElementMapping object) {
+				return createSenderRecRecordElementMappingAdapter();
+			}
+			@Override
+			public Adapter caseSenderRecArrayTypeMapping(SenderRecArrayTypeMapping object) {
+				return createSenderRecArrayTypeMappingAdapter();
+			}
+			@Override
+			public Adapter caseIndexedArrayElement(IndexedArrayElement object) {
+				return createIndexedArrayElementAdapter();
+			}
+			@Override
+			public Adapter caseSenderRecArrayElementMapping(SenderRecArrayElementMapping object) {
+				return createSenderRecArrayElementMappingAdapter();
+			}
+			@Override
+			public Adapter caseSwPointerTargetProps(SwPointerTargetProps object) {
+				return createSwPointerTargetPropsAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1371,6 +1442,62 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype <em>Mode Declaration Group Prototype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype
+	 * @generated
+	 */
+	public Adapter createModeDeclarationGroupPrototypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap <em>Mode Request Type Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap
+	 * @generated
+	 */
+	public Adapter createModeRequestTypeMapAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration <em>Mode Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration
+	 * @generated
+	 */
+	public Adapter createModeDeclarationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup <em>Mode Declaration Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup
+	 * @generated
+	 */
+	public Adapter createModeDeclarationGroupAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationPrimitiveDataType <em>Application Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1833,6 +1960,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping <em>Sender Receiver To Signal Group Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping
+	 * @generated
+	 */
+	public Adapter createSenderReceiverToSignalGroupMappingAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototypeInSystemInstanceRef <em>Variable Data Prototype In System Instance Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2239,6 +2380,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy <em>Bsw Mode Sender Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy
+	 * @generated
+	 */
+	public Adapter createBswModeSenderPolicyAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Implementation <em>Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2337,6 +2492,34 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent <em>Bsw Mode Switch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent
+	 * @generated
+	 */
+	public Adapter createBswModeSwitchEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef <em>Mode In Bsw Module Description Instance Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef
+	 * @generated
+	 */
+	public Adapter createModeInBswModuleDescriptionInstanceRefAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswTimingEvent <em>Bsw Timing Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2375,6 +2558,146 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBswInterruptEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement <em>Implementation Data Type Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement
+	 * @generated
+	 */
+	public Adapter createImplementationDataTypeElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup <em>System Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup
+	 * @generated
+	 */
+	public Adapter createSystemSignalGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup <em>ISignal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup
+	 * @generated
+	 */
+	public Adapter createISignalGroupAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping <em>Sender Rec Composite Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping
+	 * @generated
+	 */
+	public Adapter createSenderRecCompositeTypeMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping <em>Sender Rec Record Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping
+	 * @generated
+	 */
+	public Adapter createSenderRecRecordTypeMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping <em>Sender Rec Record Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping
+	 * @generated
+	 */
+	public Adapter createSenderRecRecordElementMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping <em>Sender Rec Array Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping
+	 * @generated
+	 */
+	public Adapter createSenderRecArrayTypeMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement <em>Indexed Array Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement
+	 * @generated
+	 */
+	public Adapter createIndexedArrayElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping <em>Sender Rec Array Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping
+	 * @generated
+	 */
+	public Adapter createSenderRecArrayElementMappingAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps <em>Sw Pointer Target Props</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps
+	 * @generated
+	 */
+	public Adapter createSwPointerTargetPropsAdapter() {
 		return null;
 	}
 

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public class EcucPartitionExImpl extends ExtendedEObjectImpl implements EcucPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInMasterCore(EcucPartition this_) {
+	public boolean isInMasterCore(EcucPartition this_) {
 		try {
 			return (Boolean)IS_IN_MASTER_CORE_ECUC_PARTITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -125,7 +125,7 @@ public class EcucPartitionExImpl extends ExtendedEObjectImpl implements EcucPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isMasterBswPartition(EcucPartition this_) {
+	public boolean isMasterBswPartition(EcucPartition this_) {
 		try {
 			return (Boolean)IS_MASTER_BSW_PARTITION_ECUC_PARTITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -149,7 +149,7 @@ public class EcucPartitionExImpl extends ExtendedEObjectImpl implements EcucPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesRestartPartitionApi(EcucPartition this_) {
+	public boolean providesRestartPartitionApi(EcucPartition this_) {
 		try {
 			return (Boolean)PROVIDES_RESTART_PARTITION_API_ECUC_PARTITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -173,7 +173,7 @@ public class EcucPartitionExImpl extends ExtendedEObjectImpl implements EcucPart
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesPartitionRestartingApi(EcucPartition this_) {
+	public boolean providesPartitionRestartingApi(EcucPartition this_) {
 		try {
 			return (Boolean)PROVIDES_PARTITION_RESTARTING_API_ECUC_PARTITION__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

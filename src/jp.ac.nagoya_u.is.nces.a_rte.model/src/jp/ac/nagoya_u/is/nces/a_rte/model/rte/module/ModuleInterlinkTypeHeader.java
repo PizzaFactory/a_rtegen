@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,6 +55,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getConstant <em>Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getModeType <em>Mode Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +80,37 @@ public interface ModuleInterlinkTypeHeader extends HeaderFile {
 	 * @generated
 	 */
 	EList<Constant> getConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Mode Type</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode Type</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode Type</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleInterlinkTypeHeader_ModeType()
+	 * @model
+	 * @generated
+	 */
+	EList<ModeType> getModeType();
+
+	/**
+	 * Returns the value of the '<em><b>Mode Declaration Group</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mode Declaration Group</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mode Declaration Group</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleInterlinkTypeHeader_ModeDeclarationGroup()
+	 * @model
+	 * @generated
+	 */
+	EList<ModeDeclarationGroup> getModeDeclarationGroup();
 
 } // ModuleInterlinkTypeHeader

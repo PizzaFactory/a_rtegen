@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -60,7 +60,7 @@ public class RteInteractionModelBuilder {
 		this.buildDirector = buildDirector;
 	}
 
-	public void build(Resource eResource) throws M2MException {
-		this.buildDirector.build(new InteractionModelBuildContext(eResource));
+	public void build(Resource eResource, RteInteractionModelBuilderOptions options) throws M2MException {
+		this.buildDirector.build(new InteractionModelBuildContext(eResource, options));
 	}
 }

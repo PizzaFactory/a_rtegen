@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,7 +55,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SourceFile#getDependentHeaders <em>Dependent Headers</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SourceFile#getIncludeHeader <em>Include Header</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,7 +66,7 @@ import org.eclipse.emf.common.util.EList;
 public interface SourceFile extends File {
 
 	/**
-	 * Returns the value of the '<em><b>Dependent Headers</b></em>' reference list.
+	 * Returns the value of the '<em><b>Include Header</b></em>' reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -74,10 +74,10 @@ public interface SourceFile extends File {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Headers</em>' reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSourceFile_DependentHeaders()
+	 * @return the value of the '<em>Include Header</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSourceFile_IncludeHeader()
 	 * @model
 	 * @generated
 	 */
-	EList<HeaderFile> getDependentHeaders();
+	EList<HeaderFile> getIncludeHeader();
 } // SourceFile

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -60,6 +60,8 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getSwAlignment <em>Sw Alignment</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getCompuMethod <em>Compu Method</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getDataConstr <em>Data Constr</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getImplementationDataType <em>Implementation Data Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getSwPointerTargetProps <em>Sw Pointer Target Props</em>}</li>
  * </ul>
  * </p>
  *
@@ -253,4 +255,56 @@ public interface SwDataDefProps extends M2Object {
 	 * @generated
 	 */
 	void setDataConstr(DataConstr value);
+
+	/**
+	 * Returns the value of the '<em><b>Implementation Data Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Implementation Data Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Implementation Data Type</em>' reference.
+	 * @see #setImplementationDataType(ImplementationDataType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_ImplementationDataType()
+	 * @model
+	 * @generated
+	 */
+	ImplementationDataType getImplementationDataType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getImplementationDataType <em>Implementation Data Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Implementation Data Type</em>' reference.
+	 * @see #getImplementationDataType()
+	 * @generated
+	 */
+	void setImplementationDataType(ImplementationDataType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sw Pointer Target Props</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sw Pointer Target Props</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sw Pointer Target Props</em>' containment reference.
+	 * @see #setSwPointerTargetProps(SwPointerTargetProps)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_SwPointerTargetProps()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SwPointerTargetProps getSwPointerTargetProps();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getSwPointerTargetProps <em>Sw Pointer Target Props</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sw Pointer Target Props</em>' containment reference.
+	 * @see #getSwPointerTargetProps()
+	 * @generated
+	 */
+	void setSwPointerTargetProps(SwPointerTargetProps value);
 } // SwDataDefProps

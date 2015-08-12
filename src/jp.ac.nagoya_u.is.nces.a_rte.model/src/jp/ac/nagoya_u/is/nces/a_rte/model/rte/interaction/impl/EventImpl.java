@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
@@ -65,6 +66,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl#getSourceBswEvent <em>Source Bsw Event</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,6 +82,16 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 	 * @ordered
 	 */
 	protected ExecutableEntity startOnEvent;
+
+	/**
+	 * The cached value of the '{@link #getSourceBswEvent() <em>Source Bsw Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceBswEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected BswEvent sourceBswEvent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,12 +155,53 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BswEvent getSourceBswEvent() {
+		if (sourceBswEvent != null && ((EObject)sourceBswEvent).eIsProxy()) {
+			InternalEObject oldSourceBswEvent = (InternalEObject)sourceBswEvent;
+			sourceBswEvent = (BswEvent)eResolveProxy(oldSourceBswEvent);
+			if (sourceBswEvent != oldSourceBswEvent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.EVENT__SOURCE_BSW_EVENT, oldSourceBswEvent, sourceBswEvent));
+			}
+		}
+		return sourceBswEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswEvent basicGetSourceBswEvent() {
+		return sourceBswEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceBswEvent(BswEvent newSourceBswEvent) {
+		BswEvent oldSourceBswEvent = sourceBswEvent;
+		sourceBswEvent = newSourceBswEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.EVENT__SOURCE_BSW_EVENT, oldSourceBswEvent, sourceBswEvent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				if (resolve) return getStartOnEvent();
 				return basicGetStartOnEvent();
+			case InteractionPackage.EVENT__SOURCE_BSW_EVENT:
+				if (resolve) return getSourceBswEvent();
+				return basicGetSourceBswEvent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +216,9 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				setStartOnEvent((ExecutableEntity)newValue);
+				return;
+			case InteractionPackage.EVENT__SOURCE_BSW_EVENT:
+				setSourceBswEvent((BswEvent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,6 +235,9 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				setStartOnEvent((ExecutableEntity)null);
 				return;
+			case InteractionPackage.EVENT__SOURCE_BSW_EVENT:
+				setSourceBswEvent((BswEvent)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -193,6 +252,8 @@ public class EventImpl extends InteractionObjectImpl implements Event {
 		switch (featureID) {
 			case InteractionPackage.EVENT__START_ON_EVENT:
 				return startOnEvent != null;
+			case InteractionPackage.EVENT__SOURCE_BSW_EVENT:
+				return sourceBswEvent != null;
 		}
 		return super.eIsSet(featureID);
 	}

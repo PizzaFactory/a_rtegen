@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public class RVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresFilterVariable(RVariableDataInstanceInSwc this_) {
+	public boolean requiresFilterVariable(RVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)REQUIRES_FILTER_VARIABLE_RVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -125,7 +125,7 @@ public class RVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresFilterOldValueVariable(RVariableDataInstanceInSwc this_) {
+	public boolean requiresFilterOldValueVariable(RVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)REQUIRES_FILTER_OLD_VALUE_VARIABLE_RVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -149,7 +149,7 @@ public class RVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean requiresFilterOccurrenceVariable(RVariableDataInstanceInSwc this_) {
+	public boolean requiresFilterOccurrenceVariable(RVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)REQUIRES_FILTER_OCCURRENCE_VARIABLE_RVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -173,7 +173,7 @@ public class RVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesReadApi(RVariableDataInstanceInSwc this_) {
+	public boolean providesReadApi(RVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_READ_API_RVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -197,7 +197,7 @@ public class RVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesReceiveApi(RVariableDataInstanceInSwc this_) {
+	public boolean providesReceiveApi(RVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_RECEIVE_API_RVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

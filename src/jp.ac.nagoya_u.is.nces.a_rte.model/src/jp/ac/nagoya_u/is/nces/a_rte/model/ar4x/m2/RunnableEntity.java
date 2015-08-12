@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -60,6 +60,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getWrittenLocalVariable <em>Written Local Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getReadLocalVariable <em>Read Local Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +127,38 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @generated
 	 */
 	void setSymbol(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Written Local Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableAccess}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Written Local Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Written Local Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_WrittenLocalVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<VariableAccess> getWrittenLocalVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Read Local Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableAccess}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Read Local Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Read Local Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_ReadLocalVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<VariableAccess> getReadLocalVariable();
 
 	/**
 	 * Returns the value of the '<em><b>Server Call Point</b></em>' containment reference list.

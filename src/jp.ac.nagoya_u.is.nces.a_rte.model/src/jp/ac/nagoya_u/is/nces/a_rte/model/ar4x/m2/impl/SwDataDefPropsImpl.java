@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,11 +46,13 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuMethod;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataConstr;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwImplPolicyEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -74,6 +76,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl#getSwAlignment <em>Sw Alignment</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl#getCompuMethod <em>Compu Method</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl#getDataConstr <em>Data Constr</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl#getImplementationDataType <em>Implementation Data Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl#getSwPointerTargetProps <em>Sw Pointer Target Props</em>}</li>
  * </ul>
  * </p>
  *
@@ -167,6 +171,26 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 	 * @ordered
 	 */
 	protected DataConstr dataConstr;
+
+	/**
+	 * The cached value of the '{@link #getImplementationDataType() <em>Implementation Data Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImplementationDataType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ImplementationDataType implementationDataType;
+
+	/**
+	 * The cached value of the '{@link #getSwPointerTargetProps() <em>Sw Pointer Target Props</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSwPointerTargetProps()
+	 * @generated
+	 * @ordered
+	 */
+	protected SwPointerTargetProps swPointerTargetProps;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -429,11 +453,94 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ImplementationDataType getImplementationDataType() {
+		if (implementationDataType != null && ((EObject)implementationDataType).eIsProxy()) {
+			InternalEObject oldImplementationDataType = (InternalEObject)implementationDataType;
+			implementationDataType = (ImplementationDataType)eResolveProxy(oldImplementationDataType);
+			if (implementationDataType != oldImplementationDataType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE, oldImplementationDataType, implementationDataType));
+			}
+		}
+		return implementationDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationDataType basicGetImplementationDataType() {
+		return implementationDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setImplementationDataType(ImplementationDataType newImplementationDataType) {
+		ImplementationDataType oldImplementationDataType = implementationDataType;
+		implementationDataType = newImplementationDataType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE, oldImplementationDataType, implementationDataType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwPointerTargetProps getSwPointerTargetProps() {
+		return swPointerTargetProps;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSwPointerTargetProps(SwPointerTargetProps newSwPointerTargetProps, NotificationChain msgs) {
+		SwPointerTargetProps oldSwPointerTargetProps = swPointerTargetProps;
+		swPointerTargetProps = newSwPointerTargetProps;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS, oldSwPointerTargetProps, newSwPointerTargetProps);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSwPointerTargetProps(SwPointerTargetProps newSwPointerTargetProps) {
+		if (newSwPointerTargetProps != swPointerTargetProps) {
+			NotificationChain msgs = null;
+			if (swPointerTargetProps != null)
+				msgs = ((InternalEObject)swPointerTargetProps).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS, null, msgs);
+			if (newSwPointerTargetProps != null)
+				msgs = ((InternalEObject)newSwPointerTargetProps).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS, null, msgs);
+			msgs = basicSetSwPointerTargetProps(newSwPointerTargetProps, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS, newSwPointerTargetProps, newSwPointerTargetProps));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case M2Package.SW_DATA_DEF_PROPS__INVALID_VALUE:
 				return basicSetInvalidValue(null, msgs);
+			case M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS:
+				return basicSetSwPointerTargetProps(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -464,6 +571,11 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 			case M2Package.SW_DATA_DEF_PROPS__DATA_CONSTR:
 				if (resolve) return getDataConstr();
 				return basicGetDataConstr();
+			case M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE:
+				if (resolve) return getImplementationDataType();
+				return basicGetImplementationDataType();
+			case M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS:
+				return getSwPointerTargetProps();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -496,6 +608,12 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 				return;
 			case M2Package.SW_DATA_DEF_PROPS__DATA_CONSTR:
 				setDataConstr((DataConstr)newValue);
+				return;
+			case M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE:
+				setImplementationDataType((ImplementationDataType)newValue);
+				return;
+			case M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS:
+				setSwPointerTargetProps((SwPointerTargetProps)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -530,6 +648,12 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 			case M2Package.SW_DATA_DEF_PROPS__DATA_CONSTR:
 				setDataConstr((DataConstr)null);
 				return;
+			case M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE:
+				setImplementationDataType((ImplementationDataType)null);
+				return;
+			case M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS:
+				setSwPointerTargetProps((SwPointerTargetProps)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -556,6 +680,10 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 				return compuMethod != null;
 			case M2Package.SW_DATA_DEF_PROPS__DATA_CONSTR:
 				return dataConstr != null;
+			case M2Package.SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE:
+				return implementationDataType != null;
+			case M2Package.SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS:
+				return swPointerTargetProps != null;
 		}
 		return super.eIsSet(featureID);
 	}

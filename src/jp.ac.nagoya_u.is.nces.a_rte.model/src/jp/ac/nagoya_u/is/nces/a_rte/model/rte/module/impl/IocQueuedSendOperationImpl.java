@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,13 +47,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -64,12 +62,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl#getAccessApi <em>Access Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl#getTempReturnVariable <em>Temp Return Variable</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IocQueuedSendOperationImpl extends SendOperationImpl implements IocQueuedSendOperation {
+public class IocQueuedSendOperationImpl extends IocSendOperationImpl implements IocQueuedSendOperation {
 	/**
 	 * The cached value of the '{@link #getAccessApi() <em>Access Api</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -79,6 +78,16 @@ public class IocQueuedSendOperationImpl extends SendOperationImpl implements Ioc
 	 * @ordered
 	 */
 	protected IocSendApi accessApi;
+
+	/**
+	 * The cached value of the '{@link #getTempReturnVariable() <em>Temp Return Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTempReturnVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Variable tempReturnVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,12 +151,53 @@ public class IocQueuedSendOperationImpl extends SendOperationImpl implements Ioc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Variable getTempReturnVariable() {
+		if (tempReturnVariable != null && ((EObject)tempReturnVariable).eIsProxy()) {
+			InternalEObject oldTempReturnVariable = (InternalEObject)tempReturnVariable;
+			tempReturnVariable = (Variable)eResolveProxy(oldTempReturnVariable);
+			if (tempReturnVariable != oldTempReturnVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE, oldTempReturnVariable, tempReturnVariable));
+			}
+		}
+		return tempReturnVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Variable basicGetTempReturnVariable() {
+		return tempReturnVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTempReturnVariable(Variable newTempReturnVariable) {
+		Variable oldTempReturnVariable = tempReturnVariable;
+		tempReturnVariable = newTempReturnVariable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE, oldTempReturnVariable, tempReturnVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION__ACCESS_API:
 				if (resolve) return getAccessApi();
 				return basicGetAccessApi();
+			case ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
+				if (resolve) return getTempReturnVariable();
+				return basicGetTempReturnVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,6 +212,9 @@ public class IocQueuedSendOperationImpl extends SendOperationImpl implements Ioc
 		switch (featureID) {
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION__ACCESS_API:
 				setAccessApi((IocSendApi)newValue);
+				return;
+			case ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
+				setTempReturnVariable((Variable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +231,9 @@ public class IocQueuedSendOperationImpl extends SendOperationImpl implements Ioc
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION__ACCESS_API:
 				setAccessApi((IocSendApi)null);
 				return;
+			case ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
+				setTempReturnVariable((Variable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +248,8 @@ public class IocQueuedSendOperationImpl extends SendOperationImpl implements Ioc
 		switch (featureID) {
 			case ModulePackage.IOC_QUEUED_SEND_OPERATION__ACCESS_API:
 				return accessApi != null;
+			case ModulePackage.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE:
+				return tempReturnVariable != null;
 		}
 		return super.eIsSet(featureID);
 	}

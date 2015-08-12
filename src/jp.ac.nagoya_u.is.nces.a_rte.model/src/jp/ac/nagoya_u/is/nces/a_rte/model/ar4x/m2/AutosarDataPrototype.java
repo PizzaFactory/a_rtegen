@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,12 +50,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  * A representation of the model object '<em><b>Autosar Data Prototype</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getType <em>Type</em>}</li>
- * </ul>
- * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataPrototype()
  * @model abstract="true"
@@ -63,30 +57,51 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  */
 public interface AutosarDataPrototype extends DataPrototype {
 	/**
-	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(AutosarDataType)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataPrototype_Type()
-	 * @model required="true"
-	 *        annotation="stereotypes isOfType='true'"
+	 * <!-- begin-model-doc -->
+	 * アドレッシング方式の取得
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif'"
 	 * @generated
 	 */
-	AutosarDataType getType();
+	SwAddrMethod getSwAddrMethod();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getType <em>Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' reference.
-	 * @see #getType()
+	 * <!-- begin-model-doc -->
+	 * アラインメントの取得
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not self.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen self.swAlignment\n\t\t\t\t\telse if not implType.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAlignment\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif'"
 	 * @generated
 	 */
-	void setType(AutosarDataType value);
+	String getSwAlignment();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * アプリケーションデータ型の取得
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if self.type.oclIsKindOf(m2::ApplicationDataType)\n\t\t\t\t\tthen self.type.oclAsType(m2::ApplicationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif'"
+	 * @generated
+	 */
+	ApplicationDataType getApplicationDataType();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 実装データ型の取得
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if self.type.oclIsKindOf(m2::ImplementationDataType)\n\t\t\t\t\tthen self.type.oclAsType(m2::ImplementationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif'"
+	 * @generated
+	 */
+	ImplementationDataType getImplementationDataType();
 
 } // AutosarDataPrototype

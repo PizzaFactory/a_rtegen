@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,13 +47,10 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -69,7 +66,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class TrustedFunctionRteBufferWriteSendOperationImpl extends SendOperationImpl implements TrustedFunctionRteBufferWriteSendOperation {
+public class TrustedFunctionRteBufferWriteSendOperationImpl extends TrustedFunctionRteOperationImpl implements TrustedFunctionRteBufferWriteSendOperation {
 	/**
 	 * The cached value of the '{@link #getAccessTrustedFunction() <em>Access Trusted Function</em>}' reference.
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,15 +44,20 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntry;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -66,6 +71,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl#getInternalBehavior <em>Internal Behavior</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl#getProvidedEntry <em>Provided Entry</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl#getProvidedModeGroup <em>Provided Mode Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl#getRequiredModeGroup <em>Required Mode Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +98,26 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 	 * @ordered
 	 */
 	protected EList<BswModuleEntry> providedEntry;
+
+	/**
+	 * The cached value of the '{@link #getProvidedModeGroup() <em>Provided Mode Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidedModeGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeDeclarationGroupPrototype> providedModeGroup;
+
+	/**
+	 * The cached value of the '{@link #getRequiredModeGroup() <em>Required Mode Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredModeGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeDeclarationGroupPrototype> requiredModeGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +167,54 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModeDeclarationGroupPrototype> getProvidedModeGroup() {
+		if (providedModeGroup == null) {
+			providedModeGroup = new EObjectContainmentEList<ModeDeclarationGroupPrototype>(ModeDeclarationGroupPrototype.class, this, M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP);
+		}
+		return providedModeGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeDeclarationGroupPrototype> getRequiredModeGroup() {
+		if (requiredModeGroup == null) {
+			requiredModeGroup = new EObjectContainmentEList<ModeDeclarationGroupPrototype>(ModeDeclarationGroupPrototype.class, this, M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP);
+		}
+		return requiredModeGroup;
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getEnableInternalBehavior() <em>Get Enable Internal Behavior</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnableInternalBehavior()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_ENABLE_INTERNAL_BEHAVIOR__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.BSW_MODULE_DESCRIPTION___GET_ENABLE_INTERNAL_BEHAVIOR).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswInternalBehavior getEnableInternalBehavior() {
+		try {
+			return (BswInternalBehavior)GET_ENABLE_INTERNAL_BEHAVIOR__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -160,6 +235,10 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 		switch (featureID) {
 			case M2Package.BSW_MODULE_DESCRIPTION__INTERNAL_BEHAVIOR:
 				return ((InternalEList<?>)getInternalBehavior()).basicRemove(otherEnd, msgs);
+			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP:
+				return ((InternalEList<?>)getProvidedModeGroup()).basicRemove(otherEnd, msgs);
+			case M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP:
+				return ((InternalEList<?>)getRequiredModeGroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -176,6 +255,10 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 				return getInternalBehavior();
 			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY:
 				return getProvidedEntry();
+			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP:
+				return getProvidedModeGroup();
+			case M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP:
+				return getRequiredModeGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -197,6 +280,14 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 				getProvidedEntry().clear();
 				getProvidedEntry().addAll((Collection<? extends BswModuleEntry>)newValue);
 				return;
+			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP:
+				getProvidedModeGroup().clear();
+				getProvidedModeGroup().addAll((Collection<? extends ModeDeclarationGroupPrototype>)newValue);
+				return;
+			case M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP:
+				getRequiredModeGroup().clear();
+				getRequiredModeGroup().addAll((Collection<? extends ModeDeclarationGroupPrototype>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,6 +306,12 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY:
 				getProvidedEntry().clear();
 				return;
+			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP:
+				getProvidedModeGroup().clear();
+				return;
+			case M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP:
+				getRequiredModeGroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -231,8 +328,26 @@ public class BswModuleDescriptionImpl extends ArElementImpl implements BswModule
 				return internalBehavior != null && !internalBehavior.isEmpty();
 			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY:
 				return providedEntry != null && !providedEntry.isEmpty();
+			case M2Package.BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP:
+				return providedModeGroup != null && !providedModeGroup.isEmpty();
+			case M2Package.BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP:
+				return requiredModeGroup != null && !requiredModeGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case M2Package.BSW_MODULE_DESCRIPTION___GET_ENABLE_INTERNAL_BEHAVIOR:
+				return getEnableInternalBehavior();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //BswModuleDescriptionImpl

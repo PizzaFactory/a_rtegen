@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,26 +45,21 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -78,10 +73,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getDependentExecutableEntity <em>Dependent Executable Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getSchmApi <em>Schm Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getBswMemoryMapping <em>Bsw Memory Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getBswMemoryMapping <em>Bsw Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getDependentBswSchedulableEntity <em>Dependent Bsw Schedulable Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartedBswmImpl#getSchmApi <em>Schm Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,24 +85,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm {
 	/**
-	 * The cached value of the '{@link #getDependentExecutableEntity() <em>Dependent Executable Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getBswm() <em>Bswm</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentExecutableEntity()
+	 * @see #getBswm()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutableEntity> dependentExecutableEntity;
-
-	/**
-	 * The cached value of the '{@link #getSchmApi() <em>Schm Api</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSchmApi()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SchmApi> schmApi;
+	protected Bswm bswm;
 
 	/**
 	 * The cached value of the '{@link #getBswMemoryMapping() <em>Bsw Memory Mapping</em>}' containment reference list.
@@ -119,14 +105,34 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 	protected EList<BswMemoryMapping> bswMemoryMapping;
 
 	/**
-	 * The cached value of the '{@link #getBswm() <em>Bswm</em>}' reference.
+	 * The cached value of the '{@link #getDependentBswSchedulableEntity() <em>Dependent Bsw Schedulable Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBswm()
+	 * @see #getDependentBswSchedulableEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected Bswm bswm;
+	protected EList<BswSchedulableEntity> dependentBswSchedulableEntity;
+
+	/**
+	 * The cached value of the '{@link #getModeMachineInstance() <em>Mode Machine Instance</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeMachineInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeMachineInstance> modeMachineInstance;
+
+	/**
+	 * The cached value of the '{@link #getSchmApi() <em>Schm Api</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchmApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchmApi> schmApi;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,11 +199,11 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExecutableEntity> getDependentExecutableEntity() {
-		if (dependentExecutableEntity == null) {
-			dependentExecutableEntity = new EObjectContainmentWithInverseEList<ExecutableEntity>(ExecutableEntity.class, this, ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY, ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM);
+	public EList<BswSchedulableEntity> getDependentBswSchedulableEntity() {
+		if (dependentBswSchedulableEntity == null) {
+			dependentBswSchedulableEntity = new EObjectContainmentWithInverseEList<BswSchedulableEntity>(BswSchedulableEntity.class, this, ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY, ModulePackage.BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM);
 		}
-		return dependentExecutableEntity;
+		return dependentBswSchedulableEntity;
 	}
 
 	/**
@@ -210,18 +216,6 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			schmApi = new EObjectContainmentWithInverseEList<SchmApi>(SchmApi.class, this, ModulePackage.PARTED_BSWM__SCHM_API, ModulePackage.SCHM_API__PARENT);
 		}
 		return schmApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<BswMemoryMapping> getBswMemoryMapping() {
-		if (bswMemoryMapping == null) {
-			bswMemoryMapping = new EObjectContainmentEList<BswMemoryMapping>(BswMemoryMapping.class, this, ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING);
-		}
-		return bswMemoryMapping;
 	}
 
 	/**
@@ -289,6 +283,30 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BswMemoryMapping> getBswMemoryMapping() {
+		if (bswMemoryMapping == null) {
+			bswMemoryMapping = new EObjectContainmentEList<BswMemoryMapping>(BswMemoryMapping.class, this, ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING);
+		}
+		return bswMemoryMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeMachineInstance> getModeMachineInstance() {
+		if (modeMachineInstance == null) {
+			modeMachineInstance = new EObjectContainmentEList<ModeMachineInstance>(ModeMachineInstance.class, this, ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE);
+		}
+		return modeMachineInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -297,14 +315,14 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParent((Partition)otherEnd, msgs);
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependentExecutableEntity()).basicAdd(otherEnd, msgs);
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSchmApi()).basicAdd(otherEnd, msgs);
 			case ModulePackage.PARTED_BSWM__BSWM:
 				if (bswm != null)
 					msgs = ((InternalEObject)bswm).eInverseRemove(this, ModulePackage.BSWM__PARTED_BSWM, Bswm.class, msgs);
 				return basicSetBswm((Bswm)otherEnd, msgs);
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDependentBswSchedulableEntity()).basicAdd(otherEnd, msgs);
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSchmApi()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -319,14 +337,16 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 		switch (featureID) {
 			case ModulePackage.PARTED_BSWM__PARENT:
 				return basicSetParent(null, msgs);
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				return ((InternalEList<?>)getDependentExecutableEntity()).basicRemove(otherEnd, msgs);
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				return ((InternalEList<?>)getSchmApi()).basicRemove(otherEnd, msgs);
-			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
-				return ((InternalEList<?>)getBswMemoryMapping()).basicRemove(otherEnd, msgs);
 			case ModulePackage.PARTED_BSWM__BSWM:
 				return basicSetBswm(null, msgs);
+			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
+				return ((InternalEList<?>)getBswMemoryMapping()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				return ((InternalEList<?>)getDependentBswSchedulableEntity()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return ((InternalEList<?>)getModeMachineInstance()).basicRemove(otherEnd, msgs);
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				return ((InternalEList<?>)getSchmApi()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -355,15 +375,17 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 		switch (featureID) {
 			case ModulePackage.PARTED_BSWM__PARENT:
 				return getParent();
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				return getDependentExecutableEntity();
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				return getSchmApi();
-			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
-				return getBswMemoryMapping();
 			case ModulePackage.PARTED_BSWM__BSWM:
 				if (resolve) return getBswm();
 				return basicGetBswm();
+			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
+				return getBswMemoryMapping();
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				return getDependentBswSchedulableEntity();
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return getModeMachineInstance();
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				return getSchmApi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -380,20 +402,24 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			case ModulePackage.PARTED_BSWM__PARENT:
 				setParent((Partition)newValue);
 				return;
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				getDependentExecutableEntity().clear();
-				getDependentExecutableEntity().addAll((Collection<? extends ExecutableEntity>)newValue);
-				return;
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				getSchmApi().clear();
-				getSchmApi().addAll((Collection<? extends SchmApi>)newValue);
+			case ModulePackage.PARTED_BSWM__BSWM:
+				setBswm((Bswm)newValue);
 				return;
 			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
 				getBswMemoryMapping().clear();
 				getBswMemoryMapping().addAll((Collection<? extends BswMemoryMapping>)newValue);
 				return;
-			case ModulePackage.PARTED_BSWM__BSWM:
-				setBswm((Bswm)newValue);
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				getDependentBswSchedulableEntity().clear();
+				getDependentBswSchedulableEntity().addAll((Collection<? extends BswSchedulableEntity>)newValue);
+				return;
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				getModeMachineInstance().addAll((Collection<? extends ModeMachineInstance>)newValue);
+				return;
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				getSchmApi().clear();
+				getSchmApi().addAll((Collection<? extends SchmApi>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -410,17 +436,20 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 			case ModulePackage.PARTED_BSWM__PARENT:
 				setParent((Partition)null);
 				return;
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				getDependentExecutableEntity().clear();
-				return;
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				getSchmApi().clear();
+			case ModulePackage.PARTED_BSWM__BSWM:
+				setBswm((Bswm)null);
 				return;
 			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
 				getBswMemoryMapping().clear();
 				return;
-			case ModulePackage.PARTED_BSWM__BSWM:
-				setBswm((Bswm)null);
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				getDependentBswSchedulableEntity().clear();
+				return;
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				return;
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				getSchmApi().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -436,14 +465,16 @@ public class PartedBswmImpl extends LogicalCompartmentImpl implements PartedBswm
 		switch (featureID) {
 			case ModulePackage.PARTED_BSWM__PARENT:
 				return getParent() != null;
-			case ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY:
-				return dependentExecutableEntity != null && !dependentExecutableEntity.isEmpty();
-			case ModulePackage.PARTED_BSWM__SCHM_API:
-				return schmApi != null && !schmApi.isEmpty();
-			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
-				return bswMemoryMapping != null && !bswMemoryMapping.isEmpty();
 			case ModulePackage.PARTED_BSWM__BSWM:
 				return bswm != null;
+			case ModulePackage.PARTED_BSWM__BSW_MEMORY_MAPPING:
+				return bswMemoryMapping != null && !bswMemoryMapping.isEmpty();
+			case ModulePackage.PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY:
+				return dependentBswSchedulableEntity != null && !dependentBswSchedulableEntity.isEmpty();
+			case ModulePackage.PARTED_BSWM__MODE_MACHINE_INSTANCE:
+				return modeMachineInstance != null && !modeMachineInstance.isEmpty();
+			case ModulePackage.PARTED_BSWM__SCHM_API:
+				return schmApi != null && !schmApi.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

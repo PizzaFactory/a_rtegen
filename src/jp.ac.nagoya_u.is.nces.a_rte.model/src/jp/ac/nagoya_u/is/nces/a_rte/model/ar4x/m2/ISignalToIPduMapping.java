@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +54,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping#getISignal <em>ISignal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping#getISignalGroup <em>ISignal Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,5 +88,31 @@ public interface ISignalToIPduMapping extends Identifiable {
 	 * @generated
 	 */
 	void setISignal(ISignal value);
+
+	/**
+	 * Returns the value of the '<em><b>ISignal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>ISignal Group</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>ISignal Group</em>' reference.
+	 * @see #setISignalGroup(ISignalGroup)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalToIPduMapping_ISignalGroup()
+	 * @model
+	 * @generated
+	 */
+	ISignalGroup getISignalGroup();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping#getISignalGroup <em>ISignal Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>ISignal Group</em>' reference.
+	 * @see #getISignalGroup()
+	 * @generated
+	 */
+	void setISignalGroup(ISignalGroup value);
 
 } // ISignalToIPduMapping

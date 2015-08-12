@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -73,7 +73,7 @@ public interface Limit extends M2Object {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getLimit_Value()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VerbatimString" required="true"
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VerbatimString"
 	 * @generated
 	 */
 	String getValue();

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,6 +43,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Os;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
 
@@ -54,12 +55,13 @@ import com.google.common.base.Optional;
  */
 public class InteractionModelBuildCache {
 	// モデル変換元
-	public Optional<EcucPartition> masterBswPartition;
+	public Os sourceOs;
+	public Optional<EcucPartition> sourceMasterBswPartition;
 
-	public ImplementationDataType uint8Type;
-	public ImplementationDataType uint16Type;
-	public ImplementationDataType uint32Type;
-	public ImplementationDataType comSignalIdType;
+	public ImplementationDataType sourceUint8Type;
+	public ImplementationDataType sourceUint16Type;
+	public ImplementationDataType sourceUint32Type;
+	public ImplementationDataType sourceComSignalIdType;
 
 	// モデル変換先
 	public InteractionRoot interactionRoot;

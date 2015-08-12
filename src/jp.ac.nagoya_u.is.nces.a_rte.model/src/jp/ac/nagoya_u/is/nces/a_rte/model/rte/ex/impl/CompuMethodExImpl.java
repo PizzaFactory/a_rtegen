@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public class CompuMethodExImpl extends ExtendedEObjectImpl implements CompuMetho
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesEnumConstant(CompuMethod this_) {
+	public boolean providesEnumConstant(CompuMethod this_) {
 		try {
 			return (Boolean)PROVIDES_ENUM_CONSTANT_COMPU_METHOD__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

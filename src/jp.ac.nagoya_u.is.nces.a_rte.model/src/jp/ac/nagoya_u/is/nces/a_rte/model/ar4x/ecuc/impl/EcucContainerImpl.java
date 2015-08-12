@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -106,7 +106,7 @@ public abstract class EcucContainerImpl extends EcucReferrableImpl implements Ec
 	}
 
 	public void rebuildId() {
-		Optional<EcucReferrable> foundParent = EmfUtils.tryFindParentOfType(this, ECUC_REFERRABLE);
+		Optional<EcucReferrable> foundParent = EmfUtils.tryFindNearestAncestorOfType(this, ECUC_REFERRABLE);
 		String reference = foundParent.isPresent() ? foundParent.get().getReference() + M2ModelUtils.REFERENCE_SEPARATOR + getShortName() : M2ModelUtils.REFERENCE_SEPARATOR + getShortName();
 		setReference(reference);
 		setId(EcucModelUtils.ID_PREFIX + reference);

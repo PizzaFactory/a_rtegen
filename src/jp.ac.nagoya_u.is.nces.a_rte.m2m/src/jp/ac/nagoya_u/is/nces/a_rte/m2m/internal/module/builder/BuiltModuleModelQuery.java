@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,20 +46,22 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_TYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.isKindOf;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 
+import java.util.Collection;
 import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.MaxValues;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -69,17 +71,20 @@ import com.google.common.base.Function;
 import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
+/**
+ * モジュールモデル変換で生成したモデルを検索する。
+ */
 public class BuiltModuleModelQuery {
 
 	private final ModelQuery query;
-	private ModuleModelBuildCache cache;
+	private final ModuleModelBuildCache cache;
 
 	public BuiltModuleModelQuery(ModelQuery query, ModuleModelBuildCache cache) {
 		this.query = query;
 		this.cache = cache;
 	}
 
-	public PrimitiveType getAppropriateType(int maxValue) {
+	public PrimitiveType getAppropriateUintTypeForRange(int maxValue) {
 		if (maxValue <= MaxValues.UINT8_MAX) {
 			return this.cache.uint8Type;
 		} else if (maxValue <= MaxValues.UINT16_MAX) {
@@ -89,16 +94,46 @@ public class BuiltModuleModelQuery {
 		}
 	}
 
-	public Partition findPartition(EcucPartition partition) throws ModelException {
-		return partition == null ? this.query.<Partition> findSingleByKind(PARTITION) : this.<Partition> findDest(PARTITION, partition);
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にnull(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param sourcePartition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 * @throws ModelException EcucPartitionに対応するPartitionが見つからない場合
+	 */
+	public Partition findDestPartition(EcucPartition sourcePartition) throws ModelException {
+		return findDestPartition(Optional.fromNullable(sourcePartition));
 	}
 
-	public PrimitiveType findPrimitiveType(VariableDataInstanceInSwc dataInstanceInSwc) throws ModelException {
-		return findPrimitiveType(dataInstanceInSwc.getImplementationDataType());
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にOptional.absent()(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param sourcePartition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にOptional.absent()を指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 * @throws ModelException EcucPartitionに対応するPartitionが見つからない場合
+	 */
+	public Partition findDestPartition(Optional<EcucPartition> sourcePartition) throws ModelException {
+		return !sourcePartition.isPresent() ? this.cache.masterBswPartition : this.<Partition> findDest(PARTITION, sourcePartition.get());
 	}
 
-	public PrimitiveType findPrimitiveType(ImplementationDataType implementationDataType) throws ModelException {
-		return findDest(PRIMITIVE_TYPE, implementationDataType);
+	/**
+	 * EcucPartitionに対応するPartitionを検索する。
+	 * 引数にnull(検索元のパーティションなし)を指定した場合、デフォルトのパーティション(マスタコアのBSWM配置パーティション)を返す。
+	 * @param partition 検索元のEcucPartition
+	 * @return EcucPartitionに対応するPartition。引数にnullを指定した場合、デフォルト(マスタコアのBSWM配置パーティション)のPartition。
+	 */
+	public Optional<Partition> tryFindDestPartition(EcucPartition partition) {
+		// COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+		// 現在使用していないメソッド
+		return partition == null ? Optional.of(this.cache.masterBswPartition) : this.<Partition> tryFindDest(PARTITION, partition);
+	}
+
+	public Type findDestType(ImplementationDataType sourceImplementationDataType) throws ModelException {
+		return findDest(TYPE, sourceImplementationDataType);
+	}
+
+	public PrimitiveType findDestPrimitiveType(ImplementationDataType sourceImplementationDataType) throws ModelException {
+		return findDest(PRIMITIVE_TYPE, sourceImplementationDataType);
 	}
 
 	public <T extends EObject> List<T> findDests(final EClass kind, EList<? extends EObject> sources) throws ModelException {
@@ -131,7 +166,19 @@ public class BuiltModuleModelQuery {
 		return this.query.findSingle(isKindOf(kind).AND(ref(MODULE_OBJECT__SOURCE, source)).AND(hasAttr(MODULE_OBJECT__ROLE_NAME, roleName)));
 	}
 
-	public <T extends EObject> Optional<T> tryFindDest(EClass kind, EObject source) throws ModelException {
+	public <T extends EObject> Optional<T> tryFindDest(EClass kind, EObject source) {
 		return this.query.tryFindSingle(isKindOf(kind).AND(ref(MODULE_OBJECT__SOURCE, source)));
+	}
+
+	public <T extends EObject> T selectDest(Collection<T> dests, EObject source) throws ModelException {
+		return this.query.selectSingle(dests, ref(MODULE_OBJECT__SOURCE, source));
+	}
+
+	public <T extends EObject> Optional<T> trySelectDest(Collection<T> dests, EObject source) {
+		return this.query.trySelectSingle(dests, ref(MODULE_OBJECT__SOURCE, source));
+	}
+
+	public <T extends EObject> List<T> selectDests(Collection<T> dests, EObject source) {
+		return this.query.select(dests, ref(MODULE_OBJECT__SOURCE, source));
 	}
 }

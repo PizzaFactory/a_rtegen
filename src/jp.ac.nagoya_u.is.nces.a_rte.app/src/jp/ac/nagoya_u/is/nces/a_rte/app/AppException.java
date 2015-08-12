@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,21 +42,34 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app;
 
-
-
-
+/**
+ * appパッケージで発生した例外を表す。
+ */
 public class AppException extends Exception {
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * {@link AppException}を構築する。
+	 * @param message メッセージ
+	 */
 	public AppException(String message) {
 		super(message);
 	}
 
+	/**
+	 * 例外の原因である{@link Throwable}から{@link AppException}を構築する。
+	 * @param cause 原因となる{@link Throwable}
+	 */
 	public AppException(Throwable cause) {
 		super(cause.getMessage(), cause);
 	}
 
+	/**
+	 * 例外の原因である{@link Throwable}から{@link AppException}を構築する。
+	 * @param message メッセージ
+	 * @param cause 原因となる{@link Throwable}
+	 */
 	public AppException(String message, Throwable cause) {
 		super(message, cause);
 	}

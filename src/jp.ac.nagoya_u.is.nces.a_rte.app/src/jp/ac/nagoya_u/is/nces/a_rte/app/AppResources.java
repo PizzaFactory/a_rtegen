@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,29 +44,63 @@ package jp.ac.nagoya_u.is.nces.a_rte.app;
 
 import java.io.File;
 
+/**
+ * RTEジェネレータアプリケーションが使用するリソースのデフォルト設定を保持する。
+ */
 public class AppResources { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 	private static final String RTE_GENERATOR_HOME_ENV_NAME = "A_RTE_HOME";
+
+	/**
+	 * AUTOSARスキーマファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
+	 */
 	public static final String SCHEMA_FILE_RELATIVE_PATH = "schema/AUTOSAR_4-0-3_STRICT.xsd";
+	
+	/**
+	 * RTE内部型を保持するAUTOSAR XMLファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
+	 */
 	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
+
+	/**
+	 * 生成したRTEに適用するコードフォーマッタ(uncrustify)の実行ファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
+	 */
 	public static final String UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH = "bin/uncrustify.exe";
+
+	/**
+	 * 生成したRTEに適用するコードフォーマッタ(uncrustify)のコンフィグファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
+	 */
 	public static final String UNCRUSTIFY_CONFIG_RELATIVE_PATH = "bin/atk2style.cfg";
 
+	/**
+	 * @return RTEジェネレータのホームディレクトリのパス
+	 */
 	private static String getRteGeneratorHome() {
 		return System.getProperty(RTE_GENERATOR_HOME_ENV_NAME, ".") + "/";
 	}
 
+	/**
+	 * @return RTE内部型を保持するAUTOSAR XMLファイル
+	 */
 	public static File getDefaultInternalDataTypesFile() {
 		return new File(getRteGeneratorHome(), MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH);
 	}
 
+	/**
+	 * @return AUTOSARスキーマファイル
+	 */
 	public static File getDefaultSchemaFile() {
 		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
 	}
 
+	/**
+	 * @return 生成したRTEに適用するコードフォーマッタ(uncrustify)の実行ファイル
+	 */
 	public static File getDefaultUncrustifyExecutableFile() {
 		return new File(getRteGeneratorHome(), UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH);
 	}
 
+	/**
+	 * @return 生成したRTEに適用するコードフォーマッタ(uncrustify)のコンフィグファイル
+	 */
 	public static File getDefaultUncrustifyConfigFile() {
 		return new File(getRteGeneratorHome(), UNCRUSTIFY_CONFIG_RELATIVE_PATH);
 	}

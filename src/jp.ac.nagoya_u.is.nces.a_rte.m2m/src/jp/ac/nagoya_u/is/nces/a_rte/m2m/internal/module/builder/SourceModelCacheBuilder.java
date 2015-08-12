@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,7 +43,12 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
 
+/**
+ * モデル変換元のモデル要素をキャッシュに登録する。
+ */
 public class SourceModelCacheBuilder {
 
 	private ModuleModelBuildContext context;
@@ -53,6 +58,7 @@ public class SourceModelCacheBuilder {
 	}
 
 	public void build() {
-		this.context.cache.os = this.context.query.tryFindSingleByKind(OS);
+		this.context.cache.sourceOs = this.context.query.tryFindSingleByKind(OS);
+		this.context.cache.sourceMasterBswPartition = this.context.query.tryFindSingle(hasOp(ECUC_PARTITION_EX___IS_MASTER_BSW_PARTITION__ECUCPARTITION, true));
 	}
 }

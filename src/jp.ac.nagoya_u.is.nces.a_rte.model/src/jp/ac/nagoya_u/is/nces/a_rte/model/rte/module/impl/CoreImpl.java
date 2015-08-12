@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -67,10 +67,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getPartition <em>Partition</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getRteStartApi <em>Rte Start Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getCoreId <em>Core Id</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getIsMasterCore <em>Is Master Core</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getSchmInitApi <em>Schm Init Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getRteCoreStartApiImpl <em>Rte Core Start Api Impl</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}</li>
  * </ul>
  * </p>
  *
@@ -86,16 +86,6 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 	 * @ordered
 	 */
 	protected EList<Partition> partition;
-
-	/**
-	 * The cached value of the '{@link #getRteStartApi() <em>Rte Start Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteStartApi()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteCoreStartApiImpl rteStartApi;
 
 	/**
 	 * The default value of the '{@link #getCoreId() <em>Core Id</em>}' attribute.
@@ -138,14 +128,24 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 	protected Boolean isMasterCore = IS_MASTER_CORE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSchmInitApi() <em>Schm Init Api</em>}' containment reference.
+	 * The cached value of the '{@link #getRteCoreStartApiImpl() <em>Rte Core Start Api Impl</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSchmInitApi()
+	 * @see #getRteCoreStartApiImpl()
 	 * @generated
 	 * @ordered
 	 */
-	protected SchmCoreInitApiImpl schmInitApi;
+	protected RteCoreStartApiImpl rteCoreStartApiImpl;
+
+	/**
+	 * The cached value of the '{@link #getSchmCoreInitApiImpl() <em>Schm Core Init Api Impl</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchmCoreInitApiImpl()
+	 * @generated
+	 * @ordered
+	 */
+	protected SchmCoreInitApiImpl schmCoreInitApiImpl;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,49 +176,6 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 			partition = new EObjectContainmentWithInverseEList<Partition>(Partition.class, this, ModulePackage.CORE__PARTITION, ModulePackage.PARTITION__PARENT);
 		}
 		return partition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteCoreStartApiImpl getRteStartApi() {
-		return rteStartApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRteStartApi(RteCoreStartApiImpl newRteStartApi, NotificationChain msgs) {
-		RteCoreStartApiImpl oldRteStartApi = rteStartApi;
-		rteStartApi = newRteStartApi;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__RTE_START_API, oldRteStartApi, newRteStartApi);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRteStartApi(RteCoreStartApiImpl newRteStartApi) {
-		if (newRteStartApi != rteStartApi) {
-			NotificationChain msgs = null;
-			if (rteStartApi != null)
-				msgs = ((InternalEObject)rteStartApi).eInverseRemove(this, ModulePackage.RTE_CORE_START_API_IMPL__PARENT, RteCoreStartApiImpl.class, msgs);
-			if (newRteStartApi != null)
-				msgs = ((InternalEObject)newRteStartApi).eInverseAdd(this, ModulePackage.RTE_CORE_START_API_IMPL__PARENT, RteCoreStartApiImpl.class, msgs);
-			msgs = basicSetRteStartApi(newRteStartApi, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__RTE_START_API, newRteStartApi, newRteStartApi));
 	}
 
 	/**
@@ -268,8 +225,8 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SchmCoreInitApiImpl getSchmInitApi() {
-		return schmInitApi;
+	public RteCoreStartApiImpl getRteCoreStartApiImpl() {
+		return rteCoreStartApiImpl;
 	}
 
 	/**
@@ -277,11 +234,11 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSchmInitApi(SchmCoreInitApiImpl newSchmInitApi, NotificationChain msgs) {
-		SchmCoreInitApiImpl oldSchmInitApi = schmInitApi;
-		schmInitApi = newSchmInitApi;
+	public NotificationChain basicSetRteCoreStartApiImpl(RteCoreStartApiImpl newRteCoreStartApiImpl, NotificationChain msgs) {
+		RteCoreStartApiImpl oldRteCoreStartApiImpl = rteCoreStartApiImpl;
+		rteCoreStartApiImpl = newRteCoreStartApiImpl;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__SCHM_INIT_API, oldSchmInitApi, newSchmInitApi);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__RTE_CORE_START_API_IMPL, oldRteCoreStartApiImpl, newRteCoreStartApiImpl);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -292,18 +249,61 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSchmInitApi(SchmCoreInitApiImpl newSchmInitApi) {
-		if (newSchmInitApi != schmInitApi) {
+	public void setRteCoreStartApiImpl(RteCoreStartApiImpl newRteCoreStartApiImpl) {
+		if (newRteCoreStartApiImpl != rteCoreStartApiImpl) {
 			NotificationChain msgs = null;
-			if (schmInitApi != null)
-				msgs = ((InternalEObject)schmInitApi).eInverseRemove(this, ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT, SchmCoreInitApiImpl.class, msgs);
-			if (newSchmInitApi != null)
-				msgs = ((InternalEObject)newSchmInitApi).eInverseAdd(this, ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT, SchmCoreInitApiImpl.class, msgs);
-			msgs = basicSetSchmInitApi(newSchmInitApi, msgs);
+			if (rteCoreStartApiImpl != null)
+				msgs = ((InternalEObject)rteCoreStartApiImpl).eInverseRemove(this, ModulePackage.RTE_CORE_START_API_IMPL__PARENT, RteCoreStartApiImpl.class, msgs);
+			if (newRteCoreStartApiImpl != null)
+				msgs = ((InternalEObject)newRteCoreStartApiImpl).eInverseAdd(this, ModulePackage.RTE_CORE_START_API_IMPL__PARENT, RteCoreStartApiImpl.class, msgs);
+			msgs = basicSetRteCoreStartApiImpl(newRteCoreStartApiImpl, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__SCHM_INIT_API, newSchmInitApi, newSchmInitApi));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__RTE_CORE_START_API_IMPL, newRteCoreStartApiImpl, newRteCoreStartApiImpl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmCoreInitApiImpl getSchmCoreInitApiImpl() {
+		return schmCoreInitApiImpl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSchmCoreInitApiImpl(SchmCoreInitApiImpl newSchmCoreInitApiImpl, NotificationChain msgs) {
+		SchmCoreInitApiImpl oldSchmCoreInitApiImpl = schmCoreInitApiImpl;
+		schmCoreInitApiImpl = newSchmCoreInitApiImpl;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL, oldSchmCoreInitApiImpl, newSchmCoreInitApiImpl);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSchmCoreInitApiImpl(SchmCoreInitApiImpl newSchmCoreInitApiImpl) {
+		if (newSchmCoreInitApiImpl != schmCoreInitApiImpl) {
+			NotificationChain msgs = null;
+			if (schmCoreInitApiImpl != null)
+				msgs = ((InternalEObject)schmCoreInitApiImpl).eInverseRemove(this, ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT, SchmCoreInitApiImpl.class, msgs);
+			if (newSchmCoreInitApiImpl != null)
+				msgs = ((InternalEObject)newSchmCoreInitApiImpl).eInverseAdd(this, ModulePackage.SCHM_CORE_INIT_API_IMPL__PARENT, SchmCoreInitApiImpl.class, msgs);
+			msgs = basicSetSchmCoreInitApiImpl(newSchmCoreInitApiImpl, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL, newSchmCoreInitApiImpl, newSchmCoreInitApiImpl));
 	}
 
 	/**
@@ -317,14 +317,14 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 		switch (featureID) {
 			case ModulePackage.CORE__PARTITION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getPartition()).basicAdd(otherEnd, msgs);
-			case ModulePackage.CORE__RTE_START_API:
-				if (rteStartApi != null)
-					msgs = ((InternalEObject)rteStartApi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.CORE__RTE_START_API, null, msgs);
-				return basicSetRteStartApi((RteCoreStartApiImpl)otherEnd, msgs);
-			case ModulePackage.CORE__SCHM_INIT_API:
-				if (schmInitApi != null)
-					msgs = ((InternalEObject)schmInitApi).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.CORE__SCHM_INIT_API, null, msgs);
-				return basicSetSchmInitApi((SchmCoreInitApiImpl)otherEnd, msgs);
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				if (rteCoreStartApiImpl != null)
+					msgs = ((InternalEObject)rteCoreStartApiImpl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.CORE__RTE_CORE_START_API_IMPL, null, msgs);
+				return basicSetRteCoreStartApiImpl((RteCoreStartApiImpl)otherEnd, msgs);
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				if (schmCoreInitApiImpl != null)
+					msgs = ((InternalEObject)schmCoreInitApiImpl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL, null, msgs);
+				return basicSetSchmCoreInitApiImpl((SchmCoreInitApiImpl)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -339,10 +339,10 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 		switch (featureID) {
 			case ModulePackage.CORE__PARTITION:
 				return ((InternalEList<?>)getPartition()).basicRemove(otherEnd, msgs);
-			case ModulePackage.CORE__RTE_START_API:
-				return basicSetRteStartApi(null, msgs);
-			case ModulePackage.CORE__SCHM_INIT_API:
-				return basicSetSchmInitApi(null, msgs);
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				return basicSetRteCoreStartApiImpl(null, msgs);
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				return basicSetSchmCoreInitApiImpl(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -357,14 +357,14 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 		switch (featureID) {
 			case ModulePackage.CORE__PARTITION:
 				return getPartition();
-			case ModulePackage.CORE__RTE_START_API:
-				return getRteStartApi();
 			case ModulePackage.CORE__CORE_ID:
 				return getCoreId();
 			case ModulePackage.CORE__IS_MASTER_CORE:
 				return getIsMasterCore();
-			case ModulePackage.CORE__SCHM_INIT_API:
-				return getSchmInitApi();
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				return getRteCoreStartApiImpl();
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				return getSchmCoreInitApiImpl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -382,17 +382,17 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 				getPartition().clear();
 				getPartition().addAll((Collection<? extends Partition>)newValue);
 				return;
-			case ModulePackage.CORE__RTE_START_API:
-				setRteStartApi((RteCoreStartApiImpl)newValue);
-				return;
 			case ModulePackage.CORE__CORE_ID:
 				setCoreId((Integer)newValue);
 				return;
 			case ModulePackage.CORE__IS_MASTER_CORE:
 				setIsMasterCore((Boolean)newValue);
 				return;
-			case ModulePackage.CORE__SCHM_INIT_API:
-				setSchmInitApi((SchmCoreInitApiImpl)newValue);
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				setRteCoreStartApiImpl((RteCoreStartApiImpl)newValue);
+				return;
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				setSchmCoreInitApiImpl((SchmCoreInitApiImpl)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -409,17 +409,17 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 			case ModulePackage.CORE__PARTITION:
 				getPartition().clear();
 				return;
-			case ModulePackage.CORE__RTE_START_API:
-				setRteStartApi((RteCoreStartApiImpl)null);
-				return;
 			case ModulePackage.CORE__CORE_ID:
 				setCoreId(CORE_ID_EDEFAULT);
 				return;
 			case ModulePackage.CORE__IS_MASTER_CORE:
 				setIsMasterCore(IS_MASTER_CORE_EDEFAULT);
 				return;
-			case ModulePackage.CORE__SCHM_INIT_API:
-				setSchmInitApi((SchmCoreInitApiImpl)null);
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				setRteCoreStartApiImpl((RteCoreStartApiImpl)null);
+				return;
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				setSchmCoreInitApiImpl((SchmCoreInitApiImpl)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -435,14 +435,14 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 		switch (featureID) {
 			case ModulePackage.CORE__PARTITION:
 				return partition != null && !partition.isEmpty();
-			case ModulePackage.CORE__RTE_START_API:
-				return rteStartApi != null;
 			case ModulePackage.CORE__CORE_ID:
 				return CORE_ID_EDEFAULT == null ? coreId != null : !CORE_ID_EDEFAULT.equals(coreId);
 			case ModulePackage.CORE__IS_MASTER_CORE:
 				return IS_MASTER_CORE_EDEFAULT == null ? isMasterCore != null : !IS_MASTER_CORE_EDEFAULT.equals(isMasterCore);
-			case ModulePackage.CORE__SCHM_INIT_API:
-				return schmInitApi != null;
+			case ModulePackage.CORE__RTE_CORE_START_API_IMPL:
+				return rteCoreStartApiImpl != null;
+			case ModulePackage.CORE__SCHM_CORE_INIT_API_IMPL:
+				return schmCoreInitApiImpl != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,7 +53,10 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessProxyApi <em>Access Proxy Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi <em>Request Proxy Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi <em>Value Proxy Ioc Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName <em>Proxy Function Index Constant Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,29 +66,118 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  */
 public interface ProxyComSendOperation extends ComSendOperation {
 	/**
-	 * Returns the value of the '<em><b>Access Proxy Api</b></em>' reference.
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Access Proxy Api</em>' reference isn't clear,
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Access Proxy Api</em>' reference.
-	 * @see #setAccessProxyApi(IocSendGroupApi)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_AccessProxyApi()
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(Type)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_Type()
+	 * @model required="true"
+	 * @generated
+	 */
+	Type getType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(Type value);
+
+	/**
+	 * Returns the value of the '<em><b>Request Proxy Ioc Api</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Request Proxy Ioc Api</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * プロキシへの要求伝搬用IOC API。
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Request Proxy Ioc Api</em>' reference.
+	 * @see #setRequestProxyIocApi(IocSendApi)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_RequestProxyIocApi()
+	 * @model required="true"
+	 * @generated
+	 */
+	IocSendApi getRequestProxyIocApi();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi <em>Request Proxy Ioc Api</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Request Proxy Ioc Api</em>' reference.
+	 * @see #getRequestProxyIocApi()
+	 * @generated
+	 */
+	void setRequestProxyIocApi(IocSendApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Proxy Ioc Api</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Proxy Ioc Api</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * プロキシへの値伝搬用IOC API。
+	 * NOTE プリミティブ型の送信処理では使用されないため、nullが設定される。
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Value Proxy Ioc Api</em>' reference.
+	 * @see #setValueProxyIocApi(IocSendApi)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_ValueProxyIocApi()
 	 * @model
 	 * @generated
 	 */
-	IocSendGroupApi getAccessProxyApi();
+	IocSendApi getValueProxyIocApi();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getAccessProxyApi <em>Access Proxy Api</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi <em>Value Proxy Ioc Api</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Access Proxy Api</em>' reference.
-	 * @see #getAccessProxyApi()
+	 * @param value the new value of the '<em>Value Proxy Ioc Api</em>' reference.
+	 * @see #getValueProxyIocApi()
 	 * @generated
 	 */
-	void setAccessProxyApi(IocSendGroupApi value);
+	void setValueProxyIocApi(IocSendApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Proxy Function Index Constant Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Proxy Function Index Constant Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * プロキシ関数の識別インデックス定数名。
+	 * NOTE プリミティブ型の送信処理では使用されないため、nullが設定される。
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Proxy Function Index Constant Name</em>' attribute.
+	 * @see #setProxyFunctionIndexConstantName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getProxyComSendOperation_ProxyFunctionIndexConstantName()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier"
+	 * @generated
+	 */
+	String getProxyFunctionIndexConstantName();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName <em>Proxy Function Index Constant Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Proxy Function Index Constant Name</em>' attribute.
+	 * @see #getProxyFunctionIndexConstantName()
+	 * @generated
+	 */
+	void setProxyFunctionIndexConstantName(String value);
 
 } // ProxyComSendOperation

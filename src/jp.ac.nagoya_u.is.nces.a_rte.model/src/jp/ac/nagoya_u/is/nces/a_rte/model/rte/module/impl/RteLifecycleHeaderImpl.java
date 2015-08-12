@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,9 +46,9 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleHeader;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiFileContentsGroup;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
@@ -79,7 +79,7 @@ public class RteLifecycleHeaderImpl extends HeaderFileImpl implements RteLifecyc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RteLifecycleApiGroup> rteLifecycleApiGroup;
+	protected EList<RteLifecycleApiFileContentsGroup> rteLifecycleApiGroup;
 	/**
 	 * The cached value of the '{@link #getSchmLifecycleApiGroup() <em>Schm Lifecycle Api Group</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -88,7 +88,7 @@ public class RteLifecycleHeaderImpl extends HeaderFileImpl implements RteLifecyc
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SchmLifecycleApiGroup> schmLifecycleApiGroup;
+	protected EList<SchmLifecycleApiFileContentsGroup> schmLifecycleApiGroup;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,9 +113,9 @@ public class RteLifecycleHeaderImpl extends HeaderFileImpl implements RteLifecyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteLifecycleApiGroup> getRteLifecycleApiGroup() {
+	public EList<RteLifecycleApiFileContentsGroup> getRteLifecycleApiGroup() {
 		if (rteLifecycleApiGroup == null) {
-			rteLifecycleApiGroup = new EObjectContainmentEList<RteLifecycleApiGroup>(RteLifecycleApiGroup.class, this, ModulePackage.RTE_LIFECYCLE_HEADER__RTE_LIFECYCLE_API_GROUP);
+			rteLifecycleApiGroup = new EObjectContainmentEList<RteLifecycleApiFileContentsGroup>(RteLifecycleApiFileContentsGroup.class, this, ModulePackage.RTE_LIFECYCLE_HEADER__RTE_LIFECYCLE_API_GROUP);
 		}
 		return rteLifecycleApiGroup;
 	}
@@ -125,9 +125,9 @@ public class RteLifecycleHeaderImpl extends HeaderFileImpl implements RteLifecyc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SchmLifecycleApiGroup> getSchmLifecycleApiGroup() {
+	public EList<SchmLifecycleApiFileContentsGroup> getSchmLifecycleApiGroup() {
 		if (schmLifecycleApiGroup == null) {
-			schmLifecycleApiGroup = new EObjectContainmentEList<SchmLifecycleApiGroup>(SchmLifecycleApiGroup.class, this, ModulePackage.RTE_LIFECYCLE_HEADER__SCHM_LIFECYCLE_API_GROUP);
+			schmLifecycleApiGroup = new EObjectContainmentEList<SchmLifecycleApiFileContentsGroup>(SchmLifecycleApiFileContentsGroup.class, this, ModulePackage.RTE_LIFECYCLE_HEADER__SCHM_LIFECYCLE_API_GROUP);
 		}
 		return schmLifecycleApiGroup;
 	}
@@ -175,11 +175,11 @@ public class RteLifecycleHeaderImpl extends HeaderFileImpl implements RteLifecyc
 		switch (featureID) {
 			case ModulePackage.RTE_LIFECYCLE_HEADER__RTE_LIFECYCLE_API_GROUP:
 				getRteLifecycleApiGroup().clear();
-				getRteLifecycleApiGroup().addAll((Collection<? extends RteLifecycleApiGroup>)newValue);
+				getRteLifecycleApiGroup().addAll((Collection<? extends RteLifecycleApiFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_LIFECYCLE_HEADER__SCHM_LIFECYCLE_API_GROUP:
 				getSchmLifecycleApiGroup().clear();
-				getSchmLifecycleApiGroup().addAll((Collection<? extends SchmLifecycleApiGroup>)newValue);
+				getSchmLifecycleApiGroup().addAll((Collection<? extends SchmLifecycleApiFileContentsGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

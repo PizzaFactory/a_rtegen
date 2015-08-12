@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -98,8 +98,8 @@ public class M2ModelSaver {
 				this.writer.writeStartDocument(DEFAULT_ENCODING.name(), XML_VERSION);
 				this.writer.writeStartElement("AUTOSAR");
 				this.writer.writeNamespace("", M2XmlUtils.AUTOSAR_NAMESPACE);
-	            this.writer.writeNamespace("xsi", M2XmlUtils.NAMESPACE_XSI);
-	            this.writer.writeAttribute("xsi:schemaLocation", M2XmlUtils.SCHEMA_LOCATION);
+				this.writer.writeNamespace("xsi", M2XmlUtils.NAMESPACE_XSI);
+				this.writer.writeAttribute("xsi:schemaLocation", M2XmlUtils.SCHEMA_LOCATION);
 
 				writeContent(this.m2Root.getAutosar());
 				this.writer.writeEndElement();
@@ -207,7 +207,7 @@ public class M2ModelSaver {
 				} else {
 					writeValueRoles(eStructuralFeature, EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature));
 				}
-			} else {
+			} else { // COVERAGE 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
 				List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature);
 				writeRoles(eStructuralFeature, eObjects);
 			}
@@ -222,13 +222,13 @@ public class M2ModelSaver {
 			this.writer.writeEndElement();
 		}
 
-		private void writeRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException {
+		private void writeRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException { // COVERAGE 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
 			for (EObject eObject : eObjects) {
 				writeRole(eStructuralFeature, eObject);
 			}
 		}
 
-		private void writeRole(EStructuralFeature eStructuralFeature, EObject eObject) throws XMLStreamException {
+		private void writeRole(EStructuralFeature eStructuralFeature, EObject eObject) throws XMLStreamException { // COVERAGE 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
 			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature);
 			this.writer.writeStartElement(roleName);
 			writeContent(eObject);
@@ -268,7 +268,7 @@ public class M2ModelSaver {
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-CONTAINER-DEF");
 			} else if (ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature)) {
 				/*
-				 * TODO：#91対応
+				 * NOTE：#91対応
 				 * 本来はモデルからの修正する必要があるが，2014/3末リリースに向けて暫定的に以下の対応とする．
 				 */
 				if ("/AUTOSAR/EcucDefs/Os/OsApplication/OsApplicationTrustedFunction/OsTrustedFunctionName".equals(value)) {
@@ -286,7 +286,7 @@ public class M2ModelSaver {
 			this.writer.writeEndElement();
 		}
 
-		private boolean isDefinitionRefRole(EStructuralFeature eStructuralFeature) throws XMLStreamException {
+		private boolean isDefinitionRefRole(EStructuralFeature eStructuralFeature) {
 			return ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF.equals(eStructuralFeature) || ECUC_CONTAINER_VALUE__DEFINITION_REF.equals(eStructuralFeature)
 					|| ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature) || ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF.equals(eStructuralFeature);
 		}

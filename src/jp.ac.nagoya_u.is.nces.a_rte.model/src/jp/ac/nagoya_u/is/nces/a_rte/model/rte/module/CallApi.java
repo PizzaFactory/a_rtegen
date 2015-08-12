@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -75,12 +75,12 @@ public interface CallApi extends RteApi {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference.
-	 * @see #setOperation(DirectExecutableStartOperation)
+	 * @see #setOperation(ServerRunnableStartOperation)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCallApi_Operation()
 	 * @model containment="true"
 	 * @generated
 	 */
-	DirectExecutableStartOperation getOperation();
+	ServerRunnableStartOperation getOperation();
 
 	/**
 	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation <em>Operation</em>}' containment reference.
@@ -90,7 +90,7 @@ public interface CallApi extends RteApi {
 	 * @see #getOperation()
 	 * @generated
 	 */
-	void setOperation(DirectExecutableStartOperation value);
+	void setOperation(ServerRunnableStartOperation value);
 
 	/**
 	 * Returns the value of the '<em><b>Operation Param</b></em>' reference list.
@@ -110,7 +110,7 @@ public interface CallApi extends RteApi {
 
 	/**
 	 * Returns the value of the '<em><b>Port Arg Value</b></em>' reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Port Arg Value</em>' containment reference list isn't clear,
@@ -122,7 +122,7 @@ public interface CallApi extends RteApi {
 	 * @model
 	 * @generated
 	 */
-	EList<Constant> getPortArgValue();
+	EList<Value> getPortArgValue();
 
 	/**
 	 * Returns the value of the '<em><b>Return Variable</b></em>' reference.

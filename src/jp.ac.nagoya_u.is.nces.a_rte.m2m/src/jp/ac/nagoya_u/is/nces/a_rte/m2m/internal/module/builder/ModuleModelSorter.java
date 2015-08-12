@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,32 +48,32 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_EXTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_INTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.SEND_INTERACTION__RECEIVE_INTERACTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION_GROUP;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION_GROUP__MEMORY_MAPPING;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION_FILE_CONTENTS_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION_FILE_CONTENTS_GROUP__MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE_GROUP;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE_GROUP__MEMORY_MAPPING;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INTER_PARTITION_TIMEOUT_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__PREFIX;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP__MODE_TRANSITION_STATUS_CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_CORE_START_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_CORE_INIT_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_OPERATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TYPE__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
 
 import java.util.Comparator;
 
@@ -85,22 +85,22 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Receiver;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -125,11 +125,12 @@ public class ModuleModelSorter {
 	public void sortFileContents(File targetFile) {
 		for (EReference eReference : targetFile.eClass().getEAllReferences()) {
 			if (eReference.isMany()) {
-				if (TYPE.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<Type> targetTypes = (EList<Type>) targetFile.eGet(eReference);
-					sortTypes(targetTypes);
-
-				} else if (CONSTANT.isSuperTypeOf(eReference.getEReferenceType())) {
+//				if (TYPE.isSuperTypeOf(eReference.getEReferenceType())) {
+//					EList<Type> targetTypes = (EList<Type>) targetFile.eGet(eReference);
+//					sortTypes(targetTypes);
+//
+//				} else
+				if (CONSTANT.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<Constant> targetConstants = (EList<Constant>) targetFile.eGet(eReference);
 					sortConstants(targetConstants);
 
@@ -137,7 +138,7 @@ public class ModuleModelSorter {
 					EList<GlobalVariable> targetGlobalVariables = (EList<GlobalVariable>) targetFile.eGet(eReference);
 					sortGlobalVariables(targetGlobalVariables);
 
-				} else if (FUNCTION.isSuperTypeOf(eReference.getEReferenceType())) {		// COVERAGE 常にfalse(現状のツールワークフローではtrueを通らないが，コードレビュー済みであるため問題ない)
+				} else if (FUNCTION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<Function> targetFunctions = (EList<Function>) targetFile.eGet(eReference);
 					sortFunctions(targetFunctions);
 
@@ -145,13 +146,16 @@ public class ModuleModelSorter {
 					EList<MemoryMapping> targetMemoryMappings = (EList<MemoryMapping>) targetFile.eGet(eReference);
 					sortMemoryMappings(targetMemoryMappings);
 
-				} else if (GLOBAL_VARIABLE_GROUP.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<GlobalVariableGroup> targetGlobalVariableGroups = (EList<GlobalVariableGroup>) targetFile.eGet(eReference);
+				} else if (GLOBAL_VARIABLE_FILE_CONTENTS_GROUP.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<GlobalVariableFileContentsGroup> targetGlobalVariableGroups = (EList<GlobalVariableFileContentsGroup>) targetFile.eGet(eReference);
 					sortGlobalVariableGroups(targetGlobalVariableGroups);
 
-				} else if (FUNCTION_GROUP.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<FunctionGroup> targetFunctionGroups = (EList<FunctionGroup>) targetFile.eGet(eReference);
+				} else if (FUNCTION_FILE_CONTENTS_GROUP.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<FunctionFileContentsGroup> targetFunctionGroups = (EList<FunctionFileContentsGroup>) targetFile.eGet(eReference);
 					sortFunctionGroups(targetFunctionGroups);
+				} else if (MODE_DECLARATION_GROUP.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<ModeDeclarationGroup> targetModeDeclarationGroups = (EList<ModeDeclarationGroup>) targetFile.eGet(eReference);
+					sortModeDeclarationGroups(targetModeDeclarationGroups);
 				}
 			}
 		}
@@ -175,8 +179,8 @@ public class ModuleModelSorter {
 				} else if (SEND_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SendOperation> targetOperations = (EList<SendOperation>) targetFunction.eGet(eReference);
 					sortSendOperations(targetOperations);
-				} else if (COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<ComSendProxyOperation> targetOperations = (EList<ComSendProxyOperation>) targetFunction.eGet(eReference);
+				} else if (PRIMITIVE_COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<PrimitiveComSendProxyOperation> targetOperations = (EList<PrimitiveComSendProxyOperation>) targetFunction.eGet(eReference);
 					sortProxyComSendOperations(targetOperations);
 				} else if (RTE_CORE_START_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<RteCoreStartApiImpl> targetOperations = (EList<RteCoreStartApiImpl>) targetFunction.eGet(eReference);
@@ -260,7 +264,9 @@ public class ModuleModelSorter {
 		return new Comparator<ExternalEcuReceiver>() {
 			@Override
 			public int compare(ExternalEcuReceiver o1, ExternalEcuReceiver o2) {
-				return ComparisonChain.start().compare(o1.getSource().getShortName(), o2.getSource().getShortName()).result();
+				String o1Signal = o1.getSourceSignal() != null ? o1.getSourceSignal().getShortName() : o1.getSourceSignalGroup().getShortName();
+				String o2Signal = o2.getSourceSignal() != null ? o2.getSourceSignal().getShortName() : o2.getSourceSignalGroup().getShortName();
+				return ComparisonChain.start().compare(o1Signal, o2Signal).result();
 			}
 		};
 	}
@@ -269,8 +275,8 @@ public class ModuleModelSorter {
 		sortGlobalVariables(targetOperation.getTimeoutVariable());
 	}
 
-	private void sortProxyComSendOperations(EList<ComSendProxyOperation> targetOperations) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
+	private void sortProxyComSendOperations(EList<PrimitiveComSendProxyOperation> targetOperations) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
 		ECollections.sort(targetOperations, ordering);
 	}
 	
@@ -284,37 +290,32 @@ public class ModuleModelSorter {
 		ECollections.sort(targetOperations, ordering);
 	}
 
-	private void sortFunctionGroups(EList<? extends FunctionGroup> targetFunctionGroups) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(FUNCTION_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__PREFIX))
-				.compound(Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(FUNCTION_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME)));
+	private void sortFunctionGroups(EList<? extends FunctionFileContentsGroup> targetFunctionGroups) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(FUNCTION_FILE_CONTENTS_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__PREFIX))
+				.compound(Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(FUNCTION_FILE_CONTENTS_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME)));
 		ECollections.sort(targetFunctionGroups, ordering);
 
-		for (FunctionGroup functionGroup : targetFunctionGroups) {
-			sortFunctionGroupContents(functionGroup);
+		for (FunctionFileContentsGroup functionFileContentsGroup : targetFunctionGroups) {
+			sortFunctionGroupContents(functionFileContentsGroup);
 		}
 	}
 
-	private void sortFunctionGroupContents(FunctionGroup functionGroup) {
-		sortFunctions(functionGroup.getFunction());
+	private void sortFunctionGroupContents(FunctionFileContentsGroup targetFunctionGroup) {
+		sortFunctions(targetFunctionGroup.getFunction());
 	}
 
-	private void sortGlobalVariableGroups(EList<? extends GlobalVariableGroup> targetGlobalVariableGroups) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(GLOBAL_VARIABLE_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__PREFIX))
-				.compound(Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(GLOBAL_VARIABLE_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME)));
+	private void sortGlobalVariableGroups(EList<? extends GlobalVariableFileContentsGroup> targetGlobalVariableGroups) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__PREFIX))
+				.compound(Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__MEMORY_MAPPING, MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME)));
 		ECollections.sort(targetGlobalVariableGroups, ordering);
 
-		for (GlobalVariableGroup targetGlobalVariableGroup : targetGlobalVariableGroups) {
+		for (GlobalVariableFileContentsGroup targetGlobalVariableGroup : targetGlobalVariableGroups) {
 			sortGlobalVariableGroupContents(targetGlobalVariableGroup);
 		}
 	}
 
-	private void sortGlobalVariableGroupContents(GlobalVariableGroup targetGlobalVariableGroup) {
+	private void sortGlobalVariableGroupContents(GlobalVariableFileContentsGroup targetGlobalVariableGroup) {
 		sortGlobalVariables(targetGlobalVariableGroup.getGlobalVariable());
-	}
-
-	private void sortTypes(EList<? extends Type> targetTypes) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(TYPE__SYMBOL_NAME));
-		ECollections.sort(targetTypes, ordering);
 	}
 
 	private void sortConstants(EList<? extends Constant> targetConstants) {
@@ -340,5 +341,10 @@ public class ModuleModelSorter {
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(MEMORY_MAPPING__PREFIX))
 				.compound(Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME)));
 		ECollections.sort(targetMemoryMappings, ordering);
+	}
+
+	private void sortModeDeclarationGroups(EList<ModeDeclarationGroup> targetModeDeclarationGroups) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(MODE_DECLARATION_GROUP__MODE_TRANSITION_STATUS_CONSTANT, CONSTANT__SYMBOL_NAME));
+		ECollections.sort(targetModeDeclarationGroups, ordering);
 	}
 }

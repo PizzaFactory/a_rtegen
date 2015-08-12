@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -61,6 +61,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RteEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicEList;
@@ -84,19 +85,30 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getDataTypeMapping <em>Data Type Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getExclusiveArea <em>Exclusive Area</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getRunnable <em>Runnable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getEvent <em>Event</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getDataTypeMapping <em>Data Type Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getPortApiOption <em>Port Api Option</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getIncludedDataTypeSet <em>Included Data Type Set</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcInternalBehaviorImpl#getExplicitInterRunnableVariable <em>Explicit Inter Runnable Variable</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInternalBehavior {
+	/**
+	 * The cached value of the '{@link #getDataTypeMapping() <em>Data Type Mapping</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataTypeMapping()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataTypeMappingSet> dataTypeMapping;
+
 	/**
 	 * The cached value of the '{@link #getExclusiveArea() <em>Exclusive Area</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -128,16 +140,6 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	protected EList<RteEvent> event;
 
 	/**
-	 * The cached value of the '{@link #getDataTypeMapping() <em>Data Type Mapping</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataTypeMapping()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DataTypeMappingSet> dataTypeMapping;
-
-	/**
 	 * The cached value of the '{@link #getPortApiOption() <em>Port Api Option</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +158,16 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	 * @ordered
 	 */
 	protected EList<IncludedDataTypeSet> includedDataTypeSet;
+
+	/**
+	 * The cached value of the '{@link #getExplicitInterRunnableVariable() <em>Explicit Inter Runnable Variable</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExplicitInterRunnableVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableDataPrototype> explicitInterRunnableVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -287,6 +299,18 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.SWC_INTERNAL_BEHAVIOR__PARENT, newParent, newParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableDataPrototype> getExplicitInterRunnableVariable() {
+		if (explicitInterRunnableVariable == null) {
+			explicitInterRunnableVariable = new EObjectContainmentEList<VariableDataPrototype>(VariableDataPrototype.class, this, M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE);
+		}
+		return explicitInterRunnableVariable;
 	}
 
 	/**
@@ -478,6 +502,8 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 				return ((InternalEList<?>)getIncludedDataTypeSet()).basicRemove(otherEnd, msgs);
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PARENT:
 				return basicSetParent(null, msgs);
+			case M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE:
+				return ((InternalEList<?>)getExplicitInterRunnableVariable()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -504,20 +530,22 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				return getDataTypeMapping();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				return getExclusiveArea();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__RUNNABLE:
 				return getRunnable();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EVENT:
 				return getEvent();
-			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
-				return getDataTypeMapping();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PORT_API_OPTION:
 				return getPortApiOption();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__INCLUDED_DATA_TYPE_SET:
 				return getIncludedDataTypeSet();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PARENT:
 				return getParent();
+			case M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE:
+				return getExplicitInterRunnableVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -531,6 +559,10 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				getDataTypeMapping().clear();
+				getDataTypeMapping().addAll((Collection<? extends DataTypeMappingSet>)newValue);
+				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				getExclusiveArea().clear();
 				getExclusiveArea().addAll((Collection<? extends ExclusiveArea>)newValue);
@@ -543,10 +575,6 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 				getEvent().clear();
 				getEvent().addAll((Collection<? extends RteEvent>)newValue);
 				return;
-			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
-				getDataTypeMapping().clear();
-				getDataTypeMapping().addAll((Collection<? extends DataTypeMappingSet>)newValue);
-				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PORT_API_OPTION:
 				getPortApiOption().clear();
 				getPortApiOption().addAll((Collection<? extends PortApiOption>)newValue);
@@ -557,6 +585,10 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PARENT:
 				setParent((AtomicSwComponentType)newValue);
+				return;
+			case M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE:
+				getExplicitInterRunnableVariable().clear();
+				getExplicitInterRunnableVariable().addAll((Collection<? extends VariableDataPrototype>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -570,6 +602,9 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				getDataTypeMapping().clear();
+				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				getExclusiveArea().clear();
 				return;
@@ -579,9 +614,6 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EVENT:
 				getEvent().clear();
 				return;
-			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
-				getDataTypeMapping().clear();
-				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PORT_API_OPTION:
 				getPortApiOption().clear();
 				return;
@@ -590,6 +622,9 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 				return;
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PARENT:
 				setParent((AtomicSwComponentType)null);
+				return;
+			case M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE:
+				getExplicitInterRunnableVariable().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -603,20 +638,22 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				return dataTypeMapping != null && !dataTypeMapping.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				return exclusiveArea != null && !exclusiveArea.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__RUNNABLE:
 				return runnable != null && !runnable.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__EVENT:
 				return event != null && !event.isEmpty();
-			case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
-				return dataTypeMapping != null && !dataTypeMapping.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PORT_API_OPTION:
 				return portApiOption != null && !portApiOption.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__INCLUDED_DATA_TYPE_SET:
 				return includedDataTypeSet != null && !includedDataTypeSet.isEmpty();
 			case M2Package.SWC_INTERNAL_BEHAVIOR__PARENT:
 				return getParent() != null;
+			case M2Package.SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE:
+				return explicitInterRunnableVariable != null && !explicitInterRunnableVariable.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -630,6 +667,7 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == InternalBehavior.class) {
 			switch (derivedFeatureID) {
+				case M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING: return M2Package.INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING;
 				case M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA: return M2Package.INTERNAL_BEHAVIOR__EXCLUSIVE_AREA;
 				default: return -1;
 			}
@@ -646,6 +684,7 @@ public class SwcInternalBehaviorImpl extends IdentifiableImpl implements SwcInte
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == InternalBehavior.class) {
 			switch (baseFeatureID) {
+				case M2Package.INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING: return M2Package.SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING;
 				case M2Package.INTERNAL_BEHAVIOR__EXCLUSIVE_AREA: return M2Package.SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA;
 				default: return -1;
 			}

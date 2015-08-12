@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,6 +55,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi#getReturnValue <em>Return Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi#getIsInline <em>Is Inline</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,5 +117,31 @@ public interface SchmApi extends Function {
 	 * @generated
 	 */
 	void setParent(PartedBswm value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Inline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Inline</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Inline</em>' attribute.
+	 * @see #setIsInline(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmApi_IsInline()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getIsInline();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi#getIsInline <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Inline</em>' attribute.
+	 * @see #getIsInline()
+	 * @generated
+	 */
+	void setIsInline(Boolean value);
 
 } // SchmApi

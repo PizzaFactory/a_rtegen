@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,69 +46,18 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum;
-
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Primitive Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl#getOriginalTypeSymbolName <em>Original Type Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl#getSignedness <em>Signedness</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
-	/**
-	 * The default value of the '{@link #getOriginalTypeSymbolName() <em>Original Type Symbol Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalTypeSymbolName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ORIGINAL_TYPE_SYMBOL_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getOriginalTypeSymbolName() <em>Original Type Symbol Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOriginalTypeSymbolName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String originalTypeSymbolName = ORIGINAL_TYPE_SYMBOL_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSignedness() <em>Signedness</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSignedness()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final SignednessEnum SIGNEDNESS_EDEFAULT = SignednessEnum.SIGNED;
-
-	/**
-	 * The cached value of the '{@link #getSignedness() <em>Signedness</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSignedness()
-	 * @generated
-	 * @ordered
-	 */
-	protected SignednessEnum signedness = SIGNEDNESS_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -126,134 +75,6 @@ public class PrimitiveTypeImpl extends TypeImpl implements PrimitiveType {
 	@Override
 	protected EClass eStaticClass() {
 		return ModulePackage.Literals.PRIMITIVE_TYPE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getOriginalTypeSymbolName() {
-		return originalTypeSymbolName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOriginalTypeSymbolName(String newOriginalTypeSymbolName) {
-		String oldOriginalTypeSymbolName = originalTypeSymbolName;
-		originalTypeSymbolName = newOriginalTypeSymbolName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME, oldOriginalTypeSymbolName, originalTypeSymbolName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SignednessEnum getSignedness() {
-		return signedness;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSignedness(SignednessEnum newSignedness) {
-		SignednessEnum oldSignedness = signedness;
-		signedness = newSignedness == null ? SIGNEDNESS_EDEFAULT : newSignedness;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PRIMITIVE_TYPE__SIGNEDNESS, oldSignedness, signedness));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ModulePackage.PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME:
-				return getOriginalTypeSymbolName();
-			case ModulePackage.PRIMITIVE_TYPE__SIGNEDNESS:
-				return getSignedness();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ModulePackage.PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME:
-				setOriginalTypeSymbolName((String)newValue);
-				return;
-			case ModulePackage.PRIMITIVE_TYPE__SIGNEDNESS:
-				setSignedness((SignednessEnum)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ModulePackage.PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME:
-				setOriginalTypeSymbolName(ORIGINAL_TYPE_SYMBOL_NAME_EDEFAULT);
-				return;
-			case ModulePackage.PRIMITIVE_TYPE__SIGNEDNESS:
-				setSignedness(SIGNEDNESS_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ModulePackage.PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME:
-				return ORIGINAL_TYPE_SYMBOL_NAME_EDEFAULT == null ? originalTypeSymbolName != null : !ORIGINAL_TYPE_SYMBOL_NAME_EDEFAULT.equals(originalTypeSymbolName);
-			case ModulePackage.PRIMITIVE_TYPE__SIGNEDNESS:
-				return signedness != SIGNEDNESS_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (originalTypeSymbolName: ");
-		result.append(originalTypeSymbolName);
-		result.append(", signedness: ");
-		result.append(signedness);
-		result.append(')');
-		return result.toString();
 	}
 
 } //PrimitiveTypeImpl

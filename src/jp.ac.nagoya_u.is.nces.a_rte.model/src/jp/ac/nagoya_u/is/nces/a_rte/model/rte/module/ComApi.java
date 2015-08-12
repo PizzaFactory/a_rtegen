@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,6 +53,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup <em>Is Signal Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getComSignalSymbolName <em>Com Signal Symbol Name</em>}</li>
  * </ul>
  * </p>
@@ -62,6 +63,32 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @generated
  */
 public interface ComApi extends Function {
+
+	/**
+	 * Returns the value of the '<em><b>Is Signal Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Signal Group</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Signal Group</em>' attribute.
+	 * @see #setIsSignalGroup(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComApi_IsSignalGroup()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getIsSignalGroup();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup <em>Is Signal Group</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Signal Group</em>' attribute.
+	 * @see #getIsSignalGroup()
+	 * @generated
+	 */
+	void setIsSignalGroup(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Com Signal Symbol Name</b></em>' attribute.

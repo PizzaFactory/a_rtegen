@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,10 +42,23 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.util;
 
+/**
+ * RTEジェネレータアプリケーションの固有情報を保持する。
+ */
 public class GeneratorInfos { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
+	/**
+	 * RTEジェネレータのツール名
+	 */
 	public static final String GENERATOR_TOOL_NAME = "A-RTEGEN";
-	public static final String GENERATOR_VERSION = "1.0.1";
-	public static final String GENERATOR_COMMAND_NAME = "rtegen";
 
+	/**
+	 * RTEジェネレータのバージョン
+	 */
+    public static final String GENERATOR_VERSION = "1.2.2";
+
+	/**
+	 * RTEジェネレータのコマンド名
+	 */
+	public static final String GENERATOR_COMMAND_NAME = "rtegen";
 }

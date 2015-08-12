@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -63,18 +63,18 @@ public interface TimeValueEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
+	 * @model required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
 	 * @generated
 	 */
-	Boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another);
+	boolean isGreaterThanOrEquals(BigDecimal this_, BigDecimal another);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
+	 * @model required="true" this_DataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" this_Required="true" anotherDataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" anotherRequired="true"
 	 * @generated
 	 */
-	Boolean isMultiplesOf(BigDecimal this_, BigDecimal another);
+	boolean isMultiplesOf(BigDecimal this_, BigDecimal another);
 
 	/**
 	 * <!-- begin-user-doc -->

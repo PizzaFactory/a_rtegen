@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,6 +50,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation;
@@ -64,30 +65,30 @@ public class ExcludeOperationModelBuilder {
 	}
 
 	public ExcludeOperation createExcludeOperation(ExclusiveArea sourceExclusiveArea) {
-		RteExclusiveAreaImplMechanismEnum rteExclusiveAreaImplMechanismEnum;
+		RteExclusiveAreaImplMechanismEnum sourceRteExclusiveAreaImplMechanismEnum;
 		String osResourceId = "", osSpinlockId = "";
 
 		if (sourceExclusiveArea.getSwcConfig().isEmpty() == false) {
-			RteExclusiveAreaImplementation rteExclusiveAreaImplementation = sourceExclusiveArea.getSwcConfig().get(0);
-			rteExclusiveAreaImplMechanismEnum = rteExclusiveAreaImplementation.getRteExclusiveAreaImplMechanism();
-			if (rteExclusiveAreaImplementation.getRteExclusiveAreaOsResource() != null) {
-				osResourceId = rteExclusiveAreaImplementation.getRteExclusiveAreaOsResource().getShortName();
+			RteExclusiveAreaImplementation sourceRteExclusiveAreaImplementation = sourceExclusiveArea.getSwcConfig().get(0);
+			sourceRteExclusiveAreaImplMechanismEnum = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaImplMechanism();
+			if (sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsResource() != null) {
+				osResourceId = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsResource().getShortName();
 			}
-			if (rteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock() != null) {
-				osSpinlockId = rteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock().getShortName();
+			if (sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock() != null) {
+				osSpinlockId = sourceRteExclusiveAreaImplementation.getRteExclusiveAreaOsSpinlock().getShortName();
 			}
 		} else {
-			RteBswExclusiveAreaImpl rteBswExclusiveAreaImpl = sourceExclusiveArea.getBswConfig().get(0);
-			rteExclusiveAreaImplMechanismEnum = sourceExclusiveArea.getBswConfig().get(0).getRteExclusiveAreaImplMechanism();
-			if (rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource() != null) {
-				osResourceId = rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource().getShortName();
+			RteBswExclusiveAreaImpl sourceRteBswExclusiveAreaImpl = sourceExclusiveArea.getBswConfig().get(0);
+			sourceRteExclusiveAreaImplMechanismEnum = sourceExclusiveArea.getBswConfig().get(0).getRteExclusiveAreaImplMechanism();
+			if (sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource() != null) {
+				osResourceId = sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsResource().getShortName();
 			}	
-			if (rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock() != null) {
-				osSpinlockId = rteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock().getShortName();
+			if (sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock() != null) {
+				osSpinlockId = sourceRteBswExclusiveAreaImpl.getRteBswExclusiveAreaOsSpinlock().getShortName();
 			}
 		}
 		
-		switch (rteExclusiveAreaImplMechanismEnum) {
+		switch (sourceRteExclusiveAreaImplMechanismEnum) {
 		case OS_INTERRUPT_BLOCKING: {
 			return createOsInterruptBlockExcludeOperation();
 		}
@@ -99,6 +100,9 @@ public class ExcludeOperationModelBuilder {
 		}
 		case ALL_INTERRUPT_BLOCKING: {
 			return createAllInterruptBlockExcludeOperation();
+		}
+		case NONE: {
+			return createNoneExcludeOperation();
 		}
 		case COOPERATIVE_RUNNABLE_PLACEMENT:
 		default: { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
@@ -125,14 +129,18 @@ public class ExcludeOperationModelBuilder {
 	}
 
 	private OsResourceExcludeOperation createOsResourceExcludeOperation(String osResourceId) {
-		OsResourceExcludeOperation excludeOperation = ModuleFactory.eINSTANCE.createOsResourceExcludeOperation();
-		excludeOperation.setOsResourceId(osResourceId);
-		return excludeOperation;
+		OsResourceExcludeOperation destExcludeOperation = ModuleFactory.eINSTANCE.createOsResourceExcludeOperation();
+		destExcludeOperation.setOsResourceId(osResourceId);
+		return destExcludeOperation;
 	}
 
 	private OsSpinlockExcludeOperation createOsSpinlockExcludeOperation(String osSpinlockId) {
-		OsSpinlockExcludeOperation excludeOperation = ModuleFactory.eINSTANCE.createOsSpinlockExcludeOperation();
-		excludeOperation.setOsSpinlockId(osSpinlockId);
-		return excludeOperation;
+		OsSpinlockExcludeOperation destExcludeOperation = ModuleFactory.eINSTANCE.createOsSpinlockExcludeOperation();
+		destExcludeOperation.setOsSpinlockId(osSpinlockId);
+		return destExcludeOperation;
+	}
+
+	private NoneExcludeOperation createNoneExcludeOperation() {
+		return ModuleFactory.eINSTANCE.createNoneExcludeOperation();
 	}
 }

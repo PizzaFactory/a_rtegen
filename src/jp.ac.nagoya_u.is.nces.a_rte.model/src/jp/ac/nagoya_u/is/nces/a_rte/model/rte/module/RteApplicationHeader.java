@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,7 +55,11 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getHasInlineApi <em>Has Inline Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getSourceMacro <em>Source Macro</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getGlobalVariableGroup <em>Global Variable Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getRteApiGroup <em>Rte Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getDeclarationsRteApiGroup <em>Declarations Rte Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getConstant <em>Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getDependentExecutableEntityGroup <em>Dependent Executable Entity Group</em>}</li>
  * </ul>
@@ -68,8 +72,66 @@ import org.eclipse.emf.common.util.EList;
 public interface RteApplicationHeader extends HeaderFile {
 
 	/**
+	 * Returns the value of the '<em><b>Has Inline Api</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Inline Api</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Inline Api</em>' attribute.
+	 * @see #setHasInlineApi(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApplicationHeader_HasInlineApi()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getHasInlineApi();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader#getHasInlineApi <em>Has Inline Api</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Inline Api</em>' attribute.
+	 * @see #getHasInlineApi()
+	 * @generated
+	 */
+	void setHasInlineApi(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Macro</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Macro</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Macro</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApplicationHeader_SourceMacro()
+	 * @model
+	 * @generated
+	 */
+	EList<Macro> getSourceMacro();
+
+	/**
+	 * Returns the value of the '<em><b>Global Variable Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Global Variable Group</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Global Variable Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApplicationHeader_GlobalVariableGroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup();
+
+	/**
 	 * Returns the value of the '<em><b>Rte Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Rte Api Group</em>' reference list isn't clear,
@@ -81,7 +143,23 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<RteApiGroup> getRteApiGroup();
+	EList<RteApiFileContentsGroup> getRteApiGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Declarations Rte Api Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Declarations Rte Api Group</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Declarations Rte Api Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApplicationHeader_DeclarationsRteApiGroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteApiFileContentsGroup> getDeclarationsRteApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Constant</b></em>' reference list.
@@ -101,7 +179,7 @@ public interface RteApplicationHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Executable Entity Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dependent Executable Entity Group</em>' containment reference list isn't clear,
@@ -113,5 +191,5 @@ public interface RteApplicationHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExecutableEntityGroup> getDependentExecutableEntityGroup();
+	EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup();
 } // RteApplicationHeader

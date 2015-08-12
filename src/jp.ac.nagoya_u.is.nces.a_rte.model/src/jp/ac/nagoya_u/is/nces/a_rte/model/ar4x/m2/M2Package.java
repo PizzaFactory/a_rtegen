@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -581,13 +581,22 @@ public interface M2Package extends EPackage {
 	int SW_BASE_TYPE_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Get Upper Limit For Unsigned Integer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_BASE_TYPE___GET_UPPER_LIMIT_FOR_UNSIGNED_INTEGER = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Sw Base Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SW_BASE_TYPE_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+	int SW_BASE_TYPE_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwComponentTypeImpl <em>Sw Component Type</em>}' class.
@@ -1113,7 +1122,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwDataDefProps()
 	 * @generated
 	 */
-	int SW_DATA_DEF_PROPS = 51;
+	int SW_DATA_DEF_PROPS = 52;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataTypeMapImpl <em>Data Type Map</em>}' class.
@@ -1123,7 +1132,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataTypeMap()
 	 * @generated
 	 */
-	int DATA_TYPE_MAP = 52;
+	int DATA_TYPE_MAP = 53;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataTypeMappingSetImpl <em>Data Type Mapping Set</em>}' class.
@@ -1133,7 +1142,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataTypeMappingSet()
 	 * @generated
 	 */
-	int DATA_TYPE_MAPPING_SET = 53;
+	int DATA_TYPE_MAPPING_SET = 54;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationPrimitiveDataTypeImpl <em>Application Primitive Data Type</em>}' class.
@@ -1143,7 +1152,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getApplicationPrimitiveDataType()
 	 * @generated
 	 */
-	int APPLICATION_PRIMITIVE_DATA_TYPE = 54;
+	int APPLICATION_PRIMITIVE_DATA_TYPE = 59;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl <em>Data Prototype</em>}' class.
@@ -1153,7 +1162,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataPrototype()
 	 * @generated
 	 */
-	int DATA_PROTOTYPE = 56;
+	int DATA_PROTOTYPE = 61;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1219,13 +1228,22 @@ public interface M2Package extends EPackage {
 	int DATA_PROTOTYPE__SW_ALIGNMENT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_PROTOTYPE__TYPE = IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Data Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_PROTOTYPE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
+	int DATA_PROTOTYPE_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The operation id for the '<em>Get Sw Impl Policy</em>' operation.
@@ -1253,7 +1271,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getAutosarDataPrototype()
 	 * @generated
 	 */
-	int AUTOSAR_DATA_PROTOTYPE = 55;
+	int AUTOSAR_DATA_PROTOTYPE = 60;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1325,7 +1343,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOSAR_DATA_PROTOTYPE__TYPE = DATA_PROTOTYPE_FEATURE_COUNT + 0;
+	int AUTOSAR_DATA_PROTOTYPE__TYPE = DATA_PROTOTYPE__TYPE;
 
 	/**
 	 * The number of structural features of the '<em>Autosar Data Prototype</em>' class.
@@ -1334,7 +1352,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOSAR_DATA_PROTOTYPE_FEATURE_COUNT = DATA_PROTOTYPE_FEATURE_COUNT + 1;
+	int AUTOSAR_DATA_PROTOTYPE_FEATURE_COUNT = DATA_PROTOTYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>Get Sw Impl Policy</em>' operation.
@@ -1346,13 +1364,49 @@ public interface M2Package extends EPackage {
 	int AUTOSAR_DATA_PROTOTYPE___GET_SW_IMPL_POLICY = DATA_PROTOTYPE___GET_SW_IMPL_POLICY;
 
 	/**
+	 * The operation id for the '<em>Get Sw Addr Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD = DATA_PROTOTYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Sw Alignment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT = DATA_PROTOTYPE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Application Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE = DATA_PROTOTYPE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Get Implementation Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE = DATA_PROTOTYPE_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Autosar Data Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOSAR_DATA_PROTOTYPE_OPERATION_COUNT = DATA_PROTOTYPE_OPERATION_COUNT + 0;
+	int AUTOSAR_DATA_PROTOTYPE_OPERATION_COUNT = DATA_PROTOTYPE_OPERATION_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1427,13 +1481,22 @@ public interface M2Package extends EPackage {
 	int VARIABLE_DATA_PROTOTYPE__TYPE = AUTOSAR_DATA_PROTOTYPE__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Init Value</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE__INIT_VALUE = AUTOSAR_DATA_PROTOTYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Variable Data Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_DATA_PROTOTYPE_FEATURE_COUNT = AUTOSAR_DATA_PROTOTYPE_FEATURE_COUNT + 0;
+	int VARIABLE_DATA_PROTOTYPE_FEATURE_COUNT = AUTOSAR_DATA_PROTOTYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Sw Impl Policy</em>' operation.
@@ -1443,6 +1506,42 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_DATA_PROTOTYPE___GET_SW_IMPL_POLICY = AUTOSAR_DATA_PROTOTYPE___GET_SW_IMPL_POLICY;
+
+	/**
+	 * The operation id for the '<em>Get Sw Addr Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE___GET_SW_ADDR_METHOD = AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD;
+
+	/**
+	 * The operation id for the '<em>Get Sw Alignment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE___GET_SW_ALIGNMENT = AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT;
+
+	/**
+	 * The operation id for the '<em>Get Application Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE = AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE;
+
+	/**
+	 * The operation id for the '<em>Get Implementation Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE = AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE;
 
 	/**
 	 * The number of operations of the '<em>Variable Data Prototype</em>' class.
@@ -2111,13 +2210,22 @@ public interface M2Package extends EPackage {
 	int SWC_INTERNAL_BEHAVIOR__CATEGORY = IDENTIFIABLE__CATEGORY;
 
 	/**
+	 * The feature id for the '<em><b>Data Type Mapping</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Exclusive Area</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA = IDENTIFIABLE_FEATURE_COUNT + 0;
+	int SWC_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Runnable</b></em>' containment reference list.
@@ -2126,7 +2234,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_INTERNAL_BEHAVIOR__RUNNABLE = IDENTIFIABLE_FEATURE_COUNT + 1;
+	int SWC_INTERNAL_BEHAVIOR__RUNNABLE = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Event</b></em>' containment reference list.
@@ -2135,16 +2243,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_INTERNAL_BEHAVIOR__EVENT = IDENTIFIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Data Type Mapping</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = IDENTIFIABLE_FEATURE_COUNT + 3;
+	int SWC_INTERNAL_BEHAVIOR__EVENT = IDENTIFIABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Port Api Option</b></em>' containment reference list.
@@ -2174,13 +2273,22 @@ public interface M2Package extends EPackage {
 	int SWC_INTERNAL_BEHAVIOR__PARENT = IDENTIFIABLE_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Explicit Inter Runnable Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE = IDENTIFIABLE_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Swc Internal Behavior</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SWC_INTERNAL_BEHAVIOR_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 7;
+	int SWC_INTERNAL_BEHAVIOR_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Parent</em>' operation.
@@ -2463,13 +2571,31 @@ public interface M2Package extends EPackage {
 	int RUNNABLE_ENTITY__SYMBOL = EXECUTABLE_ENTITY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Written Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE = EXECUTABLE_ENTITY_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Read Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY__READ_LOCAL_VARIABLE = EXECUTABLE_ENTITY_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Runnable Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RUNNABLE_ENTITY_FEATURE_COUNT = EXECUTABLE_ENTITY_FEATURE_COUNT + 6;
+	int RUNNABLE_ENTITY_FEATURE_COUNT = EXECUTABLE_ENTITY_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Runnable Entity</em>' class.
@@ -2562,13 +2688,22 @@ public interface M2Package extends EPackage {
 	int AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE = M2_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Autosar Variable Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AUTOSAR_VARIABLE_REF_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+	int AUTOSAR_VARIABLE_REF_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Autosar Variable Ref</em>' class.
@@ -2587,7 +2722,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIInstanceRef()
 	 * @generated
 	 */
-	int IINSTANCE_REF = 91;
+	int IINSTANCE_REF = 97;
 
 	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
@@ -4184,13 +4319,22 @@ public interface M2Package extends EPackage {
 	int IMPLEMENTATION_DATA_TYPE__SW_ADDR_METHOD = AUTOSAR_DATA_TYPE__SW_ADDR_METHOD;
 
 	/**
+	 * The feature id for the '<em><b>Sub Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Base Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_DATA_TYPE__BASE_TYPE = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 0;
+	int IMPLEMENTATION_DATA_TYPE__BASE_TYPE = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Sw Alignment</b></em>' attribute.
@@ -4199,7 +4343,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 1;
+	int IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Implementation Data Type</em>' class.
@@ -4208,7 +4352,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_DATA_TYPE_FEATURE_COUNT = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 2;
+	int IMPLEMENTATION_DATA_TYPE_FEATURE_COUNT = AUTOSAR_DATA_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Sw Impl Policy</em>' operation.
@@ -4220,13 +4364,954 @@ public interface M2Package extends EPackage {
 	int IMPLEMENTATION_DATA_TYPE___GET_SW_IMPL_POLICY = AUTOSAR_DATA_TYPE___GET_SW_IMPL_POLICY;
 
 	/**
+	 * The operation id for the '<em>Get Leaf Implementation Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Primitive Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_PRIMITIVE_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Pointer Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_POINTER_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Array Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_ARRAY_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Is Struct Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_STRUCT_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is Union Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_UNION_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is Redefinition Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_REDEFINITION_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Is Complex Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE___IS_COMPLEX_TYPE = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>Implementation Data Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_DATA_TYPE_OPERATION_COUNT = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 0;
+	int IMPLEMENTATION_DATA_TYPE_OPERATION_COUNT = AUTOSAR_DATA_TYPE_OPERATION_COUNT + 8;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupPrototypeImpl <em>Mode Declaration Group Prototype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupPrototypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclarationGroupPrototype()
+	 * @generated
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE = 55;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeRequestTypeMapImpl <em>Mode Request Type Map</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeRequestTypeMapImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeRequestTypeMap()
+	 * @generated
+	 */
+	int MODE_REQUEST_TYPE_MAP = 56;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationImpl <em>Mode Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclaration()
+	 * @generated
+	 */
+	int MODE_DECLARATION = 57;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclarationGroup()
+	 * @generated
+	 */
+	int MODE_DECLARATION_GROUP = 58;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ExclusiveAreaImpl <em>Exclusive Area</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ExclusiveAreaImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getExclusiveArea()
+	 * @generated
+	 */
+	int EXCLUSIVE_AREA = 62;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NumericalValueSpecificationImpl <em>Numerical Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NumericalValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNumericalValueSpecification()
+	 * @generated
+	 */
+	int NUMERICAL_VALUE_SPECIFICATION = 63;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.TextValueSpecificationImpl <em>Text Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.TextValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getTextValueSpecification()
+	 * @generated
+	 */
+	int TEXT_VALUE_SPECIFICATION = 64;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantReferenceImpl <em>Constant Reference</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantReferenceImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getConstantReference()
+	 * @generated
+	 */
+	int CONSTANT_REFERENCE = 65;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ReferenceValueSpecificationImpl <em>Reference Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ReferenceValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getReferenceValueSpecification()
+	 * @generated
+	 */
+	int REFERENCE_VALUE_SPECIFICATION = 66;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArrayValueSpecificationImpl <em>Array Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArrayValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArrayValueSpecification()
+	 * @generated
+	 */
+	int ARRAY_VALUE_SPECIFICATION = 67;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RecordValueSpecificationImpl <em>Record Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RecordValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRecordValueSpecification()
+	 * @generated
+	 */
+	int RECORD_VALUE_SPECIFICATION = 68;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationValueSpecificationImpl <em>Application Value Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationValueSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getApplicationValueSpecification()
+	 * @generated
+	 */
+	int APPLICATION_VALUE_SPECIFICATION = 69;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantSpecificationImpl <em>Constant Specification</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantSpecificationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getConstantSpecification()
+	 * @generated
+	 */
+	int CONSTANT_SPECIFICATION = 70;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.OperationInvokedEventImpl <em>Operation Invoked Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.OperationInvokedEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getOperationInvokedEvent()
+	 * @generated
+	 */
+	int OPERATION_INVOKED_EVENT = 71;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.POperationInAtomicSwcInstanceRefImpl <em>POperation In Atomic Swc Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.POperationInAtomicSwcInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPOperationInAtomicSwcInstanceRef()
+	 * @generated
+	 */
+	int POPERATION_IN_ATOMIC_SWC_INSTANCE_REF = 72;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerInterfaceImpl <em>Client Server Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerInterfaceImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getClientServerInterface()
+	 * @generated
+	 */
+	int CLIENT_SERVER_INTERFACE = 73;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerOperationImpl <em>Client Server Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getClientServerOperation()
+	 * @generated
+	 */
+	int CLIENT_SERVER_OPERATION = 74;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationErrorImpl <em>Application Error</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationErrorImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getApplicationError()
+	 * @generated
+	 */
+	int APPLICATION_ERROR = 75;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArgumentDataPrototypeImpl <em>Argument Data Prototype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArgumentDataPrototypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArgumentDataPrototype()
+	 * @generated
+	 */
+	int ARGUMENT_DATA_PROTOTYPE = 76;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataFilterImpl <em>Data Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataFilterImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataFilter()
+	 * @generated
+	 */
+	int DATA_FILTER = 77;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.QueuedReceiverComSpecImpl <em>Queued Receiver Com Spec</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.QueuedReceiverComSpecImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getQueuedReceiverComSpec()
+	 * @generated
+	 */
+	int QUEUED_RECEIVER_COM_SPEC = 78;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InvalidationPolicyImpl <em>Invalidation Policy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InvalidationPolicyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInvalidationPolicy()
+	 * @generated
+	 */
+	int INVALIDATION_POLICY = 79;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl <em>Port Api Option</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortApiOption()
+	 * @generated
+	 */
+	int PORT_API_OPTION = 80;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortDefinedArgumentValueImpl <em>Port Defined Argument Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortDefinedArgumentValueImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortDefinedArgumentValue()
+	 * @generated
+	 */
+	int PORT_DEFINED_ARGUMENT_VALUE = 81;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IncludedDataTypeSetImpl <em>Included Data Type Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IncludedDataTypeSetImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIncludedDataTypeSet()
+	 * @generated
+	 */
+	int INCLUDED_DATA_TYPE_SET = 82;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemImpl <em>System</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystem()
+	 * @generated
+	 */
+	int SYSTEM = 83;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RootSwCompositionPrototypeImpl <em>Root Sw Composition Prototype</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RootSwCompositionPrototypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRootSwCompositionPrototype()
+	 * @generated
+	 */
+	int ROOT_SW_COMPOSITION_PROTOTYPE = 84;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemMappingImpl <em>System Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemMapping()
+	 * @generated
+	 */
+	int SYSTEM_MAPPING = 85;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataMappingImpl <em>Data Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataMapping()
+	 * @generated
+	 */
+	int DATA_MAPPING = 86;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalImpl <em>System Signal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemSignal()
+	 * @generated
+	 */
+	int SYSTEM_SIGNAL = 87;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalImpl <em>ISignal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignal()
+	 * @generated
+	 */
+	int ISIGNAL = 88;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalIPduImpl <em>ISignal IPdu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalIPduImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalIPdu()
+	 * @generated
+	 */
+	int ISIGNAL_IPDU = 89;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl <em>ISignal To IPdu Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalToIPduMapping()
+	 * @generated
+	 */
+	int ISIGNAL_TO_IPDU_MAPPING = 90;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalMappingImpl <em>Sender Receiver To Signal Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderReceiverToSignalMapping()
+	 * @generated
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_MAPPING = 91;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalGroupMappingImpl <em>Sender Receiver To Signal Group Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalGroupMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderReceiverToSignalGroupMapping()
+	 * @generated
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING = 92;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeInSystemInstanceRefImpl <em>Variable Data Prototype In System Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeInSystemInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getVariableDataPrototypeInSystemInstanceRef()
+	 * @generated
+	 */
+	int VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF = 93;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcucValueCollectionImpl <em>Ecuc Value Collection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcucValueCollectionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getEcucValueCollection()
+	 * @generated
+	 */
+	int ECUC_VALUE_COLLECTION = 94;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServerCallPointImpl <em>Server Call Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServerCallPointImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServerCallPoint()
+	 * @generated
+	 */
+	int SERVER_CALL_POINT = 95;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SynchronousServerCallPointImpl <em>Synchronous Server Call Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SynchronousServerCallPointImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSynchronousServerCallPoint()
+	 * @generated
+	 */
+	int SYNCHRONOUS_SERVER_CALL_POINT = 96;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ROperationInAtomicSwcInstanceRefImpl <em>ROperation In Atomic Swc Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ROperationInAtomicSwcInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getROperationInAtomicSwcInstanceRef()
+	 * @generated
+	 */
+	int ROPERATION_IN_ATOMIC_SWC_INSTANCE_REF = 98;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwAddrMethodImpl <em>Sw Addr Method</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwAddrMethodImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwAddrMethod()
+	 * @generated
+	 */
+	int SW_ADDR_METHOD = 99;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuMethodImpl <em>Compu Method</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuMethodImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompuMethod()
+	 * @generated
+	 */
+	int COMPU_METHOD = 100;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrImpl <em>Data Constr</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataConstr()
+	 * @generated
+	 */
+	int DATA_CONSTR = 101;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrRuleImpl <em>Data Constr Rule</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrRuleImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataConstrRule()
+	 * @generated
+	 */
+	int DATA_CONSTR_RULE = 102;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InternalConstrsImpl <em>Internal Constrs</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InternalConstrsImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInternalConstrs()
+	 * @generated
+	 */
+	int INTERNAL_CONSTRS = 103;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuImpl <em>Compu</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompu()
+	 * @generated
+	 */
+	int COMPU = 104;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.LimitImpl <em>Limit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.LimitImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getLimit()
+	 * @generated
+	 */
+	int LIMIT = 105;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl <em>Compu Scale</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompuScale()
+	 * @generated
+	 */
+	int COMPU_SCALE = 106;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AnyInstanceRefImpl <em>Any Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AnyInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getAnyInstanceRef()
+	 * @generated
+	 */
+	int ANY_INSTANCE_REF = 107;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcuAbstractionSwComponentTypeImpl <em>Ecu Abstraction Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcuAbstractionSwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getEcuAbstractionSwComponentType()
+	 * @generated
+	 */
+	int ECU_ABSTRACTION_SW_COMPONENT_TYPE = 108;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NvBlockSwComponentTypeImpl <em>Nv Block Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NvBlockSwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNvBlockSwComponentType()
+	 * @generated
+	 */
+	int NV_BLOCK_SW_COMPONENT_TYPE = 109;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SensorActuatorSwComponentTypeImpl <em>Sensor Actuator Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SensorActuatorSwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSensorActuatorSwComponentType()
+	 * @generated
+	 */
+	int SENSOR_ACTUATOR_SW_COMPONENT_TYPE = 110;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ComplexDeviceDriverSwComponentTypeImpl <em>Complex Device Driver Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ComplexDeviceDriverSwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getComplexDeviceDriverSwComponentType()
+	 * @generated
+	 */
+	int COMPLEX_DEVICE_DRIVER_SW_COMPONENT_TYPE = 111;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceProxySwComponentTypeImpl <em>Service Proxy Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceProxySwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServiceProxySwComponentType()
+	 * @generated
+	 */
+	int SERVICE_PROXY_SW_COMPONENT_TYPE = 112;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceSwComponentTypeImpl <em>Service Sw Component Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceSwComponentTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServiceSwComponentType()
+	 * @generated
+	 */
+	int SERVICE_SW_COMPONENT_TYPE = 113;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortInCompositionInstanceRefImpl <em>Port In Composition Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortInCompositionInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortInCompositionInstanceRef()
+	 * @generated
+	 */
+	int PORT_IN_COMPOSITION_INSTANCE_REF = 114;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PPortInCompositionInstanceRefImpl <em>PPort In Composition Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PPortInCompositionInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPPortInCompositionInstanceRef()
+	 * @generated
+	 */
+	int PPORT_IN_COMPOSITION_INSTANCE_REF = 115;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RPortInCompositionInstanceRefImpl <em>RPort In Composition Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RPortInCompositionInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRPortInCompositionInstanceRef()
+	 * @generated
+	 */
+	int RPORT_IN_COMPOSITION_INSTANCE_REF = 116;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior <em>Internal Behavior</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInternalBehavior()
+	 * @generated
+	 */
+	int INTERNAL_BEHAVIOR = 117;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswRunnableMappingImpl <em>Swc Bsw Runnable Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswRunnableMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwcBswRunnableMapping()
+	 * @generated
+	 */
+	int SWC_BSW_RUNNABLE_MAPPING = 118;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswMappingImpl <em>Swc Bsw Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwcBswMapping()
+	 * @generated
+	 */
+	int SWC_BSW_MAPPING = 119;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl <em>Bsw Internal Behavior</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInternalBehavior()
+	 * @generated
+	 */
+	int BSW_INTERNAL_BEHAVIOR = 120;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSenderPolicyImpl <em>Bsw Mode Sender Policy</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSenderPolicyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModeSenderPolicy()
+	 * @generated
+	 */
+	int BSW_MODE_SENDER_POLICY = 121;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationImpl <em>Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getImplementation()
+	 * @generated
+	 */
+	int IMPLEMENTATION = 122;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswImplementationImpl <em>Bsw Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswImplementation()
+	 * @generated
+	 */
+	int BSW_IMPLEMENTATION = 123;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl <em>Bsw Module Description</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleDescription()
+	 * @generated
+	 */
+	int BSW_MODULE_DESCRIPTION = 124;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntryImpl <em>Bsw Module Entry</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntryImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleEntry()
+	 * @generated
+	 */
+	int BSW_MODULE_ENTRY = 125;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl <em>Bsw Module Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleEntity()
+	 * @generated
+	 */
+	int BSW_MODULE_ENTITY = 126;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswSchedulableEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswSchedulableEntity()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY = 127;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl <em>Bsw Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswEvent()
+	 * @generated
+	 */
+	int BSW_EVENT = 128;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSwitchEventImpl <em>Bsw Mode Switch Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSwitchEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModeSwitchEvent()
+	 * @generated
+	 */
+	int BSW_MODE_SWITCH_EVENT = 129;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeInBswModuleDescriptionInstanceRefImpl <em>Mode In Bsw Module Description Instance Ref</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeInBswModuleDescriptionInstanceRefImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeInBswModuleDescriptionInstanceRef()
+	 * @generated
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF = 130;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind <em>Mode Activation Kind</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeActivationKind()
+	 * @generated
+	 */
+	int MODE_ACTIVATION_KIND = 150;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswTimingEventImpl <em>Bsw Timing Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswTimingEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswTimingEvent()
+	 * @generated
+	 */
+	int BSW_TIMING_EVENT = 131;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswCalledEntityImpl <em>Bsw Called Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswCalledEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswCalledEntity()
+	 * @generated
+	 */
+	int BSW_CALLED_ENTITY = 132;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl <em>Bsw Interrupt Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInterruptEntity()
+	 * @generated
+	 */
+	int BSW_INTERRUPT_ENTITY = 133;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeElementImpl <em>Implementation Data Type Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeElementImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getImplementationDataTypeElement()
+	 * @generated
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT = 51;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__ID = IDENTIFIABLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__SHORT_NAME = IDENTIFIABLE__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__REFERENCE = IDENTIFIABLE__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__CATEGORY = IDENTIFIABLE__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Array Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Array Size Semantics</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sub Element</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__SUB_ELEMENT = IDENTIFIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Sw Data Def Props</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT__SW_DATA_DEF_PROPS = IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Implementation Data Type Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is Redefinition Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT___IS_REDEFINITION_TYPE = IDENTIFIABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Implementation Data Type Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMPLEMENTATION_DATA_TYPE_ELEMENT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Invalid Value</b></em>' containment reference.
@@ -4292,13 +5377,31 @@ public interface M2Package extends EPackage {
 	int SW_DATA_DEF_PROPS__DATA_CONSTR = M2_OBJECT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Implementation Data Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE = M2_OBJECT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Sw Pointer Target Props</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS = M2_OBJECT_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Sw Data Def Props</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SW_DATA_DEF_PROPS_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 7;
+	int SW_DATA_DEF_PROPS_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Sw Data Def Props</em>' class.
@@ -4391,13 +5494,22 @@ public interface M2Package extends EPackage {
 	int DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP = AR_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Mode Request Type Map</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP = AR_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Data Type Mapping Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE_MAPPING_SET_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_TYPE_MAPPING_SET_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Data Type Mapping Set</em>' class.
@@ -4407,6 +5519,231 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int DATA_TYPE_MAPPING_SET_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE__ID = AR_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE__SHORT_NAME = AR_ELEMENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE__REFERENCE = AR_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE__CATEGORY = AR_ELEMENT__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE__TYPE = AR_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Mode Declaration Group Prototype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Mode Declaration Group Prototype</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_PROTOTYPE_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Implementation Data Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_REQUEST_TYPE_MAP__IMPLEMENTATION_DATA_TYPE = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mode Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_REQUEST_TYPE_MAP__MODE_GROUP = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mode Request Type Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_REQUEST_TYPE_MAP_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Mode Request Type Map</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_REQUEST_TYPE_MAP_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION__ID = AR_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION__SHORT_NAME = AR_ELEMENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION__REFERENCE = AR_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION__CATEGORY = AR_ELEMENT__CATEGORY;
+
+	/**
+	 * The number of structural features of the '<em>Mode Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Mode Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__ID = AR_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__SHORT_NAME = AR_ELEMENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__REFERENCE = AR_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__CATEGORY = AR_ELEMENT__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Initial Mode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__INITIAL_MODE = AR_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mode Declaration</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP__MODE_DECLARATION = AR_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Mode Declaration Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Mode Declaration Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_DECLARATION_GROUP_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4517,16 +5854,6 @@ public interface M2Package extends EPackage {
 	int APPLICATION_PRIMITIVE_DATA_TYPE_OPERATION_COUNT = APPLICATION_DATA_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ExclusiveAreaImpl <em>Exclusive Area</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ExclusiveAreaImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getExclusiveArea()
-	 * @generated
-	 */
-	int EXCLUSIVE_AREA = 57;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4617,16 +5944,6 @@ public interface M2Package extends EPackage {
 	int EXCLUSIVE_AREA_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NumericalValueSpecificationImpl <em>Numerical Value Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NumericalValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNumericalValueSpecification()
-	 * @generated
-	 */
-	int NUMERICAL_VALUE_SPECIFICATION = 58;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4654,16 +5971,6 @@ public interface M2Package extends EPackage {
 	int NUMERICAL_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.TextValueSpecificationImpl <em>Text Value Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.TextValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getTextValueSpecification()
-	 * @generated
-	 */
-	int TEXT_VALUE_SPECIFICATION = 59;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4689,16 +5996,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantReferenceImpl <em>Constant Reference</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantReferenceImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getConstantReference()
-	 * @generated
-	 */
-	int CONSTANT_REFERENCE = 60;
 
 	/**
 	 * The feature id for the '<em><b>Constant</b></em>' reference.
@@ -4737,16 +6034,6 @@ public interface M2Package extends EPackage {
 	int CONSTANT_REFERENCE_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ReferenceValueSpecificationImpl <em>Reference Value Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ReferenceValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getReferenceValueSpecification()
-	 * @generated
-	 */
-	int REFERENCE_VALUE_SPECIFICATION = 61;
-
-	/**
 	 * The number of structural features of the '<em>Reference Value Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4765,14 +6052,13 @@ public interface M2Package extends EPackage {
 	int REFERENCE_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArrayValueSpecificationImpl <em>Array Value Specification</em>}' class.
+	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArrayValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArrayValueSpecification()
 	 * @generated
+	 * @ordered
 	 */
-	int ARRAY_VALUE_SPECIFICATION = 62;
+	int ARRAY_VALUE_SPECIFICATION__ELEMENT = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Array Value Specification</em>' class.
@@ -4781,7 +6067,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_VALUE_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
+	int ARRAY_VALUE_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Array Value Specification</em>' class.
@@ -4793,14 +6079,13 @@ public interface M2Package extends EPackage {
 	int ARRAY_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RecordValueSpecificationImpl <em>Record Value Specification</em>}' class.
+	 * The feature id for the '<em><b>Field</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RecordValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRecordValueSpecification()
 	 * @generated
+	 * @ordered
 	 */
-	int RECORD_VALUE_SPECIFICATION = 63;
+	int RECORD_VALUE_SPECIFICATION__FIELD = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Record Value Specification</em>' class.
@@ -4809,7 +6094,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RECORD_VALUE_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 0;
+	int RECORD_VALUE_SPECIFICATION_FEATURE_COUNT = VALUE_SPECIFICATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Record Value Specification</em>' class.
@@ -4819,16 +6104,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int RECORD_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationValueSpecificationImpl <em>Application Value Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationValueSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getApplicationValueSpecification()
-	 * @generated
-	 */
-	int APPLICATION_VALUE_SPECIFICATION = 64;
 
 	/**
 	 * The number of structural features of the '<em>Application Value Specification</em>' class.
@@ -4847,16 +6122,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int APPLICATION_VALUE_SPECIFICATION_OPERATION_COUNT = VALUE_SPECIFICATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantSpecificationImpl <em>Constant Specification</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ConstantSpecificationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getConstantSpecification()
-	 * @generated
-	 */
-	int CONSTANT_SPECIFICATION = 65;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -4920,16 +6185,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int CONSTANT_SPECIFICATION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.OperationInvokedEventImpl <em>Operation Invoked Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.OperationInvokedEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getOperationInvokedEvent()
-	 * @generated
-	 */
-	int OPERATION_INVOKED_EVENT = 66;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5022,16 +6277,6 @@ public interface M2Package extends EPackage {
 	int OPERATION_INVOKED_EVENT_OPERATION_COUNT = RTE_EVENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.POperationInAtomicSwcInstanceRefImpl <em>POperation In Atomic Swc Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.POperationInAtomicSwcInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPOperationInAtomicSwcInstanceRef()
-	 * @generated
-	 */
-	int POPERATION_IN_ATOMIC_SWC_INSTANCE_REF = 67;
-
-	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5075,16 +6320,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int POPERATION_IN_ATOMIC_SWC_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerInterfaceImpl <em>Client Server Interface</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerInterfaceImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getClientServerInterface()
-	 * @generated
-	 */
-	int CLIENT_SERVER_INTERFACE = 68;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5159,16 +6394,6 @@ public interface M2Package extends EPackage {
 	int CLIENT_SERVER_INTERFACE_OPERATION_COUNT = PORT_INTERFACE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerOperationImpl <em>Client Server Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ClientServerOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getClientServerOperation()
-	 * @generated
-	 */
-	int CLIENT_SERVER_OPERATION = 69;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5241,16 +6466,6 @@ public interface M2Package extends EPackage {
 	int CLIENT_SERVER_OPERATION_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationErrorImpl <em>Application Error</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationErrorImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getApplicationError()
-	 * @generated
-	 */
-	int APPLICATION_ERROR = 70;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5321,16 +6536,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int APPLICATION_ERROR_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArgumentDataPrototypeImpl <em>Argument Data Prototype</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ArgumentDataPrototypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArgumentDataPrototype()
-	 * @generated
-	 */
-	int ARGUMENT_DATA_PROTOTYPE = 71;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5432,6 +6637,42 @@ public interface M2Package extends EPackage {
 	int ARGUMENT_DATA_PROTOTYPE___GET_SW_IMPL_POLICY = AUTOSAR_DATA_PROTOTYPE___GET_SW_IMPL_POLICY;
 
 	/**
+	 * The operation id for the '<em>Get Sw Addr Method</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_DATA_PROTOTYPE___GET_SW_ADDR_METHOD = AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD;
+
+	/**
+	 * The operation id for the '<em>Get Sw Alignment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_DATA_PROTOTYPE___GET_SW_ALIGNMENT = AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT;
+
+	/**
+	 * The operation id for the '<em>Get Application Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE = AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE;
+
+	/**
+	 * The operation id for the '<em>Get Implementation Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARGUMENT_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE = AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE;
+
+	/**
 	 * The number of operations of the '<em>Argument Data Prototype</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5439,16 +6680,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int ARGUMENT_DATA_PROTOTYPE_OPERATION_COUNT = AUTOSAR_DATA_PROTOTYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataFilterImpl <em>Data Filter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataFilterImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataFilter()
-	 * @generated
-	 */
-	int DATA_FILTER = 72;
 
 	/**
 	 * The feature id for the '<em><b>Data Filter Type</b></em>' attribute.
@@ -5550,16 +6781,6 @@ public interface M2Package extends EPackage {
 	int DATA_FILTER_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.QueuedReceiverComSpecImpl <em>Queued Receiver Com Spec</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.QueuedReceiverComSpecImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getQueuedReceiverComSpec()
-	 * @generated
-	 */
-	int QUEUED_RECEIVER_COM_SPEC = 73;
-
-	/**
 	 * The feature id for the '<em><b>Data Element</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5594,16 +6815,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int QUEUED_RECEIVER_COM_SPEC_OPERATION_COUNT = RECEIVER_COM_SPEC_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InvalidationPolicyImpl <em>Invalidation Policy</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InvalidationPolicyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInvalidationPolicy()
-	 * @generated
-	 */
-	int INVALIDATION_POLICY = 74;
 
 	/**
 	 * The feature id for the '<em><b>Data Element</b></em>' reference.
@@ -5651,16 +6862,6 @@ public interface M2Package extends EPackage {
 	int INVALIDATION_POLICY_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl <em>Port Api Option</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortApiOption()
-	 * @generated
-	 */
-	int PORT_API_OPTION = 75;
-
-	/**
 	 * The feature id for the '<em><b>Port Arg Value</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5679,13 +6880,22 @@ public interface M2Package extends EPackage {
 	int PORT_API_OPTION__PORT = M2_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enable Take Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT_API_OPTION__ENABLE_TAKE_ADDRESS = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Port Api Option</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_API_OPTION_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+	int PORT_API_OPTION_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Port Api Option</em>' class.
@@ -5695,16 +6905,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int PORT_API_OPTION_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortDefinedArgumentValueImpl <em>Port Defined Argument Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortDefinedArgumentValueImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortDefinedArgumentValue()
-	 * @generated
-	 */
-	int PORT_DEFINED_ARGUMENT_VALUE = 76;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -5752,16 +6952,6 @@ public interface M2Package extends EPackage {
 	int PORT_DEFINED_ARGUMENT_VALUE_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IncludedDataTypeSetImpl <em>Included Data Type Set</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IncludedDataTypeSetImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIncludedDataTypeSet()
-	 * @generated
-	 */
-	int INCLUDED_DATA_TYPE_SET = 77;
-
-	/**
 	 * The feature id for the '<em><b>Literal Prefix</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5796,16 +6986,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int INCLUDED_DATA_TYPE_SET_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemImpl <em>System</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystem()
-	 * @generated
-	 */
-	int SYSTEM = 78;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5880,16 +7060,6 @@ public interface M2Package extends EPackage {
 	int SYSTEM_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RootSwCompositionPrototypeImpl <em>Root Sw Composition Prototype</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RootSwCompositionPrototypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRootSwCompositionPrototype()
-	 * @generated
-	 */
-	int ROOT_SW_COMPOSITION_PROTOTYPE = 79;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5951,16 +7121,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int ROOT_SW_COMPOSITION_PROTOTYPE_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemMappingImpl <em>System Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemMapping()
-	 * @generated
-	 */
-	int SYSTEM_MAPPING = 80;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6026,16 +7186,6 @@ public interface M2Package extends EPackage {
 	int SYSTEM_MAPPING_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataMappingImpl <em>Data Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataMapping()
-	 * @generated
-	 */
-	int DATA_MAPPING = 81;
-
-	/**
 	 * The number of structural features of the '<em>Data Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6052,16 +7202,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int DATA_MAPPING_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalImpl <em>System Signal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemSignal()
-	 * @generated
-	 */
-	int SYSTEM_SIGNAL = 82;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6116,16 +7256,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM_SIGNAL_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalImpl <em>ISignal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignal()
-	 * @generated
-	 */
-	int ISIGNAL = 83;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6191,16 +7321,6 @@ public interface M2Package extends EPackage {
 	int ISIGNAL_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalIPduImpl <em>ISignal IPdu</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalIPduImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalIPdu()
-	 * @generated
-	 */
-	int ISIGNAL_IPDU = 84;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6264,16 +7384,6 @@ public interface M2Package extends EPackage {
 	int ISIGNAL_IPDU_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl <em>ISignal To IPdu Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalToIPduMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalToIPduMapping()
-	 * @generated
-	 */
-	int ISIGNAL_TO_IPDU_MAPPING = 85;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6319,13 +7429,22 @@ public interface M2Package extends EPackage {
 	int ISIGNAL_TO_IPDU_MAPPING__ISIGNAL = IDENTIFIABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>ISignal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP = IDENTIFIABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>ISignal To IPdu Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISIGNAL_TO_IPDU_MAPPING_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 1;
+	int ISIGNAL_TO_IPDU_MAPPING_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>ISignal To IPdu Mapping</em>' class.
@@ -6335,16 +7454,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int ISIGNAL_TO_IPDU_MAPPING_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalMappingImpl <em>Sender Receiver To Signal Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderReceiverToSignalMapping()
-	 * @generated
-	 */
-	int SENDER_RECEIVER_TO_SIGNAL_MAPPING = 86;
 
 	/**
 	 * The feature id for the '<em><b>System Signal</b></em>' reference.
@@ -6392,14 +7501,58 @@ public interface M2Package extends EPackage {
 	int SENDER_RECEIVER_TO_SIGNAL_MAPPING_OPERATION_COUNT = DATA_MAPPING_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeInSystemInstanceRefImpl <em>Variable Data Prototype In System Instance Ref</em>}' class.
+	 * The feature id for the '<em><b>Signal Group</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeInSystemInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getVariableDataPrototypeInSystemInstanceRef()
 	 * @generated
+	 * @ordered
 	 */
-	int VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF = 87;
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__SIGNAL_GROUP = DATA_MAPPING_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Element Iref</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT_IREF = DATA_MAPPING_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Data Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT = DATA_MAPPING_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Type Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__TYPE_MAPPING = DATA_MAPPING_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Sender Receiver To Signal Group Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_FEATURE_COUNT = DATA_MAPPING_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Sender Receiver To Signal Group Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_OPERATION_COUNT = DATA_MAPPING_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
@@ -6454,16 +7607,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcucValueCollectionImpl <em>Ecuc Value Collection</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcucValueCollectionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getEcucValueCollection()
-	 * @generated
-	 */
-	int ECUC_VALUE_COLLECTION = 88;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6538,16 +7681,6 @@ public interface M2Package extends EPackage {
 	int ECUC_VALUE_COLLECTION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServerCallPointImpl <em>Server Call Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServerCallPointImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServerCallPoint()
-	 * @generated
-	 */
-	int SERVER_CALL_POINT = 89;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6618,16 +7751,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_CALL_POINT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SynchronousServerCallPointImpl <em>Synchronous Server Call Point</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SynchronousServerCallPointImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSynchronousServerCallPoint()
-	 * @generated
-	 */
-	int SYNCHRONOUS_SERVER_CALL_POINT = 90;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6729,16 +7852,6 @@ public interface M2Package extends EPackage {
 	int IINSTANCE_REF_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ROperationInAtomicSwcInstanceRefImpl <em>ROperation In Atomic Swc Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ROperationInAtomicSwcInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getROperationInAtomicSwcInstanceRef()
-	 * @generated
-	 */
-	int ROPERATION_IN_ATOMIC_SWC_INSTANCE_REF = 92;
-
-	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6782,16 +7895,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int ROPERATION_IN_ATOMIC_SWC_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwAddrMethodImpl <em>Sw Addr Method</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwAddrMethodImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwAddrMethod()
-	 * @generated
-	 */
-	int SW_ADDR_METHOD = 93;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -6866,16 +7969,6 @@ public interface M2Package extends EPackage {
 	int SW_ADDR_METHOD_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuMethodImpl <em>Compu Method</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuMethodImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompuMethod()
-	 * @generated
-	 */
-	int COMPU_METHOD = 94;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6937,16 +8030,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int COMPU_METHOD_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrImpl <em>Data Constr</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataConstr()
-	 * @generated
-	 */
-	int DATA_CONSTR = 95;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7030,16 +8113,6 @@ public interface M2Package extends EPackage {
 	int DATA_CONSTR_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrRuleImpl <em>Data Constr Rule</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataConstrRuleImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataConstrRule()
-	 * @generated
-	 */
-	int DATA_CONSTR_RULE = 96;
-
-	/**
 	 * The feature id for the '<em><b>Internal Constrs</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7065,16 +8138,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int DATA_CONSTR_RULE_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InternalConstrsImpl <em>Internal Constrs</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.InternalConstrsImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInternalConstrs()
-	 * @generated
-	 */
-	int INTERNAL_CONSTRS = 97;
 
 	/**
 	 * The feature id for the '<em><b>Lower Limit</b></em>' containment reference.
@@ -7113,16 +8176,6 @@ public interface M2Package extends EPackage {
 	int INTERNAL_CONSTRS_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuImpl <em>Compu</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompu()
-	 * @generated
-	 */
-	int COMPU = 98;
-
-	/**
 	 * The feature id for the '<em><b>Compu Scale</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7150,16 +8203,6 @@ public interface M2Package extends EPackage {
 	int COMPU_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.LimitImpl <em>Limit</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.LimitImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getLimit()
-	 * @generated
-	 */
-	int LIMIT = 99;
-
-	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7185,16 +8228,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int LIMIT_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl <em>Compu Scale</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCompuScale()
-	 * @generated
-	 */
-	int COMPU_SCALE = 100;
 
 	/**
 	 * The feature id for the '<em><b>Lower Limit</b></em>' containment reference.
@@ -7260,16 +8293,6 @@ public interface M2Package extends EPackage {
 	int COMPU_SCALE_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AnyInstanceRefImpl <em>Any Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AnyInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getAnyInstanceRef()
-	 * @generated
-	 */
-	int ANY_INSTANCE_REF = 101;
-
-	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7313,16 +8336,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int ANY_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcuAbstractionSwComponentTypeImpl <em>Ecu Abstraction Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.EcuAbstractionSwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getEcuAbstractionSwComponentType()
-	 * @generated
-	 */
-	int ECU_ABSTRACTION_SW_COMPONENT_TYPE = 102;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7469,16 +8482,6 @@ public interface M2Package extends EPackage {
 	int ECU_ABSTRACTION_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NvBlockSwComponentTypeImpl <em>Nv Block Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.NvBlockSwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNvBlockSwComponentType()
-	 * @generated
-	 */
-	int NV_BLOCK_SW_COMPONENT_TYPE = 103;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7621,16 +8624,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int NV_BLOCK_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SensorActuatorSwComponentTypeImpl <em>Sensor Actuator Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SensorActuatorSwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSensorActuatorSwComponentType()
-	 * @generated
-	 */
-	int SENSOR_ACTUATOR_SW_COMPONENT_TYPE = 104;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -7777,16 +8770,6 @@ public interface M2Package extends EPackage {
 	int SENSOR_ACTUATOR_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ComplexDeviceDriverSwComponentTypeImpl <em>Complex Device Driver Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ComplexDeviceDriverSwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getComplexDeviceDriverSwComponentType()
-	 * @generated
-	 */
-	int COMPLEX_DEVICE_DRIVER_SW_COMPONENT_TYPE = 105;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7929,16 +8912,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int COMPLEX_DEVICE_DRIVER_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceProxySwComponentTypeImpl <em>Service Proxy Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceProxySwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServiceProxySwComponentType()
-	 * @generated
-	 */
-	int SERVICE_PROXY_SW_COMPONENT_TYPE = 106;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8085,16 +9058,6 @@ public interface M2Package extends EPackage {
 	int SERVICE_PROXY_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceSwComponentTypeImpl <em>Service Sw Component Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ServiceSwComponentTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getServiceSwComponentType()
-	 * @generated
-	 */
-	int SERVICE_SW_COMPONENT_TYPE = 107;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8239,16 +9202,6 @@ public interface M2Package extends EPackage {
 	int SERVICE_SW_COMPONENT_TYPE_OPERATION_COUNT = ATOMIC_SW_COMPONENT_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortInCompositionInstanceRefImpl <em>Port In Composition Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortInCompositionInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPortInCompositionInstanceRef()
-	 * @generated
-	 */
-	int PORT_IN_COMPOSITION_INSTANCE_REF = 108;
-
-	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8283,16 +9236,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int PORT_IN_COMPOSITION_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PPortInCompositionInstanceRefImpl <em>PPort In Composition Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PPortInCompositionInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPPortInCompositionInstanceRef()
-	 * @generated
-	 */
-	int PPORT_IN_COMPOSITION_INSTANCE_REF = 109;
 
 	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
@@ -8340,16 +9283,6 @@ public interface M2Package extends EPackage {
 	int PPORT_IN_COMPOSITION_INSTANCE_REF_OPERATION_COUNT = PORT_IN_COMPOSITION_INSTANCE_REF_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RPortInCompositionInstanceRefImpl <em>RPort In Composition Instance Ref</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RPortInCompositionInstanceRefImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRPortInCompositionInstanceRef()
-	 * @generated
-	 */
-	int RPORT_IN_COMPOSITION_INSTANCE_REF = 110;
-
-	/**
 	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8395,16 +9328,6 @@ public interface M2Package extends EPackage {
 	int RPORT_IN_COMPOSITION_INSTANCE_REF_OPERATION_COUNT = PORT_IN_COMPOSITION_INSTANCE_REF_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior <em>Internal Behavior</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInternalBehavior()
-	 * @generated
-	 */
-	int INTERNAL_BEHAVIOR = 111;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8441,13 +9364,22 @@ public interface M2Package extends EPackage {
 	int INTERNAL_BEHAVIOR__CATEGORY = IDENTIFIABLE__CATEGORY;
 
 	/**
+	 * The feature id for the '<em><b>Data Type Mapping</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = IDENTIFIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Exclusive Area</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_BEHAVIOR__EXCLUSIVE_AREA = IDENTIFIABLE_FEATURE_COUNT + 0;
+	int INTERNAL_BEHAVIOR__EXCLUSIVE_AREA = IDENTIFIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Internal Behavior</em>' class.
@@ -8456,7 +9388,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_BEHAVIOR_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 1;
+	int INTERNAL_BEHAVIOR_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Get Parent</em>' operation.
@@ -8475,16 +9407,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int INTERNAL_BEHAVIOR_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswRunnableMappingImpl <em>Swc Bsw Runnable Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswRunnableMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwcBswRunnableMapping()
-	 * @generated
-	 */
-	int SWC_BSW_RUNNABLE_MAPPING = 112;
 
 	/**
 	 * The feature id for the '<em><b>Swc Runnable</b></em>' reference.
@@ -8521,16 +9443,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int SWC_BSW_RUNNABLE_MAPPING_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswMappingImpl <em>Swc Bsw Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwcBswMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwcBswMapping()
-	 * @generated
-	 */
-	int SWC_BSW_MAPPING = 113;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8614,16 +9526,6 @@ public interface M2Package extends EPackage {
 	int SWC_BSW_MAPPING_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl <em>Bsw Internal Behavior</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInternalBehavior()
-	 * @generated
-	 */
-	int BSW_INTERNAL_BEHAVIOR = 114;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8658,6 +9560,15 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int BSW_INTERNAL_BEHAVIOR__CATEGORY = INTERNAL_BEHAVIOR__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Data Type Mapping</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive Area</b></em>' containment reference list.
@@ -8705,13 +9616,31 @@ public interface M2Package extends EPackage {
 	int BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION = INTERNAL_BEHAVIOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Mode Sender Policy</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY = INTERNAL_BEHAVIOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Bsw Schedulable Entity</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY = INTERNAL_BEHAVIOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Bsw Internal Behavior</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_INTERNAL_BEHAVIOR_FEATURE_COUNT = INTERNAL_BEHAVIOR_FEATURE_COUNT + 4;
+	int BSW_INTERNAL_BEHAVIOR_FEATURE_COUNT = INTERNAL_BEHAVIOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Parent</em>' operation.
@@ -8732,14 +9661,40 @@ public interface M2Package extends EPackage {
 	int BSW_INTERNAL_BEHAVIOR_OPERATION_COUNT = INTERNAL_BEHAVIOR_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationImpl <em>Implementation</em>}' class.
+	 * The feature id for the '<em><b>Provided Mode Group</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getImplementation()
 	 * @generated
+	 * @ordered
 	 */
-	int IMPLEMENTATION = 115;
+	int BSW_MODE_SENDER_POLICY__PROVIDED_MODE_GROUP = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Queue Length</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SENDER_POLICY__QUEUE_LENGTH = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Bsw Mode Sender Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SENDER_POLICY_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Bsw Mode Sender Policy</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SENDER_POLICY_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8803,16 +9758,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int IMPLEMENTATION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswImplementationImpl <em>Bsw Implementation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswImplementation()
-	 * @generated
-	 */
-	int BSW_IMPLEMENTATION = 116;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -8887,16 +9832,6 @@ public interface M2Package extends EPackage {
 	int BSW_IMPLEMENTATION_OPERATION_COUNT = IMPLEMENTATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl <em>Bsw Module Description</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleDescriptionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleDescription()
-	 * @generated
-	 */
-	int BSW_MODULE_DESCRIPTION = 117;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8951,13 +9886,40 @@ public interface M2Package extends EPackage {
 	int BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY = AR_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Provided Mode Group</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP = AR_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Required Mode Group</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP = AR_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Bsw Module Description</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_MODULE_DESCRIPTION_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 2;
+	int BSW_MODULE_DESCRIPTION_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Get Enable Internal Behavior</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODULE_DESCRIPTION___GET_ENABLE_INTERNAL_BEHAVIOR = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Bsw Module Description</em>' class.
@@ -8966,17 +9928,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_MODULE_DESCRIPTION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntryImpl <em>Bsw Module Entry</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntryImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleEntry()
-	 * @generated
-	 */
-	int BSW_MODULE_ENTRY = 118;
+	int BSW_MODULE_DESCRIPTION_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9060,16 +10012,6 @@ public interface M2Package extends EPackage {
 	int BSW_MODULE_ENTRY_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl <em>Bsw Module Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModuleEntity()
-	 * @generated
-	 */
-	int BSW_MODULE_ENTITY = 119;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9151,13 +10093,31 @@ public interface M2Package extends EPackage {
 	int BSW_MODULE_ENTITY__PARENT = EXECUTABLE_ENTITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Accessed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP = EXECUTABLE_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Managed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODULE_ENTITY__MANAGED_MODE_GROUP = EXECUTABLE_ENTITY_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Bsw Module Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_MODULE_ENTITY_FEATURE_COUNT = EXECUTABLE_ENTITY_FEATURE_COUNT + 2;
+	int BSW_MODULE_ENTITY_FEATURE_COUNT = EXECUTABLE_ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Bsw Module Entity</em>' class.
@@ -9167,16 +10127,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int BSW_MODULE_ENTITY_OPERATION_COUNT = EXECUTABLE_ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswSchedulableEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswSchedulableEntity()
-	 * @generated
-	 */
-	int BSW_SCHEDULABLE_ENTITY = 120;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9260,6 +10210,24 @@ public interface M2Package extends EPackage {
 	int BSW_SCHEDULABLE_ENTITY__PARENT = BSW_MODULE_ENTITY__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Accessed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY__ACCESSED_MODE_GROUP = BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Managed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY__MANAGED_MODE_GROUP = BSW_MODULE_ENTITY__MANAGED_MODE_GROUP;
+
+	/**
 	 * The feature id for the '<em><b>Event</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9285,16 +10253,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int BSW_SCHEDULABLE_ENTITY_OPERATION_COUNT = BSW_MODULE_ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl <em>Bsw Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswEvent()
-	 * @generated
-	 */
-	int BSW_EVENT = 121;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9360,13 +10318,22 @@ public interface M2Package extends EPackage {
 	int BSW_EVENT__PARENT = IDENTIFIABLE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_EVENT__DISABLED_IN_MODE = IDENTIFIABLE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Bsw Event</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_EVENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 3;
+	int BSW_EVENT_FEATURE_COUNT = IDENTIFIABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Bsw Event</em>' class.
@@ -9378,14 +10345,157 @@ public interface M2Package extends EPackage {
 	int BSW_EVENT_OPERATION_COUNT = IDENTIFIABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswTimingEventImpl <em>Bsw Timing Event</em>}' class.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswTimingEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswTimingEvent()
 	 * @generated
+	 * @ordered
 	 */
-	int BSW_TIMING_EVENT = 122;
+	int BSW_MODE_SWITCH_EVENT__ID = BSW_EVENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__SHORT_NAME = BSW_EVENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__REFERENCE = BSW_EVENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__CATEGORY = BSW_EVENT__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>Starts On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__STARTS_ON_EVENT = BSW_EVENT__STARTS_ON_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__CONFIG = BSW_EVENT__CONFIG;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__PARENT = BSW_EVENT__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__DISABLED_IN_MODE = BSW_EVENT__DISABLED_IN_MODE;
+
+	/**
+	 * The feature id for the '<em><b>Activation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__ACTIVATION = BSW_EVENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Mode Iref</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT__MODE_IREF = BSW_EVENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Bsw Mode Switch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT_FEATURE_COUNT = BSW_EVENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Bsw Mode Switch Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_MODE_SWITCH_EVENT_OPERATION_COUNT = BSW_EVENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Instance Ref</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__INSTANCE_REF = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Context Mode Declaration Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__CONTEXT_MODE_DECLARATION_GROUP = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Target Mode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__TARGET_MODE = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Mode In Bsw Module Description Instance Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Mode In Bsw Module Description Instance Ref</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9451,6 +10561,15 @@ public interface M2Package extends EPackage {
 	int BSW_TIMING_EVENT__PARENT = BSW_EVENT__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_TIMING_EVENT__DISABLED_IN_MODE = BSW_EVENT__DISABLED_IN_MODE;
+
+	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9476,16 +10595,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int BSW_TIMING_EVENT_OPERATION_COUNT = BSW_EVENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswCalledEntityImpl <em>Bsw Called Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswCalledEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswCalledEntity()
-	 * @generated
-	 */
-	int BSW_CALLED_ENTITY = 123;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9569,6 +10678,24 @@ public interface M2Package extends EPackage {
 	int BSW_CALLED_ENTITY__PARENT = BSW_MODULE_ENTITY__PARENT;
 
 	/**
+	 * The feature id for the '<em><b>Accessed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_CALLED_ENTITY__ACCESSED_MODE_GROUP = BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Managed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_CALLED_ENTITY__MANAGED_MODE_GROUP = BSW_MODULE_ENTITY__MANAGED_MODE_GROUP;
+
+	/**
 	 * The number of structural features of the '<em>Bsw Called Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9585,16 +10712,6 @@ public interface M2Package extends EPackage {
 	 * @ordered
 	 */
 	int BSW_CALLED_ENTITY_OPERATION_COUNT = BSW_MODULE_ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl <em>Bsw Interrupt Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInterruptEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInterruptEntity()
-	 * @generated
-	 */
-	int BSW_INTERRUPT_ENTITY = 124;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9678,13 +10795,22 @@ public interface M2Package extends EPackage {
 	int BSW_INTERRUPT_ENTITY__PARENT = BSW_MODULE_ENTITY__PARENT;
 
 	/**
-	 * The feature id for the '<em><b>Interrupt Category</b></em>' attribute.
+	 * The feature id for the '<em><b>Accessed Mode Group</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY = BSW_MODULE_ENTITY_FEATURE_COUNT + 0;
+	int BSW_INTERRUPT_ENTITY__ACCESSED_MODE_GROUP = BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Managed Mode Group</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_INTERRUPT_ENTITY__MANAGED_MODE_GROUP = BSW_MODULE_ENTITY__MANAGED_MODE_GROUP;
 
 	/**
 	 * The feature id for the '<em><b>Interrupt Source</b></em>' attribute.
@@ -9693,7 +10819,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE = BSW_MODULE_ENTITY_FEATURE_COUNT + 1;
+	int BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE = BSW_MODULE_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Bsw Interrupt Entity</em>' class.
@@ -9702,7 +10828,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BSW_INTERRUPT_ENTITY_FEATURE_COUNT = BSW_MODULE_ENTITY_FEATURE_COUNT + 2;
+	int BSW_INTERRUPT_ENTITY_FEATURE_COUNT = BSW_MODULE_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Bsw Interrupt Entity</em>' class.
@@ -9714,6 +10840,465 @@ public interface M2Package extends EPackage {
 	int BSW_INTERRUPT_ENTITY_OPERATION_COUNT = BSW_MODULE_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalGroupImpl <em>System Signal Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemSignalGroup()
+	 * @generated
+	 */
+	int SYSTEM_SIGNAL_GROUP = 134;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP__ID = AR_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP__SHORT_NAME = AR_ELEMENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP__REFERENCE = AR_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP__CATEGORY = AR_ELEMENT__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>System Signal</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP__SYSTEM_SIGNAL = AR_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>System Signal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>System Signal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM_SIGNAL_GROUP_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalGroupImpl <em>ISignal Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalGroup()
+	 * @generated
+	 */
+	int ISIGNAL_GROUP = 135;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__ID = AR_ELEMENT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__SHORT_NAME = AR_ELEMENT__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__REFERENCE = AR_ELEMENT__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__CATEGORY = AR_ELEMENT__CATEGORY;
+
+	/**
+	 * The feature id for the '<em><b>System Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__SYSTEM_SIGNAL_GROUP = AR_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>ISignal</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP__ISIGNAL = AR_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>ISignal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP_FEATURE_COUNT = AR_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>ISignal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISIGNAL_GROUP_OPERATION_COUNT = AR_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecCompositeTypeMappingImpl <em>Sender Rec Composite Type Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecCompositeTypeMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecCompositeTypeMapping()
+	 * @generated
+	 */
+	int SENDER_REC_COMPOSITE_TYPE_MAPPING = 136;
+
+	/**
+	 * The number of structural features of the '<em>Sender Rec Composite Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_COMPOSITE_TYPE_MAPPING_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Sender Rec Composite Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_COMPOSITE_TYPE_MAPPING_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordTypeMappingImpl <em>Sender Rec Record Type Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordTypeMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecRecordTypeMapping()
+	 * @generated
+	 */
+	int SENDER_REC_RECORD_TYPE_MAPPING = 137;
+
+	/**
+	 * The feature id for the '<em><b>Record Element Mapping</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_TYPE_MAPPING__RECORD_ELEMENT_MAPPING = SENDER_REC_COMPOSITE_TYPE_MAPPING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sender Rec Record Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_TYPE_MAPPING_FEATURE_COUNT = SENDER_REC_COMPOSITE_TYPE_MAPPING_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Sender Rec Record Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_TYPE_MAPPING_OPERATION_COUNT = SENDER_REC_COMPOSITE_TYPE_MAPPING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordElementMappingImpl <em>Sender Rec Record Element Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordElementMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecRecordElementMapping()
+	 * @generated
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING = 138;
+
+	/**
+	 * The feature id for the '<em><b>Implementation Record Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING__IMPLEMENTATION_RECORD_ELEMENT = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Complex Type Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>System Signal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING__SYSTEM_SIGNAL = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Sender Rec Record Element Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Sender Rec Record Element Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_RECORD_ELEMENT_MAPPING_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayTypeMappingImpl <em>Sender Rec Array Type Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayTypeMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecArrayTypeMapping()
+	 * @generated
+	 */
+	int SENDER_REC_ARRAY_TYPE_MAPPING = 139;
+
+	/**
+	 * The feature id for the '<em><b>Array Element Mapping</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_TYPE_MAPPING__ARRAY_ELEMENT_MAPPING = SENDER_REC_COMPOSITE_TYPE_MAPPING_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Sender Rec Array Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_TYPE_MAPPING_FEATURE_COUNT = SENDER_REC_COMPOSITE_TYPE_MAPPING_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Sender Rec Array Type Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_TYPE_MAPPING_OPERATION_COUNT = SENDER_REC_COMPOSITE_TYPE_MAPPING_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IndexedArrayElementImpl <em>Indexed Array Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IndexedArrayElementImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIndexedArrayElement()
+	 * @generated
+	 */
+	int INDEXED_ARRAY_ELEMENT = 140;
+
+	/**
+	 * The feature id for the '<em><b>Implementation Array Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEXED_ARRAY_ELEMENT__IMPLEMENTATION_ARRAY_ELEMENT = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEXED_ARRAY_ELEMENT__INDEX = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Indexed Array Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEXED_ARRAY_ELEMENT_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Indexed Array Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEXED_ARRAY_ELEMENT_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayElementMappingImpl <em>Sender Rec Array Element Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayElementMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecArrayElementMapping()
+	 * @generated
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING = 141;
+
+	/**
+	 * The feature id for the '<em><b>Indexed Array Element</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING__INDEXED_ARRAY_ELEMENT = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Complex Type Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>System Signal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING__SYSTEM_SIGNAL = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Sender Rec Array Element Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Sender Rec Array Element Mapping</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER_REC_ARRAY_ELEMENT_MAPPING_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwPointerTargetPropsImpl <em>Sw Pointer Target Props</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwPointerTargetPropsImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwPointerTargetProps()
+	 * @generated
+	 */
+	int SW_POINTER_TARGET_PROPS = 142;
+
+	/**
+	 * The feature id for the '<em><b>Target Category</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_POINTER_TARGET_PROPS__TARGET_CATEGORY = M2_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sw Data Def Props</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_POINTER_TARGET_PROPS__SW_DATA_DEF_PROPS = M2_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Sw Pointer Target Props</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_POINTER_TARGET_PROPS_FEATURE_COUNT = M2_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Sw Pointer Target Props</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SW_POINTER_TARGET_PROPS_OPERATION_COUNT = M2_OBJECT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDirectionEnum <em>Argument Direction Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9721,7 +11306,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArgumentDirectionEnum()
 	 * @generated
 	 */
-	int ARGUMENT_DIRECTION_ENUM = 125;
+	int ARGUMENT_DIRECTION_ENUM = 144;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilterTypeEnum <em>Data Filter Type Enum</em>}' enum.
@@ -9731,7 +11316,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getDataFilterTypeEnum()
 	 * @generated
 	 */
-	int DATA_FILTER_TYPE_ENUM = 126;
+	int DATA_FILTER_TYPE_ENUM = 145;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.HandleInvalidEnum <em>Handle Invalid Enum</em>}' enum.
@@ -9741,7 +11326,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getHandleInvalidEnum()
 	 * @generated
 	 */
-	int HANDLE_INVALID_ENUM = 127;
+	int HANDLE_INVALID_ENUM = 146;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwImplPolicyEnum <em>Sw Impl Policy Enum</em>}' enum.
@@ -9751,7 +11336,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwImplPolicyEnum()
 	 * @generated
 	 */
-	int SW_IMPL_POLICY_ENUM = 128;
+	int SW_IMPL_POLICY_ENUM = 147;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.MemoryAllocationKeywordPolicyType <em>Memory Allocation Keyword Policy Type</em>}' enum.
@@ -9761,7 +11346,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getMemoryAllocationKeywordPolicyType()
 	 * @generated
 	 */
-	int MEMORY_ALLOCATION_KEYWORD_POLICY_TYPE = 129;
+	int MEMORY_ALLOCATION_KEYWORD_POLICY_TYPE = 148;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucConfigurationVariantEnum <em>Ecuc Configuration Variant Enum</em>}' enum.
@@ -9771,7 +11356,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getEcucConfigurationVariantEnum()
 	 * @generated
 	 */
-	int ECUC_CONFIGURATION_VARIANT_ENUM = 130;
+	int ECUC_CONFIGURATION_VARIANT_ENUM = 149;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswCallTypeEnum <em>Bsw Call Type Enum</em>}' enum.
@@ -9781,7 +11366,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswCallTypeEnum()
 	 * @generated
 	 */
-	int BSW_CALL_TYPE_ENUM = 131;
+	int BSW_CALL_TYPE_ENUM = 151;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswExecutionContextEnum <em>Bsw Execution Context Enum</em>}' enum.
@@ -9791,17 +11376,17 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswExecutionContextEnum()
 	 * @generated
 	 */
-	int BSW_EXECUTION_CONTEXT_ENUM = 132;
+	int BSW_EXECUTION_CONTEXT_ENUM = 152;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory <em>Bsw Interrupt Category</em>}' enum.
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum <em>Array Size Semantics Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInterruptCategory()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArraySizeSemanticsEnum()
 	 * @generated
 	 */
-	int BSW_INTERRUPT_CATEGORY = 133;
+	int ARRAY_SIZE_SEMANTICS_ENUM = 143;
 
 	/**
 	 * The meta object id for the '<em>Numerical</em>' data type.
@@ -9811,7 +11396,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNumerical()
 	 * @generated
 	 */
-	int NUMERICAL = 134;
+	int NUMERICAL = 153;
 
 	/**
 	 * The meta object id for the '<em>Integer</em>' data type.
@@ -9821,7 +11406,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 135;
+	int INTEGER = 154;
 
 	/**
 	 * The meta object id for the '<em>Unlimited Integer</em>' data type.
@@ -9831,7 +11416,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getUnlimitedInteger()
 	 * @generated
 	 */
-	int UNLIMITED_INTEGER = 136;
+	int UNLIMITED_INTEGER = 155;
 
 	/**
 	 * The meta object id for the '<em>Positive Integer</em>' data type.
@@ -9841,7 +11426,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getPositiveInteger()
 	 * @generated
 	 */
-	int POSITIVE_INTEGER = 137;
+	int POSITIVE_INTEGER = 156;
 
 	/**
 	 * The meta object id for the '<em>Time Value</em>' data type.
@@ -9851,7 +11436,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getTimeValue()
 	 * @generated
 	 */
-	int TIME_VALUE = 138;
+	int TIME_VALUE = 157;
 
 	/**
 	 * The meta object id for the '<em>Ref</em>' data type.
@@ -9861,7 +11446,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRef()
 	 * @generated
 	 */
-	int REF = 139;
+	int REF = 158;
 
 	/**
 	 * The meta object id for the '<em>CIdentifier</em>' data type.
@@ -9871,7 +11456,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCIdentifier()
 	 * @generated
 	 */
-	int CIDENTIFIER = 140;
+	int CIDENTIFIER = 159;
 
 	/**
 	 * The meta object id for the '<em>Identifier</em>' data type.
@@ -9881,7 +11466,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIdentifier()
 	 * @generated
 	 */
-	int IDENTIFIER = 141;
+	int IDENTIFIER = 160;
 
 	/**
 	 * The meta object id for the '<em>Verbatim String</em>' data type.
@@ -9891,7 +11476,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getVerbatimString()
 	 * @generated
 	 */
-	int VERBATIM_STRING = 142;
+	int VERBATIM_STRING = 161;
 
 	/**
 	 * The meta object id for the '<em>Float</em>' data type.
@@ -9901,7 +11486,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getFloat()
 	 * @generated
 	 */
-	int FLOAT = 143;
+	int FLOAT = 162;
 
 	/**
 	 * The meta object id for the '<em>Native Declaration String</em>' data type.
@@ -9911,7 +11496,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getNativeDeclarationString()
 	 * @generated
 	 */
-	int NATIVE_DECLARATION_STRING = 144;
+	int NATIVE_DECLARATION_STRING = 163;
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.
@@ -9921,7 +11506,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 145;
+	int BOOLEAN = 164;
 
 	/**
 	 * The meta object id for the '<em>Section Initialization Policy Type</em>' data type.
@@ -9931,7 +11516,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSectionInitializationPolicyType()
 	 * @generated
 	 */
-	int SECTION_INITIALIZATION_POLICY_TYPE = 146;
+	int SECTION_INITIALIZATION_POLICY_TYPE = 165;
 
 	/**
 	 * The meta object id for the '<em>Category String</em>' data type.
@@ -9941,7 +11526,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getCategoryString()
 	 * @generated
 	 */
-	int CATEGORY_STRING = 147;
+	int CATEGORY_STRING = 166;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -9951,7 +11536,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 148;
+	int STRING = 167;
 
 	/**
 	 * The meta object id for the '<em>Base Type Encoding String</em>' data type.
@@ -9961,7 +11546,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBaseTypeEncodingString()
 	 * @generated
 	 */
-	int BASE_TYPE_ENCODING_STRING = 149;
+	int BASE_TYPE_ENCODING_STRING = 168;
 
 	/**
 	 * The meta object id for the '<em>Revision Label String</em>' data type.
@@ -9971,7 +11556,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getRevisionLabelString()
 	 * @generated
 	 */
-	int REVISION_LABEL_STRING = 150;
+	int REVISION_LABEL_STRING = 169;
 
 	/**
 	 * The meta object id for the '<em>Alignment Type</em>' data type.
@@ -9981,7 +11566,7 @@ public interface M2Package extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getAlignmentType()
 	 * @generated
 	 */
-	int ALIGNMENT_TYPE = 151;
+	int ALIGNMENT_TYPE = 170;
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root <em>Root</em>}'.
@@ -10153,6 +11738,16 @@ public interface M2Package extends EPackage {
 	EAttribute getSwBaseType_NativeDeclaration();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType#getUpperLimitForUnsignedInteger() <em>Get Upper Limit For Unsigned Integer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Upper Limit For Unsigned Integer</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType#getUpperLimitForUnsignedInteger()
+	 * @generated
+	 */
+	EOperation getSwBaseType__GetUpperLimitForUnsignedInteger();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverInterface <em>Sender Receiver Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10193,6 +11788,17 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getVariableDataPrototype();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype#getInitValue <em>Init Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Init Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype#getInitValue()
+	 * @see #getVariableDataPrototype()
+	 * @generated
+	 */
+	EReference getVariableDataPrototype_InitValue();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Referrable <em>Referrable</em>}'.
@@ -10518,17 +12124,6 @@ public interface M2Package extends EPackage {
 	EReference getSwcInternalBehavior_Event();
 
 	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getDataTypeMapping <em>Data Type Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Data Type Mapping</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getDataTypeMapping()
-	 * @see #getSwcInternalBehavior()
-	 * @generated
-	 */
-	EReference getSwcInternalBehavior_DataTypeMapping();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getPortApiOption <em>Port Api Option</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10560,6 +12155,17 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getSwcInternalBehavior_Parent();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getExplicitInterRunnableVariable <em>Explicit Inter Runnable Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Explicit Inter Runnable Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getExplicitInterRunnableVariable()
+	 * @see #getSwcInternalBehavior()
+	 * @generated
+	 */
+	EReference getSwcInternalBehavior_ExplicitInterRunnableVariable();
 
 	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getReferencerIncludedDataTypeSets(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationDataType) <em>Get Referencer Included Data Type Sets</em>}' operation.
@@ -10708,6 +12314,28 @@ public interface M2Package extends EPackage {
 	EAttribute getRunnableEntity_Symbol();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getWrittenLocalVariable <em>Written Local Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Written Local Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getWrittenLocalVariable()
+	 * @see #getRunnableEntity()
+	 * @generated
+	 */
+	EReference getRunnableEntity_WrittenLocalVariable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getReadLocalVariable <em>Read Local Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Read Local Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getReadLocalVariable()
+	 * @see #getRunnableEntity()
+	 * @generated
+	 */
+	EReference getRunnableEntity_ReadLocalVariable();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getServerCallPoint <em>Server Call Point</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10792,6 +12420,17 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getAutosarVariableRef_AutosarVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getLocalVariable <em>Local Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Local Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getLocalVariable()
+	 * @see #getAutosarVariableRef()
+	 * @generated
+	 */
+	EReference getAutosarVariableRef_LocalVariable();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef <em>Variable In Atomic Swc Instance Ref</em>}'.
@@ -11600,6 +13239,97 @@ public interface M2Package extends EPackage {
 	EAttribute getImplementationDataType_SwAlignment();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSubElement <em>Sub Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getSubElement()
+	 * @see #getImplementationDataType()
+	 * @generated
+	 */
+	EReference getImplementationDataType_SubElement();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getLeafImplementationDataType() <em>Get Leaf Implementation Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Leaf Implementation Data Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#getLeafImplementationDataType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__GetLeafImplementationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isPrimitiveType() <em>Is Primitive Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Primitive Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isPrimitiveType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsPrimitiveType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isPointerType() <em>Is Pointer Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Pointer Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isPointerType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsPointerType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isArrayType() <em>Is Array Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Array Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isArrayType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsArrayType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isStructType() <em>Is Struct Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Struct Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isStructType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsStructType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isUnionType() <em>Is Union Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Union Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isUnionType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsUnionType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isRedefinitionType() <em>Is Redefinition Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Redefinition Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isRedefinitionType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsRedefinitionType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isComplexType() <em>Is Complex Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Complex Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType#isComplexType()
+	 * @generated
+	 */
+	EOperation getImplementationDataType__IsComplexType();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps <em>Sw Data Def Props</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11687,6 +13417,28 @@ public interface M2Package extends EPackage {
 	EReference getSwDataDefProps_DataConstr();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getImplementationDataType <em>Implementation Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementation Data Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getImplementationDataType()
+	 * @see #getSwDataDefProps()
+	 * @generated
+	 */
+	EReference getSwDataDefProps_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getSwPointerTargetProps <em>Sw Pointer Target Props</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sw Pointer Target Props</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps#getSwPointerTargetProps()
+	 * @see #getSwDataDefProps()
+	 * @generated
+	 */
+	EReference getSwDataDefProps_SwPointerTargetProps();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMap <em>Data Type Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11740,6 +13492,112 @@ public interface M2Package extends EPackage {
 	EReference getDataTypeMappingSet_DataTypeMap();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet#getModeRequestTypeMap <em>Mode Request Type Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mode Request Type Map</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet#getModeRequestTypeMap()
+	 * @see #getDataTypeMappingSet()
+	 * @generated
+	 */
+	EReference getDataTypeMappingSet_ModeRequestTypeMap();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype <em>Mode Declaration Group Prototype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Declaration Group Prototype</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype
+	 * @generated
+	 */
+	EClass getModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype#getType()
+	 * @see #getModeDeclarationGroupPrototype()
+	 * @generated
+	 */
+	EReference getModeDeclarationGroupPrototype_Type();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap <em>Mode Request Type Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Request Type Map</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap
+	 * @generated
+	 */
+	EClass getModeRequestTypeMap();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap#getImplementationDataType <em>Implementation Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementation Data Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap#getImplementationDataType()
+	 * @see #getModeRequestTypeMap()
+	 * @generated
+	 */
+	EReference getModeRequestTypeMap_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap#getModeGroup <em>Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap#getModeGroup()
+	 * @see #getModeRequestTypeMap()
+	 * @generated
+	 */
+	EReference getModeRequestTypeMap_ModeGroup();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration <em>Mode Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Declaration</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration
+	 * @generated
+	 */
+	EClass getModeDeclaration();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup <em>Mode Declaration Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Declaration Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup
+	 * @generated
+	 */
+	EClass getModeDeclarationGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup#getInitialMode <em>Initial Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Initial Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup#getInitialMode()
+	 * @see #getModeDeclarationGroup()
+	 * @generated
+	 */
+	EReference getModeDeclarationGroup_InitialMode();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup#getModeDeclaration <em>Mode Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mode Declaration</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup#getModeDeclaration()
+	 * @see #getModeDeclarationGroup()
+	 * @generated
+	 */
+	EReference getModeDeclarationGroup_ModeDeclaration();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationPrimitiveDataType <em>Application Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11760,15 +13618,44 @@ public interface M2Package extends EPackage {
 	EClass getAutosarDataPrototype();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getType <em>Type</em>}'.
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getSwAddrMethod() <em>Get Sw Addr Method</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getType()
-	 * @see #getAutosarDataPrototype()
+	 * @return the meta object for the '<em>Get Sw Addr Method</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getSwAddrMethod()
 	 * @generated
 	 */
-	EReference getAutosarDataPrototype_Type();
+	EOperation getAutosarDataPrototype__GetSwAddrMethod();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getSwAlignment() <em>Get Sw Alignment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Sw Alignment</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getSwAlignment()
+	 * @generated
+	 */
+	EOperation getAutosarDataPrototype__GetSwAlignment();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getApplicationDataType() <em>Get Application Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Application Data Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getApplicationDataType()
+	 * @generated
+	 */
+	EOperation getAutosarDataPrototype__GetApplicationDataType();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getImplementationDataType() <em>Get Implementation Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Implementation Data Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype#getImplementationDataType()
+	 * @generated
+	 */
+	EOperation getAutosarDataPrototype__GetImplementationDataType();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype <em>Data Prototype</em>}'.
@@ -11812,6 +13699,17 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataPrototype_SwAlignment();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getType()
+	 * @see #getDataPrototype()
+	 * @generated
+	 */
+	EReference getDataPrototype_Type();
 
 	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwImplPolicy() <em>Get Sw Impl Policy</em>}' operation.
@@ -11971,6 +13869,17 @@ public interface M2Package extends EPackage {
 	EClass getArrayValueSpecification();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification#getElement <em>Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification#getElement()
+	 * @see #getArrayValueSpecification()
+	 * @generated
+	 */
+	EReference getArrayValueSpecification_Element();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification <em>Record Value Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11979,6 +13888,17 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EClass getRecordValueSpecification();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification#getField <em>Field</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Field</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification#getField()
+	 * @see #getRecordValueSpecification()
+	 * @generated
+	 */
+	EReference getRecordValueSpecification_Field();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationValueSpecification <em>Application Value Specification</em>}'.
@@ -12395,6 +14315,17 @@ public interface M2Package extends EPackage {
 	EReference getPortApiOption_Port();
 
 	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getEnableTakeAddress <em>Enable Take Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enable Take Address</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getEnableTakeAddress()
+	 * @see #getPortApiOption()
+	 * @generated
+	 */
+	EAttribute getPortApiOption_EnableTakeAddress();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue <em>Port Defined Argument Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12627,6 +14558,17 @@ public interface M2Package extends EPackage {
 	EReference getISignalToIPduMapping_ISignal();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping#getISignalGroup <em>ISignal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>ISignal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping#getISignalGroup()
+	 * @see #getISignalToIPduMapping()
+	 * @generated
+	 */
+	EReference getISignalToIPduMapping_ISignalGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalMapping <em>Sender Receiver To Signal Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12668,6 +14610,60 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getSenderReceiverToSignalMapping_DataElement();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping <em>Sender Receiver To Signal Group Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Receiver To Signal Group Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping
+	 * @generated
+	 */
+	EClass getSenderReceiverToSignalGroupMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getSignalGroup <em>Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getSignalGroup()
+	 * @see #getSenderReceiverToSignalGroupMapping()
+	 * @generated
+	 */
+	EReference getSenderReceiverToSignalGroupMapping_SignalGroup();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getDataElementIref <em>Data Element Iref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Data Element Iref</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getDataElementIref()
+	 * @see #getSenderReceiverToSignalGroupMapping()
+	 * @generated
+	 */
+	EReference getSenderReceiverToSignalGroupMapping_DataElementIref();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getDataElement <em>Data Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getDataElement()
+	 * @see #getSenderReceiverToSignalGroupMapping()
+	 * @generated
+	 */
+	EReference getSenderReceiverToSignalGroupMapping_DataElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getTypeMapping <em>Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping#getTypeMapping()
+	 * @see #getSenderReceiverToSignalGroupMapping()
+	 * @generated
+	 */
+	EReference getSenderReceiverToSignalGroupMapping_TypeMapping();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototypeInSystemInstanceRef <em>Variable Data Prototype In System Instance Ref</em>}'.
@@ -13280,6 +15276,17 @@ public interface M2Package extends EPackage {
 	EClass getInternalBehavior();
 
 	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior#getDataTypeMapping <em>Data Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Data Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior#getDataTypeMapping()
+	 * @see #getInternalBehavior()
+	 * @generated
+	 */
+	EReference getInternalBehavior_DataTypeMapping();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalBehavior#getExclusiveArea <em>Exclusive Area</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13430,6 +15437,60 @@ public interface M2Package extends EPackage {
 	EReference getBswInternalBehavior_Implementation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getModeSenderPolicy <em>Mode Sender Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mode Sender Policy</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getModeSenderPolicy()
+	 * @see #getBswInternalBehavior()
+	 * @generated
+	 */
+	EReference getBswInternalBehavior_ModeSenderPolicy();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getBswSchedulableEntity <em>Bsw Schedulable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Bsw Schedulable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getBswSchedulableEntity()
+	 * @see #getBswInternalBehavior()
+	 * @generated
+	 */
+	EReference getBswInternalBehavior_BswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy <em>Bsw Mode Sender Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bsw Mode Sender Policy</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy
+	 * @generated
+	 */
+	EClass getBswModeSenderPolicy();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy#getProvidedModeGroup <em>Provided Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Provided Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy#getProvidedModeGroup()
+	 * @see #getBswModeSenderPolicy()
+	 * @generated
+	 */
+	EReference getBswModeSenderPolicy_ProvidedModeGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy#getQueueLength <em>Queue Length</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Queue Length</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy#getQueueLength()
+	 * @see #getBswModeSenderPolicy()
+	 * @generated
+	 */
+	EAttribute getBswModeSenderPolicy_QueueLength();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Implementation <em>Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13502,6 +15563,38 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EReference getBswModuleDescription_ProvidedEntry();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getProvidedModeGroup <em>Provided Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Provided Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getProvidedModeGroup()
+	 * @see #getBswModuleDescription()
+	 * @generated
+	 */
+	EReference getBswModuleDescription_ProvidedModeGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getRequiredModeGroup <em>Required Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getRequiredModeGroup()
+	 * @see #getBswModuleDescription()
+	 * @generated
+	 */
+	EReference getBswModuleDescription_RequiredModeGroup();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getEnableInternalBehavior() <em>Get Enable Internal Behavior</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Enable Internal Behavior</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getEnableInternalBehavior()
+	 * @generated
+	 */
+	EOperation getBswModuleDescription__GetEnableInternalBehavior();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntry <em>Bsw Module Entry</em>}'.
@@ -13579,6 +15672,28 @@ public interface M2Package extends EPackage {
 	EReference getBswModuleEntity_Parent();
 
 	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity#getAccessedModeGroup <em>Accessed Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Accessed Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity#getAccessedModeGroup()
+	 * @see #getBswModuleEntity()
+	 * @generated
+	 */
+	EReference getBswModuleEntity_AccessedModeGroup();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity#getManagedModeGroup <em>Managed Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Managed Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity#getManagedModeGroup()
+	 * @see #getBswModuleEntity()
+	 * @generated
+	 */
+	EReference getBswModuleEntity_ManagedModeGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity <em>Bsw Schedulable Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13643,6 +15758,91 @@ public interface M2Package extends EPackage {
 	EReference getBswEvent_Parent();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getDisabledInMode <em>Disabled In Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Disabled In Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getDisabledInMode()
+	 * @see #getBswEvent()
+	 * @generated
+	 */
+	EReference getBswEvent_DisabledInMode();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent <em>Bsw Mode Switch Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bsw Mode Switch Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent
+	 * @generated
+	 */
+	EClass getBswModeSwitchEvent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent#getActivation <em>Activation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent#getActivation()
+	 * @see #getBswModeSwitchEvent()
+	 * @generated
+	 */
+	EAttribute getBswModeSwitchEvent_Activation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent#getModeIref <em>Mode Iref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Mode Iref</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent#getModeIref()
+	 * @see #getBswModeSwitchEvent()
+	 * @generated
+	 */
+	EReference getBswModeSwitchEvent_ModeIref();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef <em>Mode In Bsw Module Description Instance Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode In Bsw Module Description Instance Ref</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef
+	 * @generated
+	 */
+	EClass getModeInBswModuleDescriptionInstanceRef();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef#getContextModeDeclarationGroup <em>Context Mode Declaration Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Context Mode Declaration Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef#getContextModeDeclarationGroup()
+	 * @see #getModeInBswModuleDescriptionInstanceRef()
+	 * @generated
+	 */
+	EReference getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef#getTargetMode <em>Target Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef#getTargetMode()
+	 * @see #getModeInBswModuleDescriptionInstanceRef()
+	 * @generated
+	 */
+	EReference getModeInBswModuleDescriptionInstanceRef_TargetMode();
+
+	/**
+	 * Returns the meta object for enum '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind <em>Mode Activation Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Mode Activation Kind</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind
+	 * @generated
+	 */
+	EEnum getModeActivationKind();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswTimingEvent <em>Bsw Timing Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13684,17 +15884,6 @@ public interface M2Package extends EPackage {
 	EClass getBswInterruptEntity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptCategory <em>Interrupt Category</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Interrupt Category</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptCategory()
-	 * @see #getBswInterruptEntity()
-	 * @generated
-	 */
-	EAttribute getBswInterruptEntity_InterruptCategory();
-
-	/**
 	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptSource <em>Interrupt Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13704,6 +15893,325 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBswInterruptEntity_InterruptSource();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement <em>Implementation Data Type Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Implementation Data Type Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement
+	 * @generated
+	 */
+	EClass getImplementationDataTypeElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getArraySize <em>Array Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Array Size</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getArraySize()
+	 * @see #getImplementationDataTypeElement()
+	 * @generated
+	 */
+	EAttribute getImplementationDataTypeElement_ArraySize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getArraySizeSemantics <em>Array Size Semantics</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Array Size Semantics</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getArraySizeSemantics()
+	 * @see #getImplementationDataTypeElement()
+	 * @generated
+	 */
+	EAttribute getImplementationDataTypeElement_ArraySizeSemantics();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getSubElement <em>Sub Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sub Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getSubElement()
+	 * @see #getImplementationDataTypeElement()
+	 * @generated
+	 */
+	EReference getImplementationDataTypeElement_SubElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getSwDataDefProps <em>Sw Data Def Props</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sw Data Def Props</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#getSwDataDefProps()
+	 * @see #getImplementationDataTypeElement()
+	 * @generated
+	 */
+	EReference getImplementationDataTypeElement_SwDataDefProps();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#isRedefinitionType() <em>Is Redefinition Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Redefinition Type</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement#isRedefinitionType()
+	 * @generated
+	 */
+	EOperation getImplementationDataTypeElement__IsRedefinitionType();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup <em>System Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>System Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup
+	 * @generated
+	 */
+	EClass getSystemSignalGroup();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup#getSystemSignal <em>System Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>System Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup#getSystemSignal()
+	 * @see #getSystemSignalGroup()
+	 * @generated
+	 */
+	EReference getSystemSignalGroup_SystemSignal();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup <em>ISignal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>ISignal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup
+	 * @generated
+	 */
+	EClass getISignalGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup#getSystemSignalGroup <em>System Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup#getSystemSignalGroup()
+	 * @see #getISignalGroup()
+	 * @generated
+	 */
+	EReference getISignalGroup_SystemSignalGroup();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup#getISignal <em>ISignal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>ISignal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup#getISignal()
+	 * @see #getISignalGroup()
+	 * @generated
+	 */
+	EReference getISignalGroup_ISignal();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping <em>Sender Rec Composite Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Rec Composite Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecCompositeTypeMapping
+	 * @generated
+	 */
+	EClass getSenderRecCompositeTypeMapping();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping <em>Sender Rec Record Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Rec Record Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping
+	 * @generated
+	 */
+	EClass getSenderRecRecordTypeMapping();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping#getRecordElementMapping <em>Record Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Record Element Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping#getRecordElementMapping()
+	 * @see #getSenderRecRecordTypeMapping()
+	 * @generated
+	 */
+	EReference getSenderRecRecordTypeMapping_RecordElementMapping();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping <em>Sender Rec Record Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Rec Record Element Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping
+	 * @generated
+	 */
+	EClass getSenderRecRecordElementMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getImplementationRecordElement <em>Implementation Record Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementation Record Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getImplementationRecordElement()
+	 * @see #getSenderRecRecordElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecRecordElementMapping_ImplementationRecordElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getComplexTypeMapping <em>Complex Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Complex Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getComplexTypeMapping()
+	 * @see #getSenderRecRecordElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecRecordElementMapping_ComplexTypeMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getSystemSignal <em>System Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping#getSystemSignal()
+	 * @see #getSenderRecRecordElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecRecordElementMapping_SystemSignal();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping <em>Sender Rec Array Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Rec Array Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping
+	 * @generated
+	 */
+	EClass getSenderRecArrayTypeMapping();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping#getArrayElementMapping <em>Array Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Array Element Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping#getArrayElementMapping()
+	 * @see #getSenderRecArrayTypeMapping()
+	 * @generated
+	 */
+	EReference getSenderRecArrayTypeMapping_ArrayElementMapping();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement <em>Indexed Array Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Indexed Array Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement
+	 * @generated
+	 */
+	EClass getIndexedArrayElement();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement#getImplementationArrayElement <em>Implementation Array Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementation Array Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement#getImplementationArrayElement()
+	 * @see #getIndexedArrayElement()
+	 * @generated
+	 */
+	EReference getIndexedArrayElement_ImplementationArrayElement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement#getIndex <em>Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Index</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement#getIndex()
+	 * @see #getIndexedArrayElement()
+	 * @generated
+	 */
+	EAttribute getIndexedArrayElement_Index();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping <em>Sender Rec Array Element Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sender Rec Array Element Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping
+	 * @generated
+	 */
+	EClass getSenderRecArrayElementMapping();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getIndexedArrayElement <em>Indexed Array Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Indexed Array Element</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getIndexedArrayElement()
+	 * @see #getSenderRecArrayElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecArrayElementMapping_IndexedArrayElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getComplexTypeMapping <em>Complex Type Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Complex Type Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getComplexTypeMapping()
+	 * @see #getSenderRecArrayElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecArrayElementMapping_ComplexTypeMapping();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getSystemSignal <em>System Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping#getSystemSignal()
+	 * @see #getSenderRecArrayElementMapping()
+	 * @generated
+	 */
+	EReference getSenderRecArrayElementMapping_SystemSignal();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps <em>Sw Pointer Target Props</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Sw Pointer Target Props</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps
+	 * @generated
+	 */
+	EClass getSwPointerTargetProps();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps#getTargetCategory <em>Target Category</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Category</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps#getTargetCategory()
+	 * @see #getSwPointerTargetProps()
+	 * @generated
+	 */
+	EAttribute getSwPointerTargetProps_TargetCategory();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps#getSwDataDefProps <em>Sw Data Def Props</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sw Data Def Props</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps#getSwDataDefProps()
+	 * @see #getSwPointerTargetProps()
+	 * @generated
+	 */
+	EReference getSwPointerTargetProps_SwDataDefProps();
 
 	/**
 	 * Returns the meta object for enum '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDirectionEnum <em>Argument Direction Enum</em>}'.
@@ -13786,14 +16294,14 @@ public interface M2Package extends EPackage {
 	EEnum getBswExecutionContextEnum();
 
 	/**
-	 * Returns the meta object for enum '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory <em>Bsw Interrupt Category</em>}'.
+	 * Returns the meta object for enum '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum <em>Array Size Semantics Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Bsw Interrupt Category</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory
+	 * @return the meta object for enum '<em>Array Size Semantics Enum</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum
 	 * @generated
 	 */
-	EEnum getBswInterruptCategory();
+	EEnum getArraySizeSemanticsEnum();
 
 	/**
 	 * Returns the meta object for data type '{@link java.math.BigDecimal <em>Numerical</em>}'.
@@ -14159,6 +16667,14 @@ public interface M2Package extends EPackage {
 		EAttribute SW_BASE_TYPE__NATIVE_DECLARATION = eINSTANCE.getSwBaseType_NativeDeclaration();
 
 		/**
+		 * The meta object literal for the '<em><b>Get Upper Limit For Unsigned Integer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SW_BASE_TYPE___GET_UPPER_LIMIT_FOR_UNSIGNED_INTEGER = eINSTANCE.getSwBaseType__GetUpperLimitForUnsignedInteger();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverInterfaceImpl <em>Sender Receiver Interface</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14193,6 +16709,14 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EClass VARIABLE_DATA_PROTOTYPE = eINSTANCE.getVariableDataPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_DATA_PROTOTYPE__INIT_VALUE = eINSTANCE.getVariableDataPrototype_InitValue();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ReferrableImpl <em>Referrable</em>}' class.
@@ -14459,14 +16983,6 @@ public interface M2Package extends EPackage {
 		EReference SWC_INTERNAL_BEHAVIOR__EVENT = eINSTANCE.getSwcInternalBehavior_Event();
 
 		/**
-		 * The meta object literal for the '<em><b>Data Type Mapping</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SWC_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = eINSTANCE.getSwcInternalBehavior_DataTypeMapping();
-
-		/**
 		 * The meta object literal for the '<em><b>Port Api Option</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14489,6 +17005,14 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EReference SWC_INTERNAL_BEHAVIOR__PARENT = eINSTANCE.getSwcInternalBehavior_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Explicit Inter Runnable Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SWC_INTERNAL_BEHAVIOR__EXPLICIT_INTER_RUNNABLE_VARIABLE = eINSTANCE.getSwcInternalBehavior_ExplicitInterRunnableVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Referencer Included Data Type Sets</b></em>' operation.
@@ -14607,6 +17131,22 @@ public interface M2Package extends EPackage {
 		EAttribute RUNNABLE_ENTITY__SYMBOL = eINSTANCE.getRunnableEntity_Symbol();
 
 		/**
+		 * The meta object literal for the '<em><b>Written Local Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE = eINSTANCE.getRunnableEntity_WrittenLocalVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Read Local Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RUNNABLE_ENTITY__READ_LOCAL_VARIABLE = eINSTANCE.getRunnableEntity_ReadLocalVariable();
+
+		/**
 		 * The meta object literal for the '<em><b>Server Call Point</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14673,6 +17213,14 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EReference AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE = eINSTANCE.getAutosarVariableRef_AutosarVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Local Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE = eINSTANCE.getAutosarVariableRef_LocalVariable();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableInAtomicSwcInstanceRefImpl <em>Variable In Atomic Swc Instance Ref</em>}' class.
@@ -15341,6 +17889,78 @@ public interface M2Package extends EPackage {
 		EAttribute IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT = eINSTANCE.getImplementationDataType_SwAlignment();
 
 		/**
+		 * The meta object literal for the '<em><b>Sub Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMPLEMENTATION_DATA_TYPE__SUB_ELEMENT = eINSTANCE.getImplementationDataType_SubElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Leaf Implementation Data Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___GET_LEAF_IMPLEMENTATION_DATA_TYPE = eINSTANCE.getImplementationDataType__GetLeafImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Primitive Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_PRIMITIVE_TYPE = eINSTANCE.getImplementationDataType__IsPrimitiveType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Pointer Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_POINTER_TYPE = eINSTANCE.getImplementationDataType__IsPointerType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Array Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_ARRAY_TYPE = eINSTANCE.getImplementationDataType__IsArrayType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Struct Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_STRUCT_TYPE = eINSTANCE.getImplementationDataType__IsStructType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Union Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_UNION_TYPE = eINSTANCE.getImplementationDataType__IsUnionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Redefinition Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_REDEFINITION_TYPE = eINSTANCE.getImplementationDataType__IsRedefinitionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Complex Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE___IS_COMPLEX_TYPE = eINSTANCE.getImplementationDataType__IsComplexType();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwDataDefPropsImpl <em>Sw Data Def Props</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15407,6 +18027,22 @@ public interface M2Package extends EPackage {
 		EReference SW_DATA_DEF_PROPS__DATA_CONSTR = eINSTANCE.getSwDataDefProps_DataConstr();
 
 		/**
+		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SW_DATA_DEF_PROPS__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getSwDataDefProps_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sw Pointer Target Props</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SW_DATA_DEF_PROPS__SW_POINTER_TARGET_PROPS = eINSTANCE.getSwDataDefProps_SwPointerTargetProps();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataTypeMapImpl <em>Data Type Map</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15451,6 +18087,94 @@ public interface M2Package extends EPackage {
 		EReference DATA_TYPE_MAPPING_SET__DATA_TYPE_MAP = eINSTANCE.getDataTypeMappingSet_DataTypeMap();
 
 		/**
+		 * The meta object literal for the '<em><b>Mode Request Type Map</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_TYPE_MAPPING_SET__MODE_REQUEST_TYPE_MAP = eINSTANCE.getDataTypeMappingSet_ModeRequestTypeMap();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupPrototypeImpl <em>Mode Declaration Group Prototype</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupPrototypeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclarationGroupPrototype()
+		 * @generated
+		 */
+		EClass MODE_DECLARATION_GROUP_PROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_DECLARATION_GROUP_PROTOTYPE__TYPE = eINSTANCE.getModeDeclarationGroupPrototype_Type();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeRequestTypeMapImpl <em>Mode Request Type Map</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeRequestTypeMapImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeRequestTypeMap()
+		 * @generated
+		 */
+		EClass MODE_REQUEST_TYPE_MAP = eINSTANCE.getModeRequestTypeMap();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_REQUEST_TYPE_MAP__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getModeRequestTypeMap_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_REQUEST_TYPE_MAP__MODE_GROUP = eINSTANCE.getModeRequestTypeMap_ModeGroup();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationImpl <em>Mode Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclaration()
+		 * @generated
+		 */
+		EClass MODE_DECLARATION = eINSTANCE.getModeDeclaration();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeDeclarationGroupImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeDeclarationGroup()
+		 * @generated
+		 */
+		EClass MODE_DECLARATION_GROUP = eINSTANCE.getModeDeclarationGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial Mode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_DECLARATION_GROUP__INITIAL_MODE = eINSTANCE.getModeDeclarationGroup_InitialMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Declaration</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_DECLARATION_GROUP__MODE_DECLARATION = eINSTANCE.getModeDeclarationGroup_ModeDeclaration();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationPrimitiveDataTypeImpl <em>Application Primitive Data Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15471,12 +18195,36 @@ public interface M2Package extends EPackage {
 		EClass AUTOSAR_DATA_PROTOTYPE = eINSTANCE.getAutosarDataPrototype();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Get Sw Addr Method</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference AUTOSAR_DATA_PROTOTYPE__TYPE = eINSTANCE.getAutosarDataPrototype_Type();
+		EOperation AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD = eINSTANCE.getAutosarDataPrototype__GetSwAddrMethod();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Sw Alignment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT = eINSTANCE.getAutosarDataPrototype__GetSwAlignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Application Data Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE = eINSTANCE.getAutosarDataPrototype__GetApplicationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Implementation Data Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE = eINSTANCE.getAutosarDataPrototype__GetImplementationDataType();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl <em>Data Prototype</em>}' class.
@@ -15511,6 +18259,14 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_PROTOTYPE__SW_ALIGNMENT = eINSTANCE.getDataPrototype_SwAlignment();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_PROTOTYPE__TYPE = eINSTANCE.getDataPrototype_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Get Sw Impl Policy</b></em>' operation.
@@ -15645,6 +18401,14 @@ public interface M2Package extends EPackage {
 		EClass ARRAY_VALUE_SPECIFICATION = eINSTANCE.getArrayValueSpecification();
 
 		/**
+		 * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARRAY_VALUE_SPECIFICATION__ELEMENT = eINSTANCE.getArrayValueSpecification_Element();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RecordValueSpecificationImpl <em>Record Value Specification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15653,6 +18417,14 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EClass RECORD_VALUE_SPECIFICATION = eINSTANCE.getRecordValueSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Field</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECORD_VALUE_SPECIFICATION__FIELD = eINSTANCE.getRecordValueSpecification_Field();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ApplicationValueSpecificationImpl <em>Application Value Specification</em>}' class.
@@ -15991,6 +18763,14 @@ public interface M2Package extends EPackage {
 		EReference PORT_API_OPTION__PORT = eINSTANCE.getPortApiOption_Port();
 
 		/**
+		 * The meta object literal for the '<em><b>Enable Take Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PORT_API_OPTION__ENABLE_TAKE_ADDRESS = eINSTANCE.getPortApiOption_EnableTakeAddress();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortDefinedArgumentValueImpl <em>Port Defined Argument Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16187,6 +18967,14 @@ public interface M2Package extends EPackage {
 		EReference ISIGNAL_TO_IPDU_MAPPING__ISIGNAL = eINSTANCE.getISignalToIPduMapping_ISignal();
 
 		/**
+		 * The meta object literal for the '<em><b>ISignal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP = eINSTANCE.getISignalToIPduMapping_ISignalGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalMappingImpl <em>Sender Receiver To Signal Mapping</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16219,6 +19007,48 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EReference SENDER_RECEIVER_TO_SIGNAL_MAPPING__DATA_ELEMENT = eINSTANCE.getSenderReceiverToSignalMapping_DataElement();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalGroupMappingImpl <em>Sender Receiver To Signal Group Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderReceiverToSignalGroupMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderReceiverToSignalGroupMapping()
+		 * @generated
+		 */
+		EClass SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING = eINSTANCE.getSenderReceiverToSignalGroupMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__SIGNAL_GROUP = eINSTANCE.getSenderReceiverToSignalGroupMapping_SignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Element Iref</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT_IREF = eINSTANCE.getSenderReceiverToSignalGroupMapping_DataElementIref();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT = eINSTANCE.getSenderReceiverToSignalGroupMapping_DataElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Type Mapping</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__TYPE_MAPPING = eINSTANCE.getSenderReceiverToSignalGroupMapping_TypeMapping();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeInSystemInstanceRefImpl <em>Variable Data Prototype In System Instance Ref</em>}' class.
@@ -16737,6 +19567,14 @@ public interface M2Package extends EPackage {
 		EClass INTERNAL_BEHAVIOR = eINSTANCE.getInternalBehavior();
 
 		/**
+		 * The meta object literal for the '<em><b>Data Type Mapping</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING = eINSTANCE.getInternalBehavior_DataTypeMapping();
+
+		/**
 		 * The meta object literal for the '<em><b>Exclusive Area</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16855,6 +19693,48 @@ public interface M2Package extends EPackage {
 		EReference BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION = eINSTANCE.getBswInternalBehavior_Implementation();
 
 		/**
+		 * The meta object literal for the '<em><b>Mode Sender Policy</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY = eINSTANCE.getBswInternalBehavior_ModeSenderPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Bsw Schedulable Entity</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY = eINSTANCE.getBswInternalBehavior_BswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSenderPolicyImpl <em>Bsw Mode Sender Policy</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSenderPolicyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModeSenderPolicy()
+		 * @generated
+		 */
+		EClass BSW_MODE_SENDER_POLICY = eINSTANCE.getBswModeSenderPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Mode Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODE_SENDER_POLICY__PROVIDED_MODE_GROUP = eINSTANCE.getBswModeSenderPolicy_ProvidedModeGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Queue Length</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BSW_MODE_SENDER_POLICY__QUEUE_LENGTH = eINSTANCE.getBswModeSenderPolicy_QueueLength();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationImpl <em>Implementation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16917,6 +19797,30 @@ public interface M2Package extends EPackage {
 		EReference BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY = eINSTANCE.getBswModuleDescription_ProvidedEntry();
 
 		/**
+		 * The meta object literal for the '<em><b>Provided Mode Group</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODULE_DESCRIPTION__PROVIDED_MODE_GROUP = eINSTANCE.getBswModuleDescription_ProvidedModeGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Mode Group</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODULE_DESCRIPTION__REQUIRED_MODE_GROUP = eINSTANCE.getBswModuleDescription_RequiredModeGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Enable Internal Behavior</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BSW_MODULE_DESCRIPTION___GET_ENABLE_INTERNAL_BEHAVIOR = eINSTANCE.getBswModuleDescription__GetEnableInternalBehavior();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntryImpl <em>Bsw Module Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16977,6 +19881,22 @@ public interface M2Package extends EPackage {
 		EReference BSW_MODULE_ENTITY__PARENT = eINSTANCE.getBswModuleEntity_Parent();
 
 		/**
+		 * The meta object literal for the '<em><b>Accessed Mode Group</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP = eINSTANCE.getBswModuleEntity_AccessedModeGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Managed Mode Group</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODULE_ENTITY__MANAGED_MODE_GROUP = eINSTANCE.getBswModuleEntity_ManagedModeGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -17029,6 +19949,76 @@ public interface M2Package extends EPackage {
 		EReference BSW_EVENT__PARENT = eINSTANCE.getBswEvent_Parent();
 
 		/**
+		 * The meta object literal for the '<em><b>Disabled In Mode</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_EVENT__DISABLED_IN_MODE = eINSTANCE.getBswEvent_DisabledInMode();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSwitchEventImpl <em>Bsw Mode Switch Event</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModeSwitchEventImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswModeSwitchEvent()
+		 * @generated
+		 */
+		EClass BSW_MODE_SWITCH_EVENT = eINSTANCE.getBswModeSwitchEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BSW_MODE_SWITCH_EVENT__ACTIVATION = eINSTANCE.getBswModeSwitchEvent_Activation();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Iref</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_MODE_SWITCH_EVENT__MODE_IREF = eINSTANCE.getBswModeSwitchEvent_ModeIref();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeInBswModuleDescriptionInstanceRefImpl <em>Mode In Bsw Module Description Instance Ref</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ModeInBswModuleDescriptionInstanceRefImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeInBswModuleDescriptionInstanceRef()
+		 * @generated
+		 */
+		EClass MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF = eINSTANCE.getModeInBswModuleDescriptionInstanceRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Context Mode Declaration Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__CONTEXT_MODE_DECLARATION_GROUP = eINSTANCE.getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Mode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__TARGET_MODE = eINSTANCE.getModeInBswModuleDescriptionInstanceRef_TargetMode();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind <em>Mode Activation Kind</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getModeActivationKind()
+		 * @generated
+		 */
+		EEnum MODE_ACTIVATION_KIND = eINSTANCE.getModeActivationKind();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswTimingEventImpl <em>Bsw Timing Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -17067,20 +20057,272 @@ public interface M2Package extends EPackage {
 		EClass BSW_INTERRUPT_ENTITY = eINSTANCE.getBswInterruptEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Interrupt Category</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BSW_INTERRUPT_ENTITY__INTERRUPT_CATEGORY = eINSTANCE.getBswInterruptEntity_InterruptCategory();
-
-		/**
 		 * The meta object literal for the '<em><b>Interrupt Source</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE = eINSTANCE.getBswInterruptEntity_InterruptSource();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeElementImpl <em>Implementation Data Type Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ImplementationDataTypeElementImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getImplementationDataTypeElement()
+		 * @generated
+		 */
+		EClass IMPLEMENTATION_DATA_TYPE_ELEMENT = eINSTANCE.getImplementationDataTypeElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Array Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE = eINSTANCE.getImplementationDataTypeElement_ArraySize();
+
+		/**
+		 * The meta object literal for the '<em><b>Array Size Semantics</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS = eINSTANCE.getImplementationDataTypeElement_ArraySizeSemantics();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Element</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMPLEMENTATION_DATA_TYPE_ELEMENT__SUB_ELEMENT = eINSTANCE.getImplementationDataTypeElement_SubElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Sw Data Def Props</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IMPLEMENTATION_DATA_TYPE_ELEMENT__SW_DATA_DEF_PROPS = eINSTANCE.getImplementationDataTypeElement_SwDataDefProps();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Redefinition Type</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation IMPLEMENTATION_DATA_TYPE_ELEMENT___IS_REDEFINITION_TYPE = eINSTANCE.getImplementationDataTypeElement__IsRedefinitionType();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalGroupImpl <em>System Signal Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SystemSignalGroupImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSystemSignalGroup()
+		 * @generated
+		 */
+		EClass SYSTEM_SIGNAL_GROUP = eINSTANCE.getSystemSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>System Signal</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYSTEM_SIGNAL_GROUP__SYSTEM_SIGNAL = eINSTANCE.getSystemSignalGroup_SystemSignal();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalGroupImpl <em>ISignal Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.ISignalGroupImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getISignalGroup()
+		 * @generated
+		 */
+		EClass ISIGNAL_GROUP = eINSTANCE.getISignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>System Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISIGNAL_GROUP__SYSTEM_SIGNAL_GROUP = eINSTANCE.getISignalGroup_SystemSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>ISignal</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISIGNAL_GROUP__ISIGNAL = eINSTANCE.getISignalGroup_ISignal();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecCompositeTypeMappingImpl <em>Sender Rec Composite Type Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecCompositeTypeMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecCompositeTypeMapping()
+		 * @generated
+		 */
+		EClass SENDER_REC_COMPOSITE_TYPE_MAPPING = eINSTANCE.getSenderRecCompositeTypeMapping();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordTypeMappingImpl <em>Sender Rec Record Type Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordTypeMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecRecordTypeMapping()
+		 * @generated
+		 */
+		EClass SENDER_REC_RECORD_TYPE_MAPPING = eINSTANCE.getSenderRecRecordTypeMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Record Element Mapping</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_RECORD_TYPE_MAPPING__RECORD_ELEMENT_MAPPING = eINSTANCE.getSenderRecRecordTypeMapping_RecordElementMapping();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordElementMappingImpl <em>Sender Rec Record Element Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecRecordElementMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecRecordElementMapping()
+		 * @generated
+		 */
+		EClass SENDER_REC_RECORD_ELEMENT_MAPPING = eINSTANCE.getSenderRecRecordElementMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Record Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_RECORD_ELEMENT_MAPPING__IMPLEMENTATION_RECORD_ELEMENT = eINSTANCE.getSenderRecRecordElementMapping_ImplementationRecordElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Complex Type Mapping</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_RECORD_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING = eINSTANCE.getSenderRecRecordElementMapping_ComplexTypeMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>System Signal</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_RECORD_ELEMENT_MAPPING__SYSTEM_SIGNAL = eINSTANCE.getSenderRecRecordElementMapping_SystemSignal();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayTypeMappingImpl <em>Sender Rec Array Type Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayTypeMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecArrayTypeMapping()
+		 * @generated
+		 */
+		EClass SENDER_REC_ARRAY_TYPE_MAPPING = eINSTANCE.getSenderRecArrayTypeMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Array Element Mapping</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_ARRAY_TYPE_MAPPING__ARRAY_ELEMENT_MAPPING = eINSTANCE.getSenderRecArrayTypeMapping_ArrayElementMapping();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IndexedArrayElementImpl <em>Indexed Array Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.IndexedArrayElementImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getIndexedArrayElement()
+		 * @generated
+		 */
+		EClass INDEXED_ARRAY_ELEMENT = eINSTANCE.getIndexedArrayElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Array Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INDEXED_ARRAY_ELEMENT__IMPLEMENTATION_ARRAY_ELEMENT = eINSTANCE.getIndexedArrayElement_ImplementationArrayElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INDEXED_ARRAY_ELEMENT__INDEX = eINSTANCE.getIndexedArrayElement_Index();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayElementMappingImpl <em>Sender Rec Array Element Mapping</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderRecArrayElementMappingImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSenderRecArrayElementMapping()
+		 * @generated
+		 */
+		EClass SENDER_REC_ARRAY_ELEMENT_MAPPING = eINSTANCE.getSenderRecArrayElementMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Indexed Array Element</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_ARRAY_ELEMENT_MAPPING__INDEXED_ARRAY_ELEMENT = eINSTANCE.getSenderRecArrayElementMapping_IndexedArrayElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Complex Type Mapping</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_ARRAY_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING = eINSTANCE.getSenderRecArrayElementMapping_ComplexTypeMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>System Signal</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SENDER_REC_ARRAY_ELEMENT_MAPPING__SYSTEM_SIGNAL = eINSTANCE.getSenderRecArrayElementMapping_SystemSignal();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwPointerTargetPropsImpl <em>Sw Pointer Target Props</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SwPointerTargetPropsImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getSwPointerTargetProps()
+		 * @generated
+		 */
+		EClass SW_POINTER_TARGET_PROPS = eINSTANCE.getSwPointerTargetProps();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Category</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SW_POINTER_TARGET_PROPS__TARGET_CATEGORY = eINSTANCE.getSwPointerTargetProps_TargetCategory();
+
+		/**
+		 * The meta object literal for the '<em><b>Sw Data Def Props</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SW_POINTER_TARGET_PROPS__SW_DATA_DEF_PROPS = eINSTANCE.getSwPointerTargetProps_SwDataDefProps();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDirectionEnum <em>Argument Direction Enum</em>}' enum.
@@ -17163,14 +20405,14 @@ public interface M2Package extends EPackage {
 		EEnum BSW_EXECUTION_CONTEXT_ENUM = eINSTANCE.getBswExecutionContextEnum();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory <em>Bsw Interrupt Category</em>}' enum.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum <em>Array Size Semantics Enum</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getBswInterruptCategory()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.M2PackageImpl#getArraySizeSemanticsEnum()
 		 * @generated
 		 */
-		EEnum BSW_INTERRUPT_CATEGORY = eINSTANCE.getBswInterruptCategory();
+		EEnum ARRAY_SIZE_SEMANTICS_ENUM = eINSTANCE.getArraySizeSemanticsEnum();
 
 		/**
 		 * The meta object literal for the '<em>Numerical</em>' data type.

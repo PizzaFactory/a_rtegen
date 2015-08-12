@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,7 +50,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -67,7 +66,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getRequesterPartition <em>Requester Partition</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getSignalDataType <em>Signal Data Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getOsIocCommunication <em>Os Ioc Communication</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getRequestOsIocCommunication <em>Request Os Ioc Communication</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getValueOsIocCommunicationForComplexType <em>Value Os Ioc Communication For Complex Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendProxyInteractionImpl#getProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
@@ -96,14 +96,24 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 	protected ImplementationDataType signalDataType;
 
 	/**
-	 * The cached value of the '{@link #getOsIocCommunication() <em>Os Ioc Communication</em>}' reference.
+	 * The cached value of the '{@link #getRequestOsIocCommunication() <em>Request Os Ioc Communication</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOsIocCommunication()
+	 * @see #getRequestOsIocCommunication()
 	 * @generated
 	 * @ordered
 	 */
-	protected OsIocCommunication osIocCommunication;
+	protected OsIocCommunication requestOsIocCommunication;
+
+	/**
+	 * The cached value of the '{@link #getValueOsIocCommunicationForComplexType() <em>Value Os Ioc Communication For Complex Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueOsIocCommunicationForComplexType()
+	 * @generated
+	 * @ordered
+	 */
+	protected OsIocCommunication valueOsIocCommunicationForComplexType;
 
 	/**
 	 * The cached value of the '{@link #getProxy() <em>Proxy</em>}' reference.
@@ -215,16 +225,16 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OsIocCommunication getOsIocCommunication() {
-		if (osIocCommunication != null && ((EObject)osIocCommunication).eIsProxy()) {
-			InternalEObject oldOsIocCommunication = (InternalEObject)osIocCommunication;
-			osIocCommunication = (OsIocCommunication)eResolveProxy(oldOsIocCommunication);
-			if (osIocCommunication != oldOsIocCommunication) {
+	public OsIocCommunication getRequestOsIocCommunication() {
+		if (requestOsIocCommunication != null && ((EObject)requestOsIocCommunication).eIsProxy()) {
+			InternalEObject oldRequestOsIocCommunication = (InternalEObject)requestOsIocCommunication;
+			requestOsIocCommunication = (OsIocCommunication)eResolveProxy(oldRequestOsIocCommunication);
+			if (requestOsIocCommunication != oldRequestOsIocCommunication) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION, oldOsIocCommunication, osIocCommunication));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION, oldRequestOsIocCommunication, requestOsIocCommunication));
 			}
 		}
-		return osIocCommunication;
+		return requestOsIocCommunication;
 	}
 
 	/**
@@ -232,8 +242,8 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OsIocCommunication basicGetOsIocCommunication() {
-		return osIocCommunication;
+	public OsIocCommunication basicGetRequestOsIocCommunication() {
+		return requestOsIocCommunication;
 	}
 
 	/**
@@ -241,11 +251,49 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOsIocCommunication(OsIocCommunication newOsIocCommunication) {
-		OsIocCommunication oldOsIocCommunication = osIocCommunication;
-		osIocCommunication = newOsIocCommunication;
+	public void setRequestOsIocCommunication(OsIocCommunication newRequestOsIocCommunication) {
+		OsIocCommunication oldRequestOsIocCommunication = requestOsIocCommunication;
+		requestOsIocCommunication = newRequestOsIocCommunication;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION, oldOsIocCommunication, osIocCommunication));
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION, oldRequestOsIocCommunication, requestOsIocCommunication));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsIocCommunication getValueOsIocCommunicationForComplexType() {
+		if (valueOsIocCommunicationForComplexType != null && ((EObject)valueOsIocCommunicationForComplexType).eIsProxy()) {
+			InternalEObject oldValueOsIocCommunicationForComplexType = (InternalEObject)valueOsIocCommunicationForComplexType;
+			valueOsIocCommunicationForComplexType = (OsIocCommunication)eResolveProxy(oldValueOsIocCommunicationForComplexType);
+			if (valueOsIocCommunicationForComplexType != oldValueOsIocCommunicationForComplexType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE, oldValueOsIocCommunicationForComplexType, valueOsIocCommunicationForComplexType));
+			}
+		}
+		return valueOsIocCommunicationForComplexType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsIocCommunication basicGetValueOsIocCommunicationForComplexType() {
+		return valueOsIocCommunicationForComplexType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueOsIocCommunicationForComplexType(OsIocCommunication newValueOsIocCommunicationForComplexType) {
+		OsIocCommunication oldValueOsIocCommunicationForComplexType = valueOsIocCommunicationForComplexType;
+		valueOsIocCommunicationForComplexType = newValueOsIocCommunicationForComplexType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE, oldValueOsIocCommunicationForComplexType, valueOsIocCommunicationForComplexType));
 	}
 
 	/**
@@ -352,9 +400,12 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE:
 				if (resolve) return getSignalDataType();
 				return basicGetSignalDataType();
-			case InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION:
-				if (resolve) return getOsIocCommunication();
-				return basicGetOsIocCommunication();
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION:
+				if (resolve) return getRequestOsIocCommunication();
+				return basicGetRequestOsIocCommunication();
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE:
+				if (resolve) return getValueOsIocCommunicationForComplexType();
+				return basicGetValueOsIocCommunicationForComplexType();
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__PROXY:
 				if (resolve) return getProxy();
 				return basicGetProxy();
@@ -376,8 +427,11 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE:
 				setSignalDataType((ImplementationDataType)newValue);
 				return;
-			case InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION:
-				setOsIocCommunication((OsIocCommunication)newValue);
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION:
+				setRequestOsIocCommunication((OsIocCommunication)newValue);
+				return;
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE:
+				setValueOsIocCommunicationForComplexType((OsIocCommunication)newValue);
 				return;
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__PROXY:
 				setProxy((ComSendProxy)newValue);
@@ -400,8 +454,11 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE:
 				setSignalDataType((ImplementationDataType)null);
 				return;
-			case InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION:
-				setOsIocCommunication((OsIocCommunication)null);
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION:
+				setRequestOsIocCommunication((OsIocCommunication)null);
+				return;
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE:
+				setValueOsIocCommunicationForComplexType((OsIocCommunication)null);
 				return;
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__PROXY:
 				setProxy((ComSendProxy)null);
@@ -422,8 +479,10 @@ public class ComSendProxyInteractionImpl extends InteractionImpl implements ComS
 				return requesterPartition != null;
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE:
 				return signalDataType != null;
-			case InteractionPackage.COM_SEND_PROXY_INTERACTION__OS_IOC_COMMUNICATION:
-				return osIocCommunication != null;
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION:
+				return requestOsIocCommunication != null;
+			case InteractionPackage.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE:
+				return valueOsIocCommunicationForComplexType != null;
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION__PROXY:
 				return proxy != null;
 		}

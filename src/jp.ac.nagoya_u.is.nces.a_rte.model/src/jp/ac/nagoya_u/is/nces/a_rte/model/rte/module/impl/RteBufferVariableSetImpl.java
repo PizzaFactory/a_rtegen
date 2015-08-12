@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -62,6 +62,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl#getValueVariable <em>Value Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl#getStatusVariable <em>Status Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl#getInitValueVariable <em>Init Value Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl#getComplexVariable <em>Complex Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -87,6 +89,26 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 	 * @ordered
 	 */
 	protected GlobalVariable statusVariable;
+
+	/**
+	 * The cached value of the '{@link #getInitValueVariable() <em>Init Value Variable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitValueVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected GlobalVariable initValueVariable;
+
+	/**
+	 * The cached value of the '{@link #getComplexVariable() <em>Complex Variable</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComplexVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected GlobalVariable complexVariable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +220,92 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GlobalVariable getInitValueVariable() {
+		return initValueVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitValueVariable(GlobalVariable newInitValueVariable, NotificationChain msgs) {
+		GlobalVariable oldInitValueVariable = initValueVariable;
+		initValueVariable = newInitValueVariable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE, oldInitValueVariable, newInitValueVariable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitValueVariable(GlobalVariable newInitValueVariable) {
+		if (newInitValueVariable != initValueVariable) {
+			NotificationChain msgs = null;
+			if (initValueVariable != null)
+				msgs = ((InternalEObject)initValueVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE, null, msgs);
+			if (newInitValueVariable != null)
+				msgs = ((InternalEObject)newInitValueVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE, null, msgs);
+			msgs = basicSetInitValueVariable(newInitValueVariable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE, newInitValueVariable, newInitValueVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalVariable getComplexVariable() {
+		return complexVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComplexVariable(GlobalVariable newComplexVariable, NotificationChain msgs) {
+		GlobalVariable oldComplexVariable = complexVariable;
+		complexVariable = newComplexVariable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE, oldComplexVariable, newComplexVariable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComplexVariable(GlobalVariable newComplexVariable) {
+		if (newComplexVariable != complexVariable) {
+			NotificationChain msgs = null;
+			if (complexVariable != null)
+				msgs = ((InternalEObject)complexVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE, null, msgs);
+			if (newComplexVariable != null)
+				msgs = ((InternalEObject)newComplexVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE, null, msgs);
+			msgs = basicSetComplexVariable(newComplexVariable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE, newComplexVariable, newComplexVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -205,6 +313,10 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 				return basicSetValueVariable(null, msgs);
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE:
 				return basicSetStatusVariable(null, msgs);
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE:
+				return basicSetInitValueVariable(null, msgs);
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE:
+				return basicSetComplexVariable(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,6 +333,10 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 				return getValueVariable();
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE:
 				return getStatusVariable();
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE:
+				return getInitValueVariable();
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE:
+				return getComplexVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -238,6 +354,12 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 				return;
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE:
 				setStatusVariable((GlobalVariable)newValue);
+				return;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE:
+				setInitValueVariable((GlobalVariable)newValue);
+				return;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE:
+				setComplexVariable((GlobalVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -257,6 +379,12 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE:
 				setStatusVariable((GlobalVariable)null);
 				return;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE:
+				setInitValueVariable((GlobalVariable)null);
+				return;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE:
+				setComplexVariable((GlobalVariable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,6 +401,10 @@ public class RteBufferVariableSetImpl extends GlobalVariableImpl implements RteB
 				return valueVariable != null;
 			case ModulePackage.RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE:
 				return statusVariable != null;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE:
+				return initValueVariable != null;
+			case ModulePackage.RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE:
+				return complexVariable != null;
 		}
 		return super.eIsSet(featureID);
 	}

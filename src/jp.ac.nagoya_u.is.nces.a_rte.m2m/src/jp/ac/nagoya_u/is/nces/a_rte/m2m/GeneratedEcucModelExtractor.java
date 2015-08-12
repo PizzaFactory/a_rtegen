@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -145,7 +145,7 @@ public class GeneratedEcucModelExtractor {
 				destOs.getOsApplication().add(destOsApplication);
 			}
 			/*
-			 * TODO：#91, #93対応
+			 * NOTE：#91, #93対応
 			 * 本来はAUTOSAR標準仕様に従ってツールチェーンの仕様定義およびRTEジェネレータの出力仕様を定義するべきだが，
 			 * 2014/3末リリースに向けて暫定的に以下の対応とする．
 			 *　・OsTrustedは出力しない(#91)

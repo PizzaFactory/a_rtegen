@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public class PVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesWriteApi(PVariableDataInstanceInSwc this_) {
+	public boolean providesWriteApi(PVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_WRITE_API_PVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -125,7 +125,7 @@ public class PVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesInvalidateApi(PVariableDataInstanceInSwc this_) {
+	public boolean providesInvalidateApi(PVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_INVALIDATE_API_PVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
@@ -149,7 +149,7 @@ public class PVariableDataInstanceInSwcExImpl extends ExtendedEObjectImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean providesSendApi(PVariableDataInstanceInSwc this_) {
+	public boolean providesSendApi(PVariableDataInstanceInSwc this_) {
 		try {
 			return (Boolean)PROVIDES_SEND_API_PVARIABLE_DATA_INSTANCE_IN_SWC__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}

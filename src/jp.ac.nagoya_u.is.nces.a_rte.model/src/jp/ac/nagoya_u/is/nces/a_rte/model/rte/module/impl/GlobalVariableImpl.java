@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -64,6 +64,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getInitValueConstant <em>Init Value Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getMemoryMapping <em>Memory Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getInitAtDefinition <em>Init At Definition</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getInitWithConstantValue <em>Init With Constant Value</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getHasConst <em>Has Const</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl#getHasStatic <em>Has Static</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,6 +112,66 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 	 * @ordered
 	 */
 	protected Boolean initAtDefinition = INIT_AT_DEFINITION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInitWithConstantValue() <em>Init With Constant Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitWithConstantValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean INIT_WITH_CONSTANT_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitWithConstantValue() <em>Init With Constant Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitWithConstantValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean initWithConstantValue = INIT_WITH_CONSTANT_VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHasConst() <em>Has Const</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasConst()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean HAS_CONST_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getHasConst() <em>Has Const</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasConst()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean hasConst = HAS_CONST_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHasStatic() <em>Has Static</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasStatic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean HAS_STATIC_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getHasStatic() <em>Has Static</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHasStatic()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean hasStatic = HAS_STATIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,6 +294,69 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getInitWithConstantValue() {
+		return initWithConstantValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitWithConstantValue(Boolean newInitWithConstantValue) {
+		Boolean oldInitWithConstantValue = initWithConstantValue;
+		initWithConstantValue = newInitWithConstantValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE, oldInitWithConstantValue, initWithConstantValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getHasConst() {
+		return hasConst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasConst(Boolean newHasConst) {
+		Boolean oldHasConst = hasConst;
+		hasConst = newHasConst;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.GLOBAL_VARIABLE__HAS_CONST, oldHasConst, hasConst));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getHasStatic() {
+		return hasStatic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHasStatic(Boolean newHasStatic) {
+		Boolean oldHasStatic = hasStatic;
+		hasStatic = newHasStatic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.GLOBAL_VARIABLE__HAS_STATIC, oldHasStatic, hasStatic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -242,6 +368,12 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 				return basicGetMemoryMapping();
 			case ModulePackage.GLOBAL_VARIABLE__INIT_AT_DEFINITION:
 				return getInitAtDefinition();
+			case ModulePackage.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE:
+				return getInitWithConstantValue();
+			case ModulePackage.GLOBAL_VARIABLE__HAS_CONST:
+				return getHasConst();
+			case ModulePackage.GLOBAL_VARIABLE__HAS_STATIC:
+				return getHasStatic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,6 +394,15 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 				return;
 			case ModulePackage.GLOBAL_VARIABLE__INIT_AT_DEFINITION:
 				setInitAtDefinition((Boolean)newValue);
+				return;
+			case ModulePackage.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE:
+				setInitWithConstantValue((Boolean)newValue);
+				return;
+			case ModulePackage.GLOBAL_VARIABLE__HAS_CONST:
+				setHasConst((Boolean)newValue);
+				return;
+			case ModulePackage.GLOBAL_VARIABLE__HAS_STATIC:
+				setHasStatic((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,6 +425,15 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 			case ModulePackage.GLOBAL_VARIABLE__INIT_AT_DEFINITION:
 				setInitAtDefinition(INIT_AT_DEFINITION_EDEFAULT);
 				return;
+			case ModulePackage.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE:
+				setInitWithConstantValue(INIT_WITH_CONSTANT_VALUE_EDEFAULT);
+				return;
+			case ModulePackage.GLOBAL_VARIABLE__HAS_CONST:
+				setHasConst(HAS_CONST_EDEFAULT);
+				return;
+			case ModulePackage.GLOBAL_VARIABLE__HAS_STATIC:
+				setHasStatic(HAS_STATIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +452,12 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 				return memoryMapping != null;
 			case ModulePackage.GLOBAL_VARIABLE__INIT_AT_DEFINITION:
 				return INIT_AT_DEFINITION_EDEFAULT == null ? initAtDefinition != null : !INIT_AT_DEFINITION_EDEFAULT.equals(initAtDefinition);
+			case ModulePackage.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE:
+				return INIT_WITH_CONSTANT_VALUE_EDEFAULT == null ? initWithConstantValue != null : !INIT_WITH_CONSTANT_VALUE_EDEFAULT.equals(initWithConstantValue);
+			case ModulePackage.GLOBAL_VARIABLE__HAS_CONST:
+				return HAS_CONST_EDEFAULT == null ? hasConst != null : !HAS_CONST_EDEFAULT.equals(hasConst);
+			case ModulePackage.GLOBAL_VARIABLE__HAS_STATIC:
+				return HAS_STATIC_EDEFAULT == null ? hasStatic != null : !HAS_STATIC_EDEFAULT.equals(hasStatic);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -318,6 +474,12 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (initAtDefinition: ");
 		result.append(initAtDefinition);
+		result.append(", initWithConstantValue: ");
+		result.append(initWithConstantValue);
+		result.append(", hasConst: ");
+		result.append(hasConst);
+		result.append(", hasStatic: ");
+		result.append(hasStatic);
 		result.append(')');
 		return result.toString();
 	}

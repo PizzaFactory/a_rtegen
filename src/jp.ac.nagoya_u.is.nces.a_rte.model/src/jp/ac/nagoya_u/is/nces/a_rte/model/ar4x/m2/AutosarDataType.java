@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,23 +101,12 @@ public interface AutosarDataType extends ArElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Invalid Value</em>' reference.
-	 * @see #setInvalidValue(ValueSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_InvalidValue()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.invalidValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.invalidValue\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	ValueSpecification getInvalidValue();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType#getInvalidValue <em>Invalid Value</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Invalid Value</em>' reference.
-	 * @see #getInvalidValue()
-	 * @generated
-	 */
-	void setInvalidValue(ValueSpecification value);
 
 	/**
 	 * Returns the value of the '<em><b>Compu Method</b></em>' reference.
@@ -128,23 +117,12 @@ public interface AutosarDataType extends ArElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Compu Method</em>' reference.
-	 * @see #setCompuMethod(CompuMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_CompuMethod()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.compuMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.compuMethod\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	CompuMethod getCompuMethod();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType#getCompuMethod <em>Compu Method</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Compu Method</em>' reference.
-	 * @see #getCompuMethod()
-	 * @generated
-	 */
-	void setCompuMethod(CompuMethod value);
 
 	/**
 	 * Returns the value of the '<em><b>Data Constr</b></em>' reference.
@@ -155,23 +133,12 @@ public interface AutosarDataType extends ArElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Constr</em>' reference.
-	 * @see #setDataConstr(DataConstr)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_DataConstr()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.dataConstr.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.dataConstr\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	DataConstr getDataConstr();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType#getDataConstr <em>Data Constr</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Constr</em>' reference.
-	 * @see #getDataConstr()
-	 * @generated
-	 */
-	void setDataConstr(DataConstr value);
 
 	/**
 	 * Returns the value of the '<em><b>Sw Addr Method</b></em>' reference.
@@ -182,23 +149,12 @@ public interface AutosarDataType extends ArElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #setSwAddrMethod(SwAddrMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_SwAddrMethod()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAddrMethod\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	SwAddrMethod getSwAddrMethod();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType#getSwAddrMethod <em>Sw Addr Method</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #getSwAddrMethod()
-	 * @generated
-	 */
-	void setSwAddrMethod(SwAddrMethod value);
 
 	/**
 	 * <!-- begin-user-doc -->

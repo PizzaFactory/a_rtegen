@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: senderReceiverOperation.mtl 8456 2014-06-27 00:35:45Z i.tanaka $
+ *  $Id: senderReceiverOperation.mtl 14527 2015-05-29 09:32:57Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -47,7 +47,6 @@
 
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::operationUtil /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::excludeOperation /]
-
 
 [template public genSendOperation(aSendOperation : SendOperation) /]
 
@@ -59,93 +58,265 @@
 [if aSendOperation.filterOperation.oclIsUndefined()]
 	[aSendOperation.genRteBufferOperation()/]
 [else]
-	[aSendOperation.filterOperation.genFilterOperation(aSendOperation.sendValue, aSendOperation.genRteBufferOperation())/]
+	[aSendOperation.filterOperation.genFilterOperation(aSendOperation.sendValue, aSendOperation.genRteBufferOperation(), aSendOperation.sendValue.genValueAccess())/]
 [/if]
 [let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationExit()/]
 [/let]
 [/template]
 
-[template private genRteBufferOperation(aRteBufferSendOperation : RteBufferNonqueuedSendOperation) post(trim()) ]
-[aRteBufferSendOperation.accessVariable.valueVariable.symbolName/] = [aRteBufferSendOperation.sendValue.genValueAccess()/];
+[template public genRteBufferOperation(aRteBufferSendOperation : RteBufferNonqueuedSendOperation) post(trim()) ]
+[if (aRteBufferSendOperation.accessVariable.valueVariable.type.oclIsKindOf(ArrayType))]
+	Rte_ArrayMemcpy([aRteBufferSendOperation.accessVariable.valueVariable.symbolName/], [aRteBufferSendOperation.sendValue.genPointerAccess()/], [aRteBufferSendOperation.accessVariable.valueVariable.type.symbolName/]);
+[elseif (aRteBufferSendOperation.accessVariable.valueVariable.type.oclIsKindOf(StructType))]
+	Rte_StructMemcpy(&[aRteBufferSendOperation.accessVariable.valueVariable.symbolName/], [aRteBufferSendOperation.sendValue.genPointerAccess()/], [aRteBufferSendOperation.accessVariable.valueVariable.type.symbolName/]);
+[elseif (aRteBufferSendOperation.accessVariable.valueVariable.type.oclIsKindOf(UnionType))]
+	Rte_UnionMemcpy(&[aRteBufferSendOperation.accessVariable.valueVariable.symbolName/], [aRteBufferSendOperation.sendValue.genPointerAccess()/], [aRteBufferSendOperation.accessVariable.valueVariable.type.symbolName/]);
+[else]
+	[aRteBufferSendOperation.accessVariable.valueVariable.symbolName/] = [aRteBufferSendOperation.sendValue.genValueAccess()/];
+[/if]
+
 [if (not aRteBufferSendOperation.accessVariable.statusVariable.oclIsUndefined())]
 	[aRteBufferSendOperation.accessVariable.statusVariable.symbolName/] = [aRteBufferSendOperation.sendStatus.genValueAccess()/];
 [/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteBufferWriteSendOperation) ]
-(void) CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) [aSendOperation.sendValue.genPointerAccess()/]);
+tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) [aSendOperation.sendValue.genPointerAccess()/]); [if (aSendOperation.sendValue.oclIsKindOf(Parameter) and aSendOperation.sendValue.oclAsType(Parameter).hasConst)]/* MISRA RULE 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */[/if]
+if (tmp_ercd != E_OK) {	
+	ercd = RTE_E_DEV_DEFECT;
+}
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteBufferInvalidateSendOperation) ]
-(void) CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) NULL_PTR);
+tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) NULL_PTR);
+if (tmp_ercd != E_OK) {	
+	ercd = RTE_E_DEV_DEFECT;
+}
 [/template]
 
 [template private genSendOperation(aSendOperation : IocNonqueuedSendOperation) ]
-(void) [aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
+[if (aSendOperation.returnVariable.oclIsUndefined())]
+	(void)[aSendOperation.accessApi.symbolName/]([if (aSendOperation.type.oclIsKindOf(StructType) or aSendOperation.type.oclIsKindOf(UnionType))]&[/if][aSendOperation.sendValue.oclAsType(Variable).symbolName/]);
+[else]
+	if ([aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]) != IOC_E_OK) {
+		[if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+				[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+		[else]
+				[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
+		[/if]
+	}
+[/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : ComSendOperation) /]
 
 [template private genSendOperation(aSendOperation : DirectComSendOperation) ]
-if ([aSendOperation.accessApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
-	[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_COM_STOPPED;
-}
+	[if (aSendOperation.accessApi.isSignalGroup)]
+		[aSendOperation.tempReturnVariable.symbolName/] = [aSendOperation.accessApi.symbolName/](&[aSendOperation.accessApi.comSignalSymbolName/], (const uint8*)[aSendOperation.sendValue.genPointerAccess()/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
+	[else]
+		[aSendOperation.tempReturnVariable.symbolName/] = [aSendOperation.accessApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genPointerAccess()/]);
+	[/if]
+	if ([aSendOperation.tempReturnVariable.symbolName/] == E_OK) {
+		/* Nothing to do */
+	} else if ([aSendOperation.tempReturnVariable.symbolName/] == COM_SERVICE_NOT_AVAILABLE) {
+		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_COM_STOPPED;
+	} else {
+		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+	}
+[/template]
+
+[template private genSendOperation(aSendOperation : TrustedFunctionRteSendOperation) ]
+[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+	tfn_prm.tf_data = p_data;
+[else]
+	tfn_prm.tf_data = (void*)data; /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
+[/if]
+	tfn_prm.tf_ercd = RTE_E_OK;
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.srSendTfSymbolName/], (&tfn_prm));
+	if (tmp_ercd != E_OK) {
+		ercd = RTE_E_DEV_DEFECT;
+	}
+	else {
+		ercd = (ercd == RTE_E_OK) ? tfn_prm.tf_ercd : ercd;
+	}
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionComSendOperation) ]
-[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
-[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_data')/] = [aSendOperation.sendValue.genPointerAccess()/];
-if (CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
-	[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_COM_STOPPED;
+[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+	[if (aSendOperation.isGroup)]
+		[aSendOperation.trustedFunctionParamVariable.genMemberAccess('meta')/] = (&[aSendOperation.accessApi.comSignalSymbolName/]);
+	[else]
+		[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
+	[/if]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_data')/] = [aSendOperation.sendValue.genPointerAccess()/];
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+	if (tmp_ercd != E_OK) {
+		ercd = RTE_E_DEV_DEFECT;
+	} else {
+		ercd = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/];
+	}
+[else]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_data')/] = [aSendOperation.sendValue.genPointerAccess()/];
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] = RTE_E_OK;
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+	[aSendOperation.genTrustedReturn()/]
+[/if]
+[/template]
+
+[template private genTrustedInitValue(aSendOperation : TrustedFunctionComSendOperation) ]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_data')/] = [aSendOperation.sendValue.genPointerAccess()/];
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+[/template]
+
+[template private genTrustedReturn(aSendOperation : TrustedFunctionComSendOperation) ]
+if ([aSendOperation.tempReturnVariable.genValueAccess()/] != E_OK) {
+	[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+}
+else {
+	[aSendOperation.returnVariable.genValueAccess()/] = ([aSendOperation.returnVariable.genValueAccess()/] == RTE_E_OK) ? tfn_prm.tf_ercd : [aSendOperation.returnVariable.genValueAccess()/];
 }
 [/template]
 
 [template private genSendOperation(aSendOperation : ImmediateProxyComSendOperation) ]
 [comment NOTE IOC APIの結果からCOMの状態はわからないため，戻り値は返さない/]
-(void) [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
-(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
+[if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
+	if (tmp_ercd == IOC_E_OK) {
+		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
+	} else if (tmp_ercd == IOC_E_LIMIT) {
+		[if (aSendOperation.isWriteApi)]
+			ercd = RTE_E_DEV_DEFECT;
+		[else]
+			ercd = RTE_E_LIMIT;
+		[/if]
+	}
+	else {
+		ercd = RTE_E_SEG_FAULT;
+	}
+[else]
+	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
+	if (tmp_ercd == IOC_E_OK) {
+		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
+		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
+	} else if (tmp_ercd == IOC_E_LIMIT) {
+		[if (aSendOperation.isWriteApi)]
+			ercd = RTE_E_DEV_DEFECT;
+		[else]
+			ercd = RTE_E_LIMIT;
+		[/if]
+	}
+	else {
+		ercd = RTE_E_SEG_FAULT;
+	}
+[/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : PeriodicProxyComSendOperation) ]
 [comment NOTE IOC APIの結果からCOMの状態はわからないため，戻り値は返さない/]
-(void) [aSendOperation.accessProxyApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
+[if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
+	if (tmp_ercd == IOC_E_OK) {
+		/* Nothing to do */
+	} else if (tmp_ercd == IOC_E_LIMIT) {
+		[if (aSendOperation.isWriteApi)]
+			ercd = RTE_E_DEV_DEFECT;
+		[else]
+			ercd = RTE_E_LIMIT;
+		[/if]
+	}
+	else {
+		ercd = RTE_E_SEG_FAULT;
+	}
+[else]
+	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
+	if (tmp_ercd == IOC_E_OK) {
+		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
+	} else if (tmp_ercd == IOC_E_LIMIT) {
+		[if (aSendOperation.isWriteApi)]
+			ercd = RTE_E_DEV_DEFECT;
+		[else]
+			ercd = RTE_E_LIMIT;
+		[/if]
+	}
+	else {
+		ercd = RTE_E_SEG_FAULT;
+	}
+[/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : RteBufferQueuedSendOperation) ]
 [let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationEnter()/]
 [/let]
-[if (aSendOperation.tempReturnVariable.oclIsUndefined())]
-	Rte_EnqueueNoReturn([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/]);
+[if (aSendOperation.returnVariable.oclIsUndefined())]
+	[if (aSendOperation.type.oclIsKindOf(ArrayType))]
+		Rte_EnqueueArrayNoReturn([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/]);
+	[elseif aSendOperation.type.oclIsKindOf(StructType)]
+		Rte_EnqueueStructNoReturn([aSendOperation.accessVariable.genPointerAccess()/], &[aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/]);
+	[elseif aSendOperation.type.oclIsKindOf(UnionType)]
+		Rte_EnqueueUnionNoReturn([aSendOperation.accessVariable.genPointerAccess()/], &[aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/]);
+	[else]
+		Rte_EnqueueNoReturn([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/]);
+	[/if]
 [else]
-	Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.tempReturnVariable.genPointerAccess()/]);
+	[if (aSendOperation.type.oclIsKindOf(ArrayType))]
+		Rte_EnqueueArray([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	[elseif aSendOperation.type.oclIsKindOf(StructType)]
+		Rte_EnqueueStruct([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	[elseif aSendOperation.type.oclIsKindOf(UnionType)]
+		Rte_EnqueueUnion([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	[else]
+		Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], [aSendOperation.sendValue.genValueAccess()/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]);
+	[/if]
 [/if]
 [let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationExit()/]
 [/let]
-[if (not aSendOperation.returnVariable.oclIsUndefined())]
-	if ([aSendOperation.tempReturnVariable.genValueAccess()/] == RTE_E_LIMIT) {
-		[aSendOperation.returnVariable.genValueAccess()/] = [aSendOperation.tempReturnVariable.genValueAccess()/];
-	}
-[/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : IocQueuedSendOperation) ]
 [if (aSendOperation.returnVariable.oclIsUndefined())]
-	(void) [aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
+	(void) [aSendOperation.accessApi.symbolName/]([if (aSendOperation.type.oclIsKindOf(StructType) or aSendOperation.type.oclIsKindOf(UnionType))]&[/if][aSendOperation.sendValue.oclAsType(Variable).symbolName/]);
 [else]
-	if ([aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]) == IOC_E_LIMIT) {
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = [aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
+	if ([aSendOperation.tempReturnVariable.genValueAccess()/] == IOC_E_LIMIT) {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_LIMIT;
+	} else if ([aSendOperation.tempReturnVariable.genValueAccess()/] != IOC_E_OK) {
+		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
+	} else {
+		/* Nothing to do */
 	}
 [/if]
 [/template]
 
-[template private genFilterOperation(aFilterOperation : FilterOperation, aValue : Value, aBody : String)]
+[template public genTrustedSendOperation(aSendOperation : SendOperation) /]
+
+[template private genTrustedSendOperation(aSendOperation : RteBufferQueuedSendOperation) ]
+[let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
+	[aExcludeOperation.genExcludeOperationEnter()/]
+[/let]
+[if (aSendOperation.type.oclIsKindOf(ArrayType))]
+	Rte_EnqueueArray([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+[elseif aSendOperation.type.oclIsKindOf(StructType)]
+	Rte_EnqueueStruct([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+[elseif aSendOperation.type.oclIsKindOf(UnionType)]
+	Rte_EnqueueUnion([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+[else]
+	Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/]) p_tfn_prm->tf_data, [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
+[/if]
+[let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
+	[aExcludeOperation.genExcludeOperationExit()/]
+[/let]
+[/template]
+
+[template public genFilterOperation(aFilterOperation : FilterOperation, aValue : Value, aBody : String, aParamName : String)]
 [aFilterOperation.filterResultVariable.genValueAccess()/] = FALSE;
-if ([aFilterOperation.genFilterCheck(aValue)/]) {
+if ([aFilterOperation.genFilterCheck(aValue, aParamName)/]) {
 	[let aMaskedNewDiffersMaskedOldFilterOperation : MaskedNewDiffersMaskedOldFilterOperation = aFilterOperation]
-		[aMaskedNewDiffersMaskedOldFilterOperation.oldValueVariable.genValueAccess()/] = [aValue.genValueAccess()/];
+		[aMaskedNewDiffersMaskedOldFilterOperation.oldValueVariable.genValueAccess()/] = [aParamName/];
 	[/let]
 	[aFilterOperation.filterResultVariable.genValueAccess()/] = TRUE;
 }
@@ -160,10 +331,21 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [template public genReadOperation(aReadOperation : ReadOperation) /]
 
 [template private genReadOperation(aReadOperation : RteBufferNonqueuedReadOperation) ]
+
 [let aExcludeOperation : ExcludeOperation = aReadOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationEnter()/]
 [/let]
-[aReadOperation.readValueVariable.genValueAccess()/] = [aReadOperation.accessVariable.valueVariable.genValueAccess()/];
+
+[if aReadOperation.readValueVariable.type.oclIsKindOf(ArrayType)]
+	Rte_ArrayMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], [aReadOperation.accessVariable.valueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(StructType)]
+	Rte_StructMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], [aReadOperation.accessVariable.valueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(UnionType)]
+	Rte_UnionMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], [aReadOperation.accessVariable.valueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/]);
+[else]
+	[aReadOperation.readValueVariable.genValueAccess()/] = [aReadOperation.accessVariable.valueVariable.genValueAccess()/];
+[/if]
+
 [if (not aReadOperation.accessVariable.statusVariable.oclIsUndefined())]
 	[if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
 		if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
@@ -194,8 +376,8 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 
 [template private genReadOperation(aReadOperation : IocNonqueuedReadOperation) ]
 [comment 正常なコンフィギュレーションが行なわれていれば必ず成功するので，戻り値の確認は不要 /]
-(void) [aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]);
 [if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
+	(void) [aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]);
 	if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
 		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_INVALID;
 	}
@@ -204,25 +386,40 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 	}
 [else]
 	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
+	if ([aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]) != IOC_E_OK) {
+		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
+	}
 [/if]
 [/template]
 
 [template private genReadOperation(aReadOperation : ComReadOperation) ]
 [comment 正常なコンフィギュレーションが行なわれていれば必ず値が取得できるので，戻り値の確認は不要 /]
 [if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
-	if ([aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
-		ercd = RTE_E_COM_STOPPED;
-	}
-	else if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
-		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_INVALID;
-	}
-	else {
-		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
+	[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]);
+	if ([aReadOperation.tempReturnVariable.symbolName/] == E_OK) {
+		if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
+			[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_INVALID;
+		} else {
+			/* Nothing to do */
+		}
+	} else if ([aReadOperation.tempReturnVariable.symbolName/] == COM_SERVICE_NOT_AVAILABLE) {
+		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_COM_STOPPED;
+	} else {
+		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
 	}
 [else]
 	ercd = RTE_E_OK;
-	if ([aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]) == COM_SERVICE_NOT_AVAILABLE) {
+	[if (aReadOperation.accessApi.isSignalGroup)]
+		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/](&[aReadOperation.accessApi.comSignalSymbolName/], (uint8*)[aReadOperation.readValueVariable.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
+	[else]
+		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]);
+	[/if]
+	if ([aReadOperation.tempReturnVariable.symbolName/] == E_OK) {
+		/* Nothing to do */
+	} else if ([aReadOperation.tempReturnVariable.symbolName/] == COM_SERVICE_NOT_AVAILABLE) {
 		ercd = RTE_E_COM_STOPPED;
+	} else {
+		ercd = RTE_E_DEV_DEFECT;
 	}
 [/if]
 [/template]
@@ -235,48 +432,60 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [let aExcludeOperation : ExcludeOperation = aReadOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationEnter()/]
 [/let]
+
+[if aReadOperation.readValueVariable.type.oclIsKindOf(ArrayType)]
+Rte_DequeueArray(&[aReadOperation.accessVariable.symbolName/], [aReadOperation.readValueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/], (Std_ReturnType *) [aReadOperation.readStatusVariable.genPointerAccess()/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(StructType)]
+Rte_DequeueStruct(&[aReadOperation.accessVariable.symbolName/], [aReadOperation.readValueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/], (Std_ReturnType *) [aReadOperation.readStatusVariable.genPointerAccess()/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(UnionType)]
+Rte_DequeueUnion(&[aReadOperation.accessVariable.symbolName/], [aReadOperation.readValueVariable.genPointerAccess()/], [aReadOperation.readValueVariable.type.symbolName/], (Std_ReturnType *) [aReadOperation.readStatusVariable.genPointerAccess()/]);
+[else]
 Rte_Dequeue([aReadOperation.accessVariable.genPointerAccess()/], [aReadOperation.readValueVariable.genPointerAccess()/], (Std_ReturnType *) [aReadOperation.readStatusVariable.genPointerAccess()/]);
+[/if]
 [let aExcludeOperation : ExcludeOperation = aReadOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationExit()/]
 [/let]
 [/template]
 
 [template private genReadOperation(aReadOperation : IocQueuedReadOperation) ]
-[aReadOperation.readStatusVariable.genValueAccess()/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]);
-if ([aReadOperation.readStatusVariable.genValueAccess()/] == IOC_E_NO_DATA) {
+[aReadOperation.tempReturnVariable.genValueAccess()/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]);
+if ([aReadOperation.tempReturnVariable.genValueAccess()/] ==  IOC_E_OK) {
+	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
+}
+else if ([aReadOperation.tempReturnVariable.genValueAccess()/] == IOC_E_NO_DATA) {
 	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_NO_DATA;
 }
-else if ([aReadOperation.readStatusVariable.genValueAccess()/] == IOC_E_LOST_DATA) {
+else if ([aReadOperation.tempReturnVariable.genValueAccess()/] == IOC_E_LOST_DATA) {
 	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_LOST_DATA;
 }
 else {
-	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_OK;
+	[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
 }
 [/template]
 
-[template private genFilterCheck(aFilterOperation : FilterOperation, aValue : Value) /]
+[template private genFilterCheck(aFilterOperation : FilterOperation, aValue : Value, aParamName: String) /]
 
-[template private genFilterCheck(aFilterOperation : MaskedNewEqualsXFilterOperation, aValue : Value) post(trim())]
+[template private genFilterCheck(aFilterOperation : MaskedNewEqualsXFilterOperation, aValue : Value, aParamName: String) post(trim())]
 (Rte_FilterMaskedNewEqualsX([aValue.genValueAccess()/], [aFilterOperation.mask.genValueAccess()/], [aFilterOperation.x.genValueAccess()/]) == TRUE)
 [/template]
 
-[template private genFilterCheck(aFilterOperation : MaskedNewDiffersXFilterOperation, aValue : Value) post(trim())]
+[template private genFilterCheck(aFilterOperation : MaskedNewDiffersXFilterOperation, aValue : Value, aParamName: String) post(trim())]
 (Rte_FilterMaskedNewDiffersX([aValue.genValueAccess()/], [aFilterOperation.mask.genValueAccess()/], [aFilterOperation.x.genValueAccess()/]) == TRUE)
 [/template]
 
-[template private genFilterCheck(aFilterOperation : MaskedNewDiffersMaskedOldFilterOperation, aValue : Value) post(trim())]
-(Rte_FilterMaskedNewDiffersMaskedOld([aValue.genValueAccess()/], [aFilterOperation.oldValueVariable.genValueAccess()/], [aFilterOperation.mask.genValueAccess()/]) == TRUE)
+[template private genFilterCheck(aFilterOperation : MaskedNewDiffersMaskedOldFilterOperation, aValue : Value, aParamName: String) post(trim())]
+(Rte_FilterMaskedNewDiffersMaskedOld([aParamName/], [aFilterOperation.oldValueVariable.genValueAccess()/], [aFilterOperation.mask.genValueAccess()/]) == TRUE)
 [/template]
 
-[template private genFilterCheck(aFilterOperation : NewIsWithinFilterOperation, aValue : Value) post(trim())]
+[template private genFilterCheck(aFilterOperation : NewIsWithinFilterOperation, aValue : Value, aParamName: String) post(trim())]
 (Rte_FilterNewIsWithin([aValue.genValueAccess()/], [aFilterOperation.min.genValueAccess()/], [aFilterOperation.max.genValueAccess()/]) == TRUE)
 [/template]
 
-[template private genFilterCheck(aFilterOperation : NewIsOutsideFilterOperation, aValue : Value) post(trim())]
+[template private genFilterCheck(aFilterOperation : NewIsOutsideFilterOperation, aValue : Value, aParamName: String) post(trim())]
 (Rte_FilterNewIsOutside([aValue.genValueAccess()/], [aFilterOperation.min.genValueAccess()/], [aFilterOperation.max.genValueAccess()/]) == TRUE)
 [/template]
 
-[template private genFilterCheck(aFilterOperation : OneEveryNFilterOperation, aValue : Value) post(trim())]
+[template private genFilterCheck(aFilterOperation : OneEveryNFilterOperation, aValue : Value, aParamName: String) post(trim())]
 (Rte_FilterOneEveryN([aFilterOperation.occurrenceVariable.genValueAccess()/], [aFilterOperation.period.genValueAccess()/], [aFilterOperation.offset.genValueAccess()/]) == TRUE)
 [/template]
 

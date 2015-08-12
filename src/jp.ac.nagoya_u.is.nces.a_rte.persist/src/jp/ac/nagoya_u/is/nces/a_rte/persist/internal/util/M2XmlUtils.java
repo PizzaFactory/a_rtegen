@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,6 +42,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist.internal.util;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.IINSTANCE_REF;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.NameStringUtils;
 
@@ -55,7 +56,7 @@ import com.google.common.base.Optional;
 public class M2XmlUtils {
 	public static final String W3C_XML_SCHEMA = "http://www.w3.org/2001/XMLSchema";
 
-	public enum XmlWrapType {
+	public enum XmlWrapType { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，staticメソッド群のクラスであるため問題ない)
 		ROLE_WRAPPER_AND_ROLE, ROLE_WRAPPER_AND_TYPE, ROLE_AND_TYPE, ROLE, TYPE, REFERENCE_WRAPPER_AND_REFERENCE, REFERENCE, TYPE_REFERENCE, UNKNOWN,
 	}
 
@@ -101,7 +102,11 @@ public class M2XmlUtils {
 		switch (referenceType) {
 		case CONTAINMENT:
 			if (eReference.isMany() || M2ModelUtils.isXmlRoleWrapperEnabled(eReference, false)) {
-				return XmlWrapType.ROLE_WRAPPER_AND_TYPE;
+				if (IINSTANCE_REF.isSuperTypeOf((EClass) eReference.getEType())) { // iref
+					return XmlWrapType.ROLE_WRAPPER_AND_ROLE;
+				} else {
+					return XmlWrapType.ROLE_WRAPPER_AND_TYPE;
+				}
 			} else if (((EClass) eReference.getEType()).isAbstract()) {
 				return XmlWrapType.ROLE_AND_TYPE;
 			} else {

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,23 +45,14 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
-
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -71,13 +62,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getRoleParam <em>Role Param</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getParentPartedBswm <em>Parent Parted Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl#getIsNoMock <em>Is No Mock</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEntity {
+public abstract class ExecutableEntityImpl extends FunctionImpl implements ExecutableEntity {
 	/**
 	 * The cached value of the '{@link #getRoleParam() <em>Role Param</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -87,6 +78,25 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 	 * @ordered
 	 */
 	protected EList<Parameter> roleParam;
+
+	/**
+	 * The default value of the '{@link #getIsNoMock() <em>Is No Mock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoMock()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_NO_MOCK_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsNoMock() <em>Is No Mock</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoMock()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isNoMock = IS_NO_MOCK_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -124,9 +134,8 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PartedBswm getParentPartedBswm() {
-		if (eContainerFeatureID() != ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM) return null;
-		return (PartedBswm)eInternalContainer();
+	public Boolean getIsNoMock() {
+		return isNoMock;
 	}
 
 	/**
@@ -134,74 +143,11 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParentPartedBswm(PartedBswm newParentPartedBswm, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newParentPartedBswm, ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParentPartedBswm(PartedBswm newParentPartedBswm) {
-		if (newParentPartedBswm != eInternalContainer() || (eContainerFeatureID() != ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM && newParentPartedBswm != null)) {
-			if (EcoreUtil.isAncestor(this, (EObject)newParentPartedBswm))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newParentPartedBswm != null)
-				msgs = ((InternalEObject)newParentPartedBswm).eInverseAdd(this, ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY, PartedBswm.class, msgs);
-			msgs = basicSetParentPartedBswm(newParentPartedBswm, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM, newParentPartedBswm, newParentPartedBswm));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetParentPartedBswm((PartedBswm)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				return basicSetParentPartedBswm(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				return eInternalContainer().eInverseRemove(this, ModulePackage.PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY, PartedBswm.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
+	public void setIsNoMock(Boolean newIsNoMock) {
+		Boolean oldIsNoMock = isNoMock;
+		isNoMock = newIsNoMock;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK, oldIsNoMock, isNoMock));
 	}
 
 	/**
@@ -214,8 +160,8 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 		switch (featureID) {
 			case ModulePackage.EXECUTABLE_ENTITY__ROLE_PARAM:
 				return getRoleParam();
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				return getParentPartedBswm();
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				return getIsNoMock();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,8 +179,8 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 				getRoleParam().clear();
 				getRoleParam().addAll((Collection<? extends Parameter>)newValue);
 				return;
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				setParentPartedBswm((PartedBswm)newValue);
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				setIsNoMock((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -251,8 +197,8 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 			case ModulePackage.EXECUTABLE_ENTITY__ROLE_PARAM:
 				getRoleParam().clear();
 				return;
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				setParentPartedBswm((PartedBswm)null);
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				setIsNoMock(IS_NO_MOCK_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -268,10 +214,26 @@ public class ExecutableEntityImpl extends FunctionImpl implements ExecutableEnti
 		switch (featureID) {
 			case ModulePackage.EXECUTABLE_ENTITY__ROLE_PARAM:
 				return roleParam != null && !roleParam.isEmpty();
-			case ModulePackage.EXECUTABLE_ENTITY__PARENT_PARTED_BSWM:
-				return getParentPartedBswm() != null;
+			case ModulePackage.EXECUTABLE_ENTITY__IS_NO_MOCK:
+				return IS_NO_MOCK_EDEFAULT == null ? isNoMock != null : !IS_NO_MOCK_EDEFAULT.equals(isNoMock);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isNoMock: ");
+		result.append(isNoMock);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExecutableEntityImpl

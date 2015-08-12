@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: operationUtil.mtl 14111 2015-05-01 04:12:09Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -51,20 +51,50 @@
 [for (aVariable : LocalVariable | aFunction.localVariable)]
 	[aVariable.genLocalVariableDeclaration()/]
 [/for]
+[/template]
 
+[template public genLocalVariableInitializations(aFunction : Function) post (trim())]
 [for (aVariable : LocalVariable | aFunction.localVariable)]
 	[aVariable.genLocalVariableInitialization()/]
 [/for]
 [/template]
 
 [template private genLocalVariableDeclaration(aLocalVariable : LocalVariable) post (trim())]
-[aLocalVariable.type.genTypePartOfVariableDeclaration()/] [aLocalVariable.symbolName/]; [if aLocalVariable.type.oclIsKindOf(UnionType)]/* MISRA RULE 18.4 VIOLATION : It is safe because the union data is not used at the same time */[/if]
+[if (aLocalVariable.type.oclIsKindOf(ArrayType))]
+	[aLocalVariable.type.genTypePartOfVariableDeclaration()/] *[aLocalVariable.symbolName/];
+[else]
+	[aLocalVariable.type.genTypePartOfVariableDeclaration()/] [aLocalVariable.symbolName/]; [if (aLocalVariable.type.oclIsKindOf(UnionType))]/* MISRA RULE 18.4 VIOLATION : It is safe because the union data is not used at the same time */[/if]
+[/if]
 [/template]
 
 [template private genLocalVariableInitialization(aLocalVariable : LocalVariable) post (trim())]
 [let aInitValueConstant : Constant = aLocalVariable.initValueConstant]
 	[aLocalVariable.genSymbolAccess()/] = [aInitValueConstant.genSymbolAccess()/];
 [/let]
+[/template]
+
+[template public genCsArgAccess(aValue : Value) post (trim())]
+[if (not aValue.oclIsUndefined())]
+	[aValue.genDoCsArgAccess()/]
+[/if]
+[/template]
+
+[template private genDoCsArgAccess(aValue : Value) /]
+
+[template private genDoCsArgAccess(aValue : Constant) post (trim())]
+[aValue.symbolName/]
+[/template]
+
+[template private genDoCsArgAccess(aValue : Variable) post (trim())]
+[aValue.symbolName/]
+[/template]
+
+[template private genDoCsArgAccess(aValue : GlobalVariable) post (trim())]
+[if ((aValue.type.oclIsTypeOf(ArrayType)) or (aValue.type.oclIsTypeOf(RedefinitionArrayType)))]
+	[aValue.symbolName/]
+[else]
+	&[aValue.symbolName/]
+[/if]
 [/template]
 
 [template public genSymbolAccess(aValue : Value) post (trim())]
@@ -113,7 +143,15 @@
 [if (aValue.passType = ParameterPassTypeEnum::value)]
 	[aValue.symbolName/]
 [else]
-	(*[aValue.symbolName/])
+	[if (aValue.type.oclIsKindOf(StructType))]
+		[aValue.symbolName/]
+	[elseif (aValue.type.oclIsKindOf(PrimitiveType))]
+		(*[aValue.symbolName/])
+	[elseif (aValue.type.oclIsKindOf(PointerType))]
+		(*[aValue.symbolName/])
+	[else]
+		[aValue.symbolName/]
+	[/if]
 [/if]
 [/template]
 
@@ -133,14 +171,18 @@
 
 [template private genDoPointerAccess(aValue : Parameter) post (trim())]
 [if (aValue.passType = ParameterPassTypeEnum::value)]
-	(&[aValue.symbolName/])
+	&[aValue.symbolName/]
 [else]
 	[aValue.symbolName/]
 [/if]
 [/template]
 
 [template private genDoPointerAccess(aValue : Variable) post (trim())]
+[if (aValue.type.oclIsKindOf(ArrayType))]
+[aValue.symbolName/]
+[else]
 (&[aValue.symbolName/])
+[/if]
 [/template]
 
 [template private genDoPointerAccess(aValue : VariableMember) post (trim())]

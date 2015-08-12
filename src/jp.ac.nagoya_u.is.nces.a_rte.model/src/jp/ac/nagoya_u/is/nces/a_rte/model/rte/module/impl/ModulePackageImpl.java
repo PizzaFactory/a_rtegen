@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,50 +59,60 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.impl.RtePackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMappingHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalPeriodicEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NeverReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DirectComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DirectExecutableStartOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GenerationInfo;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ImmediateProxyComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi;
@@ -122,7 +132,12 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalCompartment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
@@ -130,6 +145,12 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MaskedNewDiffersMaskedOldFi
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MaskedNewDiffersXFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MaskedNewEqualsXFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkTypeHeader;
@@ -139,9 +160,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleReferrable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreSchmInitApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NeverReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NewIsOutsideFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NewIsWithinFilterOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OneEveryNFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Operation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi;
@@ -155,25 +177,39 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSuspendAllInterruptsApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEventsTriggeredByMode;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ImmediateProxyComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PeriodicProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionTableFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionTableVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionArrayType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionPointerType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionPrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionStructType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionUnionType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApplicationTypeHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBswApiHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
@@ -181,51 +217,65 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCallbackHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteConfigurationHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteInternalHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStopApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteTypeHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteUtilityHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteVfbTraceHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmDeinitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmEnterApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmExitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmLifecycleApiFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapperFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreSchmInitApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SourceFile;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructMember;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMappingHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
@@ -318,7 +368,49 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass irvReadOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass irvReadApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass irvWriteOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass irvWriteApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass rteBufferVariableSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass globalVariableSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comProxyFunctionTableVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -430,6 +522,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass rteBswApiHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass rteLifecycleHeaderEClass = null;
 
 	/**
@@ -487,6 +586,27 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass directComSendOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trustedFunctionRteOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trustedFunctionRteSendOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trustedFunctionRteBufferWriteSendOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -598,6 +718,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass comSendSignalProxyEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass comSendSignalImmediateEntityEClass = null;
 
 	/**
@@ -669,328 +796,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass rteStopApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass headerFileEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass sourceFileEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteInternalHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass primitiveTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unionTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass blackboxTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass unionMemberEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variableMemberEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteUtilityHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass blackboxHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteBufferQueueTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass comSendTrustedFunctionParamTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass neverReadOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteBufferInvalidateTrustedFunctionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass trustedFunctionRteBufferInvalidateSendOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass memoryMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass swcMemoryMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bswMemoryMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass globalVariableGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass functionGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteApiGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rteLifecycleApiGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass taskBodyGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bswSchedulableEntityGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass comCallbackGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass trustedFunctionGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass executableEntityGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bswMemoryMappingHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass swcMemoryMappingHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass generationInfoEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass macroEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmLifecycleApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmEnterApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmExitApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass moduleInterlinkHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmApiGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass moduleInterlinkTypeHeaderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmLifecycleApiGroupEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass partedBswmEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass bswmEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmDeinitApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmInitApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass singlecoreSchmInitApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass multicoreSchmInitApiEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass schmCoreInitApiImplEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1081,6 +886,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass iocSendOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass iocQueuedSendOperationEClass = null;
 
 	/**
@@ -1102,7 +914,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tfCallApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass executableStartOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass disabledInModeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1151,6 +977,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass noneExcludeOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass constantEClass = null;
 
 	/**
@@ -1158,7 +991,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass constantMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass bswSchedulableEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass runnableEntityEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1215,6 +1062,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass timingTriggeringExecutableStartOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeSwitchTriggeringExecutableStartOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1319,7 +1173,14 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass comSendProxyOperationEClass = null;
+	private EClass primitiveComSendProxyOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexComSendProxyOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1396,7 +1257,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass trustedFunctionRteBufferWriteSendOperationEClass = null;
+	private EClass csTrustedFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass csTfCalledRunnableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass serverRunnableStartOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1431,13 +1306,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass directExecutableStartOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass singlecoreRteStartApiEClass = null;
 
 	/**
@@ -1452,7 +1320,539 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass headerFileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sourceFileEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteInternalHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeDeclarationGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeMachineInstanceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionMacroEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comProxyFunctionTableFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass primitiveTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionPrimitiveTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass arrayTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionArrayTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionUnionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass structTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionStructTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blackboxTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass unionMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass structMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass variableMemberEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteUtilityHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blackboxHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteBufferQueueTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeQueueTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteSendTrustedFunctionParamTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comSendTrustedFunctionParamTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass csTrustedFunctionParamTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass neverReadOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteBufferInvalidateTrustedFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trustedFunctionRteBufferInvalidateSendOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass memoryMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swcMemoryMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bswMemoryMappingEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass globalVariableFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteApiFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteLifecycleApiFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskBodyFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bswSchedulableEntityFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comCallbackFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass trustedFunctionFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executableEntityFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bswMemoryMappingHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass swcMemoryMappingHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass generationInfoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass macroEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comSignalApiWrapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comProxyFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comSendSignalApiWrapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comReceiveSignalApiWrapperEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmLifecycleApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmEnterApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmExitApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmSwitchApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass osTaskEventsTriggeredByModeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass osTaskEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeQueuedVariableEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmModeApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass moduleInterlinkHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmApiFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comSignalApiWrapperFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comProxyFunctionFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass moduleInterlinkTypeHeaderEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmLifecycleApiFileContentsGroupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass partedBswmEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bswmEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmDeinitApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmInitApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass singlecoreSchmInitApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass multicoreSchmInitApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass schmCoreInitApiImplEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pointerTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionPointerTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass redefinitionTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum parameterPassTypeEnumEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterDirectionEnumEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1466,7 +1866,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum constantTypeEnumEEnum = null;
+	private EEnum constantValueTypeEnumEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1682,6 +2082,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getWriteApi_NeedsCheckArg() {
+		return (EAttribute)writeApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSendOperation() {
 		return sendOperationEClass;
 	}
@@ -1720,6 +2129,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getSendOperation_ReturnVariable() {
 		return (EReference)sendOperationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSendOperation_IsWriteApi() {
+		return (EAttribute)sendOperationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1844,6 +2262,132 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIrvReadOperation() {
+		return irvReadOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvReadOperation_AccessVariable() {
+		return (EReference)irvReadOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvReadOperation_ReadValueVariable() {
+		return (EReference)irvReadOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvReadOperation_ExcludeOperation() {
+		return (EReference)irvReadOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIrvReadApi() {
+		return irvReadApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvReadApi_Operation() {
+		return (EReference)irvReadApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvReadApi_DataParam() {
+		return (EReference)irvReadApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIrvWriteOperation() {
+		return irvWriteOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvWriteOperation_AccessVariable() {
+		return (EReference)irvWriteOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvWriteOperation_WriteValueVariable() {
+		return (EReference)irvWriteOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvWriteOperation_ExcludeOperation() {
+		return (EReference)irvWriteOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIrvWriteApi() {
+		return irvWriteApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvWriteApi_Operation() {
+		return (EReference)irvWriteApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIrvWriteApi_DataParam() {
+		return (EReference)irvWriteApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRteBufferVariableSet() {
 		return rteBufferVariableSetEClass;
 	}
@@ -1871,6 +2415,51 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRteBufferVariableSet_InitValueVariable() {
+		return (EReference)rteBufferVariableSetEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferVariableSet_ComplexVariable() {
+		return (EReference)rteBufferVariableSetEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGlobalVariableSet() {
+		return globalVariableSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGlobalVariableSet_GlobalVariable() {
+		return (EReference)globalVariableSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComProxyFunctionTableVariable() {
+		return comProxyFunctionTableVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRteSource() {
 		return rteSourceEClass;
 	}
@@ -1889,7 +2478,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_BswSchedulableEntityGroup() {
+	public EReference getRteSource_DependentExternalExecutableEntityGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1898,7 +2487,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_RteApiGroup() {
+	public EReference getRteSource_BswSchedulableEntityGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1907,7 +2496,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_RteLifecycleApiGroup() {
+	public EReference getRteSource_RteApiGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1916,7 +2505,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_TaskBodyGroup() {
+	public EReference getRteSource_RteLifecycleApiGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1925,7 +2514,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_ComCallbackGroup() {
+	public EReference getRteSource_TaskBodyGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1934,7 +2523,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_TrustedFunctionGroup() {
+	public EReference getRteSource_ComCallbackGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1943,7 +2532,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_SourceMacro() {
+	public EReference getRteSource_TrustedFunctionGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1952,7 +2541,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_SchmLifecycleApiGroup() {
+	public EReference getRteSource_SourceMacro() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1961,8 +2550,35 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteSource_SchmApiGroup() {
+	public EReference getRteSource_SchmLifecycleApiGroup() {
 		return (EReference)rteSourceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteSource_SchmApiGroup() {
+		return (EReference)rteSourceEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteSource_ComSignalApiWrapperGroup() {
+		return (EReference)rteSourceEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteSource_ComProxyFunctionGroup() {
+		return (EReference)rteSourceEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1980,7 +2596,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EAttribute getRteApi_ApiMappingName() {
-		return (EAttribute)rteApiEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)rteApiEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1989,7 +2605,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRteApi_ReturnValue() {
-		return (EReference)rteApiEClass.getEStructuralFeatures().get(1);
+		return (EReference)rteApiEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApi_InlineConstant() {
+		return (EReference)rteApiEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApi_InlineGlobalVariable() {
+		return (EReference)rteApiEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApi_InlineRunnableEntity() {
+		return (EReference)rteApiEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2007,7 +2650,16 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRteApi_Parent() {
-		return (EReference)rteApiEClass.getEStructuralFeatures().get(3);
+		return (EReference)rteApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRteApi_IsInline() {
+		return (EAttribute)rteApiEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2025,7 +2677,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRteModule_RteCommonSource() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(0);
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -2034,7 +2686,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRteModule_RtePartitionSource() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(1);
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2043,42 +2695,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRteModule_RteApplicationHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteApplicationTypeHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteLifecycleHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteCallbackHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteConfigurationHeader() {
 		return (EReference)rteModuleEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2087,8 +2703,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_RteVfbTraceHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(7);
+	public EReference getRteModule_RteApplicationTypeHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2096,16 +2712,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_RteTypeHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteHeader() {
+	public EReference getRteModule_RteLifecycleHeader() {
 		return (EReference)rteModuleEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -2114,25 +2721,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_RteCommonHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RtePartitionHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(11);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteModule_RteUtilityHeader() {
+	public EReference getRteModule_RteCallbackHeader() {
 		return (EReference)rteModuleEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -2141,8 +2730,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_DependentHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(13);
+	public EReference getRteModule_RteConfigurationHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -2150,8 +2739,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_BswMemoryMappingHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(14);
+	public EReference getRteModule_RteVfbTraceHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2159,7 +2748,25 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_SwcMemoryMappingHeader() {
+	public EReference getRteModule_RteTypeHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_RteHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_RteCommonHeader() {
 		return (EReference)rteModuleEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -2168,7 +2775,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteModule_ModuleInterlinkHeader() {
+	public EReference getRteModule_RtePartitionHeader() {
 		return (EReference)rteModuleEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -2177,8 +2784,62 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRteModule_RteUtilityHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_DependentHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_BswMemoryMappingHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_SwcMemoryMappingHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_ModuleInterlinkHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getRteModule_ModuleInterlinkTypeHeader() {
-		return (EReference)rteModuleEClass.getEStructuralFeatures().get(17);
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteModule_RteBswApiHeader() {
+		return (EReference)rteModuleEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -2215,6 +2876,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EAttribute getGlobalVariable_InitAtDefinition() {
 		return (EAttribute)globalVariableEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGlobalVariable_InitWithConstantValue() {
+		return (EAttribute)globalVariableEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGlobalVariable_HasConst() {
+		return (EAttribute)globalVariableEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGlobalVariable_HasStatic() {
+		return (EAttribute)globalVariableEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2267,6 +2955,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParameter_Direction() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getParameter_HasConst() {
+		return (EAttribute)parameterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getType() {
 		return typeEClass;
 	}
@@ -2287,6 +2993,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EAttribute getType_IsAnonymous() {
 		return (EAttribute)typeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getType_Signedness() {
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getType_OriginalTypeSymbolName() {
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getType_Size() {
+		return (EAttribute)typeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -2330,8 +3063,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteApplicationHeader_RteApiGroup() {
-		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRteApplicationHeader_HasInlineApi() {
+		return (EAttribute)rteApplicationHeaderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2339,7 +3072,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteApplicationHeader_Constant() {
+	public EReference getRteApplicationHeader_SourceMacro() {
 		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2348,8 +3081,44 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRteApplicationHeader_DependentExecutableEntityGroup() {
+	public EReference getRteApplicationHeader_GlobalVariableGroup() {
 		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApplicationHeader_RteApiGroup() {
+		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApplicationHeader_DeclarationsRteApiGroup() {
+		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApplicationHeader_Constant() {
+		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApplicationHeader_DependentExecutableEntityGroup() {
+		return (EReference)rteApplicationHeaderEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -2359,15 +3128,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getFunction() {
 		return functionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFunction_SymbolName() {
-		return (EAttribute)functionEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -2420,6 +3180,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFunction_SymbolName() {
+		return (EAttribute)functionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLogicalCompartment() {
 		return logicalCompartmentEClass;
 	}
@@ -2456,17 +3225,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCore_RteStartApi() {
-		return (EReference)coreEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getCore_CoreId() {
-		return (EAttribute)coreEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)coreEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2475,7 +3235,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EAttribute getCore_IsMasterCore() {
-		return (EAttribute)coreEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)coreEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2483,7 +3243,16 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCore_SchmInitApi() {
+	public EReference getCore_RteCoreStartApiImpl() {
+		return (EReference)coreEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCore_SchmCoreInitApiImpl() {
 		return (EReference)coreEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2502,7 +3271,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EAttribute getPartition_IsBswPartition() {
-		return (EAttribute)partitionEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)partitionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2511,7 +3280,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_Parent() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(1);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2520,34 +3289,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_Swc() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartition_RteBufferVariableSet() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartition_FilterOldValueVariable() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartition_FilterOccurrenceVariable() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(5);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2556,7 +3298,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_RestartPartitionApi() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(6);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -2565,7 +3307,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_PartitionTerminatedApi() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(7);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -2574,7 +3316,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_PartitionRestartingApi() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(8);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(29);
 	}
 
 	/**
@@ -2583,7 +3325,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_TaskBody() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(9);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -2591,8 +3333,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPartition_RteBufferQueuedVariable() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(10);
+	public EReference getPartition_CsTfArgcConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -2600,8 +3342,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPartition_RteBufferInitValueConstant() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(11);
+	public EReference getPartition_CsTfOpidConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_CsTrustedFunction() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -2610,7 +3361,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_EntityStartVariable() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(12);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -2619,16 +3370,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_EntityStartConstant() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartition_FilterConstant() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(14);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -2637,7 +3379,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_RteBufferSendTrustedFunction() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(15);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrFilterConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrFilterOldValueVariable() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrFilterOccurrenceVariable() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -2646,7 +3415,43 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_OsTrustedMacro() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(16);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComReceiveBufferVariableSet() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComSignalApiWrapper() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComSignalApiAlias() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComMetaDataVariableSet() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -2655,7 +3460,79 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getPartition_PartedBswm() {
-		return (EReference)partitionEClass.getEStructuralFeatures().get(17);
+		return (EReference)partitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComProxyFunctionTableVariable() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComProxyBufferVariableSet() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrRteBufferInitValueConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrRteBufferVariableSet() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_SrRteBufferQueuedVariable() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComProxyFunction() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComProxyFunctionTableIndexConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartition_ComProxyFunctionTableSizeConstant() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2665,60 +3542,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getSwc() {
 		return swcEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_FilterConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_PortArgValueConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_DependentExecutableEntity() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_InvalidValueConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_ImplInitValueConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_SwcMemoryMapping() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -2736,33 +3559,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getSwc_RteApi() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_ApiInitValueConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_ApiApplicationErrorConstant() {
-		return (EReference)swcEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwc_ApiEnumConstant() {
 		return (EReference)swcEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2771,8 +3567,125 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwc_ApiUpperLowerLimitConstant() {
+	public EReference getSwc_ApiEnumConstant() {
 		return (EReference)swcEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_ApiUpperLowerLimitConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_SrApiInitValueConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_SrImplInitValueConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_SrImplInvalidValueConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_SrFilterConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_CsApiApplicationErrorConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_CsPortArgValueConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_CsPortArgValueVariable() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_IrvBufferInitValueConstant() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_IrvBufferVariableSet() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_SwcMemoryMapping() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_DependentRunnableEntity() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwc_DependentExternalRunnableEntity() {
+		return (EReference)swcEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2782,6 +3695,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getRteHeader() {
 		return rteHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteBswApiHeader() {
+		return rteBswApiHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBswApiHeader_IocApi() {
+		return (EReference)rteBswApiHeaderEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2897,6 +3828,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRteTypeHeader_ProvidesSignalGroupTransmission() {
+		return (EAttribute)rteTypeHeaderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInvalidateApi() {
 		return invalidateApiEClass;
 	}
@@ -2942,6 +3882,87 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTrustedFunctionRteOperation() {
+		return trustedFunctionRteOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteOperation_TempReturnVariable() {
+		return (EReference)trustedFunctionRteOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTrustedFunctionRteSendOperation() {
+		return trustedFunctionRteSendOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteSendOperation_Type() {
+		return (EReference)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrustedFunctionRteSendOperation_SrSendTfSymbolName() {
+		return (EAttribute)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable() {
+		return (EReference)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrustedFunctionRteSendOperation_IsGroup() {
+		return (EAttribute)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTrustedFunctionRteBufferWriteSendOperation() {
+		return trustedFunctionRteBufferWriteSendOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction() {
+		return (EReference)trustedFunctionRteBufferWriteSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTrustedFunctionComSendOperation() {
 		return trustedFunctionComSendOperationEClass;
 	}
@@ -2951,7 +3972,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionComSendOperation_AccessTrustedFunction() {
+	public EReference getTrustedFunctionComSendOperation_Type() {
 		return (EReference)trustedFunctionComSendOperationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2960,8 +3981,26 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionComSendOperation_TrustedFunctionParamVariable() {
+	public EReference getTrustedFunctionComSendOperation_AccessTrustedFunction() {
 		return (EReference)trustedFunctionComSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionComSendOperation_TrustedFunctionParamVariable() {
+		return (EReference)trustedFunctionComSendOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTrustedFunctionComSendOperation_IsGroup() {
+		return (EAttribute)trustedFunctionComSendOperationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3032,6 +4071,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getComReadOperation_TempReturnVariable() {
+		return (EReference)comReadOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIocNonqueuedCommunication() {
 		return iocNonqueuedCommunicationEClass;
 	}
@@ -3061,6 +4109,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getIocNonqueuedCommunication_InitValue() {
 		return (EReference)iocNonqueuedCommunicationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIocNonqueuedCommunication_InitValueVariable() {
+		return (EReference)iocNonqueuedCommunicationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3167,6 +4224,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getComSendOperation_TempReturnVariable() {
+		return (EReference)comSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComCallback() {
 		return comCallbackEClass;
 	}
@@ -3239,6 +4305,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getComSendSignalProxyEntity() {
+		return comSendSignalProxyEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSendSignalProxyEntity_PrimitiveOperation() {
+		return (EReference)comSendSignalProxyEntityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSendSignalProxyEntity_ComplexOperation() {
+		return (EReference)comSendSignalProxyEntityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComSendSignalImmediateEntity() {
 		return comSendSignalImmediateEntityEClass;
 	}
@@ -3248,26 +4341,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendSignalImmediateEntity_Operation() {
-		return (EReference)comSendSignalImmediateEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getComSendSignalPeriodicEntity() {
 		return comSendSignalPeriodicEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComSendSignalPeriodicEntity_Operation() {
-		return (EReference)comSendSignalPeriodicEntityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3500,969 +4575,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getHeaderFile() {
-		return headerFileEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getHeaderFile_GuardName() {
-		return (EAttribute)headerFileEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getHeaderFile_DependentHeaders() {
-		return (EReference)headerFileEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSourceFile() {
-		return sourceFileEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSourceFile_DependentHeaders() {
-		return (EReference)sourceFileEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteInternalHeader() {
-		return rteInternalHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_Constant() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_GlobalVariableGroup() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_TrustedFunctionGroup() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_BswSchedulableEntityGroup() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_RteCoreStartApiImpl() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_DependentExecutableEntityGroup() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteInternalHeader_SchmCoreInitApiImpl() {
-		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPrimitiveType() {
-		return primitiveTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPrimitiveType_OriginalTypeSymbolName() {
-		return (EAttribute)primitiveTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPrimitiveType_Signedness() {
-		return (EAttribute)primitiveTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnionType() {
-		return unionTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUnionType_Member() {
-		return (EReference)unionTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBlackboxType() {
-		return blackboxTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnionMember() {
-		return unionMemberEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUnionMember_MemberName() {
-		return (EAttribute)unionMemberEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUnionMember_Type() {
-		return (EReference)unionMemberEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVariableMember() {
-		return variableMemberEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getVariableMember_Parent() {
-		return (EReference)variableMemberEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteUtilityHeader() {
-		return rteUtilityHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBlackboxHeader() {
-		return blackboxHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteBufferQueueType() {
-		return rteBufferQueueTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteBufferQueueType_MaxLengthConstant() {
-		return (EReference)rteBufferQueueTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteBufferQueueType_ElementType() {
-		return (EReference)rteBufferQueueTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getComSendTrustedFunctionParamType() {
-		return comSendTrustedFunctionParamTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNeverReadOperation() {
-		return neverReadOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNeverReadOperation_InitValueConstant() {
-		return (EReference)neverReadOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteBufferInvalidateTrustedFunction() {
-		return rteBufferInvalidateTrustedFunctionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteBufferInvalidateTrustedFunction_Operation() {
-		return (EReference)rteBufferInvalidateTrustedFunctionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTrustedFunctionRteBufferInvalidateSendOperation() {
-		return trustedFunctionRteBufferInvalidateSendOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction() {
-		return (EReference)trustedFunctionRteBufferInvalidateSendOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMemoryMapping() {
-		return memoryMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMemoryMapping_Prefix() {
-		return (EAttribute)memoryMappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMemoryMapping_MemorySectionSymbolName() {
-		return (EAttribute)memoryMappingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSwcMemoryMapping() {
-		return swcMemoryMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBswMemoryMapping() {
-		return bswMemoryMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGlobalVariableGroup() {
-		return globalVariableGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGlobalVariableGroup_GlobalVariable() {
-		return (EReference)globalVariableGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGlobalVariableGroup_MemoryMapping() {
-		return (EReference)globalVariableGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFunctionGroup() {
-		return functionGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFunctionGroup_MemoryMapping() {
-		return (EReference)functionGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getFunctionGroup_Function() {
-		return (EReference)functionGroupEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteApiGroup() {
-		return rteApiGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteApiGroup_RteApi() {
-		return (EReference)rteApiGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteLifecycleApiGroup() {
-		return rteLifecycleApiGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRteLifecycleApiGroup_RteLifecycleApi() {
-		return (EReference)rteLifecycleApiGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTaskBodyGroup() {
-		return taskBodyGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTaskBodyGroup_TaskBody() {
-		return (EReference)taskBodyGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBswSchedulableEntityGroup() {
-		return bswSchedulableEntityGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBswSchedulableEntityGroup_BswSchedulableEntity() {
-		return (EReference)bswSchedulableEntityGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getComCallbackGroup() {
-		return comCallbackGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComCallbackGroup_ComCallback() {
-		return (EReference)comCallbackGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTrustedFunctionGroup() {
-		return trustedFunctionGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTrustedFunctionGroup_TrustedFunction() {
-		return (EReference)trustedFunctionGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getExecutableEntityGroup() {
-		return executableEntityGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getExecutableEntityGroup_ExecutableEntity() {
-		return (EReference)executableEntityGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBswMemoryMappingHeader() {
-		return bswMemoryMappingHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBswMemoryMappingHeader_MemoryMapping() {
-		return (EReference)bswMemoryMappingHeaderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSwcMemoryMappingHeader() {
-		return swcMemoryMappingHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSwcMemoryMappingHeader_MemoryMapping() {
-		return (EReference)swcMemoryMappingHeaderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGenerationInfo() {
-		return generationInfoEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerationInfo_GeneratorName() {
-		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerationInfo_GeneratorVersion() {
-		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGenerationInfo_GenerationDate() {
-		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMacro() {
-		return macroEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMacro_SymbolName() {
-		return (EAttribute)macroEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmApi() {
-		return schmApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmApi_ReturnValue() {
-		return (EReference)schmApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmApi_Parent() {
-		return (EReference)schmApiEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmLifecycleApi() {
-		return schmLifecycleApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmEnterApi() {
-		return schmEnterApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmEnterApi_Operation() {
-		return (EReference)schmEnterApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmExitApi() {
-		return schmExitApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmExitApi_Operation() {
-		return (EReference)schmExitApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModuleInterlinkHeader() {
-		return moduleInterlinkHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModuleInterlinkHeader_SchmApiGroup() {
-		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModuleInterlinkHeader_DependentExecutableEntityGroup() {
-		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModuleInterlinkHeader_Constant() {
-		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmApiGroup() {
-		return schmApiGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmApiGroup_SchmApi() {
-		return (EReference)schmApiGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModuleInterlinkTypeHeader() {
-		return moduleInterlinkTypeHeaderEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModuleInterlinkTypeHeader_Constant() {
-		return (EReference)moduleInterlinkTypeHeaderEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmLifecycleApiGroup() {
-		return schmLifecycleApiGroupEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmLifecycleApiGroup_SchmLifecycleApi() {
-		return (EReference)schmLifecycleApiGroupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPartedBswm() {
-		return partedBswmEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartedBswm_Parent() {
-		return (EReference)partedBswmEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartedBswm_DependentExecutableEntity() {
-		return (EReference)partedBswmEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartedBswm_SchmApi() {
-		return (EReference)partedBswmEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartedBswm_BswMemoryMapping() {
-		return (EReference)partedBswmEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPartedBswm_Bswm() {
-		return (EReference)partedBswmEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBswm() {
-		return bswmEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getBswm_PartedBswm() {
-		return (EReference)bswmEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EOperation getBswm__GetSinglePartedBswm__Partition() {
-		return bswmEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmDeinitApi() {
-		return schmDeinitApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmInitApi() {
-		return schmInitApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSinglecoreSchmInitApi() {
-		return singlecoreSchmInitApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSinglecoreSchmInitApi_Operation() {
-		return (EReference)singlecoreSchmInitApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMulticoreSchmInitApi() {
-		return multicoreSchmInitApiEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMulticoreSchmInitApi_CoreInitApiImpl() {
-		return (EReference)multicoreSchmInitApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSchmCoreInitApiImpl() {
-		return schmCoreInitApiImplEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmCoreInitApiImpl_Parent() {
-		return (EReference)schmCoreInitApiImplEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSchmCoreInitApiImpl_Operation() {
-		return (EReference)schmCoreInitApiImplEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRestartPartitionApi() {
 		return restartPartitionApiEClass;
 	}
@@ -4472,26 +4584,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRestartPartitionApi_EReference0() {
-		return (EReference)restartPartitionApiEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRestartPartitionApi_EReference1() {
-		return (EReference)restartPartitionApiEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRestartPartitionApi_Operation() {
-		return (EReference)restartPartitionApiEClass.getEStructuralFeatures().get(2);
+		return (EReference)restartPartitionApiEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4508,7 +4602,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPartitionRestartingApi_Operation() {
+	public EReference getPartitionRestartingApi_SrInterPartitionTimeoutOperation() {
 		return (EReference)partitionRestartingApiEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -4526,7 +4620,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPartitionTerminatedApi_Operation() {
+	public EReference getPartitionTerminatedApi_SrInterPartitionTimeoutOperation() {
 		return (EReference)partitionTerminatedApiEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -4598,6 +4692,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSendApi_NeedsCheckArg() {
+		return (EAttribute)sendApiEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReceiveApi() {
 		return receiveApiEClass;
 	}
@@ -4654,6 +4757,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getRteBufferQueuedSendOperation_TempReturnVariable() {
 		return (EReference)rteBufferQueuedSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferQueuedSendOperation_Type() {
+		return (EReference)rteBufferQueuedSendOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4751,6 +4863,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIocSendOperation() {
+		return iocSendOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIocSendOperation_Type() {
+		return (EReference)iocSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIocQueuedSendOperation() {
 		return iocQueuedSendOperationEClass;
 	}
@@ -4769,6 +4899,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIocQueuedSendOperation_TempReturnVariable() {
+		return (EReference)iocQueuedSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIocQueuedReadOperation() {
 		return iocQueuedReadOperationEClass;
 	}
@@ -4780,6 +4919,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getIocQueuedReadOperation_AccessApi() {
 		return (EReference)iocQueuedReadOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIocQueuedReadOperation_TempReturnVariable() {
+		return (EReference)iocQueuedReadOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4832,6 +4980,60 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTfCallApi() {
+		return tfCallApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTfCallApi_CsTfParamTypeName() {
+		return (EAttribute)tfCallApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTfCallApi_CsTfArgcConstantName() {
+		return (EAttribute)tfCallApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTfCallApi_CsTfOpidConstantName() {
+		return (EAttribute)tfCallApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTfCallApi_CsTfName() {
+		return (EAttribute)tfCallApiEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTfCallApi_NeedsCheckArg() {
+		return (EAttribute)tfCallApiEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getExecutableStartOperation() {
 		return executableStartOperationEClass;
 	}
@@ -4841,8 +5043,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExecutableStartOperation_ExcludeOperation() {
-		return (EReference)executableStartOperationEClass.getEStructuralFeatures().get(0);
+	public EReference getExecutableStartOperation_DisabledInMode() {
+		return (EReference)executableStartOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4851,7 +5053,43 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getExecutableStartOperation_StartExecutable() {
+		return (EReference)executableStartOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutableStartOperation_RieaExcludeOperation() {
 		return (EReference)executableStartOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDisabledInMode() {
+		return disabledInModeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDisabledInMode_DisabledMode() {
+		return (EReference)disabledInModeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDisabledInMode_ModeMachineInstance() {
+		return (EReference)disabledInModeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4877,8 +5115,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExecutableEntity_ParentPartedBswm() {
-		return (EReference)executableEntityEClass.getEStructuralFeatures().get(1);
+	public EAttribute getExecutableEntity_IsNoMock() {
+		return (EAttribute)executableEntityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4949,6 +5187,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNoneExcludeOperation() {
+		return noneExcludeOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getConstant() {
 		return constantEClass;
 	}
@@ -4967,8 +5214,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getConstant_ExternalSymbolName() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getConstant_Type() {
-		return (EReference)constantEClass.getEStructuralFeatures().get(1);
+		return (EReference)constantEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4977,7 +5233,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EAttribute getConstant_Value() {
-		return (EAttribute)constantEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4985,8 +5241,44 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConstant_ConstantType() {
-		return (EAttribute)constantEClass.getEStructuralFeatures().get(3);
+	public EAttribute getConstant_ConstantValueType() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConstant_Member() {
+		return (EReference)constantEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstant_RepresentedVariableName() {
+		return (EAttribute)constantEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstantMember() {
+		return constantMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConstantMember_Parent() {
+		return (EReference)constantMemberEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4996,6 +5288,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getBswSchedulableEntity() {
 		return bswSchedulableEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswSchedulableEntity_ParentPartedBswm() {
+		return (EReference)bswSchedulableEntityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRunnableEntity() {
+		return runnableEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRunnableEntity_HasReturnValue() {
+		return (EAttribute)runnableEntityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5021,6 +5340,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRteEnterApi_IsNoneExclude() {
+		return (EAttribute)rteEnterApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRteExitApi() {
 		return rteExitApiEClass;
 	}
@@ -5032,6 +5360,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getRteExitApi_Operation() {
 		return (EReference)rteExitApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRteExitApi_IsNoneExclude() {
+		return (EAttribute)rteExitApiEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5219,6 +5556,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModeSwitchTriggeringExecutableStartOperation() {
+		return modeSwitchTriggeringExecutableStartOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeSwitchTriggeringExecutableStartOperation_StartMode() {
+		return (EReference)modeSwitchTriggeringExecutableStartOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCycleCountupOperation() {
 		return cycleCountupOperationEClass;
 	}
@@ -5309,8 +5664,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComApi_ComSignalSymbolName() {
+	public EAttribute getComApi_IsSignalGroup() {
 		return (EAttribute)comApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComApi_ComSignalSymbolName() {
+		return (EAttribute)comApiEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5320,6 +5684,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getIocApi() {
 		return iocApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIocApi_MappingName() {
+		return (EAttribute)iocApiEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5346,7 +5719,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComCallback() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(1);
+		return (EReference)rteEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -5355,7 +5728,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalPeriodicEntity() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(2);
+		return (EReference)rteEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -5364,7 +5737,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalImmediateEntity() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(3);
+		return (EReference)rteEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -5373,7 +5746,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalTrustedFunction() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(4);
+		return (EReference)rteEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -5382,7 +5755,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_DependentType() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(5);
+		return (EReference)rteEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5390,8 +5763,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRte_RteType() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(6);
+	public EReference getRte_ImmediateConstant() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_SrRteBufferQueueMaxLengthConstant() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -5400,7 +5782,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_DependentOsApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(7);
+		return (EReference)rteEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5409,7 +5791,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_DependentIocCommunication() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(8);
+		return (EReference)rteEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5418,6 +5800,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_DependentComApi() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_IocInitValueConstant() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_IocInitValueVariableSet() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -5427,16 +5827,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_RteStartApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(10);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRte_IocInitValueConstant() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(11);
+		return (EReference)rteEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -5445,7 +5836,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_DependentConstant() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(12);
+		return (EReference)rteEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5454,7 +5845,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalImmediateTaskBody() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(13);
+		return (EReference)rteEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -5463,6 +5854,42 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_RteStopApi() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_ImplementationDataType() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_ComSendSignalTfParamType() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_ComSendSignalGroupTfParamType() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_CsTfParamType() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -5471,7 +5898,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRte_RteTypeConstant() {
+	public EReference getRte_SrRteSendTfParamType() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -5480,16 +5907,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRte_RteMemoryMapping() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(16);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRte_GenerationInfo() {
+	public EReference getRte_SrRteBufferQueueType() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -5498,8 +5916,26 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRte_RteMemoryMapping() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRte_GenerationInfo() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getRte_Bswm() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(18);
+		return (EReference)rteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5508,7 +5944,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_SchmInitApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(19);
+		return (EReference)rteEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -5517,7 +5953,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_SchmDeinitApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(20);
+		return (EReference)rteEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -5554,6 +5990,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getComSendSignalTrustedFunction() {
 		return comSendSignalTrustedFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComSendSignalTrustedFunction_IsGroup() {
+		return (EAttribute)comSendSignalTrustedFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComSendSignalTrustedFunction_SignalGroupSymbolName() {
+		return (EAttribute)comSendSignalTrustedFunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5633,15 +6087,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_SymbolName() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getVariable_Type() {
 		return (EReference)variableEClass.getEStructuralFeatures().get(0);
 	}
@@ -5660,8 +6105,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComSendProxyOperation() {
-		return comSendProxyOperationEClass;
+	public EAttribute getVariable_SymbolName() {
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5669,8 +6114,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendProxyOperation_ReadValueVariable() {
-		return (EReference)comSendProxyOperationEClass.getEStructuralFeatures().get(0);
+	public EClass getPrimitiveComSendProxyOperation() {
+		return primitiveComSendProxyOperationEClass;
 	}
 
 	/**
@@ -5678,8 +6123,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendProxyOperation_AccessApi() {
-		return (EReference)comSendProxyOperationEClass.getEStructuralFeatures().get(1);
+	public EReference getPrimitiveComSendProxyOperation_ReadValueVariable() {
+		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5687,8 +6132,53 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendProxyOperation_SignalIdVariable() {
-		return (EReference)comSendProxyOperationEClass.getEStructuralFeatures().get(2);
+	public EReference getPrimitiveComSendProxyOperation_AccessApi() {
+		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPrimitiveComSendProxyOperation_SignalIdVariable() {
+		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComplexComSendProxyOperation() {
+		return complexComSendProxyOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComplexComSendProxyOperation_AccessApi() {
+		return (EReference)complexComSendProxyOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexComSendProxyOperation_FunctionTableSymbolName() {
+		return (EAttribute)complexComSendProxyOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComplexComSendProxyOperation_TableIndexVariable() {
+		return (EReference)complexComSendProxyOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5698,6 +6188,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getIocReceiveGroupApi() {
 		return iocReceiveGroupApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIocReceiveGroupApi_ComSendSignalSymbolName() {
+		return (EAttribute)iocReceiveGroupApiEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5876,8 +6375,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTrustedFunctionRteBufferWriteSendOperation() {
-		return trustedFunctionRteBufferWriteSendOperationEClass;
+	public EClass getCsTrustedFunction() {
+		return csTrustedFunctionEClass;
 	}
 
 	/**
@@ -5885,8 +6384,71 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction() {
-		return (EReference)trustedFunctionRteBufferWriteSendOperationEClass.getEStructuralFeatures().get(0);
+	public EReference getCsTrustedFunction_DataVariable() {
+		return (EReference)csTrustedFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCsTrustedFunction_CsTfParamTypeName() {
+		return (EAttribute)csTrustedFunctionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCsTrustedFunction_CsTfCalledRunnable() {
+		return (EReference)csTrustedFunctionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCsTfCalledRunnable() {
+		return csTfCalledRunnableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCsTfCalledRunnable_CsTfOpidConstantName() {
+		return (EAttribute)csTfCalledRunnableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCsTfCalledRunnable_StartOperation() {
+		return (EReference)csTfCalledRunnableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getServerRunnableStartOperation() {
+		return serverRunnableStartOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getServerRunnableStartOperation_StartServerRunnable() {
+		return (EReference)serverRunnableStartOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5912,8 +6474,35 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyComSendOperation_AccessProxyApi() {
+	public EReference getProxyComSendOperation_Type() {
 		return (EReference)proxyComSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyComSendOperation_RequestProxyIocApi() {
+		return (EReference)proxyComSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyComSendOperation_ValueProxyIocApi() {
+		return (EReference)proxyComSendOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyComSendOperation_ProxyFunctionIndexConstantName() {
+		return (EAttribute)proxyComSendOperationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5957,15 +6546,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDirectExecutableStartOperation() {
-		return directExecutableStartOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getSinglecoreRteStartApi() {
 		return singlecoreRteStartApiEClass;
 	}
@@ -5993,8 +6573,1853 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getHeaderFile() {
+		return headerFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHeaderFile_GuardName() {
+		return (EAttribute)headerFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHeaderFile_IncludeHeader() {
+		return (EReference)headerFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSourceFile() {
+		return sourceFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSourceFile_IncludeHeader() {
+		return (EReference)sourceFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteInternalHeader() {
+		return rteInternalHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_Constant() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_GlobalVariableGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_TrustedFunctionGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_BswSchedulableEntityGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_RteCoreStartApiImpl() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_DependentExecutableEntityGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_SchmCoreInitApiImpl() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_FunctionMacro() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_ComProxyFunctionTableGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_ComSignalApiWrapperGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_ModeType() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_ModeDeclarationGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_ModeMachineInstance() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_RteApiGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteInternalHeader_SchmApiGroup() {
+		return (EReference)rteInternalHeaderEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeDeclarationGroup() {
+		return modeDeclarationGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_ModeType() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_ImplementationDataType() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_ModeConstant() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_ModeTransitionStatusConstant() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeDeclarationGroup_InitModeConstant() {
+		return (EReference)modeDeclarationGroupEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeMachineInstance() {
+		return modeMachineInstanceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeMachineInstance_RequestModeQueueType() {
+		return (EReference)modeMachineInstanceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeMachineInstance_RequestModeQueue() {
+		return (EReference)modeMachineInstanceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeMachineInstance_CurrentModeVariable() {
+		return (EReference)modeMachineInstanceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeMachineInstance_NextModeVariable() {
+		return (EReference)modeMachineInstanceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeMachineInstance_InitModeConstant() {
+		return (EReference)modeMachineInstanceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionMacro() {
+		return functionMacroEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunctionMacro_SymbolName() {
+		return (EAttribute)functionMacroEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunctionMacro_FunctionName() {
+		return (EAttribute)functionMacroEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComProxyFunctionTableFileContentsGroup() {
+		return comProxyFunctionTableFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunctionTableFileContentsGroup_SrWriteProxyName() {
+		return (EAttribute)comProxyFunctionTableFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPrimitiveType() {
+		return primitiveTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionPrimitiveType() {
+		return redefinitionPrimitiveTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getArrayType() {
+		return arrayTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArrayType_ArraySize() {
+		return (EAttribute)arrayTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionArrayType() {
+		return redefinitionArrayTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnionType() {
+		return unionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnionType_Member() {
+		return (EReference)unionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionUnionType() {
+		return redefinitionUnionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStructType() {
+		return structTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructType_Member() {
+		return (EReference)structTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionStructType() {
+		return redefinitionStructTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBlackboxType() {
+		return blackboxTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getUnionMember() {
+		return unionMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getUnionMember_MemberName() {
+		return (EAttribute)unionMemberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getUnionMember_Type() {
+		return (EReference)unionMemberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStructMember() {
+		return structMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStructMember_MemberName() {
+		return (EAttribute)structMemberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStructMember_Type() {
+		return (EReference)structMemberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeType() {
+		return modeTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModeType_GuardName() {
+		return (EAttribute)modeTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeType_ImplementationDataType() {
+		return (EReference)modeTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVariableMember() {
+		return variableMemberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVariableMember_Parent() {
+		return (EReference)variableMemberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteUtilityHeader() {
+		return rteUtilityHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBlackboxHeader() {
+		return blackboxHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteBufferQueueType() {
+		return rteBufferQueueTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferQueueType_MaxLengthConstant() {
+		return (EReference)rteBufferQueueTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferQueueType_ElementType() {
+		return (EReference)rteBufferQueueTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeQueueType() {
+		return modeQueueTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeQueueType_MaxLengthConstant() {
+		return (EReference)modeQueueTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeQueueType_ElementType() {
+		return (EReference)modeQueueTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteSendTrustedFunctionParamType() {
+		return rteSendTrustedFunctionParamTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComSendTrustedFunctionParamType() {
+		return comSendTrustedFunctionParamTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComSendTrustedFunctionParamType_IsGroup() {
+		return (EAttribute)comSendTrustedFunctionParamTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCsTrustedFunctionParamType() {
+		return csTrustedFunctionParamTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNeverReadOperation() {
+		return neverReadOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNeverReadOperation_InitValueConstant() {
+		return (EReference)neverReadOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteBufferInvalidateTrustedFunction() {
+		return rteBufferInvalidateTrustedFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferInvalidateTrustedFunction_Operation() {
+		return (EReference)rteBufferInvalidateTrustedFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTrustedFunctionRteBufferInvalidateSendOperation() {
+		return trustedFunctionRteBufferInvalidateSendOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction() {
+		return (EReference)trustedFunctionRteBufferInvalidateSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable() {
+		return (EReference)trustedFunctionRteBufferInvalidateSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMemoryMapping() {
+		return memoryMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMemoryMapping_Prefix() {
+		return (EAttribute)memoryMappingEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMemoryMapping_MemorySectionSymbolName() {
+		return (EAttribute)memoryMappingEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwcMemoryMapping() {
+		return swcMemoryMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswMemoryMapping() {
+		return bswMemoryMappingEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGlobalVariableFileContentsGroup() {
+		return globalVariableFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGlobalVariableFileContentsGroup_GlobalVariable() {
+		return (EReference)globalVariableFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGlobalVariableFileContentsGroup_MemoryMapping() {
+		return (EReference)globalVariableFileContentsGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFunctionFileContentsGroup() {
+		return functionFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionFileContentsGroup_MemoryMapping() {
+		return (EReference)functionFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionFileContentsGroup_Function() {
+		return (EReference)functionFileContentsGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteApiFileContentsGroup() {
+		return rteApiFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteApiFileContentsGroup_RteApi() {
+		return (EReference)rteApiFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteLifecycleApiFileContentsGroup() {
+		return rteLifecycleApiFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteLifecycleApiFileContentsGroup_RteLifecycleApi() {
+		return (EReference)rteLifecycleApiFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskBodyFileContentsGroup() {
+		return taskBodyFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskBodyFileContentsGroup_TaskBody() {
+		return (EReference)taskBodyFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswSchedulableEntityFileContentsGroup() {
+		return bswSchedulableEntityFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswSchedulableEntityFileContentsGroup_BswSchedulableEntity() {
+		return (EReference)bswSchedulableEntityFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComCallbackFileContentsGroup() {
+		return comCallbackFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComCallbackFileContentsGroup_ComCallback() {
+		return (EReference)comCallbackFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTrustedFunctionFileContentsGroup() {
+		return trustedFunctionFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTrustedFunctionFileContentsGroup_TrustedFunction() {
+		return (EReference)trustedFunctionFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutableEntityFileContentsGroup() {
+		return executableEntityFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutableEntityFileContentsGroup_ExecutableEntity() {
+		return (EReference)executableEntityFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswMemoryMappingHeader() {
+		return bswMemoryMappingHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswMemoryMappingHeader_MemoryMapping() {
+		return (EReference)bswMemoryMappingHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwcMemoryMappingHeader() {
+		return swcMemoryMappingHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwcMemoryMappingHeader_MemoryMapping() {
+		return (EReference)swcMemoryMappingHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGenerationInfo() {
+		return generationInfoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGenerationInfo_GeneratorName() {
+		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGenerationInfo_GeneratorVersion() {
+		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGenerationInfo_GenerationDate() {
+		return (EAttribute)generationInfoEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMacro() {
+		return macroEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMacro_SymbolName() {
+		return (EAttribute)macroEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmApi() {
+		return schmApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmApi_ReturnValue() {
+		return (EReference)schmApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmApi_Parent() {
+		return (EReference)schmApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchmApi_IsInline() {
+		return (EAttribute)schmApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComSignalApiWrapper() {
+		return comSignalApiWrapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSignalApiWrapper_DataParam() {
+		return (EReference)comSignalApiWrapperEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSignalApiWrapper_Parent() {
+		return (EReference)comSignalApiWrapperEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComSignalApiWrapper_SignalSymbolName() {
+		return (EAttribute)comSignalApiWrapperEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComSignalApiWrapper_SignalGroupSymbolName() {
+		return (EAttribute)comSignalApiWrapperEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComProxyFunction() {
+		return comProxyFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComProxyFunction_Parent() {
+		return (EReference)comProxyFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_IocReceiveSymbolName() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_SignalGroupSymbolName() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_BufferComProxySymbolName() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_BufferComMetaComplexDataSymbolName() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_ProxyDataTypeName() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComProxyFunction_IsGroup() {
+		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComSendSignalApiWrapper() {
+		return comSendSignalApiWrapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComReceiveSignalApiWrapper() {
+		return comReceiveSignalApiWrapperEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmLifecycleApi() {
+		return schmLifecycleApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmEnterApi() {
+		return schmEnterApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmEnterApi_Operation() {
+		return (EReference)schmEnterApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchmEnterApi_IsNoneExclude() {
+		return (EAttribute)schmEnterApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmExitApi() {
+		return schmExitApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmExitApi_Operation() {
+		return (EReference)schmExitApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSchmExitApi_IsNoneExclude() {
+		return (EAttribute)schmExitApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmSwitchApi() {
+		return schmSwitchApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmSwitchApi_ModeMachineInstance() {
+		return (EReference)schmSwitchApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmSwitchApi_OsTaskEventTriggeredByMode() {
+		return (EReference)schmSwitchApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmSwitchApi_ExecutableStartOperation() {
+		return (EReference)schmSwitchApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOsTaskEventsTriggeredByMode() {
+		return osTaskEventsTriggeredByModeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOsTaskEventsTriggeredByMode_StartMode() {
+		return (EReference)osTaskEventsTriggeredByModeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOsTaskEventsTriggeredByMode_OsTaskEvent() {
+		return (EReference)osTaskEventsTriggeredByModeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOsTaskEvent() {
+		return osTaskEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOsTaskEvent_OsTaskId() {
+		return (EAttribute)osTaskEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOsTaskEvent_OsEventId() {
+		return (EAttribute)osTaskEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOsTaskEvent_OsTaskPriority() {
+		return (EAttribute)osTaskEventEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModeQueuedVariable() {
+		return modeQueuedVariableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModeQueuedVariable_QueueType() {
+		return (EReference)modeQueuedVariableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmModeApi() {
+		return schmModeApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmModeApi_ModeDeclarationGroup() {
+		return (EReference)schmModeApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmModeApi_ModeMachineInstance() {
+		return (EReference)schmModeApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModuleInterlinkHeader() {
+		return moduleInterlinkHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkHeader_GlobalVariableGroup() {
+		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkHeader_SchmApiGroup() {
+		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkHeader_DependentExecutableEntityGroup() {
+		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkHeader_Constant() {
+		return (EReference)moduleInterlinkHeaderEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmApiFileContentsGroup() {
+		return schmApiFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmApiFileContentsGroup_SchmApi() {
+		return (EReference)schmApiFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComSignalApiWrapperFileContentsGroup() {
+		return comSignalApiWrapperFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSignalApiWrapperFileContentsGroup_ComSignalApiWrapper() {
+		return (EReference)comSignalApiWrapperFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComProxyFunctionFileContentsGroup() {
+		return comProxyFunctionFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComProxyFunctionFileContentsGroup_ComProxyFunction() {
+		return (EReference)comProxyFunctionFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getModuleInterlinkTypeHeader() {
+		return moduleInterlinkTypeHeaderEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkTypeHeader_Constant() {
+		return (EReference)moduleInterlinkTypeHeaderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkTypeHeader_ModeType() {
+		return (EReference)moduleInterlinkTypeHeaderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModuleInterlinkTypeHeader_ModeDeclarationGroup() {
+		return (EReference)moduleInterlinkTypeHeaderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmLifecycleApiFileContentsGroup() {
+		return schmLifecycleApiFileContentsGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmLifecycleApiFileContentsGroup_SchmLifecycleApi() {
+		return (EReference)schmLifecycleApiFileContentsGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPartedBswm() {
+		return partedBswmEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_Parent() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_DependentBswSchedulableEntity() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_SchmApi() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_Bswm() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_BswMemoryMapping() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartedBswm_ModeMachineInstance() {
+		return (EReference)partedBswmEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswm() {
+		return bswmEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswm_PartedBswm() {
+		return (EReference)bswmEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBswm_ModeDeclarationGroup() {
+		return (EReference)bswmEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBswm__GetSinglePartedBswm__Partition() {
+		return bswmEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmDeinitApi() {
+		return schmDeinitApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmInitApi() {
+		return schmInitApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmInitApi_Operation() {
+		return (EReference)schmInitApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmInitApi_InitialExecutableStartOperation() {
+		return (EReference)schmInitApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmInitApi_InitialExecutableOsTaskEvent() {
+		return (EReference)schmInitApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmInitApi_InitTargetModeMachineInstance() {
+		return (EReference)schmInitApiEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSinglecoreSchmInitApi() {
+		return singlecoreSchmInitApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMulticoreSchmInitApi() {
+		return multicoreSchmInitApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMulticoreSchmInitApi_CoreInitApiImpl() {
+		return (EReference)multicoreSchmInitApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSchmCoreInitApiImpl() {
+		return schmCoreInitApiImplEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSchmCoreInitApiImpl_Parent() {
+		return (EReference)schmCoreInitApiImplEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPointerType() {
+		return pointerTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPointerType_Type() {
+		return (EReference)pointerTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPointerType_IsConstPointer() {
+		return (EAttribute)pointerTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPointerType_IsConstTarget() {
+		return (EAttribute)pointerTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionPointerType() {
+		return redefinitionPointerTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRedefinitionType() {
+		return redefinitionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRedefinitionType_SourceType() {
+		return (EReference)redefinitionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRedefinitionType__GetLeafType() {
+		return redefinitionTypeEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getParameterPassTypeEnum() {
 		return parameterPassTypeEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterDirectionEnum() {
+		return parameterDirectionEnumEEnum;
 	}
 
 	/**
@@ -6011,8 +8436,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getConstantTypeEnum() {
-		return constantTypeEnumEEnum;
+	public EEnum getConstantValueTypeEnum() {
+		return constantValueTypeEnumEEnum;
 	}
 
 	/**
@@ -6098,15 +8523,37 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		operationEClass = createEClass(OPERATION);
 
+		executableEntityEClass = createEClass(EXECUTABLE_ENTITY);
+		createEReference(executableEntityEClass, EXECUTABLE_ENTITY__ROLE_PARAM);
+		createEAttribute(executableEntityEClass, EXECUTABLE_ENTITY__IS_NO_MOCK);
+
+		bswSchedulableEntityEClass = createEClass(BSW_SCHEDULABLE_ENTITY);
+		createEReference(bswSchedulableEntityEClass, BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM);
+
+		runnableEntityEClass = createEClass(RUNNABLE_ENTITY);
+		createEAttribute(runnableEntityEClass, RUNNABLE_ENTITY__HAS_RETURN_VALUE);
+
+		rteApiEClass = createEClass(RTE_API);
+		createEReference(rteApiEClass, RTE_API__PARENT);
+		createEAttribute(rteApiEClass, RTE_API__API_MAPPING_NAME);
+		createEAttribute(rteApiEClass, RTE_API__IS_CONNECTED);
+		createEAttribute(rteApiEClass, RTE_API__IS_INLINE);
+		createEReference(rteApiEClass, RTE_API__RETURN_VALUE);
+		createEReference(rteApiEClass, RTE_API__INLINE_CONSTANT);
+		createEReference(rteApiEClass, RTE_API__INLINE_GLOBAL_VARIABLE);
+		createEReference(rteApiEClass, RTE_API__INLINE_RUNNABLE_ENTITY);
+
 		writeApiEClass = createEClass(WRITE_API);
 		createEReference(writeApiEClass, WRITE_API__OPERATION);
 		createEReference(writeApiEClass, WRITE_API__DATA_PARAM);
+		createEAttribute(writeApiEClass, WRITE_API__NEEDS_CHECK_ARG);
 
 		sendOperationEClass = createEClass(SEND_OPERATION);
 		createEReference(sendOperationEClass, SEND_OPERATION__SEND_VALUE);
 		createEReference(sendOperationEClass, SEND_OPERATION__SEND_STATUS);
 		createEReference(sendOperationEClass, SEND_OPERATION__EXCLUDE_OPERATION);
 		createEReference(sendOperationEClass, SEND_OPERATION__RETURN_VARIABLE);
+		createEAttribute(sendOperationEClass, SEND_OPERATION__IS_WRITE_API);
 
 		rteBufferNonqueuedSendOperationEClass = createEClass(RTE_BUFFER_NONQUEUED_SEND_OPERATION);
 		createEReference(rteBufferNonqueuedSendOperationEClass, RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACCESS_VARIABLE);
@@ -6125,12 +8572,38 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(readApiEClass, READ_API__OPERATION);
 		createEReference(readApiEClass, READ_API__DATA_PARAM);
 
+		irvReadOperationEClass = createEClass(IRV_READ_OPERATION);
+		createEReference(irvReadOperationEClass, IRV_READ_OPERATION__ACCESS_VARIABLE);
+		createEReference(irvReadOperationEClass, IRV_READ_OPERATION__READ_VALUE_VARIABLE);
+		createEReference(irvReadOperationEClass, IRV_READ_OPERATION__EXCLUDE_OPERATION);
+
+		irvReadApiEClass = createEClass(IRV_READ_API);
+		createEReference(irvReadApiEClass, IRV_READ_API__OPERATION);
+		createEReference(irvReadApiEClass, IRV_READ_API__DATA_PARAM);
+
+		irvWriteOperationEClass = createEClass(IRV_WRITE_OPERATION);
+		createEReference(irvWriteOperationEClass, IRV_WRITE_OPERATION__ACCESS_VARIABLE);
+		createEReference(irvWriteOperationEClass, IRV_WRITE_OPERATION__WRITE_VALUE_VARIABLE);
+		createEReference(irvWriteOperationEClass, IRV_WRITE_OPERATION__EXCLUDE_OPERATION);
+
+		irvWriteApiEClass = createEClass(IRV_WRITE_API);
+		createEReference(irvWriteApiEClass, IRV_WRITE_API__OPERATION);
+		createEReference(irvWriteApiEClass, IRV_WRITE_API__DATA_PARAM);
+
 		rteBufferVariableSetEClass = createEClass(RTE_BUFFER_VARIABLE_SET);
 		createEReference(rteBufferVariableSetEClass, RTE_BUFFER_VARIABLE_SET__VALUE_VARIABLE);
 		createEReference(rteBufferVariableSetEClass, RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE);
+		createEReference(rteBufferVariableSetEClass, RTE_BUFFER_VARIABLE_SET__INIT_VALUE_VARIABLE);
+		createEReference(rteBufferVariableSetEClass, RTE_BUFFER_VARIABLE_SET__COMPLEX_VARIABLE);
+
+		globalVariableSetEClass = createEClass(GLOBAL_VARIABLE_SET);
+		createEReference(globalVariableSetEClass, GLOBAL_VARIABLE_SET__GLOBAL_VARIABLE);
+
+		comProxyFunctionTableVariableEClass = createEClass(COM_PROXY_FUNCTION_TABLE_VARIABLE);
 
 		rteSourceEClass = createEClass(RTE_SOURCE);
 		createEReference(rteSourceEClass, RTE_SOURCE__GLOBAL_VARIABLE_GROUP);
+		createEReference(rteSourceEClass, RTE_SOURCE__DEPENDENT_EXTERNAL_EXECUTABLE_ENTITY_GROUP);
 		createEReference(rteSourceEClass, RTE_SOURCE__BSW_SCHEDULABLE_ENTITY_GROUP);
 		createEReference(rteSourceEClass, RTE_SOURCE__RTE_API_GROUP);
 		createEReference(rteSourceEClass, RTE_SOURCE__RTE_LIFECYCLE_API_GROUP);
@@ -6140,37 +8613,37 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteSourceEClass, RTE_SOURCE__SOURCE_MACRO);
 		createEReference(rteSourceEClass, RTE_SOURCE__SCHM_LIFECYCLE_API_GROUP);
 		createEReference(rteSourceEClass, RTE_SOURCE__SCHM_API_GROUP);
-
-		rteApiEClass = createEClass(RTE_API);
-		createEAttribute(rteApiEClass, RTE_API__API_MAPPING_NAME);
-		createEReference(rteApiEClass, RTE_API__RETURN_VALUE);
-		createEAttribute(rteApiEClass, RTE_API__IS_CONNECTED);
-		createEReference(rteApiEClass, RTE_API__PARENT);
+		createEReference(rteSourceEClass, RTE_SOURCE__COM_SIGNAL_API_WRAPPER_GROUP);
+		createEReference(rteSourceEClass, RTE_SOURCE__COM_PROXY_FUNCTION_GROUP);
 
 		rteModuleEClass = createEClass(RTE_MODULE);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_COMMON_SOURCE);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_PARTITION_SOURCE);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_APPLICATION_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_APPLICATION_TYPE_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_LIFECYCLE_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_CALLBACK_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_CONFIGURATION_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_VFB_TRACE_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_TYPE_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_COMMON_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_PARTITION_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__RTE_UTILITY_HEADER);
 		createEReference(rteModuleEClass, RTE_MODULE__DEPENDENT_HEADER);
 		createEReference(rteModuleEClass, RTE_MODULE__BSW_MEMORY_MAPPING_HEADER);
 		createEReference(rteModuleEClass, RTE_MODULE__SWC_MEMORY_MAPPING_HEADER);
-		createEReference(rteModuleEClass, RTE_MODULE__MODULE_INTERLINK_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_TYPE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_APPLICATION_TYPE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_APPLICATION_HEADER);
 		createEReference(rteModuleEClass, RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__MODULE_INTERLINK_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_LIFECYCLE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_CONFIGURATION_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_VFB_TRACE_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_CALLBACK_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_UTILITY_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_BSW_API_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_COMMON_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_PARTITION_HEADER);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_COMMON_SOURCE);
+		createEReference(rteModuleEClass, RTE_MODULE__RTE_PARTITION_SOURCE);
 
 		globalVariableEClass = createEClass(GLOBAL_VARIABLE);
 		createEReference(globalVariableEClass, GLOBAL_VARIABLE__INIT_VALUE_CONSTANT);
 		createEReference(globalVariableEClass, GLOBAL_VARIABLE__MEMORY_MAPPING);
 		createEAttribute(globalVariableEClass, GLOBAL_VARIABLE__INIT_AT_DEFINITION);
+		createEAttribute(globalVariableEClass, GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE);
+		createEAttribute(globalVariableEClass, GLOBAL_VARIABLE__HAS_CONST);
+		createEAttribute(globalVariableEClass, GLOBAL_VARIABLE__HAS_STATIC);
 
 		fileEClass = createEClass(FILE);
 		createEAttribute(fileEClass, FILE__FILE_NAME);
@@ -6178,17 +8651,26 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		parameterEClass = createEClass(PARAMETER);
 		createEAttribute(parameterEClass, PARAMETER__PASS_TYPE);
+		createEAttribute(parameterEClass, PARAMETER__DIRECTION);
+		createEAttribute(parameterEClass, PARAMETER__HAS_CONST);
 
 		typeEClass = createEClass(TYPE);
 		createEAttribute(typeEClass, TYPE__SYMBOL_NAME);
 		createEAttribute(typeEClass, TYPE__IS_ANONYMOUS);
+		createEAttribute(typeEClass, TYPE__SIGNEDNESS);
+		createEAttribute(typeEClass, TYPE__ORIGINAL_TYPE_SYMBOL_NAME);
+		createEAttribute(typeEClass, TYPE__SIZE);
 
 		localVariableEClass = createEClass(LOCAL_VARIABLE);
 		createEReference(localVariableEClass, LOCAL_VARIABLE__INIT_VALUE_CONSTANT);
 		createEReference(localVariableEClass, LOCAL_VARIABLE__PARENT);
 
 		rteApplicationHeaderEClass = createEClass(RTE_APPLICATION_HEADER);
+		createEAttribute(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__HAS_INLINE_API);
+		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__SOURCE_MACRO);
+		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__GLOBAL_VARIABLE_GROUP);
 		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__RTE_API_GROUP);
+		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__DECLARATIONS_RTE_API_GROUP);
 		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__CONSTANT);
 		createEReference(rteApplicationHeaderEClass, RTE_APPLICATION_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
 
@@ -6203,48 +8685,97 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		logicalCompartmentEClass = createEClass(LOGICAL_COMPARTMENT);
 		createEAttribute(logicalCompartmentEClass, LOGICAL_COMPARTMENT__COMPARTMENT_NAME);
 
+		rteEClass = createEClass(RTE);
+		createEReference(rteEClass, RTE__CORE);
+		createEReference(rteEClass, RTE__BSWM);
+		createEReference(rteEClass, RTE__GENERATION_INFO);
+		createEReference(rteEClass, RTE__DEPENDENT_TYPE);
+		createEReference(rteEClass, RTE__DEPENDENT_CONSTANT);
+		createEReference(rteEClass, RTE__DEPENDENT_OS_API);
+		createEReference(rteEClass, RTE__DEPENDENT_IOC_COMMUNICATION);
+		createEReference(rteEClass, RTE__DEPENDENT_COM_API);
+		createEReference(rteEClass, RTE__IOC_INIT_VALUE_CONSTANT);
+		createEReference(rteEClass, RTE__IOC_INIT_VALUE_VARIABLE_SET);
+		createEReference(rteEClass, RTE__RTE_MEMORY_MAPPING);
+		createEReference(rteEClass, RTE__IMPLEMENTATION_DATA_TYPE);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__CS_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__SR_RTE_SEND_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT);
+		createEReference(rteEClass, RTE__SR_RTE_BUFFER_QUEUE_TYPE);
+		createEReference(rteEClass, RTE__IMMEDIATE_CONSTANT);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY);
+		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY);
+		createEReference(rteEClass, RTE__COM_CALLBACK);
+		createEReference(rteEClass, RTE__RTE_START_API);
+		createEReference(rteEClass, RTE__RTE_STOP_API);
+		createEReference(rteEClass, RTE__SCHM_INIT_API);
+		createEReference(rteEClass, RTE__SCHM_DEINIT_API);
+
 		coreEClass = createEClass(CORE);
 		createEReference(coreEClass, CORE__PARTITION);
-		createEReference(coreEClass, CORE__RTE_START_API);
 		createEAttribute(coreEClass, CORE__CORE_ID);
 		createEAttribute(coreEClass, CORE__IS_MASTER_CORE);
-		createEReference(coreEClass, CORE__SCHM_INIT_API);
+		createEReference(coreEClass, CORE__RTE_CORE_START_API_IMPL);
+		createEReference(coreEClass, CORE__SCHM_CORE_INIT_API_IMPL);
 
 		partitionEClass = createEClass(PARTITION);
-		createEAttribute(partitionEClass, PARTITION__IS_BSW_PARTITION);
 		createEReference(partitionEClass, PARTITION__PARENT);
 		createEReference(partitionEClass, PARTITION__SWC);
-		createEReference(partitionEClass, PARTITION__RTE_BUFFER_VARIABLE_SET);
-		createEReference(partitionEClass, PARTITION__FILTER_OLD_VALUE_VARIABLE);
-		createEReference(partitionEClass, PARTITION__FILTER_OCCURRENCE_VARIABLE);
+		createEReference(partitionEClass, PARTITION__PARTED_BSWM);
+		createEAttribute(partitionEClass, PARTITION__IS_BSW_PARTITION);
+		createEReference(partitionEClass, PARTITION__OS_TRUSTED_MACRO);
+		createEReference(partitionEClass, PARTITION__COM_RECEIVE_BUFFER_VARIABLE_SET);
+		createEReference(partitionEClass, PARTITION__COM_SIGNAL_API_WRAPPER);
+		createEReference(partitionEClass, PARTITION__COM_SIGNAL_API_ALIAS);
+		createEReference(partitionEClass, PARTITION__COM_META_DATA_VARIABLE_SET);
+		createEReference(partitionEClass, PARTITION__COM_PROXY_FUNCTION);
+		createEReference(partitionEClass, PARTITION__COM_PROXY_FUNCTION_TABLE_INDEX_CONSTANT);
+		createEReference(partitionEClass, PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT);
+		createEReference(partitionEClass, PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE);
+		createEReference(partitionEClass, PARTITION__COM_PROXY_BUFFER_VARIABLE_SET);
+		createEReference(partitionEClass, PARTITION__SR_RTE_BUFFER_INIT_VALUE_CONSTANT);
+		createEReference(partitionEClass, PARTITION__SR_RTE_BUFFER_VARIABLE_SET);
+		createEReference(partitionEClass, PARTITION__SR_RTE_BUFFER_QUEUED_VARIABLE);
+		createEReference(partitionEClass, PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION);
+		createEReference(partitionEClass, PARTITION__SR_FILTER_CONSTANT);
+		createEReference(partitionEClass, PARTITION__SR_FILTER_OLD_VALUE_VARIABLE);
+		createEReference(partitionEClass, PARTITION__SR_FILTER_OCCURRENCE_VARIABLE);
+		createEReference(partitionEClass, PARTITION__CS_TF_ARGC_CONSTANT);
+		createEReference(partitionEClass, PARTITION__CS_TF_OPID_CONSTANT);
+		createEReference(partitionEClass, PARTITION__CS_TRUSTED_FUNCTION);
+		createEReference(partitionEClass, PARTITION__ENTITY_START_VARIABLE);
+		createEReference(partitionEClass, PARTITION__ENTITY_START_CONSTANT);
+		createEReference(partitionEClass, PARTITION__TASK_BODY);
 		createEReference(partitionEClass, PARTITION__RESTART_PARTITION_API);
 		createEReference(partitionEClass, PARTITION__PARTITION_TERMINATED_API);
 		createEReference(partitionEClass, PARTITION__PARTITION_RESTARTING_API);
-		createEReference(partitionEClass, PARTITION__TASK_BODY);
-		createEReference(partitionEClass, PARTITION__RTE_BUFFER_QUEUED_VARIABLE);
-		createEReference(partitionEClass, PARTITION__RTE_BUFFER_INIT_VALUE_CONSTANT);
-		createEReference(partitionEClass, PARTITION__ENTITY_START_VARIABLE);
-		createEReference(partitionEClass, PARTITION__ENTITY_START_CONSTANT);
-		createEReference(partitionEClass, PARTITION__FILTER_CONSTANT);
-		createEReference(partitionEClass, PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION);
-		createEReference(partitionEClass, PARTITION__OS_TRUSTED_MACRO);
-		createEReference(partitionEClass, PARTITION__PARTED_BSWM);
 
 		swcEClass = createEClass(SWC);
 		createEReference(swcEClass, SWC__PARENT);
+		createEReference(swcEClass, SWC__SWC_MEMORY_MAPPING);
+		createEReference(swcEClass, SWC__DEPENDENT_RUNNABLE_ENTITY);
+		createEReference(swcEClass, SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY);
 		createEReference(swcEClass, SWC__RTE_API);
-		createEReference(swcEClass, SWC__API_INIT_VALUE_CONSTANT);
-		createEReference(swcEClass, SWC__API_APPLICATION_ERROR_CONSTANT);
 		createEReference(swcEClass, SWC__API_ENUM_CONSTANT);
 		createEReference(swcEClass, SWC__API_UPPER_LOWER_LIMIT_CONSTANT);
-		createEReference(swcEClass, SWC__FILTER_CONSTANT);
-		createEReference(swcEClass, SWC__PORT_ARG_VALUE_CONSTANT);
-		createEReference(swcEClass, SWC__DEPENDENT_EXECUTABLE_ENTITY);
-		createEReference(swcEClass, SWC__INVALID_VALUE_CONSTANT);
-		createEReference(swcEClass, SWC__IMPL_INIT_VALUE_CONSTANT);
-		createEReference(swcEClass, SWC__SWC_MEMORY_MAPPING);
+		createEReference(swcEClass, SWC__SR_API_INIT_VALUE_CONSTANT);
+		createEReference(swcEClass, SWC__SR_IMPL_INIT_VALUE_CONSTANT);
+		createEReference(swcEClass, SWC__SR_IMPL_INVALID_VALUE_CONSTANT);
+		createEReference(swcEClass, SWC__SR_FILTER_CONSTANT);
+		createEReference(swcEClass, SWC__CS_API_APPLICATION_ERROR_CONSTANT);
+		createEReference(swcEClass, SWC__CS_PORT_ARG_VALUE_CONSTANT);
+		createEReference(swcEClass, SWC__CS_PORT_ARG_VALUE_VARIABLE);
+		createEReference(swcEClass, SWC__IRV_BUFFER_INIT_VALUE_CONSTANT);
+		createEReference(swcEClass, SWC__IRV_BUFFER_VARIABLE_SET);
 
 		rteHeaderEClass = createEClass(RTE_HEADER);
+
+		rteBswApiHeaderEClass = createEClass(RTE_BSW_API_HEADER);
+		createEReference(rteBswApiHeaderEClass, RTE_BSW_API_HEADER__IOC_API);
 
 		rteLifecycleHeaderEClass = createEClass(RTE_LIFECYCLE_HEADER);
 		createEReference(rteLifecycleHeaderEClass, RTE_LIFECYCLE_HEADER__RTE_LIFECYCLE_API_GROUP);
@@ -6263,6 +8794,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteTypeHeaderEClass = createEClass(RTE_TYPE_HEADER);
 		createEReference(rteTypeHeaderEClass, RTE_TYPE_HEADER__RTE_TYPE);
 		createEReference(rteTypeHeaderEClass, RTE_TYPE_HEADER__RTE_TYPE_CONSTANT);
+		createEAttribute(rteTypeHeaderEClass, RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION);
 
 		invalidateApiEClass = createEClass(INVALIDATE_API);
 		createEReference(invalidateApiEClass, INVALIDATE_API__OPERATION);
@@ -6272,9 +8804,23 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		directComSendOperationEClass = createEClass(DIRECT_COM_SEND_OPERATION);
 
+		trustedFunctionRteOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_OPERATION);
+		createEReference(trustedFunctionRteOperationEClass, TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE);
+
+		trustedFunctionRteSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_SEND_OPERATION);
+		createEReference(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__TYPE);
+		createEAttribute(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__SR_SEND_TF_SYMBOL_NAME);
+		createEReference(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE);
+		createEAttribute(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_GROUP);
+
+		trustedFunctionRteBufferWriteSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION);
+		createEReference(trustedFunctionRteBufferWriteSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+
 		trustedFunctionComSendOperationEClass = createEClass(TRUSTED_FUNCTION_COM_SEND_OPERATION);
+		createEReference(trustedFunctionComSendOperationEClass, TRUSTED_FUNCTION_COM_SEND_OPERATION__TYPE);
 		createEReference(trustedFunctionComSendOperationEClass, TRUSTED_FUNCTION_COM_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
 		createEReference(trustedFunctionComSendOperationEClass, TRUSTED_FUNCTION_COM_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE);
+		createEAttribute(trustedFunctionComSendOperationEClass, TRUSTED_FUNCTION_COM_SEND_OPERATION__IS_GROUP);
 
 		immediateProxyComSendOperationEClass = createEClass(IMMEDIATE_PROXY_COM_SEND_OPERATION);
 		createEReference(immediateProxyComSendOperationEClass, IMMEDIATE_PROXY_COM_SEND_OPERATION__ACTIVATION_API);
@@ -6286,11 +8832,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		comReadOperationEClass = createEClass(COM_READ_OPERATION);
 		createEReference(comReadOperationEClass, COM_READ_OPERATION__ACCESS_API);
+		createEReference(comReadOperationEClass, COM_READ_OPERATION__TEMP_RETURN_VARIABLE);
 
 		iocNonqueuedCommunicationEClass = createEClass(IOC_NONQUEUED_COMMUNICATION);
 		createEReference(iocNonqueuedCommunicationEClass, IOC_NONQUEUED_COMMUNICATION__WRITE_API);
 		createEReference(iocNonqueuedCommunicationEClass, IOC_NONQUEUED_COMMUNICATION__READ_API);
 		createEReference(iocNonqueuedCommunicationEClass, IOC_NONQUEUED_COMMUNICATION__INIT_VALUE);
+		createEReference(iocNonqueuedCommunicationEClass, IOC_NONQUEUED_COMMUNICATION__INIT_VALUE_VARIABLE);
 
 		iocWriteApiEClass = createEClass(IOC_WRITE_API);
 		createEReference(iocWriteApiEClass, IOC_WRITE_API__PARENT);
@@ -6308,6 +8856,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		comSendOperationEClass = createEClass(COM_SEND_OPERATION);
 		createEReference(comSendOperationEClass, COM_SEND_OPERATION__ACCESS_API);
+		createEReference(comSendOperationEClass, COM_SEND_OPERATION__TEMP_RETURN_VARIABLE);
 
 		comCallbackEClass = createEClass(COM_CALLBACK);
 
@@ -6320,11 +8869,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(comInvalidateCallbackEClass, COM_INVALIDATE_CALLBACK__OPERATION);
 		createEReference(comInvalidateCallbackEClass, COM_INVALIDATE_CALLBACK__FILTER_RESULT_VARIABLE);
 
+		comSendSignalProxyEntityEClass = createEClass(COM_SEND_SIGNAL_PROXY_ENTITY);
+		createEReference(comSendSignalProxyEntityEClass, COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION);
+		createEReference(comSendSignalProxyEntityEClass, COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION);
+
 		comSendSignalImmediateEntityEClass = createEClass(COM_SEND_SIGNAL_IMMEDIATE_ENTITY);
-		createEReference(comSendSignalImmediateEntityEClass, COM_SEND_SIGNAL_IMMEDIATE_ENTITY__OPERATION);
 
 		comSendSignalPeriodicEntityEClass = createEClass(COM_SEND_SIGNAL_PERIODIC_ENTITY);
-		createEReference(comSendSignalPeriodicEntityEClass, COM_SEND_SIGNAL_PERIODIC_ENTITY__OPERATION);
 
 		filterOperationEClass = createEClass(FILTER_OPERATION);
 		createEReference(filterOperationEClass, FILTER_OPERATION__FILTER_RESULT_VARIABLE);
@@ -6361,15 +8912,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteStopApiEClass = createEClass(RTE_STOP_API);
 
 		restartPartitionApiEClass = createEClass(RESTART_PARTITION_API);
-		createEReference(restartPartitionApiEClass, RESTART_PARTITION_API__EREFERENCE0);
-		createEReference(restartPartitionApiEClass, RESTART_PARTITION_API__EREFERENCE1);
 		createEReference(restartPartitionApiEClass, RESTART_PARTITION_API__OPERATION);
 
 		partitionRestartingApiEClass = createEClass(PARTITION_RESTARTING_API);
-		createEReference(partitionRestartingApiEClass, PARTITION_RESTARTING_API__OPERATION);
+		createEReference(partitionRestartingApiEClass, PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION);
 
 		partitionTerminatedApiEClass = createEClass(PARTITION_TERMINATED_API);
-		createEReference(partitionTerminatedApiEClass, PARTITION_TERMINATED_API__OPERATION);
+		createEReference(partitionTerminatedApiEClass, PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION);
 
 		rteLifecycleApiEClass = createEClass(RTE_LIFECYCLE_API);
 
@@ -6379,6 +8928,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(sendApiEClass, SEND_API__STATUS_VARIABLE);
 		createEReference(sendApiEClass, SEND_API__TRUSTED_FUNCTION_PARAM_VARIABLE);
 		createEReference(sendApiEClass, SEND_API__FILTER_RESULT_VARIABLE);
+		createEAttribute(sendApiEClass, SEND_API__NEEDS_CHECK_ARG);
 
 		receiveApiEClass = createEClass(RECEIVE_API);
 		createEReference(receiveApiEClass, RECEIVE_API__OPERATION);
@@ -6388,6 +8938,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteBufferQueuedSendOperationEClass = createEClass(RTE_BUFFER_QUEUED_SEND_OPERATION);
 		createEReference(rteBufferQueuedSendOperationEClass, RTE_BUFFER_QUEUED_SEND_OPERATION__ACCESS_VARIABLE);
 		createEReference(rteBufferQueuedSendOperationEClass, RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE);
+		createEReference(rteBufferQueuedSendOperationEClass, RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE);
 
 		rteBufferQueuedVariableEClass = createEClass(RTE_BUFFER_QUEUED_VARIABLE);
 		createEReference(rteBufferQueuedVariableEClass, RTE_BUFFER_QUEUED_VARIABLE__QUEUE_TYPE);
@@ -6404,11 +8955,16 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		iocSendApiEClass = createEClass(IOC_SEND_API);
 
+		iocSendOperationEClass = createEClass(IOC_SEND_OPERATION);
+		createEReference(iocSendOperationEClass, IOC_SEND_OPERATION__TYPE);
+
 		iocQueuedSendOperationEClass = createEClass(IOC_QUEUED_SEND_OPERATION);
 		createEReference(iocQueuedSendOperationEClass, IOC_QUEUED_SEND_OPERATION__ACCESS_API);
+		createEReference(iocQueuedSendOperationEClass, IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE);
 
 		iocQueuedReadOperationEClass = createEClass(IOC_QUEUED_READ_OPERATION);
 		createEReference(iocQueuedReadOperationEClass, IOC_QUEUED_READ_OPERATION__ACCESS_API);
+		createEReference(iocQueuedReadOperationEClass, IOC_QUEUED_READ_OPERATION__TEMP_RETURN_VARIABLE);
 
 		callApiEClass = createEClass(CALL_API);
 		createEReference(callApiEClass, CALL_API__OPERATION);
@@ -6416,13 +8972,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(callApiEClass, CALL_API__PORT_ARG_VALUE);
 		createEReference(callApiEClass, CALL_API__RETURN_VARIABLE);
 
-		executableStartOperationEClass = createEClass(EXECUTABLE_START_OPERATION);
-		createEReference(executableStartOperationEClass, EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION);
-		createEReference(executableStartOperationEClass, EXECUTABLE_START_OPERATION__START_EXECUTABLE);
+		tfCallApiEClass = createEClass(TF_CALL_API);
+		createEAttribute(tfCallApiEClass, TF_CALL_API__CS_TF_PARAM_TYPE_NAME);
+		createEAttribute(tfCallApiEClass, TF_CALL_API__CS_TF_ARGC_CONSTANT_NAME);
+		createEAttribute(tfCallApiEClass, TF_CALL_API__CS_TF_OPID_CONSTANT_NAME);
+		createEAttribute(tfCallApiEClass, TF_CALL_API__CS_TF_NAME);
+		createEAttribute(tfCallApiEClass, TF_CALL_API__NEEDS_CHECK_ARG);
 
-		executableEntityEClass = createEClass(EXECUTABLE_ENTITY);
-		createEReference(executableEntityEClass, EXECUTABLE_ENTITY__ROLE_PARAM);
-		createEReference(executableEntityEClass, EXECUTABLE_ENTITY__PARENT_PARTED_BSWM);
+		executableStartOperationEClass = createEClass(EXECUTABLE_START_OPERATION);
+		createEReference(executableStartOperationEClass, EXECUTABLE_START_OPERATION__START_EXECUTABLE);
+		createEReference(executableStartOperationEClass, EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION);
+		createEReference(executableStartOperationEClass, EXECUTABLE_START_OPERATION__DISABLED_IN_MODE);
+
+		disabledInModeEClass = createEClass(DISABLED_IN_MODE);
+		createEReference(disabledInModeEClass, DISABLED_IN_MODE__DISABLED_MODE);
+		createEReference(disabledInModeEClass, DISABLED_IN_MODE__MODE_MACHINE_INSTANCE);
 
 		excludeOperationEClass = createEClass(EXCLUDE_OPERATION);
 
@@ -6436,19 +9000,27 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		osResourceExcludeOperationEClass = createEClass(OS_RESOURCE_EXCLUDE_OPERATION);
 		createEAttribute(osResourceExcludeOperationEClass, OS_RESOURCE_EXCLUDE_OPERATION__OS_RESOURCE_ID);
 
+		noneExcludeOperationEClass = createEClass(NONE_EXCLUDE_OPERATION);
+
 		constantEClass = createEClass(CONSTANT);
 		createEAttribute(constantEClass, CONSTANT__SYMBOL_NAME);
+		createEAttribute(constantEClass, CONSTANT__EXTERNAL_SYMBOL_NAME);
 		createEReference(constantEClass, CONSTANT__TYPE);
 		createEAttribute(constantEClass, CONSTANT__VALUE);
-		createEAttribute(constantEClass, CONSTANT__CONSTANT_TYPE);
+		createEAttribute(constantEClass, CONSTANT__CONSTANT_VALUE_TYPE);
+		createEReference(constantEClass, CONSTANT__MEMBER);
+		createEAttribute(constantEClass, CONSTANT__REPRESENTED_VARIABLE_NAME);
 
-		bswSchedulableEntityEClass = createEClass(BSW_SCHEDULABLE_ENTITY);
+		constantMemberEClass = createEClass(CONSTANT_MEMBER);
+		createEReference(constantMemberEClass, CONSTANT_MEMBER__PARENT);
 
 		rteEnterApiEClass = createEClass(RTE_ENTER_API);
 		createEReference(rteEnterApiEClass, RTE_ENTER_API__OPERATION);
+		createEAttribute(rteEnterApiEClass, RTE_ENTER_API__IS_NONE_EXCLUDE);
 
 		rteExitApiEClass = createEClass(RTE_EXIT_API);
 		createEReference(rteExitApiEClass, RTE_EXIT_API__OPERATION);
+		createEAttribute(rteExitApiEClass, RTE_EXIT_API__IS_NONE_EXCLUDE);
 
 		osTaskActivationExecutableTaskBodyEClass = createEClass(OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY);
 		createEReference(osTaskActivationExecutableTaskBodyEClass, OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION);
@@ -6476,6 +9048,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(timingTriggeringExecutableStartOperationEClass, TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_COUNTER_VARIABLE);
 		createEReference(timingTriggeringExecutableStartOperationEClass, TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE);
 
+		modeSwitchTriggeringExecutableStartOperationEClass = createEClass(MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION);
+		createEReference(modeSwitchTriggeringExecutableStartOperationEClass, MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE);
+
 		cycleCountupOperationEClass = createEClass(CYCLE_COUNTUP_OPERATION);
 		createEReference(cycleCountupOperationEClass, CYCLE_COUNTUP_OPERATION__COUNTER_VARIABLE);
 		createEReference(cycleCountupOperationEClass, CYCLE_COUNTUP_OPERATION__MAX_CONSTANT);
@@ -6490,32 +9065,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		iocEmptyQueueApiEClass = createEClass(IOC_EMPTY_QUEUE_API);
 
 		comApiEClass = createEClass(COM_API);
+		createEAttribute(comApiEClass, COM_API__IS_SIGNAL_GROUP);
 		createEAttribute(comApiEClass, COM_API__COM_SIGNAL_SYMBOL_NAME);
 
 		iocApiEClass = createEClass(IOC_API);
-
-		rteEClass = createEClass(RTE);
-		createEReference(rteEClass, RTE__CORE);
-		createEReference(rteEClass, RTE__COM_CALLBACK);
-		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY);
-		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY);
-		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION);
-		createEReference(rteEClass, RTE__DEPENDENT_TYPE);
-		createEReference(rteEClass, RTE__RTE_TYPE);
-		createEReference(rteEClass, RTE__DEPENDENT_OS_API);
-		createEReference(rteEClass, RTE__DEPENDENT_IOC_COMMUNICATION);
-		createEReference(rteEClass, RTE__DEPENDENT_COM_API);
-		createEReference(rteEClass, RTE__RTE_START_API);
-		createEReference(rteEClass, RTE__IOC_INIT_VALUE_CONSTANT);
-		createEReference(rteEClass, RTE__DEPENDENT_CONSTANT);
-		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY);
-		createEReference(rteEClass, RTE__RTE_STOP_API);
-		createEReference(rteEClass, RTE__RTE_TYPE_CONSTANT);
-		createEReference(rteEClass, RTE__RTE_MEMORY_MAPPING);
-		createEReference(rteEClass, RTE__GENERATION_INFO);
-		createEReference(rteEClass, RTE__BSWM);
-		createEReference(rteEClass, RTE__SCHM_INIT_API);
-		createEReference(rteEClass, RTE__SCHM_DEINIT_API);
+		createEAttribute(iocApiEClass, IOC_API__MAPPING_NAME);
 
 		valueEClass = createEClass(VALUE);
 
@@ -6523,6 +9077,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEAttribute(trustedFunctionEClass, TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX);
 
 		comSendSignalTrustedFunctionEClass = createEClass(COM_SEND_SIGNAL_TRUSTED_FUNCTION);
+		createEAttribute(comSendSignalTrustedFunctionEClass, COM_SEND_SIGNAL_TRUSTED_FUNCTION__IS_GROUP);
+		createEAttribute(comSendSignalTrustedFunctionEClass, COM_SEND_SIGNAL_TRUSTED_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME);
 
 		osSetEventApiEClass = createEClass(OS_SET_EVENT_API);
 		createEAttribute(osSetEventApiEClass, OS_SET_EVENT_API__OS_TASK_ID);
@@ -6539,12 +9095,18 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(variableEClass, VARIABLE__MEMBER);
 		createEAttribute(variableEClass, VARIABLE__SYMBOL_NAME);
 
-		comSendProxyOperationEClass = createEClass(COM_SEND_PROXY_OPERATION);
-		createEReference(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE);
-		createEReference(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__ACCESS_API);
-		createEReference(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE);
+		primitiveComSendProxyOperationEClass = createEClass(PRIMITIVE_COM_SEND_PROXY_OPERATION);
+		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE);
+		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API);
+		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE);
+
+		complexComSendProxyOperationEClass = createEClass(COMPLEX_COM_SEND_PROXY_OPERATION);
+		createEReference(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__ACCESS_API);
+		createEAttribute(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME);
+		createEReference(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE);
 
 		iocReceiveGroupApiEClass = createEClass(IOC_RECEIVE_GROUP_API);
+		createEAttribute(iocReceiveGroupApiEClass, IOC_RECEIVE_GROUP_API__COM_SEND_SIGNAL_SYMBOL_NAME);
 
 		moduleRootEClass = createEClass(MODULE_ROOT);
 		createEReference(moduleRootEClass, MODULE_ROOT__RTE_MODULE);
@@ -6574,21 +9136,31 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteBufferWriteTrustedFunctionEClass, RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION);
 		createEReference(rteBufferWriteTrustedFunctionEClass, RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE);
 
-		trustedFunctionRteBufferWriteSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION);
-		createEReference(trustedFunctionRteBufferWriteSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+		csTrustedFunctionEClass = createEClass(CS_TRUSTED_FUNCTION);
+		createEReference(csTrustedFunctionEClass, CS_TRUSTED_FUNCTION__DATA_VARIABLE);
+		createEAttribute(csTrustedFunctionEClass, CS_TRUSTED_FUNCTION__CS_TF_PARAM_TYPE_NAME);
+		createEReference(csTrustedFunctionEClass, CS_TRUSTED_FUNCTION__CS_TF_CALLED_RUNNABLE);
+
+		csTfCalledRunnableEClass = createEClass(CS_TF_CALLED_RUNNABLE);
+		createEAttribute(csTfCalledRunnableEClass, CS_TF_CALLED_RUNNABLE__CS_TF_OPID_CONSTANT_NAME);
+		createEReference(csTfCalledRunnableEClass, CS_TF_CALLED_RUNNABLE__START_OPERATION);
+
+		serverRunnableStartOperationEClass = createEClass(SERVER_RUNNABLE_START_OPERATION);
+		createEReference(serverRunnableStartOperationEClass, SERVER_RUNNABLE_START_OPERATION__START_SERVER_RUNNABLE);
 
 		iocCommunicationEClass = createEClass(IOC_COMMUNICATION);
 
 		proxyComSendOperationEClass = createEClass(PROXY_COM_SEND_OPERATION);
-		createEReference(proxyComSendOperationEClass, PROXY_COM_SEND_OPERATION__ACCESS_PROXY_API);
+		createEReference(proxyComSendOperationEClass, PROXY_COM_SEND_OPERATION__TYPE);
+		createEReference(proxyComSendOperationEClass, PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API);
+		createEReference(proxyComSendOperationEClass, PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API);
+		createEAttribute(proxyComSendOperationEClass, PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME);
 
 		iocSendGroupApiEClass = createEClass(IOC_SEND_GROUP_API);
 
 		iocQueuedGroupCommunicationEClass = createEClass(IOC_QUEUED_GROUP_COMMUNICATION);
 		createEReference(iocQueuedGroupCommunicationEClass, IOC_QUEUED_GROUP_COMMUNICATION__RECEIVE_API);
 		createEReference(iocQueuedGroupCommunicationEClass, IOC_QUEUED_GROUP_COMMUNICATION__SEND_API);
-
-		directExecutableStartOperationEClass = createEClass(DIRECT_EXECUTABLE_START_OPERATION);
 
 		singlecoreRteStartApiEClass = createEClass(SINGLECORE_RTE_START_API);
 		createEReference(singlecoreRteStartApiEClass, SINGLECORE_RTE_START_API__OPERATION);
@@ -6597,10 +9169,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		headerFileEClass = createEClass(HEADER_FILE);
 		createEAttribute(headerFileEClass, HEADER_FILE__GUARD_NAME);
-		createEReference(headerFileEClass, HEADER_FILE__DEPENDENT_HEADERS);
+		createEReference(headerFileEClass, HEADER_FILE__INCLUDE_HEADER);
 
 		sourceFileEClass = createEClass(SOURCE_FILE);
-		createEReference(sourceFileEClass, SOURCE_FILE__DEPENDENT_HEADERS);
+		createEReference(sourceFileEClass, SOURCE_FILE__INCLUDE_HEADER);
 
 		rteInternalHeaderEClass = createEClass(RTE_INTERNAL_HEADER);
 		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__CONSTANT);
@@ -6610,19 +9182,75 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__RTE_CORE_START_API_IMPL);
 		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
 		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__SCHM_CORE_INIT_API_IMPL);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__FUNCTION_MACRO);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__MODE_TYPE);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__RTE_API_GROUP);
+		createEReference(rteInternalHeaderEClass, RTE_INTERNAL_HEADER__SCHM_API_GROUP);
+
+		modeTypeEClass = createEClass(MODE_TYPE);
+		createEAttribute(modeTypeEClass, MODE_TYPE__GUARD_NAME);
+		createEReference(modeTypeEClass, MODE_TYPE__IMPLEMENTATION_DATA_TYPE);
+
+		modeDeclarationGroupEClass = createEClass(MODE_DECLARATION_GROUP);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__MODE_TYPE);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__IMPLEMENTATION_DATA_TYPE);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__MODE_CONSTANT);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__MODE_TRANSITION_STATUS_CONSTANT);
+		createEReference(modeDeclarationGroupEClass, MODE_DECLARATION_GROUP__INIT_MODE_CONSTANT);
+
+		modeQueueTypeEClass = createEClass(MODE_QUEUE_TYPE);
+		createEReference(modeQueueTypeEClass, MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT);
+		createEReference(modeQueueTypeEClass, MODE_QUEUE_TYPE__ELEMENT_TYPE);
+
+		modeQueuedVariableEClass = createEClass(MODE_QUEUED_VARIABLE);
+		createEReference(modeQueuedVariableEClass, MODE_QUEUED_VARIABLE__QUEUE_TYPE);
+
+		modeMachineInstanceEClass = createEClass(MODE_MACHINE_INSTANCE);
+		createEReference(modeMachineInstanceEClass, MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE_TYPE);
+		createEReference(modeMachineInstanceEClass, MODE_MACHINE_INSTANCE__REQUEST_MODE_QUEUE);
+		createEReference(modeMachineInstanceEClass, MODE_MACHINE_INSTANCE__CURRENT_MODE_VARIABLE);
+		createEReference(modeMachineInstanceEClass, MODE_MACHINE_INSTANCE__NEXT_MODE_VARIABLE);
+		createEReference(modeMachineInstanceEClass, MODE_MACHINE_INSTANCE__INIT_MODE_CONSTANT);
+
+		functionMacroEClass = createEClass(FUNCTION_MACRO);
+		createEAttribute(functionMacroEClass, FUNCTION_MACRO__SYMBOL_NAME);
+		createEAttribute(functionMacroEClass, FUNCTION_MACRO__FUNCTION_NAME);
+
+		comProxyFunctionTableFileContentsGroupEClass = createEClass(COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP);
+		createEAttribute(comProxyFunctionTableFileContentsGroupEClass, COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP__SR_WRITE_PROXY_NAME);
 
 		primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
-		createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__ORIGINAL_TYPE_SYMBOL_NAME);
-		createEAttribute(primitiveTypeEClass, PRIMITIVE_TYPE__SIGNEDNESS);
+
+		redefinitionPrimitiveTypeEClass = createEClass(REDEFINITION_PRIMITIVE_TYPE);
+
+		arrayTypeEClass = createEClass(ARRAY_TYPE);
+		createEAttribute(arrayTypeEClass, ARRAY_TYPE__ARRAY_SIZE);
+
+		redefinitionArrayTypeEClass = createEClass(REDEFINITION_ARRAY_TYPE);
 
 		unionTypeEClass = createEClass(UNION_TYPE);
 		createEReference(unionTypeEClass, UNION_TYPE__MEMBER);
+
+		redefinitionUnionTypeEClass = createEClass(REDEFINITION_UNION_TYPE);
+
+		structTypeEClass = createEClass(STRUCT_TYPE);
+		createEReference(structTypeEClass, STRUCT_TYPE__MEMBER);
+
+		redefinitionStructTypeEClass = createEClass(REDEFINITION_STRUCT_TYPE);
 
 		blackboxTypeEClass = createEClass(BLACKBOX_TYPE);
 
 		unionMemberEClass = createEClass(UNION_MEMBER);
 		createEAttribute(unionMemberEClass, UNION_MEMBER__MEMBER_NAME);
 		createEReference(unionMemberEClass, UNION_MEMBER__TYPE);
+
+		structMemberEClass = createEClass(STRUCT_MEMBER);
+		createEAttribute(structMemberEClass, STRUCT_MEMBER__MEMBER_NAME);
+		createEReference(structMemberEClass, STRUCT_MEMBER__TYPE);
 
 		variableMemberEClass = createEClass(VARIABLE_MEMBER);
 		createEReference(variableMemberEClass, VARIABLE_MEMBER__PARENT);
@@ -6635,7 +9263,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteBufferQueueTypeEClass, RTE_BUFFER_QUEUE_TYPE__MAX_LENGTH_CONSTANT);
 		createEReference(rteBufferQueueTypeEClass, RTE_BUFFER_QUEUE_TYPE__ELEMENT_TYPE);
 
+		rteSendTrustedFunctionParamTypeEClass = createEClass(RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
+
 		comSendTrustedFunctionParamTypeEClass = createEClass(COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
+		createEAttribute(comSendTrustedFunctionParamTypeEClass, COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_GROUP);
+
+		csTrustedFunctionParamTypeEClass = createEClass(CS_TRUSTED_FUNCTION_PARAM_TYPE);
 
 		neverReadOperationEClass = createEClass(NEVER_READ_OPERATION);
 		createEReference(neverReadOperationEClass, NEVER_READ_OPERATION__INIT_VALUE_CONSTANT);
@@ -6645,6 +9278,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		trustedFunctionRteBufferInvalidateSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION);
 		createEReference(trustedFunctionRteBufferInvalidateSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+		createEReference(trustedFunctionRteBufferInvalidateSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE);
 
 		memoryMappingEClass = createEClass(MEMORY_MAPPING);
 		createEAttribute(memoryMappingEClass, MEMORY_MAPPING__PREFIX);
@@ -6654,34 +9288,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		bswMemoryMappingEClass = createEClass(BSW_MEMORY_MAPPING);
 
-		globalVariableGroupEClass = createEClass(GLOBAL_VARIABLE_GROUP);
-		createEReference(globalVariableGroupEClass, GLOBAL_VARIABLE_GROUP__GLOBAL_VARIABLE);
-		createEReference(globalVariableGroupEClass, GLOBAL_VARIABLE_GROUP__MEMORY_MAPPING);
+		globalVariableFileContentsGroupEClass = createEClass(GLOBAL_VARIABLE_FILE_CONTENTS_GROUP);
+		createEReference(globalVariableFileContentsGroupEClass, GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__GLOBAL_VARIABLE);
+		createEReference(globalVariableFileContentsGroupEClass, GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__MEMORY_MAPPING);
 
-		functionGroupEClass = createEClass(FUNCTION_GROUP);
-		createEReference(functionGroupEClass, FUNCTION_GROUP__MEMORY_MAPPING);
-		createEReference(functionGroupEClass, FUNCTION_GROUP__FUNCTION);
+		functionFileContentsGroupEClass = createEClass(FUNCTION_FILE_CONTENTS_GROUP);
+		createEReference(functionFileContentsGroupEClass, FUNCTION_FILE_CONTENTS_GROUP__MEMORY_MAPPING);
+		createEReference(functionFileContentsGroupEClass, FUNCTION_FILE_CONTENTS_GROUP__FUNCTION);
 
-		rteApiGroupEClass = createEClass(RTE_API_GROUP);
-		createEReference(rteApiGroupEClass, RTE_API_GROUP__RTE_API);
+		rteApiFileContentsGroupEClass = createEClass(RTE_API_FILE_CONTENTS_GROUP);
+		createEReference(rteApiFileContentsGroupEClass, RTE_API_FILE_CONTENTS_GROUP__RTE_API);
 
-		rteLifecycleApiGroupEClass = createEClass(RTE_LIFECYCLE_API_GROUP);
-		createEReference(rteLifecycleApiGroupEClass, RTE_LIFECYCLE_API_GROUP__RTE_LIFECYCLE_API);
+		rteLifecycleApiFileContentsGroupEClass = createEClass(RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP);
+		createEReference(rteLifecycleApiFileContentsGroupEClass, RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP__RTE_LIFECYCLE_API);
 
-		taskBodyGroupEClass = createEClass(TASK_BODY_GROUP);
-		createEReference(taskBodyGroupEClass, TASK_BODY_GROUP__TASK_BODY);
+		taskBodyFileContentsGroupEClass = createEClass(TASK_BODY_FILE_CONTENTS_GROUP);
+		createEReference(taskBodyFileContentsGroupEClass, TASK_BODY_FILE_CONTENTS_GROUP__TASK_BODY);
 
-		bswSchedulableEntityGroupEClass = createEClass(BSW_SCHEDULABLE_ENTITY_GROUP);
-		createEReference(bswSchedulableEntityGroupEClass, BSW_SCHEDULABLE_ENTITY_GROUP__BSW_SCHEDULABLE_ENTITY);
+		bswSchedulableEntityFileContentsGroupEClass = createEClass(BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP);
+		createEReference(bswSchedulableEntityFileContentsGroupEClass, BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP__BSW_SCHEDULABLE_ENTITY);
 
-		comCallbackGroupEClass = createEClass(COM_CALLBACK_GROUP);
-		createEReference(comCallbackGroupEClass, COM_CALLBACK_GROUP__COM_CALLBACK);
+		comCallbackFileContentsGroupEClass = createEClass(COM_CALLBACK_FILE_CONTENTS_GROUP);
+		createEReference(comCallbackFileContentsGroupEClass, COM_CALLBACK_FILE_CONTENTS_GROUP__COM_CALLBACK);
 
-		trustedFunctionGroupEClass = createEClass(TRUSTED_FUNCTION_GROUP);
-		createEReference(trustedFunctionGroupEClass, TRUSTED_FUNCTION_GROUP__TRUSTED_FUNCTION);
+		trustedFunctionFileContentsGroupEClass = createEClass(TRUSTED_FUNCTION_FILE_CONTENTS_GROUP);
+		createEReference(trustedFunctionFileContentsGroupEClass, TRUSTED_FUNCTION_FILE_CONTENTS_GROUP__TRUSTED_FUNCTION);
 
-		executableEntityGroupEClass = createEClass(EXECUTABLE_ENTITY_GROUP);
-		createEReference(executableEntityGroupEClass, EXECUTABLE_ENTITY_GROUP__EXECUTABLE_ENTITY);
+		executableEntityFileContentsGroupEClass = createEClass(EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP);
+		createEReference(executableEntityFileContentsGroupEClass, EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP__EXECUTABLE_ENTITY);
 
 		bswMemoryMappingHeaderEClass = createEClass(BSW_MEMORY_MAPPING_HEADER);
 		createEReference(bswMemoryMappingHeaderEClass, BSW_MEMORY_MAPPING_HEADER__MEMORY_MAPPING);
@@ -6700,58 +9334,123 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		schmApiEClass = createEClass(SCHM_API);
 		createEReference(schmApiEClass, SCHM_API__RETURN_VALUE);
 		createEReference(schmApiEClass, SCHM_API__PARENT);
+		createEAttribute(schmApiEClass, SCHM_API__IS_INLINE);
+
+		comSignalApiWrapperEClass = createEClass(COM_SIGNAL_API_WRAPPER);
+		createEReference(comSignalApiWrapperEClass, COM_SIGNAL_API_WRAPPER__DATA_PARAM);
+		createEReference(comSignalApiWrapperEClass, COM_SIGNAL_API_WRAPPER__PARENT);
+		createEAttribute(comSignalApiWrapperEClass, COM_SIGNAL_API_WRAPPER__SIGNAL_SYMBOL_NAME);
+		createEAttribute(comSignalApiWrapperEClass, COM_SIGNAL_API_WRAPPER__SIGNAL_GROUP_SYMBOL_NAME);
+
+		comProxyFunctionEClass = createEClass(COM_PROXY_FUNCTION);
+		createEReference(comProxyFunctionEClass, COM_PROXY_FUNCTION__PARENT);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__IS_GROUP);
+
+		comSendSignalApiWrapperEClass = createEClass(COM_SEND_SIGNAL_API_WRAPPER);
+
+		comReceiveSignalApiWrapperEClass = createEClass(COM_RECEIVE_SIGNAL_API_WRAPPER);
 
 		schmLifecycleApiEClass = createEClass(SCHM_LIFECYCLE_API);
 
 		schmEnterApiEClass = createEClass(SCHM_ENTER_API);
 		createEReference(schmEnterApiEClass, SCHM_ENTER_API__OPERATION);
+		createEAttribute(schmEnterApiEClass, SCHM_ENTER_API__IS_NONE_EXCLUDE);
 
 		schmExitApiEClass = createEClass(SCHM_EXIT_API);
 		createEReference(schmExitApiEClass, SCHM_EXIT_API__OPERATION);
+		createEAttribute(schmExitApiEClass, SCHM_EXIT_API__IS_NONE_EXCLUDE);
+
+		schmModeApiEClass = createEClass(SCHM_MODE_API);
+		createEReference(schmModeApiEClass, SCHM_MODE_API__MODE_DECLARATION_GROUP);
+		createEReference(schmModeApiEClass, SCHM_MODE_API__MODE_MACHINE_INSTANCE);
+
+		schmSwitchApiEClass = createEClass(SCHM_SWITCH_API);
+		createEReference(schmSwitchApiEClass, SCHM_SWITCH_API__MODE_MACHINE_INSTANCE);
+		createEReference(schmSwitchApiEClass, SCHM_SWITCH_API__OS_TASK_EVENT_TRIGGERED_BY_MODE);
+		createEReference(schmSwitchApiEClass, SCHM_SWITCH_API__EXECUTABLE_START_OPERATION);
+
+		osTaskEventsTriggeredByModeEClass = createEClass(OS_TASK_EVENTS_TRIGGERED_BY_MODE);
+		createEReference(osTaskEventsTriggeredByModeEClass, OS_TASK_EVENTS_TRIGGERED_BY_MODE__START_MODE);
+		createEReference(osTaskEventsTriggeredByModeEClass, OS_TASK_EVENTS_TRIGGERED_BY_MODE__OS_TASK_EVENT);
+
+		osTaskEventEClass = createEClass(OS_TASK_EVENT);
+		createEAttribute(osTaskEventEClass, OS_TASK_EVENT__OS_TASK_ID);
+		createEAttribute(osTaskEventEClass, OS_TASK_EVENT__OS_EVENT_ID);
+		createEAttribute(osTaskEventEClass, OS_TASK_EVENT__OS_TASK_PRIORITY);
 
 		moduleInterlinkHeaderEClass = createEClass(MODULE_INTERLINK_HEADER);
+		createEReference(moduleInterlinkHeaderEClass, MODULE_INTERLINK_HEADER__GLOBAL_VARIABLE_GROUP);
 		createEReference(moduleInterlinkHeaderEClass, MODULE_INTERLINK_HEADER__SCHM_API_GROUP);
 		createEReference(moduleInterlinkHeaderEClass, MODULE_INTERLINK_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
 		createEReference(moduleInterlinkHeaderEClass, MODULE_INTERLINK_HEADER__CONSTANT);
 
-		schmApiGroupEClass = createEClass(SCHM_API_GROUP);
-		createEReference(schmApiGroupEClass, SCHM_API_GROUP__SCHM_API);
+		schmApiFileContentsGroupEClass = createEClass(SCHM_API_FILE_CONTENTS_GROUP);
+		createEReference(schmApiFileContentsGroupEClass, SCHM_API_FILE_CONTENTS_GROUP__SCHM_API);
+
+		comSignalApiWrapperFileContentsGroupEClass = createEClass(COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP);
+		createEReference(comSignalApiWrapperFileContentsGroupEClass, COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP__COM_SIGNAL_API_WRAPPER);
+
+		comProxyFunctionFileContentsGroupEClass = createEClass(COM_PROXY_FUNCTION_FILE_CONTENTS_GROUP);
+		createEReference(comProxyFunctionFileContentsGroupEClass, COM_PROXY_FUNCTION_FILE_CONTENTS_GROUP__COM_PROXY_FUNCTION);
 
 		moduleInterlinkTypeHeaderEClass = createEClass(MODULE_INTERLINK_TYPE_HEADER);
 		createEReference(moduleInterlinkTypeHeaderEClass, MODULE_INTERLINK_TYPE_HEADER__CONSTANT);
+		createEReference(moduleInterlinkTypeHeaderEClass, MODULE_INTERLINK_TYPE_HEADER__MODE_TYPE);
+		createEReference(moduleInterlinkTypeHeaderEClass, MODULE_INTERLINK_TYPE_HEADER__MODE_DECLARATION_GROUP);
 
-		schmLifecycleApiGroupEClass = createEClass(SCHM_LIFECYCLE_API_GROUP);
-		createEReference(schmLifecycleApiGroupEClass, SCHM_LIFECYCLE_API_GROUP__SCHM_LIFECYCLE_API);
+		schmLifecycleApiFileContentsGroupEClass = createEClass(SCHM_LIFECYCLE_API_FILE_CONTENTS_GROUP);
+		createEReference(schmLifecycleApiFileContentsGroupEClass, SCHM_LIFECYCLE_API_FILE_CONTENTS_GROUP__SCHM_LIFECYCLE_API);
 
 		partedBswmEClass = createEClass(PARTED_BSWM);
 		createEReference(partedBswmEClass, PARTED_BSWM__PARENT);
-		createEReference(partedBswmEClass, PARTED_BSWM__DEPENDENT_EXECUTABLE_ENTITY);
-		createEReference(partedBswmEClass, PARTED_BSWM__SCHM_API);
-		createEReference(partedBswmEClass, PARTED_BSWM__BSW_MEMORY_MAPPING);
 		createEReference(partedBswmEClass, PARTED_BSWM__BSWM);
+		createEReference(partedBswmEClass, PARTED_BSWM__BSW_MEMORY_MAPPING);
+		createEReference(partedBswmEClass, PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY);
+		createEReference(partedBswmEClass, PARTED_BSWM__MODE_MACHINE_INSTANCE);
+		createEReference(partedBswmEClass, PARTED_BSWM__SCHM_API);
 
 		bswmEClass = createEClass(BSWM);
 		createEReference(bswmEClass, BSWM__PARTED_BSWM);
+		createEReference(bswmEClass, BSWM__MODE_DECLARATION_GROUP);
 		createEOperation(bswmEClass, BSWM___GET_SINGLE_PARTED_BSWM__PARTITION);
 
 		schmDeinitApiEClass = createEClass(SCHM_DEINIT_API);
 
 		schmInitApiEClass = createEClass(SCHM_INIT_API);
+		createEReference(schmInitApiEClass, SCHM_INIT_API__OPERATION);
+		createEReference(schmInitApiEClass, SCHM_INIT_API__INITIAL_EXECUTABLE_START_OPERATION);
+		createEReference(schmInitApiEClass, SCHM_INIT_API__INITIAL_EXECUTABLE_OS_TASK_EVENT);
+		createEReference(schmInitApiEClass, SCHM_INIT_API__INIT_TARGET_MODE_MACHINE_INSTANCE);
 
 		singlecoreSchmInitApiEClass = createEClass(SINGLECORE_SCHM_INIT_API);
-		createEReference(singlecoreSchmInitApiEClass, SINGLECORE_SCHM_INIT_API__OPERATION);
 
 		multicoreSchmInitApiEClass = createEClass(MULTICORE_SCHM_INIT_API);
 		createEReference(multicoreSchmInitApiEClass, MULTICORE_SCHM_INIT_API__CORE_INIT_API_IMPL);
 
 		schmCoreInitApiImplEClass = createEClass(SCHM_CORE_INIT_API_IMPL);
 		createEReference(schmCoreInitApiImplEClass, SCHM_CORE_INIT_API_IMPL__PARENT);
-		createEReference(schmCoreInitApiImplEClass, SCHM_CORE_INIT_API_IMPL__OPERATION);
+
+		pointerTypeEClass = createEClass(POINTER_TYPE);
+		createEReference(pointerTypeEClass, POINTER_TYPE__TYPE);
+		createEAttribute(pointerTypeEClass, POINTER_TYPE__IS_CONST_POINTER);
+		createEAttribute(pointerTypeEClass, POINTER_TYPE__IS_CONST_TARGET);
+
+		redefinitionPointerTypeEClass = createEClass(REDEFINITION_POINTER_TYPE);
+
+		redefinitionTypeEClass = createEClass(REDEFINITION_TYPE);
+		createEReference(redefinitionTypeEClass, REDEFINITION_TYPE__SOURCE_TYPE);
+		createEOperation(redefinitionTypeEClass, REDEFINITION_TYPE___GET_LEAF_TYPE);
 
 		// Create enums
 		parameterPassTypeEnumEEnum = createEEnum(PARAMETER_PASS_TYPE_ENUM);
+		parameterDirectionEnumEEnum = createEEnum(PARAMETER_DIRECTION_ENUM);
 		signednessEnumEEnum = createEEnum(SIGNEDNESS_ENUM);
-		constantTypeEnumEEnum = createEEnum(CONSTANT_TYPE_ENUM);
+		constantValueTypeEnumEEnum = createEEnum(CONSTANT_VALUE_TYPE_ENUM);
 
 		// Create data types
 		stringEDataType = createEDataType(STRING);
@@ -6794,15 +9493,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		// Add supertypes to classes
 		moduleReferrableEClass.getESuperTypes().add(this.getModuleObject());
 		operationEClass.getESuperTypes().add(this.getModuleObject());
+		executableEntityEClass.getESuperTypes().add(this.getFunction());
+		bswSchedulableEntityEClass.getESuperTypes().add(this.getExecutableEntity());
+		runnableEntityEClass.getESuperTypes().add(this.getExecutableEntity());
+		rteApiEClass.getESuperTypes().add(this.getFunction());
 		writeApiEClass.getESuperTypes().add(this.getRteApi());
 		sendOperationEClass.getESuperTypes().add(this.getOperation());
 		rteBufferNonqueuedSendOperationEClass.getESuperTypes().add(this.getSendOperation());
 		rteBufferNonqueuedReadOperationEClass.getESuperTypes().add(this.getReadOperation());
 		readOperationEClass.getESuperTypes().add(this.getOperation());
 		readApiEClass.getESuperTypes().add(this.getRteApi());
+		irvReadOperationEClass.getESuperTypes().add(this.getOperation());
+		irvReadApiEClass.getESuperTypes().add(this.getRteApi());
+		irvWriteOperationEClass.getESuperTypes().add(this.getOperation());
+		irvWriteApiEClass.getESuperTypes().add(this.getRteApi());
 		rteBufferVariableSetEClass.getESuperTypes().add(this.getGlobalVariable());
+		globalVariableSetEClass.getESuperTypes().add(this.getGlobalVariable());
+		comProxyFunctionTableVariableEClass.getESuperTypes().add(this.getGlobalVariable());
 		rteSourceEClass.getESuperTypes().add(this.getSourceFile());
-		rteApiEClass.getESuperTypes().add(this.getFunction());
 		globalVariableEClass.getESuperTypes().add(this.getVariable());
 		fileEClass.getESuperTypes().add(this.getModuleReferrable());
 		parameterEClass.getESuperTypes().add(this.getVariable());
@@ -6811,10 +9519,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteApplicationHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		functionEClass.getESuperTypes().add(this.getModuleReferrable());
 		logicalCompartmentEClass.getESuperTypes().add(this.getModuleReferrable());
+		rteEClass.getESuperTypes().add(this.getLogicalCompartment());
 		coreEClass.getESuperTypes().add(this.getLogicalCompartment());
 		partitionEClass.getESuperTypes().add(this.getLogicalCompartment());
 		swcEClass.getESuperTypes().add(this.getLogicalCompartment());
 		rteHeaderEClass.getESuperTypes().add(this.getHeaderFile());
+		rteBswApiHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		rteLifecycleHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		rteApplicationTypeHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		rteVfbTraceHeaderEClass.getESuperTypes().add(this.getHeaderFile());
@@ -6822,8 +9532,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteCallbackHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		rteTypeHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		invalidateApiEClass.getESuperTypes().add(this.getRteApi());
-		iocNonqueuedSendOperationEClass.getESuperTypes().add(this.getSendOperation());
+		iocNonqueuedSendOperationEClass.getESuperTypes().add(this.getIocSendOperation());
 		directComSendOperationEClass.getESuperTypes().add(this.getComSendOperation());
+		trustedFunctionRteOperationEClass.getESuperTypes().add(this.getSendOperation());
+		trustedFunctionRteSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
+		trustedFunctionRteBufferWriteSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
 		trustedFunctionComSendOperationEClass.getESuperTypes().add(this.getComSendOperation());
 		immediateProxyComSendOperationEClass.getESuperTypes().add(this.getProxyComSendOperation());
 		periodicProxyComSendOperationEClass.getESuperTypes().add(this.getProxyComSendOperation());
@@ -6839,8 +9552,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		comCallbackEClass.getESuperTypes().add(this.getFunction());
 		comReceiveTimeoutCallbackEClass.getESuperTypes().add(this.getComCallback());
 		comInvalidateCallbackEClass.getESuperTypes().add(this.getComCallback());
-		comSendSignalImmediateEntityEClass.getESuperTypes().add(this.getBswSchedulableEntity());
-		comSendSignalPeriodicEntityEClass.getESuperTypes().add(this.getBswSchedulableEntity());
+		comSendSignalProxyEntityEClass.getESuperTypes().add(this.getBswSchedulableEntity());
+		comSendSignalImmediateEntityEClass.getESuperTypes().add(this.getComSendSignalProxyEntity());
+		comSendSignalPeriodicEntityEClass.getESuperTypes().add(this.getComSendSignalProxyEntity());
 		filterOperationEClass.getESuperTypes().add(this.getOperation());
 		maskedNewDiffersMaskedOldFilterOperationEClass.getESuperTypes().add(this.getFilterOperation());
 		maskedNewDiffersXFilterOperationEClass.getESuperTypes().add(this.getFilterOperation());
@@ -6862,18 +9576,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		iocQueuedCommunicationEClass.getESuperTypes().add(this.getIocCommunication());
 		iocReceiveApiEClass.getESuperTypes().add(this.getIocApi());
 		iocSendApiEClass.getESuperTypes().add(this.getIocApi());
-		iocQueuedSendOperationEClass.getESuperTypes().add(this.getSendOperation());
+		iocSendOperationEClass.getESuperTypes().add(this.getSendOperation());
+		iocQueuedSendOperationEClass.getESuperTypes().add(this.getIocSendOperation());
 		iocQueuedReadOperationEClass.getESuperTypes().add(this.getReadOperation());
 		callApiEClass.getESuperTypes().add(this.getRteApi());
+		tfCallApiEClass.getESuperTypes().add(this.getCallApi());
 		executableStartOperationEClass.getESuperTypes().add(this.getOperation());
-		executableEntityEClass.getESuperTypes().add(this.getFunction());
+		disabledInModeEClass.getESuperTypes().add(this.getOperation());
 		excludeOperationEClass.getESuperTypes().add(this.getOperation());
 		allInterruptBlockExcludeOperationEClass.getESuperTypes().add(this.getExcludeOperation());
 		osInterruptBlockExcludeOperationEClass.getESuperTypes().add(this.getExcludeOperation());
 		osSpinlockExcludeOperationEClass.getESuperTypes().add(this.getExcludeOperation());
 		osResourceExcludeOperationEClass.getESuperTypes().add(this.getExcludeOperation());
+		noneExcludeOperationEClass.getESuperTypes().add(this.getExcludeOperation());
 		constantEClass.getESuperTypes().add(this.getValue());
-		bswSchedulableEntityEClass.getESuperTypes().add(this.getFunction());
+		constantMemberEClass.getESuperTypes().add(this.getConstant());
 		rteEnterApiEClass.getESuperTypes().add(this.getRteApi());
 		rteExitApiEClass.getESuperTypes().add(this.getRteApi());
 		osTaskActivationExecutableTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
@@ -6881,15 +9598,14 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		osTaskActivationOperationEClass.getESuperTypes().add(this.getContextActivationOperation());
 		osEventSetActivationOperationEClass.getESuperTypes().add(this.getContextActivationOperation());
 		contextActivationOperationEClass.getESuperTypes().add(this.getOperation());
-		timingTriggeringExecutableStartOperationEClass.getESuperTypes().add(this.getOperation());
 		timingTriggeringExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
+		modeSwitchTriggeringExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
 		cycleCountupOperationEClass.getESuperTypes().add(this.getOperation());
 		startOffsetCountupOperationEClass.getESuperTypes().add(this.getOperation());
 		taskBodyEClass.getESuperTypes().add(this.getFunction());
 		iocEmptyQueueApiEClass.getESuperTypes().add(this.getIocApi());
 		comApiEClass.getESuperTypes().add(this.getFunction());
 		iocApiEClass.getESuperTypes().add(this.getFunction());
-		rteEClass.getESuperTypes().add(this.getLogicalCompartment());
 		valueEClass.getESuperTypes().add(this.getModuleReferrable());
 		trustedFunctionEClass.getESuperTypes().add(this.getFunction());
 		comSendSignalTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
@@ -6897,8 +9613,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		osApiEClass.getESuperTypes().add(this.getFunction());
 		comSendSignalImmediateTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
 		variableEClass.getESuperTypes().add(this.getValue());
-		comSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
-		iocReceiveGroupApiEClass.getESuperTypes().add(this.getIocApi());
+		primitiveComSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
+		complexComSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
+		iocReceiveGroupApiEClass.getESuperTypes().add(this.getIocReceiveApi());
+		initializeOperationEClass.getESuperTypes().add(this.getOperation());
 		variableInitializeOperationEClass.getESuperTypes().add(this.getInitializeOperation());
 		iocInitializeOperationEClass.getESuperTypes().add(this.getInitializeOperation());
 		osSuspendAllInterruptsApiEClass.getESuperTypes().add(this.getOsApi());
@@ -6906,63 +9624,99 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		multicoreRteStartApiEClass.getESuperTypes().add(this.getRteLifecycleApi());
 		multicoreRteStartApiEClass.getESuperTypes().add(this.getRteStartApi());
 		rteBufferWriteTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
-		trustedFunctionRteBufferWriteSendOperationEClass.getESuperTypes().add(this.getSendOperation());
+		csTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
+		csTfCalledRunnableEClass.getESuperTypes().add(this.getModuleObject());
+		serverRunnableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
 		proxyComSendOperationEClass.getESuperTypes().add(this.getComSendOperation());
-		iocSendGroupApiEClass.getESuperTypes().add(this.getIocApi());
+		iocSendGroupApiEClass.getESuperTypes().add(this.getIocSendApi());
 		iocQueuedGroupCommunicationEClass.getESuperTypes().add(this.getIocCommunication());
-		directExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
 		singlecoreRteStartApiEClass.getESuperTypes().add(this.getRteStartApi());
 		rteStartApiEClass.getESuperTypes().add(this.getRteLifecycleApi());
 		headerFileEClass.getESuperTypes().add(this.getFile());
 		sourceFileEClass.getESuperTypes().add(this.getFile());
 		rteInternalHeaderEClass.getESuperTypes().add(this.getHeaderFile());
+		modeTypeEClass.getESuperTypes().add(this.getType());
+		modeDeclarationGroupEClass.getESuperTypes().add(this.getModuleReferrable());
+		modeQueueTypeEClass.getESuperTypes().add(this.getType());
+		modeQueuedVariableEClass.getESuperTypes().add(this.getGlobalVariable());
+		modeMachineInstanceEClass.getESuperTypes().add(this.getModuleReferrable());
+		functionMacroEClass.getESuperTypes().add(this.getModuleObject());
+		comProxyFunctionTableFileContentsGroupEClass.getESuperTypes().add(this.getModuleObject());
 		primitiveTypeEClass.getESuperTypes().add(this.getType());
+		redefinitionPrimitiveTypeEClass.getESuperTypes().add(this.getPrimitiveType());
+		redefinitionPrimitiveTypeEClass.getESuperTypes().add(this.getRedefinitionType());
+		arrayTypeEClass.getESuperTypes().add(this.getType());
+		redefinitionArrayTypeEClass.getESuperTypes().add(this.getArrayType());
+		redefinitionArrayTypeEClass.getESuperTypes().add(this.getRedefinitionType());
 		unionTypeEClass.getESuperTypes().add(this.getType());
+		redefinitionUnionTypeEClass.getESuperTypes().add(this.getUnionType());
+		redefinitionUnionTypeEClass.getESuperTypes().add(this.getRedefinitionType());
+		structTypeEClass.getESuperTypes().add(this.getType());
+		redefinitionStructTypeEClass.getESuperTypes().add(this.getStructType());
+		redefinitionStructTypeEClass.getESuperTypes().add(this.getRedefinitionType());
 		blackboxTypeEClass.getESuperTypes().add(this.getType());
+		unionMemberEClass.getESuperTypes().add(this.getModuleObject());
+		structMemberEClass.getESuperTypes().add(this.getModuleObject());
 		variableMemberEClass.getESuperTypes().add(this.getVariable());
 		rteUtilityHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		blackboxHeaderEClass.getESuperTypes().add(this.getHeaderFile());
-		rteBufferQueueTypeEClass.getESuperTypes().add(this.getBlackboxType());
-		comSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getBlackboxType());
+		rteBufferQueueTypeEClass.getESuperTypes().add(this.getType());
+		rteSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
+		comSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
+		csTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
 		neverReadOperationEClass.getESuperTypes().add(this.getReadOperation());
 		rteBufferInvalidateTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
 		trustedFunctionRteBufferInvalidateSendOperationEClass.getESuperTypes().add(this.getSendOperation());
 		memoryMappingEClass.getESuperTypes().add(this.getModuleReferrable());
 		swcMemoryMappingEClass.getESuperTypes().add(this.getMemoryMapping());
 		bswMemoryMappingEClass.getESuperTypes().add(this.getMemoryMapping());
-		globalVariableGroupEClass.getESuperTypes().add(this.getModuleObject());
-		functionGroupEClass.getESuperTypes().add(this.getModuleObject());
-		rteApiGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		rteLifecycleApiGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		taskBodyGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		bswSchedulableEntityGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		comCallbackGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		trustedFunctionGroupEClass.getESuperTypes().add(this.getFunctionGroup());
-		executableEntityGroupEClass.getESuperTypes().add(this.getFunctionGroup());
+		globalVariableFileContentsGroupEClass.getESuperTypes().add(this.getModuleObject());
+		functionFileContentsGroupEClass.getESuperTypes().add(this.getModuleObject());
+		rteApiFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		rteLifecycleApiFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		taskBodyFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		bswSchedulableEntityFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		comCallbackFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		trustedFunctionFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		executableEntityFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
 		bswMemoryMappingHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		swcMemoryMappingHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		generationInfoEClass.getESuperTypes().add(this.getModuleObject());
 		macroEClass.getESuperTypes().add(this.getModuleReferrable());
 		schmApiEClass.getESuperTypes().add(this.getFunction());
+		comSignalApiWrapperEClass.getESuperTypes().add(this.getFunction());
+		comProxyFunctionEClass.getESuperTypes().add(this.getFunction());
+		comSendSignalApiWrapperEClass.getESuperTypes().add(this.getComSignalApiWrapper());
+		comReceiveSignalApiWrapperEClass.getESuperTypes().add(this.getComSignalApiWrapper());
 		schmLifecycleApiEClass.getESuperTypes().add(this.getFunction());
 		schmEnterApiEClass.getESuperTypes().add(this.getSchmApi());
 		schmExitApiEClass.getESuperTypes().add(this.getSchmApi());
+		schmModeApiEClass.getESuperTypes().add(this.getSchmApi());
+		schmSwitchApiEClass.getESuperTypes().add(this.getSchmApi());
+		osTaskEventsTriggeredByModeEClass.getESuperTypes().add(this.getModuleObject());
+		osTaskEventEClass.getESuperTypes().add(this.getModuleObject());
 		moduleInterlinkHeaderEClass.getESuperTypes().add(this.getHeaderFile());
-		schmApiGroupEClass.getESuperTypes().add(this.getFunctionGroup());
+		schmApiFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		comSignalApiWrapperFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
+		comProxyFunctionFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
 		moduleInterlinkTypeHeaderEClass.getESuperTypes().add(this.getHeaderFile());
-		schmLifecycleApiGroupEClass.getESuperTypes().add(this.getFunctionGroup());
+		schmLifecycleApiFileContentsGroupEClass.getESuperTypes().add(this.getFunctionFileContentsGroup());
 		partedBswmEClass.getESuperTypes().add(this.getLogicalCompartment());
 		bswmEClass.getESuperTypes().add(this.getLogicalCompartment());
 		schmDeinitApiEClass.getESuperTypes().add(this.getSchmLifecycleApi());
 		schmInitApiEClass.getESuperTypes().add(this.getSchmLifecycleApi());
 		singlecoreSchmInitApiEClass.getESuperTypes().add(this.getSchmInitApi());
 		multicoreSchmInitApiEClass.getESuperTypes().add(this.getSchmInitApi());
-		schmCoreInitApiImplEClass.getESuperTypes().add(this.getSchmLifecycleApi());
+		schmCoreInitApiImplEClass.getESuperTypes().add(this.getSchmInitApi());
+		pointerTypeEClass.getESuperTypes().add(this.getType());
+		redefinitionPointerTypeEClass.getESuperTypes().add(this.getPointerType());
+		redefinitionPointerTypeEClass.getESuperTypes().add(this.getRedefinitionType());
+		redefinitionTypeEClass.getESuperTypes().add(this.getType());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(moduleObjectEClass, ModuleObject.class, "ModuleObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModuleObject_Source(), ecorePackage.getEObject(), null, "source", null, 0, -1, ModuleObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getModuleObject_SingleSource(), ecorePackage.getEObject(), null, "singleSource", null, 0, 1, ModuleObject.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleObject_SingleSource(), ecorePackage.getEObject(), null, "singleSource", null, 0, 1, ModuleObject.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModuleObject_RoleName(), this.getString(), "roleName", null, 0, 1, ModuleObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleReferrableEClass, ModuleReferrable.class, "ModuleReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -6970,15 +9724,37 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(operationEClass, Operation.class, "Operation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(executableEntityEClass, ExecutableEntity.class, "ExecutableEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutableEntity_RoleParam(), this.getParameter(), null, "roleParam", null, 0, -1, ExecutableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExecutableEntity_IsNoMock(), this.getBoolean(), "isNoMock", null, 1, 1, ExecutableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bswSchedulableEntityEClass, BswSchedulableEntity.class, "BswSchedulableEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBswSchedulableEntity_ParentPartedBswm(), this.getPartedBswm(), this.getPartedBswm_DependentBswSchedulableEntity(), "parentPartedBswm", null, 0, 1, BswSchedulableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(runnableEntityEClass, RunnableEntity.class, "RunnableEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRunnableEntity_HasReturnValue(), this.getBoolean(), "hasReturnValue", null, 1, 1, RunnableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rteApiEClass, RteApi.class, "RteApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteApi_Parent(), this.getSwc(), this.getSwc_RteApi(), "parent", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteApi_ApiMappingName(), this.getCIdentifier(), "apiMappingName", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteApi_IsConnected(), this.getBoolean(), "isConnected", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteApi_IsInline(), this.getBoolean(), "isInline", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApi_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApi_InlineConstant(), this.getConstant(), null, "inlineConstant", null, 0, -1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApi_InlineGlobalVariable(), this.getGlobalVariable(), null, "inlineGlobalVariable", null, 0, -1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApi_InlineRunnableEntity(), this.getRunnableEntity(), null, "inlineRunnableEntity", null, 0, -1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(writeApiEClass, WriteApi.class, "WriteApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWriteApi_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWriteApi_DataParam(), this.getParameter(), null, "dataParam", null, 1, 1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getWriteApi_NeedsCheckArg(), this.getBoolean(), "needsCheckArg", null, 1, 1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sendOperationEClass, SendOperation.class, "SendOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSendOperation_SendValue(), this.getValue(), null, "sendValue", null, 1, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendOperation_SendStatus(), this.getValue(), null, "sendStatus", null, 1, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendOperation_ExcludeOperation(), this.getExcludeOperation(), null, "excludeOperation", null, 0, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendOperation_ReturnVariable(), this.getVariable(), null, "returnVariable", null, 0, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSendOperation_IsWriteApi(), this.getBoolean(), "isWriteApi", null, 1, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferNonqueuedSendOperationEClass, RteBufferNonqueuedSendOperation.class, "RteBufferNonqueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferNonqueuedSendOperation_AccessVariable(), this.getRteBufferVariableSet(), null, "accessVariable", null, 1, 1, RteBufferNonqueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6997,52 +9773,78 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getReadApi_Operation(), this.getReadOperation(), null, "operation", null, 0, 1, ReadApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReadApi_DataParam(), this.getParameter(), null, "dataParam", null, 1, 1, ReadApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(irvReadOperationEClass, IrvReadOperation.class, "IrvReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIrvReadOperation_AccessVariable(), this.getRteBufferVariableSet(), null, "accessVariable", null, 1, 1, IrvReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvReadOperation_ReadValueVariable(), this.getVariable(), null, "readValueVariable", null, 1, 1, IrvReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvReadOperation_ExcludeOperation(), this.getExcludeOperation(), null, "excludeOperation", null, 0, 1, IrvReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(irvReadApiEClass, IrvReadApi.class, "IrvReadApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIrvReadApi_Operation(), this.getIrvReadOperation(), null, "operation", null, 1, 1, IrvReadApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvReadApi_DataParam(), this.getParameter(), null, "dataParam", null, 0, 1, IrvReadApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(irvWriteOperationEClass, IrvWriteOperation.class, "IrvWriteOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIrvWriteOperation_AccessVariable(), this.getRteBufferVariableSet(), null, "accessVariable", null, 1, 1, IrvWriteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvWriteOperation_WriteValueVariable(), this.getVariable(), null, "writeValueVariable", null, 1, 1, IrvWriteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvWriteOperation_ExcludeOperation(), this.getExcludeOperation(), null, "excludeOperation", null, 0, 1, IrvWriteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(irvWriteApiEClass, IrvWriteApi.class, "IrvWriteApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIrvWriteApi_Operation(), this.getIrvWriteOperation(), null, "operation", null, 1, 1, IrvWriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIrvWriteApi_DataParam(), this.getParameter(), null, "dataParam", null, 1, 1, IrvWriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(rteBufferVariableSetEClass, RteBufferVariableSet.class, "RteBufferVariableSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferVariableSet_ValueVariable(), this.getGlobalVariable(), null, "valueVariable", null, 1, 1, RteBufferVariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferVariableSet_StatusVariable(), this.getGlobalVariable(), null, "statusVariable", null, 0, 1, RteBufferVariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferVariableSet_InitValueVariable(), this.getGlobalVariable(), null, "initValueVariable", null, 0, 1, RteBufferVariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferVariableSet_ComplexVariable(), this.getGlobalVariable(), null, "complexVariable", null, 0, 1, RteBufferVariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(globalVariableSetEClass, GlobalVariableSet.class, "GlobalVariableSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGlobalVariableSet_GlobalVariable(), this.getGlobalVariable(), null, "globalVariable", null, 0, -1, GlobalVariableSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comProxyFunctionTableVariableEClass, ComProxyFunctionTableVariable.class, "ComProxyFunctionTableVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rteSourceEClass, RteSource.class, "RteSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteSource_GlobalVariableGroup(), this.getGlobalVariableGroup(), null, "globalVariableGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_BswSchedulableEntityGroup(), this.getBswSchedulableEntityGroup(), null, "bswSchedulableEntityGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_RteApiGroup(), this.getRteApiGroup(), null, "rteApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_RteLifecycleApiGroup(), this.getRteLifecycleApiGroup(), null, "rteLifecycleApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_TaskBodyGroup(), this.getTaskBodyGroup(), null, "taskBodyGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_ComCallbackGroup(), this.getComCallbackGroup(), null, "comCallbackGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_TrustedFunctionGroup(), this.getTrustedFunctionGroup(), null, "trustedFunctionGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_GlobalVariableGroup(), this.getGlobalVariableFileContentsGroup(), null, "globalVariableGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_DependentExternalExecutableEntityGroup(), this.getExecutableEntityFileContentsGroup(), null, "dependentExternalExecutableEntityGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_BswSchedulableEntityGroup(), this.getBswSchedulableEntityFileContentsGroup(), null, "bswSchedulableEntityGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_RteApiGroup(), this.getRteApiFileContentsGroup(), null, "rteApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_RteLifecycleApiGroup(), this.getRteLifecycleApiFileContentsGroup(), null, "rteLifecycleApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_TaskBodyGroup(), this.getTaskBodyFileContentsGroup(), null, "taskBodyGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_ComCallbackGroup(), this.getComCallbackFileContentsGroup(), null, "comCallbackGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_TrustedFunctionGroup(), this.getTrustedFunctionFileContentsGroup(), null, "trustedFunctionGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteSource_SourceMacro(), this.getMacro(), null, "sourceMacro", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_SchmLifecycleApiGroup(), this.getSchmLifecycleApiGroup(), null, "schmLifecycleApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSource_SchmApiGroup(), this.getSchmApiGroup(), null, "schmApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rteApiEClass, RteApi.class, "RteApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteApi_ApiMappingName(), this.getCIdentifier(), "apiMappingName", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteApi_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteApi_IsConnected(), this.getBoolean(), "isConnected", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteApi_Parent(), this.getSwc(), this.getSwc_RteApi(), "parent", null, 1, 1, RteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_SchmLifecycleApiGroup(), this.getSchmLifecycleApiFileContentsGroup(), null, "schmLifecycleApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_SchmApiGroup(), this.getSchmApiFileContentsGroup(), null, "schmApiGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_ComSignalApiWrapperGroup(), this.getComSignalApiWrapperFileContentsGroup(), null, "comSignalApiWrapperGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteSource_ComProxyFunctionGroup(), this.getComProxyFunctionFileContentsGroup(), null, "comProxyFunctionGroup", null, 0, -1, RteSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteModuleEClass, RteModule.class, "RteModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteModule_RteCommonSource(), this.getRteSource(), null, "rteCommonSource", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RtePartitionSource(), this.getRteSource(), null, "rtePartitionSource", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteApplicationHeader(), this.getRteApplicationHeader(), null, "rteApplicationHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteApplicationTypeHeader(), this.getRteApplicationTypeHeader(), null, "rteApplicationTypeHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteLifecycleHeader(), this.getRteLifecycleHeader(), null, "rteLifecycleHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteCallbackHeader(), this.getRteCallbackHeader(), null, "rteCallbackHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteConfigurationHeader(), this.getRteConfigurationHeader(), null, "rteConfigurationHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteVfbTraceHeader(), this.getRteVfbTraceHeader(), null, "rteVfbTraceHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteTypeHeader(), this.getRteTypeHeader(), null, "rteTypeHeader", null, 1, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteHeader(), this.getRteHeader(), null, "rteHeader", null, 1, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteCommonHeader(), this.getRteInternalHeader(), null, "rteCommonHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RtePartitionHeader(), this.getRteInternalHeader(), null, "rtePartitionHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_RteUtilityHeader(), this.getRteUtilityHeader(), null, "rteUtilityHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteModule_DependentHeader(), this.getHeaderFile(), null, "dependentHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteModule_BswMemoryMappingHeader(), this.getBswMemoryMappingHeader(), null, "bswMemoryMappingHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteModule_SwcMemoryMappingHeader(), this.getSwcMemoryMappingHeader(), null, "swcMemoryMappingHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteModule_ModuleInterlinkHeader(), this.getModuleInterlinkHeader(), null, "moduleInterlinkHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteHeader(), this.getRteHeader(), null, "rteHeader", null, 1, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteTypeHeader(), this.getRteTypeHeader(), null, "rteTypeHeader", null, 1, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteApplicationTypeHeader(), this.getRteApplicationTypeHeader(), null, "rteApplicationTypeHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteApplicationHeader(), this.getRteApplicationHeader(), null, "rteApplicationHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteModule_ModuleInterlinkTypeHeader(), this.getModuleInterlinkTypeHeader(), null, "moduleInterlinkTypeHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_ModuleInterlinkHeader(), this.getModuleInterlinkHeader(), null, "moduleInterlinkHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteLifecycleHeader(), this.getRteLifecycleHeader(), null, "rteLifecycleHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteConfigurationHeader(), this.getRteConfigurationHeader(), null, "rteConfigurationHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteVfbTraceHeader(), this.getRteVfbTraceHeader(), null, "rteVfbTraceHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteCallbackHeader(), this.getRteCallbackHeader(), null, "rteCallbackHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteUtilityHeader(), this.getRteUtilityHeader(), null, "rteUtilityHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteBswApiHeader(), this.getRteBswApiHeader(), null, "rteBswApiHeader", null, 1, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteCommonHeader(), this.getRteInternalHeader(), null, "rteCommonHeader", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RtePartitionHeader(), this.getRteInternalHeader(), null, "rtePartitionHeader", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RteCommonSource(), this.getRteSource(), null, "rteCommonSource", null, 0, 1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteModule_RtePartitionSource(), this.getRteSource(), null, "rtePartitionSource", null, 0, -1, RteModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(globalVariableEClass, GlobalVariable.class, "GlobalVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getGlobalVariable_InitValueConstant(), this.getConstant(), null, "initValueConstant", null, 0, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGlobalVariable_MemoryMapping(), this.getMemoryMapping(), null, "memoryMapping", null, 0, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGlobalVariable_InitAtDefinition(), this.getBoolean(), "initAtDefinition", null, 1, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGlobalVariable_InitWithConstantValue(), this.getBoolean(), "initWithConstantValue", null, 1, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGlobalVariable_HasConst(), this.getBoolean(), "hasConst", null, 1, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGlobalVariable_HasStatic(), this.getBoolean(), "hasStatic", null, 1, 1, GlobalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fileEClass, File.class, "File", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFile_FileName(), this.getString(), "fileName", null, 1, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7050,19 +9852,28 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getParameter_PassType(), this.getParameterPassTypeEnum(), "passType", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Direction(), this.getParameterDirectionEnum(), "direction", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_HasConst(), this.getBoolean(), "hasConst", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getType_SymbolName(), this.getCIdentifier(), "symbolName", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getType_IsAnonymous(), this.getBoolean(), "isAnonymous", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getType_Signedness(), this.getSignednessEnum(), "signedness", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getType_OriginalTypeSymbolName(), this.getCIdentifier(), "originalTypeSymbolName", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getType_Size(), this.getInteger(), "size", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(localVariableEClass, LocalVariable.class, "LocalVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLocalVariable_InitValueConstant(), this.getConstant(), null, "initValueConstant", null, 0, 1, LocalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLocalVariable_Parent(), this.getFunction(), this.getFunction_LocalVariable(), "parent", null, 1, 1, LocalVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteApplicationHeaderEClass, RteApplicationHeader.class, "RteApplicationHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteApplicationHeader_RteApiGroup(), this.getRteApiGroup(), null, "rteApiGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteApplicationHeader_HasInlineApi(), this.getBoolean(), "hasInlineApi", null, 1, 1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApplicationHeader_SourceMacro(), this.getMacro(), null, "sourceMacro", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApplicationHeader_GlobalVariableGroup(), this.getGlobalVariableFileContentsGroup(), null, "globalVariableGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApplicationHeader_RteApiGroup(), this.getRteApiFileContentsGroup(), null, "rteApiGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApplicationHeader_DeclarationsRteApiGroup(), this.getRteApiFileContentsGroup(), null, "DeclarationsRteApiGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteApplicationHeader_Constant(), this.getConstant(), null, "constant", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteApplicationHeader_DependentExecutableEntityGroup(), this.getExecutableEntityGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteApplicationHeader_DependentExecutableEntityGroup(), this.getExecutableEntityFileContentsGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, RteApplicationHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(functionEClass, Function.class, "Function", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFunction_ReturnType(), this.getType(), null, "returnType", null, 1, 1, Function.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7075,52 +9886,101 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(logicalCompartmentEClass, LogicalCompartment.class, "LogicalCompartment", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLogicalCompartment_CompartmentName(), this.getString(), "compartmentName", null, 1, 1, LogicalCompartment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(rteEClass, Rte.class, "Rte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRte_Core(), this.getCore(), null, "core", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_Bswm(), this.getBswm(), null, "bswm", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_GenerationInfo(), this.getGenerationInfo(), null, "generationInfo", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_DependentType(), this.getType(), null, "dependentType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_DependentConstant(), this.getConstant(), null, "dependentConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_DependentOsApi(), this.getOsApi(), null, "dependentOsApi", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_DependentIocCommunication(), this.getIocCommunication(), null, "dependentIocCommunication", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_DependentComApi(), this.getComApi(), null, "dependentComApi", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_IocInitValueConstant(), this.getConstant(), null, "iocInitValueConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_IocInitValueVariableSet(), this.getRteBufferVariableSet(), null, "iocInitValueVariableSet", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_RteMemoryMapping(), this.getBswMemoryMapping(), null, "rteMemoryMapping", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ImplementationDataType(), this.getType(), null, "implementationDataType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalTfParamType(), this.getComSendTrustedFunctionParamType(), null, "comSendSignalTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalGroupTfParamType(), this.getComSendTrustedFunctionParamType(), null, "comSendSignalGroupTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_CsTfParamType(), this.getCsTrustedFunctionParamType(), null, "csTfParamType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SrRteSendTfParamType(), this.getRteSendTrustedFunctionParamType(), null, "srRteSendTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SrRteBufferQueueMaxLengthConstant(), this.getConstant(), null, "srRteBufferQueueMaxLengthConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SrRteBufferQueueType(), this.getRteBufferQueueType(), null, "srRteBufferQueueType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ImmediateConstant(), this.getConstant(), null, "immediateConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalTrustedFunction(), this.getComSendSignalTrustedFunction(), null, "comSendSignalTrustedFunction", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalPeriodicEntity(), this.getComSendSignalPeriodicEntity(), null, "comSendSignalPeriodicEntity", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalImmediateEntity(), this.getComSendSignalImmediateEntity(), null, "comSendSignalImmediateEntity", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComSendSignalImmediateTaskBody(), this.getComSendSignalImmediateTaskBody(), null, "comSendSignalImmediateTaskBody", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_ComCallback(), this.getComCallback(), null, "comCallback", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_RteStartApi(), this.getRteStartApi(), null, "rteStartApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_RteStopApi(), this.getRteStopApi(), null, "rteStopApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SchmInitApi(), this.getSchmInitApi(), null, "schmInitApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SchmDeinitApi(), this.getSchmDeinitApi(), null, "schmDeinitApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCore_Partition(), this.getPartition(), this.getPartition_Parent(), "partition", null, 0, -1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCore_RteStartApi(), this.getRteCoreStartApiImpl(), this.getRteCoreStartApiImpl_Parent(), "rteStartApi", null, 1, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCore_CoreId(), this.getInteger(), "coreId", null, 1, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCore_IsMasterCore(), this.getBoolean(), "isMasterCore", null, 1, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCore_SchmInitApi(), this.getSchmCoreInitApiImpl(), this.getSchmCoreInitApiImpl_Parent(), "schmInitApi", null, 1, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCore_RteCoreStartApiImpl(), this.getRteCoreStartApiImpl(), this.getRteCoreStartApiImpl_Parent(), "rteCoreStartApiImpl", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCore_SchmCoreInitApiImpl(), this.getSchmCoreInitApiImpl(), this.getSchmCoreInitApiImpl_Parent(), "schmCoreInitApiImpl", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partitionEClass, Partition.class, "Partition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPartition_IsBswPartition(), this.getBoolean(), "isBswPartition", null, 1, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_Parent(), this.getCore(), this.getCore_Partition(), "parent", null, 1, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_Swc(), this.getSwc(), this.getSwc_Parent(), "swc", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_RteBufferVariableSet(), this.getRteBufferVariableSet(), null, "rteBufferVariableSet", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_FilterOldValueVariable(), this.getGlobalVariable(), null, "filterOldValueVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPartition_FilterOccurrenceVariable(), this.getGlobalVariable(), null, "filterOccurrenceVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPartition_RestartPartitionApi(), this.getRestartPartitionApi(), null, "restartPartitionApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_PartitionTerminatedApi(), this.getPartitionTerminatedApi(), null, "partitionTerminatedApi", null, 1, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_PartitionRestartingApi(), this.getPartitionRestartingApi(), null, "partitionRestartingApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_TaskBody(), this.getTaskBody(), null, "taskBody", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_RteBufferQueuedVariable(), this.getRteBufferQueuedVariable(), null, "rteBufferQueuedVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_RteBufferInitValueConstant(), this.getConstant(), null, "rteBufferInitValueConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_PartedBswm(), this.getPartedBswm(), this.getPartedBswm_Parent(), "partedBswm", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPartition_IsBswPartition(), this.getBoolean(), "isBswPartition", null, 1, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_OsTrustedMacro(), this.getMacro(), null, "osTrustedMacro", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComReceiveBufferVariableSet(), this.getRteBufferVariableSet(), null, "comReceiveBufferVariableSet", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComSignalApiWrapper(), this.getComSignalApiWrapper(), this.getComSignalApiWrapper_Parent(), "comSignalApiWrapper", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComSignalApiAlias(), this.getFunctionMacro(), null, "comSignalApiAlias", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComMetaDataVariableSet(), this.getGlobalVariableSet(), null, "comMetaDataVariableSet", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComProxyFunction(), this.getComProxyFunction(), this.getComProxyFunction_Parent(), "comProxyFunction", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComProxyFunctionTableIndexConstant(), this.getConstant(), null, "comProxyFunctionTableIndexConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComProxyFunctionTableSizeConstant(), this.getConstant(), null, "comProxyFunctionTableSizeConstant", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComProxyFunctionTableVariable(), this.getGlobalVariable(), null, "comProxyFunctionTableVariable", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_ComProxyBufferVariableSet(), this.getRteBufferVariableSet(), null, "comProxyBufferVariableSet", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_SrRteBufferInitValueConstant(), this.getConstant(), null, "srRteBufferInitValueConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_SrRteBufferVariableSet(), this.getRteBufferVariableSet(), null, "srRteBufferVariableSet", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_SrRteBufferQueuedVariable(), this.getRteBufferQueuedVariable(), null, "srRteBufferQueuedVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_RteBufferSendTrustedFunction(), this.getTrustedFunction(), null, "rteBufferSendTrustedFunction", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_SrFilterConstant(), this.getConstant(), null, "srFilterConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_SrFilterOldValueVariable(), this.getGlobalVariable(), null, "srFilterOldValueVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPartition_SrFilterOccurrenceVariable(), this.getGlobalVariable(), null, "srFilterOccurrenceVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPartition_CsTfArgcConstant(), this.getConstant(), null, "csTfArgcConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_CsTfOpidConstant(), this.getConstant(), null, "csTfOpidConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_CsTrustedFunction(), this.getCsTrustedFunction(), null, "csTrustedFunction", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_EntityStartVariable(), this.getGlobalVariable(), null, "entityStartVariable", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_EntityStartConstant(), this.getConstant(), null, "entityStartConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_FilterConstant(), this.getConstant(), null, "filterConstant", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_RteBufferSendTrustedFunction(), this.getTrustedFunction(), null, "rteBufferSendTrustedFunction", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_OsTrustedMacro(), this.getMacro(), null, "osTrustedMacro", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartition_PartedBswm(), this.getPartedBswm(), this.getPartedBswm_Parent(), "partedBswm", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_TaskBody(), this.getTaskBody(), null, "taskBody", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_RestartPartitionApi(), this.getRestartPartitionApi(), null, "restartPartitionApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_PartitionTerminatedApi(), this.getPartitionTerminatedApi(), null, "partitionTerminatedApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_PartitionRestartingApi(), this.getPartitionRestartingApi(), null, "partitionRestartingApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(swcEClass, Swc.class, "Swc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwc_Parent(), this.getPartition(), this.getPartition_Swc(), "parent", null, 1, 1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_SwcMemoryMapping(), this.getSwcMemoryMapping(), null, "swcMemoryMapping", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_DependentRunnableEntity(), this.getRunnableEntity(), null, "dependentRunnableEntity", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_DependentExternalRunnableEntity(), this.getRunnableEntity(), null, "dependentExternalRunnableEntity", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwc_RteApi(), this.getRteApi(), this.getRteApi_Parent(), "rteApi", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_ApiInitValueConstant(), this.getConstant(), null, "apiInitValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_ApiApplicationErrorConstant(), this.getConstant(), null, "apiApplicationErrorConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwc_ApiEnumConstant(), this.getConstant(), null, "apiEnumConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSwc_ApiUpperLowerLimitConstant(), this.getConstant(), null, "apiUpperLowerLimitConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_FilterConstant(), this.getConstant(), null, "filterConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_PortArgValueConstant(), this.getConstant(), null, "portArgValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_DependentExecutableEntity(), this.getExecutableEntity(), null, "dependentExecutableEntity", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_InvalidValueConstant(), this.getConstant(), null, "invalidValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_ImplInitValueConstant(), this.getConstant(), null, "implInitValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwc_SwcMemoryMapping(), this.getSwcMemoryMapping(), null, "swcMemoryMapping", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_SrApiInitValueConstant(), this.getConstant(), null, "srApiInitValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_SrImplInitValueConstant(), this.getConstant(), null, "srImplInitValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_SrImplInvalidValueConstant(), this.getConstant(), null, "srImplInvalidValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_SrFilterConstant(), this.getConstant(), null, "srFilterConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_CsApiApplicationErrorConstant(), this.getConstant(), null, "csApiApplicationErrorConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_CsPortArgValueConstant(), this.getConstant(), null, "csPortArgValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_CsPortArgValueVariable(), this.getGlobalVariable(), null, "csPortArgValueVariable", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_IrvBufferInitValueConstant(), this.getConstant(), null, "irvBufferInitValueConstant", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwc_IrvBufferVariableSet(), this.getRteBufferVariableSet(), null, "irvBufferVariableSet", null, 0, -1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteHeaderEClass, RteHeader.class, "RteHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(rteBswApiHeaderEClass, RteBswApiHeader.class, "RteBswApiHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteBswApiHeader_IocApi(), this.getIocApi(), null, "iocApi", null, 0, -1, RteBswApiHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(rteLifecycleHeaderEClass, RteLifecycleHeader.class, "RteLifecycleHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteLifecycleHeader_RteLifecycleApiGroup(), this.getRteLifecycleApiGroup(), null, "rteLifecycleApiGroup", null, 0, -1, RteLifecycleHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteLifecycleHeader_SchmLifecycleApiGroup(), this.getSchmLifecycleApiGroup(), null, "schmLifecycleApiGroup", null, 0, -1, RteLifecycleHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteLifecycleHeader_RteLifecycleApiGroup(), this.getRteLifecycleApiFileContentsGroup(), null, "rteLifecycleApiGroup", null, 0, -1, RteLifecycleHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteLifecycleHeader_SchmLifecycleApiGroup(), this.getSchmLifecycleApiFileContentsGroup(), null, "schmLifecycleApiGroup", null, 0, -1, RteLifecycleHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteApplicationTypeHeaderEClass, RteApplicationTypeHeader.class, "RteApplicationTypeHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteApplicationTypeHeader_Constant(), this.getConstant(), null, "constant", null, 0, -1, RteApplicationTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7130,11 +9990,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(rteConfigurationHeaderEClass, RteConfigurationHeader.class, "RteConfigurationHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rteCallbackHeaderEClass, RteCallbackHeader.class, "RteCallbackHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteCallbackHeader_ComCallbackGroup(), this.getComCallbackGroup(), null, "comCallbackGroup", null, 0, -1, RteCallbackHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteCallbackHeader_ComCallbackGroup(), this.getComCallbackFileContentsGroup(), null, "comCallbackGroup", null, 0, -1, RteCallbackHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteTypeHeaderEClass, RteTypeHeader.class, "RteTypeHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteTypeHeader_RteType(), this.getType(), null, "rteType", null, 0, -1, RteTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteTypeHeader_RteTypeConstant(), this.getConstant(), null, "rteTypeConstant", null, 0, -1, RteTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteTypeHeader_ProvidesSignalGroupTransmission(), this.getBoolean(), "providesSignalGroupTransmission", null, 1, 1, RteTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(invalidateApiEClass, InvalidateApi.class, "InvalidateApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInvalidateApi_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, InvalidateApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7144,9 +10005,23 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(directComSendOperationEClass, DirectComSendOperation.class, "DirectComSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(trustedFunctionRteOperationEClass, TrustedFunctionRteOperation.class, "TrustedFunctionRteOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, TrustedFunctionRteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(trustedFunctionRteSendOperationEClass, TrustedFunctionRteSendOperation.class, "TrustedFunctionRteSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteSendOperation_Type(), this.getType(), null, "type", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrustedFunctionRteSendOperation_SrSendTfSymbolName(), this.getCIdentifier(), "srSendTfSymbolName", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable(), this.getVariable(), null, "trustedFunctionParamVariable", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrustedFunctionRteSendOperation_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(trustedFunctionRteBufferWriteSendOperationEClass, TrustedFunctionRteBufferWriteSendOperation.class, "TrustedFunctionRteBufferWriteSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction(), this.getRteBufferWriteTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferWriteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(trustedFunctionComSendOperationEClass, TrustedFunctionComSendOperation.class, "TrustedFunctionComSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionComSendOperation_Type(), this.getType(), null, "type", null, 1, 1, TrustedFunctionComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrustedFunctionComSendOperation_AccessTrustedFunction(), this.getComSendSignalTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrustedFunctionComSendOperation_TrustedFunctionParamVariable(), this.getVariable(), null, "trustedFunctionParamVariable", null, 1, 1, TrustedFunctionComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrustedFunctionComSendOperation_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, TrustedFunctionComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(immediateProxyComSendOperationEClass, ImmediateProxyComSendOperation.class, "ImmediateProxyComSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImmediateProxyComSendOperation_ActivationApi(), this.getOsSetEventApi(), null, "activationApi", null, 1, 1, ImmediateProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7158,11 +10033,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(comReadOperationEClass, ComReadOperation.class, "ComReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComReadOperation_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComReadOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, ComReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocNonqueuedCommunicationEClass, IocNonqueuedCommunication.class, "IocNonqueuedCommunication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocNonqueuedCommunication_WriteApi(), this.getIocWriteApi(), this.getIocWriteApi_Parent(), "writeApi", null, 0, -1, IocNonqueuedCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIocNonqueuedCommunication_ReadApi(), this.getIocReadApi(), null, "readApi", null, 1, 1, IocNonqueuedCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIocNonqueuedCommunication_InitValue(), this.getConstant(), null, "initValue", null, 1, 1, IocNonqueuedCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIocNonqueuedCommunication_InitValueVariable(), this.getGlobalVariable(), null, "initValueVariable", null, 1, 1, IocNonqueuedCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocWriteApiEClass, IocWriteApi.class, "IocWriteApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocWriteApi_Parent(), this.getIocNonqueuedCommunication(), this.getIocNonqueuedCommunication_WriteApi(), "parent", null, 1, 1, IocWriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7175,28 +10052,31 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(comReceiveCallbackEClass, ComReceiveCallback.class, "ComReceiveCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComReceiveCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveCallback_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComReceiveCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComReceiveCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendOperationEClass, ComSendOperation.class, "ComSendOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSendOperation_AccessApi(), this.getComSendSignalApi(), null, "accessApi", null, 1, 1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comCallbackEClass, ComCallback.class, "ComCallback", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(comReceiveTimeoutCallbackEClass, ComReceiveTimeoutCallback.class, "ComReceiveTimeoutCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComReceiveTimeoutCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveTimeoutCallback_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComReceiveTimeoutCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComReceiveTimeoutCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comInvalidateCallbackEClass, ComInvalidateCallback.class, "ComInvalidateCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComInvalidateCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComInvalidateCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComInvalidateCallback_FilterResultVariable(), this.getLocalVariable(), null, "filterResultVariable", null, 0, 1, ComInvalidateCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(comSendSignalProxyEntityEClass, ComSendSignalProxyEntity.class, "ComSendSignalProxyEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComSendSignalProxyEntity_PrimitiveOperation(), this.getPrimitiveComSendProxyOperation(), null, "primitiveOperation", null, 0, -1, ComSendSignalProxyEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendSignalProxyEntity_ComplexOperation(), this.getComplexComSendProxyOperation(), null, "complexOperation", null, 0, -1, ComSendSignalProxyEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(comSendSignalImmediateEntityEClass, ComSendSignalImmediateEntity.class, "ComSendSignalImmediateEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendSignalImmediateEntity_Operation(), this.getComSendProxyOperation(), null, "operation", null, 0, -1, ComSendSignalImmediateEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendSignalPeriodicEntityEClass, ComSendSignalPeriodicEntity.class, "ComSendSignalPeriodicEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendSignalPeriodicEntity_Operation(), this.getComSendProxyOperation(), null, "operation", null, 0, -1, ComSendSignalPeriodicEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterOperationEClass, FilterOperation.class, "FilterOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFilterOperation_FilterResultVariable(), this.getVariable(), null, "filterResultVariable", null, 1, 1, FilterOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7228,20 +10108,18 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(rteCoreStartApiImplEClass, RteCoreStartApiImpl.class, "RteCoreStartApiImpl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteCoreStartApiImpl_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, RteCoreStartApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteCoreStartApiImpl_Parent(), this.getCore(), this.getCore_RteStartApi(), "parent", null, 1, 1, RteCoreStartApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteCoreStartApiImpl_Parent(), this.getCore(), this.getCore_RteCoreStartApiImpl(), "parent", null, 1, 1, RteCoreStartApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteStopApiEClass, RteStopApi.class, "RteStopApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(restartPartitionApiEClass, RestartPartitionApi.class, "RestartPartitionApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRestartPartitionApi_EReference0(), this.getGlobalVariable(), null, "EReference0", null, 0, 1, RestartPartitionApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRestartPartitionApi_EReference1(), this.getIocApi(), null, "EReference1", null, 0, 1, RestartPartitionApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRestartPartitionApi_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, RestartPartitionApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partitionRestartingApiEClass, PartitionRestartingApi.class, "PartitionRestartingApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPartitionRestartingApi_Operation(), this.getInterPartitionTimeoutOperation(), null, "operation", null, 0, 1, PartitionRestartingApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartitionRestartingApi_SrInterPartitionTimeoutOperation(), this.getInterPartitionTimeoutOperation(), null, "srInterPartitionTimeoutOperation", null, 0, 1, PartitionRestartingApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partitionTerminatedApiEClass, PartitionTerminatedApi.class, "PartitionTerminatedApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPartitionTerminatedApi_Operation(), this.getInterPartitionTimeoutOperation(), null, "operation", null, 0, 1, PartitionTerminatedApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartitionTerminatedApi_SrInterPartitionTimeoutOperation(), this.getInterPartitionTimeoutOperation(), null, "srInterPartitionTimeoutOperation", null, 0, 1, PartitionTerminatedApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteLifecycleApiEClass, RteLifecycleApi.class, "RteLifecycleApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -7251,6 +10129,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getSendApi_StatusVariable(), this.getLocalVariable(), null, "statusVariable", null, 1, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendApi_TrustedFunctionParamVariable(), this.getLocalVariable(), null, "trustedFunctionParamVariable", null, 0, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendApi_FilterResultVariable(), this.getLocalVariable(), null, "filterResultVariable", null, 0, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSendApi_NeedsCheckArg(), this.getBoolean(), "needsCheckArg", null, 1, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(receiveApiEClass, ReceiveApi.class, "ReceiveApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReceiveApi_Operation(), this.getReadOperation(), null, "operation", null, 0, 1, ReceiveApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7260,6 +10139,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(rteBufferQueuedSendOperationEClass, RteBufferQueuedSendOperation.class, "RteBufferQueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferQueuedSendOperation_AccessVariable(), this.getRteBufferQueuedVariable(), null, "accessVariable", null, 1, 1, RteBufferQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferQueuedSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, RteBufferQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferQueuedSendOperation_Type(), this.getType(), null, "type", null, 1, 1, RteBufferQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferQueuedVariableEClass, RteBufferQueuedVariable.class, "RteBufferQueuedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferQueuedVariable_QueueType(), this.getRteBufferQueueType(), null, "queueType", null, 1, 1, RteBufferQueuedVariable.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
@@ -7276,25 +10156,38 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(iocSendApiEClass, IocSendApi.class, "IocSendApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(iocSendOperationEClass, IocSendOperation.class, "IocSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIocSendOperation_Type(), this.getType(), null, "type", null, 1, 1, IocSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(iocQueuedSendOperationEClass, IocQueuedSendOperation.class, "IocQueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocQueuedSendOperation_AccessApi(), this.getIocSendApi(), null, "accessApi", null, 1, 1, IocQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIocQueuedSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, IocQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocQueuedReadOperationEClass, IocQueuedReadOperation.class, "IocQueuedReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocQueuedReadOperation_AccessApi(), this.getIocReceiveApi(), null, "accessApi", null, 1, 1, IocQueuedReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIocQueuedReadOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, IocQueuedReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callApiEClass, CallApi.class, "CallApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCallApi_Operation(), this.getDirectExecutableStartOperation(), null, "operation", null, 0, 1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallApi_Operation(), this.getServerRunnableStartOperation(), null, "operation", null, 0, 1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallApi_OperationParam(), this.getParameter(), null, "operationParam", null, 0, -1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCallApi_PortArgValue(), this.getConstant(), null, "portArgValue", null, 0, -1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallApi_PortArgValue(), this.getValue(), null, "portArgValue", null, 0, -1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallApi_ReturnVariable(), this.getLocalVariable(), null, "returnVariable", null, 0, 1, CallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(executableStartOperationEClass, ExecutableStartOperation.class, "ExecutableStartOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExecutableStartOperation_ExcludeOperation(), this.getExcludeOperation(), null, "excludeOperation", null, 0, -1, ExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExecutableStartOperation_StartExecutable(), this.getExecutableEntity(), null, "startExecutable", null, 1, 1, ExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(tfCallApiEClass, TfCallApi.class, "TfCallApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTfCallApi_CsTfParamTypeName(), this.getCIdentifier(), "csTfParamTypeName", null, 1, 1, TfCallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTfCallApi_CsTfArgcConstantName(), this.getCIdentifier(), "csTfArgcConstantName", null, 1, 1, TfCallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTfCallApi_CsTfOpidConstantName(), this.getCIdentifier(), "csTfOpidConstantName", null, 1, 1, TfCallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTfCallApi_CsTfName(), this.getCIdentifier(), "csTfName", null, 1, 1, TfCallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTfCallApi_NeedsCheckArg(), this.getBoolean(), "needsCheckArg", null, 1, 1, TfCallApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(executableEntityEClass, ExecutableEntity.class, "ExecutableEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExecutableEntity_RoleParam(), this.getParameter(), null, "roleParam", null, 0, -1, ExecutableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExecutableEntity_ParentPartedBswm(), this.getPartedBswm(), this.getPartedBswm_DependentExecutableEntity(), "parentPartedBswm", null, 0, 1, ExecutableEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(executableStartOperationEClass, ExecutableStartOperation.class, "ExecutableStartOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutableStartOperation_StartExecutable(), this.getExecutableEntity(), null, "startExecutable", null, 1, 1, ExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecutableStartOperation_RieaExcludeOperation(), this.getExcludeOperation(), null, "rieaExcludeOperation", null, 0, -1, ExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecutableStartOperation_DisabledInMode(), this.getDisabledInMode(), null, "disabledInMode", null, 0, -1, ExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(disabledInModeEClass, DisabledInMode.class, "DisabledInMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDisabledInMode_DisabledMode(), this.getConstant(), null, "disabledMode", null, 1, 1, DisabledInMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDisabledInMode_ModeMachineInstance(), this.getModeMachineInstance(), null, "modeMachineInstance", null, 1, 1, DisabledInMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excludeOperationEClass, ExcludeOperation.class, "ExcludeOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -7308,19 +10201,27 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(osResourceExcludeOperationEClass, OsResourceExcludeOperation.class, "OsResourceExcludeOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOsResourceExcludeOperation_OsResourceId(), this.getCIdentifier(), "osResourceId", null, 1, 1, OsResourceExcludeOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(noneExcludeOperationEClass, NoneExcludeOperation.class, "NoneExcludeOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConstant_SymbolName(), this.getCIdentifier(), "symbolName", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConstant_Type(), this.getPrimitiveType(), null, "type", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_ExternalSymbolName(), this.getCIdentifier(), "externalSymbolName", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstant_Type(), this.getType(), null, "type", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConstant_Value(), this.getVerbatimString(), "value", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getConstant_ConstantType(), this.getConstantTypeEnum(), "constantType", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_ConstantValueType(), this.getConstantValueTypeEnum(), "constantValueType", null, 1, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstant_Member(), this.getConstantMember(), this.getConstantMember_Parent(), "member", null, 0, -1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConstant_RepresentedVariableName(), this.getString(), "representedVariableName", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(bswSchedulableEntityEClass, BswSchedulableEntity.class, "BswSchedulableEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(constantMemberEClass, ConstantMember.class, "ConstantMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConstantMember_Parent(), this.getConstant(), this.getConstant_Member(), "parent", null, 1, 1, ConstantMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteEnterApiEClass, RteEnterApi.class, "RteEnterApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteEnterApi_Operation(), this.getExcludeOperation(), null, "operation", null, 1, 1, RteEnterApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteEnterApi_IsNoneExclude(), this.getBoolean(), "isNoneExclude", null, 1, 1, RteEnterApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteExitApiEClass, RteExitApi.class, "RteExitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteExitApi_Operation(), this.getExcludeOperation(), null, "operation", null, 1, 1, RteExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRteExitApi_IsNoneExclude(), this.getBoolean(), "isNoneExclude", null, 1, 1, RteExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(osTaskActivationExecutableTaskBodyEClass, OsTaskActivationExecutableTaskBody.class, "OsTaskActivationExecutableTaskBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOsTaskActivationExecutableTaskBody_Operation(), this.getOsTaskActivationOperation(), null, "operation", null, 1, 1, OsTaskActivationExecutableTaskBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7348,6 +10249,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable(), this.getGlobalVariable(), null, "startOffsetCounterVariable", null, 0, 1, TimingTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimingTriggeringExecutableStartOperation_CycleCounterVariable(), this.getGlobalVariable(), null, "cycleCounterVariable", null, 0, 1, TimingTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(modeSwitchTriggeringExecutableStartOperationEClass, ModeSwitchTriggeringExecutableStartOperation.class, "ModeSwitchTriggeringExecutableStartOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeSwitchTriggeringExecutableStartOperation_StartMode(), this.getConstant(), null, "startMode", null, 0, -1, ModeSwitchTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(cycleCountupOperationEClass, CycleCountupOperation.class, "CycleCountupOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCycleCountupOperation_CounterVariable(), this.getGlobalVariable(), null, "counterVariable", null, 1, 1, CycleCountupOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCycleCountupOperation_MaxConstant(), this.getConstant(), null, "maxConstant", null, 1, 1, CycleCountupOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7362,32 +10266,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(iocEmptyQueueApiEClass, IocEmptyQueueApi.class, "IocEmptyQueueApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(comApiEClass, ComApi.class, "ComApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComApi_IsSignalGroup(), this.getBoolean(), "isSignalGroup", null, 1, 1, ComApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComApi_ComSignalSymbolName(), this.getCIdentifier(), "comSignalSymbolName", null, 1, 1, ComApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocApiEClass, IocApi.class, "IocApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(rteEClass, Rte.class, "Rte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRte_Core(), this.getCore(), null, "core", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_ComCallback(), this.getComCallback(), null, "comCallback", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_ComSendSignalPeriodicEntity(), this.getComSendSignalPeriodicEntity(), null, "comSendSignalPeriodicEntity", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_ComSendSignalImmediateEntity(), this.getComSendSignalImmediateEntity(), null, "comSendSignalImmediateEntity", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_ComSendSignalTrustedFunction(), this.getComSendSignalTrustedFunction(), null, "comSendSignalTrustedFunction", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_DependentType(), this.getType(), null, "dependentType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteType(), this.getType(), null, "rteType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_DependentOsApi(), this.getOsApi(), null, "dependentOsApi", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_DependentIocCommunication(), this.getIocCommunication(), null, "dependentIocCommunication", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_DependentComApi(), this.getComApi(), null, "dependentComApi", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteStartApi(), this.getRteStartApi(), null, "rteStartApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_IocInitValueConstant(), this.getConstant(), null, "iocInitValueConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_DependentConstant(), this.getConstant(), null, "dependentConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_ComSendSignalImmediateTaskBody(), this.getComSendSignalImmediateTaskBody(), null, "comSendSignalImmediateTaskBody", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteStopApi(), this.getRteStopApi(), null, "rteStopApi", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteTypeConstant(), this.getConstant(), null, "rteTypeConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteMemoryMapping(), this.getBswMemoryMapping(), null, "rteMemoryMapping", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_GenerationInfo(), this.getGenerationInfo(), null, "generationInfo", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_Bswm(), this.getBswm(), null, "bswm", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_SchmInitApi(), this.getSchmInitApi(), null, "schmInitApi", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_SchmDeinitApi(), this.getSchmDeinitApi(), null, "schmDeinitApi", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIocApi_MappingName(), this.getString(), "mappingName", null, 1, 1, IocApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -7395,6 +10278,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEAttribute(getTrustedFunction_TrustedFunctionIndex(), this.getCIdentifier(), "trustedFunctionIndex", null, 1, 1, TrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendSignalTrustedFunctionEClass, ComSendSignalTrustedFunction.class, "ComSendSignalTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComSendSignalTrustedFunction_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, ComSendSignalTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComSendSignalTrustedFunction_SignalGroupSymbolName(), this.getCIdentifier(), "signalGroupSymbolName", null, 1, 1, ComSendSignalTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(osSetEventApiEClass, OsSetEventApi.class, "OsSetEventApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOsSetEventApi_OsTaskId(), this.getCIdentifier(), "osTaskId", null, 1, 1, OsSetEventApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7411,12 +10296,18 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getVariable_Member(), this.getVariableMember(), this.getVariableMember_Parent(), "member", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_SymbolName(), this.getCIdentifier(), "symbolName", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(comSendProxyOperationEClass, ComSendProxyOperation.class, "ComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendProxyOperation_ReadValueVariable(), this.getVariable(), null, "readValueVariable", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyOperation_AccessApi(), this.getIocReceiveGroupApi(), null, "accessApi", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyOperation_SignalIdVariable(), this.getVariable(), null, "signalIdVariable", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(primitiveComSendProxyOperationEClass, PrimitiveComSendProxyOperation.class, "PrimitiveComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPrimitiveComSendProxyOperation_ReadValueVariable(), this.getVariable(), null, "readValueVariable", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimitiveComSendProxyOperation_AccessApi(), this.getIocReceiveGroupApi(), null, "accessApi", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPrimitiveComSendProxyOperation_SignalIdVariable(), this.getVariable(), null, "signalIdVariable", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(complexComSendProxyOperationEClass, ComplexComSendProxyOperation.class, "ComplexComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComplexComSendProxyOperation_AccessApi(), this.getIocReceiveApi(), null, "accessApi", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexComSendProxyOperation_FunctionTableSymbolName(), this.getCIdentifier(), "functionTableSymbolName", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComplexComSendProxyOperation_TableIndexVariable(), this.getVariable(), null, "tableIndexVariable", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocReceiveGroupApiEClass, IocReceiveGroupApi.class, "IocReceiveGroupApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIocReceiveGroupApi_ComSendSignalSymbolName(), this.getCIdentifier(), "comSendSignalSymbolName", null, 1, 1, IocReceiveGroupApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleRootEClass, ModuleRoot.class, "ModuleRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModuleRoot_RteModule(), this.getRteModule(), null, "rteModule", null, 1, 1, ModuleRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7443,24 +10334,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getMulticoreRteStartApi_CoreStartApiImpl(), this.getRteCoreStartApiImpl(), null, "coreStartApiImpl", null, 0, -1, MulticoreRteStartApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferWriteTrustedFunctionEClass, RteBufferWriteTrustedFunction.class, "RteBufferWriteTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBufferWriteTrustedFunction_Operation(), this.getRteBufferNonqueuedSendOperation(), null, "operation", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferWriteTrustedFunction_Operation(), this.getSendOperation(), null, "operation", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferWriteTrustedFunction_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(trustedFunctionRteBufferWriteSendOperationEClass, TrustedFunctionRteBufferWriteSendOperation.class, "TrustedFunctionRteBufferWriteSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction(), this.getRteBufferWriteTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferWriteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(csTrustedFunctionEClass, CsTrustedFunction.class, "CsTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCsTrustedFunction_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, CsTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCsTrustedFunction_CsTfParamTypeName(), this.getCIdentifier(), "csTfParamTypeName", null, 1, 1, CsTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCsTrustedFunction_CsTfCalledRunnable(), this.getCsTfCalledRunnable(), null, "csTfCalledRunnable", null, 0, -1, CsTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(csTfCalledRunnableEClass, CsTfCalledRunnable.class, "CsTfCalledRunnable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCsTfCalledRunnable_CsTfOpidConstantName(), this.getCIdentifier(), "csTfOpidConstantName", null, 1, 1, CsTfCalledRunnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCsTfCalledRunnable_StartOperation(), this.getServerRunnableStartOperation(), null, "startOperation", null, 1, 1, CsTfCalledRunnable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(serverRunnableStartOperationEClass, ServerRunnableStartOperation.class, "ServerRunnableStartOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getServerRunnableStartOperation_StartServerRunnable(), this.getRunnableEntity(), null, "startServerRunnable", null, 1, 1, ServerRunnableStartOperation.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocCommunicationEClass, IocCommunication.class, "IocCommunication", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(proxyComSendOperationEClass, ProxyComSendOperation.class, "ProxyComSendOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyComSendOperation_AccessProxyApi(), this.getIocSendGroupApi(), null, "accessProxyApi", null, 0, 1, ProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyComSendOperation_Type(), this.getType(), null, "type", null, 1, 1, ProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyComSendOperation_RequestProxyIocApi(), this.getIocSendApi(), null, "requestProxyIocApi", null, 1, 1, ProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyComSendOperation_ValueProxyIocApi(), this.getIocSendApi(), null, "valueProxyIocApi", null, 0, 1, ProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyComSendOperation_ProxyFunctionIndexConstantName(), this.getCIdentifier(), "proxyFunctionIndexConstantName", null, 0, 1, ProxyComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocSendGroupApiEClass, IocSendGroupApi.class, "IocSendGroupApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(iocQueuedGroupCommunicationEClass, IocQueuedGroupCommunication.class, "IocQueuedGroupCommunication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocQueuedGroupCommunication_ReceiveApi(), this.getIocReceiveGroupApi(), null, "receiveApi", null, 1, 1, IocQueuedGroupCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIocQueuedGroupCommunication_SendApi(), this.getIocSendGroupApi(), null, "sendApi", null, 1, 1, IocQueuedGroupCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(directExecutableStartOperationEClass, DirectExecutableStartOperation.class, "DirectExecutableStartOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(singlecoreRteStartApiEClass, SinglecoreRteStartApi.class, "SinglecoreRteStartApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSinglecoreRteStartApi_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, SinglecoreRteStartApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7469,32 +10370,88 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(headerFileEClass, HeaderFile.class, "HeaderFile", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHeaderFile_GuardName(), this.getString(), "guardName", null, 1, 1, HeaderFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHeaderFile_DependentHeaders(), this.getHeaderFile(), null, "dependentHeaders", null, 0, -1, HeaderFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHeaderFile_IncludeHeader(), this.getHeaderFile(), null, "includeHeader", null, 0, -1, HeaderFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sourceFileEClass, SourceFile.class, "SourceFile", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSourceFile_DependentHeaders(), this.getHeaderFile(), null, "dependentHeaders", null, 0, -1, SourceFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSourceFile_IncludeHeader(), this.getHeaderFile(), null, "includeHeader", null, 0, -1, SourceFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteInternalHeaderEClass, RteInternalHeader.class, "RteInternalHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteInternalHeader_Constant(), this.getConstant(), null, "constant", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteInternalHeader_GlobalVariableGroup(), this.getGlobalVariableGroup(), null, "globalVariableGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteInternalHeader_TrustedFunctionGroup(), this.getTrustedFunctionGroup(), null, "trustedFunctionGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteInternalHeader_BswSchedulableEntityGroup(), this.getBswSchedulableEntityGroup(), null, "bswSchedulableEntityGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_GlobalVariableGroup(), this.getGlobalVariableFileContentsGroup(), null, "globalVariableGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_TrustedFunctionGroup(), this.getTrustedFunctionFileContentsGroup(), null, "trustedFunctionGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_BswSchedulableEntityGroup(), this.getBswSchedulableEntityFileContentsGroup(), null, "bswSchedulableEntityGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteInternalHeader_RteCoreStartApiImpl(), this.getRteCoreStartApiImpl(), null, "rteCoreStartApiImpl", null, 0, 1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteInternalHeader_DependentExecutableEntityGroup(), this.getExecutableEntityGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_DependentExecutableEntityGroup(), this.getExecutableEntityFileContentsGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteInternalHeader_SchmCoreInitApiImpl(), this.getSchmCoreInitApiImpl(), null, "schmCoreInitApiImpl", null, 0, 1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_FunctionMacro(), this.getFunctionMacro(), null, "functionMacro", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_ComProxyFunctionTableGroup(), this.getComProxyFunctionTableFileContentsGroup(), null, "comProxyFunctionTableGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_ComSignalApiWrapperGroup(), this.getComSignalApiWrapperFileContentsGroup(), null, "comSignalApiWrapperGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_ModeType(), this.getModeType(), null, "modeType", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_ModeDeclarationGroup(), this.getModeDeclarationGroup(), null, "modeDeclarationGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_ModeMachineInstance(), this.getModeMachineInstance(), null, "modeMachineInstance", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_RteApiGroup(), this.getRteApiFileContentsGroup(), null, "rteApiGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteInternalHeader_SchmApiGroup(), this.getSchmApiFileContentsGroup(), null, "schmApiGroup", null, 0, -1, RteInternalHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeTypeEClass, ModeType.class, "ModeType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModeType_GuardName(), this.getCIdentifier(), "guardName", null, 1, 1, ModeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeType_ImplementationDataType(), this.getType(), null, "implementationDataType", null, 1, 1, ModeType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeDeclarationGroupEClass, ModeDeclarationGroup.class, "ModeDeclarationGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeDeclarationGroup_ModeType(), this.getModeType(), null, "modeType", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeDeclarationGroup_ImplementationDataType(), this.getType(), null, "implementationDataType", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeDeclarationGroup_ModeConstant(), this.getConstant(), null, "modeConstant", null, 0, -1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeDeclarationGroup_ModeTransitionStatusConstant(), this.getConstant(), null, "modeTransitionStatusConstant", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeDeclarationGroup_InitModeConstant(), this.getConstant(), null, "initModeConstant", null, 1, 1, ModeDeclarationGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeQueueTypeEClass, ModeQueueType.class, "ModeQueueType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeQueueType_MaxLengthConstant(), this.getConstant(), null, "maxLengthConstant", null, 1, 1, ModeQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeQueueType_ElementType(), this.getType(), null, "elementType", null, 1, 1, ModeQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeQueuedVariableEClass, ModeQueuedVariable.class, "ModeQueuedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeQueuedVariable_QueueType(), this.getModeQueueType(), null, "queueType", null, 1, 1, ModeQueuedVariable.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(modeMachineInstanceEClass, ModeMachineInstance.class, "ModeMachineInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getModeMachineInstance_RequestModeQueueType(), this.getModeQueueType(), null, "requestModeQueueType", null, 1, 1, ModeMachineInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeMachineInstance_RequestModeQueue(), this.getModeQueuedVariable(), null, "requestModeQueue", null, 1, 1, ModeMachineInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeMachineInstance_CurrentModeVariable(), this.getGlobalVariable(), null, "currentModeVariable", null, 1, 1, ModeMachineInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeMachineInstance_NextModeVariable(), this.getGlobalVariable(), null, "nextModeVariable", null, 1, 1, ModeMachineInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModeMachineInstance_InitModeConstant(), this.getConstant(), null, "initModeConstant", null, 1, 1, ModeMachineInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(functionMacroEClass, FunctionMacro.class, "FunctionMacro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFunctionMacro_SymbolName(), this.getCIdentifier(), "symbolName", null, 1, 1, FunctionMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFunctionMacro_FunctionName(), this.getCIdentifier(), "functionName", null, 1, 1, FunctionMacro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comProxyFunctionTableFileContentsGroupEClass, ComProxyFunctionTableFileContentsGroup.class, "ComProxyFunctionTableFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComProxyFunctionTableFileContentsGroup_SrWriteProxyName(), this.getCIdentifier(), "srWriteProxyName", null, 0, -1, ComProxyFunctionTableFileContentsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimitiveType_OriginalTypeSymbolName(), this.getCIdentifier(), "originalTypeSymbolName", null, 1, 1, PrimitiveType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPrimitiveType_Signedness(), this.getSignednessEnum(), "signedness", null, 1, 1, PrimitiveType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(redefinitionPrimitiveTypeEClass, RedefinitionPrimitiveType.class, "RedefinitionPrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(arrayTypeEClass, ArrayType.class, "ArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getArrayType_ArraySize(), this.getInteger(), "arraySize", null, 1, 1, ArrayType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(redefinitionArrayTypeEClass, RedefinitionArrayType.class, "RedefinitionArrayType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unionTypeEClass, UnionType.class, "UnionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUnionType_Member(), this.getUnionMember(), null, "member", null, 0, -1, UnionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(redefinitionUnionTypeEClass, RedefinitionUnionType.class, "RedefinitionUnionType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(structTypeEClass, StructType.class, "StructType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStructType_Member(), this.getStructMember(), null, "member", null, 0, -1, StructType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(redefinitionStructTypeEClass, RedefinitionStructType.class, "RedefinitionStructType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(blackboxTypeEClass, BlackboxType.class, "BlackboxType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unionMemberEClass, UnionMember.class, "UnionMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUnionMember_MemberName(), this.getCIdentifier(), "memberName", null, 1, 1, UnionMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUnionMember_Type(), this.getType(), null, "type", null, 1, 1, UnionMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(structMemberEClass, StructMember.class, "StructMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStructMember_MemberName(), this.getCIdentifier(), "memberName", null, 1, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStructMember_Type(), this.getType(), null, "type", null, 1, 1, StructMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableMemberEClass, VariableMember.class, "VariableMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVariableMember_Parent(), this.getVariable(), this.getVariable_Member(), "parent", null, 1, 1, VariableMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7507,16 +10464,22 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getRteBufferQueueType_MaxLengthConstant(), this.getConstant(), null, "maxLengthConstant", null, 1, 1, RteBufferQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferQueueType_ElementType(), this.getType(), null, "elementType", null, 1, 1, RteBufferQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(rteSendTrustedFunctionParamTypeEClass, RteSendTrustedFunctionParamType.class, "RteSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(comSendTrustedFunctionParamTypeEClass, ComSendTrustedFunctionParamType.class, "ComSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComSendTrustedFunctionParamType_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, ComSendTrustedFunctionParamType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(csTrustedFunctionParamTypeEClass, CsTrustedFunctionParamType.class, "CsTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(neverReadOperationEClass, NeverReadOperation.class, "NeverReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeverReadOperation_InitValueConstant(), this.getConstant(), null, "initValueConstant", null, 1, 1, NeverReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferInvalidateTrustedFunctionEClass, RteBufferInvalidateTrustedFunction.class, "RteBufferInvalidateTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBufferInvalidateTrustedFunction_Operation(), this.getRteBufferNonqueuedSendOperation(), null, "operation", null, 1, 1, RteBufferInvalidateTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferInvalidateTrustedFunction_Operation(), this.getSendOperation(), null, "operation", null, 1, 1, RteBufferInvalidateTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trustedFunctionRteBufferInvalidateSendOperationEClass, TrustedFunctionRteBufferInvalidateSendOperation.class, "TrustedFunctionRteBufferInvalidateSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction(), this.getRteBufferInvalidateTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferInvalidateSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, TrustedFunctionRteBufferInvalidateSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memoryMappingEClass, MemoryMapping.class, "MemoryMapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMemoryMapping_Prefix(), this.getCIdentifier(), "prefix", null, 1, 1, MemoryMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7526,34 +10489,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(bswMemoryMappingEClass, BswMemoryMapping.class, "BswMemoryMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(globalVariableGroupEClass, GlobalVariableGroup.class, "GlobalVariableGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGlobalVariableGroup_GlobalVariable(), this.getGlobalVariable(), null, "globalVariable", null, 0, -1, GlobalVariableGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGlobalVariableGroup_MemoryMapping(), this.getMemoryMapping(), null, "memoryMapping", null, 1, 1, GlobalVariableGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(globalVariableFileContentsGroupEClass, GlobalVariableFileContentsGroup.class, "GlobalVariableFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGlobalVariableFileContentsGroup_GlobalVariable(), this.getGlobalVariable(), null, "globalVariable", null, 0, -1, GlobalVariableFileContentsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGlobalVariableFileContentsGroup_MemoryMapping(), this.getMemoryMapping(), null, "memoryMapping", null, 1, 1, GlobalVariableFileContentsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(functionGroupEClass, FunctionGroup.class, "FunctionGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFunctionGroup_MemoryMapping(), this.getMemoryMapping(), null, "memoryMapping", null, 1, 1, FunctionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFunctionGroup_Function(), this.getFunction(), null, "function", null, 0, -1, FunctionGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(functionFileContentsGroupEClass, FunctionFileContentsGroup.class, "FunctionFileContentsGroup", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFunctionFileContentsGroup_MemoryMapping(), this.getMemoryMapping(), null, "memoryMapping", null, 1, 1, FunctionFileContentsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFunctionFileContentsGroup_Function(), this.getFunction(), null, "function", null, 0, -1, FunctionFileContentsGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(rteApiGroupEClass, RteApiGroup.class, "RteApiGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteApiGroup_RteApi(), this.getRteApi(), null, "rteApi", null, 0, -1, RteApiGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(rteApiFileContentsGroupEClass, RteApiFileContentsGroup.class, "RteApiFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteApiFileContentsGroup_RteApi(), this.getRteApi(), null, "rteApi", null, 0, -1, RteApiFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(rteLifecycleApiGroupEClass, RteLifecycleApiGroup.class, "RteLifecycleApiGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteLifecycleApiGroup_RteLifecycleApi(), this.getRteLifecycleApi(), null, "rteLifecycleApi", null, 0, -1, RteLifecycleApiGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(rteLifecycleApiFileContentsGroupEClass, RteLifecycleApiFileContentsGroup.class, "RteLifecycleApiFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteLifecycleApiFileContentsGroup_RteLifecycleApi(), this.getRteLifecycleApi(), null, "rteLifecycleApi", null, 0, -1, RteLifecycleApiFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(taskBodyGroupEClass, TaskBodyGroup.class, "TaskBodyGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTaskBodyGroup_TaskBody(), this.getTaskBody(), null, "taskBody", null, 0, -1, TaskBodyGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(taskBodyFileContentsGroupEClass, TaskBodyFileContentsGroup.class, "TaskBodyFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTaskBodyFileContentsGroup_TaskBody(), this.getTaskBody(), null, "taskBody", null, 0, -1, TaskBodyFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(bswSchedulableEntityGroupEClass, BswSchedulableEntityGroup.class, "BswSchedulableEntityGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBswSchedulableEntityGroup_BswSchedulableEntity(), this.getBswSchedulableEntity(), null, "bswSchedulableEntity", null, 0, -1, BswSchedulableEntityGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(bswSchedulableEntityFileContentsGroupEClass, BswSchedulableEntityFileContentsGroup.class, "BswSchedulableEntityFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBswSchedulableEntityFileContentsGroup_BswSchedulableEntity(), this.getBswSchedulableEntity(), null, "bswSchedulableEntity", null, 0, -1, BswSchedulableEntityFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(comCallbackGroupEClass, ComCallbackGroup.class, "ComCallbackGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComCallbackGroup_ComCallback(), this.getComCallback(), null, "comCallback", null, 0, -1, ComCallbackGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(comCallbackFileContentsGroupEClass, ComCallbackFileContentsGroup.class, "ComCallbackFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComCallbackFileContentsGroup_ComCallback(), this.getComCallback(), null, "comCallback", null, 0, -1, ComCallbackFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(trustedFunctionGroupEClass, TrustedFunctionGroup.class, "TrustedFunctionGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrustedFunctionGroup_TrustedFunction(), this.getTrustedFunction(), null, "trustedFunction", null, 0, -1, TrustedFunctionGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(trustedFunctionFileContentsGroupEClass, TrustedFunctionFileContentsGroup.class, "TrustedFunctionFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionFileContentsGroup_TrustedFunction(), this.getTrustedFunction(), null, "trustedFunction", null, 0, -1, TrustedFunctionFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEClass(executableEntityGroupEClass, ExecutableEntityGroup.class, "ExecutableEntityGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExecutableEntityGroup_ExecutableEntity(), this.getExecutableEntity(), null, "executableEntity", null, 0, -1, ExecutableEntityGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(executableEntityFileContentsGroupEClass, ExecutableEntityFileContentsGroup.class, "ExecutableEntityFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getExecutableEntityFileContentsGroup_ExecutableEntity(), this.getExecutableEntity(), null, "executableEntity", null, 0, -1, ExecutableEntityFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(bswMemoryMappingHeaderEClass, BswMemoryMappingHeader.class, "BswMemoryMappingHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBswMemoryMappingHeader_MemoryMapping(), this.getBswMemoryMapping(), null, "memoryMapping", null, 0, -1, BswMemoryMappingHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -7572,69 +10535,139 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(schmApiEClass, SchmApi.class, "SchmApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchmApi_ReturnValue(), this.getValue(), null, "returnValue", null, 0, 1, SchmApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSchmApi_Parent(), this.getPartedBswm(), this.getPartedBswm_SchmApi(), "parent", null, 1, 1, SchmApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchmApi_IsInline(), this.getBoolean(), "isInline", null, 1, 1, SchmApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comSignalApiWrapperEClass, ComSignalApiWrapper.class, "ComSignalApiWrapper", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComSignalApiWrapper_DataParam(), this.getParameter(), null, "dataParam", null, 1, 1, ComSignalApiWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSignalApiWrapper_Parent(), this.getPartition(), this.getPartition_ComSignalApiWrapper(), "parent", null, 1, 1, ComSignalApiWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComSignalApiWrapper_SignalSymbolName(), this.getCIdentifier(), "signalSymbolName", null, 1, 1, ComSignalApiWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComSignalApiWrapper_SignalGroupSymbolName(), this.getCIdentifier(), "signalGroupSymbolName", null, 1, 1, ComSignalApiWrapper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comProxyFunctionEClass, ComProxyFunction.class, "ComProxyFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComProxyFunction_Parent(), this.getPartition(), this.getPartition_ComProxyFunction(), "parent", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_IocReceiveSymbolName(), this.getCIdentifier(), "iocReceiveSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_SignalGroupSymbolName(), this.getCIdentifier(), "signalGroupSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_BufferComProxySymbolName(), this.getCIdentifier(), "bufferComProxySymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_BufferComMetaComplexDataSymbolName(), this.getCIdentifier(), "bufferComMetaComplexDataSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_ProxyDataTypeName(), this.getCIdentifier(), "proxyDataTypeName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comSendSignalApiWrapperEClass, ComSendSignalApiWrapper.class, "ComSendSignalApiWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(comReceiveSignalApiWrapperEClass, ComReceiveSignalApiWrapper.class, "ComReceiveSignalApiWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schmLifecycleApiEClass, SchmLifecycleApi.class, "SchmLifecycleApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(schmEnterApiEClass, SchmEnterApi.class, "SchmEnterApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchmEnterApi_Operation(), this.getExcludeOperation(), null, "operation", null, 1, 1, SchmEnterApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchmEnterApi_IsNoneExclude(), this.getBoolean(), "isNoneExclude", null, 1, 1, SchmEnterApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schmExitApiEClass, SchmExitApi.class, "SchmExitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchmExitApi_Operation(), this.getExcludeOperation(), null, "operation", null, 1, 1, SchmExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSchmExitApi_IsNoneExclude(), this.getBoolean(), "isNoneExclude", null, 1, 1, SchmExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(schmModeApiEClass, SchmModeApi.class, "SchmModeApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchmModeApi_ModeDeclarationGroup(), this.getModeDeclarationGroup(), null, "modeDeclarationGroup", null, 1, 1, SchmModeApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmModeApi_ModeMachineInstance(), this.getModeMachineInstance(), null, "modeMachineInstance", null, 0, 1, SchmModeApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(schmSwitchApiEClass, SchmSwitchApi.class, "SchmSwitchApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchmSwitchApi_ModeMachineInstance(), this.getModeMachineInstance(), null, "modeMachineInstance", null, 0, 1, SchmSwitchApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmSwitchApi_OsTaskEventTriggeredByMode(), this.getOsTaskEventsTriggeredByMode(), null, "osTaskEventTriggeredByMode", null, 0, -1, SchmSwitchApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmSwitchApi_ExecutableStartOperation(), this.getModeSwitchTriggeringExecutableStartOperation(), null, "executableStartOperation", null, 0, -1, SchmSwitchApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(osTaskEventsTriggeredByModeEClass, OsTaskEventsTriggeredByMode.class, "OsTaskEventsTriggeredByMode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOsTaskEventsTriggeredByMode_StartMode(), this.getConstant(), null, "startMode", null, 1, 1, OsTaskEventsTriggeredByMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOsTaskEventsTriggeredByMode_OsTaskEvent(), this.getOsTaskEvent(), null, "osTaskEvent", null, 0, -1, OsTaskEventsTriggeredByMode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(osTaskEventEClass, OsTaskEvent.class, "OsTaskEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOsTaskEvent_OsTaskId(), this.getCIdentifier(), "osTaskId", null, 1, 1, OsTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOsTaskEvent_OsEventId(), this.getCIdentifier(), "osEventId", null, 0, -1, OsTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOsTaskEvent_OsTaskPriority(), this.getInteger(), "osTaskPriority", null, 1, 1, OsTaskEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleInterlinkHeaderEClass, ModuleInterlinkHeader.class, "ModuleInterlinkHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModuleInterlinkHeader_SchmApiGroup(), this.getSchmApiGroup(), null, "schmApiGroup", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModuleInterlinkHeader_DependentExecutableEntityGroup(), this.getExecutableEntityGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleInterlinkHeader_GlobalVariableGroup(), this.getGlobalVariableFileContentsGroup(), null, "globalVariableGroup", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleInterlinkHeader_SchmApiGroup(), this.getSchmApiFileContentsGroup(), null, "schmApiGroup", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleInterlinkHeader_DependentExecutableEntityGroup(), this.getExecutableEntityFileContentsGroup(), null, "dependentExecutableEntityGroup", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModuleInterlinkHeader_Constant(), this.getConstant(), null, "constant", null, 0, -1, ModuleInterlinkHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(schmApiGroupEClass, SchmApiGroup.class, "SchmApiGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchmApiGroup_SchmApi(), this.getSchmApi(), null, "schmApi", null, 0, -1, SchmApiGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(schmApiFileContentsGroupEClass, SchmApiFileContentsGroup.class, "SchmApiFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchmApiFileContentsGroup_SchmApi(), this.getSchmApi(), null, "schmApi", null, 0, -1, SchmApiFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(comSignalApiWrapperFileContentsGroupEClass, ComSignalApiWrapperFileContentsGroup.class, "ComSignalApiWrapperFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComSignalApiWrapperFileContentsGroup_ComSignalApiWrapper(), this.getComSignalApiWrapper(), null, "comSignalApiWrapper", null, 0, -1, ComSignalApiWrapperFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(comProxyFunctionFileContentsGroupEClass, ComProxyFunctionFileContentsGroup.class, "ComProxyFunctionFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComProxyFunctionFileContentsGroup_ComProxyFunction(), this.getComProxyFunction(), null, "comProxyFunction", null, 0, -1, ComProxyFunctionFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(moduleInterlinkTypeHeaderEClass, ModuleInterlinkTypeHeader.class, "ModuleInterlinkTypeHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModuleInterlinkTypeHeader_Constant(), this.getConstant(), null, "constant", null, 0, -1, ModuleInterlinkTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleInterlinkTypeHeader_ModeType(), this.getModeType(), null, "modeType", null, 0, -1, ModuleInterlinkTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModuleInterlinkTypeHeader_ModeDeclarationGroup(), this.getModeDeclarationGroup(), null, "modeDeclarationGroup", null, 0, -1, ModuleInterlinkTypeHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(schmLifecycleApiGroupEClass, SchmLifecycleApiGroup.class, "SchmLifecycleApiGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchmLifecycleApiGroup_SchmLifecycleApi(), this.getSchmLifecycleApi(), null, "schmLifecycleApi", null, 0, -1, SchmLifecycleApiGroup.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(schmLifecycleApiFileContentsGroupEClass, SchmLifecycleApiFileContentsGroup.class, "SchmLifecycleApiFileContentsGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchmLifecycleApiFileContentsGroup_SchmLifecycleApi(), this.getSchmLifecycleApi(), null, "schmLifecycleApi", null, 0, -1, SchmLifecycleApiFileContentsGroup.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(partedBswmEClass, PartedBswm.class, "PartedBswm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPartedBswm_Parent(), this.getPartition(), this.getPartition_PartedBswm(), "parent", null, 1, 1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartedBswm_DependentExecutableEntity(), this.getExecutableEntity(), this.getExecutableEntity_ParentPartedBswm(), "dependentExecutableEntity", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartedBswm_SchmApi(), this.getSchmApi(), this.getSchmApi_Parent(), "schmApi", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPartedBswm_BswMemoryMapping(), this.getBswMemoryMapping(), null, "bswMemoryMapping", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartedBswm_Bswm(), this.getBswm(), this.getBswm_PartedBswm(), "bswm", null, 1, 1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartedBswm_BswMemoryMapping(), this.getBswMemoryMapping(), null, "bswMemoryMapping", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartedBswm_DependentBswSchedulableEntity(), this.getBswSchedulableEntity(), this.getBswSchedulableEntity_ParentPartedBswm(), "dependentBswSchedulableEntity", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartedBswm_ModeMachineInstance(), this.getModeMachineInstance(), null, "modeMachineInstance", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartedBswm_SchmApi(), this.getSchmApi(), this.getSchmApi_Parent(), "schmApi", null, 0, -1, PartedBswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bswmEClass, Bswm.class, "Bswm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBswm_PartedBswm(), this.getPartedBswm(), this.getPartedBswm_Bswm(), "partedBswm", null, 0, -1, Bswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBswm_ModeDeclarationGroup(), this.getModeDeclarationGroup(), null, "modeDeclarationGroup", null, 0, -1, Bswm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getBswm__GetSinglePartedBswm__Partition(), this.getPartedBswm(), "getSinglePartedBswm", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getPartition(), "parent", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(schmDeinitApiEClass, SchmDeinitApi.class, "SchmDeinitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(schmInitApiEClass, SchmInitApi.class, "SchmInitApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(schmInitApiEClass, SchmInitApi.class, "SchmInitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSchmInitApi_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, SchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmInitApi_InitialExecutableStartOperation(), this.getModeSwitchTriggeringExecutableStartOperation(), null, "initialExecutableStartOperation", null, 0, -1, SchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmInitApi_InitialExecutableOsTaskEvent(), this.getOsTaskEvent(), null, "initialExecutableOsTaskEvent", null, 0, -1, SchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmInitApi_InitTargetModeMachineInstance(), this.getModeMachineInstance(), null, "initTargetModeMachineInstance", null, 0, -1, SchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(singlecoreSchmInitApiEClass, SinglecoreSchmInitApi.class, "SinglecoreSchmInitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSinglecoreSchmInitApi_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, SinglecoreSchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multicoreSchmInitApiEClass, MulticoreSchmInitApi.class, "MulticoreSchmInitApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMulticoreSchmInitApi_CoreInitApiImpl(), this.getSchmCoreInitApiImpl(), null, "coreInitApiImpl", null, 0, -1, MulticoreSchmInitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schmCoreInitApiImplEClass, SchmCoreInitApiImpl.class, "SchmCoreInitApiImpl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSchmCoreInitApiImpl_Parent(), this.getCore(), this.getCore_SchmInitApi(), "parent", null, 1, 1, SchmCoreInitApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSchmCoreInitApiImpl_Operation(), this.getInitializeOperation(), null, "operation", null, 0, -1, SchmCoreInitApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSchmCoreInitApiImpl_Parent(), this.getCore(), this.getCore_SchmCoreInitApiImpl(), "parent", null, 1, 1, SchmCoreInitApiImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(pointerTypeEClass, PointerType.class, "PointerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPointerType_Type(), this.getType(), null, "type", null, 1, 1, PointerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPointerType_IsConstPointer(), this.getBoolean(), "isConstPointer", null, 1, 1, PointerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPointerType_IsConstTarget(), this.getBoolean(), "isConstTarget", null, 1, 1, PointerType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(redefinitionPointerTypeEClass, RedefinitionPointerType.class, "RedefinitionPointerType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(redefinitionTypeEClass, RedefinitionType.class, "RedefinitionType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRedefinitionType_SourceType(), this.getType(), null, "sourceType", null, 1, 1, RedefinitionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getRedefinitionType__GetLeafType(), this.getType(), "getLeafType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(parameterPassTypeEnumEEnum, ParameterPassTypeEnum.class, "ParameterPassTypeEnum");
 		addEEnumLiteral(parameterPassTypeEnumEEnum, ParameterPassTypeEnum.VALUE);
 		addEEnumLiteral(parameterPassTypeEnumEEnum, ParameterPassTypeEnum.REFERENCE);
 
+		initEEnum(parameterDirectionEnumEEnum, ParameterDirectionEnum.class, "ParameterDirectionEnum");
+		addEEnumLiteral(parameterDirectionEnumEEnum, ParameterDirectionEnum.IN);
+		addEEnumLiteral(parameterDirectionEnumEEnum, ParameterDirectionEnum.OUT);
+		addEEnumLiteral(parameterDirectionEnumEEnum, ParameterDirectionEnum.INOUT);
+
 		initEEnum(signednessEnumEEnum, SignednessEnum.class, "SignednessEnum");
 		addEEnumLiteral(signednessEnumEEnum, SignednessEnum.SIGNED);
 		addEEnumLiteral(signednessEnumEEnum, SignednessEnum.UNSIGNED);
 
-		initEEnum(constantTypeEnumEEnum, ConstantTypeEnum.class, "ConstantTypeEnum");
-		addEEnumLiteral(constantTypeEnumEEnum, ConstantTypeEnum.NUMERICAL_VALUE);
-		addEEnumLiteral(constantTypeEnumEEnum, ConstantTypeEnum.TEXT_VALUE);
-		addEEnumLiteral(constantTypeEnumEEnum, ConstantTypeEnum.UNKNOWN_VALUE);
+		initEEnum(constantValueTypeEnumEEnum, ConstantValueTypeEnum.class, "ConstantValueTypeEnum");
+		addEEnumLiteral(constantValueTypeEnumEEnum, ConstantValueTypeEnum.NUMERICAL_VALUE);
+		addEEnumLiteral(constantValueTypeEnumEEnum, ConstantValueTypeEnum.TEXT_VALUE);
+		addEEnumLiteral(constantValueTypeEnumEEnum, ConstantValueTypeEnum.UNKNOWN_VALUE);
 
 		// Initialize data types
 		initEDataType(stringEDataType, String.class, "String", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -7665,7 +10698,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });												
+		   });																														
 	}
 
 	/**
@@ -7675,67 +10708,97 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";				
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";							
 		addAnnotation
 		  (getRteBufferQueuedVariable_QueueType(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.type.oclAsType(RteBufferQueueType)"
+		   });						
+		addAnnotation
+		  (getServerRunnableStartOperation_StartServerRunnable(), 
+		   source, 
+		   new String[] {
+			 "derivation", "self.startExecutable.oclAsType(RunnableEntity)"
+		   });					
+		addAnnotation
+		  (getModeQueuedVariable_QueueType(), 
+		   source, 
+		   new String[] {
+			 "derivation", "self.type.oclAsType(ModeQueueType)"
 		   });		
 		addAnnotation
-		  (getRteApiGroup_RteApi(), 
+		  (getRteApiFileContentsGroup_RteApi(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(RteApi)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getRteLifecycleApiGroup_RteLifecycleApi(), 
+		  (getRteLifecycleApiFileContentsGroup_RteLifecycleApi(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(RteLifecycleApi)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getTaskBodyGroup_TaskBody(), 
+		  (getTaskBodyFileContentsGroup_TaskBody(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(TaskBody)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getBswSchedulableEntityGroup_BswSchedulableEntity(), 
+		  (getBswSchedulableEntityFileContentsGroup_BswSchedulableEntity(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(BswSchedulableEntity)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getComCallbackGroup_ComCallback(), 
+		  (getComCallbackFileContentsGroup_ComCallback(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(ComCallback)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getTrustedFunctionGroup_TrustedFunction(), 
+		  (getTrustedFunctionFileContentsGroup_TrustedFunction(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(TrustedFunction)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getExecutableEntityGroup_ExecutableEntity(), 
+		  (getExecutableEntityFileContentsGroup_ExecutableEntity(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(ExecutableEntity)->asOrderedSet()"
-		   });		
+		   });				
 		addAnnotation
-		  (getSchmApiGroup_SchmApi(), 
+		  (getSchmApiFileContentsGroup_SchmApi(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(SchmApi)->asOrderedSet()"
 		   });		
 		addAnnotation
-		  (getSchmLifecycleApiGroup_SchmLifecycleApi(), 
+		  (getComSignalApiWrapperFileContentsGroup_ComSignalApiWrapper(), 
+		   source, 
+		   new String[] {
+			 "derivation", "self.function.oclAsType(ComSignalApiWrapper)->asOrderedSet()"
+		   });		
+		addAnnotation
+		  (getComProxyFunctionFileContentsGroup_ComProxyFunction(), 
+		   source, 
+		   new String[] {
+			 "derivation", "self.function.oclAsType(ComProxyFunction)->asOrderedSet()"
+		   });		
+		addAnnotation
+		  (getSchmLifecycleApiFileContentsGroup_SchmLifecycleApi(), 
 		   source, 
 		   new String[] {
 			 "derivation", "self.function.oclAsType(SchmLifecycleApi)->asOrderedSet()"
-		   });	
+		   });				
+		addAnnotation
+		  (getRedefinitionType__GetLeafType(), 
+		   source, 
+		   new String[] {
+			 "body", "if sourceType.oclIsKindOf(RedefinitionType)\n\t\t\tthen sourceType.oclAsType(RedefinitionType).getLeafType()\n\t\t\telse sourceType\n\t\t\tendif"
+		   });
 	}
 
 } //ModulePackageImpl

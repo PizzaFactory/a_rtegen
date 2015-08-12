@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,7 +53,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptCategory <em>Interrupt Category</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptSource <em>Interrupt Source</em>}</li>
  * </ul>
  * </p>
@@ -63,35 +62,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  * @generated
  */
 public interface BswInterruptEntity extends BswModuleEntity {
-	/**
-	 * Returns the value of the '<em><b>Interrupt Category</b></em>' attribute.
-	 * The literals are from the enumeration {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Interrupt Category</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Interrupt Category</em>' attribute.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory
-	 * @see #setInterruptCategory(BswInterruptCategory)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInterruptEntity_InterruptCategory()
-	 * @model required="true"
-	 * @generated
-	 */
-	BswInterruptCategory getInterruptCategory();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity#getInterruptCategory <em>Interrupt Category</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Interrupt Category</em>' attribute.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptCategory
-	 * @see #getInterruptCategory()
-	 * @generated
-	 */
-	void setInterruptCategory(BswInterruptCategory value);
-
 	/**
 	 * Returns the value of the '<em><b>Interrupt Source</b></em>' attribute.
 	 * <!-- begin-user-doc -->

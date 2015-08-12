@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,9 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getInitValueConstant <em>Init Value Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getMemoryMapping <em>Memory Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getInitAtDefinition <em>Init At Definition</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getInitWithConstantValue <em>Init With Constant Value</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getHasConst <em>Has Const</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getHasStatic <em>Has Static</em>}</li>
  * </ul>
  * </p>
  *
@@ -141,5 +144,83 @@ public interface GlobalVariable extends Variable {
 	 * @generated
 	 */
 	void setInitAtDefinition(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Init With Constant Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Init With Constant Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Init With Constant Value</em>' attribute.
+	 * @see #setInitWithConstantValue(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getGlobalVariable_InitWithConstantValue()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getInitWithConstantValue();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getInitWithConstantValue <em>Init With Constant Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Init With Constant Value</em>' attribute.
+	 * @see #getInitWithConstantValue()
+	 * @generated
+	 */
+	void setInitWithConstantValue(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Has Const</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Const</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Const</em>' attribute.
+	 * @see #setHasConst(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getGlobalVariable_HasConst()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getHasConst();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getHasConst <em>Has Const</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Const</em>' attribute.
+	 * @see #getHasConst()
+	 * @generated
+	 */
+	void setHasConst(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Has Static</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Has Static</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Has Static</em>' attribute.
+	 * @see #setHasStatic(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getGlobalVariable_HasStatic()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getHasStatic();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable#getHasStatic <em>Has Static</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Has Static</em>' attribute.
+	 * @see #getHasStatic()
+	 * @generated
+	 */
+	void setHasStatic(Boolean value);
 
 } // GlobalVariable

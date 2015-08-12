@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -76,6 +76,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RunnableEntityImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RunnableEntityImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RunnableEntityImpl#getSymbol <em>Symbol</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RunnableEntityImpl#getWrittenLocalVariable <em>Written Local Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.RunnableEntityImpl#getReadLocalVariable <em>Read Local Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,6 +145,26 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 	protected String symbol = SYMBOL_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getWrittenLocalVariable() <em>Written Local Variable</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWrittenLocalVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableAccess> writtenLocalVariable;
+
+	/**
+	 * The cached value of the '{@link #getReadLocalVariable() <em>Read Local Variable</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReadLocalVariable()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableAccess> readLocalVariable;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -204,6 +226,30 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 		symbol = newSymbol;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.RUNNABLE_ENTITY__SYMBOL, oldSymbol, symbol));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableAccess> getWrittenLocalVariable() {
+		if (writtenLocalVariable == null) {
+			writtenLocalVariable = new EObjectContainmentEList<VariableAccess>(VariableAccess.class, this, M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE);
+		}
+		return writtenLocalVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<VariableAccess> getReadLocalVariable() {
+		if (readLocalVariable == null) {
+			readLocalVariable = new EObjectContainmentEList<VariableAccess>(VariableAccess.class, this, M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE);
+		}
+		return readLocalVariable;
 	}
 
 	/**
@@ -308,6 +354,10 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case M2Package.RUNNABLE_ENTITY__PARENT:
 				return basicSetParent(null, msgs);
+			case M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE:
+				return ((InternalEList<?>)getWrittenLocalVariable()).basicRemove(otherEnd, msgs);
+			case M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE:
+				return ((InternalEList<?>)getReadLocalVariable()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -346,6 +396,10 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 				return getParent();
 			case M2Package.RUNNABLE_ENTITY__SYMBOL:
 				return getSymbol();
+			case M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE:
+				return getWrittenLocalVariable();
+			case M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE:
+				return getReadLocalVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,6 +435,14 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 			case M2Package.RUNNABLE_ENTITY__SYMBOL:
 				setSymbol((String)newValue);
 				return;
+			case M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE:
+				getWrittenLocalVariable().clear();
+				getWrittenLocalVariable().addAll((Collection<? extends VariableAccess>)newValue);
+				return;
+			case M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE:
+				getReadLocalVariable().clear();
+				getReadLocalVariable().addAll((Collection<? extends VariableAccess>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -411,6 +473,12 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 			case M2Package.RUNNABLE_ENTITY__SYMBOL:
 				setSymbol(SYMBOL_EDEFAULT);
 				return;
+			case M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE:
+				getWrittenLocalVariable().clear();
+				return;
+			case M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE:
+				getReadLocalVariable().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -435,6 +503,10 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 				return getParent() != null;
 			case M2Package.RUNNABLE_ENTITY__SYMBOL:
 				return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
+			case M2Package.RUNNABLE_ENTITY__WRITTEN_LOCAL_VARIABLE:
+				return writtenLocalVariable != null && !writtenLocalVariable.isEmpty();
+			case M2Package.RUNNABLE_ENTITY__READ_LOCAL_VARIABLE:
+				return readLocalVariable != null && !readLocalVariable.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,6 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
@@ -57,6 +58,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -72,6 +74,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl#getSwDataDefProps <em>Sw Data Def Props</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl#getSwAddrMethod <em>Sw Addr Method</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl#getSwAlignment <em>Sw Alignment</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.DataPrototypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,6 +110,16 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 	 * @ordered
 	 */
 	protected EStructuralFeature.Internal.SettingDelegate SW_ALIGNMENT__ESETTING_DELEGATE = ((EStructuralFeature.Internal)M2Package.Literals.DATA_PROTOTYPE__SW_ALIGNMENT).getSettingDelegate();
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected AutosarDataType type;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -184,24 +197,6 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwAddrMethod basicGetSwAddrMethod() {
-		return (SwAddrMethod)SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSwAddrMethod(SwAddrMethod newSwAddrMethod) {
-		SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAddrMethod);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getSwAlignment() {
 		return (String)SW_ALIGNMENT__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
 	}
@@ -211,8 +206,37 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSwAlignment(String newSwAlignment) {
-		SW_ALIGNMENT__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAlignment);
+	public AutosarDataType getType() {
+		if (type != null && ((EObject)type).eIsProxy()) {
+			InternalEObject oldType = (InternalEObject)type;
+			type = (AutosarDataType)eResolveProxy(oldType);
+			if (type != oldType) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, M2Package.DATA_PROTOTYPE__TYPE, oldType, type));
+			}
+		}
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AutosarDataType basicGetType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(AutosarDataType newType) {
+		AutosarDataType oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.DATA_PROTOTYPE__TYPE, oldType, type));
 	}
 
 	/**
@@ -264,10 +288,12 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				return getSwDataDefProps();
 			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				if (resolve) return getSwAddrMethod();
-				return basicGetSwAddrMethod();
+				return getSwAddrMethod();
 			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
 				return getSwAlignment();
+			case M2Package.DATA_PROTOTYPE__TYPE:
+				if (resolve) return getType();
+				return basicGetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -283,11 +309,8 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)newValue);
 				return;
-			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)newValue);
-				return;
-			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
-				setSwAlignment((String)newValue);
+			case M2Package.DATA_PROTOTYPE__TYPE:
+				setType((AutosarDataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,11 +327,8 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 			case M2Package.DATA_PROTOTYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)null);
 				return;
-			case M2Package.DATA_PROTOTYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)null);
-				return;
-			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
-				SW_ALIGNMENT__ESETTING_DELEGATE.dynamicUnset(this, null, 0);
+			case M2Package.DATA_PROTOTYPE__TYPE:
+				setType((AutosarDataType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -328,6 +348,8 @@ public abstract class DataPrototypeImpl extends IdentifiableImpl implements Data
 				return SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 			case M2Package.DATA_PROTOTYPE__SW_ALIGNMENT:
 				return SW_ALIGNMENT__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+			case M2Package.DATA_PROTOTYPE__TYPE:
+				return type != null;
 		}
 		return super.eIsSet(featureID);
 	}

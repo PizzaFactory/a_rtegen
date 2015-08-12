@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,19 +44,20 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntry;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -68,6 +69,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl#getImplementedEntry <em>Implemented Entry</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl#getAccessedModeGroup <em>Accessed Mode Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswModuleEntityImpl#getManagedModeGroup <em>Managed Mode Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +86,25 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 	 * @ordered
 	 */
 	protected BswModuleEntry implementedEntry;
+
+	/**
+	 * The cached value of the '{@link #getAccessedModeGroup() <em>Accessed Mode Group</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAccessedModeGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeDeclarationGroupPrototype> accessedModeGroup;
+	/**
+	 * The cached value of the '{@link #getManagedModeGroup() <em>Managed Mode Group</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getManagedModeGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeDeclarationGroupPrototype> managedModeGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +209,30 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModeDeclarationGroupPrototype> getAccessedModeGroup() {
+		if (accessedModeGroup == null) {
+			accessedModeGroup = new EObjectResolvingEList<ModeDeclarationGroupPrototype>(ModeDeclarationGroupPrototype.class, this, M2Package.BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP);
+		}
+		return accessedModeGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeDeclarationGroupPrototype> getManagedModeGroup() {
+		if (managedModeGroup == null) {
+			managedModeGroup = new EObjectResolvingEList<ModeDeclarationGroupPrototype>(ModeDeclarationGroupPrototype.class, this, M2Package.BSW_MODULE_ENTITY__MANAGED_MODE_GROUP);
+		}
+		return managedModeGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -239,6 +285,10 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 				return basicGetImplementedEntry();
 			case M2Package.BSW_MODULE_ENTITY__PARENT:
 				return getParent();
+			case M2Package.BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP:
+				return getAccessedModeGroup();
+			case M2Package.BSW_MODULE_ENTITY__MANAGED_MODE_GROUP:
+				return getManagedModeGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,6 +298,7 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -256,6 +307,14 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 				return;
 			case M2Package.BSW_MODULE_ENTITY__PARENT:
 				setParent((BswInternalBehavior)newValue);
+				return;
+			case M2Package.BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP:
+				getAccessedModeGroup().clear();
+				getAccessedModeGroup().addAll((Collection<? extends ModeDeclarationGroupPrototype>)newValue);
+				return;
+			case M2Package.BSW_MODULE_ENTITY__MANAGED_MODE_GROUP:
+				getManagedModeGroup().clear();
+				getManagedModeGroup().addAll((Collection<? extends ModeDeclarationGroupPrototype>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -275,6 +334,12 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 			case M2Package.BSW_MODULE_ENTITY__PARENT:
 				setParent((BswInternalBehavior)null);
 				return;
+			case M2Package.BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP:
+				getAccessedModeGroup().clear();
+				return;
+			case M2Package.BSW_MODULE_ENTITY__MANAGED_MODE_GROUP:
+				getManagedModeGroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -291,6 +356,10 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 				return implementedEntry != null;
 			case M2Package.BSW_MODULE_ENTITY__PARENT:
 				return getParent() != null;
+			case M2Package.BSW_MODULE_ENTITY__ACCESSED_MODE_GROUP:
+				return accessedModeGroup != null && !accessedModeGroup.isEmpty();
+			case M2Package.BSW_MODULE_ENTITY__MANAGED_MODE_GROUP:
+				return managedModeGroup != null && !managedModeGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

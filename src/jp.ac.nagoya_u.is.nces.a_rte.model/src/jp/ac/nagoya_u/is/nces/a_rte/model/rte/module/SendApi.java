@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,6 +59,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getStatusVariable <em>Status Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getFilterResultVariable <em>Filter Result Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg <em>Needs Check Arg</em>}</li>
  * </ul>
  * </p>
  *
@@ -186,5 +187,31 @@ public interface SendApi extends RteApi {
 	 * @generated
 	 */
 	void setFilterResultVariable(LocalVariable value);
+
+	/**
+	 * Returns the value of the '<em><b>Needs Check Arg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Needs Check Arg</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Needs Check Arg</em>' attribute.
+	 * @see #setNeedsCheckArg(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSendApi_NeedsCheckArg()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getNeedsCheckArg();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg <em>Needs Check Arg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Needs Check Arg</em>' attribute.
+	 * @see #getNeedsCheckArg()
+	 * @generated
+	 */
+	void setNeedsCheckArg(Boolean value);
 
 } // SendApi

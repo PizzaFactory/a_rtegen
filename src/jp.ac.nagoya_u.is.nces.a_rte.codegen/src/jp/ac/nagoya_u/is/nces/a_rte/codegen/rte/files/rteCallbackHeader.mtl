@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: rteCallbackHeader.mtl 14054 2015-04-25 02:25:32Z t-inoue $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -78,7 +78,7 @@
 /*
  * COM Callback Declarations
  */
-[for (aGroup : ComCallbackGroup | aRteCallbackHeader.comCallbackGroup)]
+[for (aGroup : ComCallbackFileContentsGroup | aRteCallbackHeader.comCallbackGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aComCallback : ComCallback | aGroup.comCallback)]

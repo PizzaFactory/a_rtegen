@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,13 +45,21 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Exclusive Area Ex</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getBswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage#getExclusiveAreaEx()
  * @model
@@ -60,15 +68,66 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
  */
 public interface ExclusiveAreaEx extends ExtendedEObject {
 	/**
+	 * Returns the value of the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Bsw Schedulable Entity Ex</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Bsw Schedulable Entity Ex</em>' reference.
+	 * @see #setBswSchedulableEntityEx(BswSchedulableEntityEx)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage#getExclusiveAreaEx_BswSchedulableEntityEx()
+	 * @model required="true"
+	 * @generated
+	 */
+	BswSchedulableEntityEx getBswSchedulableEntityEx();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx#getBswSchedulableEntityEx <em>Bsw Schedulable Entity Ex</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Bsw Schedulable Entity Ex</em>' reference.
+	 * @see #getBswSchedulableEntityEx()
+	 * @generated
+	 */
+	void setBswSchedulableEntityEx(BswSchedulableEntityEx value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Enter/Exit APIを生成するか
+	 * ExclusiveAreaにアクセスしているEcucPartitionを取得する。
+	 * NOTE 現状、BSWMのみにターゲットを絞ってEcucPartitionを検索しているため、SW-CのExclusiveAreaにアクセスするパーティションは取得できないことに注意。
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)\n\t\t\t\t\tthen \n\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\telse \n\t\t\t\t\t\tif this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tthen\n\t\t\t\t\t\t\tthis_.parent.oclAsType(ar4x::m2::BswInternalBehavior).entity.canEnterExclusiveArea->includes(this_)\n\t\t\t\t\t\telse false\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif'"
+	 * @model ordered="false" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()' pre_='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
 	 * @generated
 	 */
-	Boolean providesEnterExitApi(ExclusiveArea this_);
+	EList<EcucPartition> getUsingPartitionsOfBswExclusiveArea(ExclusiveArea this_);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Rte_Enter/Exit APIを生成するか
+	 * <!-- end-model-doc -->
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)' pre_='this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)'"
+	 * @generated
+	 */
+	boolean providesRteEnterExitApi(ExclusiveArea this_);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * SchM_Enter/Exit APIを生成するか
+	 * <!-- end-model-doc -->
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)' pre_='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
+	 * @generated
+	 */
+	boolean providesSchmEnterExitApi(ExclusiveArea this_);
 
 } // ExclusiveAreaEx

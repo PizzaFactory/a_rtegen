@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,38 +43,33 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.ECUC_PARTITION_COLLECTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_APPLICATION__OS_APP_ECUC_PARTITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_OS;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.OS_TASK__OWNER_APPLICATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ATOMIC_SW_COMPONENT_TYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_MODULE_DESCRIPTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CORE__CORE_ID;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 
 import java.text.SimpleDateFormat;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.ConfigValues;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartitionCollection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsOS;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.SwComponentInstanceInSystem;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GenerationInfo;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
@@ -87,6 +82,9 @@ import com.google.common.base.Objects;
 import com.google.common.base.Optional;
 import com.google.common.collect.Iterables;
 
+/**
+ * 論理区画のモデルを構築する。
+ */
 public class LogicalCompartmentModelBuilder {
 	private final ModuleModelBuildContext context;
 
@@ -94,6 +92,11 @@ public class LogicalCompartmentModelBuilder {
 		this.context = context;
 	}
 
+	/**
+	 * システムコンフィグレーションから論理区画のモデルを構築する。
+	 * 
+	 * @throws ModelException モデル変換に必要となるモデルの取得に失敗した場合
+	 */
 	public void buildFromSystem() throws ModelException {
 		buildRoot();
 
@@ -109,188 +112,141 @@ public class LogicalCompartmentModelBuilder {
 		buildBswm(this.context.cache.rte);
 	}
 
+	/**
+	 * SW-C・BSWMのコンフィグレーションから論理区画のモデルを構築する。
+	 * 
+	 * @throws ModelException モデル変換に必要となるモデルの取得に失敗した場合
+	 */
 	public void buildFromSwcAndBswm() throws ModelException {
 		buildRoot();
 		buildFromSwcAndBswm(this.context.cache.rte);
 	}
 
-	private void buildFromSwcAndBswm(Rte targetRte) throws ModelException {
-		Core core = createDefaultCore();
-		targetRte.getCore().add(core);
+	private void buildFromSwcAndBswm(Rte targetRte) {
+		Core destCore = createDefaultCore();
+		targetRte.getCore().add(destCore);
 
-		Partition partition = createDefaultPartition();
-		core.getPartition().add(partition);
+		Partition destPartition = createDefaultPartition();
+		destCore.getPartition().add(destPartition);
 
-		for (AtomicSwComponentType swComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
-			partition.getSwc().add(createSwc(swComponentType));
+		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
+			destPartition.getSwc().add(createSwc(sourceSwComponentType));
 		}
 
-		for (BswModuleDescription bswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
-			if (!bswModuleDescription.getInternalBehavior().get(0).getImplementation().isEmpty()) {
-				Bswm bswm = createBswm(bswModuleDescription);
-				targetRte.getBswm().add(bswm);
+		for (BswModuleDescription sourceBswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
+			BswInternalBehavior internalBehavior = sourceBswModuleDescription.getEnableInternalBehavior();
+			if (internalBehavior == null) {
+				continue;
+			}
 
-				// エクスキュータブルをpartedBswmに登録する
-				for (BswInternalBehavior internalBehavior : bswModuleDescription.getInternalBehavior()) {
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						PartedBswm partedBswm = createPartedBswm(bswm, partition);
-						ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
-						partedBswm.getDependentExecutableEntity().add(executableEntity);
-					}
-				}
+			Bswm destBswm = createBswm(sourceBswModuleDescription);
+			targetRte.getBswm().add(destBswm);
+
+			// エクスキュータブルをpartedBswmに登録する
+			for (BswSchedulableEntity sourceBswSchedulableEntity : internalBehavior.getBswSchedulableEntity()) {
+				PartedBswm targetPartedBswm = createPartedBswm(destBswm, destPartition);
+				jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity destBswSchedulableEntity = createBswSchedulableEntity(sourceBswSchedulableEntity, sourceBswModuleDescription);
+				targetPartedBswm.getDependentBswSchedulableEntity().add(destBswSchedulableEntity);
 			}
 		}
-	}
-	
-	private Partition getTargetPartition(BswSchedulableEntity entity) throws ModelException {
-		// BSWスケジューラブルが属するOSタスクを取得
-		OsTask osTask = ((BswSchedulableEntity) entity).getEvent().get(0).getConfig().get(0).getRteBswMappedToTask();
-	
-		// OSタスクが属するパーティションを取得
-		List<EcucPartition> partitions = this.context.query.collect(Collections.singletonList(osTask), OS_TASK__OWNER_APPLICATION, OS_APPLICATION__OS_APP_ECUC_PARTITION);
-		EcucPartition sourcePartition = Iterables.getFirst(partitions, null);
-		Partition targetPartition = this.context.builtQuery.findPartition(sourcePartition);
-		
-		return targetPartition;
-	}
-	
-	private Partition getMasterCoreBswPartition(Rte targetRte) throws ModelException {
-		Optional<EcucPartitionCollection> ecucPartitionCollection = this.context.query.tryFindSingleByKind(ECUC_PARTITION_COLLECTION);
-		Partition targetPartition = null;
-		if (ecucPartitionCollection.isPresent()) {
-			// パーティションあり構成
-			OsOS osOs = this.context.query.findSingleByKind(OS_OS);
-			Integer coreId = osOs.getOsNumberOfCores() != null ? osOs.getOsMasterCoreId() : 0;
-			Core masterCore = targetRte.getCore().get(coreId);
-			
-			// 以下の処理はマスタコアに必ずBSWM配置パーティションが1つある前提.
-			targetPartition = masterCore.getPartition().get(0);
-			for (Partition partition : masterCore.getPartition()) {	// COVERAGE 必ずbreak文でループを抜けるため、未カバレッジで問題ない.
-				if (partition.getIsBswPartition()) {
-					targetPartition = partition;
-					break;
-				}
-			}
-		} else {
-			// パーティションなし構成
-			targetPartition = targetRte.getCore().get(0).getPartition().get(0);
-		}
-		return targetPartition;
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = destPartition;
 	}
 	
 	private void buildBswm(Rte targetRte) throws ModelException {
-		Partition masterCorePartition = getMasterCoreBswPartition(targetRte);
-		for (BswModuleDescription bswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
-			if (!bswModuleDescription.getInternalBehavior().get(0).getImplementation().isEmpty()) {
-				Bswm bswm = createBswm(bswModuleDescription);
-				targetRte.getBswm().add(bswm);
+		for (BswModuleDescription sourceBswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
+			BswInternalBehavior internalBehavior = sourceBswModuleDescription.getEnableInternalBehavior();
+			if (internalBehavior == null) {
+				continue;
+			}
+			Bswm bswm = createBswm(sourceBswModuleDescription);
+			targetRte.getBswm().add(bswm);
+
+			// エクスキュータブルをpartedBswmに登録する
+			for (BswSchedulableEntity sourceBswSchedulableEntity : internalBehavior.getBswSchedulableEntity()) {
+				Collection<EcucPartition> usingEcucPartitions = this.context.query.get(sourceBswSchedulableEntity, BSW_SCHEDULABLE_ENTITY_EX___GET_USING_PARTITION__BSWSCHEDULABLEENTITY);
+				EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345により、モード宣言グループプロトタイプを使用するパーティションの多重度は0..1
+				Partition targetPartition = this.context.builtQuery.findDestPartition(usingEcucPartition);
 				
-				for (BswInternalBehavior internalBehavior : bswModuleDescription.getInternalBehavior()) {
-
-					// BSWスケジューラブルのExclusiveAreaとパーティションの対応表を作成する
-					HashMap<ExclusiveArea, Partition> map = new HashMap<ExclusiveArea, Partition>();
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						if (entity instanceof BswSchedulableEntity) {
-							Partition targetPartition = getTargetPartition((BswSchedulableEntity)entity);
-							
-							//ExclusiveAreaとBSWスケジューラブルが所属するパーティションのハッシュマップを作る
-							for (ExclusiveArea exclusiveArea : entity.getCanEnterExclusiveArea()) {
-								map.put(exclusiveArea, targetPartition);
-							}
-						}
-					}
-
-					// エクスキュータブルをpartedBswmに登録する
-					for (BswModuleEntity entity : internalBehavior.getEntity()) {
-						Partition targetPartition = null;
-						if (entity instanceof BswSchedulableEntity) {
-							targetPartition = getTargetPartition((BswSchedulableEntity)entity);
-						} else {
-							for (ExclusiveArea exclusiveArea : entity.getCanEnterExclusiveArea()) {
-								targetPartition = map.get(exclusiveArea);
-								if (targetPartition != null) {
-									//BswSchedulableEntityと同じExclusiveAreaのときは、そのパーティションを使用する
-									break;
-								}
-							}
-							if (targetPartition == null) {
-								targetPartition = masterCorePartition;
-							}
-						}
-						PartedBswm partedBswm = createPartedBswm(bswm, targetPartition);
-						ExecutableEntity executableEntity = createExecutableEntity(entity, generateBswSchedulerNamePrefix(bswModuleDescription));
-						partedBswm.getDependentExecutableEntity().add(executableEntity);
-					}
-				}
+				PartedBswm targetPartedBswm = createPartedBswm(bswm, targetPartition);
+				jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity destBswSchedulableEntity = createBswSchedulableEntity(sourceBswSchedulableEntity, sourceBswModuleDescription);
+				targetPartedBswm.getDependentBswSchedulableEntity().add(destBswSchedulableEntity);
 			}
 		}
 	}
 
 	private void buildRoot() {
-		Rte rte = ModuleFactory.eINSTANCE.createRte();
-		rte.setGenerationInfo(createGenerationInfo());
-		this.context.cache.moduleRoot.setRte(rte);
-		this.context.cache.rte = rte;
+		Rte destRte = ModuleFactory.eINSTANCE.createRte();
+		destRte.setGenerationInfo(createGenerationInfo());
+		this.context.cache.moduleRoot.setRte(destRte);
+		this.context.cache.rte = destRte;
 	}
 
 	private GenerationInfo createGenerationInfo() {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
-		GenerationInfo generationInfo = ModuleFactory.eINSTANCE.createGenerationInfo();
-		generationInfo.setGeneratorName(GeneratorInfos.GENERATOR_TOOL_NAME);
-		generationInfo.setGeneratorVersion(GeneratorInfos.GENERATOR_VERSION);
+		GenerationInfo destGenerationInfo = ModuleFactory.eINSTANCE.createGenerationInfo();
+		destGenerationInfo.setGeneratorName(GeneratorInfos.GENERATOR_TOOL_NAME);
+		destGenerationInfo.setGeneratorVersion(GeneratorInfos.GENERATOR_VERSION);
 		if (context.options.writeGenerationTimeStamp) {
-			generationInfo.setGenerationDate(format.format(new Date()));
+			destGenerationInfo.setGenerationDate(format.format(new Date()));
 		}
-		return generationInfo;
+		return destGenerationInfo;
 	}
 
 	private void buildFromPartitionedSystem(Rte targetRte, EcucPartitionCollection sourceEcucPartitionCollection) throws ModelException {
 		OsOS osOs = this.context.query.findSingleByKind(OS_OS);
 
-		for (Integer coreId : sourceEcucPartitionCollection.getAssignedCores()) {
-			targetRte.getCore().add(createCore(coreId, osOs));
+		for (Integer sourceCoreId : sourceEcucPartitionCollection.getAssignedCores()) {
+			targetRte.getCore().add(createCore(sourceCoreId, osOs));
 		}
 
-		for (EcucPartition ecucPartition : sourceEcucPartitionCollection.getEcucPartition()) {
-			Core ownerCore = this.context.query.findSingle(hasAttr(CORE__CORE_ID, ecucPartition.getOwnerCore()));
+		for (EcucPartition sourceEcucPartition : sourceEcucPartitionCollection.getEcucPartition()) {
+			Core targetOwnerCore = this.context.query.findSingle(hasAttr(CORE__CORE_ID, sourceEcucPartition.getOwnerCore()));
 
-			Partition partition = createPartition(ecucPartition);
-			ownerCore.getPartition().add(partition);
+			Partition destPartition = createPartition(sourceEcucPartition);
+			targetOwnerCore.getPartition().add(destPartition);
 
-			for (SwComponentInstanceInSystem swComponentInstanceInSystem : ecucPartition.getEcucPartitionSoftwareComponent()) {
-				partition.getSwc().add(createSwc(swComponentInstanceInSystem.getPrototype().getType()));
+			for (SwComponentInstanceInSystem sourceSwComponentInstanceInSystem : sourceEcucPartition.getEcucPartitionSoftwareComponent()) {
+				destPartition.getSwc().add(createSwc(sourceSwComponentInstanceInSystem.getPrototype().getType()));
 			}
 		}
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = this.context.builtQuery.findDestPartition(this.context.cache.sourceMasterBswPartition.get()); // NOTE パーティション構成ではマスタコアのBSWM配置パーティションは必ず存在する
 	}
 
 	private void buildFromNonPartitionedSystem(Rte targetRte) {
-		Core core = createDefaultCore();
-		targetRte.getCore().add(core);
+		Core destCore = createDefaultCore();
+		targetRte.getCore().add(destCore);
 
-		Partition partition = createDefaultPartition();
-		core.getPartition().add(partition);
+		Partition destPartition = createDefaultPartition();
+		destCore.getPartition().add(destPartition);
 
-		for (SwComponentInstanceInSystem swComponentInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
-			Swc swc = createSwc(swComponentInstanceInSystem.getPrototype().getType());
-			partition.getSwc().add(swc);
+		for (SwComponentInstanceInSystem sourceSwComponentInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
+			Swc destSwc = createSwc(sourceSwComponentInstanceInSystem.getPrototype().getType());
+			destPartition.getSwc().add(destSwc);
 		}
+
+		// マスタコアのBSWM配置パーティションをキャッシュ
+		this.context.cache.masterBswPartition = destPartition;
 	}
 
 	private Core createDefaultCore() {
-		Core core = ModuleFactory.eINSTANCE.createCore();
-		core.setCompartmentName(String.valueOf(ConfigValues.DEFAULT_CORE_ID));
-		core.setCoreId(ConfigValues.DEFAULT_CORE_ID);
-		core.setIsMasterCore(true);
-		return core;
+		Core destCore = ModuleFactory.eINSTANCE.createCore();
+		destCore.setCompartmentName(String.valueOf(ConfigValues.DEFAULT_CORE_ID));
+		destCore.setCoreId(ConfigValues.DEFAULT_CORE_ID);
+		destCore.setIsMasterCore(true);
+		return destCore;
 	}
 
-	private Core createCore(Integer sourceCoreId, OsOS osOs) throws ModelException {
-		Core core = ModuleFactory.eINSTANCE.createCore();
-		core.setCompartmentName(String.valueOf(sourceCoreId));
-		core.setCoreId(sourceCoreId);
-		core.setIsMasterCore(Objects.equal(osOs.getOsMasterCoreId(), core.getCoreId()));
-		return core;
+	private Core createCore(Integer sourceCoreId, OsOS osOs) {
+		Core destCore = ModuleFactory.eINSTANCE.createCore();
+		destCore.setCompartmentName(String.valueOf(sourceCoreId));
+		destCore.setCoreId(sourceCoreId);
+		destCore.setIsMasterCore(Objects.equal(osOs.getOsMasterCoreId(), destCore.getCoreId()));
+		return destCore;
 	}
 
 	private Partition createDefaultPartition() {
@@ -300,47 +256,41 @@ public class LogicalCompartmentModelBuilder {
 	}
 
 	private Partition createPartition(EcucPartition sourceEcucPartition) {
-		Partition partition = ModuleFactory.eINSTANCE.createPartition();
-		partition.setCompartmentName(sourceEcucPartition.getShortName());
-		partition.setIsBswPartition(sourceEcucPartition.getEcucPartitionBswModuleExecution());
-		partition.setSingleSource(sourceEcucPartition);
-		return partition;
+		Partition destPartition = ModuleFactory.eINSTANCE.createPartition();
+		destPartition.setCompartmentName(sourceEcucPartition.getShortName());
+		destPartition.setIsBswPartition(sourceEcucPartition.getEcucPartitionBswModuleExecution());
+		destPartition.setSingleSource(sourceEcucPartition);
+		return destPartition;
 	}
 
 	private Swc createSwc(SwComponentType sourceSwComponentType) {
-		Swc swc = ModuleFactory.eINSTANCE.createSwc();
-		swc.setCompartmentName(sourceSwComponentType.getShortName());
-		swc.setSingleSource(sourceSwComponentType);
-		return swc;
+		Swc destSwc = ModuleFactory.eINSTANCE.createSwc();
+		destSwc.setCompartmentName(sourceSwComponentType.getShortName());
+		destSwc.setSingleSource(sourceSwComponentType);
+		return destSwc;
 	}
 
 	private Bswm createBswm(BswModuleDescription sourceBswModuleDescription) {
-		Bswm bswm = ModuleFactory.eINSTANCE.createBswm();
-		bswm.setCompartmentName(generateBswSchedulerNamePrefix(sourceBswModuleDescription));
-		bswm.setSingleSource(sourceBswModuleDescription);
-		return bswm;
+		Bswm destBswm = ModuleFactory.eINSTANCE.createBswm();
+		destBswm.setCompartmentName(Identifiers.getBswSchedulerNamePrefix(sourceBswModuleDescription));
+		destBswm.setSingleSource(sourceBswModuleDescription);
+		return destBswm;
 	}
 	
-	private PartedBswm createPartedBswm(Bswm bswm, Partition targetPartition) {
-		PartedBswm partedBswm = bswm.getSinglePartedBswm(targetPartition);
-		if (partedBswm == null) {
-			partedBswm = ModuleFactory.eINSTANCE.createPartedBswm();
-			targetPartition.getPartedBswm().add(partedBswm);
-			bswm.getPartedBswm().add(partedBswm);
-		}		
-		return partedBswm;
+	private PartedBswm createPartedBswm(Bswm targetBswm, Partition targetPartition) {
+		PartedBswm destPartedBswm = targetBswm.getSinglePartedBswm(targetPartition);
+		if (destPartedBswm == null) {
+			destPartedBswm = ModuleFactory.eINSTANCE.createPartedBswm();
+			targetPartition.getPartedBswm().add(destPartedBswm);
+			targetBswm.getPartedBswm().add(destPartedBswm);
+		}
+		return destPartedBswm;
 	}
 	
-	private String generateBswSchedulerNamePrefix(BswModuleDescription sourceBswModuleDescription) {
-		// 現実装は単純にBswModuleDescriptionのショートネームを<bsnp>とする.
-		// BswSchedulerNamePrefixクラスを使用した<bsnp>生成に対応する場合は、本関数を修正すること.
-		return sourceBswModuleDescription.getShortName();
-	}
-	
-	private ExecutableEntity createExecutableEntity(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity sourceEntity, String bsnp) throws ModelException {
-		ExecutableEntity executableEntity = ModuleFactory.eINSTANCE.createExecutableEntity();
-		executableEntity.setSingleSource(sourceEntity);
-		executableEntity.setSymbolName(bsnp + "_" + sourceEntity.getImplementedEntry().getShortName());
-		return executableEntity;
+	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity createBswSchedulableEntity(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity sourceBswModuleEntity, BswModuleDescription sourceBswModuleDescription) {
+		jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity destEntity = ModuleFactory.eINSTANCE.createBswSchedulableEntity();
+		destEntity.setSingleSource(sourceBswModuleEntity);
+		destEntity.setSymbolName(SymbolNames.createBswSchedulableEntityName(sourceBswModuleDescription, sourceBswModuleEntity));
+		return destEntity;
 	}
 }

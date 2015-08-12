@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,13 +53,18 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntit
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalPeriodicEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GenerationInfo;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStopApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmDeinitApi;
@@ -82,24 +87,31 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getCore <em>Core</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComCallback <em>Com Callback</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getGenerationInfo <em>Generation Info</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentType <em>Dependent Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteType <em>Rte Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentConstant <em>Dependent Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentOsApi <em>Dependent Os Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentIocCommunication <em>Dependent Ioc Communication</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentComApi <em>Dependent Com Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteStartApi <em>Rte Start Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getIocInitValueConstant <em>Ioc Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getDependentConstant <em>Dependent Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteStopApi <em>Rte Stop Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteTypeConstant <em>Rte Type Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getIocInitValueVariableSet <em>Ioc Init Value Variable Set</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteMemoryMapping <em>Rte Memory Mapping</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getGenerationInfo <em>Generation Info</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getBswm <em>Bswm</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getImplementationDataType <em>Implementation Data Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getCsTfParamType <em>Cs Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getSrRteBufferQueueMaxLengthConstant <em>Sr Rte Buffer Queue Max Length Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getImmediateConstant <em>Immediate Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getComCallback <em>Com Callback</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteStartApi <em>Rte Start Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getRteStopApi <em>Rte Stop Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getSchmInitApi <em>Schm Init Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl#getSchmDeinitApi <em>Schm Deinit Api</em>}</li>
  * </ul>
@@ -119,44 +131,24 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected EList<Core> core;
 
 	/**
-	 * The cached value of the '{@link #getComCallback() <em>Com Callback</em>}' containment reference list.
+	 * The cached value of the '{@link #getBswm() <em>Bswm</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComCallback()
+	 * @see #getBswm()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ComCallback> comCallback;
+	protected EList<Bswm> bswm;
 
 	/**
-	 * The cached value of the '{@link #getComSendSignalPeriodicEntity() <em>Com Send Signal Periodic Entity</em>}' containment reference.
+	 * The cached value of the '{@link #getGenerationInfo() <em>Generation Info</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComSendSignalPeriodicEntity()
+	 * @see #getGenerationInfo()
 	 * @generated
 	 * @ordered
 	 */
-	protected ComSendSignalPeriodicEntity comSendSignalPeriodicEntity;
-
-	/**
-	 * The cached value of the '{@link #getComSendSignalImmediateEntity() <em>Com Send Signal Immediate Entity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComSendSignalImmediateEntity()
-	 * @generated
-	 * @ordered
-	 */
-	protected ComSendSignalImmediateEntity comSendSignalImmediateEntity;
-
-	/**
-	 * The cached value of the '{@link #getComSendSignalTrustedFunction() <em>Com Send Signal Trusted Function</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComSendSignalTrustedFunction()
-	 * @generated
-	 * @ordered
-	 */
-	protected ComSendSignalTrustedFunction comSendSignalTrustedFunction;
+	protected GenerationInfo generationInfo;
 
 	/**
 	 * The cached value of the '{@link #getDependentType() <em>Dependent Type</em>}' containment reference list.
@@ -169,14 +161,14 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected EList<Type> dependentType;
 
 	/**
-	 * The cached value of the '{@link #getRteType() <em>Rte Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getDependentConstant() <em>Dependent Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRteType()
+	 * @see #getDependentConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Type> rteType;
+	protected EList<Constant> dependentConstant;
 
 	/**
 	 * The cached value of the '{@link #getDependentOsApi() <em>Dependent Os Api</em>}' containment reference list.
@@ -209,16 +201,6 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected EList<ComApi> dependentComApi;
 
 	/**
-	 * The cached value of the '{@link #getRteStartApi() <em>Rte Start Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteStartApi()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteStartApi rteStartApi;
-
-	/**
 	 * The cached value of the '{@link #getIocInitValueConstant() <em>Ioc Init Value Constant</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,44 +211,14 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected EList<Constant> iocInitValueConstant;
 
 	/**
-	 * The cached value of the '{@link #getDependentConstant() <em>Dependent Constant</em>}' containment reference list.
+	 * The cached value of the '{@link #getIocInitValueVariableSet() <em>Ioc Init Value Variable Set</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependentConstant()
+	 * @see #getIocInitValueVariableSet()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constant> dependentConstant;
-
-	/**
-	 * The cached value of the '{@link #getComSendSignalImmediateTaskBody() <em>Com Send Signal Immediate Task Body</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComSendSignalImmediateTaskBody()
-	 * @generated
-	 * @ordered
-	 */
-	protected ComSendSignalImmediateTaskBody comSendSignalImmediateTaskBody;
-
-	/**
-	 * The cached value of the '{@link #getRteStopApi() <em>Rte Stop Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteStopApi()
-	 * @generated
-	 * @ordered
-	 */
-	protected RteStopApi rteStopApi;
-
-	/**
-	 * The cached value of the '{@link #getRteTypeConstant() <em>Rte Type Constant</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRteTypeConstant()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Constant> rteTypeConstant;
+	protected EList<RteBufferVariableSet> iocInitValueVariableSet;
 
 	/**
 	 * The cached value of the '{@link #getRteMemoryMapping() <em>Rte Memory Mapping</em>}' containment reference list.
@@ -279,24 +231,154 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	protected EList<BswMemoryMapping> rteMemoryMapping;
 
 	/**
-	 * The cached value of the '{@link #getGenerationInfo() <em>Generation Info</em>}' containment reference.
+	 * The cached value of the '{@link #getImplementationDataType() <em>Implementation Data Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGenerationInfo()
+	 * @see #getImplementationDataType()
 	 * @generated
 	 * @ordered
 	 */
-	protected GenerationInfo generationInfo;
+	protected EList<Type> implementationDataType;
 
 	/**
-	 * The cached value of the '{@link #getBswm() <em>Bswm</em>}' containment reference list.
+	 * The cached value of the '{@link #getComSendSignalTfParamType() <em>Com Send Signal Tf Param Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBswm()
+	 * @see #getComSendSignalTfParamType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Bswm> bswm;
+	protected ComSendTrustedFunctionParamType comSendSignalTfParamType;
+
+	/**
+	 * The cached value of the '{@link #getComSendSignalGroupTfParamType() <em>Com Send Signal Group Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSendSignalGroupTfParamType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSendTrustedFunctionParamType comSendSignalGroupTfParamType;
+
+	/**
+	 * The cached value of the '{@link #getCsTfParamType() <em>Cs Tf Param Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCsTfParamType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CsTrustedFunctionParamType> csTfParamType;
+
+	/**
+	 * The cached value of the '{@link #getSrRteSendTfParamType() <em>Sr Rte Send Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSrRteSendTfParamType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteSendTrustedFunctionParamType srRteSendTfParamType;
+
+	/**
+	 * The cached value of the '{@link #getSrRteBufferQueueMaxLengthConstant() <em>Sr Rte Buffer Queue Max Length Constant</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSrRteBufferQueueMaxLengthConstant()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constant> srRteBufferQueueMaxLengthConstant;
+
+	/**
+	 * The cached value of the '{@link #getSrRteBufferQueueType() <em>Sr Rte Buffer Queue Type</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSrRteBufferQueueType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteBufferQueueType> srRteBufferQueueType;
+
+	/**
+	 * The cached value of the '{@link #getImmediateConstant() <em>Immediate Constant</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImmediateConstant()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Constant> immediateConstant;
+
+	/**
+	 * The cached value of the '{@link #getComSendSignalTrustedFunction() <em>Com Send Signal Trusted Function</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSendSignalTrustedFunction()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComSendSignalTrustedFunction> comSendSignalTrustedFunction;
+
+	/**
+	 * The cached value of the '{@link #getComSendSignalPeriodicEntity() <em>Com Send Signal Periodic Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSendSignalPeriodicEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSendSignalPeriodicEntity comSendSignalPeriodicEntity;
+
+	/**
+	 * The cached value of the '{@link #getComSendSignalImmediateEntity() <em>Com Send Signal Immediate Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSendSignalImmediateEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSendSignalImmediateEntity comSendSignalImmediateEntity;
+
+	/**
+	 * The cached value of the '{@link #getComSendSignalImmediateTaskBody() <em>Com Send Signal Immediate Task Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSendSignalImmediateTaskBody()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSendSignalImmediateTaskBody comSendSignalImmediateTaskBody;
+
+	/**
+	 * The cached value of the '{@link #getComCallback() <em>Com Callback</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComCallback()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComCallback> comCallback;
+
+	/**
+	 * The cached value of the '{@link #getRteStartApi() <em>Rte Start Api</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteStartApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteStartApi rteStartApi;
+
+	/**
+	 * The cached value of the '{@link #getRteStopApi() <em>Rte Stop Api</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteStopApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected RteStopApi rteStopApi;
 
 	/**
 	 * The cached value of the '{@link #getSchmInitApi() <em>Schm Init Api</em>}' containment reference.
@@ -452,42 +534,11 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComSendSignalTrustedFunction getComSendSignalTrustedFunction() {
+	public EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction() {
+		if (comSendSignalTrustedFunction == null) {
+			comSendSignalTrustedFunction = new EObjectContainmentEList<ComSendSignalTrustedFunction>(ComSendSignalTrustedFunction.class, this, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION);
+		}
 		return comSendSignalTrustedFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComSendSignalTrustedFunction(ComSendSignalTrustedFunction newComSendSignalTrustedFunction, NotificationChain msgs) {
-		ComSendSignalTrustedFunction oldComSendSignalTrustedFunction = comSendSignalTrustedFunction;
-		comSendSignalTrustedFunction = newComSendSignalTrustedFunction;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, oldComSendSignalTrustedFunction, newComSendSignalTrustedFunction);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComSendSignalTrustedFunction(ComSendSignalTrustedFunction newComSendSignalTrustedFunction) {
-		if (newComSendSignalTrustedFunction != comSendSignalTrustedFunction) {
-			NotificationChain msgs = null;
-			if (comSendSignalTrustedFunction != null)
-				msgs = ((InternalEObject)comSendSignalTrustedFunction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, null, msgs);
-			if (newComSendSignalTrustedFunction != null)
-				msgs = ((InternalEObject)newComSendSignalTrustedFunction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, null, msgs);
-			msgs = basicSetComSendSignalTrustedFunction(newComSendSignalTrustedFunction, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION, newComSendSignalTrustedFunction, newComSendSignalTrustedFunction));
 	}
 
 	/**
@@ -507,11 +558,23 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Type> getRteType() {
-		if (rteType == null) {
-			rteType = new EObjectContainmentEList<Type>(Type.class, this, ModulePackage.RTE__RTE_TYPE);
+	public EList<Constant> getImmediateConstant() {
+		if (immediateConstant == null) {
+			immediateConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.RTE__IMMEDIATE_CONSTANT);
 		}
-		return rteType;
+		return immediateConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrRteBufferQueueMaxLengthConstant() {
+		if (srRteBufferQueueMaxLengthConstant == null) {
+			srRteBufferQueueMaxLengthConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT);
+		}
+		return srRteBufferQueueMaxLengthConstant;
 	}
 
 	/**
@@ -555,6 +618,30 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Constant> getIocInitValueConstant() {
+		if (iocInitValueConstant == null) {
+			iocInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT);
+		}
+		return iocInitValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferVariableSet> getIocInitValueVariableSet() {
+		if (iocInitValueVariableSet == null) {
+			iocInitValueVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET);
+		}
+		return iocInitValueVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RteStartApi getRteStartApi() {
 		return rteStartApi;
 	}
@@ -591,18 +678,6 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__RTE_START_API, newRteStartApi, newRteStartApi));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getIocInitValueConstant() {
-		if (iocInitValueConstant == null) {
-			iocInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT);
-		}
-		return iocInitValueConstant;
 	}
 
 	/**
@@ -708,11 +783,164 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constant> getRteTypeConstant() {
-		if (rteTypeConstant == null) {
-			rteTypeConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.RTE__RTE_TYPE_CONSTANT);
+	public EList<Type> getImplementationDataType() {
+		if (implementationDataType == null) {
+			implementationDataType = new EObjectContainmentEList<Type>(Type.class, this, ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE);
 		}
-		return rteTypeConstant;
+		return implementationDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendTrustedFunctionParamType getComSendSignalTfParamType() {
+		return comSendSignalTfParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComSendSignalTfParamType(ComSendTrustedFunctionParamType newComSendSignalTfParamType, NotificationChain msgs) {
+		ComSendTrustedFunctionParamType oldComSendSignalTfParamType = comSendSignalTfParamType;
+		comSendSignalTfParamType = newComSendSignalTfParamType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE, oldComSendSignalTfParamType, newComSendSignalTfParamType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComSendSignalTfParamType(ComSendTrustedFunctionParamType newComSendSignalTfParamType) {
+		if (newComSendSignalTfParamType != comSendSignalTfParamType) {
+			NotificationChain msgs = null;
+			if (comSendSignalTfParamType != null)
+				msgs = ((InternalEObject)comSendSignalTfParamType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE, null, msgs);
+			if (newComSendSignalTfParamType != null)
+				msgs = ((InternalEObject)newComSendSignalTfParamType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE, null, msgs);
+			msgs = basicSetComSendSignalTfParamType(newComSendSignalTfParamType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE, newComSendSignalTfParamType, newComSendSignalTfParamType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendTrustedFunctionParamType getComSendSignalGroupTfParamType() {
+		return comSendSignalGroupTfParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComSendSignalGroupTfParamType(ComSendTrustedFunctionParamType newComSendSignalGroupTfParamType, NotificationChain msgs) {
+		ComSendTrustedFunctionParamType oldComSendSignalGroupTfParamType = comSendSignalGroupTfParamType;
+		comSendSignalGroupTfParamType = newComSendSignalGroupTfParamType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE, oldComSendSignalGroupTfParamType, newComSendSignalGroupTfParamType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComSendSignalGroupTfParamType(ComSendTrustedFunctionParamType newComSendSignalGroupTfParamType) {
+		if (newComSendSignalGroupTfParamType != comSendSignalGroupTfParamType) {
+			NotificationChain msgs = null;
+			if (comSendSignalGroupTfParamType != null)
+				msgs = ((InternalEObject)comSendSignalGroupTfParamType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE, null, msgs);
+			if (newComSendSignalGroupTfParamType != null)
+				msgs = ((InternalEObject)newComSendSignalGroupTfParamType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE, null, msgs);
+			msgs = basicSetComSendSignalGroupTfParamType(newComSendSignalGroupTfParamType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE, newComSendSignalGroupTfParamType, newComSendSignalGroupTfParamType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CsTrustedFunctionParamType> getCsTfParamType() {
+		if (csTfParamType == null) {
+			csTfParamType = new EObjectContainmentEList<CsTrustedFunctionParamType>(CsTrustedFunctionParamType.class, this, ModulePackage.RTE__CS_TF_PARAM_TYPE);
+		}
+		return csTfParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteSendTrustedFunctionParamType getSrRteSendTfParamType() {
+		return srRteSendTfParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSrRteSendTfParamType(RteSendTrustedFunctionParamType newSrRteSendTfParamType, NotificationChain msgs) {
+		RteSendTrustedFunctionParamType oldSrRteSendTfParamType = srRteSendTfParamType;
+		srRteSendTfParamType = newSrRteSendTfParamType;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE, oldSrRteSendTfParamType, newSrRteSendTfParamType);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSrRteSendTfParamType(RteSendTrustedFunctionParamType newSrRteSendTfParamType) {
+		if (newSrRteSendTfParamType != srRteSendTfParamType) {
+			NotificationChain msgs = null;
+			if (srRteSendTfParamType != null)
+				msgs = ((InternalEObject)srRteSendTfParamType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE, null, msgs);
+			if (newSrRteSendTfParamType != null)
+				msgs = ((InternalEObject)newSrRteSendTfParamType).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE, null, msgs);
+			msgs = basicSetSrRteSendTfParamType(newSrRteSendTfParamType, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE, newSrRteSendTfParamType, newSrRteSendTfParamType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferQueueType> getSrRteBufferQueueType() {
+		if (srRteBufferQueueType == null) {
+			srRteBufferQueueType = new EObjectContainmentEList<RteBufferQueueType>(RteBufferQueueType.class, this, ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE);
+		}
+		return srRteBufferQueueType;
 	}
 
 	/**
@@ -878,42 +1106,56 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 		switch (featureID) {
 			case ModulePackage.RTE__CORE:
 				return ((InternalEList<?>)getCore()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__COM_CALLBACK:
-				return ((InternalEList<?>)getComCallback()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
-				return basicSetComSendSignalPeriodicEntity(null, msgs);
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
-				return basicSetComSendSignalImmediateEntity(null, msgs);
-			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				return basicSetComSendSignalTrustedFunction(null, msgs);
+			case ModulePackage.RTE__BSWM:
+				return ((InternalEList<?>)getBswm()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__GENERATION_INFO:
+				return basicSetGenerationInfo(null, msgs);
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				return ((InternalEList<?>)getDependentType()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__RTE_TYPE:
-				return ((InternalEList<?>)getRteType()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__DEPENDENT_CONSTANT:
+				return ((InternalEList<?>)getDependentConstant()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__DEPENDENT_OS_API:
 				return ((InternalEList<?>)getDependentOsApi()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__DEPENDENT_IOC_COMMUNICATION:
 				return ((InternalEList<?>)getDependentIocCommunication()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__DEPENDENT_COM_API:
 				return ((InternalEList<?>)getDependentComApi()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__RTE_START_API:
-				return basicSetRteStartApi(null, msgs);
 			case ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT:
 				return ((InternalEList<?>)getIocInitValueConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__DEPENDENT_CONSTANT:
-				return ((InternalEList<?>)getDependentConstant()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
-				return basicSetComSendSignalImmediateTaskBody(null, msgs);
-			case ModulePackage.RTE__RTE_STOP_API:
-				return basicSetRteStopApi(null, msgs);
-			case ModulePackage.RTE__RTE_TYPE_CONSTANT:
-				return ((InternalEList<?>)getRteTypeConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET:
+				return ((InternalEList<?>)getIocInitValueVariableSet()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE__RTE_MEMORY_MAPPING:
 				return ((InternalEList<?>)getRteMemoryMapping()).basicRemove(otherEnd, msgs);
-			case ModulePackage.RTE__GENERATION_INFO:
-				return basicSetGenerationInfo(null, msgs);
-			case ModulePackage.RTE__BSWM:
-				return ((InternalEList<?>)getBswm()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE:
+				return ((InternalEList<?>)getImplementationDataType()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
+				return basicSetComSendSignalTfParamType(null, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
+				return basicSetComSendSignalGroupTfParamType(null, msgs);
+			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
+				return ((InternalEList<?>)getCsTfParamType()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+				return basicSetSrRteSendTfParamType(null, msgs);
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
+				return ((InternalEList<?>)getSrRteBufferQueueMaxLengthConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
+				return ((InternalEList<?>)getSrRteBufferQueueType()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
+				return ((InternalEList<?>)getImmediateConstant()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
+				return ((InternalEList<?>)getComSendSignalTrustedFunction()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
+				return basicSetComSendSignalPeriodicEntity(null, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
+				return basicSetComSendSignalImmediateEntity(null, msgs);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
+				return basicSetComSendSignalImmediateTaskBody(null, msgs);
+			case ModulePackage.RTE__COM_CALLBACK:
+				return ((InternalEList<?>)getComCallback()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE__RTE_START_API:
+				return basicSetRteStartApi(null, msgs);
+			case ModulePackage.RTE__RTE_STOP_API:
+				return basicSetRteStopApi(null, msgs);
 			case ModulePackage.RTE__SCHM_INIT_API:
 				return basicSetSchmInitApi(null, msgs);
 			case ModulePackage.RTE__SCHM_DEINIT_API:
@@ -932,42 +1174,56 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 		switch (featureID) {
 			case ModulePackage.RTE__CORE:
 				return getCore();
-			case ModulePackage.RTE__COM_CALLBACK:
-				return getComCallback();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
-				return getComSendSignalPeriodicEntity();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
-				return getComSendSignalImmediateEntity();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				return getComSendSignalTrustedFunction();
+			case ModulePackage.RTE__BSWM:
+				return getBswm();
+			case ModulePackage.RTE__GENERATION_INFO:
+				return getGenerationInfo();
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				return getDependentType();
-			case ModulePackage.RTE__RTE_TYPE:
-				return getRteType();
+			case ModulePackage.RTE__DEPENDENT_CONSTANT:
+				return getDependentConstant();
 			case ModulePackage.RTE__DEPENDENT_OS_API:
 				return getDependentOsApi();
 			case ModulePackage.RTE__DEPENDENT_IOC_COMMUNICATION:
 				return getDependentIocCommunication();
 			case ModulePackage.RTE__DEPENDENT_COM_API:
 				return getDependentComApi();
-			case ModulePackage.RTE__RTE_START_API:
-				return getRteStartApi();
 			case ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT:
 				return getIocInitValueConstant();
-			case ModulePackage.RTE__DEPENDENT_CONSTANT:
-				return getDependentConstant();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
-				return getComSendSignalImmediateTaskBody();
-			case ModulePackage.RTE__RTE_STOP_API:
-				return getRteStopApi();
-			case ModulePackage.RTE__RTE_TYPE_CONSTANT:
-				return getRteTypeConstant();
+			case ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET:
+				return getIocInitValueVariableSet();
 			case ModulePackage.RTE__RTE_MEMORY_MAPPING:
 				return getRteMemoryMapping();
-			case ModulePackage.RTE__GENERATION_INFO:
-				return getGenerationInfo();
-			case ModulePackage.RTE__BSWM:
-				return getBswm();
+			case ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE:
+				return getImplementationDataType();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
+				return getComSendSignalTfParamType();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
+				return getComSendSignalGroupTfParamType();
+			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
+				return getCsTfParamType();
+			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+				return getSrRteSendTfParamType();
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
+				return getSrRteBufferQueueMaxLengthConstant();
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
+				return getSrRteBufferQueueType();
+			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
+				return getImmediateConstant();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
+				return getComSendSignalTrustedFunction();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
+				return getComSendSignalPeriodicEntity();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
+				return getComSendSignalImmediateEntity();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
+				return getComSendSignalImmediateTaskBody();
+			case ModulePackage.RTE__COM_CALLBACK:
+				return getComCallback();
+			case ModulePackage.RTE__RTE_START_API:
+				return getRteStartApi();
+			case ModulePackage.RTE__RTE_STOP_API:
+				return getRteStopApi();
 			case ModulePackage.RTE__SCHM_INIT_API:
 				return getSchmInitApi();
 			case ModulePackage.RTE__SCHM_DEINIT_API:
@@ -989,26 +1245,20 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 				getCore().clear();
 				getCore().addAll((Collection<? extends Core>)newValue);
 				return;
-			case ModulePackage.RTE__COM_CALLBACK:
-				getComCallback().clear();
-				getComCallback().addAll((Collection<? extends ComCallback>)newValue);
+			case ModulePackage.RTE__BSWM:
+				getBswm().clear();
+				getBswm().addAll((Collection<? extends Bswm>)newValue);
 				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
-				setComSendSignalPeriodicEntity((ComSendSignalPeriodicEntity)newValue);
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
-				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)newValue);
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				setComSendSignalTrustedFunction((ComSendSignalTrustedFunction)newValue);
+			case ModulePackage.RTE__GENERATION_INFO:
+				setGenerationInfo((GenerationInfo)newValue);
 				return;
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				getDependentType().clear();
 				getDependentType().addAll((Collection<? extends Type>)newValue);
 				return;
-			case ModulePackage.RTE__RTE_TYPE:
-				getRteType().clear();
-				getRteType().addAll((Collection<? extends Type>)newValue);
+			case ModulePackage.RTE__DEPENDENT_CONSTANT:
+				getDependentConstant().clear();
+				getDependentConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
 			case ModulePackage.RTE__DEPENDENT_OS_API:
 				getDependentOsApi().clear();
@@ -1022,37 +1272,69 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 				getDependentComApi().clear();
 				getDependentComApi().addAll((Collection<? extends ComApi>)newValue);
 				return;
-			case ModulePackage.RTE__RTE_START_API:
-				setRteStartApi((RteStartApi)newValue);
-				return;
 			case ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT:
 				getIocInitValueConstant().clear();
 				getIocInitValueConstant().addAll((Collection<? extends Constant>)newValue);
 				return;
-			case ModulePackage.RTE__DEPENDENT_CONSTANT:
-				getDependentConstant().clear();
-				getDependentConstant().addAll((Collection<? extends Constant>)newValue);
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
-				setComSendSignalImmediateTaskBody((ComSendSignalImmediateTaskBody)newValue);
-				return;
-			case ModulePackage.RTE__RTE_STOP_API:
-				setRteStopApi((RteStopApi)newValue);
-				return;
-			case ModulePackage.RTE__RTE_TYPE_CONSTANT:
-				getRteTypeConstant().clear();
-				getRteTypeConstant().addAll((Collection<? extends Constant>)newValue);
+			case ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET:
+				getIocInitValueVariableSet().clear();
+				getIocInitValueVariableSet().addAll((Collection<? extends RteBufferVariableSet>)newValue);
 				return;
 			case ModulePackage.RTE__RTE_MEMORY_MAPPING:
 				getRteMemoryMapping().clear();
 				getRteMemoryMapping().addAll((Collection<? extends BswMemoryMapping>)newValue);
 				return;
-			case ModulePackage.RTE__GENERATION_INFO:
-				setGenerationInfo((GenerationInfo)newValue);
+			case ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE:
+				getImplementationDataType().clear();
+				getImplementationDataType().addAll((Collection<? extends Type>)newValue);
 				return;
-			case ModulePackage.RTE__BSWM:
-				getBswm().clear();
-				getBswm().addAll((Collection<? extends Bswm>)newValue);
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
+				setComSendSignalTfParamType((ComSendTrustedFunctionParamType)newValue);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
+				setComSendSignalGroupTfParamType((ComSendTrustedFunctionParamType)newValue);
+				return;
+			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
+				getCsTfParamType().clear();
+				getCsTfParamType().addAll((Collection<? extends CsTrustedFunctionParamType>)newValue);
+				return;
+			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+				setSrRteSendTfParamType((RteSendTrustedFunctionParamType)newValue);
+				return;
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
+				getSrRteBufferQueueMaxLengthConstant().clear();
+				getSrRteBufferQueueMaxLengthConstant().addAll((Collection<? extends Constant>)newValue);
+				return;
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
+				getSrRteBufferQueueType().clear();
+				getSrRteBufferQueueType().addAll((Collection<? extends RteBufferQueueType>)newValue);
+				return;
+			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
+				getImmediateConstant().clear();
+				getImmediateConstant().addAll((Collection<? extends Constant>)newValue);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
+				getComSendSignalTrustedFunction().clear();
+				getComSendSignalTrustedFunction().addAll((Collection<? extends ComSendSignalTrustedFunction>)newValue);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
+				setComSendSignalPeriodicEntity((ComSendSignalPeriodicEntity)newValue);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
+				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)newValue);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
+				setComSendSignalImmediateTaskBody((ComSendSignalImmediateTaskBody)newValue);
+				return;
+			case ModulePackage.RTE__COM_CALLBACK:
+				getComCallback().clear();
+				getComCallback().addAll((Collection<? extends ComCallback>)newValue);
+				return;
+			case ModulePackage.RTE__RTE_START_API:
+				setRteStartApi((RteStartApi)newValue);
+				return;
+			case ModulePackage.RTE__RTE_STOP_API:
+				setRteStopApi((RteStopApi)newValue);
 				return;
 			case ModulePackage.RTE__SCHM_INIT_API:
 				setSchmInitApi((SchmInitApi)newValue);
@@ -1075,23 +1357,17 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 			case ModulePackage.RTE__CORE:
 				getCore().clear();
 				return;
-			case ModulePackage.RTE__COM_CALLBACK:
-				getComCallback().clear();
+			case ModulePackage.RTE__BSWM:
+				getBswm().clear();
 				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
-				setComSendSignalPeriodicEntity((ComSendSignalPeriodicEntity)null);
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
-				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)null);
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				setComSendSignalTrustedFunction((ComSendSignalTrustedFunction)null);
+			case ModulePackage.RTE__GENERATION_INFO:
+				setGenerationInfo((GenerationInfo)null);
 				return;
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				getDependentType().clear();
 				return;
-			case ModulePackage.RTE__RTE_TYPE:
-				getRteType().clear();
+			case ModulePackage.RTE__DEPENDENT_CONSTANT:
+				getDependentConstant().clear();
 				return;
 			case ModulePackage.RTE__DEPENDENT_OS_API:
 				getDependentOsApi().clear();
@@ -1102,32 +1378,59 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 			case ModulePackage.RTE__DEPENDENT_COM_API:
 				getDependentComApi().clear();
 				return;
-			case ModulePackage.RTE__RTE_START_API:
-				setRteStartApi((RteStartApi)null);
-				return;
 			case ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT:
 				getIocInitValueConstant().clear();
 				return;
-			case ModulePackage.RTE__DEPENDENT_CONSTANT:
-				getDependentConstant().clear();
-				return;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
-				setComSendSignalImmediateTaskBody((ComSendSignalImmediateTaskBody)null);
-				return;
-			case ModulePackage.RTE__RTE_STOP_API:
-				setRteStopApi((RteStopApi)null);
-				return;
-			case ModulePackage.RTE__RTE_TYPE_CONSTANT:
-				getRteTypeConstant().clear();
+			case ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET:
+				getIocInitValueVariableSet().clear();
 				return;
 			case ModulePackage.RTE__RTE_MEMORY_MAPPING:
 				getRteMemoryMapping().clear();
 				return;
-			case ModulePackage.RTE__GENERATION_INFO:
-				setGenerationInfo((GenerationInfo)null);
+			case ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE:
+				getImplementationDataType().clear();
 				return;
-			case ModulePackage.RTE__BSWM:
-				getBswm().clear();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
+				setComSendSignalTfParamType((ComSendTrustedFunctionParamType)null);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
+				setComSendSignalGroupTfParamType((ComSendTrustedFunctionParamType)null);
+				return;
+			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
+				getCsTfParamType().clear();
+				return;
+			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+				setSrRteSendTfParamType((RteSendTrustedFunctionParamType)null);
+				return;
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
+				getSrRteBufferQueueMaxLengthConstant().clear();
+				return;
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
+				getSrRteBufferQueueType().clear();
+				return;
+			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
+				getImmediateConstant().clear();
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
+				getComSendSignalTrustedFunction().clear();
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
+				setComSendSignalPeriodicEntity((ComSendSignalPeriodicEntity)null);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
+				setComSendSignalImmediateEntity((ComSendSignalImmediateEntity)null);
+				return;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
+				setComSendSignalImmediateTaskBody((ComSendSignalImmediateTaskBody)null);
+				return;
+			case ModulePackage.RTE__COM_CALLBACK:
+				getComCallback().clear();
+				return;
+			case ModulePackage.RTE__RTE_START_API:
+				setRteStartApi((RteStartApi)null);
+				return;
+			case ModulePackage.RTE__RTE_STOP_API:
+				setRteStopApi((RteStopApi)null);
 				return;
 			case ModulePackage.RTE__SCHM_INIT_API:
 				setSchmInitApi((SchmInitApi)null);
@@ -1149,42 +1452,56 @@ public class RteImpl extends LogicalCompartmentImpl implements Rte {
 		switch (featureID) {
 			case ModulePackage.RTE__CORE:
 				return core != null && !core.isEmpty();
-			case ModulePackage.RTE__COM_CALLBACK:
-				return comCallback != null && !comCallback.isEmpty();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
-				return comSendSignalPeriodicEntity != null;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
-				return comSendSignalImmediateEntity != null;
-			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
-				return comSendSignalTrustedFunction != null;
+			case ModulePackage.RTE__BSWM:
+				return bswm != null && !bswm.isEmpty();
+			case ModulePackage.RTE__GENERATION_INFO:
+				return generationInfo != null;
 			case ModulePackage.RTE__DEPENDENT_TYPE:
 				return dependentType != null && !dependentType.isEmpty();
-			case ModulePackage.RTE__RTE_TYPE:
-				return rteType != null && !rteType.isEmpty();
+			case ModulePackage.RTE__DEPENDENT_CONSTANT:
+				return dependentConstant != null && !dependentConstant.isEmpty();
 			case ModulePackage.RTE__DEPENDENT_OS_API:
 				return dependentOsApi != null && !dependentOsApi.isEmpty();
 			case ModulePackage.RTE__DEPENDENT_IOC_COMMUNICATION:
 				return dependentIocCommunication != null && !dependentIocCommunication.isEmpty();
 			case ModulePackage.RTE__DEPENDENT_COM_API:
 				return dependentComApi != null && !dependentComApi.isEmpty();
-			case ModulePackage.RTE__RTE_START_API:
-				return rteStartApi != null;
 			case ModulePackage.RTE__IOC_INIT_VALUE_CONSTANT:
 				return iocInitValueConstant != null && !iocInitValueConstant.isEmpty();
-			case ModulePackage.RTE__DEPENDENT_CONSTANT:
-				return dependentConstant != null && !dependentConstant.isEmpty();
-			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
-				return comSendSignalImmediateTaskBody != null;
-			case ModulePackage.RTE__RTE_STOP_API:
-				return rteStopApi != null;
-			case ModulePackage.RTE__RTE_TYPE_CONSTANT:
-				return rteTypeConstant != null && !rteTypeConstant.isEmpty();
+			case ModulePackage.RTE__IOC_INIT_VALUE_VARIABLE_SET:
+				return iocInitValueVariableSet != null && !iocInitValueVariableSet.isEmpty();
 			case ModulePackage.RTE__RTE_MEMORY_MAPPING:
 				return rteMemoryMapping != null && !rteMemoryMapping.isEmpty();
-			case ModulePackage.RTE__GENERATION_INFO:
-				return generationInfo != null;
-			case ModulePackage.RTE__BSWM:
-				return bswm != null && !bswm.isEmpty();
+			case ModulePackage.RTE__IMPLEMENTATION_DATA_TYPE:
+				return implementationDataType != null && !implementationDataType.isEmpty();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
+				return comSendSignalTfParamType != null;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
+				return comSendSignalGroupTfParamType != null;
+			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
+				return csTfParamType != null && !csTfParamType.isEmpty();
+			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+				return srRteSendTfParamType != null;
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
+				return srRteBufferQueueMaxLengthConstant != null && !srRteBufferQueueMaxLengthConstant.isEmpty();
+			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
+				return srRteBufferQueueType != null && !srRteBufferQueueType.isEmpty();
+			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
+				return immediateConstant != null && !immediateConstant.isEmpty();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION:
+				return comSendSignalTrustedFunction != null && !comSendSignalTrustedFunction.isEmpty();
+			case ModulePackage.RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY:
+				return comSendSignalPeriodicEntity != null;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY:
+				return comSendSignalImmediateEntity != null;
+			case ModulePackage.RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY:
+				return comSendSignalImmediateTaskBody != null;
+			case ModulePackage.RTE__COM_CALLBACK:
+				return comCallback != null && !comCallback.isEmpty();
+			case ModulePackage.RTE__RTE_START_API:
+				return rteStartApi != null;
+			case ModulePackage.RTE__RTE_STOP_API:
+				return rteStopApi != null;
 			case ModulePackage.RTE__SCHM_INIT_API:
 				return schmInitApi != null;
 			case ModulePackage.RTE__SCHM_DEINIT_API:

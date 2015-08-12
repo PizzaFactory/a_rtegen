@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -125,6 +125,7 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.OS_TASK_ACTIVATE_ENTITY_STARTER: return (EObject)createOsTaskActivateEntityStarter();
 			case InteractionPackage.OS_EVENT_SET_ENTITY_STARTER: return (EObject)createOsEventSetEntityStarter();
 			case InteractionPackage.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION: return (EObject)createTimingTriggeringEntityStartImplementation();
+			case InteractionPackage.MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION: return (EObject)createModeSwitchTriggeringEntityStartImplementation();
 			case InteractionPackage.RUNNABLE_ENTITY_START_INTERACTION: return (EObject)createRunnableEntityStartInteraction();
 			case InteractionPackage.START_OFFSET_COUNTER_IMPLEMENTATION: return (EObject)createStartOffsetCounterImplementation();
 			case InteractionPackage.CYCLE_COUNTER_IMPLEMENTATION: return (EObject)createCycleCounterImplementation();
@@ -133,6 +134,7 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.EVENT_TO_TASK_MAPPING: return (EObject)createEventToTaskMapping();
 			case InteractionPackage.EVENT: return (EObject)createEvent();
 			case InteractionPackage.TIMING_EVENT: return (EObject)createTimingEvent();
+			case InteractionPackage.MODE_SWITCH_EVENT: return (EObject)createModeSwitchEvent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -413,6 +415,16 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation() {
+		ModeSwitchTriggeringEntityStartImplementationImpl modeSwitchTriggeringEntityStartImplementation = new ModeSwitchTriggeringEntityStartImplementationImpl();
+		return modeSwitchTriggeringEntityStartImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RunnableEntityStartInteraction createRunnableEntityStartInteraction() {
 		RunnableEntityStartInteractionImpl runnableEntityStartInteraction = new RunnableEntityStartInteractionImpl();
 		return runnableEntityStartInteraction;
@@ -486,6 +498,16 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	public TimingEvent createTimingEvent() {
 		TimingEventImpl timingEvent = new TimingEventImpl();
 		return timingEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeSwitchEvent createModeSwitchEvent() {
+		ModeSwitchEventImpl modeSwitchEvent = new ModeSwitchEventImpl();
+		return modeSwitchEvent;
 	}
 
 	/**

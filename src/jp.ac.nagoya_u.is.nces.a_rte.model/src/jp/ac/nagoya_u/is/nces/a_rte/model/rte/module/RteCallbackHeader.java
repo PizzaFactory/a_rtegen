@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -67,7 +67,7 @@ public interface RteCallbackHeader extends HeaderFile {
 
 	/**
 	 * Returns the value of the '<em><b>Com Callback Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Com Callback Group</em>' reference list isn't clear,
@@ -79,5 +79,5 @@ public interface RteCallbackHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComCallbackGroup> getComCallbackGroup();
+	EList<ComCallbackFileContentsGroup> getComCallbackGroup();
 } // RteCallbackHeader

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -71,7 +71,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class RteBufferQueueTypeImpl extends BlackboxTypeImpl implements RteBufferQueueType {
+public class RteBufferQueueTypeImpl extends TypeImpl implements RteBufferQueueType {
 	/**
 	 * The cached value of the '{@link #getMaxLengthConstant() <em>Max Length Constant</em>}' reference.
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,20 +45,39 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Variable Data Prototype</b></em>'.
  * <!-- end-user-doc -->
  * <p>
+ * The following features are implemented:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.VariableDataPrototypeImpl#getInitValue <em>Init Value</em>}</li>
+ * </ul>
  * </p>
  *
  * @generated
  */
 public class VariableDataPrototypeImpl extends AutosarDataPrototypeImpl implements VariableDataPrototype {
+	/**
+	 * The cached value of the '{@link #getInitValue() <em>Init Value</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValueSpecification initValue;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +95,121 @@ public class VariableDataPrototypeImpl extends AutosarDataPrototypeImpl implemen
 	@Override
 	protected EClass eStaticClass() {
 		return M2Package.Literals.VARIABLE_DATA_PROTOTYPE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValueSpecification getInitValue() {
+		return initValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInitValue(ValueSpecification newInitValue, NotificationChain msgs) {
+		ValueSpecification oldInitValue = initValue;
+		initValue = newInitValue;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE, oldInitValue, newInitValue);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitValue(ValueSpecification newInitValue) {
+		if (newInitValue != initValue) {
+			NotificationChain msgs = null;
+			if (initValue != null)
+				msgs = ((InternalEObject)initValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE, null, msgs);
+			if (newInitValue != null)
+				msgs = ((InternalEObject)newInitValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE, null, msgs);
+			msgs = basicSetInitValue(newInitValue, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE, newInitValue, newInitValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE:
+				return basicSetInitValue(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE:
+				return getInitValue();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE:
+				setInitValue((ValueSpecification)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE:
+				setInitValue((ValueSpecification)null);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case M2Package.VARIABLE_DATA_PROTOTYPE__INIT_VALUE:
+				return initValue != null;
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //VariableDataPrototypeImpl

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -61,7 +61,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,15 +69,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements PartitionRestartingApi {
 	/**
-	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference.
+	 * The cached value of the '{@link #getSrInterPartitionTimeoutOperation() <em>Sr Inter Partition Timeout Operation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperation()
+	 * @see #getSrInterPartitionTimeoutOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected InterPartitionTimeoutOperation operation;
-
+	protected InterPartitionTimeoutOperation srInterPartitionTimeoutOperation;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -102,8 +101,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public InterPartitionTimeoutOperation getOperation() {
-		return operation;
+	public InterPartitionTimeoutOperation getSrInterPartitionTimeoutOperation() {
+		return srInterPartitionTimeoutOperation;
 	}
 
 	/**
@@ -111,11 +110,11 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperation(InterPartitionTimeoutOperation newOperation, NotificationChain msgs) {
-		InterPartitionTimeoutOperation oldOperation = operation;
-		operation = newOperation;
+	public NotificationChain basicSetSrInterPartitionTimeoutOperation(InterPartitionTimeoutOperation newSrInterPartitionTimeoutOperation, NotificationChain msgs) {
+		InterPartitionTimeoutOperation oldSrInterPartitionTimeoutOperation = srInterPartitionTimeoutOperation;
+		srInterPartitionTimeoutOperation = newSrInterPartitionTimeoutOperation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION_RESTARTING_API__OPERATION, oldOperation, newOperation);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION, oldSrInterPartitionTimeoutOperation, newSrInterPartitionTimeoutOperation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -126,18 +125,18 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(InterPartitionTimeoutOperation newOperation) {
-		if (newOperation != operation) {
+	public void setSrInterPartitionTimeoutOperation(InterPartitionTimeoutOperation newSrInterPartitionTimeoutOperation) {
+		if (newSrInterPartitionTimeoutOperation != srInterPartitionTimeoutOperation) {
 			NotificationChain msgs = null;
-			if (operation != null)
-				msgs = ((InternalEObject)operation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION_RESTARTING_API__OPERATION, null, msgs);
-			if (newOperation != null)
-				msgs = ((InternalEObject)newOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION_RESTARTING_API__OPERATION, null, msgs);
-			msgs = basicSetOperation(newOperation, msgs);
+			if (srInterPartitionTimeoutOperation != null)
+				msgs = ((InternalEObject)srInterPartitionTimeoutOperation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION, null, msgs);
+			if (newSrInterPartitionTimeoutOperation != null)
+				msgs = ((InternalEObject)newSrInterPartitionTimeoutOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION, null, msgs);
+			msgs = basicSetSrInterPartitionTimeoutOperation(newSrInterPartitionTimeoutOperation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION_RESTARTING_API__OPERATION, newOperation, newOperation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION, newSrInterPartitionTimeoutOperation, newSrInterPartitionTimeoutOperation));
 	}
 
 	/**
@@ -148,8 +147,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModulePackage.PARTITION_RESTARTING_API__OPERATION:
-				return basicSetOperation(null, msgs);
+			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+				return basicSetSrInterPartitionTimeoutOperation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -162,8 +161,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.PARTITION_RESTARTING_API__OPERATION:
-				return getOperation();
+			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+				return getSrInterPartitionTimeoutOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,8 +175,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.PARTITION_RESTARTING_API__OPERATION:
-				setOperation((InterPartitionTimeoutOperation)newValue);
+			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+				setSrInterPartitionTimeoutOperation((InterPartitionTimeoutOperation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,8 +190,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.PARTITION_RESTARTING_API__OPERATION:
-				setOperation((InterPartitionTimeoutOperation)null);
+			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+				setSrInterPartitionTimeoutOperation((InterPartitionTimeoutOperation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -206,8 +205,8 @@ public class PartitionRestartingApiImpl extends RteLifecycleApiImpl implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.PARTITION_RESTARTING_API__OPERATION:
-				return operation != null;
+			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+				return srInterPartitionTimeoutOperation != null;
 		}
 		return super.eIsSet(featureID);
 	}

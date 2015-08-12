@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -72,7 +72,7 @@ public class AutosarModelSaver {
 			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
 		} catch (XMLStreamException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
-		} catch (IOException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+		} catch (IOException e) {
 			throw new PersistException("Error occurred while saving AUTOSAR XML. " + e.getMessage(), e);
 		}
 	}

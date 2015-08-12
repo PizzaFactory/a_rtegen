@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -77,7 +77,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
@@ -1233,7 +1232,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getVariableDataInstanceInSwc__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), theM2Package.getBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getVariableDataInstanceInSwc__GetSwImplPolicy(), theM2Package.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1257,16 +1256,16 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEReference(getVariableDataInstanceInComposition_RequesterConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Provider(), "requesterConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEReference(getVariableDataInstanceInComposition_ProviderConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Requester(), "providerConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInComposition__IsProvided(), theM2Package.getBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsProvided(), ecorePackage.getEBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getVariableDataInstanceInComposition__IsRequired(), theM2Package.getBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsRequired(), ecorePackage.getEBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getVariableDataInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pVariableDataInstanceInSwcEClass, PVariableDataInstanceInSwc.class, "PVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), theM2Package.getBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getPVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1275,15 +1274,15 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), theM2Package.getBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), theM2Package.getBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), theM2Package.getBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -1366,7 +1365,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																											
+		   });																																												
 	}
 
 	/**
@@ -1411,7 +1410,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (getVariableDataInstanceInSwc__GetSwAddrMethod(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.prototype.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif"
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.prototype.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not implType.getLeafImplementationDataType().swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.getLeafImplementationDataType().swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif endif"
 		   });			
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetSwAlignment(), 
@@ -1520,7 +1519,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		   source, 
 		   new String[] {
 			 "body", "let initValue : m2::ValueSpecification = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).initValue\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse initValue\n\t\t\t\t\tendif"
-		   });		
+		   });			
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetQueueLength(), 
 		   source, 

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -387,7 +387,7 @@ public class DataFilterImpl extends M2ObjectImpl implements DataFilter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isFilterEnabled() {
+	public boolean isFilterEnabled() {
 		try {
 			return (Boolean)IS_FILTER_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -411,7 +411,7 @@ public class DataFilterImpl extends M2ObjectImpl implements DataFilter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isCompatibleWith(DataFilter another) {
+	public boolean isCompatibleWith(DataFilter another) {
 		try {
 			return (Boolean)IS_COMPATIBLE_WITH_DATA_FILTER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{another}));
 		}

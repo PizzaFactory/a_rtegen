@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -67,6 +67,9 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Multimaps;
 
+/**
+ *　モデルオブジェクトを検索する。
+ */
 public class ModelQuery {
 
 	private final Resource eResource;
@@ -273,21 +276,15 @@ public class ModelQuery {
 	}
 
 	/**
-	 * 変換対象のオブジェクトのリストから，各オブジェクトの属性の値のリストを取得する．
+	 * 変換対象のオブジェクトから，各オブジェクトの属性の値のリストを取得する．
+	 * 属性が複数回指定された場合，ある属性の値のリストに対して，次の属性の値のリストが取得される．
 	 * 
-	 * @param eObjects 変換対象のオブジェクトのリスト
-	 * @param eStructuralFeature 取得するフィーチャ
+	 * @param eObjects 変換対象のオブジェクト
+	 * @param eStructuralFeatures 取得するフィーチャのリスト
 	 * @return オブジェクトの属性の値のリスト．
 	 */
-	public <T> List<T> collect(List<? extends EObject> eObjects, final EStructuralFeature eStructuralFeature) {
-		Iterable<?> originalCollection = Iterables.transform(eObjects, new Function<EObject, Object>() {
-			@Override
-			public Object apply(EObject input) {
-				return input.eGet(eStructuralFeature);
-			}
-		});
-
-		return flattenResult(Iterables.filter(originalCollection, Predicates.notNull()), eStructuralFeature);
+	public <T> List<T> collect(EObject eObject, final EStructuralFeature... eStructuralFeatures) {
+		return collect(Collections.singletonList(eObject), eStructuralFeatures);
 	}
 
 	/**
@@ -311,8 +308,40 @@ public class ModelQuery {
 	 * 変換対象のオブジェクトのリストから，各オブジェクトの属性の値のリストを取得する．
 	 * 
 	 * @param eObjects 変換対象のオブジェクトのリスト
-	 * @param eAttribute 取得する属性
+	 * @param eStructuralFeature 取得するフィーチャ
 	 * @return オブジェクトの属性の値のリスト．
+	 */
+	private <T> List<T> collect(List<? extends EObject> eObjects, final EStructuralFeature eStructuralFeature) {
+		Iterable<?> originalCollection = Iterables.transform(eObjects, new Function<EObject, Object>() {
+			@Override
+			public Object apply(EObject input) {
+				return input.eGet(eStructuralFeature);
+			}
+		});
+
+		return flattenResult(Iterables.filter(originalCollection, Predicates.notNull()), eStructuralFeature);
+	}
+
+	/**
+	 * 変換対象のオブジェクトから，各オブジェクトの属性の値のリストを取得する．
+	 * 
+	 * @param eObject 変換対象のオブジェクト
+	 * @param eOperation 実行するオペレーション
+	 * @param arguments オペレーションに適用する引数の配列
+	 * @return オペレーションの実行結果の値のリスト．
+	 * @throws ModelException オペレーションの実行中に例外が発生した
+	 */
+	public <T> List<T> collect(EObject eObject, final EOperation eOperation, final Object... arguments) throws ModelException {
+		return collect(Collections.singletonList(eObject), eOperation, arguments);
+	}
+
+	/**
+	 * 変換対象のオブジェクトのリストから，各オブジェクトのオペレーションの実行結果の値のリストを取得する．
+	 * 
+	 * @param eObjects 変換対象のオブジェクトのリスト
+	 * @param eOperation 実行するオペレーション
+	 * @param arguments オペレーションに適用する引数の配列
+	 * @return オペレーションの実行結果の値のリスト．
 	 * @throws ModelException オペレーションの実行中に例外が発生した
 	 */
 	public <T> List<T> collect(List<? extends EObject> eObjects, final EOperation eOperation, final Object... arguments) throws ModelException {
@@ -346,7 +375,13 @@ public class ModelQuery {
 		}
 	}
 
-	public <T extends EObject> List<T> uniqueByKeys(List<T> eObjects, final EStructuralFeature... keyFeatures) {
+	/**
+	 * 与えられたリストから、指定された{@link EStructuralFeature}の値が一意になるような部分リストを取得する。
+	 * @param eObjects 元のリスト
+	 * @param keyFeatures キーとなる{@link EStructuralFeature}のリスト
+	 * @return 指定された{@link EStructuralFeature}の値が一意になるような部分集合
+	 */
+	public <T extends EObject> List<T> uniqueByKeys(Collection<T> eObjects, final EStructuralFeature... keyFeatures) {
 		ListMultimap<List<Object>, T> keys2Objects = groupByKeys(eObjects, keyFeatures);
 
 		List<T> uniqueObjects = Lists.newArrayList();
@@ -357,8 +392,14 @@ public class ModelQuery {
 		return uniqueObjects;
 	}
 
+	/**
+	 * 与えられたリストを、指定された{@link EStructuralFeature}の値によりグルーピングする。
+	 * @param eObjects 元のリスト
+	 * @param keyFeature キーとなる{@link EStructuralFeature}のリスト
+	 * @return 指定された{@link EStructuralFeature}の値をキーとし、グルーピングされたオブジェクトを値とする{@link ListMultimap}
+	 */
 	@SuppressWarnings("unchecked")
-	public <K, V extends EObject> ListMultimap<K, V> groupByKey(List<V> eObjects, final EStructuralFeature keyFeature) {
+	public <K, V extends EObject> ListMultimap<K, V> groupByKey(Collection<V> eObjects, final EStructuralFeature keyFeature) {
 		return Multimaps.index(eObjects, new Function<V, K>() {
 			@Override
 			public K apply(V input) {
@@ -367,7 +408,7 @@ public class ModelQuery {
 		});
 	}
 
-	private <T extends EObject> ListMultimap<List<Object>, T> groupByKeys(List<T> eObjects, final EStructuralFeature... keyFeatures) {
+	private <T extends EObject> ListMultimap<List<Object>, T> groupByKeys(Collection<T> eObjects, final EStructuralFeature... keyFeatures) {
 		return Multimaps.index(eObjects, new Function<T, List<Object>>() {
 			@Override
 			public List<Object> apply(T input) {
@@ -380,17 +421,29 @@ public class ModelQuery {
 		});
 	}
 
+	/**
+	 * リソース内に存在する全オブジェクトから，指定されたIDを持つ単一のオブジェクトを検索する．
+	 * 
+	 * @param id 検索対象のオブジェクトのID
+	 * @return 見つかったオブジェクト
+	 * @throws ModelException オブジェクトが見つからない場合
+	 */
 	public <T extends EObject> T findByID(String id) throws ModelException {
 		return EmfQueryUtils.findByID(this.eResource, id);
 	}
 
+	/**
+	 * {@link EOperation}を、オブジェクトからオペレーションの実行結果を取得する{@link Function}に変換する。
+	 * @param eOperation 変換対象の{@link EOperation}
+	 * @return 変換結果の{@link Function}
+	 */
 	public <T> com.google.common.base.Function<EObject, T> operation2Function(final EOperation eOperation) {
 		return new com.google.common.base.Function<EObject, T>() {
 			@Override
 			public T apply(EObject input) {
 				List<T> collected;
 				try {
-					collected = collect(Collections.singletonList(input), eOperation);
+					collected = collect(input, eOperation);
 					return Iterables.getFirst(collected, null);
 				} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 					return null;
@@ -399,16 +452,26 @@ public class ModelQuery {
 		};
 	}
 
+	/**
+	 * {@link EStructuralFeature}のリストを、オブジェクトから属性の値を取得する{@link Function}に変換する。
+	 * @param eStructuralFeatures 変換対象の{@link EStructuralFeature}のリスト
+	 * @return 変換結果の{@link Function}
+	 */
 	public <T> com.google.common.base.Function<EObject, T> features2Function(final EStructuralFeature... eStructuralFeatures) {
 		return new com.google.common.base.Function<EObject, T>() {
 			@Override
 			public T apply(EObject input) {
-				List<T> collected = collect(Collections.singletonList(input), eStructuralFeatures);
+				List<T> collected = collect(input, eStructuralFeatures);
 				return Iterables.getFirst(collected, null);
 			}
 		};
 	}
 
+	/**
+	 * {@link EStructuralFeature}を、オブジェクトから属性の値を取得する{@link Function}に変換する。
+	 * @param eStructuralFeature 変換対象の{@link EStructuralFeature}
+	 * @return 変換結果の{@link Function}
+	 */
 	public <T> com.google.common.base.Function<EObject, T> feature2Function(final EStructuralFeature eStructuralFeature) {
 		return features2Function(eStructuralFeature);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -67,6 +67,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl#getSendStatus <em>Send Status</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl#getExcludeOperation <em>Exclude Operation</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl#getReturnVariable <em>Return Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl#getIsWriteApi <em>Is Write Api</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +112,25 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 	 * @ordered
 	 */
 	protected Variable returnVariable;
+
+	/**
+	 * The default value of the '{@link #getIsWriteApi() <em>Is Write Api</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsWriteApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_WRITE_API_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsWriteApi() <em>Is Write Api</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsWriteApi()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isWriteApi = IS_WRITE_API_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,6 +313,27 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsWriteApi() {
+		return isWriteApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsWriteApi(Boolean newIsWriteApi) {
+		Boolean oldIsWriteApi = isWriteApi;
+		isWriteApi = newIsWriteApi;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.SEND_OPERATION__IS_WRITE_API, oldIsWriteApi, isWriteApi));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -321,6 +362,8 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 			case ModulePackage.SEND_OPERATION__RETURN_VARIABLE:
 				if (resolve) return getReturnVariable();
 				return basicGetReturnVariable();
+			case ModulePackage.SEND_OPERATION__IS_WRITE_API:
+				return getIsWriteApi();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,6 +387,9 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 				return;
 			case ModulePackage.SEND_OPERATION__RETURN_VARIABLE:
 				setReturnVariable((Variable)newValue);
+				return;
+			case ModulePackage.SEND_OPERATION__IS_WRITE_API:
+				setIsWriteApi((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -369,6 +415,9 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 			case ModulePackage.SEND_OPERATION__RETURN_VARIABLE:
 				setReturnVariable((Variable)null);
 				return;
+			case ModulePackage.SEND_OPERATION__IS_WRITE_API:
+				setIsWriteApi(IS_WRITE_API_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,8 +438,26 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 				return excludeOperation != null;
 			case ModulePackage.SEND_OPERATION__RETURN_VARIABLE:
 				return returnVariable != null;
+			case ModulePackage.SEND_OPERATION__IS_WRITE_API:
+				return IS_WRITE_API_EDEFAULT == null ? isWriteApi != null : !IS_WRITE_API_EDEFAULT.equals(isWriteApi);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isWriteApi: ");
+		result.append(isWriteApi);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SendOperationImpl

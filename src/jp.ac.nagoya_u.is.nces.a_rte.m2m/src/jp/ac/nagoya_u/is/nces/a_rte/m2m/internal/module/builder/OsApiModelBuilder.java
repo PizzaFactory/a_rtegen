@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +45,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
@@ -53,6 +52,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 
 import com.google.common.base.Optional;
 
+/**
+ * RTEが依存するOS APIのモデルを構築する。
+ */
 public class OsApiModelBuilder {
 
 	private final ModuleModelBuildContext context;
@@ -61,19 +63,19 @@ public class OsApiModelBuilder {
 		this.context = context;
 	}
 
-	public void build() throws ModelException {
-		Optional<ImmediateComSendProxy> comSendProxy = this.context.query.tryFindSingleByKind(IMMEDIATE_COM_SEND_PROXY);
-		if (comSendProxy.isPresent()) {
-			buildComSendSignalImmediateSetEventApi(this.context.cache.rte, comSendProxy.get());
+	public void build() {
+		Optional<ImmediateComSendProxy> sourceComSendProxy = this.context.query.tryFindSingleByKind(IMMEDIATE_COM_SEND_PROXY);
+		if (sourceComSendProxy.isPresent()) {
+			buildComSendSignalImmediateSetEventApi(this.context.cache.rte, sourceComSendProxy.get());
 		}
 	}
 
 	private void buildComSendSignalImmediateSetEventApi(Rte targetRte, ImmediateComSendProxy sourceComSendProxy) {
-		OsSetEventApi osSetEventApi = ModuleFactory.eINSTANCE.createOsSetEventApi();
-		osSetEventApi.setSingleSource(sourceComSendProxy);
-		osSetEventApi.setSymbolName(SymbolNames.OS_SET_EVENT_API_NAME);
-		osSetEventApi.setOsTaskId(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
-		osSetEventApi.setOsEventId(sourceComSendProxy.getOsEvent().getShortName());
-		targetRte.getDependentOsApi().add(osSetEventApi);
+		OsSetEventApi destOsSetEventApi = ModuleFactory.eINSTANCE.createOsSetEventApi();
+		destOsSetEventApi.setSingleSource(sourceComSendProxy);
+		destOsSetEventApi.setSymbolName(SymbolNames.OS_SET_EVENT_API_NAME);
+		destOsSetEventApi.setOsTaskId(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
+		destOsSetEventApi.setOsEventId(sourceComSendProxy.getOsEvent().getShortName());
+		targetRte.getDependentOsApi().add(destOsSetEventApi);
 	}
 }

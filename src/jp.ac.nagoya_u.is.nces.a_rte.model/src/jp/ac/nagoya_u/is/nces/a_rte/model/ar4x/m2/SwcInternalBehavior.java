@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,10 +56,10 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getRunnable <em>Runnable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getEvent <em>Event</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getDataTypeMapping <em>Data Type Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getPortApiOption <em>Port Api Option</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getIncludedDataTypeSet <em>Included Data Type Set</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getExplicitInterRunnableVariable <em>Explicit Inter Runnable Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,22 +101,6 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @generated
 	 */
 	EList<RteEvent> getEvent();
-
-	/**
-	 * Returns the value of the '<em><b>Data Type Mapping</b></em>' reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Data Type Mapping</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Type Mapping</em>' reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_DataTypeMapping()
-	 * @model
-	 * @generated
-	 */
-	EList<DataTypeMappingSet> getDataTypeMapping();
 
 	/**
 	 * Returns the value of the '<em><b>Port Api Option</b></em>' containment reference list.
@@ -177,6 +161,22 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @generated
 	 */
 	void setParent(AtomicSwComponentType value);
+
+	/**
+	 * Returns the value of the '<em><b>Explicit Inter Runnable Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Explicit Inter Runnable Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Explicit Inter Runnable Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_ExplicitInterRunnableVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<VariableDataPrototype> getExplicitInterRunnableVariable();
 
 	/**
 	 * <!-- begin-user-doc -->

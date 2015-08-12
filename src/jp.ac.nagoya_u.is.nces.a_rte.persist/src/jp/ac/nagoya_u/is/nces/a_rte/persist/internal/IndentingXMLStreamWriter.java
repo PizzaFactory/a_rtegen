@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -124,7 +124,7 @@ public class IndentingXMLStreamWriter implements XMLStreamWriter {
 	 * javax.xml.stream.XMLStreamWriter#setDefaultNamespace(java.lang.String)
 	 */
 	@Override
-	public void setDefaultNamespace(String uri) throws XMLStreamException {
+	public void setDefaultNamespace(String uri) throws XMLStreamException { // COVERAGE 常に未達(現在のツールワークフローでは使用されないが，インタフェースの都合上残している． コードレビュー済みであるため問題ない)
 		this.xmlStreamWriter.setDefaultNamespace(uri);
 	}
 
@@ -319,7 +319,7 @@ public class IndentingXMLStreamWriter implements XMLStreamWriter {
 	 */
 	@Override
 	public void writeNamespace(String prefix, String namespaceURI) throws XMLStreamException {
-		this.xmlStreamWriter.writeNamespace(prefix, namespaceURI); // COVERAGE 常に未達(現在のツールワークフローでは使用されないが，インタフェースの都合上残している． コードレビュー済みであるため問題ない)
+		this.xmlStreamWriter.writeNamespace(prefix, namespaceURI);
 	}
 
 	@Override

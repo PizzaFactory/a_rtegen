@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -82,7 +82,7 @@ public interface RteCoreStartApiImpl extends RteLifecycleApi {
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteStartApi <em>Rte Start Api</em>}'.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteCoreStartApiImpl <em>Rte Core Start Api Impl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -92,8 +92,8 @@ public interface RteCoreStartApiImpl extends RteLifecycleApi {
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(Core)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteCoreStartApiImpl_Parent()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteStartApi
-	 * @model opposite="rteStartApi" required="true" transient="false"
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteCoreStartApiImpl
+	 * @model opposite="rteCoreStartApiImpl" required="true" transient="false"
 	 * @generated
 	 */
 	Core getParent();

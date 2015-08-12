@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -54,9 +56,12 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getSymbolName <em>Symbol Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName <em>External Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType <em>Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getValue <em>Value</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantType <em>Constant Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType <em>Constant Value Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getMember <em>Member</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName <em>Represented Variable Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +97,32 @@ public interface Constant extends Value {
 	void setSymbolName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>External Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>External Symbol Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>External Symbol Name</em>' attribute.
+	 * @see #setExternalSymbolName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_ExternalSymbolName()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @generated
+	 */
+	String getExternalSymbolName();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName <em>External Symbol Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>External Symbol Name</em>' attribute.
+	 * @see #getExternalSymbolName()
+	 * @generated
+	 */
+	void setExternalSymbolName(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -100,12 +131,12 @@ public interface Constant extends Value {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
-	 * @see #setType(PrimitiveType)
+	 * @see #setType(Type)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_Type()
 	 * @model required="true"
 	 * @generated
 	 */
-	PrimitiveType getType();
+	Type getType();
 
 	/**
 	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType <em>Type</em>}' reference.
@@ -115,7 +146,7 @@ public interface Constant extends Value {
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(PrimitiveType value);
+	void setType(Type value);
 
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -144,32 +175,76 @@ public interface Constant extends Value {
 	void setValue(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Constant Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum}.
+	 * Returns the value of the '<em><b>Constant Value Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Constant Type</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Constant Value Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Constant Type</em>' attribute.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum
-	 * @see #setConstantType(ConstantTypeEnum)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_ConstantType()
+	 * @return the value of the '<em>Constant Value Type</em>' attribute.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum
+	 * @see #setConstantValueType(ConstantValueTypeEnum)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_ConstantValueType()
 	 * @model required="true"
 	 * @generated
 	 */
-	ConstantTypeEnum getConstantType();
+	ConstantValueTypeEnum getConstantValueType();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantType <em>Constant Type</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType <em>Constant Value Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Constant Type</em>' attribute.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantTypeEnum
-	 * @see #getConstantType()
+	 * @param value the new value of the '<em>Constant Value Type</em>' attribute.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum
+	 * @see #getConstantValueType()
 	 * @generated
 	 */
-	void setConstantType(ConstantTypeEnum value);
+	void setConstantValueType(ConstantValueTypeEnum value);
+
+	/**
+	 * Returns the value of the '<em><b>Member</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember}.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Member</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Member</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_Member()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	EList<ConstantMember> getMember();
+
+	/**
+	 * Returns the value of the '<em><b>Represented Variable Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Represented Variable Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Represented Variable Name</em>' attribute.
+	 * @see #setRepresentedVariableName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getConstant_RepresentedVariableName()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.String"
+	 * @generated
+	 */
+	String getRepresentedVariableName();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName <em>Represented Variable Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Represented Variable Name</em>' attribute.
+	 * @see #getRepresentedVariableName()
+	 * @generated
+	 */
+	void setRepresentedVariableName(String value);
 
 } // Constant

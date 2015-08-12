@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,73 +43,42 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.Ar4xPackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-import jp.ac.nagoya_u.is.nces.a_rte.model.internal.ValidationResourceLocator;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.RtePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
 
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.QueryDelegate;
-import org.eclipse.ocl.common.OCLConstants;
-import org.eclipse.ocl.ecore.delegate.OCLInvocationDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLQueryDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLSettingDelegateFactory;
-import org.eclipse.ocl.ecore.delegate.OCLValidationDelegateFactory;
-
 import com.google.common.collect.Iterables;
-import com.google.common.io.Resources;
 
+/**
+ *　RTEジェネレータの実行時に必要となるEMFモデル環境設定を実施する。
+ */
 public class ModelEnvironment { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+
+	/**
+	 * EMFモデル環境を初期化する。
+	 */
 	public static void initializeEnvironment() {
-		initializeOclEnvironment();
 		registerPackages();
-	}
-
-	public static void initResource(Resource eResource) {
-		buildExModels(eResource);
-	}
-
-	private static void initializeOclEnvironment() {
-		org.eclipse.ocl.ecore.OCL.initialize(null);
-
-		String delegationUri = OCLConstants.OCL_DELEGATE_URI_SLASH + "Pivot";
-		EOperation.Internal.InvocationDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLInvocationDelegateFactory(delegationUri));
-		EStructuralFeature.Internal.SettingDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLSettingDelegateFactory(delegationUri));
-		EValidator.ValidationDelegate.Registry.INSTANCE.put(delegationUri, new OCLValidationDelegateFactory(delegationUri));
-		QueryDelegate.Factory.Registry.INSTANCE.put(delegationUri, new OCLQueryDelegateFactory(delegationUri));
 	}
 
 	private static void registerPackages() {
 		Ar4xPackage.eINSTANCE.eClass();
 		RtePackage.eINSTANCE.eClass();
-
-		EObjectValidator validator = createValidator();
-		EValidator.Registry.INSTANCE.put(M2Package.eINSTANCE, validator);
-		EValidator.Registry.INSTANCE.put(EcucPackage.eINSTANCE, validator);
 	}
 
-	private static EObjectValidator createValidator() {
-		return new EObjectValidator() {
-			private final ValidationResourceLocator resourceLocator = new ValidationResourceLocator(Resources.getResource(ModelEnvironment.class, ModelValidator.EMF_VALIDATION_MESSAGES_PROPERTIES));
-
-			@Override
-			protected ResourceLocator getEcoreResourceLocator() {
-				return this.resourceLocator;
-			}
-		};
+	/**
+	 * {@link Resource}に対し、RTEジェネレータの実行時に必要となる初期設定を行う。
+	 * @param eResource 設定対象の{@link Resource}
+	 */
+	public static void initResource(Resource eResource) {
+		buildExModels(eResource);
 	}
 
 	private static void buildExModels(Resource eResource) {
 		for (EClass eClass : Iterables.filter(ExPackage.eINSTANCE.getEClassifiers(), EClass.class)) {
-			EmfUtils.findOrCreateExtensionObject(eResource, eClass);
+			EmfUtils.findOrBuildExtensionObject(eResource, eClass);
 		}
 	}
 }

@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,7 +39,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 7578 2014-03-17 03:29:22Z tmori $
+ *  $Id: rteInternalHeader.mtl 14598 2015-06-04 08:23:54Z m-umeda $
  */
 [/comment]
 [comment encoding = EUC-JP /]
@@ -57,17 +57,29 @@
 
 	[aRteInternalHeader.genInternalConstantDefinitions()/]
 
+	[aRteInternalHeader.genModeSymbolDefinitions()/]
+
 	[aRteInternalHeader.genInternalGlobalVariableDeclarations()/]
+
+	[aRteInternalHeader.genInternalFuctionMacroDeclarations()/]
+
+	[aRteInternalHeader.genProxyFunctionTableDeclarations()/]
 
 	[aRteInternalHeader.genRteLifecycleApiImplFunctionDeclarations()/]
 
 	[aRteInternalHeader.genSchmLifecycleApiImplFunctionDeclarations()/]
+
+	[aRteInternalHeader.genRteApiFunctionDeclarations()/]
+
+	[aRteInternalHeader.genSchmApiFunctionDeclarations()/]
 
 	[aRteInternalHeader.genTrustedFunctionDeclarations()/]
 
 	[aRteInternalHeader.genBswSchedulableEntityDeclarations()/]
 
 	[aRteInternalHeader.genDependentExecutableEntityDeclarations()/]
+
+	[aRteInternalHeader.genComSignalApiWrapperDeclarations()/]
 
 	[aRteInternalHeader.genFileFooter()/]
 [/file]
@@ -94,13 +106,14 @@
 [for (aConstant : Constant | aRteInternalHeader.constant)]
 	[aConstant.genConstantDefinition()/]
 [/for]
+
 [/template]
 
 [template private genInternalGlobalVariableDeclarations (aRteInternalHeader : RteInternalHeader) ]
 /*
  * Internal Global Variable Declarations
  */
-[for (aGroup : GlobalVariableGroup | aRteInternalHeader.globalVariableGroup)]
+[for (aGroup : GlobalVariableFileContentsGroup | aRteInternalHeader.globalVariableGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aGlobalVariable : GlobalVariable | aGroup.globalVariable)]
@@ -112,11 +125,30 @@
 [/for]
 [/template]
 
+[template private genInternalFuctionMacroDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Internal Function Macro Definitions
+ */
+[for (aFunctionMacro : FunctionMacro | aRteInternalHeader.functionMacro)]
+	[aFunctionMacro.genFunctionMacroDeclaration()/]
+[/for]
+
+[/template]
+
+[template private genProxyFunctionTableDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Proxy Function Table Declarations
+ */
+[for (aProxyFunctionTableGroup : ComProxyFunctionTableFileContentsGroup | aRteInternalHeader.comProxyFunctionTableGroup)]
+	[aProxyFunctionTableGroup.genSrWriteProxyFunctionTable()/]
+[/for]
+[/template]
+
 [template private genTrustedFunctionDeclarations (aRteInternalHeader : RteInternalHeader) ]
 /*
  * TrustedFunction Declarations
  */
-[for (aGroup : TrustedFunctionGroup | aRteInternalHeader.trustedFunctionGroup)]
+[for (aGroup : TrustedFunctionFileContentsGroup | aRteInternalHeader.trustedFunctionGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aTrustedFunction : TrustedFunction | aGroup.trustedFunction)]
@@ -158,7 +190,7 @@
 /*
  * BSW SchedulableEntity Declarations
  */
-[for (aGroup : BswSchedulableEntityGroup | aRteInternalHeader.bswSchedulableEntityGroup)]
+[for (aGroup : BswSchedulableEntityFileContentsGroup | aRteInternalHeader.bswSchedulableEntityGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aBswSchedulableEntity : BswSchedulableEntity | aGroup.bswSchedulableEntity)]
@@ -166,7 +198,6 @@
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]
-
 [/for]
 [/template]
 
@@ -174,11 +205,80 @@
 /*
  * Dependent ExecutableEntity Declarations
  */
-[for (aGroup : ExecutableEntityGroup | aRteInternalHeader.dependentExecutableEntityGroup)]
+[for (aGroup : ExecutableEntityFileContentsGroup | aRteInternalHeader.dependentExecutableEntityGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
 
 	[for (aExecutableEntity : ExecutableEntity | aGroup.executableEntity)]
 		[aExecutableEntity.genFunctionDeclaration()/]
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
+[/for]
+[/template]
+
+[template private genComSignalApiWrapperDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Signal API Implementation Function Declarations
+ */
+[for (aGroup : ComSignalApiWrapperFileContentsGroup | aRteInternalHeader.comSignalApiWrapperGroup)]
+
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aComSignalApiWrapper : ComSignalApiWrapper | aGroup.comSignalApiWrapper)]
+		[aComSignalApiWrapper.genComSignalApiWrapperDeclaration() /]
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
+[/for]
+[/template]
+
+[template private genModeSymbolDefinitions (aRteInternalHeader : RteInternalHeader) ]
+[for (aModeDeclarationGroup : ModeDeclarationGroup | aRteInternalHeader.modeDeclarationGroup)]
+	[aModeDeclarationGroup.genInternalInitModeConstantDefinition() /]
+	[aModeDeclarationGroup.genInternalModeConstantsDefinition() /]
+[/for]
+
+[for (aModeMachineInstance : ModeMachineInstance | aRteInternalHeader.modeMachineInstance) ]
+	[let aType : ModeQueueType = aModeMachineInstance.requestModeQueueType ]
+		#define [aType.maxLengthConstant.symbolName /] ((uint32) [aType.maxLengthConstant.value /]U)
+		typedef struct {
+			uint32	quecnt;
+			uint32	head;
+			[aType.elementType.symbolName /]	element['['/][aType.maxLengthConstant.symbolName /][']'/];
+		} [aType.symbolName /];
+	[/let]
+[/for]
+[/template]
+
+[template private genRteApiFunctionDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * RTE API Implementation Function Declarations
+ */
+[for (aGroup : RteApiFileContentsGroup | aRteInternalHeader.rteApiGroup)]
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aRteApi : RteApi | aGroup.rteApi)]
+		[aRteApi.genFunctionDeclaration()/]
+
+	[/for]
+
+	[aGroup.memoryMapping.genMemoryMappingEnd()/]
+
+[/for]
+[/template]
+
+[template private genSchmApiFunctionDeclarations (aRteInternalHeader : RteInternalHeader) ]
+/*
+ * Basic Software Scheduler API Implementation Function Declarations
+ */
+[for (aGroup : SchmApiFileContentsGroup | aRteInternalHeader.schmApiGroup)]
+	[aGroup.memoryMapping.genMemoryMappingStart()/]
+
+	[for (aSchmApi : SchmApi | aGroup.schmApi)]
+		[aSchmApi.genFunctionDeclaration()/]
+
 	[/for]
 
 	[aGroup.memoryMapping.genMemoryMappingEnd()/]

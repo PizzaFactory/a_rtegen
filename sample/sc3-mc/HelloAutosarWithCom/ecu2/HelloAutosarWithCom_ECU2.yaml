@@ -2,14 +2,17 @@
 #  TOPPERS/A-RTEGEN
 #      Automotive Runtime Environment Generator
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +48,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-#  $Id: HelloAutosarWithCom_ECU2.yaml 141 2014-09-26 09:13:20Z mtakada $
+#  $Id: HelloAutosarWithCom_ECU2.yaml 437 2015-03-24 10:03:37Z mtakada $
 #
 
 Ecuc:
@@ -130,6 +133,8 @@ Ecuc:
       OsTaskPriority: 15
       OsTaskStackSize: 1024
       OsTaskSchedule: FULL
+      OsTaskResourceRef:
+        - /Ecuc/Os/COMSTACK_RESOURCE
       OsTaskAutostart:
         OsTaskAppModeRef: /Ecuc/Os/MainApp
     ECU_INIT_TASK_CORE1:
@@ -146,6 +151,35 @@ Ecuc:
       OsTaskPriority: 15
       OsTaskSchedule: FULL
       OsTaskStackSize: 1024
+      OsTaskResourceRef:
+        - /Ecuc/Os/COMSTACK_RESOURCE
+    COMSTACK_RESOURCE:
+      DefinitionRef: OsResource
+      OsResourceProperty: STANDARD
+    COM_REENTRANT0:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
+    COM_REENTRANT1:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
+    COM_REENTRANT2:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
+    CANIF_REENTRANT0:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
+    CANIF_REENTRANT1:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
+    CAN_REENTRANT:
+      DefinitionRef: OsResource
+      OsResourceProperty: LINKED
+      OsResourceLinkedResourceRef: /Ecuc/Os/COMSTACK_RESOURCE
 # 100msに1回満了するアラーム
     ALARM_CORE0:
       DefinitionRef: OsAlarm
@@ -176,6 +210,8 @@ Ecuc:
       OsIsrInterruptNumber: 0x1000A  # CORE0の10
       OsIsrInterruptPriority: 3
       OsIsrInterruptSource: ENABLE
+      OsIsrResourceRef:
+        - /Ecuc/Os/COMSTACK_RESOURCE
 
   EcuC:
     EcucPduCollection:
@@ -362,6 +398,7 @@ Ecuc:
       CanMainFunctionRWPeriods:
         CanMainFunctionReadPeriod: 0.1
         CanMainFunctionWritePeriod: 0.0
+      CanCounterRef: /Ecuc/Os/MAIN_HW_COUNTER_CORE0
 
   EcuM:
     EcuMConfiguration:
@@ -373,6 +410,7 @@ Ecuc:
   Rte:
     RteBswGeneral:
       RteSchMVersionInfoApi: false
+      RteUseComShadowSignalApi: false
     RteGeneration:
       RteCalibrationSupport: NONE
       RteCodeVendorId: 65
@@ -413,15 +451,26 @@ Ecuc:
     RteBswModuleInstance_com:
       DefinitionRef: RteBswModuleInstance
       RteBswImplementationRef: /BSWScheduler/BswImplementations/bswImplementation0
+      RteBswExclusiveAreaImpl_exclusiveArea0:
+        DefinitionRef: RteBswExclusiveAreaImpl
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT0
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_0
       RteBswExclusiveAreaImpl_exclusiveArea1:
         DefinitionRef: RteBswExclusiveAreaImpl
-        RteExclusiveAreaImplMechanism: ALL_INTERRUPT_BLOCKING
-        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT1
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_1
+      RteBswExclusiveAreaImpl_exclusiveArea2:
+        DefinitionRef: RteBswExclusiveAreaImpl
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/COM_REENTRANT2
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_2
       RteBswEventToTaskMapping_timingEvent1:
         DefinitionRef: RteBswEventToTaskMapping
         RteBswImmediateRestart: 0
         RteBswPositionInTask: 0
-        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/TimingEvent_MainFunctionRx
+        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/TimingEvent_MainFunctionRx
         RteBswMappedToTaskRef: /Ecuc/Os/SCHM_TASK
         RteBswUsedOsAlarmRef: /Ecuc/Os/ALARM_CORE1
         RteBswActivationOffset: 0.1
@@ -429,21 +478,28 @@ Ecuc:
         DefinitionRef: RteBswEventToTaskMapping
         RteBswImmediateRestart: 0
         RteBswPositionInTask: 1
-        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/TimingEvent_MainFunctionTx
+        RteBswEventRef: /BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/TimingEvent_MainFunctionTx
         RteBswMappedToTaskRef: /Ecuc/Os/SCHM_TASK
         RteBswUsedOsAlarmRef: /Ecuc/Os/ALARM_CORE1
         RteBswActivationOffset: 0.1
     RteBswModuleInstance_can:
       DefinitionRef: RteBswModuleInstance
       RteBswImplementationRef: /BSWScheduler/BswImplementations/bswImplementation1
-      RteBswExclusiveAreaImpl_exclusiveArea2:
+      RteBswExclusiveAreaImpl_exclusiveArea3:
         DefinitionRef: RteBswExclusiveAreaImpl
-        RteExclusiveAreaImplMechanism: ALL_INTERRUPT_BLOCKING
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/CAN_REENTRANT
         RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/Can/InternalBehavior_0/Reentrant
     RteBswModuleInstance_canif:
       DefinitionRef: RteBswModuleInstance
       RteBswImplementationRef: /BSWScheduler/BswImplementations/bswImplementation2
-      RteBswExclusiveAreaImpl_exclusiveArea3:
+      RteBswExclusiveAreaImpl_exclusiveArea4:
         DefinitionRef: RteBswExclusiveAreaImpl
-        RteExclusiveAreaImplMechanism: ALL_INTERRUPT_BLOCKING
-        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/CANIF_REENTRANT0
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant_0
+      RteBswExclusiveAreaImpl_exclusiveArea5:
+        DefinitionRef: RteBswExclusiveAreaImpl
+        RteExclusiveAreaImplMechanism: OS_RESOURCE
+        RteBswExclusiveAreaOsResourceRef: /Ecuc/Os/CANIF_REENTRANT1
+        RteBswExclusiveAreaRef: /BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant_1

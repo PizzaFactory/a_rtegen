@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -61,6 +61,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl#getIsNoneExclude <em>Is None Exclude</em>}</li>
  * </ul>
  * </p>
  *
@@ -76,6 +77,25 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 	 * @ordered
 	 */
 	protected ExcludeOperation operation;
+
+	/**
+	 * The default value of the '{@link #getIsNoneExclude() <em>Is None Exclude</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoneExclude()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean IS_NONE_EXCLUDE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getIsNoneExclude() <em>Is None Exclude</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIsNoneExclude()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean isNoneExclude = IS_NONE_EXCLUDE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -144,6 +164,27 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getIsNoneExclude() {
+		return isNoneExclude;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsNoneExclude(Boolean newIsNoneExclude) {
+		Boolean oldIsNoneExclude = isNoneExclude;
+		isNoneExclude = newIsNoneExclude;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.SCHM_EXIT_API__IS_NONE_EXCLUDE, oldIsNoneExclude, isNoneExclude));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -163,6 +204,8 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 		switch (featureID) {
 			case ModulePackage.SCHM_EXIT_API__OPERATION:
 				return getOperation();
+			case ModulePackage.SCHM_EXIT_API__IS_NONE_EXCLUDE:
+				return getIsNoneExclude();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,6 +220,9 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 		switch (featureID) {
 			case ModulePackage.SCHM_EXIT_API__OPERATION:
 				setOperation((ExcludeOperation)newValue);
+				return;
+			case ModulePackage.SCHM_EXIT_API__IS_NONE_EXCLUDE:
+				setIsNoneExclude((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,6 +239,9 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 			case ModulePackage.SCHM_EXIT_API__OPERATION:
 				setOperation((ExcludeOperation)null);
 				return;
+			case ModulePackage.SCHM_EXIT_API__IS_NONE_EXCLUDE:
+				setIsNoneExclude(IS_NONE_EXCLUDE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -207,8 +256,26 @@ public class SchmExitApiImpl extends SchmApiImpl implements SchmExitApi {
 		switch (featureID) {
 			case ModulePackage.SCHM_EXIT_API__OPERATION:
 				return operation != null;
+			case ModulePackage.SCHM_EXIT_API__IS_NONE_EXCLUDE:
+				return IS_NONE_EXCLUDE_EDEFAULT == null ? isNoneExclude != null : !IS_NONE_EXCLUDE_EDEFAULT.equals(isNoneExclude);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (isNoneExclude: ");
+		result.append(isNoneExclude);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SchmExitApiImpl

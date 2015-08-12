@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -52,11 +52,28 @@ import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.OptionHandlerFilter;
 import org.kohsuke.args4j.spi.OptionHandler;
 
+/**
+ *　{@link CmdLineParser}に関するユーティリティ機能を提供する。
+ */
 public class CmdLineParserUtils { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
-	public static void printSingleLineUsage(CmdLineParser parser, OutputStream w) {
-		printSingleLineUsage(parser, new OutputStreamWriter(w), null);
+
+	/**
+	 * <p>1行フォーマットのUsageを出力する。</p>
+	 * <p>NOTE {@link CmdLineParser#printSingleLineUsage(OutputStream)}がhidden属性をサポートしないため、hidden属性をサポートするユーティリティメソッドを用意している。</p>
+	 * @param parser コマンドラインパーサ
+	 * @param out 出力対象の{@link OutputStream}
+	 */
+	public static void printSingleLineUsage(CmdLineParser parser, OutputStream out) {
+		printSingleLineUsage(parser, new OutputStreamWriter(out), null);
 	}
 
+	/**
+	 * <p>1行フォーマットのUsageを出力する。</p>
+	 * <p>NOTE {@link CmdLineParser#printSingleLineUsage(Writer, ResourceBundle)}がhidden属性をサポートしないため、hidden属性をサポートするユーティリティメソッドを用意している。</p>
+	 * @param parser コマンドラインパーサ
+	 * @param w 表示対象の{@link Writer}
+	 * @param rb ローカライズ用の{@link ResourceBundle}
+	 */
 	public static void printSingleLineUsage(CmdLineParser parser, Writer w, ResourceBundle rb) {
 		PrintWriter pw = new PrintWriter(w);
 		for (OptionHandler<?> h : parser.getArguments()) {

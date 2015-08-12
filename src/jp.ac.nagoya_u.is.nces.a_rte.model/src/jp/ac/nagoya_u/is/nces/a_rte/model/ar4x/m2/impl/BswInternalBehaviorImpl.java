@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,8 +48,11 @@ import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import org.eclipse.emf.common.notify.Notification;
@@ -57,9 +60,12 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -71,17 +77,30 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getDataTypeMapping <em>Data Type Mapping</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getExclusiveArea <em>Exclusive Area</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getEntity <em>Entity</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getEvent <em>Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getImplementation <em>Implementation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getModeSenderPolicy <em>Mode Sender Policy</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswInternalBehaviorImpl#getBswSchedulableEntity <em>Bsw Schedulable Entity</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInternalBehavior {
+	/**
+	 * The cached value of the '{@link #getDataTypeMapping() <em>Data Type Mapping</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataTypeMapping()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataTypeMappingSet> dataTypeMapping;
+
 	/**
 	 * The cached value of the '{@link #getExclusiveArea() <em>Exclusive Area</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -123,6 +142,26 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	protected EList<BswImplementation> implementation;
 
 	/**
+	 * The cached value of the '{@link #getModeSenderPolicy() <em>Mode Sender Policy</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeSenderPolicy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<BswModeSenderPolicy> modeSenderPolicy;
+
+	/**
+	 * The cached setting delegate for the '{@link #getBswSchedulableEntity() <em>Bsw Schedulable Entity</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBswSchedulableEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EStructuralFeature.Internal.SettingDelegate BSW_SCHEDULABLE_ENTITY__ESETTING_DELEGATE = ((EStructuralFeature.Internal)M2Package.Literals.BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY).getSettingDelegate();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -139,6 +178,18 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	@Override
 	protected EClass eStaticClass() {
 		return M2Package.Literals.BSW_INTERNAL_BEHAVIOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DataTypeMappingSet> getDataTypeMapping() {
+		if (dataTypeMapping == null) {
+			dataTypeMapping = new EObjectResolvingEList<DataTypeMappingSet>(DataTypeMappingSet.class, this, M2Package.BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING);
+		}
+		return dataTypeMapping;
 	}
 
 	/**
@@ -235,6 +286,28 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<BswModeSenderPolicy> getModeSenderPolicy() {
+		if (modeSenderPolicy == null) {
+			modeSenderPolicy = new EObjectContainmentEList<BswModeSenderPolicy>(BswModeSenderPolicy.class, this, M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY);
+		}
+		return modeSenderPolicy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<BswSchedulableEntity> getBswSchedulableEntity() {
+		return (EList<BswSchedulableEntity>)BSW_SCHEDULABLE_ENTITY__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -273,6 +346,8 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 				return ((InternalEList<?>)getEvent()).basicRemove(otherEnd, msgs);
 			case M2Package.BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION:
 				return ((InternalEList<?>)getImplementation()).basicRemove(otherEnd, msgs);
+			case M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY:
+				return ((InternalEList<?>)getModeSenderPolicy()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -299,6 +374,8 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case M2Package.BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				return getDataTypeMapping();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				return getExclusiveArea();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__PARENT:
@@ -309,6 +386,10 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 				return getEvent();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION:
 				return getImplementation();
+			case M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY:
+				return getModeSenderPolicy();
+			case M2Package.BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY:
+				return getBswSchedulableEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -322,6 +403,10 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case M2Package.BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				getDataTypeMapping().clear();
+				getDataTypeMapping().addAll((Collection<? extends DataTypeMappingSet>)newValue);
+				return;
 			case M2Package.BSW_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				getExclusiveArea().clear();
 				getExclusiveArea().addAll((Collection<? extends ExclusiveArea>)newValue);
@@ -341,6 +426,10 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 				getImplementation().clear();
 				getImplementation().addAll((Collection<? extends BswImplementation>)newValue);
 				return;
+			case M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY:
+				getModeSenderPolicy().clear();
+				getModeSenderPolicy().addAll((Collection<? extends BswModeSenderPolicy>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -353,6 +442,9 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case M2Package.BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				getDataTypeMapping().clear();
+				return;
 			case M2Package.BSW_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				getExclusiveArea().clear();
 				return;
@@ -368,6 +460,9 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 			case M2Package.BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION:
 				getImplementation().clear();
 				return;
+			case M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY:
+				getModeSenderPolicy().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -380,6 +475,8 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case M2Package.BSW_INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING:
+				return dataTypeMapping != null && !dataTypeMapping.isEmpty();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__EXCLUSIVE_AREA:
 				return exclusiveArea != null && !exclusiveArea.isEmpty();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__PARENT:
@@ -390,6 +487,10 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 				return event != null && !event.isEmpty();
 			case M2Package.BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION:
 				return implementation != null && !implementation.isEmpty();
+			case M2Package.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY:
+				return modeSenderPolicy != null && !modeSenderPolicy.isEmpty();
+			case M2Package.BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY:
+				return BSW_SCHEDULABLE_ENTITY__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
 		}
 		return super.eIsSet(featureID);
 	}

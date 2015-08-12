@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,6 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 
@@ -62,6 +63,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendImplementationImpl#getComSignal <em>Com Signal</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ComSendImplementationImpl#getComSignalGroup <em>Com Signal Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +79,16 @@ public abstract class ComSendImplementationImpl extends SendImplementationImpl i
 	 * @ordered
 	 */
 	protected ComSignal comSignal;
+
+	/**
+	 * The cached value of the '{@link #getComSignalGroup() <em>Com Signal Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSignalGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected ComSignalGroup comSignalGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,12 +152,53 @@ public abstract class ComSendImplementationImpl extends SendImplementationImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ComSignalGroup getComSignalGroup() {
+		if (comSignalGroup != null && ((EObject)comSignalGroup).eIsProxy()) {
+			InternalEObject oldComSignalGroup = (InternalEObject)comSignalGroup;
+			comSignalGroup = (ComSignalGroup)eResolveProxy(oldComSignalGroup);
+			if (comSignalGroup != oldComSignalGroup) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP, oldComSignalGroup, comSignalGroup));
+			}
+		}
+		return comSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalGroup basicGetComSignalGroup() {
+		return comSignalGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComSignalGroup(ComSignalGroup newComSignalGroup) {
+		ComSignalGroup oldComSignalGroup = comSignalGroup;
+		comSignalGroup = newComSignalGroup;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP, oldComSignalGroup, comSignalGroup));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL:
 				if (resolve) return getComSignal();
 				return basicGetComSignal();
+			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP:
+				if (resolve) return getComSignalGroup();
+				return basicGetComSignalGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +213,9 @@ public abstract class ComSendImplementationImpl extends SendImplementationImpl i
 		switch (featureID) {
 			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL:
 				setComSignal((ComSignal)newValue);
+				return;
+			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP:
+				setComSignalGroup((ComSignalGroup)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +232,9 @@ public abstract class ComSendImplementationImpl extends SendImplementationImpl i
 			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL:
 				setComSignal((ComSignal)null);
 				return;
+			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP:
+				setComSignalGroup((ComSignalGroup)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,6 +249,8 @@ public abstract class ComSendImplementationImpl extends SendImplementationImpl i
 		switch (featureID) {
 			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL:
 				return comSignal != null;
+			case InteractionPackage.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP:
+				return comSignalGroup != null;
 		}
 		return super.eIsSet(featureID);
 	}

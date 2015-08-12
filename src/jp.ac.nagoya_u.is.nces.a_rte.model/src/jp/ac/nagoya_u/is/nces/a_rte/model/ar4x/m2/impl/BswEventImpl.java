@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -51,16 +51,15 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -75,6 +74,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl#getStartsOnEvent <em>Starts On Event</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl#getConfig <em>Config</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.BswEventImpl#getDisabledInMode <em>Disabled In Mode</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,6 +100,16 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 	 * @ordered
 	 */
 	protected EList<RteBswEventToTaskMapping> config;
+
+	/**
+	 * The cached value of the '{@link #getDisabledInMode() <em>Disabled In Mode</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDisabledInMode()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeInBswModuleDescriptionInstanceRef> disabledInMode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,6 +248,18 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ModeInBswModuleDescriptionInstanceRef> getDisabledInMode() {
+		if (disabledInMode == null) {
+			disabledInMode = new EObjectContainmentEList<ModeInBswModuleDescriptionInstanceRef>(ModeInBswModuleDescriptionInstanceRef.class, this, M2Package.BSW_EVENT__DISABLED_IN_MODE);
+		}
+		return disabledInMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -270,6 +292,8 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 				return ((InternalEList<?>)getConfig()).basicRemove(otherEnd, msgs);
 			case M2Package.BSW_EVENT__PARENT:
 				return basicSetParent(null, msgs);
+			case M2Package.BSW_EVENT__DISABLED_IN_MODE:
+				return ((InternalEList<?>)getDisabledInMode()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -303,6 +327,8 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 				return getConfig();
 			case M2Package.BSW_EVENT__PARENT:
 				return getParent();
+			case M2Package.BSW_EVENT__DISABLED_IN_MODE:
+				return getDisabledInMode();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -326,6 +352,10 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 			case M2Package.BSW_EVENT__PARENT:
 				setParent((BswInternalBehavior)newValue);
 				return;
+			case M2Package.BSW_EVENT__DISABLED_IN_MODE:
+				getDisabledInMode().clear();
+				getDisabledInMode().addAll((Collection<? extends ModeInBswModuleDescriptionInstanceRef>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -347,6 +377,9 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 			case M2Package.BSW_EVENT__PARENT:
 				setParent((BswInternalBehavior)null);
 				return;
+			case M2Package.BSW_EVENT__DISABLED_IN_MODE:
+				getDisabledInMode().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -365,6 +398,8 @@ public abstract class BswEventImpl extends IdentifiableImpl implements BswEvent 
 				return config != null && !config.isEmpty();
 			case M2Package.BSW_EVENT__PARENT:
 				return getParent() != null;
+			case M2Package.BSW_EVENT__DISABLED_IN_MODE:
+				return disabledInMode != null && !disabledInMode.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -113,24 +113,6 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RPortPrototype basicGetContextRPort() {
-		return (RPortPrototype)CONTEXT_RPORT__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setContextRPort(RPortPrototype newContextRPort) {
-		CONTEXT_RPORT__ESETTING_DELEGATE.dynamicSet(this, null, 0, newContextRPort);
-	}
-
-	/**
 	 * The cached invocation delegate for the '{@link #isFilterEnabled() <em>Is Filter Enabled</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -145,7 +127,7 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isFilterEnabled() {
+	public boolean isFilterEnabled() {
 		try {
 			return (Boolean)IS_FILTER_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -193,7 +175,7 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isAliveTimeoutEnabled() {
+	public boolean isAliveTimeoutEnabled() {
 		try {
 			return (Boolean)IS_ALIVE_TIMEOUT_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -217,7 +199,7 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean isInvalidationEnabled() {
+	public boolean isInvalidationEnabled() {
 		try {
 			return (Boolean)IS_INVALIDATION_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
@@ -331,40 +313,9 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT:
-				if (resolve) return getContextRPort();
-				return basicGetContextRPort();
+				return getContextRPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT:
-				setContextRPort((RPortPrototype)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT:
-				setContextRPort((RPortPrototype)null);
-				return;
-		}
-		super.eUnset(featureID);
 	}
 
 	/**

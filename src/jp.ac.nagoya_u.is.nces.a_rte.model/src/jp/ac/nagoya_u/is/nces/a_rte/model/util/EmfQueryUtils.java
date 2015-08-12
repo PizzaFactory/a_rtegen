@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	 * @return 見つかったオブジェクト．
 	 */
 	public static <T extends EObject> Optional<T> tryFindSingle(EObject eObject, EObjectCondition eCondition) {
-		return getOptionalSingleObject(find(eObject, eCondition));
+		return tryGetSingleObject(find(eObject, eCondition));
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	 * @return 見つかったオブジェクト．
 	 */
 	public static <T extends EObject> Optional<T> tryFindSingle(Resource eResource, EObjectCondition eCondition) {
-		return getOptionalSingleObject(find(eResource, eCondition));
+		return tryGetSingleObject(find(eResource, eCondition));
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	 * @return 選択されたオブジェクト．
 	 */
 	public static <F extends EObject, T extends F> Optional<T> trySelectSingle(Collection<F> eObjects, EObjectCondition eCondition) {
-		return getOptionalSingleObject(select(eObjects, eCondition));
+		return tryGetSingleObject(select(eObjects, eCondition));
 	}
 
 	/**
@@ -208,10 +208,17 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	}
 
 	@SuppressWarnings("unchecked")
-	private static <T> Optional<T> getOptionalSingleObject(Collection<?> result) {
+	private static <T> Optional<T> tryGetSingleObject(Collection<?> result) {
 		return result.isEmpty() ? Optional.<T> absent() : Optional.of((T) result.iterator().next());
 	}
 
+	/**
+	 * リソース内に存在する全オブジェクトから、指定したIDを持つオブジェクトを検索する。
+	 * @param eResource 検索対象の{@link Resource}
+	 * @param id 検索対象のオブジェクトのID
+	 * @return 指定したIDを持つオブジェクト
+	 * @throws ModelException オブジェクトが見つからない場合
+	 */
 	@SuppressWarnings("unchecked")
 	public static <T extends EObject> T findByID(Resource eResource, String id) throws ModelException {
 		EObject eObject = eResource.getEObject(id);

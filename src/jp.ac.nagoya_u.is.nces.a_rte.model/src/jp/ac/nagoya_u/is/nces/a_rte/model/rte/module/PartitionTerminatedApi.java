@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -53,7 +53,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,28 +64,28 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 public interface PartitionTerminatedApi extends RteLifecycleApi {
 
 	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sr Inter Partition Timeout Operation</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operation</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Sr Inter Partition Timeout Operation</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference.
-	 * @see #setOperation(InterPartitionTimeoutOperation)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartitionTerminatedApi_Operation()
+	 * @return the value of the '<em>Sr Inter Partition Timeout Operation</em>' containment reference.
+	 * @see #setSrInterPartitionTimeoutOperation(InterPartitionTimeoutOperation)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getPartitionTerminatedApi_SrInterPartitionTimeoutOperation()
 	 * @model containment="true"
 	 * @generated
 	 */
-	InterPartitionTimeoutOperation getOperation();
+	InterPartitionTimeoutOperation getSrInterPartitionTimeoutOperation();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getOperation <em>Operation</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Operation</em>' containment reference.
-	 * @see #getOperation()
+	 * @param value the new value of the '<em>Sr Inter Partition Timeout Operation</em>' containment reference.
+	 * @see #getSrInterPartitionTimeoutOperation()
 	 * @generated
 	 */
-	void setOperation(InterPartitionTimeoutOperation value);
+	void setSrInterPartitionTimeoutOperation(InterPartitionTimeoutOperation value);
 } // PartitionTerminated

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwDataDefProps <em>Sw Data Def Props</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAddrMethod <em>Sw Addr Method</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAlignment <em>Sw Alignment</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,23 +100,12 @@ public interface DataPrototype extends Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #setSwAddrMethod(SwAddrMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataPrototype_SwAddrMethod()
-	 * @model transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAddrMethod\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	SwAddrMethod getSwAddrMethod();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAddrMethod <em>Sw Addr Method</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Addr Method</em>' reference.
-	 * @see #getSwAddrMethod()
-	 * @generated
-	 */
-	void setSwAddrMethod(SwAddrMethod value);
 
 	/**
 	 * Returns the value of the '<em><b>Sw Alignment</b></em>' attribute.
@@ -126,23 +116,39 @@ public interface DataPrototype extends Identifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #setSwAlignment(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataPrototype_SwAlignment()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" volatile="true" derived="true"
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.swAlignment.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.swAlignment\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	String getSwAlignment();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getSwAlignment <em>Sw Alignment</em>}' attribute.
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sw Alignment</em>' attribute.
-	 * @see #getSwAlignment()
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see #setType(AutosarDataType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataPrototype_Type()
+	 * @model required="true"
+	 *        annotation="stereotypes isOfType='true'"
 	 * @generated
 	 */
-	void setSwAlignment(String value);
+	AutosarDataType getType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataPrototype#getType <em>Type</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' reference.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(AutosarDataType value);
 
 	/**
 	 * <!-- begin-user-doc -->

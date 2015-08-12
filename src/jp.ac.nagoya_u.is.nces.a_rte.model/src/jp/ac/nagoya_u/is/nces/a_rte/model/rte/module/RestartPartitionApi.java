@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,8 +55,6 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getEReference0 <em>EReference0</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getEReference1 <em>EReference1</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
@@ -66,58 +64,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface RestartPartitionApi extends RteLifecycleApi {
-
-	/**
-	 * Returns the value of the '<em><b>EReference0</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EReference0</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference0</em>' reference.
-	 * @see #setEReference0(GlobalVariable)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRestartPartitionApi_EReference0()
-	 * @model
-	 * @generated
-	 */
-	GlobalVariable getEReference0();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getEReference0 <em>EReference0</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EReference0</em>' reference.
-	 * @see #getEReference0()
-	 * @generated
-	 */
-	void setEReference0(GlobalVariable value);
-
-	/**
-	 * Returns the value of the '<em><b>EReference1</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>EReference1</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>EReference1</em>' reference.
-	 * @see #setEReference1(IocApi)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRestartPartitionApi_EReference1()
-	 * @model
-	 * @generated
-	 */
-	IocApi getEReference1();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getEReference1 <em>EReference1</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>EReference1</em>' reference.
-	 * @see #getEReference1()
-	 * @generated
-	 */
-	void setEReference1(IocApi value);
 
 	/**
 	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.

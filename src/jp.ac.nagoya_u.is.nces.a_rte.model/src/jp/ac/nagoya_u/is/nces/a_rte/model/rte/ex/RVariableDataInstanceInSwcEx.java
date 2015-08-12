@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -65,11 +65,11 @@ public interface RVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * フィルタバッファを必要とするか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='requiresFilterOldValueVariable(this_) or requiresFilterOccurrenceVariable(this_)'"
 	 * @generated
 	 */
-	Boolean requiresFilterVariable(RVariableDataInstanceInSwc this_);
+	boolean requiresFilterVariable(RVariableDataInstanceInSwc this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -77,11 +77,11 @@ public interface RVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * フィルタ過去値バッファを必要とするか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::maskedNewDiffersMaskedOld'"
 	 * @generated
 	 */
-	Boolean requiresFilterOldValueVariable(RVariableDataInstanceInSwc this_);
+	boolean requiresFilterOldValueVariable(RVariableDataInstanceInSwc this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,11 +89,11 @@ public interface RVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * フィルタ過去値バッファを必要とするか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::oneEveryN'"
 	 * @generated
 	 */
-	Boolean requiresFilterOccurrenceVariable(RVariableDataInstanceInSwc this_);
+	boolean requiresFilterOccurrenceVariable(RVariableDataInstanceInSwc this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,11 +101,11 @@ public interface RVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * Read APIを提供するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)'"
 	 * @generated
 	 */
-	Boolean providesReadApi(RVariableDataInstanceInSwc this_);
+	boolean providesReadApi(RVariableDataInstanceInSwc this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,10 +113,10 @@ public interface RVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * Receive APIを提供するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)'"
 	 * @generated
 	 */
-	Boolean providesReceiveApi(RVariableDataInstanceInSwc this_);
+	boolean providesReceiveApi(RVariableDataInstanceInSwc this_);
 
 } // RVariableDataInstanceInSwcEx

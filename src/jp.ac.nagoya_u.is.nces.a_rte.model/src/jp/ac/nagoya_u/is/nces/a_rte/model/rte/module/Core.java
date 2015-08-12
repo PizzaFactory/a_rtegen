@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,10 +55,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getPartition <em>Partition</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteStartApi <em>Rte Start Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getCoreId <em>Core Id</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getIsMasterCore <em>Is Master Core</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi <em>Schm Init Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteCoreStartApiImpl <em>Rte Core Start Api Impl</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,34 +84,6 @@ public interface Core extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<Partition> getPartition();
-
-	/**
-	 * Returns the value of the '<em><b>Rte Start Api</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rte Start Api</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Start Api</em>' containment reference.
-	 * @see #setRteStartApi(RteCoreStartApiImpl)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCore_RteStartApi()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl#getParent
-	 * @model opposite="parent" containment="true" required="true"
-	 * @generated
-	 */
-	RteCoreStartApiImpl getRteStartApi();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteStartApi <em>Rte Start Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rte Start Api</em>' containment reference.
-	 * @see #getRteStartApi()
-	 * @generated
-	 */
-	void setRteStartApi(RteCoreStartApiImpl value);
 
 	/**
 	 * Returns the value of the '<em><b>Core Id</b></em>' attribute.
@@ -166,31 +138,59 @@ public interface Core extends LogicalCompartment {
 	void setIsMasterCore(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Schm Init Api</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getParent <em>Parent</em>}'.
+	 * Returns the value of the '<em><b>Rte Core Start Api Impl</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Schm Init Api</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Rte Core Start Api Impl</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schm Init Api</em>' containment reference.
-	 * @see #setSchmInitApi(SchmCoreInitApiImpl)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCore_SchmInitApi()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getParent
-	 * @model opposite="parent" containment="true" required="true"
+	 * @return the value of the '<em>Rte Core Start Api Impl</em>' containment reference.
+	 * @see #setRteCoreStartApiImpl(RteCoreStartApiImpl)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCore_RteCoreStartApiImpl()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl#getParent
+	 * @model opposite="parent" containment="true"
 	 * @generated
 	 */
-	SchmCoreInitApiImpl getSchmInitApi();
+	RteCoreStartApiImpl getRteCoreStartApiImpl();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi <em>Schm Init Api</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getRteCoreStartApiImpl <em>Rte Core Start Api Impl</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Schm Init Api</em>' containment reference.
-	 * @see #getSchmInitApi()
+	 * @param value the new value of the '<em>Rte Core Start Api Impl</em>' containment reference.
+	 * @see #getRteCoreStartApiImpl()
 	 * @generated
 	 */
-	void setSchmInitApi(SchmCoreInitApiImpl value);
+	void setRteCoreStartApiImpl(RteCoreStartApiImpl value);
+
+	/**
+	 * Returns the value of the '<em><b>Schm Core Init Api Impl</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Schm Core Init Api Impl</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Schm Core Init Api Impl</em>' containment reference.
+	 * @see #setSchmCoreInitApiImpl(SchmCoreInitApiImpl)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getCore_SchmCoreInitApiImpl()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	SchmCoreInitApiImpl getSchmCoreInitApiImpl();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Schm Core Init Api Impl</em>' containment reference.
+	 * @see #getSchmCoreInitApiImpl()
+	 * @generated
+	 */
+	void setSchmCoreInitApiImpl(SchmCoreInitApiImpl value);
 
 } // Core

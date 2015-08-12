@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -395,13 +395,22 @@ public interface EcucPackage extends EPackage {
 	int RTE__RTE_GENERATION = ECUC_MODULE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Rte Bsw General</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE__RTE_BSW_GENERAL = ECUC_MODULE_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Rte Sw Component Instance</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_SW_COMPONENT_INSTANCE = ECUC_MODULE_FEATURE_COUNT + 1;
+	int RTE__RTE_SW_COMPONENT_INSTANCE = ECUC_MODULE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Rte Os Interaction</b></em>' containment reference list.
@@ -410,7 +419,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_OS_INTERACTION = ECUC_MODULE_FEATURE_COUNT + 2;
+	int RTE__RTE_OS_INTERACTION = ECUC_MODULE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Rte Initialization Behavior</b></em>' containment reference list.
@@ -419,7 +428,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_INITIALIZATION_BEHAVIOR = ECUC_MODULE_FEATURE_COUNT + 3;
+	int RTE__RTE_INITIALIZATION_BEHAVIOR = ECUC_MODULE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Rte Bsw Module Instance</b></em>' containment reference list.
@@ -428,7 +437,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_BSW_MODULE_INSTANCE = ECUC_MODULE_FEATURE_COUNT + 4;
+	int RTE__RTE_BSW_MODULE_INSTANCE = ECUC_MODULE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Rte</em>' class.
@@ -437,7 +446,7 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_FEATURE_COUNT = ECUC_MODULE_FEATURE_COUNT + 5;
+	int RTE_FEATURE_COUNT = ECUC_MODULE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Rte</em>' class.
@@ -513,6 +522,79 @@ public interface EcucPackage extends EPackage {
 	int RTE_GENERATION_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswGeneralImpl <em>Rte Bsw General</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswGeneralImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswGeneral()
+	 * @generated
+	 */
+	int RTE_BSW_GENERAL = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL__ID = ECUC_CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL__SHORT_NAME = ECUC_CONTAINER__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL__REFERENCE = ECUC_CONTAINER__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL__SOURCE = ECUC_CONTAINER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Rte Use Com Shadow Signal Api</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL__RTE_USE_COM_SHADOW_SIGNAL_API = ECUC_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Rte Bsw General</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Rte Bsw General</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_GENERAL_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucRootImpl <em>Root</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -520,7 +602,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucRoot()
 	 * @generated
 	 */
-	int ECUC_ROOT = 6;
+	int ECUC_ROOT = 7;
 
 	/**
 	 * The feature id for the '<em><b>Rte</b></em>' containment reference.
@@ -584,7 +666,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteSwComponentInstance()
 	 * @generated
 	 */
-	int RTE_SW_COMPONENT_INSTANCE = 7;
+	int RTE_SW_COMPONENT_INSTANCE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -675,7 +757,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteEventToTaskMapping()
 	 * @generated
 	 */
-	int RTE_EVENT_TO_TASK_MAPPING = 8;
+	int RTE_EVENT_TO_TASK_MAPPING = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -793,7 +875,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOs()
 	 * @generated
 	 */
-	int OS = 9;
+	int OS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -938,7 +1020,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsTask()
 	 * @generated
 	 */
-	int OS_TASK = 10;
+	int OS_TASK = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1074,7 +1156,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteExclusiveAreaImplementation()
 	 * @generated
 	 */
-	int RTE_EXCLUSIVE_AREA_IMPLEMENTATION = 11;
+	int RTE_EXCLUSIVE_AREA_IMPLEMENTATION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1174,7 +1256,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsEvent()
 	 * @generated
 	 */
-	int OS_EVENT = 12;
+	int OS_EVENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1247,7 +1329,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getCom()
 	 * @generated
 	 */
-	int COM = 13;
+	int COM = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1329,7 +1411,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComConfig()
 	 * @generated
 	 */
-	int COM_CONFIG = 14;
+	int COM_CONFIG = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1377,13 +1459,22 @@ public interface EcucPackage extends EPackage {
 	int COM_CONFIG__COM_SIGNAL = ECUC_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Com Signal Group</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_CONFIG__COM_SIGNAL_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Com Config</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_CONFIG_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 1;
+	int COM_CONFIG_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Com Config</em>' class.
@@ -1402,7 +1493,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComSignal()
 	 * @generated
 	 */
-	int COM_SIGNAL = 15;
+	int COM_SIGNAL = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1495,6 +1586,197 @@ public interface EcucPackage extends EPackage {
 	int COM_SIGNAL_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComSignalGroupImpl <em>Com Signal Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComSignalGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComSignalGroup()
+	 * @generated
+	 */
+	int COM_SIGNAL_GROUP = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__ID = ECUC_CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__SHORT_NAME = ECUC_CONTAINER__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__REFERENCE = ECUC_CONTAINER__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__SOURCE = ECUC_CONTAINER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Com Group Signal</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__COM_GROUP_SIGNAL = ECUC_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Com System Template Signal Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__COM_SYSTEM_TEMPLATE_SIGNAL_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Com Handle Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__COM_HANDLE_ID = ECUC_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Com Transfer Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP__COM_TRANSFER_PROPERTY = ECUC_CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Com Signal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Transfers Immediately</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP___TRANSFERS_IMMEDIATELY = ECUC_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Com Signal Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SIGNAL_GROUP_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComGroupSignalImpl <em>Com Group Signal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComGroupSignalImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComGroupSignal()
+	 * @generated
+	 */
+	int COM_GROUP_SIGNAL = 18;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__ID = ECUC_CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__SHORT_NAME = ECUC_CONTAINER__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__REFERENCE = ECUC_CONTAINER__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__SOURCE = ECUC_CONTAINER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Com System Template System Signal</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__COM_SYSTEM_TEMPLATE_SYSTEM_SIGNAL = ECUC_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Com Handle Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL__COM_HANDLE_ID = ECUC_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Com Group Signal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Com Group Signal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_GROUP_SIGNAL_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.OsAlarmImpl <em>Os Alarm</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1502,7 +1784,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsAlarm()
 	 * @generated
 	 */
-	int OS_ALARM = 16;
+	int OS_ALARM = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1575,7 +1857,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsResource()
 	 * @generated
 	 */
-	int OS_RESOURCE = 17;
+	int OS_RESOURCE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1639,7 +1921,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsApplication()
 	 * @generated
 	 */
-	int OS_APPLICATION = 18;
+	int OS_APPLICATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1748,7 +2030,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcuC()
 	 * @generated
 	 */
-	int ECU_C = 19;
+	int ECU_C = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1830,7 +2112,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucPartitionCollection()
 	 * @generated
 	 */
-	int ECUC_PARTITION_COLLECTION = 20;
+	int ECUC_PARTITION_COLLECTION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1912,7 +2194,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucPartition()
 	 * @generated
 	 */
-	int ECUC_PARTITION = 21;
+	int ECUC_PARTITION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2030,7 +2312,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsSpinlock()
 	 * @generated
 	 */
-	int OS_SPINLOCK = 22;
+	int OS_SPINLOCK = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2112,7 +2394,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteOsInteraction()
 	 * @generated
 	 */
-	int RTE_OS_INTERACTION = 23;
+	int RTE_OS_INTERACTION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2185,7 +2467,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteUsedOsActivation()
 	 * @generated
 	 */
-	int RTE_USED_OS_ACTIVATION = 24;
+	int RTE_USED_OS_ACTIVATION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2276,7 +2558,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteInitializationBehavior()
 	 * @generated
 	 */
-	int RTE_INITIALIZATION_BEHAVIOR = 25;
+	int RTE_INITIALIZATION_BEHAVIOR = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2358,7 +2640,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIoc()
 	 * @generated
 	 */
-	int OS_IOC = 26;
+	int OS_IOC = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2431,7 +2713,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocCommunication()
 	 * @generated
 	 */
-	int OS_IOC_COMMUNICATION = 27;
+	int OS_IOC_COMMUNICATION = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2540,7 +2822,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocSenderProperties()
 	 * @generated
 	 */
-	int OS_IOC_SENDER_PROPERTIES = 28;
+	int OS_IOC_SENDER_PROPERTIES = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2631,7 +2913,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocReceiverProperties()
 	 * @generated
 	 */
-	int OS_IOC_RECEIVER_PROPERTIES = 29;
+	int OS_IOC_RECEIVER_PROPERTIES = 32;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2704,7 +2986,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocDataProperties()
 	 * @generated
 	 */
-	int OS_IOC_DATA_PROPERTIES = 30;
+	int OS_IOC_DATA_PROPERTIES = 33;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2795,7 +3077,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsApplicationTrustedFunction()
 	 * @generated
 	 */
-	int OS_APPLICATION_TRUSTED_FUNCTION = 31;
+	int OS_APPLICATION_TRUSTED_FUNCTION = 34;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2877,7 +3159,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsOS()
 	 * @generated
 	 */
-	int OS_OS = 32;
+	int OS_OS = 35;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2968,7 +3250,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswEventToTaskMapping()
 	 * @generated
 	 */
-	int RTE_BSW_EVENT_TO_TASK_MAPPING = 33;
+	int RTE_BSW_EVENT_TO_TASK_MAPPING = 36;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3079,6 +3361,97 @@ public interface EcucPackage extends EPackage {
 	int RTE_BSW_EVENT_TO_TASK_MAPPING_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl <em>Rte Bsw Required Mode Group Connection</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = 37;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__ID = ECUC_CONTAINER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Short Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__SHORT_NAME = ECUC_CONTAINER__SHORT_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__REFERENCE = ECUC_CONTAINER__REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__SOURCE = ECUC_CONTAINER__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT = ECUC_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rte Bsw Provided Mode Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Rte Bsw Required Mode Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP = ECUC_CONTAINER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Rte Bsw Required Mode Group Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Rte Bsw Required Mode Group Connection</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION_OPERATION_COUNT = ECUC_CONTAINER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl <em>Rte Bsw Module Instance</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3086,7 +3459,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswModuleInstance()
 	 * @generated
 	 */
-	int RTE_BSW_MODULE_INSTANCE = 34;
+	int RTE_BSW_MODULE_INSTANCE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3152,13 +3525,22 @@ public interface EcucPackage extends EPackage {
 	int RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION = ECUC_CONTAINER_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Rte Bsw Required Mode Group Connection</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = ECUC_CONTAINER_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Rte Bsw Module Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_BSW_MODULE_INSTANCE_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 3;
+	int RTE_BSW_MODULE_INSTANCE_FEATURE_COUNT = ECUC_CONTAINER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Rte Bsw Module Instance</em>' class.
@@ -3177,7 +3559,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswExclusiveAreaImpl()
 	 * @generated
 	 */
-	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 35;
+	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3277,7 +3659,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsTaskScheduleEnum()
 	 * @generated
 	 */
-	int OS_TASK_SCHEDULE_ENUM = 36;
+	int OS_TASK_SCHEDULE_ENUM = 40;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum <em>Rte Exclusive Area Impl Mechanism Enum</em>}' enum.
@@ -3287,7 +3669,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteExclusiveAreaImplMechanismEnum()
 	 * @generated
 	 */
-	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 37;
+	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 41;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum <em>Com Transfer Property Enum</em>}' enum.
@@ -3297,7 +3679,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComTransferPropertyEnum()
 	 * @generated
 	 */
-	int COM_TRANSFER_PROPERTY_ENUM = 38;
+	int COM_TRANSFER_PROPERTY_ENUM = 42;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsSpinlockLockMethodEnum <em>Os Spinlock Lock Method Enum</em>}' enum.
@@ -3307,7 +3689,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsSpinlockLockMethodEnum()
 	 * @generated
 	 */
-	int OS_SPINLOCK_LOCK_METHOD_ENUM = 39;
+	int OS_SPINLOCK_LOCK_METHOD_ENUM = 43;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteInitializationStrategyEnum <em>Rte Initialization Strategy Enum</em>}' enum.
@@ -3317,7 +3699,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteInitializationStrategyEnum()
 	 * @generated
 	 */
-	int RTE_INITIALIZATION_STRATEGY_ENUM = 40;
+	int RTE_INITIALIZATION_STRATEGY_ENUM = 44;
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte <em>Rte</em>}'.
@@ -3339,6 +3721,17 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRte_RteGeneration();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte#getRteBswGeneral <em>Rte Bsw General</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Bsw General</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte#getRteBswGeneral()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_RteBswGeneral();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte#getRteSwComponentInstance <em>Rte Sw Component Instance</em>}'.
@@ -3393,6 +3786,27 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRteGeneration();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral <em>Rte Bsw General</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Bsw General</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral
+	 * @generated
+	 */
+	EClass getRteBswGeneral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral#getRteUseComShadowSignalApi <em>Rte Use Com Shadow Signal Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rte Use Com Shadow Signal Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswGeneral#getRteUseComShadowSignalApi()
+	 * @see #getRteBswGeneral()
+	 * @generated
+	 */
+	EAttribute getRteBswGeneral_RteUseComShadowSignalApi();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucObject <em>Object</em>}'.
@@ -3976,6 +4390,17 @@ public interface EcucPackage extends EPackage {
 	EReference getComConfig_ComSignal();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComConfig#getComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Com Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComConfig#getComSignalGroup()
+	 * @see #getComConfig()
+	 * @generated
+	 */
+	EReference getComConfig_ComSignalGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal <em>Com Signal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4027,6 +4452,102 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getComSignal__TransfersImmediately();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup <em>Com Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup
+	 * @generated
+	 */
+	EClass getComSignalGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComSystemTemplateSignalGroup <em>Com System Template Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com System Template Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComSystemTemplateSignalGroup()
+	 * @see #getComSignalGroup()
+	 * @generated
+	 */
+	EReference getComSignalGroup_ComSystemTemplateSignalGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComGroupSignal <em>Com Group Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Com Group Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComGroupSignal()
+	 * @see #getComSignalGroup()
+	 * @generated
+	 */
+	EReference getComSignalGroup_ComGroupSignal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComHandleId <em>Com Handle Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Com Handle Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComHandleId()
+	 * @see #getComSignalGroup()
+	 * @generated
+	 */
+	EAttribute getComSignalGroup_ComHandleId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComTransferProperty <em>Com Transfer Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Com Transfer Property</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#getComTransferProperty()
+	 * @see #getComSignalGroup()
+	 * @generated
+	 */
+	EAttribute getComSignalGroup_ComTransferProperty();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#transfersImmediately() <em>Transfers Immediately</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Transfers Immediately</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup#transfersImmediately()
+	 * @generated
+	 */
+	EOperation getComSignalGroup__TransfersImmediately();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal <em>Com Group Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Group Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal
+	 * @generated
+	 */
+	EClass getComGroupSignal();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal#getComSystemTemplateSystemSignal <em>Com System Template System Signal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Com System Template System Signal</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal#getComSystemTemplateSystemSignal()
+	 * @see #getComGroupSignal()
+	 * @generated
+	 */
+	EReference getComGroupSignal_ComSystemTemplateSystemSignal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal#getComHandleId <em>Com Handle Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Com Handle Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal#getComHandleId()
+	 * @see #getComGroupSignal()
+	 * @generated
+	 */
+	EAttribute getComGroupSignal_ComHandleId();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsAlarm <em>Os Alarm</em>}'.
@@ -4721,6 +5242,49 @@ public interface EcucPackage extends EPackage {
 	EReference getRteBswEventToTaskMapping_RteBswUsedOsEvent();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection <em>Rte Bsw Required Mode Group Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Bsw Required Mode Group Connection</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection
+	 * @generated
+	 */
+	EClass getRteBswRequiredModeGroupConnection();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent()
+	 * @see #getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 */
+	EReference getRteBswRequiredModeGroupConnection_Parent();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getRteBswProvidedModeGroup <em>Rte Bsw Provided Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rte Bsw Provided Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getRteBswProvidedModeGroup()
+	 * @see #getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 */
+	EReference getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getRteBswRequiredModeGroup <em>Rte Bsw Required Mode Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Rte Bsw Required Mode Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getRteBswRequiredModeGroup()
+	 * @see #getRteBswRequiredModeGroupConnection()
+	 * @generated
+	 */
+	EReference getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance <em>Rte Bsw Module Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4762,6 +5326,17 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRteBswModuleInstance_RteBswImplementation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance#getRteBswRequiredModeGroupConnection <em>Rte Bsw Required Mode Group Connection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Bsw Required Mode Group Connection</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance#getRteBswRequiredModeGroupConnection()
+	 * @see #getRteBswModuleInstance()
+	 * @generated
+	 */
+	EReference getRteBswModuleInstance_RteBswRequiredModeGroupConnection();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswExclusiveAreaImpl <em>Rte Bsw Exclusive Area Impl</em>}'.
@@ -4909,6 +5484,14 @@ public interface EcucPackage extends EPackage {
 		EReference RTE__RTE_GENERATION = eINSTANCE.getRte_RteGeneration();
 
 		/**
+		 * The meta object literal for the '<em><b>Rte Bsw General</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__RTE_BSW_GENERAL = eINSTANCE.getRte_RteBswGeneral();
+
+		/**
 		 * The meta object literal for the '<em><b>Rte Sw Component Instance</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4949,6 +5532,24 @@ public interface EcucPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RTE_GENERATION = eINSTANCE.getRteGeneration();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswGeneralImpl <em>Rte Bsw General</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswGeneralImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswGeneral()
+		 * @generated
+		 */
+		EClass RTE_BSW_GENERAL = eINSTANCE.getRteBswGeneral();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Use Com Shadow Signal Api</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_BSW_GENERAL__RTE_USE_COM_SHADOW_SIGNAL_API = eINSTANCE.getRteBswGeneral_RteUseComShadowSignalApi();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucObjectImpl <em>Object</em>}' class.
@@ -5409,6 +6010,14 @@ public interface EcucPackage extends EPackage {
 		EReference COM_CONFIG__COM_SIGNAL = eINSTANCE.getComConfig_ComSignal();
 
 		/**
+		 * The meta object literal for the '<em><b>Com Signal Group</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_CONFIG__COM_SIGNAL_GROUP = eINSTANCE.getComConfig_ComSignalGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComSignalImpl <em>Com Signal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5449,6 +6058,82 @@ public interface EcucPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation COM_SIGNAL___TRANSFERS_IMMEDIATELY = eINSTANCE.getComSignal__TransfersImmediately();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComSignalGroupImpl <em>Com Signal Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComSignalGroupImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComSignalGroup()
+		 * @generated
+		 */
+		EClass COM_SIGNAL_GROUP = eINSTANCE.getComSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Com System Template Signal Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SIGNAL_GROUP__COM_SYSTEM_TEMPLATE_SIGNAL_GROUP = eINSTANCE.getComSignalGroup_ComSystemTemplateSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Group Signal</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SIGNAL_GROUP__COM_GROUP_SIGNAL = eINSTANCE.getComSignalGroup_ComGroupSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Handle Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SIGNAL_GROUP__COM_HANDLE_ID = eINSTANCE.getComSignalGroup_ComHandleId();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Transfer Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SIGNAL_GROUP__COM_TRANSFER_PROPERTY = eINSTANCE.getComSignalGroup_ComTransferProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Transfers Immediately</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation COM_SIGNAL_GROUP___TRANSFERS_IMMEDIATELY = eINSTANCE.getComSignalGroup__TransfersImmediately();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComGroupSignalImpl <em>Com Group Signal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.ComGroupSignalImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComGroupSignal()
+		 * @generated
+		 */
+		EClass COM_GROUP_SIGNAL = eINSTANCE.getComGroupSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Com System Template System Signal</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_GROUP_SIGNAL__COM_SYSTEM_TEMPLATE_SYSTEM_SIGNAL = eINSTANCE.getComGroupSignal_ComSystemTemplateSystemSignal();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Handle Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_GROUP_SIGNAL__COM_HANDLE_ID = eINSTANCE.getComGroupSignal_ComHandleId();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.OsAlarmImpl <em>Os Alarm</em>}' class.
@@ -6007,6 +6692,40 @@ public interface EcucPackage extends EPackage {
 		EReference RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT = eINSTANCE.getRteBswEventToTaskMapping_RteBswUsedOsEvent();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl <em>Rte Bsw Required Mode Group Connection</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswRequiredModeGroupConnectionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupConnection()
+		 * @generated
+		 */
+		EClass RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = eINSTANCE.getRteBswRequiredModeGroupConnection();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT = eINSTANCE.getRteBswRequiredModeGroupConnection_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Bsw Provided Mode Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP = eINSTANCE.getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Bsw Required Mode Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP = eINSTANCE.getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswModuleInstanceImpl <em>Rte Bsw Module Instance</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6039,6 +6758,14 @@ public interface EcucPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RTE_BSW_MODULE_INSTANCE__RTE_BSW_IMPLEMENTATION = eINSTANCE.getRteBswModuleInstance_RteBswImplementation();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Bsw Required Mode Group Connection</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BSW_MODULE_INSTANCE__RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = eINSTANCE.getRteBswModuleInstance_RteBswRequiredModeGroupConnection();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteBswExclusiveAreaImplImpl <em>Rte Bsw Exclusive Area Impl</em>}' class.

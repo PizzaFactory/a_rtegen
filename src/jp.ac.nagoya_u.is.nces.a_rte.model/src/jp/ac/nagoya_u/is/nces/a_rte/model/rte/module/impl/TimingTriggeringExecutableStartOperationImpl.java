@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,23 +44,15 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
-import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,8 +61,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl#getExcludeOperation <em>Exclude Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl#getStartExecutable <em>Start Executable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl#getCyclePeriodConstant <em>Cycle Period Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl#getCycleOffsetConstant <em>Cycle Offset Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl#getStartOffsetConstant <em>Start Offset Constant</em>}</li>
@@ -81,27 +71,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl implements TimingTriggeringExecutableStartOperation {
-	/**
-	 * The cached value of the '{@link #getExcludeOperation() <em>Exclude Operation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExcludeOperation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ExcludeOperation> excludeOperation;
-
-	/**
-	 * The cached value of the '{@link #getStartExecutable() <em>Start Executable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStartExecutable()
-	 * @generated
-	 * @ordered
-	 */
-	protected ExecutableEntity startExecutable;
-
+public class TimingTriggeringExecutableStartOperationImpl extends ExecutableStartOperationImpl implements TimingTriggeringExecutableStartOperation {
 	/**
 	 * The cached value of the '{@link #getCyclePeriodConstant() <em>Cycle Period Constant</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -169,56 +139,6 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 	@Override
 	protected EClass eStaticClass() {
 		return ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ExcludeOperation> getExcludeOperation() {
-		if (excludeOperation == null) {
-			excludeOperation = new EObjectContainmentEList<ExcludeOperation>(ExcludeOperation.class, this, ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION);
-		}
-		return excludeOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExecutableEntity getStartExecutable() {
-		if (startExecutable != null && ((EObject)startExecutable).eIsProxy()) {
-			InternalEObject oldStartExecutable = (InternalEObject)startExecutable;
-			startExecutable = (ExecutableEntity)eResolveProxy(oldStartExecutable);
-			if (startExecutable != oldStartExecutable) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE, oldStartExecutable, startExecutable));
-			}
-		}
-		return startExecutable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExecutableEntity basicGetStartExecutable() {
-		return startExecutable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStartExecutable(ExecutableEntity newStartExecutable) {
-		ExecutableEntity oldStartExecutable = startExecutable;
-		startExecutable = newStartExecutable;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE, oldStartExecutable, startExecutable));
 	}
 
 	/**
@@ -417,27 +337,8 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return ((InternalEList<?>)getExcludeOperation()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return getExcludeOperation();
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE:
-				if (resolve) return getStartExecutable();
-				return basicGetStartExecutable();
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT:
 				if (resolve) return getCyclePeriodConstant();
 				return basicGetCyclePeriodConstant();
@@ -462,17 +363,9 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				getExcludeOperation().clear();
-				getExcludeOperation().addAll((Collection<? extends ExcludeOperation>)newValue);
-				return;
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE:
-				setStartExecutable((ExecutableEntity)newValue);
-				return;
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT:
 				setCyclePeriodConstant((Constant)newValue);
 				return;
@@ -500,12 +393,6 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				getExcludeOperation().clear();
-				return;
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE:
-				setStartExecutable((ExecutableEntity)null);
-				return;
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT:
 				setCyclePeriodConstant((Constant)null);
 				return;
@@ -533,10 +420,6 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION:
-				return excludeOperation != null && !excludeOperation.isEmpty();
-			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE:
-				return startExecutable != null;
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT:
 				return cyclePeriodConstant != null;
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_OFFSET_CONSTANT:
@@ -549,40 +432,6 @@ public class TimingTriggeringExecutableStartOperationImpl extends OperationImpl 
 				return cycleCounterVariable != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == ExecutableStartOperation.class) {
-			switch (derivedFeatureID) {
-				case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION: return ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION;
-				case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE: return ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == ExecutableStartOperation.class) {
-			switch (baseFeatureID) {
-				case ModulePackage.EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION: return ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__EXCLUDE_OPERATION;
-				case ModulePackage.EXECUTABLE_START_OPERATION__START_EXECUTABLE: return ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_EXECUTABLE;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //TimingTriggeringExecutableStartOperationImpl

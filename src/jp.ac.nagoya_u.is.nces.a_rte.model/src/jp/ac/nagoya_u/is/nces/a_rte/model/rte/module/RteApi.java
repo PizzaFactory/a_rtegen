@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -53,10 +55,14 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName <em>Api Mapping Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue <em>Return Value</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected <em>Is Connected</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName <em>Api Mapping Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected <em>Is Connected</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline <em>Is Inline</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue <em>Return Value</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineConstant <em>Inline Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineGlobalVariable <em>Inline Global Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineRunnableEntity <em>Inline Runnable Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,6 +125,54 @@ public interface RteApi extends Function {
 	void setReturnValue(Value value);
 
 	/**
+	 * Returns the value of the '<em><b>Inline Constant</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inline Constant</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inline Constant</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApi_InlineConstant()
+	 * @model
+	 * @generated
+	 */
+	EList<Constant> getInlineConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Inline Global Variable</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inline Global Variable</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inline Global Variable</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApi_InlineGlobalVariable()
+	 * @model
+	 * @generated
+	 */
+	EList<GlobalVariable> getInlineGlobalVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Inline Runnable Entity</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inline Runnable Entity</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inline Runnable Entity</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApi_InlineRunnableEntity()
+	 * @model
+	 * @generated
+	 */
+	EList<RunnableEntity> getInlineRunnableEntity();
+
+	/**
 	 * Returns the value of the '<em><b>Is Connected</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -171,4 +225,30 @@ public interface RteApi extends Function {
 	 * @generated
 	 */
 	void setParent(Swc value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Inline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Inline</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Inline</em>' attribute.
+	 * @see #setIsInline(Boolean)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteApi_IsInline()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Boolean" required="true"
+	 * @generated
+	 */
+	Boolean getIsInline();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline <em>Is Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Inline</em>' attribute.
+	 * @see #getIsInline()
+	 * @generated
+	 */
+	void setIsInline(Boolean value);
 } // RteApi

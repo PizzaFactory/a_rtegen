@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,9 +50,9 @@ public class TestFileNames { // COVERAGE 常に未達(インスタンス生成が行なわれてい
 	public static final String STUB_FILE_NAME_PREFIX = "Stub";
 	public static final String MOCK_FILE_NAME_PREFIX = "Mock";
 
-	public static final String OS_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Os" + FileNames.H_POSTFIX;
-	public static final String COM_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Com" + FileNames.H_POSTFIX;
-	public static final String IOC_MOCK_HEADER_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + FileNames.H_POSTFIX;
+	public static final String OS_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Os" + FileNames.HEADER_FILE_NAME_POSTFIX;
+	public static final String COM_STUB_HEADER_NAME = STUB_FILE_NAME_PREFIX + "Com" + FileNames.HEADER_FILE_NAME_POSTFIX;
+	public static final String IOC_MOCK_HEADER_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + FileNames.HEADER_FILE_NAME_POSTFIX;
 	public static final String IOC_MOCK_SOURCE_NAME = MOCK_FILE_NAME_PREFIX + "OsIoc" + TestFileNames.CC_POSTFIX;
 
 	public static final String STUB_HEADER_GUARD_NAME_PREFIX = "STUB_";

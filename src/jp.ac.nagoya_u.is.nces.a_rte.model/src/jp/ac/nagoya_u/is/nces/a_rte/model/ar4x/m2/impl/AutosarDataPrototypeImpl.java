@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,40 +44,27 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import java.lang.reflect.InvocationTargetException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataPrototype;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
-
-import org.eclipse.emf.common.notify.Notification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.WrappedException;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.EOperation;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Autosar Data Prototype</b></em>'.
  * <!-- end-user-doc -->
  * <p>
- * The following features are implemented:
- * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.AutosarDataPrototypeImpl#getType <em>Type</em>}</li>
- * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class AutosarDataPrototypeImpl extends DataPrototypeImpl implements AutosarDataPrototype {
-	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
-	protected AutosarDataType type;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -98,41 +85,99 @@ public abstract class AutosarDataPrototypeImpl extends DataPrototypeImpl impleme
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #getSwAddrMethod() <em>Get Sw Addr Method</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSwAddrMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_SW_ADDR_METHOD__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD).getInvocationDelegate();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AutosarDataType getType() {
-		if (type != null && ((EObject)type).eIsProxy()) {
-			InternalEObject oldType = (InternalEObject)type;
-			type = (AutosarDataType)eResolveProxy(oldType);
-			if (type != oldType) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE, oldType, type));
-			}
+	public SwAddrMethod getSwAddrMethod() {
+		try {
+			return (SwAddrMethod)GET_SW_ADDR_METHOD__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
 		}
-		return type;
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
 	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getSwAlignment() <em>Get Sw Alignment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSwAlignment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_SW_ALIGNMENT__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT).getInvocationDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AutosarDataType basicGetType() {
-		return type;
+	public String getSwAlignment() {
+		try {
+			return (String)GET_SW_ALIGNMENT__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
 	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getApplicationDataType() <em>Get Application Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getApplicationDataType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_APPLICATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE).getInvocationDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(AutosarDataType newType) {
-		AutosarDataType oldType = type;
-		type = newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE, oldType, type));
+	public ApplicationDataType getApplicationDataType() {
+		try {
+			return (ApplicationDataType)GET_APPLICATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getImplementationDataType() <em>Get Implementation Data Type</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getImplementationDataType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ImplementationDataType getImplementationDataType() {
+		try {
+			return (ImplementationDataType)GET_IMPLEMENTATION_DATA_TYPE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
 	}
 
 	/**
@@ -141,57 +186,18 @@ public abstract class AutosarDataPrototypeImpl extends DataPrototypeImpl impleme
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE:
-				if (resolve) return getType();
-				return basicGetType();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case M2Package.AUTOSAR_DATA_PROTOTYPE___GET_SW_ADDR_METHOD:
+				return getSwAddrMethod();
+			case M2Package.AUTOSAR_DATA_PROTOTYPE___GET_SW_ALIGNMENT:
+				return getSwAlignment();
+			case M2Package.AUTOSAR_DATA_PROTOTYPE___GET_APPLICATION_DATA_TYPE:
+				return getApplicationDataType();
+			case M2Package.AUTOSAR_DATA_PROTOTYPE___GET_IMPLEMENTATION_DATA_TYPE:
+				return getImplementationDataType();
 		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE:
-				setType((AutosarDataType)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE:
-				setType((AutosarDataType)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case M2Package.AUTOSAR_DATA_PROTOTYPE__TYPE:
-				return type != null;
-		}
-		return super.eIsSet(featureID);
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //AutosarDataPrototypeImpl

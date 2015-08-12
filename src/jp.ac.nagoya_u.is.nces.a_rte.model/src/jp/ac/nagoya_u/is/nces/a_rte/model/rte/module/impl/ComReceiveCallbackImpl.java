@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,24 +45,18 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -100,7 +94,7 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 	 * @generated
 	 * @ordered
 	 */
-	protected LocalVariable dataVariable;
+	protected Variable dataVariable;
 
 	/**
 	 * The cached value of the '{@link #getAccessApi() <em>Access Api</em>}' reference.
@@ -148,10 +142,10 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LocalVariable getDataVariable() {
+	public Variable getDataVariable() {
 		if (dataVariable != null && ((EObject)dataVariable).eIsProxy()) {
 			InternalEObject oldDataVariable = (InternalEObject)dataVariable;
-			dataVariable = (LocalVariable)eResolveProxy(oldDataVariable);
+			dataVariable = (Variable)eResolveProxy(oldDataVariable);
 			if (dataVariable != oldDataVariable) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.COM_RECEIVE_CALLBACK__DATA_VARIABLE, oldDataVariable, dataVariable));
@@ -165,7 +159,7 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LocalVariable basicGetDataVariable() {
+	public Variable basicGetDataVariable() {
 		return dataVariable;
 	}
 
@@ -174,8 +168,8 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDataVariable(LocalVariable newDataVariable) {
-		LocalVariable oldDataVariable = dataVariable;
+	public void setDataVariable(Variable newDataVariable) {
+		Variable oldDataVariable = dataVariable;
 		dataVariable = newDataVariable;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_RECEIVE_CALLBACK__DATA_VARIABLE, oldDataVariable, dataVariable));
@@ -267,7 +261,7 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 				getOperation().addAll((Collection<? extends SendOperation>)newValue);
 				return;
 			case ModulePackage.COM_RECEIVE_CALLBACK__DATA_VARIABLE:
-				setDataVariable((LocalVariable)newValue);
+				setDataVariable((Variable)newValue);
 				return;
 			case ModulePackage.COM_RECEIVE_CALLBACK__ACCESS_API:
 				setAccessApi((ComReceiveSignalApi)newValue);
@@ -288,7 +282,7 @@ public class ComReceiveCallbackImpl extends ComCallbackImpl implements ComReceiv
 				getOperation().clear();
 				return;
 			case ModulePackage.COM_RECEIVE_CALLBACK__DATA_VARIABLE:
-				setDataVariable((LocalVariable)null);
+				setDataVariable((Variable)null);
 				return;
 			case ModulePackage.COM_RECEIVE_CALLBACK__ACCESS_API:
 				setAccessApi((ComReceiveSignalApi)null);

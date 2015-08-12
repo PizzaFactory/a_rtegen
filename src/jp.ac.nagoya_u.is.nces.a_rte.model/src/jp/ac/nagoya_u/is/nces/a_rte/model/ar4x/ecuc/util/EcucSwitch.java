@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -154,6 +154,15 @@ public class EcucSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EcucPackage.RTE_BSW_GENERAL: {
+				RteBswGeneral rteBswGeneral = (RteBswGeneral)theEObject;
+				T result = caseRteBswGeneral(rteBswGeneral);
+				if (result == null) result = caseEcucContainer(rteBswGeneral);
+				if (result == null) result = caseEcucReferrable(rteBswGeneral);
+				if (result == null) result = caseEcucObject(rteBswGeneral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EcucPackage.ECUC_ROOT: {
 				EcucRoot ecucRoot = (EcucRoot)theEObject;
 				T result = caseEcucRoot(ecucRoot);
@@ -238,6 +247,24 @@ public class EcucSwitch<T> extends Switch<T> {
 				if (result == null) result = caseEcucContainer(comSignal);
 				if (result == null) result = caseEcucReferrable(comSignal);
 				if (result == null) result = caseEcucObject(comSignal);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcucPackage.COM_SIGNAL_GROUP: {
+				ComSignalGroup comSignalGroup = (ComSignalGroup)theEObject;
+				T result = caseComSignalGroup(comSignalGroup);
+				if (result == null) result = caseEcucContainer(comSignalGroup);
+				if (result == null) result = caseEcucReferrable(comSignalGroup);
+				if (result == null) result = caseEcucObject(comSignalGroup);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EcucPackage.COM_GROUP_SIGNAL: {
+				ComGroupSignal comGroupSignal = (ComGroupSignal)theEObject;
+				T result = caseComGroupSignal(comGroupSignal);
+				if (result == null) result = caseEcucContainer(comGroupSignal);
+				if (result == null) result = caseEcucReferrable(comGroupSignal);
+				if (result == null) result = caseEcucObject(comGroupSignal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -403,6 +430,15 @@ public class EcucSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION: {
+				RteBswRequiredModeGroupConnection rteBswRequiredModeGroupConnection = (RteBswRequiredModeGroupConnection)theEObject;
+				T result = caseRteBswRequiredModeGroupConnection(rteBswRequiredModeGroupConnection);
+				if (result == null) result = caseEcucContainer(rteBswRequiredModeGroupConnection);
+				if (result == null) result = caseEcucReferrable(rteBswRequiredModeGroupConnection);
+				if (result == null) result = caseEcucObject(rteBswRequiredModeGroupConnection);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE: {
 				RteBswModuleInstance rteBswModuleInstance = (RteBswModuleInstance)theEObject;
 				T result = caseRteBswModuleInstance(rteBswModuleInstance);
@@ -452,6 +488,21 @@ public class EcucSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRteGeneration(RteGeneration object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Bsw General</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Bsw General</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteBswGeneral(RteBswGeneral object) {
 		return null;
 	}
 
@@ -662,6 +713,36 @@ public class EcucSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseComSignal(ComSignal object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Signal Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Signal Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComSignalGroup(ComSignalGroup object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Com Group Signal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Com Group Signal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComGroupSignal(ComGroupSignal object) {
 		return null;
 	}
 
@@ -932,6 +1013,21 @@ public class EcucSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRteBswEventToTaskMapping(RteBswEventToTaskMapping object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Bsw Required Mode Group Connection</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Bsw Required Mode Group Connection</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteBswRequiredModeGroupConnection(RteBswRequiredModeGroupConnection object) {
 		return null;
 	}
 

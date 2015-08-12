@@ -2,14 +2,17 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+ *  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
  *              Graduate School of Information Science, Nagoya Univ., JAPAN
- *  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
- *  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+ *  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+ *  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+ *  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+ *  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
  *  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
- *  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
- *  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
- *  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+ *  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+ *  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+ *  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+ *  Copyright (C) 2013-2015 by Witz Corporation
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +48,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: EcuM_Callout.h 141 2014-09-26 09:13:20Z mtakada $
+ *  $Id: EcuM_Callout.h 427 2015-03-23 12:38:40Z mtakada $
  */
 
 #ifndef ECUM_CALLOUT_H
@@ -63,6 +66,14 @@
 #include "CanIf.h"
 #include "Can.h"
 #endif /* TOPPERS_USE_COMSTACK */
+
+#ifdef TOPPERS_USE_WDGSTACK
+#include "WdgM.h"
+#include "WdgM_PBcfg.h"
+#include "Wdg.h"
+#include "Wdg_Target.h"
+#include "Wdg_PBcfg.h"
+#endif /* TOPPERS_USE_WDGSTACK */
 
 #ifdef TOPPERS_PERFORMANCE
 #include "target_timer.h"
@@ -109,6 +120,15 @@ EcuM_BswStartupTwo(void)
 	Com_SetIpduGroup(vector_on, 0, TRUE);
 	Com_IpduGroupControl(vector_on, TRUE);
 #endif /* TOPPERS_USE_COMSTACK */
+
+#ifdef TOPPERS_USE_WDGSTACK
+	/* WDGスタックモジュール初期化 */
+	Wdg_Init(&wdg_config_WdgSettingsConfig_0);
+	WdgM_Init(&wdgm_config_WdgMConfigSet_0);
+	
+
+#endif /* TOPPERS_USE_WDGSTACK */
+
 }
 
 LOCAL_INLINE void

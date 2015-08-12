@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +54,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getAccessApi <em>Access Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -61,7 +62,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @model
  * @generated
  */
-public interface IocQueuedSendOperation extends SendOperation {
+public interface IocQueuedSendOperation extends IocSendOperation {
 	/**
 	 * Returns the value of the '<em><b>Access Api</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -87,5 +88,31 @@ public interface IocQueuedSendOperation extends SendOperation {
 	 * @generated
 	 */
 	void setAccessApi(IocSendApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Temp Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Temp Return Variable</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temp Return Variable</em>' reference.
+	 * @see #setTempReturnVariable(Variable)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getIocQueuedSendOperation_TempReturnVariable()
+	 * @model
+	 * @generated
+	 */
+	Variable getTempReturnVariable();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temp Return Variable</em>' reference.
+	 * @see #getTempReturnVariable()
+	 * @generated
+	 */
+	void setTempReturnVariable(Variable value);
 
 } // IocQueuedSendOperation

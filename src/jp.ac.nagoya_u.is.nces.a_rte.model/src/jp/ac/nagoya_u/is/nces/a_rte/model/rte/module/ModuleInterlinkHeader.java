@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +54,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader#getGlobalVariableGroup <em>Global Variable Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader#getSchmApiGroup <em>Schm Api Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader#getDependentExecutableEntityGroup <em>Dependent Executable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader#getConstant <em>Constant</em>}</li>
@@ -66,8 +67,24 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ModuleInterlinkHeader extends HeaderFile {
 	/**
+	 * Returns the value of the '<em><b>Global Variable Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Global Variable Group</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Global Variable Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getModuleInterlinkHeader_GlobalVariableGroup()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup();
+
+	/**
 	 * Returns the value of the '<em><b>Schm Api Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Schm Api Group</em>' containment reference list isn't clear,
@@ -79,11 +96,11 @@ public interface ModuleInterlinkHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<SchmApiGroup> getSchmApiGroup();
+	EList<SchmApiFileContentsGroup> getSchmApiGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Executable Entity Group</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup}.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Dependent Executable Entity Group</em>' containment reference list isn't clear,
@@ -95,7 +112,7 @@ public interface ModuleInterlinkHeader extends HeaderFile {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ExecutableEntityGroup> getDependentExecutableEntityGroup();
+	EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup();
 
 	/**
 	 * Returns the value of the '<em><b>Constant</b></em>' reference list.

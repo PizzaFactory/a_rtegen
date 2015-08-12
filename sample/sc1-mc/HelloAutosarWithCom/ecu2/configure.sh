@@ -3,14 +3,17 @@
 #  TOPPERS/A-RTEGEN
 #      Automotive Runtime Environment Generator
 #
-#  Copyright (C) 2013-2014 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2013-2014 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2013-2014 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2013-2014 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2014 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2014 by Witz Corporation, JAPAN
+#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2015 by Witz Corporation
 #
 #  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,7 +49,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: configure.sh 141 2014-09-26 09:13:20Z mtakada $
+# $Id: configure.sh 427 2015-03-23 12:38:40Z mtakada $
 #
 
 #
@@ -56,8 +59,11 @@
 # OSソースコードまでの相対パス
 OS_PATH=../../../../../atk2-sc1-mc
 
+# A-RTEGENまでの相対パス
+RTE_PATH=../../../../
+
 # 共通ソースコードまでの相対パス
-GENERAL_PATH=../../../general
+GENERAL_PATH=$RTE_PATH/sample/general
 
 # A-COMSTACKまでの相対パス
 COMSTACK_PATH=../../../../../a-comstack
@@ -117,18 +123,27 @@ fi
 
 # configureスクリプトによるMakefile作成
 perl $OS_PATH/configure -T $TARGET -A Rte $CFG_OPT \
-	-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH $COM_STUB_PATH $COM_GENERAL_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
-	-C "$APPLICATION $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2 Rte_GeneratedEcuc Rte_InternalDataTypes" \
+	-a "$COM_PATH $PDUR_PATH $CANIF_PATH $CAN_PATH $CAN_PATH/target/$TARGET $COM_STUB_PATH $COM_GENERAL_PATH $GENERAL_PATH/EcuM $GENERAL_PATH/HelloAutosar $INCLUDE" \
+	-C "$APPLICATION $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2 Rte_InternalDataTypes" \
 	-U "$MODULE C_Init_Code.o EcuM.o EcuM_StartupTask.o Os_Hook.o" "$CMP_OPT"
 
 # ABREXによるARXMLの作成
 ruby $OS_PATH/utils/abrex/abrex.rb $APPLICATION.yaml
 
 # A-RTEGENによる必要なIOC生成
-../../../../bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2.arxml $APPLICATION.arxml
+$RTE_PATH/bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2.arxml $APPLICATION.arxml
+
+if [ -e Rte_GeneratedEcuc.arxml ]
+then
+	# コア間起動タスク用コンフィグレーション情報マージのためにYAMLへ変換
+	ruby $OS_PATH/utils/abrex/abrex.rb -i Rte_GeneratedEcuc.arxml
+
+	# ABREXによりマージしたARXMLの作成
+	ruby $OS_PATH/utils/abrex/abrex.rb $APPLICATION.yaml Rte_GeneratedEcuc.yaml
+fi
 
 # A-RTEGENによるA-RTEモジュール作成
-../../../../bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2.arxml $APPLICATION.arxml Rte_GeneratedEcuc.arxml Rte_InternalDataTypes.arxml
+$RTE_PATH/bin/bin/rtegen.sh $OS_PATH/target/$TARGET/target_hw_counter.arxml $GENERAL_PATH/HelloAutosar/SystemDesk_WithCom_EcuInstance2.arxml $APPLICATION.arxml Rte_InternalDataTypes.arxml
 
 # A-COMジェネレータによるA-COMモジュール作成
 echo "Generate Com"
@@ -144,5 +159,5 @@ $OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CANIF_
 
 # A-CANジェネレータによるA-CANモジュール作成
 echo "Generate Can"
-$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -T $CAN_PATH/can.tf $APPLICATION.arxml
+$OS_PATH/cfg/cfg/cfg.exe --omit-symbol --pass 2 --kernel atk2 --ini-file $CAN_PATH/can.ini --api-table $CAN_PATH/can.csv -I $CAN_PATH -T $CAN_PATH/target/$TARGET/Can_Target.tf $APPLICATION.arxml $OS_PATH/target/$TARGET/target_hw_counter.arxml
 

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -78,32 +78,21 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context RPort</em>' reference.
-	 * @see #setContextRPort(RPortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage#getRVariableDataInstanceInSwc_ContextRPort()
-	 * @model required="true" transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='contextPort.oclAsType(m2::RPortPrototype)'"
 	 * @generated
 	 */
 	RPortPrototype getContextRPort();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getContextRPort <em>Context RPort</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context RPort</em>' reference.
-	 * @see #getContextRPort()
-	 * @generated
-	 */
-	void setContextRPort(RPortPrototype value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if getFilter().oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse getFilter().isFilterEnabled()\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
-	Boolean isFilterEnabled();
+	boolean isFilterEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +106,11 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let comSpec : m2::NonqueuedReceiverComSpec = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec)\n\t\t\t\tin not comSpec.oclIsUndefined() and comSpec.aliveTimeout <> 0'"
 	 * @generated
 	 */
-	Boolean isAliveTimeoutEnabled();
+	boolean isAliveTimeoutEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -129,11 +118,11 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * <!-- begin-model-doc -->
 	 * 無効化が有効かどうか
 	 * <!-- end-model-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)'"
 	 * @generated
 	 */
-	Boolean isInvalidationEnabled();
+	boolean isInvalidationEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -159,6 +148,9 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * QueuedReceiverComSpecのキュー長を返す
+	 * <!-- end-model-doc -->
 	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif'"
 	 * @generated

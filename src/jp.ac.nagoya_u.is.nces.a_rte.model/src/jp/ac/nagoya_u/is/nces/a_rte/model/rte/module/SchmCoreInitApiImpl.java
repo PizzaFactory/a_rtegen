@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,7 +44,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
-import org.eclipse.emf.common.util.EList;
 
 
 /**
@@ -56,7 +55,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getParent <em>Parent</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,10 +62,10 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface SchmCoreInitApiImpl extends SchmLifecycleApi {
+public interface SchmCoreInitApiImpl extends SchmInitApi {
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi <em>Schm Init Api</em>}'.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent</em>' container reference isn't clear,
@@ -77,8 +75,8 @@ public interface SchmCoreInitApiImpl extends SchmLifecycleApi {
 	 * @return the value of the '<em>Parent</em>' container reference.
 	 * @see #setParent(Core)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmCoreInitApiImpl_Parent()
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmInitApi
-	 * @model opposite="schmInitApi" required="true" transient="false"
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core#getSchmCoreInitApiImpl
+	 * @model opposite="schmCoreInitApiImpl" required="true" transient="false"
 	 * @generated
 	 */
 	Core getParent();
@@ -92,21 +90,5 @@ public interface SchmCoreInitApiImpl extends SchmLifecycleApi {
 	 * @generated
 	 */
 	void setParent(Core value);
-
-	/**
-	 * Returns the value of the '<em><b>Operation</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operation</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operation</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSchmCoreInitApiImpl_Operation()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<InitializeOperation> getOperation();
 
 } // SchmCoreInitApiImpl

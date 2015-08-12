@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,15 +45,23 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntityFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunctionTableFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapperFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FunctionMacro;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteInternalHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionFileContentsGroup;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -79,6 +87,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getRteCoreStartApiImpl <em>Rte Core Start Api Impl</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getDependentExecutableEntityGroup <em>Dependent Executable Entity Group</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getSchmCoreInitApiImpl <em>Schm Core Init Api Impl</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getFunctionMacro <em>Function Macro</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getComProxyFunctionTableGroup <em>Com Proxy Function Table Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getComSignalApiWrapperGroup <em>Com Signal Api Wrapper Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getModeType <em>Mode Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getModeDeclarationGroup <em>Mode Declaration Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getModeMachineInstance <em>Mode Machine Instance</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getRteApiGroup <em>Rte Api Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl#getSchmApiGroup <em>Schm Api Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,7 +119,7 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<GlobalVariableGroup> globalVariableGroup;
+	protected EList<GlobalVariableFileContentsGroup> globalVariableGroup;
 
 	/**
 	 * The cached value of the '{@link #getTrustedFunctionGroup() <em>Trusted Function Group</em>}' containment reference list.
@@ -113,7 +129,7 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TrustedFunctionGroup> trustedFunctionGroup;
+	protected EList<TrustedFunctionFileContentsGroup> trustedFunctionGroup;
 
 	/**
 	 * The cached value of the '{@link #getBswSchedulableEntityGroup() <em>Bsw Schedulable Entity Group</em>}' containment reference list.
@@ -123,7 +139,7 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BswSchedulableEntityGroup> bswSchedulableEntityGroup;
+	protected EList<BswSchedulableEntityFileContentsGroup> bswSchedulableEntityGroup;
 
 	/**
 	 * The cached value of the '{@link #getRteCoreStartApiImpl() <em>Rte Core Start Api Impl</em>}' reference.
@@ -143,7 +159,7 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExecutableEntityGroup> dependentExecutableEntityGroup;
+	protected EList<ExecutableEntityFileContentsGroup> dependentExecutableEntityGroup;
 
 	/**
 	 * The cached value of the '{@link #getSchmCoreInitApiImpl() <em>Schm Core Init Api Impl</em>}' reference.
@@ -154,6 +170,86 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * @ordered
 	 */
 	protected SchmCoreInitApiImpl schmCoreInitApiImpl;
+
+	/**
+	 * The cached value of the '{@link #getFunctionMacro() <em>Function Macro</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFunctionMacro()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<FunctionMacro> functionMacro;
+
+	/**
+	 * The cached value of the '{@link #getComProxyFunctionTableGroup() <em>Com Proxy Function Table Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComProxyFunctionTableGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComProxyFunctionTableFileContentsGroup> comProxyFunctionTableGroup;
+
+	/**
+	 * The cached value of the '{@link #getComSignalApiWrapperGroup() <em>Com Signal Api Wrapper Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComSignalApiWrapperGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ComSignalApiWrapperFileContentsGroup> comSignalApiWrapperGroup;
+
+	/**
+	 * The cached value of the '{@link #getModeType() <em>Mode Type</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeType> modeType;
+
+	/**
+	 * The cached value of the '{@link #getModeDeclarationGroup() <em>Mode Declaration Group</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeDeclarationGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeDeclarationGroup> modeDeclarationGroup;
+
+	/**
+	 * The cached value of the '{@link #getModeMachineInstance() <em>Mode Machine Instance</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModeMachineInstance()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ModeMachineInstance> modeMachineInstance;
+
+	/**
+	 * The cached value of the '{@link #getRteApiGroup() <em>Rte Api Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRteApiGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RteApiFileContentsGroup> rteApiGroup;
+
+	/**
+	 * The cached value of the '{@link #getSchmApiGroup() <em>Schm Api Group</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchmApiGroup()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SchmApiFileContentsGroup> schmApiGroup;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -191,9 +287,9 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<GlobalVariableGroup> getGlobalVariableGroup() {
+	public EList<GlobalVariableFileContentsGroup> getGlobalVariableGroup() {
 		if (globalVariableGroup == null) {
-			globalVariableGroup = new EObjectContainmentEList<GlobalVariableGroup>(GlobalVariableGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__GLOBAL_VARIABLE_GROUP);
+			globalVariableGroup = new EObjectContainmentEList<GlobalVariableFileContentsGroup>(GlobalVariableFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__GLOBAL_VARIABLE_GROUP);
 		}
 		return globalVariableGroup;
 	}
@@ -203,9 +299,9 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TrustedFunctionGroup> getTrustedFunctionGroup() {
+	public EList<TrustedFunctionFileContentsGroup> getTrustedFunctionGroup() {
 		if (trustedFunctionGroup == null) {
-			trustedFunctionGroup = new EObjectContainmentEList<TrustedFunctionGroup>(TrustedFunctionGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__TRUSTED_FUNCTION_GROUP);
+			trustedFunctionGroup = new EObjectContainmentEList<TrustedFunctionFileContentsGroup>(TrustedFunctionFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__TRUSTED_FUNCTION_GROUP);
 		}
 		return trustedFunctionGroup;
 	}
@@ -215,9 +311,9 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<BswSchedulableEntityGroup> getBswSchedulableEntityGroup() {
+	public EList<BswSchedulableEntityFileContentsGroup> getBswSchedulableEntityGroup() {
 		if (bswSchedulableEntityGroup == null) {
-			bswSchedulableEntityGroup = new EObjectContainmentEList<BswSchedulableEntityGroup>(BswSchedulableEntityGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__BSW_SCHEDULABLE_ENTITY_GROUP);
+			bswSchedulableEntityGroup = new EObjectContainmentEList<BswSchedulableEntityFileContentsGroup>(BswSchedulableEntityFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__BSW_SCHEDULABLE_ENTITY_GROUP);
 		}
 		return bswSchedulableEntityGroup;
 	}
@@ -265,9 +361,9 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ExecutableEntityGroup> getDependentExecutableEntityGroup() {
+	public EList<ExecutableEntityFileContentsGroup> getDependentExecutableEntityGroup() {
 		if (dependentExecutableEntityGroup == null) {
-			dependentExecutableEntityGroup = new EObjectContainmentEList<ExecutableEntityGroup>(ExecutableEntityGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
+			dependentExecutableEntityGroup = new EObjectContainmentEList<ExecutableEntityFileContentsGroup>(ExecutableEntityFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP);
 		}
 		return dependentExecutableEntityGroup;
 	}
@@ -315,6 +411,102 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<FunctionMacro> getFunctionMacro() {
+		if (functionMacro == null) {
+			functionMacro = new EObjectContainmentEList<FunctionMacro>(FunctionMacro.class, this, ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO);
+		}
+		return functionMacro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ComProxyFunctionTableFileContentsGroup> getComProxyFunctionTableGroup() {
+		if (comProxyFunctionTableGroup == null) {
+			comProxyFunctionTableGroup = new EObjectContainmentEList<ComProxyFunctionTableFileContentsGroup>(ComProxyFunctionTableFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP);
+		}
+		return comProxyFunctionTableGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ComSignalApiWrapperFileContentsGroup> getComSignalApiWrapperGroup() {
+		if (comSignalApiWrapperGroup == null) {
+			comSignalApiWrapperGroup = new EObjectContainmentEList<ComSignalApiWrapperFileContentsGroup>(ComSignalApiWrapperFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP);
+		}
+		return comSignalApiWrapperGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeType> getModeType() {
+		if (modeType == null) {
+			modeType = new EObjectResolvingEList<ModeType>(ModeType.class, this, ModulePackage.RTE_INTERNAL_HEADER__MODE_TYPE);
+		}
+		return modeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeDeclarationGroup> getModeDeclarationGroup() {
+		if (modeDeclarationGroup == null) {
+			modeDeclarationGroup = new EObjectResolvingEList<ModeDeclarationGroup>(ModeDeclarationGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP);
+		}
+		return modeDeclarationGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModeMachineInstance> getModeMachineInstance() {
+		if (modeMachineInstance == null) {
+			modeMachineInstance = new EObjectResolvingEList<ModeMachineInstance>(ModeMachineInstance.class, this, ModulePackage.RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE);
+		}
+		return modeMachineInstance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteApiFileContentsGroup> getRteApiGroup() {
+		if (rteApiGroup == null) {
+			rteApiGroup = new EObjectContainmentEList<RteApiFileContentsGroup>(RteApiFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP);
+		}
+		return rteApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<SchmApiFileContentsGroup> getSchmApiGroup() {
+		if (schmApiGroup == null) {
+			schmApiGroup = new EObjectContainmentEList<SchmApiFileContentsGroup>(SchmApiFileContentsGroup.class, this, ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP);
+		}
+		return schmApiGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -326,6 +518,16 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 				return ((InternalEList<?>)getBswSchedulableEntityGroup()).basicRemove(otherEnd, msgs);
 			case ModulePackage.RTE_INTERNAL_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:
 				return ((InternalEList<?>)getDependentExecutableEntityGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO:
+				return ((InternalEList<?>)getFunctionMacro()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP:
+				return ((InternalEList<?>)getComProxyFunctionTableGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP:
+				return ((InternalEList<?>)getComSignalApiWrapperGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP:
+				return ((InternalEList<?>)getRteApiGroup()).basicRemove(otherEnd, msgs);
+			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP:
+				return ((InternalEList<?>)getSchmApiGroup()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -354,6 +556,22 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_CORE_INIT_API_IMPL:
 				if (resolve) return getSchmCoreInitApiImpl();
 				return basicGetSchmCoreInitApiImpl();
+			case ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO:
+				return getFunctionMacro();
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP:
+				return getComProxyFunctionTableGroup();
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP:
+				return getComSignalApiWrapperGroup();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_TYPE:
+				return getModeType();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP:
+				return getModeDeclarationGroup();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE:
+				return getModeMachineInstance();
+			case ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP:
+				return getRteApiGroup();
+			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP:
+				return getSchmApiGroup();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -373,25 +591,57 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__GLOBAL_VARIABLE_GROUP:
 				getGlobalVariableGroup().clear();
-				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableGroup>)newValue);
+				getGlobalVariableGroup().addAll((Collection<? extends GlobalVariableFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__TRUSTED_FUNCTION_GROUP:
 				getTrustedFunctionGroup().clear();
-				getTrustedFunctionGroup().addAll((Collection<? extends TrustedFunctionGroup>)newValue);
+				getTrustedFunctionGroup().addAll((Collection<? extends TrustedFunctionFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__BSW_SCHEDULABLE_ENTITY_GROUP:
 				getBswSchedulableEntityGroup().clear();
-				getBswSchedulableEntityGroup().addAll((Collection<? extends BswSchedulableEntityGroup>)newValue);
+				getBswSchedulableEntityGroup().addAll((Collection<? extends BswSchedulableEntityFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__RTE_CORE_START_API_IMPL:
 				setRteCoreStartApiImpl((RteCoreStartApiImpl)newValue);
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__DEPENDENT_EXECUTABLE_ENTITY_GROUP:
 				getDependentExecutableEntityGroup().clear();
-				getDependentExecutableEntityGroup().addAll((Collection<? extends ExecutableEntityGroup>)newValue);
+				getDependentExecutableEntityGroup().addAll((Collection<? extends ExecutableEntityFileContentsGroup>)newValue);
 				return;
 			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_CORE_INIT_API_IMPL:
 				setSchmCoreInitApiImpl((SchmCoreInitApiImpl)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO:
+				getFunctionMacro().clear();
+				getFunctionMacro().addAll((Collection<? extends FunctionMacro>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP:
+				getComProxyFunctionTableGroup().clear();
+				getComProxyFunctionTableGroup().addAll((Collection<? extends ComProxyFunctionTableFileContentsGroup>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP:
+				getComSignalApiWrapperGroup().clear();
+				getComSignalApiWrapperGroup().addAll((Collection<? extends ComSignalApiWrapperFileContentsGroup>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_TYPE:
+				getModeType().clear();
+				getModeType().addAll((Collection<? extends ModeType>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP:
+				getModeDeclarationGroup().clear();
+				getModeDeclarationGroup().addAll((Collection<? extends ModeDeclarationGroup>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				getModeMachineInstance().addAll((Collection<? extends ModeMachineInstance>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP:
+				getRteApiGroup().clear();
+				getRteApiGroup().addAll((Collection<? extends RteApiFileContentsGroup>)newValue);
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP:
+				getSchmApiGroup().clear();
+				getSchmApiGroup().addAll((Collection<? extends SchmApiFileContentsGroup>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -426,6 +676,30 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_CORE_INIT_API_IMPL:
 				setSchmCoreInitApiImpl((SchmCoreInitApiImpl)null);
 				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO:
+				getFunctionMacro().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP:
+				getComProxyFunctionTableGroup().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP:
+				getComSignalApiWrapperGroup().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_TYPE:
+				getModeType().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP:
+				getModeDeclarationGroup().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE:
+				getModeMachineInstance().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP:
+				getRteApiGroup().clear();
+				return;
+			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP:
+				getSchmApiGroup().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -452,6 +726,22 @@ public class RteInternalHeaderImpl extends HeaderFileImpl implements RteInternal
 				return dependentExecutableEntityGroup != null && !dependentExecutableEntityGroup.isEmpty();
 			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_CORE_INIT_API_IMPL:
 				return schmCoreInitApiImpl != null;
+			case ModulePackage.RTE_INTERNAL_HEADER__FUNCTION_MACRO:
+				return functionMacro != null && !functionMacro.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_PROXY_FUNCTION_TABLE_GROUP:
+				return comProxyFunctionTableGroup != null && !comProxyFunctionTableGroup.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__COM_SIGNAL_API_WRAPPER_GROUP:
+				return comSignalApiWrapperGroup != null && !comSignalApiWrapperGroup.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_TYPE:
+				return modeType != null && !modeType.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_DECLARATION_GROUP:
+				return modeDeclarationGroup != null && !modeDeclarationGroup.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__MODE_MACHINE_INSTANCE:
+				return modeMachineInstance != null && !modeMachineInstance.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__RTE_API_GROUP:
+				return rteApiGroup != null && !rteApiGroup.isEmpty();
+			case ModulePackage.RTE_INTERNAL_HEADER__SCHM_API_GROUP:
+				return schmApiGroup != null && !schmApiGroup.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

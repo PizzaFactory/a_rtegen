@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,15 +42,19 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Os;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
 
 import com.google.common.base.Optional;
 
@@ -60,15 +64,19 @@ import com.google.common.base.Optional;
  */
 public class ModuleModelBuildCache {
 	// 生成元モデル
-	public Optional<Os> os;
+	public Optional<Os> sourceOs;
+	public Optional<EcucPartition> sourceMasterBswPartition;
 
 	// ルートモデル
 	public ModuleRoot moduleRoot;
 	public Rte rte;
 	public RteModule rteModule;
 
-	// 規定の型
-	public PrimitiveType voidType;
+	// 論理区画
+	public Partition masterBswPartition;
+
+	// 組込の型
+	public BlackboxType voidType;
 	public PrimitiveType booleanType;
 	public PrimitiveType uint8Type;
 	public PrimitiveType uint16Type;
@@ -80,22 +88,29 @@ public class ModuleModelBuildCache {
 	public PrimitiveType osEventMaskType;
 	public PrimitiveType osResourceType;
 	public PrimitiveType osSpinlockIdType;
-	public PrimitiveType osTrustedFunctionIndexType;
-	public PrimitiveType osTrustedFunctionParamRefType;
+	public PrimitiveType osTfIndexType;
+	public BlackboxType osTfParamRefType;
 	public PrimitiveType comSignalIdType;
+	public BlackboxType comMetaDataTypeMemberOffsetType;
+	public BlackboxType comMetaDataType;
+	public PrimitiveType comProxyFunctionTableIndexType;
 
-	// RTE実装向けの定義型
-	public Optional<ComSendTrustedFunctionParamType> comSendSignalTrustedFunctionParamType;
-
-	// 規定の定数
+	// 組込の定数
 	public Constant rteErrorOkConstant;
 	public Constant rteErrorInvalidConstant;
 	public Constant rteErrorMaxAgeExceededConstant;
+	
+	// 内部実装用の定義型
+	public Optional<RteSendTrustedFunctionParamType> rteSendTfParamType;
+	public Optional<ComSendTrustedFunctionParamType> comSendSignalTfParamType;
+	public Optional<ComSendTrustedFunctionParamType> comSendSignalGroupTfParamType;
 
-	// RTE実装向けの定義関数
-	public Optional<ComSendSignalTrustedFunction> comSendSignalTrustedFunction;
+	// R内部実装用の定義関数
+	public Optional<ComSendSignalTrustedFunction> comSendSignalTf;
+	public Optional<ComSendSignalTrustedFunction> comSendSignalGroupTf;
 
 	// ファイル
 	public Optional<BlackboxHeader> comHeader;
 	public Optional<BlackboxHeader> iocHeader;
+
 }

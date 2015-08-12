@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -66,10 +66,13 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.ref;
 
 import java.util.List;
 
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.RoleNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.HandleInvalidEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation;
@@ -98,6 +101,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ImmediateProxyComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocNonqueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocNonqueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation;
@@ -105,7 +109,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MaskedNewDiffersMaskedOldFilterOperation;
@@ -119,8 +122,11 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OneEveryNFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PeriodicProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
@@ -133,458 +139,585 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi;
+
+import org.eclipse.emf.ecore.EClass;
+
+import com.google.common.base.Optional;
 
 public class SenderReceiverOperationModelBuilder {
 
 	private final ModuleModelBuildContext context;
-	private ExcludeOperationModelBuilder excludeOperationBuilder;
+	private final ExcludeOperationModelBuilder excludeOperationBuilder;
+	private final ModuleRules moduleRules;
 
 	public SenderReceiverOperationModelBuilder(ModuleModelBuildContext context) {
 		this.context = context;
 		this.excludeOperationBuilder = new ExcludeOperationModelBuilder(context);
+		this.moduleRules = new ModuleRules(context);
 	}
 
-	public RteBufferNonqueuedReadOperation createRteBufferNonqueuedReadOperation(ReceiveInteraction sourceReceiveInteraction, Parameter dataParam, LocalVariable returnValueVariable)
+	public RteBufferNonqueuedReadOperation createRteBufferNonqueuedReadOperation(ReadApi targetApi, ReceiveInteraction sourceReceiveInteraction, Parameter dataParam, LocalVariable returnValueVariable)
 			throws ModelException {
 		RteBufferVariableSet rteBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceReceiveInteraction.getValueBufferImplementation());
 
-		RteBufferNonqueuedReadOperation rteBufferNonqueuedReadOperation = ModuleFactory.eINSTANCE.createRteBufferNonqueuedReadOperation();
-		buildReadOperation(rteBufferNonqueuedReadOperation, dataParam, returnValueVariable);
-		rteBufferNonqueuedReadOperation.setAccessVariable(rteBuffer);
-		if (rteBuffer.getStatusVariable() != null) {
-			rteBufferNonqueuedReadOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceReceiveInteraction.receivesInterCore()));
+		RteBufferNonqueuedReadOperation destRteBufferNonqueuedReadOperation = ModuleFactory.eINSTANCE.createRteBufferNonqueuedReadOperation();
+		buildReadOperation(destRteBufferNonqueuedReadOperation, dataParam, Optional.of(returnValueVariable));
+		destRteBufferNonqueuedReadOperation.setAccessVariable(rteBuffer);
+		if (targetApi.getIsInline()) {
+			addInlineGlobalVariable(targetApi, rteBuffer.getValueVariable());
+			if (rteBuffer.getStatusVariable() != null) {
+				// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+				// ECU間はインライン化しない
+				addInlineGlobalVariable(targetApi, rteBuffer.getStatusVariable());
+			}
 		}
-		return rteBufferNonqueuedReadOperation;
+
+		if (this.moduleRules.needsExclusionForReadOperation(destRteBufferNonqueuedReadOperation)) {
+			destRteBufferNonqueuedReadOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceReceiveInteraction.receivesInterCore()));
+		}
+
+		return destRteBufferNonqueuedReadOperation;
 	}
 
 	public RteBufferQueuedReadOperation createRteBufferQueuedReadOperation(ReceiveInteraction sourceReceiveInteraction, Parameter dataParam, LocalVariable returnValueVariable) throws ModelException {
 		RteBufferQueuedVariable queuedVariable = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, sourceReceiveInteraction.getValueBufferImplementation());
 
-		RteBufferQueuedReadOperation rteBufferQueuedReadOperation = ModuleFactory.eINSTANCE.createRteBufferQueuedReadOperation();
-		buildReadOperation(rteBufferQueuedReadOperation, dataParam, returnValueVariable);
-		rteBufferQueuedReadOperation.setAccessVariable(queuedVariable);
-		rteBufferQueuedReadOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceReceiveInteraction.receivesInterCore()));
-		return rteBufferQueuedReadOperation;
+		RteBufferQueuedReadOperation destRteBufferQueuedReadOperation = ModuleFactory.eINSTANCE.createRteBufferQueuedReadOperation();
+		buildReadOperation(destRteBufferQueuedReadOperation, dataParam, Optional.of(returnValueVariable));
+		destRteBufferQueuedReadOperation.setAccessVariable(queuedVariable);
+		destRteBufferQueuedReadOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceReceiveInteraction.receivesInterCore()));
+		return destRteBufferQueuedReadOperation;
 	}
 
 	public IocNonqueuedReadOperation createIocNonqueuedReadOperation(IocValueBufferImplementation sourceValueBufferImplementation, Parameter dataParam, LocalVariable returnValueVariable)
 			throws ModelException {
 		IocReadApi iocReadApi = this.context.builtQuery.findDest(IOC_READ_API, sourceValueBufferImplementation.getOsIocCommunication());
 
-		IocNonqueuedReadOperation iocNonqueuedReadOperation = ModuleFactory.eINSTANCE.createIocNonqueuedReadOperation();
-		buildReadOperation(iocNonqueuedReadOperation, dataParam, returnValueVariable);
-		iocNonqueuedReadOperation.setAccessApi(iocReadApi);
-		return iocNonqueuedReadOperation;
+		IocNonqueuedReadOperation destIocNonqueuedReadOperation = ModuleFactory.eINSTANCE.createIocNonqueuedReadOperation();
+		buildReadOperation(destIocNonqueuedReadOperation, dataParam, Optional.of(returnValueVariable));
+		destIocNonqueuedReadOperation.setAccessApi(iocReadApi);
+		return destIocNonqueuedReadOperation;
 	}
 
-	public IocQueuedReadOperation createIocQueuedReceiveOperation(IocValueBufferImplementation sourceValueBufferImplementation, Parameter dataParam, LocalVariable returnValueVariable)
-			throws ModelException {
+	public IocQueuedReadOperation createIocQueuedReceiveOperation(IocValueBufferImplementation sourceValueBufferImplementation, Parameter dataParam, LocalVariable returnValueVariable,
+			Variable tempReturnValueVariable) throws ModelException {
 		IocReceiveApi iocReceiveApi = this.context.builtQuery.findDest(IOC_RECEIVE_API, sourceValueBufferImplementation.getOsIocCommunication());
 
-		IocQueuedReadOperation iocQueuedReceiveOperation = ModuleFactory.eINSTANCE.createIocQueuedReadOperation();
-		buildReadOperation(iocQueuedReceiveOperation, dataParam, returnValueVariable);
-		iocQueuedReceiveOperation.setAccessApi(iocReceiveApi);
-		return iocQueuedReceiveOperation;
+		IocQueuedReadOperation destIocQueuedReceiveOperation = ModuleFactory.eINSTANCE.createIocQueuedReadOperation();
+		buildReadOperation(destIocQueuedReceiveOperation, dataParam, Optional.of(returnValueVariable));
+		destIocQueuedReceiveOperation.setAccessApi(iocReceiveApi);
+		destIocQueuedReceiveOperation.setTempReturnVariable(tempReturnValueVariable);
+		return destIocQueuedReceiveOperation;
 	}
 
-	public ComReadOperation createComReadOperation(ComValueBufferImplementation sourceValueBufferImplementation, Parameter dataParam, LocalVariable returnValueVariable) throws ModelException {
-		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceValueBufferImplementation.getComSignal());
+	public ComReadOperation createComReadOperation(ComValueBufferImplementation sourceValueBufferImplementation, RVariableDataInstanceInSwc sourceDataInstanceInSwc, Parameter dataParam,
+			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceValueBufferImplementation.getComSignal() != null ? sourceValueBufferImplementation.getComSignal() : sourceValueBufferImplementation
+				.getComSignalGroup();
 
-		ComReadOperation comReadOperation = ModuleFactory.eINSTANCE.createComReadOperation();
-		buildReadOperation(comReadOperation, dataParam, returnValueVariable);
-		comReadOperation.setAccessApi(comReceiveSignalApi);
-		return comReadOperation;
+		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
+
+		ComReadOperation destComReadOperation = ModuleFactory.eINSTANCE.createComReadOperation();
+		buildReadOperation(destComReadOperation, dataParam, Optional.of(returnValueVariable));
+		destComReadOperation.setAccessApi(comReceiveSignalApi);
+		destComReadOperation.setTempReturnVariable(tempReturnValueVariable);
+		return destComReadOperation;
 	}
 
-	public NeverReadOperation createNeverReadOperation(RVariableDataInstanceInSwc sourceDataInstanceInSwc, Parameter dataParam) throws ModelException {
-		Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceDataInstanceInSwc, RoleNames.IMPL_INIT_VALUE);
+	public NeverReadOperation createNeverReadOperation(ReadApi targetApi, RVariableDataInstanceInSwc sourceDataInstanceInSwc, Parameter dataParam) throws ModelException {
+		Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceDataInstanceInSwc, RoleNames.SR_IMPL_INIT_VALUE_ROLE_NAME);
 
-		NeverReadOperation readOperation = ModuleFactory.eINSTANCE.createNeverReadOperation();
-		buildReadOperation(readOperation, dataParam, null);
-		readOperation.setInitValueConstant(initValueConstant);
-		return readOperation;
+		NeverReadOperation destReadOperation = ModuleFactory.eINSTANCE.createNeverReadOperation();
+		buildReadOperation(destReadOperation, dataParam, Optional.<LocalVariable> absent());
+		destReadOperation.setInitValueConstant(initValueConstant);
+		if (targetApi.getIsInline()) {
+			addInlineConstant(targetApi, initValueConstant);
+		}
+		return destReadOperation;
 	}
 
-	private void buildReadOperation(ReadOperation targetReadOperation, Parameter dataParam, LocalVariable returnValueVariable) {
+	private void buildReadOperation(ReadOperation targetReadOperation, Parameter dataParam, Optional<LocalVariable> returnValueVariable) {
 		targetReadOperation.setReadValueVariable(dataParam);
-		targetReadOperation.setReadStatusVariable(returnValueVariable);
+		if (returnValueVariable.isPresent()) {
+			targetReadOperation.setReadStatusVariable(returnValueVariable.get());
+		}
 	}
 
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForWriteApi(SendInteraction sourceSendInteraction, Parameter dataParam, LocalVariable filterResultVariable)
-			throws ModelException {
-		RteBufferNonqueuedSendOperation rteNonqueuedSendOperation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, dataParam, this.context.cache.rteErrorOkConstant);
-	
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc dataInstanceInSwc1 = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-		if (dataInstanceInSwc1.isFilterEnabled()) {
-			rteNonqueuedSendOperation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-		}
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForWriteApi(WriteApi sourceAndTargetApi, SendInteraction sourceSendInteraction, Parameter dataParam,
+			LocalVariable filterResultVariable) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 
-		buildExcludeOperation(rteNonqueuedSendOperation, sourceSendInteraction);
-		return rteNonqueuedSendOperation;
-	}
-
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForInvalidateApi(SendInteraction sourceSendInteraction, Constant invalidValueConstant, LocalVariable filterResultVariable)
-			throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc rDataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-	
-		RteBufferNonqueuedSendOperation operation;
-
-		HandleInvalidEnum handleInvalid = rDataInstanceInSwc.isInvalidationEnabled() ? rDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid() : HandleInvalidEnum.DONT_INVALIDATE;
-		switch (handleInvalid) {
-		case KEEP: {
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			break;
-		}
-		case REPLACE: {
-			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, receiveInteraction.getValueBufferImplementation());
-	
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, initValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (rDataInstanceInSwc.isFilterEnabled()) {
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-			}
-			break;
-		}
-		case DONT_INVALIDATE: // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-		default: {
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (rDataInstanceInSwc.isFilterEnabled()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-			}
-			break;
-		}
-		}
-
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
-	}
-
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComReceiveCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender, LocalVariable dataVariable, LocalVariable filterResultVariable) throws ModelException {
-		RteBufferNonqueuedSendOperation operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, dataVariable,
+		RteBufferNonqueuedSendOperation destRteNonqueuedSendOperation = createRteBufferNonqueuedSendOperation(Optional.of(sourceAndTargetApi), sourceSendInteraction, dataParam,
 				this.context.cache.rteErrorOkConstant);
-	
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc dataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-		if (dataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
-			operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
+		if (sourceRDataInstanceInSwc.isFilterEnabled()) {
+			destRteNonqueuedSendOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
 		}
-	
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
+
+		buildExcludeOperation(destRteNonqueuedSendOperation, sourceSendInteraction);
+		return destRteNonqueuedSendOperation;
 	}
 
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComInvalidateCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender, LocalVariable filterResultVariable)
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForInvalidateApi(InvalidateApi sourceAndTargetApi, SendInteraction sourceSendInteraction,
+			Constant invalidValueConstant, LocalVariable filterResultVariable) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		HandleInvalidEnum sourceHandleInvalid = sourceRDataInstanceInSwc.isInvalidationEnabled() ? sourceRDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid()
+				: HandleInvalidEnum.DONT_INVALIDATE;
+
+		RteBufferNonqueuedSendOperation destOperation;
+		switch (sourceHandleInvalid) {
+		case KEEP: {
+			destOperation = createRteBufferNonqueuedSendOperation(Optional.of(sourceAndTargetApi), sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
+			break;
+		}
+		case REPLACE: {
+			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiveInteraction.getValueBufferImplementation());
+
+			destOperation = createRteBufferNonqueuedSendOperation(Optional.of(sourceAndTargetApi), sourceSendInteraction, initValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled()) {
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+			}
+			break;
+		}
+		case DONT_INVALIDATE: // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+		default: {
+			destOperation = createRteBufferNonqueuedSendOperation(Optional.of(sourceAndTargetApi), sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+			}
+			break;
+		}
+		}
+
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
+	}
+
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComReceiveCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender,
+			Variable dataVariable, LocalVariable filterResultVariable) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+
+		RteBufferNonqueuedSendOperation destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, dataVariable, this.context.cache.rteErrorOkConstant);
+		if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
+			destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+		}
+
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
+	}
+
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComInvalidateCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender,
+			LocalVariable filterResultVariable) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		HandleInvalidEnum sourceHandleInvalid = sourceRDataInstanceInSwc.isInvalidationEnabled() ? sourceRDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid()
+				: HandleInvalidEnum.DONT_INVALIDATE; // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+
+		RteBufferNonqueuedSendOperation destOperation;
+		switch (sourceHandleInvalid) {
+		case KEEP: {
+			Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceRDataInstanceInSwc, RoleNames.SR_INVALID_VALUE_ROLE_NAME);
+
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
+			break;
+		}
+		case REPLACE: {
+			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiveInteraction.getValueBufferImplementation());
+
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, initValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+			}
+			break;
+		}
+		case DONT_INVALIDATE: // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+		default: {
+			Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceRDataInstanceInSwc, RoleNames.SR_INVALID_VALUE_ROLE_NAME);
+
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+			}
+			break;
+		}
+		}
+
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
+	}
+
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(SendInteraction sourceSendInteraction, Value sendValue, Constant sendStatusValue)
 			throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc dataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-	
-		RteBufferNonqueuedSendOperation operation;
+		RteBufferNonqueuedSendOperation destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, sendValue, sendStatusValue);
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
+	}
 
-		HandleInvalidEnum handleInvalid = dataInstanceInSwc.isInvalidationEnabled() ? dataInstanceInSwc.getInvalidationPolicy().getHandleInvalid() : HandleInvalidEnum.DONT_INVALIDATE; // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-		switch (handleInvalid) {
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForWriteTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable dataVariable,
+			LocalVariable filterResultVariable) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+
+		RteBufferNonqueuedSendOperation destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, dataVariable, this.context.cache.rteErrorOkConstant);
+		if (sourceRDataInstanceInSwc.isFilterEnabled()) {
+			destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
+		}
+
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
+	}
+
+	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForInvalidateTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable filterResultVariable)
+			throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		HandleInvalidEnum sourceHandleInvalid = sourceRDataInstanceInSwc.isInvalidationEnabled() ? sourceRDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid()
+				: HandleInvalidEnum.DONT_INVALIDATE; // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+
+		Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceRDataInstanceInSwc, RoleNames.SR_INVALID_VALUE_ROLE_NAME);
+
+		RteBufferNonqueuedSendOperation destOperation;
+		switch (sourceHandleInvalid) {
 		case KEEP: {
-			Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, dataInstanceInSwc, RoleNames.INVALID_VALUE);
-	
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
 			break;
 		}
 		case REPLACE: {
-			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, receiveInteraction.getValueBufferImplementation());
-	
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, initValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (dataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
+			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiveInteraction.getValueBufferImplementation());
+
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, initValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled()) {
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
 			}
 			break;
 		}
 		case DONT_INVALIDATE: // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 		default: {
-			Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, dataInstanceInSwc, RoleNames.INVALID_VALUE);
-	
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (dataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-			}
-			break;
-		}
-		}
-		
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
-	}
-
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(SendInteraction sourceSendInteraction, Value sendValue, Constant sendStatusValue) throws ModelException {
-		RteBufferNonqueuedSendOperation operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, sendValue, sendStatusValue);
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
-	}
-
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForWriteTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable dataVariable, LocalVariable filterResultVariable) throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc rDataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-	
-		RteBufferNonqueuedSendOperation operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, dataVariable, this.context.cache.rteErrorOkConstant);
-		if (rDataInstanceInSwc.isFilterEnabled()) {
-			operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-		}
-
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
-	}
-
-	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForInvalidateTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable filterResultVariable) throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc rDataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
-		
-		HandleInvalidEnum handleInvalid = rDataInstanceInSwc.isInvalidationEnabled() ? rDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid() : HandleInvalidEnum.DONT_INVALIDATE; // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-		Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, rDataInstanceInSwc, RoleNames.INVALID_VALUE);
-	
-		RteBufferNonqueuedSendOperation operation;
-		switch (handleInvalid) {
-		case KEEP: {
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			break;
-		}
-		case REPLACE: {
-			Constant initValueConstant = this.context.builtQuery.findDest(CONSTANT, receiveInteraction.getValueBufferImplementation());
-	
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, initValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (rDataInstanceInSwc.isFilterEnabled()) {
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
-			}
-			break;
-		}
-		case DONT_INVALIDATE: // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-		default: {
-			operation = createRteBufferNonqueuedSendOperation(sourceSendInteraction, invalidValueConstant,
-					this.context.cache.rteErrorOkConstant);
-			if (rDataInstanceInSwc.isFilterEnabled()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-				operation.setFilterOperation(createFilterOperation(receiveInteraction, filterResultVariable));
+			destOperation = createRteBufferNonqueuedSendOperationWithoutInlineSupport(sourceSendInteraction, invalidValueConstant, this.context.cache.rteErrorOkConstant);
+			if (sourceRDataInstanceInSwc.isFilterEnabled()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
 			}
 			break;
 		}
 		}
 
-		buildExcludeOperation(operation, sourceSendInteraction);
-		return operation;
+		buildExcludeOperation(destOperation, sourceSendInteraction);
+		return destOperation;
 	}
 
-	private RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperation(SendInteraction sourceSendInteraction, Value sendValue, Constant sendStatusValue) throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		RteBufferVariableSet rteBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, receiveInteraction.getValueBufferImplementation());
+	private RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationWithoutInlineSupport(SendInteraction sourceSendInteraction, Value sendValue, Constant sendStatusValue)
+			throws ModelException {
+		return createRteBufferNonqueuedSendOperation(Optional.<RteApi> absent(), sourceSendInteraction, sendValue, sendStatusValue);
+	}
 
-		RteBufferNonqueuedSendOperation sendOperation = ModuleFactory.eINSTANCE.createRteBufferNonqueuedSendOperation();
-		sendOperation.setSingleSource(sourceSendInteraction);
-		sendOperation.setAccessVariable(rteBuffer);
-		sendOperation.setSendValue(sendValue);
+	// RteBufferNonqueuedSendOperationを生成する。
+	// NOTE FilterOperation、ExcludeOperationの生成有無は呼び出し元の関数に依存するため、本メソッドでは生成しない。
+	// NOTE inline化を行わない場合、targetSwcは不要となるため、Optional.absent()を許容する。
+	private RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperation(Optional<? extends RteApi> targetApi, SendInteraction sourceSendInteraction, Value sendValue, Constant sendStatusValue)
+			throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+
+		RteBufferVariableSet rteBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceReceiveInteraction.getValueBufferImplementation());
+
+		RteBufferNonqueuedSendOperation destSendOperation = ModuleFactory.eINSTANCE.createRteBufferNonqueuedSendOperation();
+		destSendOperation.setSingleSource(sourceSendInteraction);
+		destSendOperation.setAccessVariable(rteBuffer);
+		destSendOperation.setSendValue(sendValue);
+		if (targetApi.isPresent() && targetApi.get().getIsInline()) {
+			addInlineGlobalVariable(targetApi.get(), rteBuffer.getValueVariable());
+			if (sendValue instanceof Constant) {
+				addInlineConstant(targetApi.get(), (Constant) sendValue);
+			}
+		}
 		if (rteBuffer.getStatusVariable() != null) {
-			sendOperation.setSendStatus(sendStatusValue);
+			destSendOperation.setSendStatus(sendStatusValue);
+			if (targetApi.isPresent() && targetApi.get().getIsInline()) {
+				// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+				// ECU間はインライン化しない
+				addInlineGlobalVariable(targetApi.get(), rteBuffer.getStatusVariable());
+			}
 		}
-		return sendOperation;
+		return destSendOperation;
 	}
 
 	private void buildExcludeOperation(RteBufferNonqueuedSendOperation targetSendOperation, SendInteraction sourceSendInteraction) {
-		if (targetSendOperation.getAccessVariable().getStatusVariable() != null || targetSendOperation.getFilterOperation() != null) {
+		if (this.moduleRules.needsExclusionForSendOperation(targetSendOperation)) {
 			targetSendOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceSendInteraction.getReceiveInteraction().receivesInterCore()));
 		}
 	}
 
-	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation,
-			Variable dataVariable, Variable returnValueVariable) throws ModelException {
+	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation, Variable dataVariable,
+			Variable returnValueVariable, Variable tempReturnValueVariable) throws ModelException {
 		RteBufferWriteTrustedFunction trustedFunction = this.context.builtQuery.findDest(RTE_BUFFER_WRITE_TRUSTED_FUNCTION, sourceSendImplementation);
 
-		TrustedFunctionRteBufferWriteSendOperation sendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation();
-		sendOperation.setSingleSource(sourceSendImplementation.getParent());
-		sendOperation.setAccessTrustedFunction(trustedFunction);
-		sendOperation.setSendValue(dataVariable);
-		sendOperation.setReturnVariable(returnValueVariable);
-		return sendOperation;
+		TrustedFunctionRteBufferWriteSendOperation destSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation();
+		destSendOperation.setSingleSource(sourceSendImplementation.getParent());
+		destSendOperation.setAccessTrustedFunction(trustedFunction);
+		destSendOperation.setSendValue(dataVariable);
+		destSendOperation.setReturnVariable(returnValueVariable);
+		destSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		return destSendOperation;
 	}
 
 	public TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation(SendInteraction sourceSendInteraction,
-			TrustedFunctionRteSendImplementation sourceSendImplementation, Variable returnValueVariable) throws ModelException {
+			TrustedFunctionRteSendImplementation sourceSendImplementation, Variable returnValueVariable, Variable tempReturnValueVariable) throws ModelException {
 		RteBufferInvalidateTrustedFunction trustedFunction = this.context.builtQuery.findDest(RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION, sourceSendImplementation);
 
-		TrustedFunctionRteBufferInvalidateSendOperation sendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation();
-		sendOperation.setSingleSource(sourceSendImplementation.getParent());
-		sendOperation.setAccessTrustedFunction(trustedFunction);
-		sendOperation.setReturnVariable(returnValueVariable);
-		return sendOperation;
+		TrustedFunctionRteBufferInvalidateSendOperation destSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation();
+		destSendOperation.setSingleSource(sourceSendInteraction);
+		destSendOperation.setAccessTrustedFunction(trustedFunction);
+		destSendOperation.setReturnVariable(returnValueVariable);
+		destSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		return destSendOperation;
 	}
 
 	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperation(SendInteraction sourceSendInteraction, Variable dataVariable) throws ModelException {
-		return createRteBufferQueuedSendOperation(sourceSendInteraction, dataVariable, null, null);
+		return createRteBufferQueuedSendOperation(sourceSendInteraction, dataVariable, Optional.<LocalVariable> absent());
 	}
 
-	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperation(SendInteraction sourceSendInteraction, Variable dataVariable, Variable returnValueVariable, Variable tempReturnValueVariable)
+	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperation(SendInteraction sourceSendInteraction, Variable dataVariable, Optional<LocalVariable> returnValueVariable)
 			throws ModelException {
-		ReceiveInteraction receiveInteraction = sourceSendInteraction.getReceiveInteraction();
-		RteBufferQueuedVariable queuedVariable = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, receiveInteraction.getValueBufferImplementation());
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
 
-		RteBufferQueuedSendOperation sendOperation = ModuleFactory.eINSTANCE.createRteBufferQueuedSendOperation();
-		sendOperation.setSingleSource(sourceSendInteraction);
-		sendOperation.setAccessVariable(queuedVariable);
-		sendOperation.setSendValue(dataVariable);
-		sendOperation.setReturnVariable(returnValueVariable);
-		sendOperation.setTempReturnVariable(tempReturnValueVariable);
-		sendOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(receiveInteraction.receivesInterCore()));
-		return sendOperation;
+		RteBufferQueuedVariable queuedVariable = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, sourceReceiveInteraction.getValueBufferImplementation());
+
+		RteBufferQueuedSendOperation destSendOperation = ModuleFactory.eINSTANCE.createRteBufferQueuedSendOperation();
+		destSendOperation.setSingleSource(sourceSendInteraction);
+		destSendOperation.setAccessVariable(queuedVariable);
+		destSendOperation.setSendValue(dataVariable);
+		destSendOperation.setType(dataVariable.getType());
+		if (returnValueVariable.isPresent()) {
+			destSendOperation.setReturnVariable(returnValueVariable.get());
+		}
+		destSendOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(sourceReceiveInteraction.receivesInterCore()));
+		return destSendOperation;
 	}
 
-	public IocNonqueuedSendOperation createIocNonqueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, LocalVariable returnValueVariable) throws ModelException {
-		IocWriteApi iocWriteApi = this.context.builtQuery.findDest(IOC_WRITE_API, sourceSendImplementation.getOcIocSenderProperties());
-
-		IocNonqueuedSendOperation sendOperation = ModuleFactory.eINSTANCE.createIocNonqueuedSendOperation();
-		sendOperation.setSingleSource(sourceSendImplementation.getParent());
-		sendOperation.setAccessApi(iocWriteApi);
-		sendOperation.setSendValue(dataVariable);
-		sendOperation.setReturnVariable(returnValueVariable);
-		return sendOperation;
+	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperationForWriteTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable dataVariable, LocalVariable filterResultVariable)
+			throws ModelException {
+		return createRteBufferQueuedSendOperation(sourceSendInteraction, dataVariable, Optional.<LocalVariable> absent());
 	}
 
-	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, LocalVariable returnValueVariable) throws ModelException {
-		IocSendApi iocSendApi = this.context.builtQuery.findDest(IOC_SEND_API, sourceSendImplementation.getOcIocSenderProperties());
+	public IocNonqueuedSendOperation createIocNonqueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable)
+			throws ModelException {
+		IocWriteApi iocWriteApi = this.context.builtQuery.findDest(IOC_WRITE_API, sourceSendImplementation.getOsIocSenderProperties());
 
-		IocQueuedSendOperation sendOperation = ModuleFactory.eINSTANCE.createIocQueuedSendOperation();
-		sendOperation.setSingleSource(sourceSendImplementation.getParent());
-		sendOperation.setAccessApi(iocSendApi);
-		sendOperation.setSendValue(dataVariable);
-		sendOperation.setReturnVariable(returnValueVariable);
-		return sendOperation;
+		IocNonqueuedSendOperation destSendOperation = ModuleFactory.eINSTANCE.createIocNonqueuedSendOperation();
+		destSendOperation.setSingleSource(sourceSendImplementation.getParent());
+		destSendOperation.setAccessApi(iocWriteApi);
+		destSendOperation.setSendValue(dataVariable);
+		destSendOperation.setType(dataVariable.getType());
+		if (returnValueVariable.isPresent()) { // COVERAGE 常にtrue(不具合混入時のみfalseになるコードなので，未カバレッジで問題ない)
+			destSendOperation.setReturnVariable(returnValueVariable.get());
+		}
+		return destSendOperation;
 	}
 
-	public DirectComSendOperation createDirectComSendOperation(DirectComSendImplementation sourceSendImplementation, Variable dataVariable, LocalVariable returnValueVariable) throws ModelException {
-		DirectComSendOperation directComSendOperation = ModuleFactory.eINSTANCE.createDirectComSendOperation();
-		buildComSendOperation(directComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable);
-		return directComSendOperation;
+	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable) throws ModelException {
+		// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+		// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった関係上,当メソッドは使用されない.
+		return createIocQueuedSendOperation(sourceSendImplementation, dataVariable, returnValueVariable, Optional.<Variable> absent());
+	}
+
+	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable,
+			Optional<? extends Variable> tempReturnValueVariable) throws ModelException {
+		IocSendApi iocSendApi = this.context.builtQuery.findDest(IOC_SEND_API, sourceSendImplementation.getOsIocSenderProperties());
+
+		IocQueuedSendOperation destSendOperation = ModuleFactory.eINSTANCE.createIocQueuedSendOperation();
+		destSendOperation.setSingleSource(sourceSendImplementation.getParent());
+		destSendOperation.setAccessApi(iocSendApi);
+		destSendOperation.setSendValue(dataVariable);
+		destSendOperation.setType(dataVariable.getType());
+		if (returnValueVariable.isPresent()) { // COVERAGE 常にtrue(不具合混入時のみfalseになるコードなので，未カバレッジで問題ない)
+			destSendOperation.setReturnVariable(returnValueVariable.get());
+		}
+		if (tempReturnValueVariable.isPresent()) { // COVERAGE 常にtrue(不具合混入時のみfalseになるコードなので，未カバレッジで問題ない)
+			destSendOperation.setTempReturnVariable(tempReturnValueVariable.get());
+		}
+		return destSendOperation;
+	}
+
+	public DirectComSendOperation createDirectComSendOperation(DirectComSendImplementation sourceSendImplementation, Variable dataVariable, LocalVariable returnValueVariable,
+			LocalVariable tempReturnValueVariable) throws ModelException {
+		DirectComSendOperation destDirectComSendOperation = ModuleFactory.eINSTANCE.createDirectComSendOperation();
+		buildComSendOperation(destDirectComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable);
+		return destDirectComSendOperation;
+	}
+
+	public TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation, Variable dataVariable,
+			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable, LocalVariable tempReturnValueVariable, Type type) {
+		TrustedFunctionRteSendOperation destTrustedFunctionRteSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteSendOperation();
+		destTrustedFunctionRteSendOperation.setSendValue(dataVariable);
+		destTrustedFunctionRteSendOperation.setReturnVariable(returnValueVariable);
+		destTrustedFunctionRteSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		destTrustedFunctionRteSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
+		destTrustedFunctionRteSendOperation.setType(type);
+		destTrustedFunctionRteSendOperation.setSrSendTfSymbolName(sourceSendImplementation.getWriteOsTrustedFunction().getShortName());
+		return destTrustedFunctionRteSendOperation;
 	}
 
 	public TrustedFunctionComSendOperation createTrustedFunctionComSendOperation(TrustedFunctionComSendImplementation sourceSendImplementation, Variable dataVariable,
-			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable) throws ModelException {
-		TrustedFunctionComSendOperation trustedFunctionComSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionComSendOperation();
-		buildComSendOperation(trustedFunctionComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable);
-		trustedFunctionComSendOperation.setAccessTrustedFunction(this.context.cache.comSendSignalTrustedFunction.get());
-		trustedFunctionComSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
-		return trustedFunctionComSendOperation;
+			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable, LocalVariable tempReturnValueVariable, Type type) throws ModelException {
+		TrustedFunctionComSendOperation destTrustedFunctionComSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionComSendOperation();
+		buildComSendOperation(destTrustedFunctionComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable);
+		if (sourceSendImplementation.getComSignal() != null) {
+			destTrustedFunctionComSendOperation.setAccessTrustedFunction(this.context.cache.comSendSignalTf.get());
+		} else {
+			destTrustedFunctionComSendOperation.setAccessTrustedFunction(this.context.cache.comSendSignalGroupTf.get());
+		}
+		destTrustedFunctionComSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
+		destTrustedFunctionComSendOperation.setType(type);
+		destTrustedFunctionComSendOperation.setIsGroup(sourceSendImplementation.getComSignalGroup() != null);
+		return destTrustedFunctionComSendOperation;
 	}
 
-	public ImmediateProxyComSendOperation createImmediateProxyComSendOperation(ImmediateProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable)
-			throws ModelException {
+	public ImmediateProxyComSendOperation createImmediateProxyComSendOperation(ImmediateProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
+			LocalVariable tempReturnValueVariable, Type type) throws ModelException {
 		OsSetEventApi activationApi = this.context.builtQuery.findDest(OS_SET_EVENT_API, sourceSendImplementation.getProxyInteraction().getProxy());
 
-		ImmediateProxyComSendOperation immediateProxyComSendOperation = ModuleFactory.eINSTANCE.createImmediateProxyComSendOperation();
-		buildProxyComSendOperation(immediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable);
-		immediateProxyComSendOperation.setActivationApi(activationApi);
-		return immediateProxyComSendOperation;
+		ImmediateProxyComSendOperation destImmediateProxyComSendOperation = ModuleFactory.eINSTANCE.createImmediateProxyComSendOperation();
+		if (type instanceof PrimitiveType) {
+			buildCommonPartOfProxyComSendOperation(destImmediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_GROUP_API);
+		} else {
+			buildProxyComSendOperationWithComplexType(destImmediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API);
+		}
+		destImmediateProxyComSendOperation.setActivationApi(activationApi);
+		destImmediateProxyComSendOperation.setType(type);
+
+		return destImmediateProxyComSendOperation;
 	}
 
-	public PeriodicProxyComSendOperation createPeriodicProxyComSendOperation(PeriodicProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable)
-			throws ModelException {
-		PeriodicProxyComSendOperation periodicProxyComSendOperation = ModuleFactory.eINSTANCE.createPeriodicProxyComSendOperation();
-		buildProxyComSendOperation(periodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable);
-		return periodicProxyComSendOperation;
+	public PeriodicProxyComSendOperation createPeriodicProxyComSendOperation(PeriodicProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
+			LocalVariable tempReturnValueVariable, Type type) throws ModelException {
+		PeriodicProxyComSendOperation destPeriodicProxyComSendOperation = ModuleFactory.eINSTANCE.createPeriodicProxyComSendOperation();
+		if (type instanceof PrimitiveType) {
+			buildCommonPartOfProxyComSendOperation(destPeriodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_GROUP_API);
+		} else {
+			buildProxyComSendOperationWithComplexType(destPeriodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API);
+		}
+		destPeriodicProxyComSendOperation.setType(type);
+
+		return destPeriodicProxyComSendOperation;
 	}
 
-	private void buildProxyComSendOperation(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation proxyComSendImplementation, Value dataValue, LocalVariable returnValueVariable)
-			throws ModelException {
-		IocSendGroupApi proxyApi = this.context.builtQuery.findDest(IOC_SEND_GROUP_API, proxyComSendImplementation.getProxyInteraction().getOsIocCommunication().getOsIocSenderProperties().get(0));
+	private void buildProxyComSendOperationWithComplexType(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation sourceProxyComSendImplementation, Value dataValue,
+			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, EClass eProxyIocApiClass) throws ModelException {
+		InternalEcuSender sourceSender = sourceProxyComSendImplementation.getParent().getInternalEcuSenders().get(0);
+		VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
+		EcucContainer sourceComSignalOrComSignalGroup = sourceProxyComSendImplementation.getComSignal() != null ? sourceProxyComSendImplementation.getComSignal() : sourceProxyComSendImplementation
+				.getComSignalGroup();
 
-		buildComSendOperation(targetProxyComSendOperation, proxyComSendImplementation, dataValue, returnValueVariable);
-		targetProxyComSendOperation.setAccessProxyApi(proxyApi);
+		IocSendApi valueProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getValueOsIocCommunicationForComplexType()
+				.getOsIocSenderProperties().get(0));
+
+		buildCommonPartOfProxyComSendOperation(targetProxyComSendOperation, sourceProxyComSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, eProxyIocApiClass);
+		targetProxyComSendOperation.setValueProxyIocApi(valueProxyIocApi);
+		targetProxyComSendOperation.setProxyFunctionIndexConstantName(SymbolNames.createComProxyFunctionTableIndexConstantName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
 	}
 
-	private void buildComSendOperation(ComSendOperation targetComSendOperation, ComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable) throws ModelException {
-		ComSendSignalApi comSendSignalApi = this.context.builtQuery.findDest(COM_SEND_SIGNAL_API, sourceSendImplementation.getComSignal());
+	private void buildCommonPartOfProxyComSendOperation(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation sourceProxyComSendImplementation, Value dataValue,
+			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, EClass eProxyIocApiClass) throws ModelException {
+		IocSendApi requestProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getRequestOsIocCommunication()
+				.getOsIocSenderProperties().get(0));
+
+		buildComSendOperation(targetProxyComSendOperation, sourceProxyComSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable);
+		targetProxyComSendOperation.setRequestProxyIocApi(requestProxyIocApi);
+	}
+
+	private void buildComSendOperation(ComSendOperation targetComSendOperation, ComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
+			LocalVariable tempReturnValueVariable) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceSendImplementation.getComSignal() != null ? sourceSendImplementation.getComSignal() : sourceSendImplementation.getComSignalGroup();
+
+		ComSendSignalApi comSendSignalApi = this.context.builtQuery.findDest(COM_SEND_SIGNAL_API, sourceComSignalOrComSignalGroup);
+
 		targetComSendOperation.setSingleSource(sourceSendImplementation.getParent());
 		targetComSendOperation.setAccessApi(comSendSignalApi);
 		targetComSendOperation.setSendValue(dataValue);
+
 		targetComSendOperation.setReturnVariable(returnValueVariable);
+		targetComSendOperation.setTempReturnVariable(tempReturnValueVariable);
 	}
 
 	public FilterOperation createFilterOperation(ReceiveInteraction sourceReceiveInteraction, Variable filterResultVariable) throws ModelException {
-		InternalEcuReceiver receiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
-		RVariableDataInstanceInSwc receiverDataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceReceiverDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 
-		switch (receiverDataInstanceInSwc.getFilter().getDataFilterType()) {
+		switch (sourceReceiverDataInstanceInSwc.getFilter().getDataFilterType()) {
 		case MASKED_NEW_DIFFERS_MASKED_OLD: {
 			GlobalVariable filterOldValueVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceReceiveInteraction.getFilterBufferImplementation());
-			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MASK_ROLE_NAME);
+			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MASK_ROLE_NAME);
 
-			MaskedNewDiffersMaskedOldFilterOperation maskedNewDiffersMaskedOldFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewDiffersMaskedOldFilterOperation();
-			maskedNewDiffersMaskedOldFilterOperation.setFilterResultVariable(filterResultVariable);
-			maskedNewDiffersMaskedOldFilterOperation.setMask(maskConstant);
-			maskedNewDiffersMaskedOldFilterOperation.setOldValueVariable(filterOldValueVariable);
-			return maskedNewDiffersMaskedOldFilterOperation;
+			MaskedNewDiffersMaskedOldFilterOperation destMaskedNewDiffersMaskedOldFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewDiffersMaskedOldFilterOperation();
+			destMaskedNewDiffersMaskedOldFilterOperation.setFilterResultVariable(filterResultVariable);
+			destMaskedNewDiffersMaskedOldFilterOperation.setMask(maskConstant);
+			destMaskedNewDiffersMaskedOldFilterOperation.setOldValueVariable(filterOldValueVariable);
+			return destMaskedNewDiffersMaskedOldFilterOperation;
 		}
 		case MASKED_NEW_DIFFERS_X: {
-			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MASK_ROLE_NAME);
-			Constant xConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_X_ROLE_NAME);
+			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MASK_ROLE_NAME);
+			Constant xConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_X_ROLE_NAME);
 
-			MaskedNewDiffersXFilterOperation maskedNewDiffersXFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewDiffersXFilterOperation();
-			maskedNewDiffersXFilterOperation.setFilterResultVariable(filterResultVariable);
-			maskedNewDiffersXFilterOperation.setMask(maskConstant);
-			maskedNewDiffersXFilterOperation.setX(xConstant);
-			return maskedNewDiffersXFilterOperation;
+			MaskedNewDiffersXFilterOperation destMaskedNewDiffersXFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewDiffersXFilterOperation();
+			destMaskedNewDiffersXFilterOperation.setFilterResultVariable(filterResultVariable);
+			destMaskedNewDiffersXFilterOperation.setMask(maskConstant);
+			destMaskedNewDiffersXFilterOperation.setX(xConstant);
+			return destMaskedNewDiffersXFilterOperation;
 		}
 		case MASKED_NEW_EQUALS_X: {
-			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MASK_ROLE_NAME);
-			Constant xConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_X_ROLE_NAME);
+			Constant maskConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MASK_ROLE_NAME);
+			Constant xConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_X_ROLE_NAME);
 
-			MaskedNewEqualsXFilterOperation maskedNewEqualsXFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewEqualsXFilterOperation();
-			maskedNewEqualsXFilterOperation.setFilterResultVariable(filterResultVariable);
-			maskedNewEqualsXFilterOperation.setMask(maskConstant);
-			maskedNewEqualsXFilterOperation.setX(xConstant);
-			return maskedNewEqualsXFilterOperation;
+			MaskedNewEqualsXFilterOperation destMaskedNewEqualsXFilterOperation = ModuleFactory.eINSTANCE.createMaskedNewEqualsXFilterOperation();
+			destMaskedNewEqualsXFilterOperation.setFilterResultVariable(filterResultVariable);
+			destMaskedNewEqualsXFilterOperation.setMask(maskConstant);
+			destMaskedNewEqualsXFilterOperation.setX(xConstant);
+			return destMaskedNewEqualsXFilterOperation;
 		}
 		case NEW_IS_OUTSIDE: {
-			Constant minConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MIN_ROLE_NAME);
-			Constant maxConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MAX_ROLE_NAME);
+			Constant minConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MIN_ROLE_NAME);
+			Constant maxConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MAX_ROLE_NAME);
 
-			NewIsOutsideFilterOperation newIsOutsideFilterOperation = ModuleFactory.eINSTANCE.createNewIsOutsideFilterOperation();
-			newIsOutsideFilterOperation.setFilterResultVariable(filterResultVariable);
-			newIsOutsideFilterOperation.setMin(minConstant);
-			newIsOutsideFilterOperation.setMax(maxConstant);
-			return newIsOutsideFilterOperation;
+			NewIsOutsideFilterOperation destNewIsOutsideFilterOperation = ModuleFactory.eINSTANCE.createNewIsOutsideFilterOperation();
+			destNewIsOutsideFilterOperation.setFilterResultVariable(filterResultVariable);
+			destNewIsOutsideFilterOperation.setMin(minConstant);
+			destNewIsOutsideFilterOperation.setMax(maxConstant);
+			return destNewIsOutsideFilterOperation;
 		}
 		case NEW_IS_WITHIN: {
-			Constant minConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MIN_ROLE_NAME);
-			Constant maxConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_MAX_ROLE_NAME);
+			Constant minConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MIN_ROLE_NAME);
+			Constant maxConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_MAX_ROLE_NAME);
 
-			NewIsWithinFilterOperation newIsWithinFilterOperation = ModuleFactory.eINSTANCE.createNewIsWithinFilterOperation();
-			newIsWithinFilterOperation.setFilterResultVariable(filterResultVariable);
-			newIsWithinFilterOperation.setMin(minConstant);
-			newIsWithinFilterOperation.setMax(maxConstant);
-			return newIsWithinFilterOperation;
+			NewIsWithinFilterOperation destNewIsWithinFilterOperation = ModuleFactory.eINSTANCE.createNewIsWithinFilterOperation();
+			destNewIsWithinFilterOperation.setFilterResultVariable(filterResultVariable);
+			destNewIsWithinFilterOperation.setMin(minConstant);
+			destNewIsWithinFilterOperation.setMax(maxConstant);
+			return destNewIsWithinFilterOperation;
 		}
 		case ONE_EVERY_N: {
 			GlobalVariable filterOccurrenceVariable = this.context.builtQuery.findDest(GLOBAL_VARIABLE, sourceReceiveInteraction.getFilterBufferImplementation());
 
-			Constant periodConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_PERIOD_ROLE_NAME);
-			Constant offsetConstant = this.context.builtQuery.findDest(CONSTANT, receiverDataInstanceInSwc, RoleNames.FILTER_OFFSET_ROLE_NAME);
+			Constant periodConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_PERIOD_ROLE_NAME);
+			Constant offsetConstant = this.context.builtQuery.findDest(CONSTANT, sourceReceiverDataInstanceInSwc, RoleNames.SR_FILTER_OFFSET_ROLE_NAME);
 
-			OneEveryNFilterOperation oneEveryNFilterOperation = ModuleFactory.eINSTANCE.createOneEveryNFilterOperation();
-			oneEveryNFilterOperation.setFilterResultVariable(filterResultVariable);
-			oneEveryNFilterOperation.setOccurrenceVariable(filterOccurrenceVariable);
-			oneEveryNFilterOperation.setPeriod(periodConstant);
-			oneEveryNFilterOperation.setOffset(offsetConstant);
-			return oneEveryNFilterOperation;
+			OneEveryNFilterOperation destOneEveryNFilterOperation = ModuleFactory.eINSTANCE.createOneEveryNFilterOperation();
+			destOneEveryNFilterOperation.setFilterResultVariable(filterResultVariable);
+			destOneEveryNFilterOperation.setOccurrenceVariable(filterOccurrenceVariable);
+			destOneEveryNFilterOperation.setPeriod(periodConstant);
+			destOneEveryNFilterOperation.setOffset(offsetConstant);
+			return destOneEveryNFilterOperation;
 		}
 		case ALWAYS:
 		case NEVER:
@@ -595,7 +728,8 @@ public class SenderReceiverOperationModelBuilder {
 	}
 
 	public InterPartitionTimeoutOperation createInterPartitionTimeoutOperation(EcucPartition sourcePartition) throws ModelException {
-		InterPartitionTimeoutOperation timeoutOperation = ModuleFactory.eINSTANCE.createInterPartitionTimeoutOperation();
+		InterPartitionTimeoutOperation destTimeoutOperation = ModuleFactory.eINSTANCE.createInterPartitionTimeoutOperation();
+
 		for (InternalEcuSender sourceSender : this.context.query.<InternalEcuSender> find(isKindOf(INTERNAL_ECU_SENDER).AND(ref(INTERACTION_END__OWNER_PARTITION, sourcePartition)))) {
 			for (SendInteraction sourceSendInteraction : this.context.query.select(sourceSender.getSendInteraction(), hasOp(SEND_INTERACTION___IS_INTER_PARTITION, true))) {
 				ValueBufferImplementation sourceValueBufferImplementation = sourceSendInteraction.getReceiveInteraction().getValueBufferImplementation();
@@ -608,26 +742,38 @@ public class SenderReceiverOperationModelBuilder {
 
 				// NOTE 現状，ステータスを持つのはデータセマンティックスのRTEバッファのみ
 				if (sourceValueBufferImplementation instanceof RteValueBufferImplementation) { // COVERAGE 常にtrue(現状，パーティション間のタイムアウト通知を行う場合，常にRteValueBufferImplementationであるため)
-					RteBufferVariableSet rteBufferVariableSet = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceValueBufferImplementation);
-					timeoutOperation.getTimeoutVariable().add(rteBufferVariableSet);
+					RteBufferVariableSet srRteBufferVariableSet = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceValueBufferImplementation);
+					destTimeoutOperation.getTimeoutVariable().add(srRteBufferVariableSet);
 				}
 			}
 		}
 
-		List<RteValueBufferImplementation> sourceBufferImplementations = this.context.query.collect(timeoutOperation.getTimeoutVariable(), MODULE_OBJECT__SOURCE);
-		if (isMultipleSenderCoreExists(sourceBufferImplementations)) {
-			timeoutOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(true));
+		List<RteValueBufferImplementation> sourceValueBufferImplementations = this.context.query.collect(destTimeoutOperation.getTimeoutVariable(), MODULE_OBJECT__SOURCE);
+		if (isMultipleSenderCoreExists(sourceValueBufferImplementations)) {
+			destTimeoutOperation.setExcludeOperation(this.excludeOperationBuilder.createExcludeOperationForRteInternalLock(true));
 		}
-		return timeoutOperation;
+		return destTimeoutOperation;
 	}
 
-	private boolean isMultipleSenderCoreExists(List<RteValueBufferImplementation> sourceBufferImplementations) {
-		for (RteValueBufferImplementation sourceBufferImplementation : sourceBufferImplementations) {
-			ReceiveInteraction receiveInteraction = sourceBufferImplementation.getParent();
-			if (receiveInteraction.receivesFromMultipleCores()) {
+	private boolean isMultipleSenderCoreExists(List<RteValueBufferImplementation> sourceValueBufferImplementations) {
+		for (RteValueBufferImplementation sourceValueBufferImplementation : sourceValueBufferImplementations) {
+			ReceiveInteraction sourceReceiveInteraction = sourceValueBufferImplementation.getParent();
+			if (sourceReceiveInteraction.receivesFromMultipleCores()) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	private void addInlineGlobalVariable(RteApi targetApi, GlobalVariable globalVariable) {
+		if (!targetApi.getInlineGlobalVariable().contains(globalVariable)) { // COVERAGE (コードレビューで問題ないことを確認)
+			targetApi.getInlineGlobalVariable().add(globalVariable);
+		}
+	}
+
+	private void addInlineConstant(RteApi targetApi, Constant constant) {
+		if (!targetApi.getInlineConstant().contains(constant)) { // COVERAGE (コードレビューで問題ないことを確認)
+			targetApi.getInlineConstant().add(constant);
+		}
 	}
 }

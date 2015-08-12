@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSw
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getAutosarVariableIref <em>Autosar Variable Iref</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getAutosarVariable <em>Autosar Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getLocalVariable <em>Local Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,4 +117,30 @@ public interface AutosarVariableRef extends M2Object {
 	 * @generated
 	 */
 	void setAutosarVariable(VariableDataInstanceInSwc value);
+
+	/**
+	 * Returns the value of the '<em><b>Local Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Local Variable</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Local Variable</em>' reference.
+	 * @see #setLocalVariable(VariableDataPrototype)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarVariableRef_LocalVariable()
+	 * @model
+	 * @generated
+	 */
+	VariableDataPrototype getLocalVariable();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef#getLocalVariable <em>Local Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Local Variable</em>' reference.
+	 * @see #getLocalVariable()
+	 * @generated
+	 */
+	void setLocalVariable(VariableDataPrototype value);
 } // AutosarVariableRef

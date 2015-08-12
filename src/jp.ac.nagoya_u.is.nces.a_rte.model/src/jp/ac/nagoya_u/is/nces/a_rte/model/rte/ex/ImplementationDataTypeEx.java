@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -96,20 +96,20 @@ public interface ImplementationDataTypeEx extends ExtendedEObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.baseType.nativeDeclaration.oclIsUndefined()'"
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if this_.baseType.oclIsUndefined()\n\t\t\t\t\t then true\n\t\t\t\t\telse not this_.baseType.nativeDeclaration.oclIsUndefined()\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
-	Boolean providesTypeDefinition(ImplementationDataType this_);
+	boolean providesTypeDefinition(ImplementationDataType this_);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true" applicationDataTypeRequired="true"
+	 * @model required="true" this_Required="true" applicationDataTypeRequired="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let compuMethod : m2::CompuMethod = getCompuMethod(this_, applicationDataType)\n\t\t\t\tin if compuMethod.oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse compuMethodEx.providesEnumConstant(compuMethod)\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
-	Boolean providesEnumConstant(ImplementationDataType this_, ApplicationDataType applicationDataType);
+	boolean providesEnumConstant(ImplementationDataType this_, ApplicationDataType applicationDataType);
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 
 import java.util.List;
 
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 
 import org.kohsuke.args4j.Argument;
@@ -51,53 +52,137 @@ import org.kohsuke.args4j.Option;
 
 import com.google.common.collect.Lists;
 
+/**
+ * RTEジェネレータの実行時のオプションを表す。
+ */
 public class GeneratorOptions {
+
+	/**
+	 * RTEの生成フェーズを表す。
+	 */
 	public enum GenerationPhase {
-		CONTRACT, GENERATE,
+		/**
+		 * CONTRACTフェーズ
+		 */
+		CONTRACT,
+
+		/**
+		 * GENERATEフェーズ
+		 */
+		GENERATE,
 	}
 
+	/**
+	 * ヘルプを表示するかどうか
+	 */
 	@Option(name = "--help", usage = "Display this information")
 	public boolean showsHelp = false;
 
+	/**
+	 * 生成したRTEのファイルに生成時刻のタイムスタンプを出力するかどうか
+	 */
 	@Option(name = "-t", aliases = "--output-timestamp", usage = "Write the generation timestamp in RTE/SCHM codes")
 	public boolean writeGenerationTimeStamp = false;
 
+	/**
+	 * RTEジェネレータのバージョンを表示するかどうか
+	 */
 	@Option(name = "-v", aliases = "--version", usage = "Display the version of the RTE generator")
 	public boolean showsVersion = false;
 
+	/**
+	 * 生成したRTEの出力ディレクトリのパス
+	 */
 	@Option(name = "-o", aliases = "--output-directory", usage = "Specify the output directory for generated files (default: .)", metaVar = "<directory>")
 	public String outputDirectory = ".";
 
+	/**
+	 * RTEの生成フェーズ
+	 */
 	@Option(name = "-p", aliases = "--generation-phase", usage = "Specify the RTE/SCHM generation phase(CONTRACT or GENERATE) (default: GENERATE)", metaVar = "<phase>")
 	public GenerationPhase generationPhase = GenerationPhase.GENERATE;
 
+	/**
+	 * <p>デバッグモードを有効にするかどうか</p>
+	 * <p>デバッグモードが有効に設定された場合、RTEジェネレータは実行時に内部モデルのダンプファイルを出力する。</p>
+	 */
 	@Option(hidden = true, name = "--debug", usage = "Enable debug mode")
 	public boolean debugModeEnabled = false;
 
+	/**
+	 * RTEコンフィグレーションヘッダを出力するかどうか
+	 */
 	@Option(hidden = true, name = "--suppress-config-header", usage = "Suppress the generation of RTE Configuration Header")
 	public boolean suppressConfigHeader = false;
 
+	/**
+	 * メモリマッピングheaderのスケルトンを生成するかどうか
+	 */
 	@Option(hidden = true, name = "--generate-memmap-skel", usage = "Generate memory mapping skeltons")
 	public boolean doesGenerateMemoryMappingHeaderSkelton = false;
 
+	/**
+	 * RTEテスト用のヘルパファイル(周辺モジュールのスタブ、モック)を生成するかどうか
+	 */
 	@Option(hidden = true, name = "--generate-tests", usage = "Generate test helpers")
 	public boolean doesGenerateTests = false;
 
+	/**
+	 * <p>RTEを強制的に生成するかどうか</p>
+	 * <p>このオプションが設定された場合、RTEジェネレータは、RTEの生成に必要なECUCコンフィグレーションが不足している場合でも、コンフィグレーションが補完可能であればRTEを生成する。</p>
+	 */
 	@Option(hidden = true, name = "--force-generate-rte", usage = "Force to generate RTE")
 	public boolean forcesGenerateRte = false;
 
+	/**
+	 * <p>static inlineによるインライン化を抑制するかどうか</p>
+	 * <p>このオプションが</p>
+	 */
+	@Option(name = "--without-static-inline", usage = "Suppress static inlines")
+	public boolean withoutStaticInline = false;
+
+	/**
+	 * <p>マルチコア対応のCOMを使用するかどうか</p>
+	 * <p>このオプションが設定された場合、RTEジェネレータはマルチコア対応のCOMに最適化されたRTEを生成する。</p>
+	 */
+	@Option(name = "--com-multicore", usage = "Use COM Apis for multi core support")
+	public boolean comMultiCore = false;
+	
+	/**
+	 * RTEジェネレータの入力となるAUTOSAR XML
+	 */
 	@Argument(usage = "Input files(AUTOSAR XMLs)", metaVar = "<file1> [<file2> [<file3>] ...]", required = true)
 	public List<String> inputFiles = Lists.newArrayList();
 
+	/**
+	 * ツール情報の表示のためのオプションが指定されているかを判定する。
+	 * @return 表示オプションが指定されている場合、true。それ以外の場合、false。
+	 */
 	public boolean isShowsOptionEnabled() {
 		return this.showsHelp || this.showsVersion;
 	}
 
-	public RteModuleModelBuilderOptions createBuilderOptions() {
+	/**
+	 * RTE連携モデル生成用のオプションを生成する。
+	 * @return 生成したオプション
+	 */
+	public RteInteractionModelBuilderOptions createRteInteractionModelBuilderOptions() {
+		RteInteractionModelBuilderOptions builderOptions = new RteInteractionModelBuilderOptions();
+		builderOptions.comMultiCore = this.comMultiCore;
+		return builderOptions;
+	}
+
+	/**
+	 * RTEモジュールモデル生成用のオプションを生成する。
+	 * @return 生成したオプション
+	 */
+	public RteModuleModelBuilderOptions createRteModuleModelBuilderOptions() {
 		RteModuleModelBuilderOptions builderOptions = new RteModuleModelBuilderOptions();
 		builderOptions.suppressConfigHeader = this.suppressConfigHeader;
 		builderOptions.writeGenerationTimeStamp = this.writeGenerationTimeStamp;
 		builderOptions.doesGenerateMemoryMappingHeaderSkelton = this.doesGenerateMemoryMappingHeaderSkelton;
+		builderOptions.withoutStaticInline = this.withoutStaticInline;
+		builderOptions.generationPhase = (this.generationPhase == GenerationPhase.GENERATE);
 		return builderOptions;
 	}
 }

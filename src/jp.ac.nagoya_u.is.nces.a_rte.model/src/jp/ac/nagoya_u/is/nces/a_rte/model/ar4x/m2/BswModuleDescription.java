@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getInternalBehavior <em>Internal Behavior</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getProvidedEntry <em>Provided Entry</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getProvidedModeGroup <em>Provided Mode Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription#getRequiredModeGroup <em>Required Mode Group</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,5 +99,50 @@ public interface BswModuleDescription extends ArElement {
 	 * @generated
 	 */
 	EList<BswModuleEntry> getProvidedEntry();
+
+	/**
+	 * Returns the value of the '<em><b>Provided Mode Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Provided Mode Group</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Provided Mode Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_ProvidedModeGroup()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ModeDeclarationGroupPrototype> getProvidedModeGroup();
+
+	/**
+	 * Returns the value of the '<em><b>Required Mode Group</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Required Mode Group</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Required Mode Group</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_RequiredModeGroup()
+	 * @model containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ModeDeclarationGroupPrototype> getRequiredModeGroup();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 実装データ型の取得
+	 * (マルチインスタンス未対応前提で1つ返す)
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let behavior : Set(BswInternalBehavior) = self.internalBehavior->select(implementation->size() > 0)\n\t\t\t\t\t\t\tin if behavior->isEmpty() then\n\t\t\t\t\t\t\t\tnull\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tbehavior->any(true)\n\t\t\t\t\t\t\tendif'"
+	 * @generated
+	 */
+	BswInternalBehavior getEnableInternalBehavior();
 
 } // BswModuleDescription

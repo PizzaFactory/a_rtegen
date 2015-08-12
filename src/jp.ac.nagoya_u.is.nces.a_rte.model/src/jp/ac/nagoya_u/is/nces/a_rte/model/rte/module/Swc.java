@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,17 +55,21 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getParent <em>Parent</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSwcMemoryMapping <em>Swc Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getDependentRunnableEntity <em>Dependent Runnable Entity</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getDependentExternalRunnableEntity <em>Dependent External Runnable Entity</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getRteApi <em>Rte Api</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getApiInitValueConstant <em>Api Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getApiApplicationErrorConstant <em>Api Application Error Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getApiEnumConstant <em>Api Enum Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getApiUpperLowerLimitConstant <em>Api Upper Lower Limit Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getFilterConstant <em>Filter Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getPortArgValueConstant <em>Port Arg Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getDependentExecutableEntity <em>Dependent Executable Entity</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getInvalidValueConstant <em>Invalid Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getImplInitValueConstant <em>Impl Init Value Constant</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSwcMemoryMapping <em>Swc Memory Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSrApiInitValueConstant <em>Sr Api Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSrImplInitValueConstant <em>Sr Impl Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSrImplInvalidValueConstant <em>Sr Impl Invalid Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSrFilterConstant <em>Sr Filter Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getCsApiApplicationErrorConstant <em>Cs Api Application Error Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getCsPortArgValueConstant <em>Cs Port Arg Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getCsPortArgValueVariable <em>Cs Port Arg Value Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getIrvBufferInitValueConstant <em>Irv Buffer Init Value Constant</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getIrvBufferVariableSet <em>Irv Buffer Variable Set</em>}</li>
  * </ul>
  * </p>
  *
@@ -74,86 +78,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Swc extends LogicalCompartment {
-	/**
-	 * Returns the value of the '<em><b>Filter Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Filter Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Filter Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_FilterConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getFilterConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Port Arg Value Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Port Arg Value Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Port Arg Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_PortArgValueConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getPortArgValueConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Dependent Executable Entity</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependent Executable Entity</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Executable Entity</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_DependentExecutableEntity()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ExecutableEntity> getDependentExecutableEntity();
-
-	/**
-	 * Returns the value of the '<em><b>Invalid Value Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Invalid Value Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Invalid Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_InvalidValueConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getInvalidValueConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Impl Init Value Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Impl Init Value Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Impl Init Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_ImplInitValueConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getImplInitValueConstant();
-
 	/**
 	 * Returns the value of the '<em><b>Swc Memory Mapping</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMapping}.
@@ -169,6 +93,38 @@ public interface Swc extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<SwcMemoryMapping> getSwcMemoryMapping();
+
+	/**
+	 * Returns the value of the '<em><b>Dependent Runnable Entity</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependent Runnable Entity</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependent Runnable Entity</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_DependentRunnableEntity()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RunnableEntity> getDependentRunnableEntity();
+
+	/**
+	 * Returns the value of the '<em><b>Dependent External Runnable Entity</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dependent External Runnable Entity</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dependent External Runnable Entity</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_DependentExternalRunnableEntity()
+	 * @model
+	 * @generated
+	 */
+	EList<RunnableEntity> getDependentExternalRunnableEntity();
 
 	/**
 	 * Returns the value of the '<em><b>Parent</b></em>' container reference.
@@ -217,38 +173,6 @@ public interface Swc extends LogicalCompartment {
 	EList<RteApi> getRteApi();
 
 	/**
-	 * Returns the value of the '<em><b>Api Init Value Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Api Init Value Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Api Init Value Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_ApiInitValueConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getApiInitValueConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Api Application Error Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Api Application Error Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Api Application Error Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_ApiApplicationErrorConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getApiApplicationErrorConstant();
-
-	/**
 	 * Returns the value of the '<em><b>Api Enum Constant</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
@@ -279,5 +203,154 @@ public interface Swc extends LogicalCompartment {
 	 * @generated
 	 */
 	EList<Constant> getApiUpperLowerLimitConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Api Init Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Api Init Value Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * S/Rデータ要素の初期値定数(API)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sr Api Init Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_SrApiInitValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrApiInitValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Impl Init Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Impl Init Value Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * S/Rデータ要素の初期値定数(内部実装用)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sr Impl Init Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_SrImplInitValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrImplInitValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Impl Invalid Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * S/Rデータ要素の無効値(内部実装用)
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sr Impl Invalid Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_SrImplInvalidValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrImplInvalidValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Sr Filter Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Filter Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Filter Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_SrFilterConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrFilterConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Cs Api Application Error Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Api Application Error Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Api Application Error Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_CsApiApplicationErrorConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getCsApiApplicationErrorConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Cs Port Arg Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Port Arg Value Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Port Arg Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_CsPortArgValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getCsPortArgValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Cs Port Arg Value Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cs Port Arg Value Variable</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cs Port Arg Value Variable</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_CsPortArgValueVariable()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<GlobalVariable> getCsPortArgValueVariable();
+
+	/**
+	 * Returns the value of the '<em><b>Irv Buffer Init Value Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Irv Buffer Init Value Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Irv Buffer Init Value Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_IrvBufferInitValueConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getIrvBufferInitValueConstant();
+
+	/**
+	 * Returns the value of the '<em><b>Irv Buffer Variable Set</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Irv Buffer Variable Set</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Irv Buffer Variable Set</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getSwc_IrvBufferVariableSet()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<RteBufferVariableSet> getIrvBufferVariableSet();
 
 } // Swc

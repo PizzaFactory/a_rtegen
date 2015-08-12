@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -77,23 +77,12 @@ public interface PVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context PPort</em>' reference.
-	 * @see #setContextPPort(PPortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage#getPVariableDataInstanceInSwc_ContextPPort()
-	 * @model required="true" transient="true" volatile="true" derived="true"
+	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='contextPort.oclAsType(m2::PPortPrototype)'"
 	 * @generated
 	 */
 	PPortPrototype getContextPPort();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#getContextPPort <em>Context PPort</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Context PPort</em>' reference.
-	 * @see #getContextPPort()
-	 * @generated
-	 */
-	void setContextPPort(PPortPrototype value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -101,11 +90,11 @@ public interface PVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * <!-- begin-model-doc -->
 	 * 無効化が有効かどうか
 	 * <!-- end-model-doc -->
-	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model kind="operation" required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)'"
 	 * @generated
 	 */
-	Boolean isInvalidationEnabled();
+	boolean isInvalidationEnabled();
 
 	/**
 	 * <!-- begin-user-doc -->

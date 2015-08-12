@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -85,11 +85,11 @@ public interface Sender extends InteractionEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getReceivers()->size() > 1'"
 	 * @generated
 	 */
-	Boolean hasMultipleReceivers();
+	boolean hasMultipleReceivers();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,11 +103,11 @@ public interface Sender extends InteractionEnd {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 * @model required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='getInternalEcuReceivers()->size() > 1'"
 	 * @generated
 	 */
-	Boolean hasMultipleInternalEcuReceivers();
+	boolean hasMultipleInternalEcuReceivers();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -70,6 +70,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl#getPortArgValue <em>Port Arg Value</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl#getPort <em>Port</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.PortApiOptionImpl#getEnableTakeAddress <em>Enable Take Address</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +96,26 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 	 * @ordered
 	 */
 	protected PortPrototype port;
+
+	/**
+	 * The default value of the '{@link #getEnableTakeAddress() <em>Enable Take Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnableTakeAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean ENABLE_TAKE_ADDRESS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEnableTakeAddress() <em>Enable Take Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnableTakeAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean enableTakeAddress = ENABLE_TAKE_ADDRESS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +213,27 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getEnableTakeAddress() {
+		return enableTakeAddress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnableTakeAddress(Boolean newEnableTakeAddress) {
+		Boolean oldEnableTakeAddress = enableTakeAddress;
+		enableTakeAddress = newEnableTakeAddress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.PORT_API_OPTION__ENABLE_TAKE_ADDRESS, oldEnableTakeAddress, enableTakeAddress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -235,6 +277,8 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 			case M2Package.PORT_API_OPTION__PORT:
 				if (resolve) return getPort();
 				return basicGetPort();
+			case M2Package.PORT_API_OPTION__ENABLE_TAKE_ADDRESS:
+				return getEnableTakeAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -255,6 +299,9 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 			case M2Package.PORT_API_OPTION__PORT:
 				setPort((PortPrototype)newValue);
 				return;
+			case M2Package.PORT_API_OPTION__ENABLE_TAKE_ADDRESS:
+				setEnableTakeAddress((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -273,6 +320,9 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 			case M2Package.PORT_API_OPTION__PORT:
 				setPort((PortPrototype)null);
 				return;
+			case M2Package.PORT_API_OPTION__ENABLE_TAKE_ADDRESS:
+				setEnableTakeAddress(ENABLE_TAKE_ADDRESS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -289,8 +339,26 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 				return portArgValue != null && !portArgValue.isEmpty();
 			case M2Package.PORT_API_OPTION__PORT:
 				return port != null;
+			case M2Package.PORT_API_OPTION__ENABLE_TAKE_ADDRESS:
+				return ENABLE_TAKE_ADDRESS_EDEFAULT == null ? enableTakeAddress != null : !ENABLE_TAKE_ADDRESS_EDEFAULT.equals(enableTakeAddress);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (enableTakeAddress: ");
+		result.append(enableTakeAddress);
+		result.append(')');
+		return result.toString();
 	}
 
 } //PortApiOptionImpl

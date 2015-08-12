@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -98,11 +98,11 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * RTEによるフィルタを要求するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\tfilterReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isFilterEnabled())\n\t\t\t\tin receivers->exists(isFilterEnabled())\n\t\t\t\t\tand (receivers->exists(hasMultipleSenders())\n\t\t\t\t\t\tor not receivers->forAll(isFilterEnabled())\n\t\t\t\t\t\tor filterReceivers->exists(r1, r2 | not r1.getFilter().isCompatibleWith(r2.getFilter())))'"
 	 * @generated
 	 */
-	Boolean requiresRteFilter(ExternalEcuSender this_);
+	boolean requiresRteFilter(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -110,11 +110,11 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * RTEによる無効化を要求するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\t\tinvReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isInvalidationEnabled())\n\t\t\t\tin receivers->exists(isInvalidationEnabled())\n\t\t\t\t\tand (not receivers->forAll(isInvalidationEnabled())\n\t\t\t\t\t\tor invReceivers->exists(r1, r2 | r1.getHandleInvalid() <> r2.getHandleInvalid()))'"
 	 * @generated
 	 */
-	Boolean requiresRteInvalidation(ExternalEcuSender this_);
+	boolean requiresRteInvalidation(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,11 +122,11 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * RTEによる初期化を要求するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | variableDataInstanceInCompositionEx.getInitValueAsText(r1.source) <> variableDataInstanceInCompositionEx.getInitValueAsText(r2.source))'"
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))'"
 	 * @generated
 	 */
-	Boolean requiresRteInitialization(ExternalEcuSender this_);
+	boolean requiresRteInitialization(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,11 +134,11 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * COM受信コールバックを生成するか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined())'"
 	 * @generated
 	 */
-	Boolean providesComReceiveCallback(ExternalEcuSender this_);
+	boolean providesComReceiveCallback(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,11 +146,11 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * COM無効化コールバックを生成するかどうか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))'"
 	 * @generated
 	 */
-	Boolean providesComInvalidateCallback(ExternalEcuSender this_);
+	boolean providesComInvalidateCallback(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,10 +158,22 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * <!-- begin-model-doc -->
 	 * COM受信タイムアウトコールバックを生成するかどうか
 	 * <!-- end-model-doc -->
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true" this_Required="true"
+	 * @model required="true" this_Required="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))'"
 	 * @generated
 	 */
-	Boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_);
+	boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * COMコールバックを生成するかどうか
+	 * <!-- end-model-doc -->
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)'"
+	 * @generated
+	 */
+	boolean providesComCallback(ExternalEcuSender this_);
 
 } // ExternalEcuSenderEx

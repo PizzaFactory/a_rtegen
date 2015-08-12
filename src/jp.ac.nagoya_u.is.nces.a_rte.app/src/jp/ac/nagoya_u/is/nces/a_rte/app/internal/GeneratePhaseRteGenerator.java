@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -58,6 +58,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.codegen.UncrustifyCodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.GeneratedEcucModelExtractor;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.M2MException;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilder;
+import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteTestModuleModelBuilder;
@@ -65,7 +66,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelSerializer;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelValidator;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RootSwCompositionPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
@@ -76,6 +76,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelLoader;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelSaver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
+import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -87,6 +88,9 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import com.google.common.base.Optional;
 import com.google.common.io.Files;
 
+/**
+ * GENERATEフェーズ向けのRTEを生成する。
+ */
 public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private static final String GENERATED_ECUC_ARXML_FILE_NAME = "Rte_GeneratedEcuc.arxml";
 	private static final String GENERATED_ECUC_MODELDUMP_FILE_NAME = "modeldump_generated_ecuc.xmi";
@@ -113,6 +117,11 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private final RteTestModuleModelBuilder testModuleModelBuilder;
 	private final RteTestCodeGenerator testCodeGenerator;
 
+	/**
+	 * {@link GeneratePhaseRteGenerator}を構築する。
+	 * @param generatorInitOptions RTEジェネレータの初期設定オプション
+	 * @throws AppException {@link GeneratePhaseRteGenerator}の構築中にエラーが発生した場合
+	 */
 	public GeneratePhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		this.generatorInitOptions = generatorInitOptions;
 		try {
@@ -153,7 +162,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	}
 
 	/* (non-Javadoc)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.app.internal.IRteGenerator#generate(jp.ac.nagoya_u.is.nces.a_rte.app.internal.GeneratorOptions, org.eclipse.emf.common.util.DiagnosticChain)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.app.internal.IRteGenerator#generate(jp.ac.nagoya_u.is.nces.a_rte.app.internal.GeneratorOptions)
 	 */
 	@Override
 	public void generate(GeneratorOptions options) throws AppException {
@@ -180,19 +189,21 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				BasicDiagnostic diagnostics = new BasicDiagnostic();
 				Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
 				Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
+				boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
+				boolean hasSchmConfig = bswImplementation.isPresent();
 
 				// RootSwCompositionPrototypeとBswImplementationが両方共定義されていない場合は,
 				// [nrte_sws_226]のメッセージを表示したうえでRTEの検証結果を表示する.				
 				boolean validatesRte = false;
-				if (!rootSwCompositionPrototype.isPresent() && !bswImplementation.isPresent()) {
+				if (!hasRteConfig && !hasSchmConfig) {
 					validatesRte = true;
 				}
 
 				// AUTOSAR M2モデル検証
-				if (rootSwCompositionPrototype.isPresent() || validatesRte) {
+				if (hasRteConfig || validatesRte) {
 					this.rteValidatorM2.validate(eGenSourceResource, diagnostics);
 				}
-				if (bswImplementation.isPresent()) {
+				if (hasSchmConfig) {
 					this.bswmValidatorM2.validate(eGenSourceResource, diagnostics);
 				}
 				this.commonValidatorM2.validate(eGenSourceResource, diagnostics);
@@ -201,10 +212,10 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				this.loader.loadInstance(eGenSourceResource);
 
 				// AUTOSAR Instanceモデル検証
-				if (rootSwCompositionPrototype.isPresent() || validatesRte) {
+				if (hasRteConfig || validatesRte) {
 					this.rteValidatorInstance.validate(eGenSourceResource, diagnostics);
 				}
-				if (bswImplementation.isPresent()) {
+				if (hasSchmConfig) {
 					this.bswmValidatorInstance.validate(eGenSourceResource, diagnostics);
 				}
 				this.commonValidatorInstance.validate(eGenSourceResource, diagnostics);
@@ -221,7 +232,8 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				}
 
 				// AUTOSARモデル -> インタラクションモデル変換
-				this.interactionModelBuilder.build(eGenSourceResource);
+				RteInteractionModelBuilderOptions builderOptions = options.createRteInteractionModelBuilderOptions();
+				this.interactionModelBuilder.build(eGenSourceResource, builderOptions);
 
 				// RTE，もしくはAUTOSAR XMLの生成
 				InteractionRoot interactionRoot = query.findSingleByKind(INTERACTION_ROOT);
@@ -239,7 +251,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 			} finally {
 				// モデルをダンプ
-				if (options.debugModeEnabled) {
+				if (options.debugModeEnabled) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 					File outputDirectory = new File(options.outputDirectory);
 					this.serializer.serialize(eGenSourceResource, new File(outputDirectory, SOURCE_MODELDUMP_FILE_NAME).getPath());
 					this.serializer.serialize(eGeneratedEcucResource, new File(outputDirectory, GENERATED_ECUC_MODELDUMP_FILE_NAME).getPath());
@@ -260,7 +272,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		}
 	}
 
-	private void generateInsufficientArxmls(XMIResource eGeneratedEcucResource, XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, PersistException, AppException {
+	private void generateInsufficientArxmls(XMIResource eGeneratedEcucResource, XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, PersistException {
 
 		System.out.println("There are some insufficient configurations for RTE.");
 		System.out.println("Generating AUTOSAR XMLs to complement the insufficient configurations... ");
@@ -295,11 +307,13 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		ModelQuery query = new ModelQuery(eGenSourceResource);
 		Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
 		Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
+		boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
+		boolean hasSchmConfig = bswImplementation.isPresent();
 
 		String messege = "Generating ";
-		if (rootSwCompositionPrototype.isPresent() && bswImplementation.isPresent()) {
+		if (hasRteConfig && hasSchmConfig) {
 			messege += "RTE and SCHM...";
-		} else if (rootSwCompositionPrototype.isPresent() && !bswImplementation.isPresent()) {
+		} else if (hasRteConfig && !hasSchmConfig) { // COVERAGE (分岐網羅はされているのでテスト要件を満たしている)
 			messege += "RTE...";
 		} else /* if (!rootSwCompositionPrototype.isPresent() && bswImplementation.isPresent()) */ {
 			messege += "SCHM...";
@@ -307,7 +321,9 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		System.out.println(messege);
 
 		// AUTOSARモデル，インタラクションモデル -> モジュールモデル変換
-		RteModuleModelBuilderOptions builderOptions = options.createBuilderOptions();
+		RteModuleModelBuilderOptions builderOptions = options.createRteModuleModelBuilderOptions();
+		builderOptions.doesGenerateRte = hasRteConfig;
+		builderOptions.doesGenerateSchm = hasSchmConfig;
 		this.moduleModelBuilder.build(eGenSourceResource, builderOptions);
 
 		// RTEコード生成

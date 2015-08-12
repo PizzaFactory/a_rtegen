@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,20 +44,40 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Array Value Specification</b></em>'.
  * <!-- end-user-doc -->
  *
- * <!-- begin-model-doc -->
- * NOTE 未サポートのため，属性は定義しない．
- * <!-- end-model-doc -->
- *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification#getElement <em>Element</em>}</li>
+ * </ul>
+ * </p>
  *
  * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getArrayValueSpecification()
  * @model
  * @generated
  */
 public interface ArrayValueSpecification extends ValueSpecification {
+
+	/**
+	 * Returns the value of the '<em><b>Element</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Element</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getArrayValueSpecification_Element()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<ValueSpecification> getElement();
 } // ArrayValueSpecification

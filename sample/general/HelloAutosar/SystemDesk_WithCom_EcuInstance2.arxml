@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?> 
-<!--Created with SystemDesk 4.0.4.6473--> 
+<!--Created with SystemDesk 4.2.0.6962--> 
 <AUTOSAR xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://autosar.org/schema/r4.0" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-0-3.xsd">
 	<AR-PACKAGES>
-		<AR-PACKAGE>
-			<SHORT-NAME>ApplDataTypes</SHORT-NAME>
-			<ELEMENTS>
-				<APPLICATION-PRIMITIVE-DATA-TYPE>
-					<SHORT-NAME>ADT_TimeCount</SHORT-NAME>
-					<CATEGORY>VALUE</CATEGORY>
-				</APPLICATION-PRIMITIVE-DATA-TYPE>
-			</ELEMENTS>
-		</AR-PACKAGE>
 		<AR-PACKAGE>
 			<SHORT-NAME>BSWScheduler</SHORT-NAME>
 			<AR-PACKAGES>
@@ -38,7 +29,7 @@
 							<SW-VERSION>1.0.0</SW-VERSION>
 							<VENDOR-ID>20</VENDOR-ID>
 							<AR-RELEASE-VERSION>1.0.0</AR-RELEASE-VERSION>
-							<BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0</BEHAVIOR-REF>
+							<BEHAVIOR-REF DEST="BSW-INTERNAL-BEHAVIOR">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0</BEHAVIOR-REF>
 							<VENDOR-API-INFIX>abc</VENDOR-API-INFIX>
 						</BSW-IMPLEMENTATION>
 						<BSW-IMPLEMENTATION>
@@ -99,7 +90,7 @@
 							<MODULE-ID>80</MODULE-ID>
 							<PROVIDED-ENTRYS>
 								<BSW-MODULE-ENTRY-REF-CONDITIONAL>
-									<BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/Can_Init</BSW-MODULE-ENTRY-REF>
+									<BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/BswModuleEntryDummy0</BSW-MODULE-ENTRY-REF>
 								</BSW-MODULE-ENTRY-REF-CONDITIONAL>
 							</PROVIDED-ENTRYS>
 							<INTERNAL-BEHAVIORS>
@@ -111,14 +102,14 @@
 										</EXCLUSIVE-AREA>
 									</EXCLUSIVE-AREAS>
 									<ENTITYS>
-										<BSW-CALLED-ENTITY>
-											<SHORT-NAME>Can_Init</SHORT-NAME>
+										<BSW-SCHEDULABLE-ENTITY>
+											<SHORT-NAME>BswSchedulableEntityDummy</SHORT-NAME>
 											<CAN-ENTER-EXCLUSIVE-AREA-REFS>
 												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Can/InternalBehavior_0/Reentrant</CAN-ENTER-EXCLUSIVE-AREA-REF>
 											</CAN-ENTER-EXCLUSIVE-AREA-REFS>
 											<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
-											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/Can_Init</IMPLEMENTED-ENTRY-REF>
-										</BSW-CALLED-ENTITY>
+											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/BswModuleEntryDummy0</IMPLEMENTED-ENTRY-REF>
+										</BSW-SCHEDULABLE-ENTITY>
 									</ENTITYS>
 								</BSW-INTERNAL-BEHAVIOR>
 							</INTERNAL-BEHAVIORS>
@@ -128,7 +119,7 @@
 							<MODULE-ID>60</MODULE-ID>
 							<PROVIDED-ENTRYS>
 								<BSW-MODULE-ENTRY-REF-CONDITIONAL>
-									<BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/CanIf_Init</BSW-MODULE-ENTRY-REF>
+									<BSW-MODULE-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/BswModuleEntryDummy1</BSW-MODULE-ENTRY-REF>
 								</BSW-MODULE-ENTRY-REF-CONDITIONAL>
 							</PROVIDED-ENTRYS>
 							<INTERNAL-BEHAVIORS>
@@ -136,18 +127,22 @@
 									<SHORT-NAME>InternalBehavior_0</SHORT-NAME>
 									<EXCLUSIVE-AREAS>
 										<EXCLUSIVE-AREA>
-											<SHORT-NAME>Reentrant</SHORT-NAME>
+											<SHORT-NAME>Reentrant_0</SHORT-NAME>
+										</EXCLUSIVE-AREA>
+										<EXCLUSIVE-AREA>
+											<SHORT-NAME>Reentrant_1</SHORT-NAME>
 										</EXCLUSIVE-AREA>
 									</EXCLUSIVE-AREAS>
 									<ENTITYS>
-										<BSW-CALLED-ENTITY>
-											<SHORT-NAME>CanIf_Init</SHORT-NAME>
+										<BSW-SCHEDULABLE-ENTITY>
+											<SHORT-NAME>BswSchedulableEntityDummy</SHORT-NAME>
 											<CAN-ENTER-EXCLUSIVE-AREA-REFS>
-												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/CanIf/InternalBehavior_0/Reentrant_1</CAN-ENTER-EXCLUSIVE-AREA-REF>
 											</CAN-ENTER-EXCLUSIVE-AREA-REFS>
 											<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
-											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/CanIf_Init</IMPLEMENTED-ENTRY-REF>
-										</BSW-CALLED-ENTITY>
+											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/BswModuleEntryDummy1</IMPLEMENTED-ENTRY-REF>
+										</BSW-SCHEDULABLE-ENTITY>
 									</ENTITYS>
 								</BSW-INTERNAL-BEHAVIOR>
 							</INTERNAL-BEHAVIORS>
@@ -165,17 +160,25 @@
 							</PROVIDED-ENTRYS>
 							<INTERNAL-BEHAVIORS>
 								<BSW-INTERNAL-BEHAVIOR>
-									<SHORT-NAME>BswImplementation_0</SHORT-NAME>
+									<SHORT-NAME>InternalBehavior_0</SHORT-NAME>
 									<EXCLUSIVE-AREAS>
 										<EXCLUSIVE-AREA>
-											<SHORT-NAME>Reentrant</SHORT-NAME>
+											<SHORT-NAME>Reentrant_0</SHORT-NAME>
+										</EXCLUSIVE-AREA>
+										<EXCLUSIVE-AREA>
+											<SHORT-NAME>Reentrant_1</SHORT-NAME>
+										</EXCLUSIVE-AREA>
+										<EXCLUSIVE-AREA>
+											<SHORT-NAME>Reentrant_2</SHORT-NAME>
 										</EXCLUSIVE-AREA>
 									</EXCLUSIVE-AREAS>
 									<ENTITYS>
 										<BSW-SCHEDULABLE-ENTITY>
 											<SHORT-NAME>MainFunctionRx</SHORT-NAME>
 											<CAN-ENTER-EXCLUSIVE-AREA-REFS>
-												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_1</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_2</CAN-ENTER-EXCLUSIVE-AREA-REF>
 											</CAN-ENTER-EXCLUSIVE-AREA-REFS>
 											<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
 											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/MainFunctionRx</IMPLEMENTED-ENTRY-REF>
@@ -183,7 +186,9 @@
 										<BSW-SCHEDULABLE-ENTITY>
 											<SHORT-NAME>MainFunctionTx</SHORT-NAME>
 											<CAN-ENTER-EXCLUSIVE-AREA-REFS>
-												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/Reentrant</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_0</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_1</CAN-ENTER-EXCLUSIVE-AREA-REF>
+												<CAN-ENTER-EXCLUSIVE-AREA-REF DEST="EXCLUSIVE-AREA">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/Reentrant_2</CAN-ENTER-EXCLUSIVE-AREA-REF>
 											</CAN-ENTER-EXCLUSIVE-AREA-REFS>
 											<MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
 											<IMPLEMENTED-ENTRY-REF DEST="BSW-MODULE-ENTRY">/BSWScheduler/BswModuleEntrys/MainFunctionTx</IMPLEMENTED-ENTRY-REF>
@@ -192,12 +197,12 @@
 									<EVENTS>
 										<BSW-TIMING-EVENT>
 											<SHORT-NAME>TimingEvent_MainFunctionRx</SHORT-NAME>
-											<STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/MainFunctionRx</STARTS-ON-EVENT-REF>
+											<STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/MainFunctionRx</STARTS-ON-EVENT-REF>
 											<PERIOD>0.1</PERIOD>
 										</BSW-TIMING-EVENT>
 										<BSW-TIMING-EVENT>
 											<SHORT-NAME>TimingEvent_MainFunctionTx</SHORT-NAME>
-											<STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/BSWScheduler/BswModuleDescriptions/Com/BswImplementation_0/MainFunctionTx</STARTS-ON-EVENT-REF>
+											<STARTS-ON-EVENT-REF DEST="BSW-SCHEDULABLE-ENTITY">/BSWScheduler/BswModuleDescriptions/Com/InternalBehavior_0/MainFunctionTx</STARTS-ON-EVENT-REF>
 											<PERIOD>0.1</PERIOD>
 										</BSW-TIMING-EVENT>
 									</EVENTS>
@@ -210,21 +215,19 @@
 					<SHORT-NAME>BswModuleEntrys</SHORT-NAME>
 					<ELEMENTS>
 						<BSW-MODULE-ENTRY>
-							<SHORT-NAME>CanIf_Init</SHORT-NAME>
-							<SERVICE-ID>1</SERVICE-ID>
-							<IS-REENTRANT>false</IS-REENTRANT>
+							<SHORT-NAME>BswModuleEntryDummy0</SHORT-NAME>
+							<IS-REENTRANT>true</IS-REENTRANT>
 							<IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
-							<CALL-TYPE>REGULAR</CALL-TYPE>
+							<CALL-TYPE>SCHEDULED</CALL-TYPE>
 							<EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
 							<SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
 						</BSW-MODULE-ENTRY>
 						<BSW-MODULE-ENTRY>
-							<SHORT-NAME>Can_Init</SHORT-NAME>
-							<SERVICE-ID>0</SERVICE-ID>
-							<IS-REENTRANT>false</IS-REENTRANT>
+							<SHORT-NAME>BswModuleEntryDummy1</SHORT-NAME>
+							<IS-REENTRANT>true</IS-REENTRANT>
 							<IS-SYNCHRONOUS>true</IS-SYNCHRONOUS>
-							<CALL-TYPE>REGULAR</CALL-TYPE>
-							<EXECUTION-CONTEXT>UNSPECIFIED</EXECUTION-CONTEXT>
+							<CALL-TYPE>SCHEDULED</CALL-TYPE>
+							<EXECUTION-CONTEXT>TASK</EXECUTION-CONTEXT>
 							<SW-SERVICE-IMPL-POLICY>STANDARD</SW-SERVICE-IMPL-POLICY>
 						</BSW-MODULE-ENTRY>
 						<BSW-MODULE-ENTRY>
@@ -329,23 +332,12 @@
 		<AR-PACKAGE>
 			<SHORT-NAME>HelloAutosar</SHORT-NAME>
 			<ELEMENTS>
-				<DATA-TYPE-MAPPING-SET>
-					<SHORT-NAME>HA_DTM</SHORT-NAME>
-					<DATA-TYPE-MAPS>
-						<DATA-TYPE-MAP>
-							<APPLICATION-DATA-TYPE-REF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/ApplDataTypes/ADT_TimeCount</APPLICATION-DATA-TYPE-REF>
-							<IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ImplDataTypes/IDT_TimeCount</IMPLEMENTATION-DATA-TYPE-REF>
-						</DATA-TYPE-MAP>
-					</DATA-TYPE-MAPS>
-				</DATA-TYPE-MAPPING-SET>
 				<COMPOSITION-SW-COMPONENT-TYPE>
 					<SHORT-NAME>HA_TopLevel</SHORT-NAME>
 					<ADMIN-DATA>
 						<LANGUAGE>FOR-ALL</LANGUAGE>
 						<SDGS>
-							<SDG GID="edve:taggedStringValue">
-								<SD GID="dSPACE:compositionDiagramFileName0">SystemDesk_WithCom+HA_TopLevel(3C2A17FD358815CBE5468853B5D4ACCC).diagram</SD>
-							</SDG>
+							<SDG GID="edve:taggedStringValue"/>
 						</SDGS>
 					</ADMIN-DATA>
 					<COMPONENTS>
@@ -383,9 +375,6 @@
 					<INTERNAL-BEHAVIORS>
 						<SWC-INTERNAL-BEHAVIOR>
 							<SHORT-NAME>IB_SWC2</SHORT-NAME>
-							<DATA-TYPE-MAPPING-REFS>
-								<DATA-TYPE-MAPPING-REF DEST="DATA-TYPE-MAPPING-SET">/HelloAutosar/HA_DTM</DATA-TYPE-MAPPING-REF>
-							</DATA-TYPE-MAPPING-REFS>
 							<EVENTS>
 								<TIMING-EVENT>
 									<SHORT-NAME>TimingEvent</SHORT-NAME>
@@ -444,7 +433,7 @@
 					<DATA-ELEMENTS>
 						<VARIABLE-DATA-PROTOTYPE>
 							<SHORT-NAME>time</SHORT-NAME>
-							<TYPE-TREF DEST="APPLICATION-PRIMITIVE-DATA-TYPE">/ApplDataTypes/ADT_TimeCount</TYPE-TREF>
+							<TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ImplDataTypes/IDT_TimeCount</TYPE-TREF>
 						</VARIABLE-DATA-PROTOTYPE>
 					</DATA-ELEMENTS>
 				</SENDER-RECEIVER-INTERFACE>

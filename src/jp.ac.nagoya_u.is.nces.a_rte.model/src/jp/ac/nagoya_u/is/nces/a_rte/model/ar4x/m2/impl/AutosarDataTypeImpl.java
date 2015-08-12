@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -209,44 +209,8 @@ public abstract class AutosarDataTypeImpl extends ArElementImpl implements Autos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueSpecification basicGetInvalidValue() {
-		return (ValueSpecification)INVALID_VALUE__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setInvalidValue(ValueSpecification newInvalidValue) {
-		INVALID_VALUE__ESETTING_DELEGATE.dynamicSet(this, null, 0, newInvalidValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CompuMethod getCompuMethod() {
 		return (CompuMethod)COMPU_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompuMethod basicGetCompuMethod() {
-		return (CompuMethod)COMPU_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCompuMethod(CompuMethod newCompuMethod) {
-		COMPU_METHOD__ESETTING_DELEGATE.dynamicSet(this, null, 0, newCompuMethod);
 	}
 
 	/**
@@ -263,44 +227,8 @@ public abstract class AutosarDataTypeImpl extends ArElementImpl implements Autos
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataConstr basicGetDataConstr() {
-		return (DataConstr)DATA_CONSTR__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDataConstr(DataConstr newDataConstr) {
-		DATA_CONSTR__ESETTING_DELEGATE.dynamicSet(this, null, 0, newDataConstr);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public SwAddrMethod getSwAddrMethod() {
 		return (SwAddrMethod)SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwAddrMethod basicGetSwAddrMethod() {
-		return (SwAddrMethod)SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSwAddrMethod(SwAddrMethod newSwAddrMethod) {
-		SW_ADDR_METHOD__ESETTING_DELEGATE.dynamicSet(this, null, 0, newSwAddrMethod);
 	}
 
 	/**
@@ -352,17 +280,13 @@ public abstract class AutosarDataTypeImpl extends ArElementImpl implements Autos
 			case M2Package.AUTOSAR_DATA_TYPE__SW_DATA_DEF_PROPS:
 				return getSwDataDefProps();
 			case M2Package.AUTOSAR_DATA_TYPE__INVALID_VALUE:
-				if (resolve) return getInvalidValue();
-				return basicGetInvalidValue();
+				return getInvalidValue();
 			case M2Package.AUTOSAR_DATA_TYPE__COMPU_METHOD:
-				if (resolve) return getCompuMethod();
-				return basicGetCompuMethod();
+				return getCompuMethod();
 			case M2Package.AUTOSAR_DATA_TYPE__DATA_CONSTR:
-				if (resolve) return getDataConstr();
-				return basicGetDataConstr();
+				return getDataConstr();
 			case M2Package.AUTOSAR_DATA_TYPE__SW_ADDR_METHOD:
-				if (resolve) return getSwAddrMethod();
-				return basicGetSwAddrMethod();
+				return getSwAddrMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -378,18 +302,6 @@ public abstract class AutosarDataTypeImpl extends ArElementImpl implements Autos
 			case M2Package.AUTOSAR_DATA_TYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)newValue);
 				return;
-			case M2Package.AUTOSAR_DATA_TYPE__INVALID_VALUE:
-				setInvalidValue((ValueSpecification)newValue);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__COMPU_METHOD:
-				setCompuMethod((CompuMethod)newValue);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__DATA_CONSTR:
-				setDataConstr((DataConstr)newValue);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -404,18 +316,6 @@ public abstract class AutosarDataTypeImpl extends ArElementImpl implements Autos
 		switch (featureID) {
 			case M2Package.AUTOSAR_DATA_TYPE__SW_DATA_DEF_PROPS:
 				setSwDataDefProps((SwDataDefProps)null);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__INVALID_VALUE:
-				setInvalidValue((ValueSpecification)null);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__COMPU_METHOD:
-				setCompuMethod((CompuMethod)null);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__DATA_CONSTR:
-				setDataConstr((DataConstr)null);
-				return;
-			case M2Package.AUTOSAR_DATA_TYPE__SW_ADDR_METHOD:
-				setSwAddrMethod((SwAddrMethod)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -236,7 +236,7 @@ public class EcucToM2Mapper {
 		return Iterables.filter(ecucContainer.eClass().getEAllAttributes(), new Predicate<EAttribute>() {
 			@Override
 			public boolean apply(EAttribute input) {
-				return !input.isDerived() && !input.isID() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // (分岐網羅はされているのでテスト要件を満たしている)
+				return !input.isDerived() && !input.isID() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // COVERAGE (分岐網羅はされているのでテスト要件を満たしている)
 			}
 		});
 	}
@@ -340,10 +340,10 @@ public class EcucToM2Mapper {
 
 		// サブパッケージの構築
 		ArPackage currentPackage = rootPackage;
-		for (String shortName : subPackageShortNames) {
+		for (String shortName : subPackageShortNames) { // COVERAGE 内部に未達(現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない)
 			Optional<ArPackage> foundSubPackage = this.query.trySelectSingle(currentPackage.getArPackage(), hasAttr(REFERRABLE__SHORT_NAME, shortName));
 
-			if (!foundSubPackage.isPresent()) { // COVERAGE 常にtrue(現状のツールワークフローではfalseを通らないが，コードレビュー済みであるため問題ない)
+			if (!foundSubPackage.isPresent()) { // COVERAGE 常にtrue(現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない)
 				ArPackage subPackage = M2Factory.eINSTANCE.createArPackage();
 				subPackage.setShortName(shortName);
 				currentPackage.getArPackage().add(subPackage);
