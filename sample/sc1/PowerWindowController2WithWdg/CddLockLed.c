@@ -48,7 +48,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: CddLockLed.c 427 2015-03-23 12:38:40Z mtakada $
+ *  $Id: CddLockLed.c 480 2015-04-10 04:12:16Z mtakada $
  */
 
 #include "Os.h"
@@ -119,7 +119,7 @@ SetLedStateWdgOK()
 	
 	tmp = sil_rew_iop((void *) LED_R_BASE);
 		
-	sil_wrw_iop((void *) LED_R_BASE, (LED_R_0 | tmp & ~LED_R_1_3));
+	sil_wrw_iop((void *) LED_R_BASE, ((LED_R_0 | tmp) & ~LED_R_1_3));
 }
 
 void

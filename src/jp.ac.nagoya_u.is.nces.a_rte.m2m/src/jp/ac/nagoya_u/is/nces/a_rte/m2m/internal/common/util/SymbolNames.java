@@ -686,19 +686,19 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が行なわれていな
 	}
 
 	public static String createRteIrvWriteApiName(RunnableEntity re, VariableDataPrototype variable) {
-		return RTE_SYMBOL_NAME_PREFIX + "Irv_Write_" + re.getShortName() + "_" + variable.getShortName();
+		return RTE_SYMBOL_NAME_PREFIX + "IrvWrite_" + re.getShortName() + "_" + variable.getShortName();
 	}
 
 	public static String createRteIrvWriteApiImplName(AtomicSwComponentType swComponentType, RunnableEntity re, VariableDataPrototype variable) {
-		return RTE_SYMBOL_NAME_PREFIX + "Irv_Write_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
+		return RTE_SYMBOL_NAME_PREFIX + "IrvWrite_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
 	}
 
 	public static String createRteIrvReadApiName(RunnableEntity re, VariableDataPrototype variable) {
-		return RTE_SYMBOL_NAME_PREFIX + "Irv_Read_" + re.getShortName() + "_" + variable.getShortName();
+		return RTE_SYMBOL_NAME_PREFIX + "IrvRead_" + re.getShortName() + "_" + variable.getShortName();
 	}
 
 	public static String createRteIrvReadApiImplName(AtomicSwComponentType swComponentType, RunnableEntity re, VariableDataPrototype variable) {
-		return RTE_SYMBOL_NAME_PREFIX + "Irv_Read_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
+		return RTE_SYMBOL_NAME_PREFIX + "IrvRead_" + swComponentType.getShortName() + "_" + re.getShortName() + "_" + variable.getShortName();
 	}
 
 	public static String createIocWriteApiMappingName(OsIocSenderProperties osIocSenderProperties) {

@@ -159,8 +159,12 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * QueuedReceiverComSpecのキュー長を返す
+	 * NOTE: ComSpecがないときは、nullU問題の対応で1を返す（暫定対応となるため、モデル違反として扱うときには、nullを返すように戻すこと
+	 * <!-- end-model-doc -->
 	 * @model kind="operation" dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger" required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen 1\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif'"
 	 * @generated
 	 */
 	Integer getQueueLength();
