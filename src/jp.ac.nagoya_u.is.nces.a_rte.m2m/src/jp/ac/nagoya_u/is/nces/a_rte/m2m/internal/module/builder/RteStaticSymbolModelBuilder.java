@@ -286,7 +286,7 @@ public class RteStaticSymbolModelBuilder {
 					sourceImplementationDataType = (ImplementationDataType) sourceDataType;
 				}
 	
-				if (this.context.query.get(sourceImplementationDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_ENUM_CONSTANT__IMPLEMENTATIONDATATYPE_APPLICATIONDATATYPE, sourceApplicationDataType)) {
+				if ((boolean) this.context.query.get(sourceImplementationDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_ENUM_CONSTANT__IMPLEMENTATIONDATATYPE_APPLICATIONDATATYPE, sourceApplicationDataType)) {
 					CompuMethod sourceCompuMethod = this.context.query.get(sourceImplementationDataType, IMPLEMENTATION_DATA_TYPE_EX___GET_COMPU_METHOD__IMPLEMENTATIONDATATYPE_APPLICATIONDATATYPE,
 							sourceApplicationDataType);
 					buildEnumConstant(targetSwc, sourceSwComponentType, sourceImplementationDataType, sourceCompuMethod);
@@ -338,7 +338,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 		// 実装型を生成するかの判別．生成しない場合，依存型として定義
-		if (this.context.query.get(sourceDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_TYPE_DEFINITION__IMPLEMENTATIONDATATYPE)) {
+		if ((boolean) this.context.query.get(sourceDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_TYPE_DEFINITION__IMPLEMENTATIONDATATYPE)) {
 			this.context.cache.rte.getImplementationDataType().add(destType);
 		} else {
 			this.context.cache.rte.getDependentType().add(destType);
@@ -513,14 +513,14 @@ public class RteStaticSymbolModelBuilder {
 	
 		if (sourceLiteralPrefixes.isEmpty()) {
 			for (CompuScale sourceCompuScale : sourceCompuMethod.getCompuInternalToPhys().getCompuScale()) {
-				if (this.context.query.get(sourceCompuScale, COMPU_SCALE_EX___PROVIDES_ENUM_CONSTANT__COMPUSCALE)) {
+				if ((boolean) this.context.query.get(sourceCompuScale, COMPU_SCALE_EX___PROVIDES_ENUM_CONSTANT__COMPUSCALE)) {
 					targetSwc.getApiEnumConstant().add(createEnumConstant(Optional.<String> absent(), sourceCompuScale, type));
 				}
 			}
 		} else {
 			for (String sourceLiteralPrefix : sourceLiteralPrefixes) {
 				for (CompuScale sourceCompuScale : sourceCompuMethod.getCompuInternalToPhys().getCompuScale()) {
-					if (this.context.query.get(sourceCompuScale, COMPU_SCALE_EX___PROVIDES_ENUM_CONSTANT__COMPUSCALE)) {
+					if ((boolean) this.context.query.get(sourceCompuScale, COMPU_SCALE_EX___PROVIDES_ENUM_CONSTANT__COMPUSCALE)) {
 						targetSwc.getApiEnumConstant().add(createEnumConstant(Optional.of(sourceLiteralPrefix), sourceCompuScale, type));
 					}
 				}
@@ -553,7 +553,7 @@ public class RteStaticSymbolModelBuilder {
 			// 初期値定数の構築
 			for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 				for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						ImplementationDataType sourceImplType = sourceDataInstanceInSwc.getImplementationDataType();
 						if (sourceImplType.isPrimitiveType() || sourceImplType.isPointerType()) {
 							targetSwc.getSrApiInitValueConstant().add(createSrApiInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
@@ -563,7 +563,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (RVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<RVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						ImplementationDataType sourceImplType = sourceDataInstanceInSwc.getImplementationDataType();
 						if (sourceImplType.isPrimitiveType() || sourceImplType.isPointerType()) {
 							targetSwc.getSrApiInitValueConstant().add(createSrApiInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
@@ -947,7 +947,7 @@ public class RteStaticSymbolModelBuilder {
         Partition targetPartition = this.context.cache.masterBswPartition;
 
         for (ExternalEcuSender sourceExternalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
-            if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER)) {
+            if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER)) {
                 Optional<RteBufferVariableSet> destComReceiveBuffer = checkAndCreateComReceiveBuffer(sourceExternalEcuSender, sourcePartition);
                 if (destComReceiveBuffer.isPresent()) {
                     targetPartition.getComReceiveBufferVariableSet().add(destComReceiveBuffer.get());
@@ -1204,7 +1204,7 @@ public class RteStaticSymbolModelBuilder {
 					}
 
 					// RTE実装向け初期値定数の構築
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
 				}
@@ -1218,7 +1218,7 @@ public class RteStaticSymbolModelBuilder {
 					}
 
 					// RTE実装向け初期値定数の構築
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
 				}
@@ -1517,7 +1517,7 @@ public class RteStaticSymbolModelBuilder {
 		RVariableDataInstanceInSwc sourceDataInstance = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 	
 		// フィルタバッファの生成
-		if (this.context.query.get(sourceDataInstance, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_OLD_VALUE_VARIABLE__RVARIABLEDATAINSTANCEINSWC)) {
+		if ((boolean) this.context.query.get(sourceDataInstance, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_OLD_VALUE_VARIABLE__RVARIABLEDATAINSTANCEINSWC)) {
 			// フィルタ過去値バッファの生成
 			PrimitiveType type = this.context.builtQuery.findDestPrimitiveType(sourceDataInstance.getImplementationDataType());
 	
@@ -1658,7 +1658,7 @@ public class RteStaticSymbolModelBuilder {
 			int idx = 0;
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (ROperationInstanceInSwc sourceOperationInstanceInSwc : this.context.query.<ROperationInstanceInSwc> find(ref(OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					if (this.context.query.get(sourceOperationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceOperationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC)) {
 						Swc clientSwc = targetSwc;
 						Swc serverSwc = getPSwc(sourceOperationInstanceInSwc);
 						if (serverSwc == null)

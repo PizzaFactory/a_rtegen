@@ -144,7 +144,7 @@ public class InitializeOperationModelBuilder {
 			VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceReceiver.getSource();
 			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInComposition.getPrototype();
 
-			if (this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
+			if ((boolean) this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
 				if (sourceDataInstanceInSwc.isEventSemantics()) {
 					// イベントセマンティクスの場合
 					RteBufferQueuedVariable srRteBufferQueue = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, sourceValueBufferImplementation);
@@ -206,7 +206,7 @@ public class InitializeOperationModelBuilder {
 		}
 
 		for (VariableDataPrototype sourceDataPrototype : ((AtomicSwComponentType) swComponentType).getInternalBehavior().getExplicitInterRunnableVariable()) {
-			if (this.context.query.get(sourceDataPrototype, initPredicateOperation)) {
+			if ((boolean) this.context.query.get(sourceDataPrototype, initPredicateOperation)) {
 				RteBufferVariableSet irvBuffer = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceDataPrototype);
 				targetInitializeOperation.getInitVariable().add(irvBuffer);
 			}
@@ -256,7 +256,7 @@ public class InitializeOperationModelBuilder {
 			VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceReceiver.getSource();
 			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInComposition.getPrototype();
 
-			if (this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
+			if ((boolean) this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
 				if (sourceDataInstanceInSwc.isEventSemantics()) {
 					IocEmptyQueueApi iocEmptyQueueApi = this.context.builtQuery.findDest(IOC_EMPTY_QUEUE_API, sourceValueBufferImplementation.getOsIocCommunication());
 					targetInitializeOperation.getInitIocApi().add(iocEmptyQueueApi);

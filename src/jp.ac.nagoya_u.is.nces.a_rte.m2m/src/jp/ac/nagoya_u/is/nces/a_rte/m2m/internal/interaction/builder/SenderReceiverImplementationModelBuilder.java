@@ -178,7 +178,7 @@ public class SenderReceiverImplementationModelBuilder {
 				destDirectComSendImplementation.setComSignal(sourceComSignal);
 				destDirectComSendImplementation.setComSignalGroup(sourceComSignalGroup);
 				sourceAndTargetSendInteraction.setImplementation(destDirectComSendImplementation);
-			} else if (this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
+			} else if ((boolean) this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
 				// マスタコア
 				if (sourceSender.getOwnerPartition().isTrusted()) {
 					// 信頼パーティションの場合，直接COM送信

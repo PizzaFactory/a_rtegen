@@ -365,20 +365,20 @@ public class RteFunctionModelBuilder {
 			for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 				for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
 					
-					if (this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC)) {
 						WriteApi destWriteApi = createWriteApi(sourceDataInstanceInSwc);
 						// インライン化
 						destWriteApi.setIsInline(this.moduleRules.usesInlineSrProvidedApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destWriteApi);
 					}
 
-					if (this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC)) {
 						InvalidateApi destInvalidateApi = createInvalidateApi(sourceDataInstanceInSwc);
 						// インライン化
 						destInvalidateApi.setIsInline(this.moduleRules.usesInlineSrProvidedApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destInvalidateApi);
 					}
-					if (this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC)) {
 						SendApi destSendApi = createSendApi(sourceDataInstanceInSwc);
 						// Rte_Sendはインライン化しない
 						destSendApi.setIsInline(false);
@@ -392,13 +392,13 @@ public class RteFunctionModelBuilder {
 
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (RVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<RVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					if (this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_READ_API__RVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_READ_API__RVARIABLEDATAINSTANCEINSWC)) {
 						ReadApi destReadApi = createReadApi(sourceDataInstanceInSwc);
 						// インライン化
 						destReadApi.setIsInline(this.moduleRules.usesInlineSrRequiredApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destReadApi);
 					}
-					if (this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_RECEIVE_API__RVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_RECEIVE_API__RVARIABLEDATAINSTANCEINSWC)) {
 						ReceiveApi destReceiveApi = createReceiveApi(sourceDataInstanceInSwc);
 						// Rte_Receiveはインライン化しない
 						destReceiveApi.setIsInline(false);
@@ -407,7 +407,7 @@ public class RteFunctionModelBuilder {
 				}
 
 				for (ROperationInstanceInSwc sourceOperationInstanceInSwc : this.context.query.<ROperationInstanceInSwc> find(ref(OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					if (this.context.query.get(sourceOperationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceOperationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC)) {
 						Optional<AtomicSwComponentType> sourceServerSwComponentType = tryGetPAtomicSwComponent(sourceOperationInstanceInSwc);
 
 						CallApi destCallApi = null;
@@ -459,7 +459,7 @@ public class RteFunctionModelBuilder {
 
 			// 排他エリアAPIの構築
 			for (ExclusiveArea sourceExclusiveArea : sourceSwComponentType.getInternalBehavior().getExclusiveArea()) {
-				if (this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA)) {
+				if ((boolean) this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA)) {
 					RteEnterApi destRteEnterApi = createRteEnterApi(sourceExclusiveArea);
 					destRteEnterApi.setIsInline(this.moduleRules.usesInlineExcludeApi());
 					targetSwc.getRteApi().add(destRteEnterApi);
@@ -786,7 +786,7 @@ public class RteFunctionModelBuilder {
 			PartedBswm targetPartedBswm = getPartedBswmToLocateExclusiveAreaSymbol(targetBswm, sourceExclusiveArea);
 
 			// Enter/Exit APIを構築
-			if (this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA)) {
+			if ((boolean) this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA)) {
 				targetPartedBswm.getSchmApi().add(createSchmEnterApi(sourceBswModuleDescription, sourceExclusiveArea));
 				targetPartedBswm.getSchmApi().add(createSchmExitApi(sourceBswModuleDescription, sourceExclusiveArea));
 			}
@@ -1547,13 +1547,13 @@ public class RteFunctionModelBuilder {
 
 	private void buildComCallbacks(Rte targetRte) throws ModelException {
 		for (ExternalEcuSender sourceExternalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComReceiveCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComInvalidateCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComReceiveTimeoutCallback(sourceExternalEcuSender));
 			}
 		}
@@ -1762,12 +1762,12 @@ public class RteFunctionModelBuilder {
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 			MemoryMapping partitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.of(sourcePartition));
 	
-			if (this.context.query.get(sourcePartition, ECUC_PARTITION_EX___PROVIDES_RESTART_PARTITION_API__ECUCPARTITION)) {
+			if ((boolean) this.context.query.get(sourcePartition, ECUC_PARTITION_EX___PROVIDES_RESTART_PARTITION_API__ECUCPARTITION)) {
 				RestartPartitionApi destRestartPartitionApi = createRestartPartitionApi(sourcePartition);
 				destRestartPartitionApi.setMemoryMapping(partitionMemmap);
 				targetPartition.setRestartPartitionApi(destRestartPartitionApi);
 			}
-			if (this.context.query.get(sourcePartition, ECUC_PARTITION_EX___PROVIDES_PARTITION_RESTARTING_API__ECUCPARTITION)) {
+			if ((boolean) this.context.query.get(sourcePartition, ECUC_PARTITION_EX___PROVIDES_PARTITION_RESTARTING_API__ECUCPARTITION)) {
 				PartitionRestartingApi destPartitionRestartingApi = createPartitionRestartingApi(sourcePartition);
 				destPartitionRestartingApi.setMemoryMapping(partitionMemmap);
 				targetPartition.setPartitionRestartingApi(destPartitionRestartingApi);

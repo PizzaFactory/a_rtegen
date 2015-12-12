@@ -144,7 +144,7 @@ public class SenderReceiverInteractionModelBuilder {
 				continue;
 			}
 
-			if (this.context.query.get(sourceComSignal, COM_SIGNAL_EX___IS_SENDER__COMSIGNAL)) {
+			if ((boolean) this.context.query.get(sourceComSignal, COM_SIGNAL_EX___IS_SENDER__COMSIGNAL)) {
 				targetInteractionRoot.getInteractionEnd().add(createExternalEcuReceiver(sourceComSignal));
 			} else {
 				targetInteractionRoot.getInteractionEnd().add(createExternalEcuSender(sourceComSignal));
@@ -157,7 +157,7 @@ public class SenderReceiverInteractionModelBuilder {
 				continue;
 			}
 
-			if (this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP)) {
+			if ((boolean) this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___IS_SENDER__COMSIGNALGROUP)) {
 				targetInteractionRoot.getInteractionEnd().add(createExternalEcuReceiver(sourceComSignalGroup));
 			} else {
 				targetInteractionRoot.getInteractionEnd().add(createExternalEcuSender(sourceComSignalGroup));
