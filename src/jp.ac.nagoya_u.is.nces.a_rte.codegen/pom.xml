@@ -10,6 +10,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <version>1.2.2-SNAPSHOT</version>
   </parent>
 
+  <properties>
+    <project.build.sourceEncoding>EUC-JP</project.build.sourceEncoding>
+  </properties>
+
   <artifactId>jp.ac.nagoya_u.is.nces.a_rte.codegen</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project> 
