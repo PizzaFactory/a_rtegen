@@ -22,6 +22,7 @@
 	<properties>
     <tycho-version>0.22.0</tycho-version>
     <sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
