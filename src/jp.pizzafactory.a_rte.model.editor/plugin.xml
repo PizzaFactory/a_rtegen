@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteModelWizardID"
+            name="%_UI_RteModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RteModelFile.gif">
+         <description>%_UI_RteModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteEditorID"
+            name="%_UI_RteEditor_label"
+            icon="icons/full/obj16/RteModelFile.gif"
+            extensions="rte"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExModelWizardID"
+            name="%_UI_ExModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExModelFile.gif">
+         <description>%_UI_ExModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExEditorID"
+            name="%_UI_ExEditor_label"
+            icon="icons/full/obj16/ExModelFile.gif"
+            extensions="ex"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionModelWizardID"
+            name="%_UI_InteractionModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InteractionModelFile.gif">
+         <description>%_UI_InteractionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionEditorID"
+            name="%_UI_InteractionEditor_label"
+            icon="icons/full/obj16/InteractionModelFile.gif"
+            extensions="interaction"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleModelWizardID"
+            name="%_UI_ModuleModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ModuleModelFile.gif">
+         <description>%_UI_ModuleModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleEditorID"
+            name="%_UI_ModuleEditor_label"
+            icon="icons/full/obj16/ModuleModelFile.gif"
+            extensions="module"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xModelWizardID"
+            name="%_UI_Ar4xModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Ar4xModelFile.gif">
+         <description>%_UI_Ar4xModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xEditorID"
+            name="%_UI_Ar4xEditor_label"
+            icon="icons/full/obj16/Ar4xModelFile.gif"
+            extensions="ar4x"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ModelWizardID"
+            name="%_UI_M2ModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/M2ModelFile.gif">
+         <description>%_UI_M2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2EditorID"
+            name="%_UI_M2Editor_label"
+            icon="icons/full/obj16/M2ModelFile.gif"
+            extensions="m2"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2Editor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucModelWizardID"
+            name="%_UI_EcucModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/EcucModelFile.gif">
+         <description>%_UI_EcucModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucEditorID"
+            name="%_UI_EcucEditor_label"
+            icon="icons/full/obj16/EcucModelFile.gif"
+            extensions="ecuc"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rte -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceModelWizardID"
+            name="%_UI_InstanceModelWizard_label"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InstanceModelFile.gif">
+         <description>%_UI_InstanceModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rte -->
+      <editor
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceEditorID"
+            name="%_UI_InstanceEditor_label"
+            icon="icons/full/obj16/InstanceModelFile.gif"
+            extensions="instance"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceEditor"
+            contributorClass="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
