@@ -1,6 +1,6 @@
 language: java
 jdk:
--oraclejdk8
+- oraclejdk8
 before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
