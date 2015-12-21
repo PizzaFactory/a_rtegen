@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2015 by PizzaFactory Project.
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,7 +43,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util;
 
-public class RoleNames { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+public interface RoleNames {
 
 	public static final String SR_INVALID_VALUE_ROLE_NAME = "srInvalidValue";
 	public static final String SR_API_INIT_VALUE_ROLE_NAME = "srApiInitValue";
