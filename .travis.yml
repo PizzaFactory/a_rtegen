@@ -1,17 +1,17 @@
+sudo: false
 language: java
 jdk:
 - oraclejdk8
 before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
-- git config credential.helper "store --file=.git/credentials"
-- git clone https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git p2repo
-- echo "https://${GH_TOKEN}@github.com" > p2repo/.git/credentials
-- (cd p2repo && git checkout gh-pages)
 script: mvn install
-after_success:
-- cp -r src/jp.pizzafactory.a_rte.p2updatesite/target/repository/ p2repo/8.5/travis-build-${TRAVIS_BUILD_NUMBER}/
-- (cd p2repo && git add . && git commit -m 'Added by Travis-CI builder.' && git push origin gh-pages)
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: deploy.sh
+  on:
+    branch: master
 env:
   global:
   - MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"
