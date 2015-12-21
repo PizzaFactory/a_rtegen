@@ -28,12 +28,17 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>Eclipse Kepler repository</id>
+			<id>PizzaFactroy 8.5 Express</id>
 			<layout>p2</layout>
-			<url>http://builder.monami-ya.com:8080/nexus/content/repositories/Kepler-releases/</url>
+			<url>http://builder.monami-ya.com:8080/nexus/content/groups/pf8.5-express/</url>
 		</repository>
 		<repository>
-			<id>Update Site</id>
+			<id>Eclipse Luna repository</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/luna/</url>
+		</repository>
+		<repository>
+			<id>Orbit Update Site</id>
 			<layout>p2</layout>
 			<url>http://pizzafactory.github.io/a_rte.orbit/</url>
 		</repository>
