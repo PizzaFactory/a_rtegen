@@ -45,7 +45,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.util;
 /**
  * RTEジェネレータアプリケーションの固有情報を保持する。
  */
-public class GeneratorInfos { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+public interface GeneratorInfos {
 
 	/**
 	 * RTEジェネレータのツール名
