@@ -44,7 +44,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.EmfUtils;
@@ -68,6 +67,7 @@ import org.eclipse.emf.compare.match.impl.MatchEngineFactoryRegistryImpl;
 import org.eclipse.emf.compare.scope.DefaultComparisonScope;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.osgi.util.NLS;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Predicate;
@@ -130,8 +130,6 @@ public class M2ModelMerger {
 		}
 	}
 
-	private final static Logger LOGGER = Logger.getLogger(M2ModelMerger.class.getName());
-
 	private final EMFCompare comparator;
 
 	public M2ModelMerger() {
@@ -161,30 +159,30 @@ public class M2ModelMerger {
 				if (diff instanceof ReferenceChange) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 					ReferenceChange referenceChange = (ReferenceChange) diff;
 					if (!referenceChange.getReference().isContainment()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-						LOGGER.finest("discarding a diff. it is not a containment reference diff. " + diff);
+						Activator.debugLog(NLS.bind("discarding a diff. it is not a containment reference diff. {0}", diff));
 						diff.discard();
 
 					} else if (referenceChange.getMatch().getLeft() == null || referenceChange.getMatch().getRight() == null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-						LOGGER.finest("discarding a diff. it is of a submatch. " + diff);
+						Activator.debugLog(NLS.bind("discarding a diff. it is of a submatch. {0}", diff));
 						diff.discard();
 
 					} else if (referenceChange.getValue().eContainer() == referenceChange.getMatch().getRight()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-						LOGGER.finest("discarding a diff. it is of the merge target. " + diff);
+						Activator.debugLog(NLS.bind("discarding a diff. it is of the merge target. {0}", diff));
 						diff.discard();
 
 					} else if (isRightAlreadyContainsValue(referenceChange)) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-						LOGGER.finest("discarding a diff. the value of it already exists in the merge target. " + diff);
+						Activator.debugLog(NLS.bind("discarding a diff. the value of it already exists in the merge target. {0}", diff));
 						diff.discard();
 					}
 				} else { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-					LOGGER.finest("discarding a diff. it is not a reference diff. " + diff);
+					Activator.debugLog(NLS.bind("discarding a diff. it is not a reference diff. {0}", diff));
 					diff.discard();
 				}
 				break;
 			case CHANGE:
 			case DELETE:
 			default:
-				LOGGER.finest("discarding a diff. it is change or delete diff. " + diff);
+				Activator.debugLog(NLS.bind("discarding a diff. it is change or delete diff. {0}", diff));
 				diff.discard();
 				break;
 			}
@@ -225,7 +223,7 @@ public class M2ModelMerger {
 		// マージ
 		if (diff instanceof ReferenceChange) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない) 
 			ReferenceChange referenceChange = (ReferenceChange) diff;
-			LOGGER.finest("merging " + referenceChange);
+			Activator.debugLog(NLS.bind("merging {0}", referenceChange));
 
 			if (referenceChange.getReference().isMany()) {
 				@SuppressWarnings("unchecked")

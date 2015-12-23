@@ -44,8 +44,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC_VALUE_COLLECTION;
 
-import java.util.logging.Logger;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelLabels;
@@ -78,11 +76,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.osgi.util.NLS;
 
 import com.google.common.base.Optional;
 
 public class M2ToEcucMapper {
-	private final static Logger LOGGER = Logger.getLogger(M2ToEcucMapper.class.getName());
 
 	private final Resource eResource;
 	private final ModelQuery query;
@@ -129,7 +127,7 @@ public class M2ToEcucMapper {
 		ecucModule.setShortName(m2Module.getShortName());
 		ecucModule.setSource(m2Module);
 
-		LOGGER.finest("mapped " + m2Module + " to " + ecucModule);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", m2Module, ecucModule));
 
 		for (EcucContainerValue m2Container : m2Module.getContainer()) {
 			mapContainer(ecucModule, m2Container);
@@ -148,7 +146,7 @@ public class M2ToEcucMapper {
 		ecucContainer.setShortName(m2Container.getShortName());
 		ecucContainer.setSource(m2Container);
 
-		LOGGER.finest("mapped " + m2Container + " to " + ecucContainer);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", m2Container, ecucContainer));
 
 		for (EcucParameterValue parameterValue : m2Container.getParameterValue()) {
 			mapParameter(ecucContainer, parameterValue);
@@ -185,7 +183,7 @@ public class M2ToEcucMapper {
 			throw new InternalPersistException("Error found in the parameter '" + parameterFeature.getName() + "' of " + ModelLabels.getLabel(ecucContainer) + ". " + e.getMessage(), e);
 		}
 
-		LOGGER.finest("mapped " + m2Parameter + " to " + ecucContainer + " " + parameterFeature);
+		Activator.debugLog(NLS.bind("mapped {0} to {1} {2}", new Object[] { m2Parameter, ecucContainer, parameterFeature}));
 	}
 
 	private void mapReference(EcucObject ecucContainer, EcucReferenceValue m2Reference) throws InternalPersistException {
@@ -207,7 +205,7 @@ public class M2ToEcucMapper {
 			// ECUCのオブジェクトは生成が完了していないので，全オブジェクトの生成後にリファレンスを貼り直す．
 			ecucContainer.addUnresolvedReference((EReference) roleFeature, EcucModelUtils.ID_PREFIX + m2Reference.getValue().getReference());
 		}
-		LOGGER.finest("mapped " + m2Reference + " to " + ecucContainer + " " + roleFeature);
+		Activator.debugLog(NLS.bind("mapped {0} to {1} {2}", new Object[] { m2Reference, ecucContainer, roleFeature }));
 	}
 
 	private void mapInstanceReference(EcucReferrable ecucContainer, EcucInstanceReferenceValue m2InstanceReference) throws InternalPersistException {
@@ -222,7 +220,7 @@ public class M2ToEcucMapper {
 					+ ModelLabels.getLabel(ecucContainer) + ".");
 		}
 		setRoleValue(ecucContainer, roleFeature, m2InstanceReference.getValue());
-		LOGGER.finest("mapped " + m2InstanceReference + " to " + ecucContainer + " " + roleFeature);
+		Activator.debugLog(NLS.bind("mapped {0} to {1} {2}", new Object[] { m2InstanceReference, ecucContainer, roleFeature }));
 	}
 
 	private void resolveReference() throws PersistException {

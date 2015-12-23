@@ -45,7 +45,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
@@ -69,6 +68,7 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.osgi.util.NLS;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -76,8 +76,6 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.google.common.base.Preconditions;
 
 public class M2ModelLoadHandler extends DefaultHandler {
-
-	private final static Logger LOGGER = Logger.getLogger(M2ModelLoadHandler.class.getName());
 
 	private static enum XmlContextType {
 		ROLE_WRAPPER, ROLE, TYPE, REFERENCE_WRAPPER, REFERENCE, TYPE_REFERENCE, UNKNOWN, VARIANTS, CONDITIONAL
@@ -333,14 +331,14 @@ public class M2ModelLoadHandler extends DefaultHandler {
 								e);
 					}
 				}
-				LOGGER.finest("set value '" + value + "' to " + valueFeature);
+				Activator.debugLog(NLS.bind("set value ''{0}'' to {1}", value, valueFeature));
 				setValueToCurrentContextM2Element(valueFeature, value);
 			}
 			break;
 		case REFERENCE:
 		case TYPE_REFERENCE:
 			String value = String.valueOf(ch, start, length);
-			LOGGER.finest("set reference '" + value + "' to " + getCurrentXmlContext().contextM2Feature);
+			Activator.debugLog(NLS.bind("set reference ''{0} to {1}", value, getCurrentXmlContext().contextM2Feature));
 			getCurrentXmlContext().contextM2Element.addUnresolvedReference((EReference) getCurrentXmlContext().contextM2Feature, M2ModelUtils.ID_PREFIX + value);
 			break;
 		default:
@@ -455,12 +453,12 @@ public class M2ModelLoadHandler extends DefaultHandler {
 	}
 
 	private void pushXmlContext(XmlContext context) {
-		LOGGER.finest("enter " + context);
+		Activator.debugLog(NLS.bind("enter {0}", context));
 		this.xmlContexts.add(context);
 	}
 
 	private void popM2Element() {
-		LOGGER.finest("exit " + getCurrentXmlContext());
+		Activator.debugLog(NLS.bind("exit {0}", getCurrentXmlContext()));
 		this.xmlContexts.remove(this.xmlContexts.size() - 1);
 	}
 
