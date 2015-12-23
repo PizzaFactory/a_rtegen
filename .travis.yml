@@ -9,9 +9,9 @@ script: mvn install
 deploy:
   skip_cleanup: true
   provider: script
-  script: deploy.sh
+  script: "deploy.sh"
   on:
-    branch: master
+    branch: pr-fix-deployment-error
 env:
   global:
   - MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"
