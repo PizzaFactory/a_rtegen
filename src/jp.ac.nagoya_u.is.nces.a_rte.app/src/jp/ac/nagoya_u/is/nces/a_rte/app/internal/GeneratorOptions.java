@@ -42,6 +42,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 
+import java.io.PrintStream;
 import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
@@ -162,6 +163,7 @@ public class GeneratorOptions {
 		return this.showsHelp || this.showsVersion;
 	}
 
+	public PrintStream stdout = System.out;
 	/**
 	 * RTE連携モデル生成用のオプションを生成する。
 	 * @return 生成したオプション

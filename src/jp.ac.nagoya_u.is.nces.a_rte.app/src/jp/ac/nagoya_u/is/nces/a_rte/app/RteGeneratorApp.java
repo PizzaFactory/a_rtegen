@@ -123,12 +123,12 @@ public class RteGeneratorApp {
 		}
 
 		if (options.showsHelp) {
-			showUsage(System.out, parser);
+			showUsage(options.stdout, parser);
 			return;
 		}
 
 		if (options.showsVersion) {
-			showVersion();
+			showVersion(options.stdout);
 			return;
 		}
 
@@ -143,8 +143,8 @@ public class RteGeneratorApp {
 		parser.printUsage(outputStream);
 	}
 
-	private void showVersion() {
-		System.out.println(GeneratorInfos.GENERATOR_COMMAND_NAME + " (" + GeneratorInfos.GENERATOR_TOOL_NAME + ") " + GeneratorInfos.GENERATOR_VERSION);
+	private void showVersion(PrintStream stdout) {
+		stdout.println(GeneratorInfos.GENERATOR_COMMAND_NAME + " (" + GeneratorInfos.GENERATOR_TOOL_NAME + ") " + GeneratorInfos.GENERATOR_VERSION);
 	}
 
 	private void generate(GeneratorOptions options) {
@@ -171,16 +171,16 @@ public class RteGeneratorApp {
 			return this.getContractPhaseRteGenerator();
 		case GENERATE:
 		default:
-			return this.getGeneratePhaseRteGenerator();
+			return this.getGeneratePhaseRteGenerator(options.stdout);
 		}
 	}
 
-	private GeneratePhaseRteGenerator getGeneratePhaseRteGenerator() throws AppException {
+	private GeneratePhaseRteGenerator getGeneratePhaseRteGenerator(PrintStream stdout) throws AppException {
 		if (this.generatePhaseRteGenerator == null) {
 			ModelEnvironment.initializeEnvironment();
 			ModelValidationEnvironment.initializeEnvironment();
 
-			GeneratePhaseRteGenerator generator = new GeneratePhaseRteGenerator(this.generatorInitOptions);
+			GeneratePhaseRteGenerator generator = new GeneratePhaseRteGenerator(this.generatorInitOptions, stdout);
 			this.generatePhaseRteGenerator = generator;
 		}
 		return this.generatePhaseRteGenerator;
