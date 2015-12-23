@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jp.pizzafactory.model.asam</groupId>
+  <artifactId>releng</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <github.global.oauth2Token>${env.GH_TOKEN}</github.global.oauth2Token>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>org.jruby.Main</mainClass>
+          <arguments>
+            <argument>${basedir}/src/main/ruby/generate_update.rb</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.github.github</groupId>
+        <artifactId>site-maven-plugin</artifactId>
+        <version>0.12</version>
+        <configuration>
+          <message>composite site config XML files</message>
+          <noJekyll>true</noJekyll>
+          <outputDirectory>${project.build.directory}/p2repo</outputDirectory>
+          <includes><include>**/*</include></includes>
+          <branch>refs/heads/gh-pages</branch>
+          <path>p2repo</path>
+          <repositoryName>model-asam</repositoryName>
+          <repositoryOwner>PizzaFactory</repositoryOwner>
+          <merge>true</merge>
+        </configuration>
+        <executions>
+          <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+          <execution>
+            <id>p2repo</id>
+            <configuration>
+            </configuration>
+            <goals>
+              <goal>site</goal>
+            </goals>
+            <phase>install</phase>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.jruby</groupId>
+      <artifactId>jruby-complete</artifactId>
+      <version>1.7.9</version>
+    </dependency>
+  </dependencies>
+</project>
