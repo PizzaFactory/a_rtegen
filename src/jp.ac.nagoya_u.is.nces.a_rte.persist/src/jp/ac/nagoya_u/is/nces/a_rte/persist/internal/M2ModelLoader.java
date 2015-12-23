@@ -44,6 +44,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -54,8 +55,10 @@ import javax.xml.validation.SchemaFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.util.M2XmlUtils;
+import jp.pizzafactory.a_rtegen.codegen.core.AutosarResource;
 
 import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
@@ -71,65 +74,61 @@ public class M2ModelLoader {
 		try {
 			this.saxParser = spf.newSAXParser();
 
-		} catch (ParserConfigurationException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			throw new PersistException("Internal error occurred while initialize model loader. ", e);
+		} catch (ParserConfigurationException e) { // COVERAGE
+													// 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			throw new PersistException(
+					"Internal error occurred while initialize model loader. ",
+					e);
 
-		} catch (SAXException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			throw new PersistException("Internal error occurred while initialize model loader. ", e);
+		} catch (SAXException e) { // COVERAGE
+									// 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			throw new PersistException(
+					"Internal error occurred while initialize model loader. ",
+					e);
 		}
 	}
 
 	private Schema createSchema(File schemaFile) throws PersistException {
-		SchemaFactory factory = SchemaFactory.newInstance(M2XmlUtils.W3C_XML_SCHEMA);
+		SchemaFactory factory = SchemaFactory
+				.newInstance(M2XmlUtils.W3C_XML_SCHEMA);
 		try {
 			return factory.newSchema(schemaFile);
 		} catch (SAXException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			throw new PersistException("Error occurred while loading an AUTOSAR XML schema file. Please confirm that the file is installed.", e);
+			throw new PersistException(
+					"Error occurred while loading an AUTOSAR XML schema file. Please confirm that the file is installed.",
+					e);
 		}
 	}
 
-	public M2Root load(String file) throws PersistException {
+	public void load(AutosarResource resource, InputStream inputStream) throws IOException,
+			SAXException {
 		M2ModelLoadHandler handler = new M2ModelLoadHandler();
 
-		try {
-			XMLReader xmlReader = this.saxParser.getXMLReader();
-			xmlReader.setContentHandler(handler);
-			xmlReader.setErrorHandler(new ErrorHandler() {
-				@Override
-				public void warning(SAXParseException exception) throws SAXException { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-				}
+		XMLReader xmlReader = this.saxParser.getXMLReader();
+		xmlReader.setContentHandler(handler);
+		xmlReader.setErrorHandler(new ErrorHandler() {
+			@Override
+			public void warning(SAXParseException exception)
+					throws SAXException { // COVERAGE
+											// (常用ケースではないため，コードレビューで問題ないことを確認)
+			}
 
-				@Override
-				public void error(SAXParseException exception) throws SAXException {
-					throw exception;
-				}
+			@Override
+			public void error(SAXParseException exception) throws SAXException {
+				throw exception;
+			}
 
-				@Override
-				public void fatalError(SAXParseException exception) throws SAXException {
-					throw exception;
-				}
-			});
-			xmlReader.parse(convertToFileURL(file));
+			@Override
+			public void fatalError(SAXParseException exception)
+					throws SAXException {
+				throw exception;
+			}
+		});
+		InputSource inputSource = new InputSource(inputStream);
+		xmlReader.parse(inputSource);
 
-		} catch (SAXException e) {
-			throw new PersistException("Error occurred while loading file " + file + ". " + e.getMessage(), e);
-
-		} catch (IOException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			throw new PersistException("Error occurred while loading file " + file + ". " + e.getMessage(), e);
-		}
-
-		return handler.getM2Root();
-	}
-
-	private static String convertToFileURL(String filename) {
-		String path = new File(filename).getAbsolutePath();
-		if (File.separatorChar != '/') { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			path = path.replace(File.separatorChar, '/');
-		}
-
-		if (!path.startsWith("/")) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			path = "/" + path;
-		}
-		return "file:" + path;
+		M2Root m2Root = handler.getM2Root();
+		resource.getContents().add(m2Root);
+		
 	}
 }
