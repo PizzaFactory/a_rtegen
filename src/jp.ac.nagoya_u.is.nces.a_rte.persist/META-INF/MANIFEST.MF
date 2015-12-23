@@ -18,3 +18,4 @@ Export-Package: jp.ac.nagoya_u.is.nces.a_rte.persist,
 Import-Package: com.google.common.base;version="[11.0.0,15.0.0)",
  com.google.common.collect;version="[11.0.0,15.0.0)",
  com.google.common.io;version="[11.0.0,15.0.0)"
+Bundle-Activator: jp.ac.nagoya_u.is.nces.a_rte.persist.internal.Activator
