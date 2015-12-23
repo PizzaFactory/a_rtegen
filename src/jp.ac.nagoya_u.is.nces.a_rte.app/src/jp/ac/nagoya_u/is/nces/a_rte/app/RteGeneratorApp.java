@@ -43,9 +43,8 @@
 package jp.ac.nagoya_u.is.nces.a_rte.app;
 
 import java.io.PrintStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import jp.ac.nagoya_u.is.nces.a_rte.app.internal.Activator;
 import jp.ac.nagoya_u.is.nces.a_rte.app.internal.CmdLineParserUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.app.internal.ContractPhaseRteGenerator;
 import jp.ac.nagoya_u.is.nces.a_rte.app.internal.GeneratePhaseRteGenerator;
@@ -62,7 +61,6 @@ import org.kohsuke.args4j.CmdLineParser;
  * RTEジェネレータのアプリケーション機能を提供する。
  */
 public class RteGeneratorApp {
-	private static final Logger LOGGER = Logger.getLogger(RteGeneratorApp.class.getName());
 
 	private GeneratePhaseRteGenerator generatePhaseRteGenerator;
 	private ContractPhaseRteGenerator contractPhaseRteGenerator;
@@ -156,12 +154,14 @@ public class RteGeneratorApp {
 			rteGenerator.generate(options);
 
 		} catch (AppException e) {
-			options.stderr.println("Generation cancelled on error.");
-			LOGGER.log(Level.SEVERE, e.getMessage(), e);
+			final String message = "Generation cancelled on error.";
+			options.stderr.println(message);
+			Activator.log(message, e);
 
 		} catch (Exception e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			options.stderr.println("Generation cancelled on error.");
-			LOGGER.log(Level.SEVERE, "Internal error occurred.", e);
+			final String message = "Generation cancelled on error.";
+			options.stderr.println(message);
+			Activator.log(message, e);
 		}
 	}
 

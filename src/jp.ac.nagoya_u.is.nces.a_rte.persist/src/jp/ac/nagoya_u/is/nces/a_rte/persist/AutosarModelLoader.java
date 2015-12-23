@@ -43,22 +43,23 @@
 package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
 import java.io.File;
-import java.util.logging.Logger;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
+import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.Activator;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.InstanceModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelLoader;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelMerger;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelReferenceResolver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ToEcucMapper;
 
+import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelLoader {
-	private final static Logger LOGGER = Logger.getLogger(AutosarModelLoader.class.getName());
-
 	private final M2ModelMerger m2ModelMerger;
 
 	private File schemaFile;
@@ -93,11 +94,14 @@ public class AutosarModelLoader {
 
 	public void loadM2(Resource eResource, Iterable<String> files) throws PersistException {
 		Autosar mergedAutosar = M2Factory.eINSTANCE.createAutosar();
+		final ILog logger = Activator.getDefault().getLog();
 		for (String file : files) {
-			LOGGER.fine("Loading AUTOSAR file " + file);
+			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + file);
+			logger.log(status1);
 			M2Root m2Root = getM2ModelLoader().load(file);
 
-			LOGGER.fine("Merging AUTOSAR file " + file);
+			final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + file);
+			logger.log(status2);
 			this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
 		}
 

@@ -53,7 +53,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasAttr;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
@@ -82,6 +81,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.osgi.util.NLS;
 
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
@@ -89,7 +89,6 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
 public class EcucToM2Mapper {
-	private final static Logger LOGGER = Logger.getLogger(EcucToM2Mapper.class.getName());
 
 	private final Resource eResource;
 	private final ModelQuery query;
@@ -137,7 +136,7 @@ public class EcucToM2Mapper {
 
 		ecucModule.setSource(m2Module);
 
-		LOGGER.finest("mapped " + ecucModule + " to " + m2Module);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", ecucModule, m2Module));
 
 		for (EReference eReference : getMappingContainmentReferences(ecucModule)) {
 			mapEcucContainers(ecucModule, m2Module, eReference);
@@ -164,7 +163,7 @@ public class EcucToM2Mapper {
 
 		ecucContainer.setSource(m2Container);
 
-		LOGGER.finest("mapped " + ecucContainer + " to " + m2Container);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", ecucContainer, m2Container));
 
 		for (EAttribute eAttribute : getMappingAttributes(ecucContainer)) {
 			mapEcucParam(m2Container, ecucContainer, eAttribute);
@@ -192,7 +191,7 @@ public class EcucToM2Mapper {
 
 		ecucContainer.setSource(m2Container);
 
-		LOGGER.finest("mapped " + ecucContainer + " to " + m2Container);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", ecucContainer, m2Container));
 
 		for (EAttribute eAttribute : getMappingAttributes(ecucContainer)) {
 			mapEcucParam(m2Container, ecucContainer, eAttribute);
@@ -266,7 +265,7 @@ public class EcucToM2Mapper {
 			ecucReferenceValue.addUnresolvedReference(ECUC_REFERENCE_VALUE__VALUE, M2ModelUtils.ID_PREFIX + ecucReferrable.getReference());
 		}
 		m2Container.getReferenceValue().add(ecucReferenceValue);
-		LOGGER.finest("mapped " + ecucReferrable + " to " + ecucReferenceValue);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", ecucReferrable, ecucReferenceValue));
 	}
 
 	private void mapEcucReferenceValue(EcucContainerValue m2Container, EReference eReference, Identifiable identifiable) {
@@ -275,7 +274,7 @@ public class EcucToM2Mapper {
 		ecucReferenceValue.setValue(identifiable);
 		m2Container.getReferenceValue().add(ecucReferenceValue);
 
-		LOGGER.finest("mapped " + identifiable + " to " + ecucReferenceValue);
+		Activator.debugLog(NLS.bind("mapped {0} to {1}", identifiable, ecucReferenceValue));
 	}
 
 	private void mapEcucParam(EcucContainerValue m2Container, EcucReferrable ecucContainer, EAttribute eAttribute) {
@@ -298,7 +297,7 @@ public class EcucToM2Mapper {
 		ecucTextualParamValue.setValue(String.valueOf(value));
 		m2Container.getParameterValue().add(ecucTextualParamValue);
 
-		LOGGER.finest("mapped " + ecucContainer + " " + eAttribute + " " + value + " to " + ecucTextualParamValue);
+		Activator.debugLog(NLS.bind("mapped {0} {1} {2} to {3}", new Object[] { ecucContainer, eAttribute, value, ecucTextualParamValue}));
 	}
 
 	private void mapEcucNumericalParamValue(EcucContainerValue m2Container, EcucReferrable ecucContainer, EAttribute eAttribute, Object value) {
@@ -307,7 +306,7 @@ public class EcucToM2Mapper {
 		ecucNumericalParamValue.setValue(M2ModelUtils.convertValueToBigDecimal(value));
 		m2Container.getParameterValue().add(ecucNumericalParamValue);
 
-		LOGGER.finest("mapped " + ecucContainer + " " + eAttribute + " " + value + " to " + ecucNumericalParamValue);
+		Activator.debugLog(NLS.bind("mapped {0} {1} {2} to {3}", new Object[] { ecucContainer, eAttribute, value, ecucNumericalParamValue}));
 	}
 
 	private void resolveReference() throws ModelException {
