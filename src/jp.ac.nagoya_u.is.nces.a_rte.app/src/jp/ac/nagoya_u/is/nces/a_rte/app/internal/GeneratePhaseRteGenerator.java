@@ -66,7 +66,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteTestModuleModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelSerializer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RootSwCompositionPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
@@ -94,8 +93,6 @@ import com.google.common.io.Files;
  */
 public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private static final String GENERATED_ECUC_ARXML_FILE_NAME = "Rte_GeneratedEcuc.arxml";
-	private static final String GENERATED_ECUC_MODELDUMP_FILE_NAME = "modeldump_generated_ecuc.xmi";
-	private static final String SOURCE_MODELDUMP_FILE_NAME = "modeldump_source.xmi";
 
 	private final GeneratorInitOptions generatorInitOptions;
 	private final AutosarModelLoader loader;
@@ -110,9 +107,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private final RteCodeGenerator codeGenerator;
 	private final GeneratedEcucModelExtractor ecucModelExtractor;
 	private final AutosarModelSaver saver;
-
-	// デバッグ用
-	private final ModelSerializer serializer;
 
 	// テストコード生成用
 	private final RteTestModuleModelBuilder testModuleModelBuilder;
@@ -142,8 +136,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			this.codeGenerator = RteCodeGenerator.forGeneratePhase();
 			this.ecucModelExtractor = new GeneratedEcucModelExtractor();
 			this.saver = new AutosarModelSaver();
-
-			this.serializer = new ModelSerializer();
 
 			this.testModuleModelBuilder = RteTestModuleModelBuilder.forGeneratePhase();
 			this.testCodeGenerator = RteTestCodeGenerator.forGeneratePhase();
@@ -178,89 +170,78 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		eResourceSet.getResources().add(eGeneratedEcucResource);
 
 		try {
-			try {
-				options.stdout.println("Checking input AUTOSAR XMLs...");
+			options.stdout.println("Checking input AUTOSAR XMLs...");
 
-				// モデル環境の初期化
-				ModelEnvironment.initResource(eGenSourceResource);
+			// モデル環境の初期化
+			ModelEnvironment.initResource(eGenSourceResource);
 
-				// AUTOSAR M2モデルの読み込み
-				this.loader.loadM2(eGenSourceResource, options.inputFiles);
+			// AUTOSAR M2モデルの読み込み
+			this.loader.loadM2(eGenSourceResource, options.inputFiles);
 
-				ModelQuery query = new ModelQuery(eGenSourceResource);
+			ModelQuery query = new ModelQuery(eGenSourceResource);
 
-				BasicDiagnostic diagnostics = new BasicDiagnostic();
-				Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
-				Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
-				boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
-				boolean hasSchmConfig = bswImplementation.isPresent();
+			BasicDiagnostic diagnostics = new BasicDiagnostic();
+			Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
+			Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
+			boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
+			boolean hasSchmConfig = bswImplementation.isPresent();
 
-				// RootSwCompositionPrototypeとBswImplementationが両方共定義されていない場合は,
-				// [nrte_sws_226]のメッセージを表示したうえでRTEの検証結果を表示する.				
-				boolean validatesRte = false;
-				if (!hasRteConfig && !hasSchmConfig) {
-					validatesRte = true;
-				}
-
-				// AUTOSAR M2モデル検証
-				if (hasRteConfig || validatesRte) {
-					this.rteValidatorM2.validate(eGenSourceResource, diagnostics);
-				}
-				if (hasSchmConfig) {
-					this.bswmValidatorM2.validate(eGenSourceResource, diagnostics);
-				}
-				this.commonValidatorM2.validate(eGenSourceResource, diagnostics);
-
-				// AUTOSAR Instanceモデルの読み込み
-				this.loader.loadInstance(eGenSourceResource);
-
-				// AUTOSAR Instanceモデル検証
-				if (hasRteConfig || validatesRte) {
-					this.rteValidatorInstance.validate(eGenSourceResource, diagnostics);
-				}
-				if (hasSchmConfig) {
-					this.bswmValidatorInstance.validate(eGenSourceResource, diagnostics);
-				}
-				this.commonValidatorInstance.validate(eGenSourceResource, diagnostics);
-
-				if (!diagnostics.getChildren().isEmpty()) {
-					System.err.println("Generation cancelled on validation error.");
-					if (validatesRte) {
-						System.err.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
-					}
-					for (Diagnostic diagnostic : diagnostics.getChildren()) {
-						System.err.println("Validation error: " + diagnostic.getMessage());
-					}
-					return;
-				}
-
-				// AUTOSARモデル -> インタラクションモデル変換
-				RteInteractionModelBuilderOptions builderOptions = options.createRteInteractionModelBuilderOptions();
-				this.interactionModelBuilder.build(eGenSourceResource, builderOptions);
-
-				// RTE，もしくはAUTOSAR XMLの生成
-				InteractionRoot interactionRoot = query.findSingleByKind(INTERACTION_ROOT);
-
-				generateInternalDataTypeFile(options);
-
-				if (interactionRoot.getGeneratedEcuConfiguration() != null) {
-					// 不足情報がある場合，AUTOSAR XMLとして出力
-					generateInsufficientArxmls(eGeneratedEcucResource, eGenSourceResource, options);
-				}
-				if (interactionRoot.getGeneratedEcuConfiguration() == null || options.forcesGenerateRte) {
-					// 不足情報がない場合，RTEを生成
-					generateRte(eGenSourceResource, options);
-				}
-
-			} finally {
-				// モデルをダンプ
-				if (options.debugModeEnabled) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-					File outputDirectory = new File(options.outputDirectory);
-					this.serializer.serialize(eGenSourceResource, new File(outputDirectory, SOURCE_MODELDUMP_FILE_NAME).getPath());
-					this.serializer.serialize(eGeneratedEcucResource, new File(outputDirectory, GENERATED_ECUC_MODELDUMP_FILE_NAME).getPath());
-				}
+			// RootSwCompositionPrototypeとBswImplementationが両方共定義されていない場合は,
+			// [nrte_sws_226]のメッセージを表示したうえでRTEの検証結果を表示する.				
+			boolean validatesRte = false;
+			if (!hasRteConfig && !hasSchmConfig) {
+				validatesRte = true;
 			}
 
+			// AUTOSAR M2モデル検証
+			if (hasRteConfig || validatesRte) {
+				this.rteValidatorM2.validate(eGenSourceResource, diagnostics);
+			}
+			if (hasSchmConfig) {
+				this.bswmValidatorM2.validate(eGenSourceResource, diagnostics);
+			}
+			this.commonValidatorM2.validate(eGenSourceResource, diagnostics);
+
+			// AUTOSAR Instanceモデルの読み込み
+			this.loader.loadInstance(eGenSourceResource);
+
+			// AUTOSAR Instanceモデル検証
+			if (hasRteConfig || validatesRte) {
+				this.rteValidatorInstance.validate(eGenSourceResource, diagnostics);
+			}
+			if (hasSchmConfig) {
+				this.bswmValidatorInstance.validate(eGenSourceResource, diagnostics);
+			}
+			this.commonValidatorInstance.validate(eGenSourceResource, diagnostics);
+
+			if (!diagnostics.getChildren().isEmpty()) {
+				options.stderr.println("Generation cancelled on validation error.");
+				if (validatesRte) {
+					options.stderr.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
+				}
+				for (Diagnostic diagnostic : diagnostics.getChildren()) {
+					options.stderr.println("Validation error: " + diagnostic.getMessage());
+				}
+				return;
+			}
+
+			// AUTOSARモデル -> インタラクションモデル変換
+			RteInteractionModelBuilderOptions builderOptions = options.createRteInteractionModelBuilderOptions();
+			this.interactionModelBuilder.build(eGenSourceResource, builderOptions);
+
+			// RTE，もしくはAUTOSAR XMLの生成
+			InteractionRoot interactionRoot = query.findSingleByKind(INTERACTION_ROOT);
+
+			generateInternalDataTypeFile(options);
+
+			if (interactionRoot.getGeneratedEcuConfiguration() != null) {
+				// 不足情報がある場合，AUTOSAR XMLとして出力
+				generateInsufficientArxmls(eGeneratedEcucResource, eGenSourceResource, options);
+			}
+			if (interactionRoot.getGeneratedEcuConfiguration() == null || options.forcesGenerateRte) {
+				// 不足情報がない場合，RTEを生成
+				generateRte(eGenSourceResource, options);
+			}
 		} catch (PersistException e) {
 			throw new AppException(e);
 
