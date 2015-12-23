@@ -140,7 +140,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 
 		try {
 			try {
-				System.out.println("Checking input AUTOSAR XMLs...");
+				options.stdout.println("Checking input AUTOSAR XMLs...");
 
 				// モデル環境の初期化
 				ModelEnvironment.initResource(eResource);
@@ -234,7 +234,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 		} else /* if (!rootSwCompositionPrototype.isPresent() && bswImplementation.isPresent()) */ {
 			messege += "SCHM...";
 		}
-		System.out.println(messege);
+		options.stdout.println(messege);
 
 		// AUTOSARモデル->モジュールモデル変換
 		RteModuleModelBuilderOptions builderOptions = options.createRteModuleModelBuilderOptions();
@@ -246,6 +246,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
 		this.codeGenerator.generate(rteModule, outputDirectory);
 
-		System.out.println("Generation done.");
+		options.stdout.println("Generation done.");
 	}
 }

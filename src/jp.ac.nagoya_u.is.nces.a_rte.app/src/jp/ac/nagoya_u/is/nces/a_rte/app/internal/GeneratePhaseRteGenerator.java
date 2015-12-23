@@ -48,6 +48,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
@@ -116,14 +117,16 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	// テストコード生成用
 	private final RteTestModuleModelBuilder testModuleModelBuilder;
 	private final RteTestCodeGenerator testCodeGenerator;
+	private PrintStream stdout;
 
 	/**
 	 * {@link GeneratePhaseRteGenerator}を構築する。
 	 * @param generatorInitOptions RTEジェネレータの初期設定オプション
 	 * @throws AppException {@link GeneratePhaseRteGenerator}の構築中にエラーが発生した場合
 	 */
-	public GeneratePhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
+	public GeneratePhaseRteGenerator(GeneratorInitOptions generatorInitOptions, PrintStream stdout) throws AppException {
 		this.generatorInitOptions = generatorInitOptions;
+		this.stdout = stdout;
 		try {
 			this.loader = AutosarModelLoader.forGeneratePhase();
 			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
@@ -176,7 +179,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		try {
 			try {
-				System.out.println("Checking input AUTOSAR XMLs...");
+				options.stdout.println("Checking input AUTOSAR XMLs...");
 
 				// モデル環境の初期化
 				ModelEnvironment.initResource(eGenSourceResource);
@@ -273,20 +276,19 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	}
 
 	private void generateInsufficientArxmls(XMIResource eGeneratedEcucResource, XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, PersistException {
-
-		System.out.println("There are some insufficient configurations for RTE.");
-		System.out.println("Generating AUTOSAR XMLs to complement the insufficient configurations... ");
+		stdout.println("There are some insufficient configurations for RTE.");
+		stdout.println("Generating AUTOSAR XMLs to complement the insufficient configurations... ");
 
 		File outputDir = new File(options.outputDirectory);
 
 		// ECUC ARXMLの出力
 		File generatedEcucFile = new File(outputDir, GENERATED_ECUC_ARXML_FILE_NAME);
 
-		System.out.println("Generating " + generatedEcucFile.getPath() + " ...");
+		stdout.println("Generating " + generatedEcucFile.getPath() + " ...");
 		this.ecucModelExtractor.extract(eGeneratedEcucResource, eGenSourceResource);
 		this.saver.save(eGeneratedEcucResource, generatedEcucFile);
 
-		System.out.println("Generation done.");
+		stdout.println("Generation done.");
 	}
 
 	private void generateInternalDataTypeFile(GeneratorOptions options) throws AppException {
@@ -294,7 +296,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		File outputDir = new File(options.outputDirectory);
 		File generatedInternalDataTypeFile = new File(outputDir, this.generatorInitOptions.internalDataTypesFile.getName());
 
-		System.out.println("Generating " + generatedInternalDataTypeFile.getPath() + " ...");
+		options.stdout.println("Generating " + generatedInternalDataTypeFile.getPath() + " ...");
 		try {
 			Files.createParentDirs(generatedInternalDataTypeFile);
 			Files.copy(this.generatorInitOptions.internalDataTypesFile, generatedInternalDataTypeFile);
@@ -318,7 +320,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		} else /* if (!rootSwCompositionPrototype.isPresent() && bswImplementation.isPresent()) */ {
 			messege += "SCHM...";
 		}
-		System.out.println(messege);
+		options.stdout.println(messege);
 
 		// AUTOSARモデル，インタラクションモデル -> モジュールモデル変換
 		RteModuleModelBuilderOptions builderOptions = options.createRteModuleModelBuilderOptions();
@@ -338,6 +340,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			this.testCodeGenerator.generate(rteTestModule, new File(options.outputDirectory));
 		}
 
-		System.out.println("Generation done.");
+		options.stdout.println("Generation done.");
 	}
 }
