@@ -114,10 +114,10 @@ public class RteGeneratorApp {
 		} catch (CmdLineException e) {
 			// 表示オプション（ヘルプ表示，もしくはバージョン表示）が指定された場合は，エラーを無視する
 			if (!options.isShowsOptionEnabled()) {
-				System.err.println("Invalid command line options.");
-				System.err.println(e.getMessage());
-				System.err.println();
-				showUsage(System.err, parser);
+				options.stderr.println("Invalid command line options.");
+				options.stderr.println(e.getMessage());
+				options.stderr.println();
+				showUsage(options.stderr, parser);
 				return;
 			}
 		}
@@ -156,11 +156,11 @@ public class RteGeneratorApp {
 			rteGenerator.generate(options);
 
 		} catch (AppException e) {
-			System.err.println("Generation cancelled on error.");
+			options.stderr.println("Generation cancelled on error.");
 			LOGGER.log(Level.SEVERE, e.getMessage(), e);
 
 		} catch (Exception e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			System.err.println("Generation cancelled on error.");
+			options.stderr.println("Generation cancelled on error.");
 			LOGGER.log(Level.SEVERE, "Internal error occurred.", e);
 		}
 	}
