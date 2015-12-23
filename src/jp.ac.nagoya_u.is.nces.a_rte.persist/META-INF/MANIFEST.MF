@@ -13,8 +13,8 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.9.0",
  org.eclipse.emf.compare;bundle-version="3.0.0",
  com.ibm.icu;bundle-version="50.1.1",
  jp.ac.nagoya_u.is.nces.a_rte.model;bundle-version="1.2.2"
-Export-Package: jp.ac.nagoya_u.is.nces.a_rte.persist,
- jp.ac.nagoya_u.is.nces.a_rte.persist.internal
+Export-Package: jp.ac.nagoya_u.is.nces.a_rte.persist
 Import-Package: com.google.common.base;version="[11.0.0,15.0.0)",
  com.google.common.collect;version="[11.0.0,15.0.0)",
  com.google.common.io;version="[11.0.0,15.0.0)"
+Bundle-Activator: jp.ac.nagoya_u.is.nces.a_rte.persist.internal.Activator
