@@ -181,12 +181,12 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			this.commonValidatorInstance.validate(eResource, diagnostics);
 
 			if (!diagnostics.getChildren().isEmpty()) {
-				System.err.println("Generation cancelled on validation error.");
+				options.stderr.println("Generation cancelled on validation error.");
 				if (validatesRte) {
-					System.err.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
+					options.stderr.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
 				}					
 				for (Diagnostic diagnostic : diagnostics.getChildren()) {
-					System.err.println("Validation error: " + diagnostic.getMessage());
+					options.stderr.println("Validation error: " + diagnostic.getMessage());
 				}
 				return;
 			}

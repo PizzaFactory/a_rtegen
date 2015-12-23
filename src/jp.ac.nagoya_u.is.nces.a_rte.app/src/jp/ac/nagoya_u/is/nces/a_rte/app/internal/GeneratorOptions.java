@@ -164,6 +164,9 @@ public class GeneratorOptions {
 	}
 
 	public PrintStream stdout = System.out;
+
+	public PrintStream stderr = System.err;
+
 	/**
 	 * RTE連携モデル生成用のオプションを生成する。
 	 * @return 生成したオプション
