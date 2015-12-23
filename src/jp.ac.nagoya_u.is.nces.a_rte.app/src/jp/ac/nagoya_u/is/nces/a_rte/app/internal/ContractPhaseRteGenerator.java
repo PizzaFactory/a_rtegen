@@ -58,7 +58,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilder;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelSerializer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RootSwCompositionPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
@@ -89,7 +88,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	private final ModelValidator commonValidatorInstance;
 	private final RteModuleModelBuilder moduleModelBuilder;
 	private final RteCodeGenerator codeGenerator;
-	private final ModelSerializer serializer;
 
 	/**
 	 * {@link ContractPhaseRteGenerator}を構築する。
@@ -109,7 +107,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			this.commonValidatorInstance = ModelValidator.forCommonContractPhaseInstance();
 			this.moduleModelBuilder = RteModuleModelBuilder.forContractPhase();
 			this.codeGenerator = RteCodeGenerator.forContractPhase();
-			this.serializer = new ModelSerializer();
 
 			if (!generatorInitOptions.uncrustifyExecutableFile.isFile()) {
 				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyExecutableFile.getAbsolutePath() + " does not exist.");
@@ -139,71 +136,63 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 		eResourceSet.getResources().add(eResource);
 
 		try {
-			try {
-				options.stdout.println("Checking input AUTOSAR XMLs...");
+			options.stdout.println("Checking input AUTOSAR XMLs...");
 
-				// モデル環境の初期化
-				ModelEnvironment.initResource(eResource);
+			// モデル環境の初期化
+			ModelEnvironment.initResource(eResource);
 
-				// AUTOSAR M2モデルの読み込み
-				this.loader.loadM2(eResource, options.inputFiles);
+			// AUTOSAR M2モデルの読み込み
+			this.loader.loadM2(eResource, options.inputFiles);
 
-				ModelQuery query = new ModelQuery(eResource);
+			ModelQuery query = new ModelQuery(eResource);
 
-				BasicDiagnostic diagnostics = new BasicDiagnostic();
-				Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
-				Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
-				boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
-				boolean hasSchmConfig = bswImplementation.isPresent();
+			BasicDiagnostic diagnostics = new BasicDiagnostic();
+			Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
+			Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
+			boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
+			boolean hasSchmConfig = bswImplementation.isPresent();
 
-				// RootSwCompositionPrototypeとBswImplementationが両方共定義されていない場合は,
-				// [nrte_sws_226]のメッセージを表示したうえでRTEの検証結果を表示する.
-				boolean validatesRte = false;
-				if (!hasRteConfig && !hasSchmConfig) {
-					validatesRte = true;
-				}
-
-				// AUTOSAR M2モデル検証
-				if (hasRteConfig || validatesRte) {
-					this.rteValidatorM2.validate(eResource, diagnostics);
-				}
-				if (hasSchmConfig) {
-					this.bswmValidatorM2.validate(eResource, diagnostics);
-				}
-				this.commonValidatorM2.validate(eResource, diagnostics);
-
-				// AUTOSAR Instanceモデルの読み込み
-				this.loader.loadInstance(eResource);
-
-				// AUTOSAR Instanceモデル検証
-				if (hasRteConfig || validatesRte) {
-					this.rteValidatorInstance.validate(eResource, diagnostics);
-				}
-				if (hasSchmConfig) {
-					this.bswmValidatorInstance.validate(eResource, diagnostics);
-				}
-				this.commonValidatorInstance.validate(eResource, diagnostics);
-
-				if (!diagnostics.getChildren().isEmpty()) {
-					System.err.println("Generation cancelled on validation error.");
-					if (validatesRte) {
-						System.err.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
-					}					
-					for (Diagnostic diagnostic : diagnostics.getChildren()) {
-						System.err.println("Validation error: " + diagnostic.getMessage());
-					}
-					return;
-				}
-
-				// RTE生成
-				generateRte(options, outputDirectory, eResource);
-
-			} finally {
-				// モデルをダンプ
-				if (options.debugModeEnabled) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-					this.serializer.serialize(eResource, new File(outputDirectory, "modeldump.xmi").getPath());
-				}
+			// RootSwCompositionPrototypeとBswImplementationが両方共定義されていない場合は,
+			// [nrte_sws_226]のメッセージを表示したうえでRTEの検証結果を表示する.
+			boolean validatesRte = false;
+			if (!hasRteConfig && !hasSchmConfig) {
+				validatesRte = true;
 			}
+
+			// AUTOSAR M2モデル検証
+			if (hasRteConfig || validatesRte) {
+				this.rteValidatorM2.validate(eResource, diagnostics);
+			}
+			if (hasSchmConfig) {
+				this.bswmValidatorM2.validate(eResource, diagnostics);
+			}
+			this.commonValidatorM2.validate(eResource, diagnostics);
+
+			// AUTOSAR Instanceモデルの読み込み
+			this.loader.loadInstance(eResource);
+
+			// AUTOSAR Instanceモデル検証
+			if (hasRteConfig || validatesRte) {
+				this.rteValidatorInstance.validate(eResource, diagnostics);
+			}
+			if (hasSchmConfig) {
+				this.bswmValidatorInstance.validate(eResource, diagnostics);
+			}
+			this.commonValidatorInstance.validate(eResource, diagnostics);
+
+			if (!diagnostics.getChildren().isEmpty()) {
+				System.err.println("Generation cancelled on validation error.");
+				if (validatesRte) {
+					System.err.println("Validation error: " + ValidationMessage.NRTE_SWS_0226_MESSAGE);					
+				}					
+				for (Diagnostic diagnostic : diagnostics.getChildren()) {
+					System.err.println("Validation error: " + diagnostic.getMessage());
+				}
+				return;
+			}
+
+			// RTE生成
+			generateRte(options, outputDirectory, eResource);
 
 		} catch (PersistException e) {
 			throw new AppException(e);
