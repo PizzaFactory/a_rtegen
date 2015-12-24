@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>jp.pizzafactory.a_rte</groupId>
+  <artifactId>jp.ac.nagoya_u.is.nces.a_rte.app</artifactId>
+  <versioning>
+    <versions>
+      <version>1.2.2-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20151224022642</lastUpdated>
+  </versioning>
+</metadata>
