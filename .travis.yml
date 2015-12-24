@@ -5,7 +5,7 @@ jdk:
 before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
-script: mvn deploy
+script: mvn -f src/parent/pom.xml clean deploy
 after_success:
 - git clone --depth=1 -b gh-pages https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git gh-pages
 - cd gh-pages
