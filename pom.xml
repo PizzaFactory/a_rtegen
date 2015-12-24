@@ -42,7 +42,7 @@
           <includes><include>**/*</include></includes>
           <branch>refs/heads/gh-pages</branch>
           <path>p2repo</path>
-          <repositoryName>model-asam</repositoryName>
+          <repositoryName>a_rtegen</repositoryName>
           <repositoryOwner>PizzaFactory</repositoryOwner>
           <merge>true</merge>
         </configuration>
