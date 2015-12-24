@@ -5,17 +5,11 @@ jdk:
 before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
-script: mvn install
+script: mvn deploy
 after_success:
 - git clone --depth=1 -b gh-pages https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git gh-pages
 - cd gh-pages
 - mvn process-resources install
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: "deploy.sh"
-  on:
-    branch: pr-fix-deployment-error
 env:
   global:
   - MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"

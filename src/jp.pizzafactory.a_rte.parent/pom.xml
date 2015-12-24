@@ -22,9 +22,14 @@
 	</modules>
 
 	<properties>
-    <tycho-version>0.22.0</tycho-version>
-    <sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>euc-jp</project.build.sourceEncoding>
+		<tycho-version>0.22.0</tycho-version>
+		<tycho-extras.version>0.22.0</tycho-extras.version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+		<pizzafactory-version>8.5</pizzafactory-version>
+		<github.global.oauth2Token>${env.GH_TOKEN}</github.global.oauth2Token>
+		<jacoco.destFile>${basedir}/../build-target/target/jacoco.exec</jacoco.destFile>
+		<sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
