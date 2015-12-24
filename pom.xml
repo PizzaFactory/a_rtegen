@@ -9,6 +9,6 @@
   <url>http://www.pizzafactory.jp/</url>
 
   <modules>
-    <module>src/jp.pizzafactory.a_rte.parent</module>
+    <module>src/parent</module>
   </modules>
 </project>

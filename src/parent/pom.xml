@@ -8,9 +8,8 @@
 	<name>A-RTEGEN tuned by PizzaFactory</name>
 
 	<modules>
-		<module>../jp.pizzafactory.a_rte.target</module>
+		<module>../build-target</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
-		<module>../jp.pizzafactory.a_rte.p2updatesite</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.app</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
@@ -19,6 +18,7 @@
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.validation</module>
 		<module>../jp.pizzafactory.a_rte.model.edit</module>
 		<module>../jp.pizzafactory.a_rte.model.editor</module>
+		<module>../p2update</module>
 	</modules>
 
 	<properties>
@@ -63,7 +63,7 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<artifact>
-						<artifactId>jp.pizzafactory.a_rte.target</artifactId>
+						<artifactId>build-target</artifactId>
 					</artifact>
 					<environments>
 						<environment>
