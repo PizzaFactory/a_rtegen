@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>jp.pizzafactory.a_rte</groupId>
+  <artifactId>build-target</artifactId>
+  <version>1.2.2-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20151224.022040</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20151224022040</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>target</extension>
+        <value>1.2.2-20151224.022040-1</value>
+        <updated>20151224022040</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.2.2-20151224.022040-1</value>
+        <updated>20151224022040</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
