@@ -8,9 +8,8 @@
 	<name>A-RTEGEN tuned by PizzaFactory</name>
 
 	<modules>
-		<module>../jp.pizzafactory.a_rte.target</module>
+		<module>../build-target</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
-		<module>../jp.pizzafactory.a_rte.p2updatesite</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.app</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
@@ -19,12 +18,18 @@
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.validation</module>
 		<module>../jp.pizzafactory.a_rte.model.edit</module>
 		<module>../jp.pizzafactory.a_rte.model.editor</module>
+		<module>../p2update</module>
 	</modules>
 
 	<properties>
-    <tycho-version>0.22.0</tycho-version>
-    <sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.build.sourceEncoding>euc-jp</project.build.sourceEncoding>
+		<tycho-version>0.22.0</tycho-version>
+		<tycho-extras.version>0.22.0</tycho-extras.version>
+		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
+		<pizzafactory-version>8.5</pizzafactory-version>
+		<github.global.oauth2Token>${env.GH_TOKEN}</github.global.oauth2Token>
+		<jacoco.destFile>${basedir}/../build-target/target/jacoco.exec</jacoco.destFile>
+		<sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
@@ -58,7 +63,7 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<artifact>
-						<artifactId>jp.pizzafactory.a_rte.target</artifactId>
+						<artifactId>build-target</artifactId>
 					</artifact>
 					<environments>
 						<environment>
@@ -111,6 +116,52 @@
 			    <forkedProcessTimeoutInSeconds>600</forkedProcessTimeoutInSeconds>
 			  </configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.1</version>
+				<configuration>
+					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.12</version>
+				<configuration>
+					<message>Maven artifacts for ${project.version}</message>
+					<noJekyll>true</noJekyll>
+					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<branch>refs/heads/gh-pages</branch>
+					<repositoryName>a_rtegen</repositoryName>
+					<repositoryOwner>PizzaFactory</repositoryOwner>
+					<merge>true</merge>
+				</configuration>
+				<executions>
+					<!-- run site-maven-plugin's 'site' target as part of the build's normal 
+						'deploy' phase -->
+					<execution>
+						<id>m2repo</id>
+						<configuration>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<path>m2repo</path>
+						</configuration>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>deploy</phase>
+					</execution>
+					<execution>
+						<id>site</id>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
           <pluginManagement>
             <plugins>
@@ -159,4 +210,13 @@
 	    </build>
 	  </profile>
 	</profiles>
+
+	<distributionManagement>
+		<repository>
+			<id>internal.repo</id>
+			<name>Temporary Staging Repository</name>
+			<url>file://${project.build.directory}/mvn-repo</url>
+		</repository>
+	</distributionManagement>
+
 </project>
