@@ -49,9 +49,10 @@ import java.io.File;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
+import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodegenException;
+import jp.ac.nagoya_u.is.nces.a_rte.codegen.NullCodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.RteCodeGenerator;
-import jp.ac.nagoya_u.is.nces.a_rte.codegen.UncrustifyCodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.M2MException;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilder;
@@ -115,7 +116,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyConfigFile.getAbsolutePath() + " does not exist.");
 			}
 
-			UncrustifyCodeFormatter uncrustifyCodeFormatter = new UncrustifyCodeFormatter(generatorInitOptions.uncrustifyExecutableFile, generatorInitOptions.uncrustifyConfigFile);
+			CodeFormatter uncrustifyCodeFormatter = new NullCodeFormatter();
 			this.codeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 
 		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)

@@ -52,10 +52,11 @@ import java.io.PrintStream;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
+import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodegenException;
+import jp.ac.nagoya_u.is.nces.a_rte.codegen.NullCodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.RteCodeGenerator;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.RteTestCodeGenerator;
-import jp.ac.nagoya_u.is.nces.a_rte.codegen.UncrustifyCodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.GeneratedEcucModelExtractor;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.M2MException;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilder;
@@ -146,8 +147,8 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			if (!generatorInitOptions.uncrustifyConfigFile.isFile()) {
 				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyConfigFile.getAbsolutePath() + " does not exist.");
 			}
-			
-			UncrustifyCodeFormatter uncrustifyCodeFormatter = new UncrustifyCodeFormatter(generatorInitOptions.uncrustifyExecutableFile, generatorInitOptions.uncrustifyConfigFile);
+
+			CodeFormatter uncrustifyCodeFormatter = new NullCodeFormatter();
 			this.codeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 			this.testCodeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 
