@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='2'>
+  <unit id='jp.pizzafactory.a_rte.feature.group' version='1.2.2.201512240231' singleton='false'>
+    <update id='jp.pizzafactory.a_rte.feature.group' range='[0.0.0,1.2.2.201512240231)' severity='0'/>
+    <properties size='7'>
+      <property name='org.eclipse.equinox.p2.name' value='A-RTE for PizzaFactory'/>
+      <property name='org.eclipse.equinox.p2.description' value='A-RTE for PizzaFactory.'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Monami-ya LLC, JAPAN'/>
+      <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      <property name='maven-groupId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+    </properties>
+    <provides size='1'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.feature.group' version='1.2.2.201512240231'/>
+    </provides>
+    <requires size='10'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='com.google.guava' range='[14.0.1,14.0.1]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.app' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.codegen' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.m2m' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.model' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.persist' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.validation' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.model.edit' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.model.editor' range='[1.2.2.201512240231,1.2.2.201512240231]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.feature.jar' range='[1.2.2.201512240231,1.2.2.201512240231]'>
+        <filter>
+          (org.eclipse.update.install.features=true)
+        </filter>
+      </required>
+    </requires>
+    <touchpoint id='null' version='0.0.0'/>
+    <licenses size='1'>
+      <license uri='' url=''>
+        ----&#xA;TOPPERS/A-RTEGEN&#xA;    Automotive Runtime Environment Generator&#xA;&#xA;Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN&#xA;and others.&#xA;&#xA;上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ&#xA;ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改&#xA;変・再配布（以下，利用と呼ぶ）することを無償で許諾する．&#xA;(1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作&#xA;    権表示，この利用条件および下記の無保証規定が，そのままの形でソー&#xA;    スコード中に含まれていること．&#xA;(2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使&#xA;    用できる形で再配布する場合には，再配布に伴うドキュメント（利用&#xA;    者マニュアルなど）に，上記の著作権表示，この利用条件および下記&#xA;    の無保証規定を掲載すること．&#xA;(3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使&#xA;    用できない形で再配布する場合には，次のいずれかの条件を満たすこ&#xA;    と．&#xA;  (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著&#xA;      作権表示，この利用条件および下記の無保証規定を掲載すること．&#xA;  (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに&#xA;      報告すること．&#xA;(4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損&#xA;    害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．&#xA;    また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理&#xA;    由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを&#xA;    免責すること．&#xA;&#xA;本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕&#xA;様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので&#xA;はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利&#xA;用する者に対して，AUTOSARパートナーになることを求めている．&#xA;&#xA;本ソフトウェアは，無保証で提供されているものである．上記著作権者お&#xA;よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的&#xA;に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ&#xA;アの利用により直接的または間接的に生じたいかなる損害に関しても，そ&#xA;の責任を負わない．&#xA;&#xA;---&#xA;com.google.guava is licensed under APL2.
+      </license>
+    </licenses>
+    <copyright>
+      Packed by Monami-ya LLC, Japan.&#xA;This contains plugins provided by NCES, Google, and othres.
+    </copyright>
+  </unit>
+  <unit id='jp.pizzafactory.a_rte.feature.jar' version='1.2.2.201512240231'>
+    <properties size='6'>
+      <property name='org.eclipse.equinox.p2.name' value='A-RTE for PizzaFactory'/>
+      <property name='org.eclipse.equinox.p2.description' value='A-RTE for PizzaFactory.'/>
+      <property name='org.eclipse.equinox.p2.provider' value='Monami-ya LLC, JAPAN'/>
+      <property name='maven-groupId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.feature.jar' version='1.2.2.201512240231'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+      <provided namespace='org.eclipse.update.feature' name='jp.pizzafactory.a_rte' version='1.2.2.201512240231'/>
+    </provides>
+    <filter>
+      (org.eclipse.update.install.features=true)
+    </filter>
+    <artifacts size='1'>
+      <artifact classifier='org.eclipse.update.feature' id='jp.pizzafactory.a_rte' version='1.2.2.201512240231'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='zipped'>
+          true
+        </instruction>
+      </instructions>
+    </touchpointData>
+    <licenses size='1'>
+      <license uri='' url=''>
+        ----&#xA;TOPPERS/A-RTEGEN&#xA;    Automotive Runtime Environment Generator&#xA;&#xA;Copyright (C) 2013-2014 by Eiwa System Management, Inc., JAPAN&#xA;and others.&#xA;&#xA;上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ&#xA;ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改&#xA;変・再配布（以下，利用と呼ぶ）することを無償で許諾する．&#xA;(1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作&#xA;    権表示，この利用条件および下記の無保証規定が，そのままの形でソー&#xA;    スコード中に含まれていること．&#xA;(2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使&#xA;    用できる形で再配布する場合には，再配布に伴うドキュメント（利用&#xA;    者マニュアルなど）に，上記の著作権表示，この利用条件および下記&#xA;    の無保証規定を掲載すること．&#xA;(3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使&#xA;    用できない形で再配布する場合には，次のいずれかの条件を満たすこ&#xA;    と．&#xA;  (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著&#xA;      作権表示，この利用条件および下記の無保証規定を掲載すること．&#xA;  (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに&#xA;      報告すること．&#xA;(4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損&#xA;    害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．&#xA;    また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理&#xA;    由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを&#xA;    免責すること．&#xA;&#xA;本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕&#xA;様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので&#xA;はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利&#xA;用する者に対して，AUTOSARパートナーになることを求めている．&#xA;&#xA;本ソフトウェアは，無保証で提供されているものである．上記著作権者お&#xA;よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的&#xA;に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ&#xA;アの利用により直接的または間接的に生じたいかなる損害に関しても，そ&#xA;の責任を負わない．&#xA;&#xA;---&#xA;com.google.guava is licensed under APL2.
+      </license>
+    </licenses>
+    <copyright>
+      Packed by Monami-ya LLC, Japan.&#xA;This contains plugins provided by NCES, Google, and othres.
+    </copyright>
+  </unit>
+</units>
