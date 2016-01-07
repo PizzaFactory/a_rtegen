@@ -6,12 +6,13 @@ before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
 script:
-- if [[ "x$TRAVIS_BRANCH" == "xmaster" ]]; then GOAL=deploy; else GOAL=install; fi
+- if [[ "x$TRAVIS_BRANCH" == "xmaster" && "x$TRAVIS_PULL_REQUEST" == "xfalse" ]]; then GOAL=deploy; else GOAL=install; fi
+- echo "Goal is " $GOAL
 - mvn -f src/parent/pom.xml clean $GOAL
 after_success:
 - git clone --depth=1 -b gh-pages https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git gh-pages
 - cd gh-pages
-- mvn process-resources install
+- if [[ "x$TRAVIS_BRANCH" == "xmaster" && "x$TRAVIS_PULL_REQUEST" == "xfalse" ]]; then mvn process-resources install; fi
 env:
   global:
   - MAVEN_OPTS="-XX:MaxPermSize=128m"
