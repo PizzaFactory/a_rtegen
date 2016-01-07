@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 Monami-ya LLC, Japan
  *
  *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËþ¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
  *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²þÊÑ¤·¤¿¤â¤Î¤ò´Þ¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²þ
@@ -61,16 +62,6 @@ public class AppResources { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤
 	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
 
 	/**
-	 * À¸À®¤·¤¿RTE¤ËÅ¬ÍÑ¤¹¤ë¥³¡¼¥É¥Õ¥©¡¼¥Þ¥Ã¥¿(uncrustify)¤Î¼Â¹Ô¥Õ¥¡¥¤¥ë¤Î¥Ñ¥¹(RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î¥Û¡¼¥à¥Ç¥£¥ì¥¯¥È¥ê¤«¤é¤ÎÁêÂÐ¥Ñ¥¹)
-	 */
-	public static final String UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH = "bin/uncrustify.exe";
-
-	/**
-	 * À¸À®¤·¤¿RTE¤ËÅ¬ÍÑ¤¹¤ë¥³¡¼¥É¥Õ¥©¡¼¥Þ¥Ã¥¿(uncrustify)¤Î¥³¥ó¥Õ¥£¥°¥Õ¥¡¥¤¥ë¤Î¥Ñ¥¹(RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î¥Û¡¼¥à¥Ç¥£¥ì¥¯¥È¥ê¤«¤é¤ÎÁêÂÐ¥Ñ¥¹)
-	 */
-	public static final String UNCRUSTIFY_CONFIG_RELATIVE_PATH = "bin/atk2style.cfg";
-
-	/**
 	 * @return RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î¥Û¡¼¥à¥Ç¥£¥ì¥¯¥È¥ê¤Î¥Ñ¥¹
 	 */
 	private static String getRteGeneratorHome() {
@@ -89,19 +80,5 @@ public class AppResources { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤
 	 */
 	public static File getDefaultSchemaFile() {
 		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
-	}
-
-	/**
-	 * @return À¸À®¤·¤¿RTE¤ËÅ¬ÍÑ¤¹¤ë¥³¡¼¥É¥Õ¥©¡¼¥Þ¥Ã¥¿(uncrustify)¤Î¼Â¹Ô¥Õ¥¡¥¤¥ë
-	 */
-	public static File getDefaultUncrustifyExecutableFile() {
-		return new File(getRteGeneratorHome(), UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH);
-	}
-
-	/**
-	 * @return À¸À®¤·¤¿RTE¤ËÅ¬ÍÑ¤¹¤ë¥³¡¼¥É¥Õ¥©¡¼¥Þ¥Ã¥¿(uncrustify)¤Î¥³¥ó¥Õ¥£¥°¥Õ¥¡¥¤¥ë
-	 */
-	public static File getDefaultUncrustifyConfigFile() {
-		return new File(getRteGeneratorHome(), UNCRUSTIFY_CONFIG_RELATIVE_PATH);
 	}
 }

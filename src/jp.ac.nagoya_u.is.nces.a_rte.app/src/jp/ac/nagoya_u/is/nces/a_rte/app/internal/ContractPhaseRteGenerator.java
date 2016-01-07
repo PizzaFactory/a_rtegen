@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan.
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -109,13 +110,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			this.moduleModelBuilder = RteModuleModelBuilder.forContractPhase();
 			this.codeGenerator = RteCodeGenerator.forContractPhase();
 
-			if (!generatorInitOptions.uncrustifyExecutableFile.isFile()) {
-				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyExecutableFile.getAbsolutePath() + " does not exist.");
-			}
-			if (!generatorInitOptions.uncrustifyConfigFile.isFile()) {
-				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyConfigFile.getAbsolutePath() + " does not exist.");
-			}
-
+			//TODO: Use CDT code formatter.
 			CodeFormatter uncrustifyCodeFormatter = new NullCodeFormatter();
 			this.codeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 
