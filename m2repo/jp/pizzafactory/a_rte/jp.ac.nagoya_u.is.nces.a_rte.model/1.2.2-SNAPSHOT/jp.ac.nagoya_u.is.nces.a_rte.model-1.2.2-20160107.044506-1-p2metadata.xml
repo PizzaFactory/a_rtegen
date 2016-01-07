@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='jp.ac.nagoya_u.is.nces.a_rte.model' version='1.2.2.201601070444'>
+    <update id='jp.ac.nagoya_u.is.nces.a_rte.model' range='[0.0.0,1.2.2.201601070444)' severity='0'/>
+    <properties size='8'>
+      <property name='df_LT.pluginName' value='A-RTE Model'/>
+      <property name='df_LT.providerName' value='www.nces.is.nagoya-u.ac.jp'/>
+      <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+      <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+      <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+      <property name='maven-groupId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-artifactId' value='jp.ac.nagoya_u.is.nces.a_rte.model'/>
+      <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+    </properties>
+    <provides size='25'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='jp.ac.nagoya_u.is.nces.a_rte.model' version='1.2.2.201601070444'/>
+      <provided namespace='osgi.bundle' name='jp.ac.nagoya_u.is.nces.a_rte.model' version='1.2.2.201601070444'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.module' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte_test' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.impl' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.util' version='0.0.0'/>
+      <provided namespace='java.package' name='jp.ac.nagoya_u.is.nces.a_rte.model.util' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+    </provides>
+    <requires size='10'>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.10.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.query.ocl' range='2.0.0'/>
+      <required namespace='osgi.bundle' name='com.google.guava' range='11.0.2'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.osgi' range='0.0.0'/>
+      <required namespace='java.package' name='com.google.common.base' range='[11.0.0,15.0.0)'/>
+      <required namespace='java.package' name='com.google.common.cache' range='[11.0.0,15.0.0)'/>
+      <required namespace='java.package' name='com.google.common.collect' range='[11.0.0,15.0.0)'/>
+      <required namespace='java.package' name='com.google.common.io' range='[14.0.0,15.0.0)'/>
+      <required namespace='java.package' name='com.google.common.util.concurrent' range='[11.0.0,15.0.0)'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='jp.ac.nagoya_u.is.nces.a_rte.model' version='1.2.2.201601070444'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: jp.ac.nagoya_u.is.nces.a_rte.model;singleton:=true&#xA;Bundle-Version: 1.2.2.201601070444&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
