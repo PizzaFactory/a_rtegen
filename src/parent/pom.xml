@@ -9,6 +9,7 @@
 
 	<modules>
 		<module>../build-target</module>
+		<module>../jp.pizzafactory.a_rte.doc</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.app</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
