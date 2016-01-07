@@ -5,12 +5,14 @@ jdk:
 before_script:
 - git config --global user.email "monaka@monami-ya.jp"
 - git config --global user.name "Masaki Muranaka"
-script: mvn -f src/parent/pom.xml clean deploy
+script:
+- if [[ "x$TRAVIS_BRANCH" == "xmaster" ]]; then GOAL=deploy; else GOAL=install; fi
+- mvn -f src/parent/pom.xml clean $GOAL
 after_success:
 - git clone --depth=1 -b gh-pages https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git gh-pages
 - cd gh-pages
 - mvn process-resources install
 env:
   global:
-  - MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"
+  - MAVEN_OPTS="-XX:MaxPermSize=128m"
   - secure: IfCx+0G+TwkCtsqlXk75XgcZhyF/HgGRcuQ0PaOin3YMTomm9qO43aO9zmeQXhT+A5zo15cQsO2CoSqZHJmV/V8AnQqaWX0oJNrjxZUuKSUJyPWbxW7PHbKs95+3yF3vKcj49TwIMkP/egDRVPeExRnWdBEL8rFK92MDJdE4zAE=
