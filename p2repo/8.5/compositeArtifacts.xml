@@ -4,7 +4,7 @@
   type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository'
   version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1452142552'/>
+    <property name='p2.timestamp' value='1452144003'/>
   </properties>
  <children size='8'>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240231/'/>
