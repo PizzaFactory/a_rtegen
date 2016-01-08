@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='1'>
+  <artifact classifier='org.eclipse.update.feature' id='jp.pizzafactory.a_rte' version='1.2.2.201601080531'>
+    <properties size='6'>
+      <property name='artifact.size' value='4309'/>
+      <property name='download.size' value='4309'/>
+      <property name='maven-groupId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+      <property name='download.contentType' value='application/zip'/>
+    </properties>
+  </artifact>
+</artifacts>
