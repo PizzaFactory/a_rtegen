@@ -46,8 +46,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE;
 
-import java.io.File;
-
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodeFormatter;
@@ -68,6 +66,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelLoader;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
 
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -125,8 +125,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	@Override
 	public void generate(GeneratorOptions options) throws AppException {
 
-		File outputDirectory = new File(options.outputDirectory);
-
 		ResourceSet eResourceSet = new ResourceSetImpl();
 		XMIResource eResource = new XMIResourceImpl();
 		eResourceSet.getResources().add(eResource);
@@ -138,7 +136,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			ModelEnvironment.initResource(eResource);
 
 			// AUTOSAR M2モデルの読み込み
-			this.loader.loadM2(eResource, options.inputFiles);
+			this.loader.loadM2(options.project, eResource, options.inputFiles);
 
 			ModelQuery query = new ModelQuery(eResource);
 
@@ -188,7 +186,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			}
 
 			// RTE生成
-			generateRte(options, outputDirectory, eResource);
+			generateRte(options, eResource);
 
 		} catch (PersistException e) {
 			throw new AppException(e);
@@ -201,10 +199,12 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 
 		} catch (CodegenException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			throw new AppException(e);
+		} catch (CoreException e) {
+			throw new AppException(e);
 		}
 	}
 
-	private void generateRte(GeneratorOptions options, File outputDirectory, XMIResource eResource) throws M2MException, ModelException, CodegenException {
+	private void generateRte(GeneratorOptions options, XMIResource eResource) throws M2MException, ModelException, CodegenException {
 		ModelQuery query = new ModelQuery(eResource);
 		Optional<RootSwCompositionPrototype> rootSwCompositionPrototype = query.tryFindSingleByKind(ROOT_SW_COMPOSITION_PROTOTYPE);
 		Optional<BswImplementation> bswImplementation = query.tryFindSingleByKind(BSW_IMPLEMENTATION);
@@ -229,7 +229,8 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 
 		// RTEコード生成
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
-		this.codeGenerator.generate(rteModule, outputDirectory);
+		IFolder folder = options.project.getFolder(options.outputDirectory);
+		this.codeGenerator.generate(rteModule, folder);
 
 		options.stdout.println("Generation done.");
 	}

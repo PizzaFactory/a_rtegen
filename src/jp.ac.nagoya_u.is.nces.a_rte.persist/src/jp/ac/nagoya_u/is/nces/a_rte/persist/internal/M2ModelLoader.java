@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,12 +43,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.Source;
+import javax.xml.transform.sax.SAXSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -55,7 +58,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.util.M2XmlUtils;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
@@ -63,7 +69,7 @@ import org.xml.sax.XMLReader;
 public class M2ModelLoader {
 	private final SAXParser saxParser;
 
-	public M2ModelLoader(File schemaFile) throws PersistException {
+	public M2ModelLoader(IFile schemaFile) throws PersistException {
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setNamespaceAware(true);
 		spf.setSchema(createSchema(schemaFile));
@@ -79,16 +85,20 @@ public class M2ModelLoader {
 		}
 	}
 
-	private Schema createSchema(File schemaFile) throws PersistException {
+	private Schema createSchema(IFile schemaFile) throws PersistException {
 		SchemaFactory factory = SchemaFactory.newInstance(M2XmlUtils.W3C_XML_SCHEMA);
 		try {
-			return factory.newSchema(schemaFile);
-		} catch (SAXException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+			InputSource is = new InputSource(schemaFile.getContents());
+			Source source = new SAXSource(is);
+			return factory.newSchema(source);
+		} catch (SAXException | CoreException e) {
 			throw new PersistException("Error occurred while loading an AUTOSAR XML schema file. Please confirm that the file is installed.", e);
 		}
 	}
 
-	public M2Root load(String file) throws PersistException {
+	public M2Root load(InputStream is) throws PersistException {
+		InputSource source = new InputSource(is);
+
 		M2ModelLoadHandler handler = new M2ModelLoadHandler();
 
 		try {
@@ -109,27 +119,12 @@ public class M2ModelLoader {
 					throw exception;
 				}
 			});
-			xmlReader.parse(convertToFileURL(file));
+			xmlReader.parse(source);
 
-		} catch (SAXException e) {
-			throw new PersistException("Error occurred while loading file " + file + ". " + e.getMessage(), e);
-
-		} catch (IOException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			throw new PersistException("Error occurred while loading file " + file + ". " + e.getMessage(), e);
+		} catch (SAXException | IOException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+			throw new PersistException("Error occurred while loading source. " + e.getMessage(), e);
 		}
 
 		return handler.getM2Root();
-	}
-
-	private static String convertToFileURL(String filename) {
-		String path = new File(filename).getAbsolutePath();
-		if (File.separatorChar != '/') { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			path = path.replace(File.separatorChar, '/');
-		}
-
-		if (!path.startsWith("/")) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
-			path = "/" + path;
-		}
-		return "file:" + path;
 	}
 }

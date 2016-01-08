@@ -2,8 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
- *  Copyright (C) 2016 Monami-ya LLC, Japan
+ *  Copyright (C) 2016 Monami-ya LLC, Japan.
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -41,37 +40,34 @@
  *
  *  $Id $
  */
-package jp.ac.nagoya_u.is.nces.a_rte.app;
+package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Map;
 
-/**
- * RTEジェネレータアプリケーションが使用するリソースのデフォルト設定を保持する。
- */
-public class AppResources { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+import javax.xml.stream.XMLStreamException;
 
-	/**
-	 * AUTOSARスキーマファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
-	 */
-	public static final String SCHEMA_FILE_RELATIVE_PATH = "schema/AUTOSAR_4-0-3_STRICT.xsd";
-	
-	/**
-	 * RTE内部型を保持するAUTOSAR XMLファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
-	 */
-	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
+import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelSaver;
 
-	/**
-	 * @return RTE内部型を保持するAUTOSAR XMLファイル
-	 */
-	public static IFile getDefaultInternalDataTypesFile(IProject project) {
-		return project.getFile(MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH);
-	}
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 
-	/**
-	 * @return AUTOSARスキーマファイル
-	 */
-	public static IFile getDefaultSchemaFile(IProject project) {
-		return project.getFile(SCHEMA_FILE_RELATIVE_PATH);
+public class ArM2Resource extends XMLResourceImpl {
+
+	@Override
+	public void doSave(OutputStream outputStream, Map<?, ?> options) throws IOException {
+		super.doSave(outputStream, options);
+		try {
+			EObject o = getContents().get(0);
+			if (o instanceof M2Root) {
+				new M2ModelSaver().save((M2Root)o, outputStream);
+			} else {
+				/* TODO: decide if it throws exceptions or not. */ 
+			}
+		} catch (XMLStreamException e) {
+			throw new IOException(e.getMessage(), e);
+		}
 	}
 }
