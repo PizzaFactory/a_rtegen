@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -47,9 +48,8 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC_PARAMETER_VALUE__DEFINITION_REF;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -73,7 +73,6 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
-import com.google.common.io.Files;
 
 public class M2ModelSaver {
 
@@ -84,13 +83,12 @@ public class M2ModelSaver {
 		private final M2Root m2Root;
 		private final XMLStreamWriter writer;
 
-		public Saver(M2Root m2Root, File file) throws XMLStreamException, IOException {
+		public Saver(M2Root m2Root, OutputStream outputStream) throws XMLStreamException, IOException {
 			this.m2Root = m2Root;
 
-			Files.createParentDirs(file);
 			XMLOutputFactory factory = XMLOutputFactory.newInstance();
 			factory.setProperty(XMLOutputFactory.IS_REPAIRING_NAMESPACES, true);
-			this.writer = new IndentingXMLStreamWriter(factory.createXMLStreamWriter(new FileOutputStream(file), DEFAULT_ENCODING.name()));
+			this.writer = new IndentingXMLStreamWriter(factory.createXMLStreamWriter(outputStream, DEFAULT_ENCODING.name()));
 		}
 
 		private void save() throws XMLStreamException {
@@ -325,8 +323,8 @@ public class M2ModelSaver {
 		}
 	}
 
-	public void save(M2Root m2Root, File file) throws XMLStreamException, IOException {
-		Saver saver = new Saver(m2Root, file);
+	public void save(M2Root m2Root, OutputStream outputStream) throws XMLStreamException, IOException {
+		Saver saver = new Saver(m2Root, outputStream);
 		saver.save();
 	}
 }

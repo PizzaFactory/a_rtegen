@@ -47,8 +47,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERACTION_ROOT;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.PrintStream;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
@@ -80,15 +78,19 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelSaver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+import org.eclipse.osgi.util.NLS;
 
 import com.google.common.base.Optional;
-import com.google.common.io.Files;
 
 /**
  * GENERATEフェーズ向けのRTEを生成する。
@@ -172,7 +174,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			ModelEnvironment.initResource(eGenSourceResource);
 
 			// AUTOSAR M2モデルの読み込み
-			this.loader.loadM2(eGenSourceResource, options.inputFiles);
+			this.loader.loadM2(options.project, eGenSourceResource, options.inputFiles);
 
 			ModelQuery query = new ModelQuery(eGenSourceResource);
 
@@ -249,6 +251,8 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		} catch (CodegenException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			throw new AppException(e);
+		} catch (CoreException e) {
+			throw new AppException(e);
 		}
 	}
 
@@ -256,30 +260,25 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		stdout.println("There are some insufficient configurations for RTE.");
 		stdout.println("Generating AUTOSAR XMLs to complement the insufficient configurations... ");
 
-		File outputDir = new File(options.outputDirectory);
+		IFolder outputDir = options.project.getFolder(options.outputDirectory);
 
 		// ECUC ARXMLの出力
-		File generatedEcucFile = new File(outputDir, GENERATED_ECUC_ARXML_FILE_NAME);
+		IFile generatedEcucFile = outputDir.getFile(GENERATED_ECUC_ARXML_FILE_NAME);
 
-		stdout.println("Generating " + generatedEcucFile.getPath() + " ...");
+		stdout.println(NLS.bind("Generating {{0}} ...", generatedEcucFile.getFullPath()));
 		this.ecucModelExtractor.extract(eGeneratedEcucResource, eGenSourceResource);
 		this.saver.save(eGeneratedEcucResource, generatedEcucFile);
 
 		stdout.println("Generation done.");
 	}
 
-	private void generateInternalDataTypeFile(GeneratorOptions options) throws AppException {
+	private void generateInternalDataTypeFile(GeneratorOptions options) throws CoreException {
+		IProject project = options.project;
 		// 内部データ型のARXMLの出力
-		File outputDir = new File(options.outputDirectory);
-		File generatedInternalDataTypeFile = new File(outputDir, this.generatorInitOptions.internalDataTypesFile.getName());
+		IFile generatedInternalDataTypeFile = project.getFile(this.generatorInitOptions.internalDataTypesFile.getName());
 
-		options.stdout.println("Generating " + generatedInternalDataTypeFile.getPath() + " ...");
-		try {
-			Files.createParentDirs(generatedInternalDataTypeFile);
-			Files.copy(this.generatorInitOptions.internalDataTypesFile, generatedInternalDataTypeFile);
-		} catch (IOException e) {
-			throw new AppException("Internal error occurred while generating AUTOSAR XML. " + e.getMessage(), e);
-		}
+		options.stdout.println("Generating " + generatedInternalDataTypeFile.getLocation() + " ...");
+		generatedInternalDataTypeFile.create(this.generatorInitOptions.internalDataTypesFile.getContents(), true, null);
 	}
 
 	private void generateRte(XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, ModelException, CodegenException {
@@ -307,14 +306,15 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		// RTEコード生成
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
-		this.codeGenerator.generate(rteModule, new File(options.outputDirectory));
+		final IFolder folder = options.project.getFolder(options.outputDirectory);
+		this.codeGenerator.generate(rteModule, folder);
 
 		// RTEテストコード生成
 		if (options.doesGenerateTests) {
 			this.testModuleModelBuilder.build(eGenSourceResource);
 
 			RteTestModule rteTestModule = query.findSingleByKind(RteTestPackage.Literals.RTE_TEST_MODULE);
-			this.testCodeGenerator.generate(rteTestModule, new File(options.outputDirectory));
+			this.testCodeGenerator.generate(rteTestModule, folder);
 		}
 
 		options.stdout.println("Generation done.");

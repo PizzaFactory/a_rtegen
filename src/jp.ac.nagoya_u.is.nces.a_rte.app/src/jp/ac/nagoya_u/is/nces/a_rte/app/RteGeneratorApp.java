@@ -55,6 +55,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.GeneratorInfos;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidationEnvironment;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
@@ -69,21 +73,12 @@ public class RteGeneratorApp {
 	private final GeneratorInitOptions generatorInitOptions;
 
 	/**
-	 * RTEジェネレータのJavaアプリケーション実行時のエントリポイント。
-	 * @param args Javaアプリケーション実行引数
-	 */
-	public static void main(String[] args) {
-		RteGeneratorApp app = new RteGeneratorApp();
-		app.execute(args);
-	}
-
-	/**
 	 * デフォルトの{@link RteGeneratorApp}を構築する。
 	 */
-	public RteGeneratorApp() {
+	public RteGeneratorApp(IProject project) {
 		GeneratorInitOptions generatorInitOptions = new GeneratorInitOptions();
-		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile();
-		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile();
+		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile(project);
+		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile(project);
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
@@ -99,8 +94,8 @@ public class RteGeneratorApp {
 	 * アプリケーションを実行する。
 	 * @param args アプリケーション実行引数
 	 */
-	public void execute(String[] args) {
-		GeneratorOptions options = new GeneratorOptions();
+	public void execute(IProject project, String[] args) throws CoreException {
+		GeneratorOptions options = new GeneratorOptions(project);
 
 		CmdLineParser parser = new CmdLineParser(options);
 		parser.setUsageWidth(100);
@@ -144,8 +139,8 @@ public class RteGeneratorApp {
 		stdout.println(GeneratorInfos.GENERATOR_COMMAND_NAME + " (" + GeneratorInfos.GENERATOR_TOOL_NAME + ") " + GeneratorInfos.GENERATOR_VERSION);
 	}
 
-	private void generate(GeneratorOptions options) {
-		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getAbsolutePath());
+	private void generate(GeneratorOptions options) throws CoreException {
+		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getLocation().toOSString());
 
 		try {
 			// RTEジェネレータを実行
@@ -156,11 +151,7 @@ public class RteGeneratorApp {
 			final String message = "Generation cancelled on error.";
 			options.stderr.println(message);
 			Activator.log(message, e);
-
-		} catch (Exception e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			final String message = "Generation cancelled on error.";
-			options.stderr.println(message);
-			Activator.log(message, e);
+			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, message, e));
 		}
 	}
 

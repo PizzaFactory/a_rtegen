@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,8 +43,6 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
-import java.io.File;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
@@ -54,15 +53,19 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelMerger;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelReferenceResolver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ToEcucMapper;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelLoader {
 	private final M2ModelMerger m2ModelMerger;
 
-	private File schemaFile;
+	private IFile schemaFile;
 	private M2ModelLoader m2ModelLoader;
 
 	/**
@@ -87,30 +90,45 @@ public class AutosarModelLoader {
 		this.m2ModelMerger = new M2ModelMerger();
 	}
 
-	public void setSchemaFile(File schemaFile) {
+	public void setSchemaFile(IFile schemaFile) {
 		this.schemaFile = schemaFile;
 		this.m2ModelLoader = null;
 	}
 
-	public void loadM2(Resource eResource, Iterable<String> files) throws PersistException {
+	public void loadM2(IProject project, Resource eResource, Iterable<String> files) throws CoreException {
 		Autosar mergedAutosar = M2Factory.eINSTANCE.createAutosar();
 		final ILog logger = Activator.getDefault().getLog();
-		for (String file : files) {
-			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + file);
+		final MultiStatus multiStatus = new MultiStatus(Activator.PLUGIN_ID, 0, "Errors in loading AUTOSAR file(s)", null);
+		for (String filePath : files) {
+			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + filePath);
 			logger.log(status1);
-			M2Root m2Root = getM2ModelLoader().load(file);
+			IFile file = project.getFile(filePath);
+			try {
+				M2Root m2Root = getM2ModelLoader().load(file.getContents());
 
-			final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + file);
-			logger.log(status2);
-			this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
+				final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + filePath);
+				logger.log(status2);
+				this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
+			} catch (CoreException | PersistException e) {
+				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, filePath, e);
+				multiStatus.add(status);
+			}
+		}
+		if (!multiStatus.isOK()) {
+			throw new CoreException(multiStatus);
 		}
 
 		M2Root m2Root = M2Factory.eINSTANCE.createM2Root();
 		m2Root.setAutosar(mergedAutosar);
 		eResource.getContents().add(m2Root);
-		
+
 		M2ModelReferenceResolver referenceResolver = new M2ModelReferenceResolver();
-		referenceResolver.resolve(m2Root.getAutosar());
+		try {
+			referenceResolver.resolve(m2Root.getAutosar());
+		} catch (PersistException e) {
+			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e);
+			throw new CoreException(status);
+		}
 	}
 
 	public void loadInstance(Resource eResource) throws PersistException {

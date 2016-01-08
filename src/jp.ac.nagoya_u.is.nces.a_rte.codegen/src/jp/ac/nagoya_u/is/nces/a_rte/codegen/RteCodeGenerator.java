@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +55,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
 
 import org.eclipse.acceleo.engine.event.AbstractAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.event.AcceleoTextGenerationEvent;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.google.common.collect.Lists;
@@ -78,11 +80,11 @@ public class RteCodeGenerator {
 		this.codeFormatters.add(codeFormatter);
 	}
 
-	public void generate(RteModule rteModule, File outputDirectory) throws CodegenException {
+	public void generate(RteModule rteModule, IFolder folder) throws CodegenException {
 		try {
 			final List<InternalCodegenException> caughtExceptions = Lists.newArrayList();
-
-			RteCodes rteCodes = new RteCodes(rteModule, outputDirectory, Collections.emptyList());
+			File project = folder.getLocation().toFile();
+			RteCodes rteCodes = new RteCodes(rteModule, project, Collections.emptyList());
 			rteCodes.addGenerationListener(new AbstractAcceleoTextGenerationListener() {
 				@Override
 				public void fileGenerated(AcceleoTextGenerationEvent event) {

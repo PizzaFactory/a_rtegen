@@ -3,6 +3,7 @@
  *      Automotive Runtime Environment Generator
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +55,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestModule;
 
 import org.eclipse.acceleo.engine.event.AbstractAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.event.AcceleoTextGenerationEvent;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.google.common.collect.Lists;
@@ -73,10 +77,11 @@ public class RteTestCodeGenerator {
 		this.codeFormatters.add(codeFormatter);
 	}
 
-	public void generate(RteTestModule rteTestModule, File outputDirectory) throws CodegenException {
+	public void generate(RteTestModule rteTestModule, IFolder outputFolder) throws CodegenException {
 		try {
 			final List<InternalCodegenException> caughtExceptions = Lists.newArrayList();
 
+			File outputDirectory = outputFolder.getLocation().toFile();
 			RteTestCodes rteTestCodes = new RteTestCodes(rteTestModule, outputDirectory, Collections.emptyList());
 			rteTestCodes.addGenerationListener(new AbstractAcceleoTextGenerationListener() {
 				@Override
@@ -98,7 +103,9 @@ public class RteTestCodeGenerator {
 				throw new CodegenException("Error occurred while generating RTE codes. " + caughtExceptions.get(0).getMessage(), caughtExceptions.get(0));
 			}
 
-		} catch (IOException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+			outputFolder.refreshLocal(IResource.DEPTH_INFINITE, null);
+
+		} catch (IOException | CoreException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			throw new CodegenException("Error occurred while generating RTE test codes. " + e.getMessage(), e);
 		}
 	}
