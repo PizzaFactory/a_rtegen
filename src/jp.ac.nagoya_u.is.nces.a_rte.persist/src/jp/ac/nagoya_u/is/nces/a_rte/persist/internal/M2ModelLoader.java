@@ -50,7 +50,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Source;
-import javax.xml.transform.sax.SAXSource;
+import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
@@ -60,6 +60,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.util.M2XmlUtils;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -88,9 +90,11 @@ public class M2ModelLoader {
 	private Schema createSchema(IFile schemaFile) throws PersistException {
 		SchemaFactory factory = SchemaFactory.newInstance(M2XmlUtils.W3C_XML_SCHEMA);
 		try {
-			InputSource is = new InputSource(schemaFile.getContents());
-			Source source = new SAXSource(is);
-			return factory.newSchema(source);
+			IFile xmlXsdFile = schemaFile.getParent().getFile(new Path("xml.xsd"));
+			Source xmlXsdSource = new StreamSource(xmlXsdFile.getContents());
+			Source schemaSource = new StreamSource(schemaFile.getContents());
+			Schema schema = factory.newSchema(new Source[] { xmlXsdSource, schemaSource });
+			return schema;
 		} catch (SAXException | CoreException e) {
 			throw new PersistException("Error occurred while loading an AUTOSAR XML schema file. Please confirm that the file is installed.", e);
 		}
