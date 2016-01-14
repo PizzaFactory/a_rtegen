@@ -93,7 +93,7 @@ public class ModelValidationEnvironment {
 
 	private static EObjectValidator createValidator() {
 		return new EObjectValidator() {
-			private final ValidationResourceLocator resourceLocator = new ValidationResourceLocator(Resources.getResource(ModelEnvironment.class, ModelValidator.EMF_VALIDATION_MESSAGES_PROPERTIES));
+			private final ValidationResourceLocator resourceLocator = new ValidationResourceLocator(Resources.getResource(ModelValidator.class, ModelValidator.EMF_VALIDATION_MESSAGES_PROPERTIES));
 
 			@Override
 			protected ResourceLocator getEcoreResourceLocator() {
