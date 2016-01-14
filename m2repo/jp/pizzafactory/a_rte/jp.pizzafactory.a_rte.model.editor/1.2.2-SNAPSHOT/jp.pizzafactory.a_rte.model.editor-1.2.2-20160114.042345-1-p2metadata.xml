@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='jp.pizzafactory.a_rte.model.editor' version='1.2.2.201601140414'>
+    <update id='jp.pizzafactory.a_rte.model.editor' range='[0.0.0,1.2.2.201601140414)' severity='0'/>
+    <properties size='4'>
+      <property name='org.eclipse.equinox.p2.name' value='Editor for A-RTEGEN (tuned by PizzaFactory)'/>
+      <property name='maven-groupId' value='jp.pizzafactory.a_rte'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.a_rte.model.editor'/>
+      <property name='maven-version' value='1.2.2-SNAPSHOT'/>
+    </properties>
+    <provides size='3'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.a_rte.model.editor' version='1.2.2.201601140414'/>
+      <provided namespace='osgi.bundle' name='jp.pizzafactory.a_rte.model.editor' version='1.2.2.201601140414'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='7'>
+      <required namespace='osgi.bundle' name='jp.ac.nagoya_u.is.nces.a_rte.model' range='1.2.2'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.10.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.10.2'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.9.1'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='2.10.2'/>
+      <required namespace='osgi.bundle' name='jp.pizzafactory.a_rte.model.edit' range='1.2.2'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='2.10.2'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='jp.pizzafactory.a_rte.model.editor' version='1.2.2.201601140414'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: jp.pizzafactory.a_rte.model.editor;singleton:=true&#xA;Bundle-Version: 1.2.2.201601140414&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
