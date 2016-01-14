@@ -78,6 +78,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelSaver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -306,15 +307,27 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		// RTEコード生成
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
-		final IFolder folder = options.project.getFolder(options.outputDirectory);
-		this.codeGenerator.generate(rteModule, folder);
+		final IContainer container;
+		if (".".equals(options.outputDirectory)) {
+			container = options.project;
+		} else {
+			container = options.project.getFolder(options.outputDirectory);
+			if (!container.exists()) {
+				try {
+					((IFolder)container).create(true, true, null);
+				} catch (CoreException e) {
+					throw new CodegenException("Can't create output folder", e);
+				}
+			}
+		}
+		this.codeGenerator.generate(rteModule, container);
 
 		// RTEテストコード生成
 		if (options.doesGenerateTests) {
 			this.testModuleModelBuilder.build(eGenSourceResource);
 
 			RteTestModule rteTestModule = query.findSingleByKind(RteTestPackage.Literals.RTE_TEST_MODULE);
-			this.testCodeGenerator.generate(rteTestModule, folder);
+			this.testCodeGenerator.generate(rteTestModule, container);
 		}
 
 		options.stdout.println("Generation done.");

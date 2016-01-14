@@ -45,7 +45,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE;
-
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodeFormatter;
@@ -66,6 +65,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelLoader;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -229,8 +229,20 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 
 		// RTEコード生成
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
-		IFolder folder = options.project.getFolder(options.outputDirectory);
-		this.codeGenerator.generate(rteModule, folder);
+		final IContainer container;
+		if (".".equals(options.outputDirectory)) {
+			container = options.project;
+		} else {
+			container = options.project.getFolder(options.outputDirectory);
+			if (!container.exists()) {
+				try {
+					((IFolder)container).create(true, true, null);
+				} catch (CoreException e) {
+					throw new CodegenException("Can't create output folder", e);
+				}
+			}
+		}
+		this.codeGenerator.generate(rteModule, container);
 
 		options.stdout.println("Generation done.");
 	}

@@ -140,7 +140,7 @@ public class RteGeneratorApp {
 	}
 
 	private void generate(GeneratorOptions options) throws CoreException {
-		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getLocation().toOSString());
+		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getProjectRelativePath().toString());
 
 		try {
 			// RTEジェネレータを実行
