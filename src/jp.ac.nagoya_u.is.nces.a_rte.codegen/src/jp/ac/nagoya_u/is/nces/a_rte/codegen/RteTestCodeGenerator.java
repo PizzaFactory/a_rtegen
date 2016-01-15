@@ -55,7 +55,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestModule;
 
 import org.eclipse.acceleo.engine.event.AbstractAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.event.AcceleoTextGenerationEvent;
-import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.BasicMonitor;
@@ -77,11 +77,11 @@ public class RteTestCodeGenerator {
 		this.codeFormatters.add(codeFormatter);
 	}
 
-	public void generate(RteTestModule rteTestModule, IFolder outputFolder) throws CodegenException {
+	public void generate(RteTestModule rteTestModule, IContainer container) throws CodegenException {
 		try {
 			final List<InternalCodegenException> caughtExceptions = Lists.newArrayList();
 
-			File outputDirectory = outputFolder.getLocation().toFile();
+			File outputDirectory = container.getLocation().toFile();
 			RteTestCodes rteTestCodes = new RteTestCodes(rteTestModule, outputDirectory, Collections.emptyList());
 			rteTestCodes.addGenerationListener(new AbstractAcceleoTextGenerationListener() {
 				@Override
@@ -103,7 +103,7 @@ public class RteTestCodeGenerator {
 				throw new CodegenException("Error occurred while generating RTE codes. " + caughtExceptions.get(0).getMessage(), caughtExceptions.get(0));
 			}
 
-			outputFolder.refreshLocal(IResource.DEPTH_INFINITE, null);
+			container.refreshLocal(IResource.DEPTH_INFINITE, null);
 
 		} catch (IOException | CoreException e) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			throw new CodegenException("Error occurred while generating RTE test codes. " + e.getMessage(), e);

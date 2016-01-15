@@ -48,6 +48,11 @@
 			<layout>p2</layout>
 			<url>http://pizzafactory.github.io/a_rte.orbit/</url>
 		</repository>
+		<repository>
+			<id>Acceleo 3.6.2</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/acceleo/updates/releases/3.6/R201510121214/</url>
+		</repository>
 	</repositories>
 	<build>
 		<plugins>
