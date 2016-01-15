@@ -16,4 +16,17 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
   <artifactId>jp.ac.nagoya_u.is.nces.a_rte.app.test</artifactId>
   <packaging>eclipse-test-plugin</packaging>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-surefire-plugin</artifactId>
+        <configuration>
+          <useUIHarness>false</useUIHarness>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project> 
