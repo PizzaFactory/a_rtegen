@@ -12,7 +12,6 @@
 		<module>../jp.pizzafactory.a_rte.doc</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.app</module>
-		<module>../jp.ac.nagoya_u.is.nces.a_rte.app.test</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.model</module>
