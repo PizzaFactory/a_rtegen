@@ -178,4 +178,11 @@ com.google.guava is licensed under APL2.
          install-size="0"
          version="0.0.0"/>
 
+   <plugin
+         id="jp.pizzafactory.a_rte.headless"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
