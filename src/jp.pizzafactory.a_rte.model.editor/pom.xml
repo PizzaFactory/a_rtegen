@@ -11,4 +11,23 @@
   <name>Editor for A-RTEGEN (tuned by PizzaFactory)</name>
   <packaging>eclipse-plugin</packaging>
   <artifactId>jp.pizzafactory.a_rte.model.editor</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-source-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <executions>
+        <execution>
+          <id>plugin-source</id>
+          <goals>
+            <goal>plugin-source</goal>
+          </goals>
+        </execution>
+      </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
