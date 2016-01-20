@@ -6,10 +6,13 @@
 
 <plugin>
 
-
-
-
-
+   <extension point="org.eclipse.core.runtime.contentTypes">
+      <content-type
+            id="atk2arxml"
+            name="%arxmlContentTypeName"
+            file-extensions="arxml">
+      </content-type>
+   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated rte -->
