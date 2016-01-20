@@ -1,6 +1,8 @@
 A-RTEGEN tuned by PizzaFactory [![Build Status](https://travis-ci.org/PizzaFactory/a_rtegen.svg?branch=master)](https://travis-ci.org/PizzaFactory/a_rtegen)
 ==============================
 
+[![Join the chat at https://gitter.im/PizzaFactory/a_rtegen](https://badges.gitter.im/PizzaFactory/a_rtegen.svg)](https://gitter.im/PizzaFactory/a_rtegen?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is the patched [A-RTEGEN](http://toppers.jp/a-rtegen.html).
 
 
