@@ -7,7 +7,7 @@
       <category name="A-RTE for PizzaFactory"/>
    </feature>
    <feature url="features/jp.pizzafactory.a_rte.source_1.2.2.qualifier.jar" id="jp.pizzafactory.a_rte.source" version="1.2.2.qualifier">
-      <category name="A-RTE for PizzaFactory (source)"/>
+      <category name="A-RTE for PizzaFactory"/>
    </feature>
    <category-def name="A-RTE for PizzaFactory" label="A-RTE for PizzaFactory"/>
 </site>

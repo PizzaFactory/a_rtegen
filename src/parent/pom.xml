@@ -26,8 +26,8 @@
 
 	<properties>
 		<project.build.sourceEncoding>euc-jp</project.build.sourceEncoding>
-		<tycho-version>0.22.0</tycho-version>
-		<tycho-extras-version>0.22.0</tycho-extras-version>
+		<tycho-version>0.24.0</tycho-version>
+		<tycho-extras-version>0.24.0</tycho-extras-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<pizzafactory-version>8.5</pizzafactory-version>
 		<github.global.oauth2Token>${env.GH_TOKEN}</github.global.oauth2Token>
