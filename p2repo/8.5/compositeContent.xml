@@ -4,9 +4,9 @@
   type='org.eclipse.equinox.internal.p2.metadata.repository.CompositeMetadataRepository'
   version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1453283594'/>
+    <property name='p2.timestamp' value='1453705989'/>
   </properties>
- <children size='19'>
+ <children size='20'>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240231/'/>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240302/'/>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240457/'/>
@@ -26,5 +26,6 @@
     <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160115-0113/'/>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160119-0751/'/>
     <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160119-0810/'/>
+    <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160125-0618/'/>
   </children>
 </repository>
