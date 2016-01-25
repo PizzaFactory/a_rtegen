@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>../parent</relativePath>
+    <groupId>jp.pizzafactory.a_rte</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.2.2-SNAPSHOT</version>
+  </parent>
+
+  <name>Editor for A-RTEGEN (tuned by PizzaFactory)</name>
+  <packaging>eclipse-plugin</packaging>
+  <artifactId>jp.pizzafactory.a_rte.model.editor</artifactId>
+
+  <build>
+    <plugins>
+      <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-source-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <executions>
+        <execution>
+          <id>plugin-source</id>
+          <goals>
+            <goal>plugin-source</goal>
+          </goals>
+        </execution>
+      </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
