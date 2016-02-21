@@ -4,28 +4,29 @@
   type='org.eclipse.equinox.internal.p2.artifact.repository.CompositeArtifactRepository'
   version='1.0.0'>
   <properties size='1'>
-    <property name='p2.timestamp' value='1453705989'/>
+    <property name='p2.timestamp' value='1456029966'/>
   </properties>
- <children size='20'>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240231/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240302/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240457/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240546/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240620/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240650/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201512240724/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601070435/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601070520/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601070549/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601070731/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601070831/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601080531/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601140414/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601150129/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.201601150624/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160115-0113/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160119-0751/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160119-0810/'/>
-    <child location='/a_rtegen/p2repo/8.5/1.2.2.v20160125-0618/'/>
+ <children size='21'>
+    <child location='1.2.2.201512240231'/>
+    <child location='1.2.2.201512240302'/>
+    <child location='1.2.2.201512240457'/>
+    <child location='1.2.2.201512240546'/>
+    <child location='1.2.2.201512240620'/>
+    <child location='1.2.2.201512240650'/>
+    <child location='1.2.2.201512240724'/>
+    <child location='1.2.2.201601070435'/>
+    <child location='1.2.2.201601070520'/>
+    <child location='1.2.2.201601070549'/>
+    <child location='1.2.2.201601070731'/>
+    <child location='1.2.2.201601070831'/>
+    <child location='1.2.2.201601080531'/>
+    <child location='1.2.2.201601140414'/>
+    <child location='1.2.2.201601150129'/>
+    <child location='1.2.2.201601150624'/>
+    <child location='1.2.2.v20160115-0113'/>
+    <child location='1.2.2.v20160119-0751'/>
+    <child location='1.2.2.v20160119-0810'/>
+    <child location='1.2.2.v20160125-0618'/>
+    <child location='1.2.2.v20160221-0402'/>
   </children>
 </repository>
