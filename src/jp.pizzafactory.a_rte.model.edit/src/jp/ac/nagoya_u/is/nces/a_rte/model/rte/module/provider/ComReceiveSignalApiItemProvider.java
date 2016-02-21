@@ -53,7 +53,7 @@ public class ComReceiveSignalApiItemProvider extends ComApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComReceiveSignalApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComReceiveSignalApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComReceiveSignalApiItemProvider extends ComApiItemProvider {
 	public String getText(Object object) {
 		String label = ((ComReceiveSignalApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComReceiveSignalApi_type") :
-			getString("_UI_ComReceiveSignalApi_type") + " " + label;
+			getString("_UI_ComReceiveSignalApi_type") : //$NON-NLS-1$
+			getString("_UI_ComReceiveSignalApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

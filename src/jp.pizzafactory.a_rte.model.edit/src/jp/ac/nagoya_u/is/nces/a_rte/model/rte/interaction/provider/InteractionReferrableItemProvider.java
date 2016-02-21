@@ -61,8 +61,8 @@ public class InteractionReferrableItemProvider extends InteractionObjectItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InteractionReferrable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InteractionReferrable_id_feature", "_UI_InteractionReferrable_type"),
+				 getString("_UI_InteractionReferrable_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InteractionReferrable_id_feature", "_UI_InteractionReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.INTERACTION_REFERRABLE__ID,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class InteractionReferrableItemProvider extends InteractionObjectItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionReferrable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionReferrable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class InteractionReferrableItemProvider extends InteractionObjectItemProv
 	public String getText(Object object) {
 		String label = ((InteractionReferrable)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InteractionReferrable_type") :
-			getString("_UI_InteractionReferrable_type") + " " + label;
+			getString("_UI_InteractionReferrable_type") : //$NON-NLS-1$
+			getString("_UI_InteractionReferrable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

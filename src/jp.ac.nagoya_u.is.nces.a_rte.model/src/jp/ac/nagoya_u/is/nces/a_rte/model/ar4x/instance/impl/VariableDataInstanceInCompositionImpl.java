@@ -233,7 +233,7 @@ public class VariableDataInstanceInCompositionImpl extends VariableDataInstanceI
 	public void setParent(PortInstanceInComposition newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != InstancePackage.VARIABLE_DATA_INSTANCE_IN_COMPOSITION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

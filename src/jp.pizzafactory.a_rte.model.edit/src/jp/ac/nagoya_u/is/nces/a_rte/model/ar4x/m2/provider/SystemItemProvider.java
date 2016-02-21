@@ -88,7 +88,7 @@ public class SystemItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/System"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/System")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class SystemItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_System_type") :
-			getString("_UI_System_type") + " " + label;
+			getString("_UI_System_type") : //$NON-NLS-1$
+			getString("_UI_System_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

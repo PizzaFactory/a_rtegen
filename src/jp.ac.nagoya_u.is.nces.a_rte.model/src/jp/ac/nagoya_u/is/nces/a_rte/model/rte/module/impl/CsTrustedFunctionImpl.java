@@ -310,7 +310,7 @@ public class CsTrustedFunctionImpl extends TrustedFunctionImpl implements CsTrus
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (csTfParamTypeName: ");
+		result.append(" (csTfParamTypeName: "); //$NON-NLS-1$
 		result.append(csTfParamTypeName);
 		result.append(')');
 		return result.toString();

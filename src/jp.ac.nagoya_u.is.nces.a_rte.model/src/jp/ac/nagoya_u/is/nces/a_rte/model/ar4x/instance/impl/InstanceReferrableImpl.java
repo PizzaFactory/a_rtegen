@@ -217,7 +217,7 @@ public abstract class InstanceReferrableImpl extends ExtendedEObjectImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
 		result.append(')');
 		return result.toString();

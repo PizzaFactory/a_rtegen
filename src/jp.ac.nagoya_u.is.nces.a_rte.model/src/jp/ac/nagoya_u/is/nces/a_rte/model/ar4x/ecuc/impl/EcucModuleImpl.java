@@ -227,7 +227,7 @@ public abstract class EcucModuleImpl extends EcucReferrableImpl implements EcucM
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (referenceBase: ");
+		result.append(" (referenceBase: "); //$NON-NLS-1$
 		result.append(referenceBase);
 		result.append(')');
 		return result.toString();

@@ -68,7 +68,7 @@ public class EcucPartitionExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucPartitionEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucPartitionEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class EcucPartitionExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EcucPartitionEx_type");
+		return getString("_UI_EcucPartitionEx_type"); //$NON-NLS-1$
 	}
 	
 

@@ -64,8 +64,8 @@ public class ReceiveInteractionItemProvider extends InteractionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReceiveInteraction_receiver_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiveInteraction_receiver_feature", "_UI_ReceiveInteraction_type"),
+				 getString("_UI_ReceiveInteraction_receiver_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiveInteraction_receiver_feature", "_UI_ReceiveInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.RECEIVE_INTERACTION__RECEIVER,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class ReceiveInteractionItemProvider extends InteractionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReceiveInteraction_sendInteraction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiveInteraction_sendInteraction_feature", "_UI_ReceiveInteraction_type"),
+				 getString("_UI_ReceiveInteraction_sendInteraction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiveInteraction_sendInteraction_feature", "_UI_ReceiveInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.RECEIVE_INTERACTION__SEND_INTERACTION,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class ReceiveInteractionItemProvider extends InteractionItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReceiveInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReceiveInteraction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class ReceiveInteractionItemProvider extends InteractionItemProvider {
 	public String getText(Object object) {
 		String label = ((ReceiveInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ReceiveInteraction_type") :
-			getString("_UI_ReceiveInteraction_type") + " " + label;
+			getString("_UI_ReceiveInteraction_type") : //$NON-NLS-1$
+			getString("_UI_ReceiveInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

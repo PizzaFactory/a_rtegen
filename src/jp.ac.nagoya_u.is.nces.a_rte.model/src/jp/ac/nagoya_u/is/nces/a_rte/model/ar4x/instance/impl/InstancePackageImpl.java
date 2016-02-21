@@ -1216,132 +1216,132 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		variableDataInstanceEClass.getESuperTypes().add(this.getInstanceReferrable());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(instanceReferrableEClass, InstanceReferrable.class, "InstanceReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInstanceReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, InstanceReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(instanceReferrableEClass, InstanceReferrable.class, "InstanceReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getInstanceReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, InstanceReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(portInstanceInCompositionEClass, PortInstanceInComposition.class, "PortInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPortInstanceInComposition_ContextComponent(), theM2Package.getSwComponentPrototype(), null, "contextComponent", null, 1, 1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPortInstanceInComposition_Prototype(), theM2Package.getPortPrototype(), null, "prototype", null, 1, 1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPortInstanceInComposition_DataElement(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_Parent(), "dataElement", null, 0, -1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPortInstanceInComposition_Operation(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_Parent(), "operation", null, 0, -1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(portInstanceInCompositionEClass, PortInstanceInComposition.class, "PortInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPortInstanceInComposition_ContextComponent(), theM2Package.getSwComponentPrototype(), null, "contextComponent", null, 1, 1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPortInstanceInComposition_Prototype(), theM2Package.getPortPrototype(), null, "prototype", null, 1, 1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPortInstanceInComposition_DataElement(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_Parent(), "dataElement", null, 0, -1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPortInstanceInComposition_Operation(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_Parent(), "operation", null, 0, -1, PortInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataInstanceInSwcEClass, VariableDataInstanceInSwc.class, "VariableDataInstanceInSwc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableDataInstanceInSwc_Prototype(), theM2Package.getVariableDataPrototype(), null, "prototype", null, 1, 1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableDataInstanceInSwc_ContextPort(), theM2Package.getPortPrototype(), null, "contextPort", null, 1, 1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableDataInstanceInSwc_Instance(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_Prototype(), "instance", null, 0, -1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(variableDataInstanceInSwcEClass, VariableDataInstanceInSwc.class, "VariableDataInstanceInSwc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInSwc_Prototype(), theM2Package.getVariableDataPrototype(), null, "prototype", null, 1, 1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInSwc_ContextPort(), theM2Package.getPortPrototype(), null, "contextPort", null, 1, 1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInSwc_Instance(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_Prototype(), "instance", null, 0, -1, VariableDataInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetSwImplPolicy(), theM2Package.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetSwImplPolicy(), theM2Package.getSwImplPolicyEnum(), "getSwImplPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetBaseType(), theM2Package.getSwBaseType(), "getBaseType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetBaseType(), theM2Package.getSwBaseType(), "getBaseType", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetInvalidValue(), theM2Package.getValueSpecification(), "getInvalidValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetInvalidValue(), theM2Package.getValueSpecification(), "getInvalidValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetSwAddrMethod(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetSwAddrMethod(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetSwAlignment(), theM2Package.getAlignmentType(), "getSwAlignment", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetSwAlignment(), theM2Package.getAlignmentType(), "getSwAlignment", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetApplicationDataType(), theM2Package.getApplicationDataType(), "getApplicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetApplicationDataType(), theM2Package.getApplicationDataType(), "getApplicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetImplementationDataType(), theM2Package.getImplementationDataType(), "getImplementationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetImplementationDataType(), theM2Package.getImplementationDataType(), "getImplementationDataType", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInSwc__GetOwnerAtomicSwc(), theM2Package.getAtomicSwComponentType(), "getOwnerAtomicSwc", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInSwc__GetOwnerAtomicSwc(), theM2Package.getAtomicSwComponentType(), "getOwnerAtomicSwc", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataInstanceInCompositionEClass, VariableDataInstanceInComposition.class, "VariableDataInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableDataInstanceInComposition_Prototype(), this.getVariableDataInstanceInSwc(), this.getVariableDataInstanceInSwc_Instance(), "prototype", null, 1, 1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableDataInstanceInComposition_Parent(), this.getPortInstanceInComposition(), this.getPortInstanceInComposition_DataElement(), "parent", null, 1, 1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableDataInstanceInComposition_RequesterConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Provider(), "requesterConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getVariableDataInstanceInComposition_ProviderConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Requester(), "providerConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(variableDataInstanceInCompositionEClass, VariableDataInstanceInComposition.class, "VariableDataInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInComposition_Prototype(), this.getVariableDataInstanceInSwc(), this.getVariableDataInstanceInSwc_Instance(), "prototype", null, 1, 1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInComposition_Parent(), this.getPortInstanceInComposition(), this.getPortInstanceInComposition_DataElement(), "parent", null, 1, 1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInComposition_RequesterConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Provider(), "requesterConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInComposition_ProviderConnection(), this.getAssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector_Requester(), "providerConnection", null, 0, -1, VariableDataInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInComposition__IsProvided(), ecorePackage.getEBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsProvided(), ecorePackage.getEBoolean(), "isProvided", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInComposition__IsRequired(), ecorePackage.getEBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__IsRequired(), ecorePackage.getEBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getVariableDataInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getVariableDataInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(pVariableDataInstanceInSwcEClass, PVariableDataInstanceInSwc.class, "PVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(pVariableDataInstanceInSwcEClass, PVariableDataInstanceInSwc.class, "PVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPVariableDataInstanceInSwc_ContextPPort(), theM2Package.getPPortPrototype(), null, "contextPPort", null, 1, 1, PVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetQueueLength(), theM2Package.getPositiveInteger(), "getQueueLength", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetQueueLength(), theM2Package.getPositiveInteger(), "getQueueLength", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetComSpec(), theM2Package.getReceiverComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetComSpec(), theM2Package.getReceiverComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssemblyDataInstanceConnector_Requester(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getAssemblyDataInstanceConnector_Requester(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(delegationDataInstanceConnectorEClass, DelegationDataInstanceConnector.class, "DelegationDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDelegationDataInstanceConnector_Outer(), this.getVariableDataInstanceInSwc(), null, "outer", null, 1, 1, DelegationDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDelegationDataInstanceConnector_Inner(), this.getVariableDataInstanceInComposition(), null, "inner", null, 1, 1, DelegationDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(delegationDataInstanceConnectorEClass, DelegationDataInstanceConnector.class, "DelegationDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getDelegationDataInstanceConnector_Outer(), this.getVariableDataInstanceInSwc(), null, "outer", null, 1, 1, DelegationDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDelegationDataInstanceConnector_Inner(), this.getVariableDataInstanceInComposition(), null, "inner", null, 1, 1, DelegationDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(operationInstanceInSwcEClass, OperationInstanceInSwc.class, "OperationInstanceInSwc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperationInstanceInSwc_Prototype(), theM2Package.getClientServerOperation(), null, "prototype", null, 1, 1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationInstanceInSwc_ContextPort(), theM2Package.getPortPrototype(), null, "contextPort", null, 1, 1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationInstanceInSwc_Instance(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_Prototype(), "instance", null, 0, -1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(operationInstanceInSwcEClass, OperationInstanceInSwc.class, "OperationInstanceInSwc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOperationInstanceInSwc_Prototype(), theM2Package.getClientServerOperation(), null, "prototype", null, 1, 1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOperationInstanceInSwc_ContextPort(), theM2Package.getPortPrototype(), null, "contextPort", null, 1, 1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOperationInstanceInSwc_Instance(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_Prototype(), "instance", null, 0, -1, OperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getOperationInstanceInSwc__GetOwnerAtomicSwc(), theM2Package.getAtomicSwComponentType(), "getOwnerAtomicSwc", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOperationInstanceInSwc__GetOwnerAtomicSwc(), theM2Package.getAtomicSwComponentType(), "getOwnerAtomicSwc", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rOperationInstanceInSwcEClass, ROperationInstanceInSwc.class, "ROperationInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rOperationInstanceInSwcEClass, ROperationInstanceInSwc.class, "ROperationInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(pOperationInstanceInSwcEClass, POperationInstanceInSwc.class, "POperationInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPOperationInstanceInSwc_OperationInvokedEvent(), theM2Package.getOperationInvokedEvent(), theM2Package.getOperationInvokedEvent_Operation(), "operationInvokedEvent", null, 0, -1, POperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(pOperationInstanceInSwcEClass, POperationInstanceInSwc.class, "POperationInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPOperationInstanceInSwc_OperationInvokedEvent(), theM2Package.getOperationInvokedEvent(), theM2Package.getOperationInvokedEvent_Operation(), "operationInvokedEvent", null, 0, -1, POperationInstanceInSwc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(operationInstanceInCompositionEClass, OperationInstanceInComposition.class, "OperationInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperationInstanceInComposition_Prototype(), this.getOperationInstanceInSwc(), this.getOperationInstanceInSwc_Instance(), "prototype", null, 1, 1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationInstanceInComposition_Parent(), this.getPortInstanceInComposition(), this.getPortInstanceInComposition_Operation(), "parent", null, 1, 1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationInstanceInComposition_RequesterConnection(), this.getAssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector_Provider(), "requesterConnection", null, 0, -1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getOperationInstanceInComposition_ProviderConnection(), this.getAssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector_Requester(), "providerConnection", null, 0, -1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(operationInstanceInCompositionEClass, OperationInstanceInComposition.class, "OperationInstanceInComposition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOperationInstanceInComposition_Prototype(), this.getOperationInstanceInSwc(), this.getOperationInstanceInSwc_Instance(), "prototype", null, 1, 1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOperationInstanceInComposition_Parent(), this.getPortInstanceInComposition(), this.getPortInstanceInComposition_Operation(), "parent", null, 1, 1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOperationInstanceInComposition_RequesterConnection(), this.getAssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector_Provider(), "requesterConnection", null, 0, -1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOperationInstanceInComposition_ProviderConnection(), this.getAssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector_Requester(), "providerConnection", null, 0, -1, OperationInstanceInComposition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getOperationInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOperationInstanceInComposition__GetTargetShortName(), theM2Package.getIdentifier(), "getTargetShortName", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(assemblyOperationInstanceConnectorEClass, AssemblyOperationInstanceConnector.class, "AssemblyOperationInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssemblyOperationInstanceConnector_Requester(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyOperationInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssemblyOperationInstanceConnector_Provider(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyOperationInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(assemblyOperationInstanceConnectorEClass, AssemblyOperationInstanceConnector.class, "AssemblyOperationInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getAssemblyOperationInstanceConnector_Requester(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyOperationInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getAssemblyOperationInstanceConnector_Provider(), this.getOperationInstanceInComposition(), this.getOperationInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyOperationInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(iInstanceObjectEClass, IInstanceObject.class, "IInstanceObject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIInstanceObject_InstanceId(), theM2Package.getIdentifier(), "instanceId", null, 1, -1, IInstanceObject.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(iInstanceObjectEClass, IInstanceObject.class, "IInstanceObject", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getIInstanceObject_InstanceId(), theM2Package.getIdentifier(), "instanceId", null, 1, -1, IInstanceObject.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(swComponentInstanceInSystemEClass, SwComponentInstanceInSystem.class, "SwComponentInstanceInSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSwComponentInstanceInSystem_ContextRootComposition(), theM2Package.getRootSwCompositionPrototype(), null, "contextRootComposition", null, 1, 1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwComponentInstanceInSystem_Prototype(), theM2Package.getSwComponentPrototype(), theM2Package.getSwComponentPrototype_Instance(), "prototype", null, 1, 1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwComponentInstanceInSystem_OwnerPartition(), theEcucPackage.getEcucPartition(), theEcucPackage.getEcucPartition_EcucPartitionSoftwareComponent(), "ownerPartition", null, 0, -1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEClass(swComponentInstanceInSystemEClass, SwComponentInstanceInSystem.class, "SwComponentInstanceInSystem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSwComponentInstanceInSystem_ContextRootComposition(), theM2Package.getRootSwCompositionPrototype(), null, "contextRootComposition", null, 1, 1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSwComponentInstanceInSystem_Prototype(), theM2Package.getSwComponentPrototype(), theM2Package.getSwComponentPrototype_Instance(), "prototype", null, 1, 1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSwComponentInstanceInSystem_OwnerPartition(), theEcucPackage.getEcucPartition(), theEcucPackage.getEcucPartition_EcucPartitionSoftwareComponent(), "ownerPartition", null, 0, -1, SwComponentInstanceInSystem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(instanceRootEClass, InstanceRoot.class, "InstanceRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInstanceRoot_AssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector(), null, "assemblyDataInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_DelegationDataInstanceConnector(), this.getDelegationDataInstanceConnector(), null, "delegationDataInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_SwComponentInstanceInSystem(), this.getSwComponentInstanceInSystem(), null, "swComponentInstanceInSystem", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_PortInstanceInComposition(), this.getPortInstanceInComposition(), null, "portInstanceInComposition", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_VariableDataInstanceInSwc(), this.getVariableDataInstanceInSwc(), null, "variableDataInstanceInSwc", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_OperationInstanceInSwc(), this.getOperationInstanceInSwc(), null, "operationInstanceInSwc", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceRoot_AssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector(), null, "assemblyOperationInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(instanceRootEClass, InstanceRoot.class, "InstanceRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInstanceRoot_AssemblyDataInstanceConnector(), this.getAssemblyDataInstanceConnector(), null, "assemblyDataInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_DelegationDataInstanceConnector(), this.getDelegationDataInstanceConnector(), null, "delegationDataInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_SwComponentInstanceInSystem(), this.getSwComponentInstanceInSystem(), null, "swComponentInstanceInSystem", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_PortInstanceInComposition(), this.getPortInstanceInComposition(), null, "portInstanceInComposition", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_VariableDataInstanceInSwc(), this.getVariableDataInstanceInSwc(), null, "variableDataInstanceInSwc", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_OperationInstanceInSwc(), this.getOperationInstanceInSwc(), null, "operationInstanceInSwc", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInstanceRoot_AssemblyOperationInstanceConnector(), this.getAssemblyOperationInstanceConnector(), null, "assemblyOperationInstanceConnector", null, 0, -1, InstanceRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataInstanceEClass, VariableDataInstance.class, "VariableDataInstance", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(variableDataInstanceEClass, VariableDataInstance.class, "VariableDataInstance", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
@@ -1357,15 +1357,15 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";		
+		String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																												
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -1375,180 +1375,180 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * @generated
 	 */
 	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";			
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"; //$NON-NLS-1$	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetTargetShortName(), 
 		   source, 
 		   new String[] {
-			 "body", "self.prototype.shortName"
-		   });			
+			 "body", "self.prototype.shortName" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__IsEventSemantics(), 
 		   source, 
 		   new String[] {
-			 "body", "getSwImplPolicy() = m2::SwImplPolicyEnum::queued"
-		   });			
+			 "body", "getSwImplPolicy() = m2::SwImplPolicyEnum::queued" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetSwImplPolicy(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not applType.getSwImplPolicy().oclIsUndefined() and applType.getSwImplPolicy() <> m2::SwImplPolicyEnum::unspecified\n\t\t\t\t\t\tthen applType.getSwImplPolicy()\n\t\t\t\t\telse if not implType.getSwImplPolicy().oclIsUndefined() and implType.getSwImplPolicy() <> m2::SwImplPolicyEnum::unspecified\n\t\t\t\t\t\tthen implType.getSwImplPolicy()\n\t\t\t\t\telse self.prototype.getSwImplPolicy()\n\t\t\t\t\tendif endif"
-		   });			
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not applType.getSwImplPolicy().oclIsUndefined() and applType.getSwImplPolicy() <> m2::SwImplPolicyEnum::unspecified\n\t\t\t\t\t\tthen applType.getSwImplPolicy()\n\t\t\t\t\telse if not implType.getSwImplPolicy().oclIsUndefined() and implType.getSwImplPolicy() <> m2::SwImplPolicyEnum::unspecified\n\t\t\t\t\t\tthen implType.getSwImplPolicy()\n\t\t\t\t\telse self.prototype.getSwImplPolicy()\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetBaseType(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not implType.baseType.oclIsUndefined()\n\t\t\t\t\t\tthen implType.baseType\n\t\t\t\t\telse null\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not implType.baseType.oclIsUndefined()\n\t\t\t\t\t\tthen implType.baseType\n\t\t\t\t\telse null\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetInvalidValue(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not applType.invalidValue.oclIsUndefined()\n\t\t\t\t\t\tthen applType.invalidValue\n\t\t\t\t\telse if not implType.invalidValue.oclIsUndefined()\n\t\t\t\t\t\tthen implType.invalidValue\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });			
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not applType.invalidValue.oclIsUndefined()\n\t\t\t\t\t\tthen applType.invalidValue\n\t\t\t\t\telse if not implType.invalidValue.oclIsUndefined()\n\t\t\t\t\t\tthen implType.invalidValue\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetSwAddrMethod(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.prototype.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not implType.getLeafImplementationDataType().swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.getLeafImplementationDataType().swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif endif"
-		   });			
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType() , applType : m2::ApplicationDataType\n\t\t\t\t\t= getApplicationDataType()\n\t\t\t\tin if not self.prototype.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAddrMethod\n\t\t\t\t\telse if not implType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAddrMethod\n\t\t\t\t\telse if not implType.getLeafImplementationDataType().swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen implType.getLeafImplementationDataType().swAddrMethod\n\t\t\t\t\telse if not applType.swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applType.swAddrMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetSwAlignment(), 
 		   source, 
 		   new String[] {
-			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not self.prototype.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAlignment\n\t\t\t\t\telse if not implType.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAlignment\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });			
+			 "body", "let implType : m2::ImplementationDataType = getImplementationDataType()\n\t\t\t\tin if not self.prototype.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen self.prototype.swAlignment\n\t\t\t\t\telse if not implType.swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen implType.swAlignment\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetApplicationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "if self.prototype.type.oclIsKindOf(m2::ApplicationDataType)\n\t\t\t\t\tthen self.prototype.type.oclAsType(m2::ApplicationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if self.prototype.type.oclIsKindOf(m2::ApplicationDataType)\n\t\t\t\t\tthen self.prototype.type.oclAsType(m2::ApplicationDataType)\n\t\t\t\t\telse null\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "if self.prototype.type.oclIsKindOf(m2::ImplementationDataType)\n\t\t\t\t\tthen self.prototype.type.oclAsType(m2::ImplementationDataType)\n\t\t\t\t\telse\n\t\t\t\t\t\tgetOwnerAtomicSwc().getImplementationDataType(self.prototype.type.oclAsType(m2::ApplicationPrimitiveDataType))\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if self.prototype.type.oclIsKindOf(m2::ImplementationDataType)\n\t\t\t\t\tthen self.prototype.type.oclAsType(m2::ImplementationDataType)\n\t\t\t\t\telse\n\t\t\t\t\t\tgetOwnerAtomicSwc().getImplementationDataType(self.prototype.type.oclAsType(m2::ApplicationPrimitiveDataType))\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwc__GetOwnerAtomicSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "self.contextPort.parent.oclAsType(m2::AtomicSwComponentType)"
-		   });		
+			 "body", "self.contextPort.parent.oclAsType(m2::AtomicSwComponentType)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInComposition__IsProvided(), 
 		   source, 
 		   new String[] {
-			 "body", "prototype.oclIsKindOf(PVariableDataInstanceInSwc)"
-		   });		
+			 "body", "prototype.oclIsKindOf(PVariableDataInstanceInSwc)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInComposition__IsRequired(), 
 		   source, 
 		   new String[] {
-			 "body", "prototype.oclIsKindOf(RVariableDataInstanceInSwc)"
-		   });		
+			 "body", "prototype.oclIsKindOf(RVariableDataInstanceInSwc)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInComposition__GetTargetShortName(), 
 		   source, 
 		   new String[] {
-			 "body", "self.prototype.prototype.shortName"
-		   });			
+			 "body", "self.prototype.prototype.shortName" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__IsInvalidationEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)"
-		   });			
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__GetInvalidationPolicy(), 
 		   source, 
 		   new String[] {
-			 "body", "contextPPort.providedInterface.oclAsType(m2::SenderReceiverInterface).invalidationPolicy\n\t\t\t\t\t->any(dataElement = self.prototype)"
-		   });		
+			 "body", "contextPPort.providedInterface.oclAsType(m2::SenderReceiverInterface).invalidationPolicy\n\t\t\t\t\t->any(dataElement = self.prototype)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__GetInitValue(), 
 		   source, 
 		   new String[] {
-			 "body", "let initValue : m2::ValueSpecification = getComSpec().oclAsType(m2::NonqueuedSenderComSpec).initValue\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse initValue\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let initValue : m2::ValueSpecification = getComSpec().oclAsType(m2::NonqueuedSenderComSpec).initValue\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse initValue\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__GetComSpec(), 
 		   source, 
 		   new String[] {
-			 "body", "let comSpec : m2::SenderComSpec = contextPPort.providedComSpec.oclAsType(m2::SenderComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\tendif"
-		   });		
+			 "body", "let comSpec : m2::SenderComSpec = contextPPort.providedComSpec.oclAsType(m2::SenderComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc_ContextPPort(), 
 		   source, 
 		   new String[] {
-			 "derivation", "contextPort.oclAsType(m2::PPortPrototype)"
-		   });		
+			 "derivation", "contextPort.oclAsType(m2::PPortPrototype)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__IsFilterEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "if getFilter().oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse getFilter().isFilterEnabled()\n\t\t\t\t\tendif"
-		   });		
+			 "body", "if getFilter().oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse getFilter().isFilterEnabled()\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetFilter(), 
 		   source, 
 		   new String[] {
-			 "body", "let filter : m2::DataFilter = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).filter\n\t\t\t\tin if filter.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse filter\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let filter : m2::DataFilter = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).filter\n\t\t\t\tin if filter.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse filter\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__IsAliveTimeoutEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "let comSpec : m2::NonqueuedReceiverComSpec = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec)\n\t\t\t\tin not comSpec.oclIsUndefined() and comSpec.aliveTimeout <> 0"
-		   });			
+			 "body", "let comSpec : m2::NonqueuedReceiverComSpec = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec)\n\t\t\t\tin not comSpec.oclIsUndefined() and comSpec.aliveTimeout <> 0" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__IsInvalidationEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)"
-		   });			
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetInvalidationPolicy(), 
 		   source, 
 		   new String[] {
-			 "body", "contextRPort.requiredInterface.oclAsType(m2::SenderReceiverInterface).invalidationPolicy\n\t\t\t\t\t->any(dataElement = self.prototype)"
-		   });		
+			 "body", "contextRPort.requiredInterface.oclAsType(m2::SenderReceiverInterface).invalidationPolicy\n\t\t\t\t\t->any(dataElement = self.prototype)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetInitValue(), 
 		   source, 
 		   new String[] {
-			 "body", "let initValue : m2::ValueSpecification = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).initValue\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse initValue\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let initValue : m2::ValueSpecification = getComSpec().oclAsType(m2::NonqueuedReceiverComSpec).initValue\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse initValue\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetQueueLength(), 
 		   source, 
 		   new String[] {
-			 "body", "let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let comSpec : m2::QueuedReceiverComSpec = getComSpec().oclAsType(m2::QueuedReceiverComSpec)\n\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse comSpec.queueLength\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetComSpec(), 
 		   source, 
 		   new String[] {
-			 "body", "let comSpec : m2::ReceiverComSpec = contextRPort.requiredComSpec.oclAsType(m2::ReceiverComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\t\tendif"
-		   });		
+			 "body", "let comSpec : m2::ReceiverComSpec = contextRPort.requiredComSpec.oclAsType(m2::ReceiverComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc_ContextRPort(), 
 		   source, 
 		   new String[] {
-			 "derivation", "contextPort.oclAsType(m2::RPortPrototype)"
-		   });			
+			 "derivation", "contextPort.oclAsType(m2::RPortPrototype)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOperationInstanceInSwc__GetOwnerAtomicSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "self.contextPort.parent.oclAsType(m2::AtomicSwComponentType)"
-		   });		
+			 "body", "self.contextPort.parent.oclAsType(m2::AtomicSwComponentType)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOperationInstanceInComposition__GetTargetShortName(), 
 		   source, 
 		   new String[] {
-			 "body", "self.prototype.prototype.shortName"
+			 "body", "self.prototype.prototype.shortName" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

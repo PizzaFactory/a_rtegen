@@ -316,11 +316,11 @@ public class SwBaseTypeImpl extends ArElementImpl implements SwBaseType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (baseTypeEncoding: ");
+		result.append(" (baseTypeEncoding: "); //$NON-NLS-1$
 		result.append(baseTypeEncoding);
-		result.append(", baseTypeSize: ");
+		result.append(", baseTypeSize: "); //$NON-NLS-1$
 		result.append(baseTypeSize);
-		result.append(", nativeDeclaration: ");
+		result.append(", nativeDeclaration: "); //$NON-NLS-1$
 		result.append(nativeDeclaration);
 		result.append(')');
 		return result.toString();

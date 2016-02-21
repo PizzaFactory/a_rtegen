@@ -63,8 +63,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_requesterPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_requesterPartition_feature", "_UI_ComSendProxyInteraction_type"),
+				 getString("_UI_ComSendProxyInteraction_requesterPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_requesterPartition_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_signalDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_signalDataType_feature", "_UI_ComSendProxyInteraction_type"),
+				 getString("_UI_ComSendProxyInteraction_signalDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_signalDataType_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_requestOsIocCommunication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_requestOsIocCommunication_feature", "_UI_ComSendProxyInteraction_type"),
+				 getString("_UI_ComSendProxyInteraction_requestOsIocCommunication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_requestOsIocCommunication_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION,
 				 true,
 				 false,
@@ -129,8 +129,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature", "_UI_ComSendProxyInteraction_type"),
+				 getString("_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE,
 				 true,
 				 false,
@@ -151,8 +151,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_proxy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_proxy_feature", "_UI_ComSendProxyInteraction_type"),
+				 getString("_UI_ComSendProxyInteraction_proxy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_proxy_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__PROXY,
 				 true,
 				 false,
@@ -170,7 +170,7 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendProxyInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendProxyInteraction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -183,8 +183,8 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 	public String getText(Object object) {
 		String label = ((ComSendProxyInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendProxyInteraction_type") :
-			getString("_UI_ComSendProxyInteraction_type") + " " + label;
+			getString("_UI_ComSendProxyInteraction_type") : //$NON-NLS-1$
+			getString("_UI_ComSendProxyInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -68,7 +68,7 @@ public class CompuScaleExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuScaleEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuScaleEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class CompuScaleExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_CompuScaleEx_type");
+		return getString("_UI_CompuScaleEx_type"); //$NON-NLS-1$
 	}
 	
 

@@ -88,7 +88,7 @@ public class EcuCItemProvider extends EcucModuleItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcuC"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcuC")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class EcuCItemProvider extends EcucModuleItemProvider {
 	public String getText(Object object) {
 		String label = ((EcuC)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcuC_type") :
-			getString("_UI_EcuC_type") + " " + label;
+			getString("_UI_EcuC_type") : //$NON-NLS-1$
+			getString("_UI_EcuC_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

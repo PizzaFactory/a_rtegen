@@ -195,7 +195,7 @@ public class MacroImpl extends ModuleReferrableImpl implements Macro {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
 		result.append(')');
 		return result.toString();

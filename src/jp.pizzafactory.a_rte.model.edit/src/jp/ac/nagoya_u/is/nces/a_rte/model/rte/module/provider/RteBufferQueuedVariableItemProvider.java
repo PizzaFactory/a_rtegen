@@ -59,8 +59,8 @@ public class RteBufferQueuedVariableItemProvider extends GlobalVariableItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueuedVariable_queueType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedVariable_queueType_feature", "_UI_RteBufferQueuedVariable_type"),
+				 getString("_UI_RteBufferQueuedVariable_queueType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedVariable_queueType_feature", "_UI_RteBufferQueuedVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUED_VARIABLE__QUEUE_TYPE,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class RteBufferQueuedVariableItemProvider extends GlobalVariableItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueuedVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueuedVariable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteBufferQueuedVariableItemProvider extends GlobalVariableItemProvi
 	public String getText(Object object) {
 		String label = ((RteBufferQueuedVariable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferQueuedVariable_type") :
-			getString("_UI_RteBufferQueuedVariable_type") + " " + label;
+			getString("_UI_RteBufferQueuedVariable_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferQueuedVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

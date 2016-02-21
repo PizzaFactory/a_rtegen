@@ -65,8 +65,8 @@ public class CsTrustedFunctionItemProvider extends TrustedFunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CsTrustedFunction_dataVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CsTrustedFunction_dataVariable_feature", "_UI_CsTrustedFunction_type"),
+				 getString("_UI_CsTrustedFunction_dataVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CsTrustedFunction_dataVariable_feature", "_UI_CsTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CS_TRUSTED_FUNCTION__DATA_VARIABLE,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class CsTrustedFunctionItemProvider extends TrustedFunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CsTrustedFunction_csTfParamTypeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CsTrustedFunction_csTfParamTypeName_feature", "_UI_CsTrustedFunction_type"),
+				 getString("_UI_CsTrustedFunction_csTfParamTypeName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CsTrustedFunction_csTfParamTypeName_feature", "_UI_CsTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CS_TRUSTED_FUNCTION__CS_TF_PARAM_TYPE_NAME,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class CsTrustedFunctionItemProvider extends TrustedFunctionItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CsTrustedFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CsTrustedFunction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class CsTrustedFunctionItemProvider extends TrustedFunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((CsTrustedFunction)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CsTrustedFunction_type") :
-			getString("_UI_CsTrustedFunction_type") + " " + label;
+			getString("_UI_CsTrustedFunction_type") : //$NON-NLS-1$
+			getString("_UI_CsTrustedFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

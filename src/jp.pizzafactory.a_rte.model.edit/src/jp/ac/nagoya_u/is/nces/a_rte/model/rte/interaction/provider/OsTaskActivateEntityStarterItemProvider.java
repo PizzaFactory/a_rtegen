@@ -59,8 +59,8 @@ public class OsTaskActivateEntityStarterItemProvider extends EntityStarterItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTaskActivateEntityStarter_sourceOsTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskActivateEntityStarter_sourceOsTask_feature", "_UI_OsTaskActivateEntityStarter_type"),
+				 getString("_UI_OsTaskActivateEntityStarter_sourceOsTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskActivateEntityStarter_sourceOsTask_feature", "_UI_OsTaskActivateEntityStarter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class OsTaskActivateEntityStarterItemProvider extends EntityStarterItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskActivateEntityStarter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskActivateEntityStarter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class OsTaskActivateEntityStarterItemProvider extends EntityStarterItemPr
 	public String getText(Object object) {
 		String label = ((OsTaskActivateEntityStarter)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsTaskActivateEntityStarter_type") :
-			getString("_UI_OsTaskActivateEntityStarter_type") + " " + label;
+			getString("_UI_OsTaskActivateEntityStarter_type") : //$NON-NLS-1$
+			getString("_UI_OsTaskActivateEntityStarter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

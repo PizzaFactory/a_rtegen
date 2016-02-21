@@ -241,9 +241,9 @@ public class ComSendSignalTrustedFunctionImpl extends TrustedFunctionImpl implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isGroup: ");
+		result.append(" (isGroup: "); //$NON-NLS-1$
 		result.append(isGroup);
-		result.append(", signalGroupSymbolName: ");
+		result.append(", signalGroupSymbolName: "); //$NON-NLS-1$
 		result.append(signalGroupSymbolName);
 		result.append(')');
 		return result.toString();

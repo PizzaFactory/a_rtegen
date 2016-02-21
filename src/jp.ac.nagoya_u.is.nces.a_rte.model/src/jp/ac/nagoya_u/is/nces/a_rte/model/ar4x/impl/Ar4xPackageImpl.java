@@ -244,7 +244,7 @@ public class Ar4xPackageImpl extends EPackageImpl implements Ar4xPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(ar4xRootEClass, Ar4xRoot.class, "Ar4xRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ar4xRootEClass, Ar4xRoot.class, "Ar4xRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
@@ -261,13 +261,13 @@ public class Ar4xPackageImpl extends EPackageImpl implements Ar4xPackage {
 	 * @generated
 	 */
 	protected void createImportAnnotations() {
-		String source = "http://www.eclipse.org/OCL/Import";		
+		String source = "http://www.eclipse.org/OCL/Import"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "ecore", "http://www.eclipse.org/emf/2002/Ecore#/",
-			 "module", "rte.ecore#//module"
+			 "ecore", "http://www.eclipse.org/emf/2002/Ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+			 "module", "rte.ecore#//module" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

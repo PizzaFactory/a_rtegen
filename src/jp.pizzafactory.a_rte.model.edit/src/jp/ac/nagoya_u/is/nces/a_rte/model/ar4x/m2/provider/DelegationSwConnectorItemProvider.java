@@ -64,8 +64,8 @@ public class DelegationSwConnectorItemProvider extends SwConnectorItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelegationSwConnector_innerPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationSwConnector_innerPort_feature", "_UI_DelegationSwConnector_type"),
+				 getString("_UI_DelegationSwConnector_innerPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationSwConnector_innerPort_feature", "_UI_DelegationSwConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DELEGATION_SW_CONNECTOR__INNER_PORT,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class DelegationSwConnectorItemProvider extends SwConnectorItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelegationSwConnector_outerPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationSwConnector_outerPort_feature", "_UI_DelegationSwConnector_type"),
+				 getString("_UI_DelegationSwConnector_outerPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationSwConnector_outerPort_feature", "_UI_DelegationSwConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DELEGATION_SW_CONNECTOR__OUTER_PORT,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class DelegationSwConnectorItemProvider extends SwConnectorItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DelegationSwConnector"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DelegationSwConnector")); //$NON-NLS-1$
 	}
 
 	/**
@@ -148,8 +148,8 @@ public class DelegationSwConnectorItemProvider extends SwConnectorItemProvider {
 	public String getText(Object object) {
 		String label = ((DelegationSwConnector)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DelegationSwConnector_type") :
-			getString("_UI_DelegationSwConnector_type") + " " + label;
+			getString("_UI_DelegationSwConnector_type") : //$NON-NLS-1$
+			getString("_UI_DelegationSwConnector_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

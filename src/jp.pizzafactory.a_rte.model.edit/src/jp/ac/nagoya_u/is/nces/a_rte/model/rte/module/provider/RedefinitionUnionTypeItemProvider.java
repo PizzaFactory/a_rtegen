@@ -59,8 +59,8 @@ public class RedefinitionUnionTypeItemProvider extends UnionTypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RedefinitionType_sourceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RedefinitionType_sourceType_feature", "_UI_RedefinitionType_type"),
+				 getString("_UI_RedefinitionType_sourceType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RedefinitionType_sourceType_feature", "_UI_RedefinitionType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.REDEFINITION_TYPE__SOURCE_TYPE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RedefinitionUnionTypeItemProvider extends UnionTypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RedefinitionUnionType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RedefinitionUnionType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RedefinitionUnionTypeItemProvider extends UnionTypeItemProvider {
 	public String getText(Object object) {
 		String label = ((RedefinitionUnionType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RedefinitionUnionType_type") :
-			getString("_UI_RedefinitionUnionType_type") + " " + label;
+			getString("_UI_RedefinitionUnionType_type") : //$NON-NLS-1$
+			getString("_UI_RedefinitionUnionType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

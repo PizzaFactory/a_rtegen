@@ -244,9 +244,9 @@ public abstract class MemoryMappingImpl extends ModuleReferrableImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (prefix: ");
+		result.append(" (prefix: "); //$NON-NLS-1$
 		result.append(prefix);
-		result.append(", memorySectionSymbolName: ");
+		result.append(", memorySectionSymbolName: "); //$NON-NLS-1$
 		result.append(memorySectionSymbolName);
 		result.append(')');
 		return result.toString();

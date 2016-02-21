@@ -63,8 +63,8 @@ public class ModeDeclarationGroupItemProvider extends ModuleReferrableItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeDeclarationGroup_implementationDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeDeclarationGroup_implementationDataType_feature", "_UI_ModeDeclarationGroup_type"),
+				 getString("_UI_ModeDeclarationGroup_implementationDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeDeclarationGroup_implementationDataType_feature", "_UI_ModeDeclarationGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_DECLARATION_GROUP__IMPLEMENTATION_DATA_TYPE,
 				 true,
 				 false,
@@ -115,7 +115,7 @@ public class ModeDeclarationGroupItemProvider extends ModuleReferrableItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeDeclarationGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeDeclarationGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class ModeDeclarationGroupItemProvider extends ModuleReferrableItemProvid
 	public String getText(Object object) {
 		String label = ((ModeDeclarationGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModeDeclarationGroup_type") :
-			getString("_UI_ModeDeclarationGroup_type") + " " + label;
+			getString("_UI_ModeDeclarationGroup_type") : //$NON-NLS-1$
+			getString("_UI_ModeDeclarationGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -220,7 +220,7 @@ public class ModeDeclarationGroupItemProvider extends ModuleReferrableItemProvid
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

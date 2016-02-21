@@ -89,7 +89,7 @@ public class InternalConstrsItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalConstrs"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalConstrs")); //$NON-NLS-1$
 	}
 
 	/**
@@ -100,7 +100,7 @@ public class InternalConstrsItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InternalConstrs_type");
+		return getString("_UI_InternalConstrs_type"); //$NON-NLS-1$
 	}
 	
 
@@ -163,7 +163,7 @@ public class InternalConstrsItemProvider extends M2ObjectItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

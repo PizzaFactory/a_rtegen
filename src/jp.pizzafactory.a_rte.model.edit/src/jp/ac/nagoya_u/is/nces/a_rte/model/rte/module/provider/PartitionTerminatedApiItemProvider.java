@@ -88,7 +88,7 @@ public class PartitionTerminatedApiItemProvider extends RteLifecycleApiItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PartitionTerminatedApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PartitionTerminatedApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class PartitionTerminatedApiItemProvider extends RteLifecycleApiItemProvi
 	public String getText(Object object) {
 		String label = ((PartitionTerminatedApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PartitionTerminatedApi_type") :
-			getString("_UI_PartitionTerminatedApi_type") + " " + label;
+			getString("_UI_PartitionTerminatedApi_type") : //$NON-NLS-1$
+			getString("_UI_PartitionTerminatedApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -255,7 +255,7 @@ public class ModeTypeImpl extends TypeImpl implements ModeType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (guardName: ");
+		result.append(" (guardName: "); //$NON-NLS-1$
 		result.append(guardName);
 		result.append(')');
 		return result.toString();

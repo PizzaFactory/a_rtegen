@@ -192,7 +192,7 @@ public class BswInterruptEntityImpl extends BswModuleEntityImpl implements BswIn
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (interruptSource: ");
+		result.append(" (interruptSource: "); //$NON-NLS-1$
 		result.append(interruptSource);
 		result.append(')');
 		return result.toString();

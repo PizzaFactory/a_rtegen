@@ -259,7 +259,7 @@ public class ComGroupSignalImpl extends EcucContainerImpl implements ComGroupSig
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (comHandleId: ");
+		result.append(" (comHandleId: "); //$NON-NLS-1$
 		result.append(comHandleId);
 		result.append(')');
 		return result.toString();

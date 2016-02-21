@@ -433,7 +433,7 @@ public class RteExclusiveAreaImplementationImpl extends EcucContainerImpl implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteExclusiveAreaImplMechanism: ");
+		result.append(" (rteExclusiveAreaImplMechanism: "); //$NON-NLS-1$
 		result.append(rteExclusiveAreaImplMechanism);
 		result.append(')');
 		return result.toString();

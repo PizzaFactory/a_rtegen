@@ -61,8 +61,8 @@ public class RteBufferQueuedSendOperationItemProvider extends SendOperationItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueuedSendOperation_accessVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_accessVariable_feature", "_UI_RteBufferQueuedSendOperation_type"),
+				 getString("_UI_RteBufferQueuedSendOperation_accessVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_accessVariable_feature", "_UI_RteBufferQueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUED_SEND_OPERATION__ACCESS_VARIABLE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class RteBufferQueuedSendOperationItemProvider extends SendOperationItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueuedSendOperation_tempReturnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_tempReturnVariable_feature", "_UI_RteBufferQueuedSendOperation_type"),
+				 getString("_UI_RteBufferQueuedSendOperation_tempReturnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_tempReturnVariable_feature", "_UI_RteBufferQueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class RteBufferQueuedSendOperationItemProvider extends SendOperationItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueuedSendOperation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_type_feature", "_UI_RteBufferQueuedSendOperation_type"),
+				 getString("_UI_RteBufferQueuedSendOperation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueuedSendOperation_type_feature", "_UI_RteBufferQueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class RteBufferQueuedSendOperationItemProvider extends SendOperationItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueuedSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueuedSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class RteBufferQueuedSendOperationItemProvider extends SendOperationItemP
 	public String getText(Object object) {
 		String label = ((RteBufferQueuedSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferQueuedSendOperation_type") :
-			getString("_UI_RteBufferQueuedSendOperation_type") + " " + label;
+			getString("_UI_RteBufferQueuedSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferQueuedSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

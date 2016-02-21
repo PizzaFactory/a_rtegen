@@ -68,8 +68,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_osTaskActivation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskActivation_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_osTaskActivation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskActivation_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OS_TASK_ACTIVATION,
 				 true,
 				 false,
@@ -90,8 +90,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_osTaskPriority_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskPriority_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_osTaskPriority_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskPriority_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OS_TASK_PRIORITY,
 				 true,
 				 false,
@@ -112,8 +112,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_osTaskSchedule_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskSchedule_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_osTaskSchedule_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskSchedule_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OS_TASK_SCHEDULE,
 				 true,
 				 false,
@@ -134,8 +134,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_osTaskAccessingApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskAccessingApplication_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_osTaskAccessingApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskAccessingApplication_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OS_TASK_ACCESSING_APPLICATION,
 				 true,
 				 false,
@@ -156,8 +156,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_osTaskEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskEvent_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_osTaskEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_osTaskEvent_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OS_TASK_EVENT,
 				 true,
 				 false,
@@ -178,8 +178,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_mappedRteEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_mappedRteEvent_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_mappedRteEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_mappedRteEvent_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__MAPPED_RTE_EVENT,
 				 true,
 				 false,
@@ -200,8 +200,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_ownerApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_ownerApplication_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_ownerApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_ownerApplication_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__OWNER_APPLICATION,
 				 true,
 				 false,
@@ -222,8 +222,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTask_mappedRteBswEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_mappedRteBswEvent_feature", "_UI_OsTask_type"),
+				 getString("_UI_OsTask_mappedRteBswEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTask_mappedRteBswEvent_feature", "_UI_OsTask_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_TASK__MAPPED_RTE_BSW_EVENT,
 				 true,
 				 false,
@@ -241,7 +241,7 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTask"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTask")); //$NON-NLS-1$
 	}
 
 	/**
@@ -254,8 +254,8 @@ public class OsTaskItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsTask)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsTask_type") :
-			getString("_UI_OsTask_type") + " " + label;
+			getString("_UI_OsTask_type") : //$NON-NLS-1$
+			getString("_UI_OsTask_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

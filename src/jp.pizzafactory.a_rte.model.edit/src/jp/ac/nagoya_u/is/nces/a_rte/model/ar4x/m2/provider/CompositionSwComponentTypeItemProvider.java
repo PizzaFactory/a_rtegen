@@ -89,7 +89,7 @@ public class CompositionSwComponentTypeItemProvider extends SwComponentTypeItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompositionSwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompositionSwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class CompositionSwComponentTypeItemProvider extends SwComponentTypeItemP
 	public String getText(Object object) {
 		String label = ((CompositionSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompositionSwComponentType_type") :
-			getString("_UI_CompositionSwComponentType_type") + " " + label;
+			getString("_UI_CompositionSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_CompositionSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

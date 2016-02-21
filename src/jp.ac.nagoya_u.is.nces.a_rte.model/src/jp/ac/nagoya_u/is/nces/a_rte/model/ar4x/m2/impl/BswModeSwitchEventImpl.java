@@ -249,7 +249,7 @@ public class BswModeSwitchEventImpl extends BswEventImpl implements BswModeSwitc
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (activation: ");
+		result.append(" (activation: "); //$NON-NLS-1$
 		result.append(activation);
 		result.append(')');
 		return result.toString();

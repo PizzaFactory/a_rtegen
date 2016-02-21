@@ -53,7 +53,7 @@ public class ApplicationPrimitiveDataTypeItemProvider extends ApplicationDataTyp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationPrimitiveDataType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationPrimitiveDataType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ApplicationPrimitiveDataTypeItemProvider extends ApplicationDataTyp
 	public String getText(Object object) {
 		String label = ((ApplicationPrimitiveDataType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ApplicationPrimitiveDataType_type") :
-			getString("_UI_ApplicationPrimitiveDataType_type") + " " + label;
+			getString("_UI_ApplicationPrimitiveDataType_type") : //$NON-NLS-1$
+			getString("_UI_ApplicationPrimitiveDataType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

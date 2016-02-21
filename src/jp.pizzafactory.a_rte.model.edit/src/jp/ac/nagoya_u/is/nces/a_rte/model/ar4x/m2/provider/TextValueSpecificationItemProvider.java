@@ -61,8 +61,8 @@ public class TextValueSpecificationItemProvider extends ValueSpecificationItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TextValueSpecification_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextValueSpecification_value_feature", "_UI_TextValueSpecification_type"),
+				 getString("_UI_TextValueSpecification_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TextValueSpecification_value_feature", "_UI_TextValueSpecification_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.TEXT_VALUE_SPECIFICATION__VALUE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class TextValueSpecificationItemProvider extends ValueSpecificationItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextValueSpecification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextValueSpecification")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class TextValueSpecificationItemProvider extends ValueSpecificationItemPr
 	public String getText(Object object) {
 		String label = ((TextValueSpecification)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TextValueSpecification_type") :
-			getString("_UI_TextValueSpecification_type") + " " + label;
+			getString("_UI_TextValueSpecification_type") : //$NON-NLS-1$
+			getString("_UI_TextValueSpecification_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

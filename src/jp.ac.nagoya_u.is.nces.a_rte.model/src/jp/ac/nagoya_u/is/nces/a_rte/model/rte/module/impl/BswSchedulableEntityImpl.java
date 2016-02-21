@@ -117,7 +117,7 @@ public class BswSchedulableEntityImpl extends ExecutableEntityImpl implements Bs
 	public void setParentPartedBswm(PartedBswm newParentPartedBswm) {
 		if (newParentPartedBswm != eInternalContainer() || (eContainerFeatureID() != ModulePackage.BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM && newParentPartedBswm != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParentPartedBswm))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

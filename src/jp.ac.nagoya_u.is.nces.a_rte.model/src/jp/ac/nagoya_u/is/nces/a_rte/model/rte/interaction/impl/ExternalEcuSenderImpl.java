@@ -420,11 +420,11 @@ public class ExternalEcuSenderImpl extends SenderImpl implements ExternalEcuSend
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (requiresRteFilter: ");
+		result.append(" (requiresRteFilter: "); //$NON-NLS-1$
 		result.append(requiresRteFilter);
-		result.append(", requiresRteInvalidation: ");
+		result.append(", requiresRteInvalidation: "); //$NON-NLS-1$
 		result.append(requiresRteInvalidation);
-		result.append(", requiresRteInitialization: ");
+		result.append(", requiresRteInitialization: "); //$NON-NLS-1$
 		result.append(requiresRteInitialization);
 		result.append(')');
 		return result.toString();

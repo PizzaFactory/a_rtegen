@@ -55,8 +55,8 @@ public class OperationItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((Operation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Operation_type") :
-			getString("_UI_Operation_type") + " " + label;
+			getString("_UI_Operation_type") : //$NON-NLS-1$
+			getString("_UI_Operation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

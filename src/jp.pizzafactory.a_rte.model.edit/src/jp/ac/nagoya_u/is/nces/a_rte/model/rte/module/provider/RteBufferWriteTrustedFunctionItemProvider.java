@@ -63,8 +63,8 @@ public class RteBufferWriteTrustedFunctionItemProvider extends TrustedFunctionIt
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferWriteTrustedFunction_dataVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferWriteTrustedFunction_dataVariable_feature", "_UI_RteBufferWriteTrustedFunction_type"),
+				 getString("_UI_RteBufferWriteTrustedFunction_dataVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferWriteTrustedFunction_dataVariable_feature", "_UI_RteBufferWriteTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class RteBufferWriteTrustedFunctionItemProvider extends TrustedFunctionIt
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferWriteTrustedFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferWriteTrustedFunction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class RteBufferWriteTrustedFunctionItemProvider extends TrustedFunctionIt
 	public String getText(Object object) {
 		String label = ((RteBufferWriteTrustedFunction)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferWriteTrustedFunction_type") :
-			getString("_UI_RteBufferWriteTrustedFunction_type") + " " + label;
+			getString("_UI_RteBufferWriteTrustedFunction_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferWriteTrustedFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

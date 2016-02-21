@@ -61,8 +61,8 @@ public class RteBswGeneralItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswGeneral_rteUseComShadowSignalApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswGeneral_rteUseComShadowSignalApi_feature", "_UI_RteBswGeneral_type"),
+				 getString("_UI_RteBswGeneral_rteUseComShadowSignalApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswGeneral_rteUseComShadowSignalApi_feature", "_UI_RteBswGeneral_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_GENERAL__RTE_USE_COM_SHADOW_SIGNAL_API,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class RteBswGeneralItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswGeneral"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswGeneral")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class RteBswGeneralItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((RteBswGeneral)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBswGeneral_type") :
-			getString("_UI_RteBswGeneral_type") + " " + label;
+			getString("_UI_RteBswGeneral_type") : //$NON-NLS-1$
+			getString("_UI_RteBswGeneral_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

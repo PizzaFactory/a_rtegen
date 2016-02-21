@@ -59,8 +59,8 @@ public class OsAlarmItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsAlarm_expectedConfig_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsAlarm_expectedConfig_feature", "_UI_OsAlarm_type"),
+				 getString("_UI_OsAlarm_expectedConfig_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsAlarm_expectedConfig_feature", "_UI_OsAlarm_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_ALARM__EXPECTED_CONFIG,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class OsAlarmItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsAlarm"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsAlarm")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class OsAlarmItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsAlarm)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsAlarm_type") :
-			getString("_UI_OsAlarm_type") + " " + label;
+			getString("_UI_OsAlarm_type") : //$NON-NLS-1$
+			getString("_UI_OsAlarm_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

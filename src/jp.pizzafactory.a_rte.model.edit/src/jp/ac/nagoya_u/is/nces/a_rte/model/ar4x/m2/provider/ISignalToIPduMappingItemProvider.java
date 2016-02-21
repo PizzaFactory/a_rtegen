@@ -60,8 +60,8 @@ public class ISignalToIPduMappingItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ISignalToIPduMapping_iSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalToIPduMapping_iSignal_feature", "_UI_ISignalToIPduMapping_type"),
+				 getString("_UI_ISignalToIPduMapping_iSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalToIPduMapping_iSignal_feature", "_UI_ISignalToIPduMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class ISignalToIPduMappingItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ISignalToIPduMapping_iSignalGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalToIPduMapping_iSignalGroup_feature", "_UI_ISignalToIPduMapping_type"),
+				 getString("_UI_ISignalToIPduMapping_iSignalGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalToIPduMapping_iSignalGroup_feature", "_UI_ISignalToIPduMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ISIGNAL_TO_IPDU_MAPPING__ISIGNAL_GROUP,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class ISignalToIPduMappingItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignalToIPduMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignalToIPduMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class ISignalToIPduMappingItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((ISignalToIPduMapping)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ISignalToIPduMapping_type") :
-			getString("_UI_ISignalToIPduMapping_type") + " " + label;
+			getString("_UI_ISignalToIPduMapping_type") : //$NON-NLS-1$
+			getString("_UI_ISignalToIPduMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

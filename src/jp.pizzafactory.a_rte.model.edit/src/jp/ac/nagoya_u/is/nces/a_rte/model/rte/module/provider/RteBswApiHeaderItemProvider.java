@@ -59,8 +59,8 @@ public class RteBswApiHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswApiHeader_iocApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswApiHeader_iocApi_feature", "_UI_RteBswApiHeader_type"),
+				 getString("_UI_RteBswApiHeader_iocApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswApiHeader_iocApi_feature", "_UI_RteBswApiHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BSW_API_HEADER__IOC_API,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RteBswApiHeaderItemProvider extends HeaderFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswApiHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswApiHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteBswApiHeaderItemProvider extends HeaderFileItemProvider {
 	public String getText(Object object) {
 		String label = ((RteBswApiHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBswApiHeader_type") :
-			getString("_UI_RteBswApiHeader_type") + " " + label;
+			getString("_UI_RteBswApiHeader_type") : //$NON-NLS-1$
+			getString("_UI_RteBswApiHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

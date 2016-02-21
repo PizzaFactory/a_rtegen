@@ -371,7 +371,7 @@ public abstract class ProxyComSendOperationImpl extends ComSendOperationImpl imp
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (proxyFunctionIndexConstantName: ");
+		result.append(" (proxyFunctionIndexConstantName: "); //$NON-NLS-1$
 		result.append(proxyFunctionIndexConstantName);
 		result.append(')');
 		return result.toString();

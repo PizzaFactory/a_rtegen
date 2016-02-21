@@ -62,8 +62,8 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratedEcuConfiguration_generatedOsTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsTask_feature", "_UI_GeneratedEcuConfiguration_type"),
+				 getString("_UI_GeneratedEcuConfiguration_generatedOsTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsTask_feature", "_UI_GeneratedEcuConfiguration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.GENERATED_ECU_CONFIGURATION__GENERATED_OS_TASK,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratedEcuConfiguration_generatedOsEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsEvent_feature", "_UI_GeneratedEcuConfiguration_type"),
+				 getString("_UI_GeneratedEcuConfiguration_generatedOsEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsEvent_feature", "_UI_GeneratedEcuConfiguration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.GENERATED_ECU_CONFIGURATION__GENERATED_OS_EVENT,
 				 true,
 				 false,
@@ -106,8 +106,8 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratedEcuConfiguration_generatedOsSpinlock_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsSpinlock_feature", "_UI_GeneratedEcuConfiguration_type"),
+				 getString("_UI_GeneratedEcuConfiguration_generatedOsSpinlock_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsSpinlock_feature", "_UI_GeneratedEcuConfiguration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.GENERATED_ECU_CONFIGURATION__GENERATED_OS_SPINLOCK,
 				 true,
 				 false,
@@ -128,8 +128,8 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratedEcuConfiguration_generatedOsIocCommunication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsIocCommunication_feature", "_UI_GeneratedEcuConfiguration_type"),
+				 getString("_UI_GeneratedEcuConfiguration_generatedOsIocCommunication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsIocCommunication_feature", "_UI_GeneratedEcuConfiguration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.GENERATED_ECU_CONFIGURATION__GENERATED_OS_IOC_COMMUNICATION,
 				 true,
 				 false,
@@ -150,8 +150,8 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GeneratedEcuConfiguration_generatedOsTrustedFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsTrustedFunction_feature", "_UI_GeneratedEcuConfiguration_type"),
+				 getString("_UI_GeneratedEcuConfiguration_generatedOsTrustedFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GeneratedEcuConfiguration_generatedOsTrustedFunction_feature", "_UI_GeneratedEcuConfiguration_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.GENERATED_ECU_CONFIGURATION__GENERATED_OS_TRUSTED_FUNCTION,
 				 true,
 				 false,
@@ -169,7 +169,7 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratedEcuConfiguration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GeneratedEcuConfiguration")); //$NON-NLS-1$
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class GeneratedEcuConfigurationItemProvider extends InteractionObjectItem
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_GeneratedEcuConfiguration_type");
+		return getString("_UI_GeneratedEcuConfiguration_type"); //$NON-NLS-1$
 	}
 	
 

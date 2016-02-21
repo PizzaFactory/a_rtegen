@@ -88,7 +88,7 @@ public class ArrayValueSpecificationItemProvider extends ValueSpecificationItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrayValueSpecification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrayValueSpecification")); //$NON-NLS-1$
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class ArrayValueSpecificationItemProvider extends ValueSpecificationItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ArrayValueSpecification_type");
+		return getString("_UI_ArrayValueSpecification_type"); //$NON-NLS-1$
 	}
 	
 

@@ -69,8 +69,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_symbolName_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_symbolName_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__SYMBOL_NAME,
 				 true,
 				 false,
@@ -91,8 +91,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_externalSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_externalSymbolName_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_externalSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_externalSymbolName_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__EXTERNAL_SYMBOL_NAME,
 				 true,
 				 false,
@@ -113,8 +113,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_type_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_type_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__TYPE,
 				 true,
 				 false,
@@ -135,8 +135,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_value_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_value_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__VALUE,
 				 true,
 				 false,
@@ -157,8 +157,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_constantValueType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_constantValueType_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_constantValueType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_constantValueType_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__CONSTANT_VALUE_TYPE,
 				 true,
 				 false,
@@ -179,8 +179,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Constant_representedVariableName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_representedVariableName_feature", "_UI_Constant_type"),
+				 getString("_UI_Constant_representedVariableName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Constant_representedVariableName_feature", "_UI_Constant_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CONSTANT__REPRESENTED_VARIABLE_NAME,
 				 true,
 				 false,
@@ -228,7 +228,7 @@ public class ConstantItemProvider extends ValueItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constant"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Constant")); //$NON-NLS-1$
 	}
 
 	/**
@@ -241,8 +241,8 @@ public class ConstantItemProvider extends ValueItemProvider {
 	public String getText(Object object) {
 		String label = ((Constant)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Constant_type") :
-			getString("_UI_Constant_type") + " " + label;
+			getString("_UI_Constant_type") : //$NON-NLS-1$
+			getString("_UI_Constant_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

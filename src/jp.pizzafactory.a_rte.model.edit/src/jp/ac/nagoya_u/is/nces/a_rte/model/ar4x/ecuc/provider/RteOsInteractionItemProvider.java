@@ -88,7 +88,7 @@ public class RteOsInteractionItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteOsInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteOsInteraction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class RteOsInteractionItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((RteOsInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteOsInteraction_type") :
-			getString("_UI_RteOsInteraction_type") + " " + label;
+			getString("_UI_RteOsInteraction_type") : //$NON-NLS-1$
+			getString("_UI_RteOsInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

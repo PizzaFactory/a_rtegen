@@ -89,7 +89,7 @@ public class ComConfigItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComConfig"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComConfig")); //$NON-NLS-1$
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ComConfigItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((ComConfig)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComConfig_type") :
-			getString("_UI_ComConfig_type") + " " + label;
+			getString("_UI_ComConfig_type") : //$NON-NLS-1$
+			getString("_UI_ComConfig_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

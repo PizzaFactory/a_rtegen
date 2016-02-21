@@ -59,8 +59,8 @@ public class SwcBswRunnableMappingItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwcBswRunnableMapping_swcRunnable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswRunnableMapping_swcRunnable_feature", "_UI_SwcBswRunnableMapping_type"),
+				 getString("_UI_SwcBswRunnableMapping_swcRunnable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswRunnableMapping_swcRunnable_feature", "_UI_SwcBswRunnableMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SWC_BSW_RUNNABLE_MAPPING__SWC_RUNNABLE,
 				 true,
 				 false,
@@ -81,8 +81,8 @@ public class SwcBswRunnableMappingItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwcBswRunnableMapping_bswEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswRunnableMapping_bswEntity_feature", "_UI_SwcBswRunnableMapping_type"),
+				 getString("_UI_SwcBswRunnableMapping_bswEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswRunnableMapping_bswEntity_feature", "_UI_SwcBswRunnableMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SWC_BSW_RUNNABLE_MAPPING__BSW_ENTITY,
 				 true,
 				 false,
@@ -100,7 +100,7 @@ public class SwcBswRunnableMappingItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcBswRunnableMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcBswRunnableMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class SwcBswRunnableMappingItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SwcBswRunnableMapping_type");
+		return getString("_UI_SwcBswRunnableMapping_type"); //$NON-NLS-1$
 	}
 	
 

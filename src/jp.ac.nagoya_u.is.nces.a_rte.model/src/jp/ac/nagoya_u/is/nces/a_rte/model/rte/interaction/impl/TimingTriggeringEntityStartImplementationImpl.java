@@ -335,9 +335,9 @@ public class TimingTriggeringEntityStartImplementationImpl extends EntityStartIm
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (cyclePeriod: ");
+		result.append(" (cyclePeriod: "); //$NON-NLS-1$
 		result.append(cyclePeriod);
-		result.append(", startOffset: ");
+		result.append(", startOffset: "); //$NON-NLS-1$
 		result.append(startOffset);
 		result.append(')');
 		return result.toString();

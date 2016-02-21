@@ -53,7 +53,7 @@ public class SchmCoreInitApiImplItemProvider extends SchmInitApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmCoreInitApiImpl"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmCoreInitApiImpl")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SchmCoreInitApiImplItemProvider extends SchmInitApiItemProvider {
 	public String getText(Object object) {
 		String label = ((SchmCoreInitApiImpl)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SchmCoreInitApiImpl_type") :
-			getString("_UI_SchmCoreInitApiImpl_type") + " " + label;
+			getString("_UI_SchmCoreInitApiImpl_type") : //$NON-NLS-1$
+			getString("_UI_SchmCoreInitApiImpl_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

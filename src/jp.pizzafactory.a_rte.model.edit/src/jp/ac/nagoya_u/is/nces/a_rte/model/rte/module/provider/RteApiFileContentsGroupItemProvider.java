@@ -59,8 +59,8 @@ public class RteApiFileContentsGroupItemProvider extends FunctionFileContentsGro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApiFileContentsGroup_rteApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApiFileContentsGroup_rteApi_feature", "_UI_RteApiFileContentsGroup_type"),
+				 getString("_UI_RteApiFileContentsGroup_rteApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApiFileContentsGroup_rteApi_feature", "_UI_RteApiFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API_FILE_CONTENTS_GROUP__RTE_API,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class RteApiFileContentsGroupItemProvider extends FunctionFileContentsGro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApiFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApiFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteApiFileContentsGroupItemProvider extends FunctionFileContentsGro
 	public String getText(Object object) {
 		String label = ((RteApiFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteApiFileContentsGroup_type") :
-			getString("_UI_RteApiFileContentsGroup_type") + " " + label;
+			getString("_UI_RteApiFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_RteApiFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

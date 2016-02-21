@@ -63,8 +63,8 @@ public class InvalidationPolicyItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InvalidationPolicy_dataElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidationPolicy_dataElement_feature", "_UI_InvalidationPolicy_type"),
+				 getString("_UI_InvalidationPolicy_dataElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidationPolicy_dataElement_feature", "_UI_InvalidationPolicy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INVALIDATION_POLICY__DATA_ELEMENT,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class InvalidationPolicyItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InvalidationPolicy_handleInvalid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidationPolicy_handleInvalid_feature", "_UI_InvalidationPolicy_type"),
+				 getString("_UI_InvalidationPolicy_handleInvalid_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidationPolicy_handleInvalid_feature", "_UI_InvalidationPolicy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INVALIDATION_POLICY__HANDLE_INVALID,
 				 true,
 				 false,
@@ -104,7 +104,7 @@ public class InvalidationPolicyItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InvalidationPolicy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InvalidationPolicy")); //$NON-NLS-1$
 	}
 
 	/**
@@ -118,8 +118,8 @@ public class InvalidationPolicyItemProvider extends M2ObjectItemProvider {
 		HandleInvalidEnum labelValue = ((InvalidationPolicy)object).getHandleInvalid();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InvalidationPolicy_type") :
-			getString("_UI_InvalidationPolicy_type") + " " + label;
+			getString("_UI_InvalidationPolicy_type") : //$NON-NLS-1$
+			getString("_UI_InvalidationPolicy_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

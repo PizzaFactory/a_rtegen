@@ -60,8 +60,8 @@ public class DisabledInModeItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DisabledInMode_disabledMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DisabledInMode_disabledMode_feature", "_UI_DisabledInMode_type"),
+				 getString("_UI_DisabledInMode_disabledMode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisabledInMode_disabledMode_feature", "_UI_DisabledInMode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.DISABLED_IN_MODE__DISABLED_MODE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class DisabledInModeItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DisabledInMode_modeMachineInstance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DisabledInMode_modeMachineInstance_feature", "_UI_DisabledInMode_type"),
+				 getString("_UI_DisabledInMode_modeMachineInstance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DisabledInMode_modeMachineInstance_feature", "_UI_DisabledInMode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.DISABLED_IN_MODE__MODE_MACHINE_INSTANCE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class DisabledInModeItemProvider extends OperationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DisabledInMode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DisabledInMode")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class DisabledInModeItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((DisabledInMode)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DisabledInMode_type") :
-			getString("_UI_DisabledInMode_type") + " " + label;
+			getString("_UI_DisabledInMode_type") : //$NON-NLS-1$
+			getString("_UI_DisabledInMode_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

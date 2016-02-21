@@ -61,8 +61,8 @@ public class ComSendTrustedFunctionParamTypeItemProvider extends TypeItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendTrustedFunctionParamType_isGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendTrustedFunctionParamType_isGroup_feature", "_UI_ComSendTrustedFunctionParamType_type"),
+				 getString("_UI_ComSendTrustedFunctionParamType_isGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendTrustedFunctionParamType_isGroup_feature", "_UI_ComSendTrustedFunctionParamType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_GROUP,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class ComSendTrustedFunctionParamTypeItemProvider extends TypeItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendTrustedFunctionParamType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendTrustedFunctionParamType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class ComSendTrustedFunctionParamTypeItemProvider extends TypeItemProvide
 	public String getText(Object object) {
 		String label = ((ComSendTrustedFunctionParamType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendTrustedFunctionParamType_type") :
-			getString("_UI_ComSendTrustedFunctionParamType_type") + " " + label;
+			getString("_UI_ComSendTrustedFunctionParamType_type") : //$NON-NLS-1$
+			getString("_UI_ComSendTrustedFunctionParamType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

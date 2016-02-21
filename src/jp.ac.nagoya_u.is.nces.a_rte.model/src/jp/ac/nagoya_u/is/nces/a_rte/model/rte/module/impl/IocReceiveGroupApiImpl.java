@@ -191,7 +191,7 @@ public class IocReceiveGroupApiImpl extends IocReceiveApiImpl implements IocRece
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (comSendSignalSymbolName: ");
+		result.append(" (comSendSignalSymbolName: "); //$NON-NLS-1$
 		result.append(comSendSignalSymbolName);
 		result.append(')');
 		return result.toString();

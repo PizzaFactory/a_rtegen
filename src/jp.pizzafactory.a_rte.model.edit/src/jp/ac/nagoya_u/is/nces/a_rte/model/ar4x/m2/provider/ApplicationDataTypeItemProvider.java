@@ -55,8 +55,8 @@ public class ApplicationDataTypeItemProvider extends AutosarDataTypeItemProvider
 	public String getText(Object object) {
 		String label = ((ApplicationDataType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ApplicationDataType_type") :
-			getString("_UI_ApplicationDataType_type") + " " + label;
+			getString("_UI_ApplicationDataType_type") : //$NON-NLS-1$
+			getString("_UI_ApplicationDataType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

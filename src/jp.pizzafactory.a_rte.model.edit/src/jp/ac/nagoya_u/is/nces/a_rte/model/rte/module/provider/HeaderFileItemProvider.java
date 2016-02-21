@@ -62,8 +62,8 @@ public class HeaderFileItemProvider extends FileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HeaderFile_guardName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderFile_guardName_feature", "_UI_HeaderFile_type"),
+				 getString("_UI_HeaderFile_guardName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderFile_guardName_feature", "_UI_HeaderFile_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.HEADER_FILE__GUARD_NAME,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class HeaderFileItemProvider extends FileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_HeaderFile_includeHeader_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderFile_includeHeader_feature", "_UI_HeaderFile_type"),
+				 getString("_UI_HeaderFile_includeHeader_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderFile_includeHeader_feature", "_UI_HeaderFile_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.HEADER_FILE__INCLUDE_HEADER,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class HeaderFileItemProvider extends FileItemProvider {
 	public String getText(Object object) {
 		String label = ((HeaderFile)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_HeaderFile_type") :
-			getString("_UI_HeaderFile_type") + " " + label;
+			getString("_UI_HeaderFile_type") : //$NON-NLS-1$
+			getString("_UI_HeaderFile_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

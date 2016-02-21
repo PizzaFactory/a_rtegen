@@ -63,8 +63,8 @@ public class ExecutableStartOperationItemProvider extends OperationItemProvider 
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutableStartOperation_startExecutable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableStartOperation_startExecutable_feature", "_UI_ExecutableStartOperation_type"),
+				 getString("_UI_ExecutableStartOperation_startExecutable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableStartOperation_startExecutable_feature", "_UI_ExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.EXECUTABLE_START_OPERATION__START_EXECUTABLE,
 				 true,
 				 false,
@@ -115,8 +115,8 @@ public class ExecutableStartOperationItemProvider extends OperationItemProvider 
 	public String getText(Object object) {
 		String label = ((ExecutableStartOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExecutableStartOperation_type") :
-			getString("_UI_ExecutableStartOperation_type") + " " + label;
+			getString("_UI_ExecutableStartOperation_type") : //$NON-NLS-1$
+			getString("_UI_ExecutableStartOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

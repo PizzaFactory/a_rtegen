@@ -64,8 +64,8 @@ public class SenderRecArrayElementMappingItemProvider extends M2ObjectItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderRecArrayElementMapping_complexTypeMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayElementMapping_complexTypeMapping_feature", "_UI_SenderRecArrayElementMapping_type"),
+				 getString("_UI_SenderRecArrayElementMapping_complexTypeMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayElementMapping_complexTypeMapping_feature", "_UI_SenderRecArrayElementMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_REC_ARRAY_ELEMENT_MAPPING__COMPLEX_TYPE_MAPPING,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class SenderRecArrayElementMappingItemProvider extends M2ObjectItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderRecArrayElementMapping_systemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayElementMapping_systemSignal_feature", "_UI_SenderRecArrayElementMapping_type"),
+				 getString("_UI_SenderRecArrayElementMapping_systemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayElementMapping_systemSignal_feature", "_UI_SenderRecArrayElementMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_REC_ARRAY_ELEMENT_MAPPING__SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class SenderRecArrayElementMappingItemProvider extends M2ObjectItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecArrayElementMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecArrayElementMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class SenderRecArrayElementMappingItemProvider extends M2ObjectItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderRecArrayElementMapping_type");
+		return getString("_UI_SenderRecArrayElementMapping_type"); //$NON-NLS-1$
 	}
 	
 

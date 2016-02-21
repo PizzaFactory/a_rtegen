@@ -53,7 +53,7 @@ public class VariableMemberItemProvider extends VariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableMember"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableMember")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class VariableMemberItemProvider extends VariableItemProvider {
 	public String getText(Object object) {
 		String label = ((VariableMember)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableMember_type") :
-			getString("_UI_VariableMember_type") + " " + label;
+			getString("_UI_VariableMember_type") : //$NON-NLS-1$
+			getString("_UI_VariableMember_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

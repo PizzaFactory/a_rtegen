@@ -68,7 +68,7 @@ public class AlignmentTypeExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AlignmentTypeEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AlignmentTypeEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class AlignmentTypeExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AlignmentTypeEx_type");
+		return getString("_UI_AlignmentTypeEx_type"); //$NON-NLS-1$
 	}
 	
 

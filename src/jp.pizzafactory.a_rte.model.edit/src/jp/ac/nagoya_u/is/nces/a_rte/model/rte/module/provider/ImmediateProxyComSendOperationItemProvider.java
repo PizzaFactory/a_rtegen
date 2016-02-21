@@ -59,8 +59,8 @@ public class ImmediateProxyComSendOperationItemProvider extends ProxyComSendOper
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImmediateProxyComSendOperation_activationApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImmediateProxyComSendOperation_activationApi_feature", "_UI_ImmediateProxyComSendOperation_type"),
+				 getString("_UI_ImmediateProxyComSendOperation_activationApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImmediateProxyComSendOperation_activationApi_feature", "_UI_ImmediateProxyComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IMMEDIATE_PROXY_COM_SEND_OPERATION__ACTIVATION_API,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class ImmediateProxyComSendOperationItemProvider extends ProxyComSendOper
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImmediateProxyComSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImmediateProxyComSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ImmediateProxyComSendOperationItemProvider extends ProxyComSendOper
 	public String getText(Object object) {
 		String label = ((ImmediateProxyComSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ImmediateProxyComSendOperation_type") :
-			getString("_UI_ImmediateProxyComSendOperation_type") + " " + label;
+			getString("_UI_ImmediateProxyComSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_ImmediateProxyComSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

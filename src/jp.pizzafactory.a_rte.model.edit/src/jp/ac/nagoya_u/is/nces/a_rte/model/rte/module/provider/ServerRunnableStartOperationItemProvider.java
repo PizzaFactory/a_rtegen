@@ -59,8 +59,8 @@ public class ServerRunnableStartOperationItemProvider extends ExecutableStartOpe
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ServerRunnableStartOperation_startServerRunnable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServerRunnableStartOperation_startServerRunnable_feature", "_UI_ServerRunnableStartOperation_type"),
+				 getString("_UI_ServerRunnableStartOperation_startServerRunnable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServerRunnableStartOperation_startServerRunnable_feature", "_UI_ServerRunnableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SERVER_RUNNABLE_START_OPERATION__START_SERVER_RUNNABLE,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class ServerRunnableStartOperationItemProvider extends ExecutableStartOpe
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServerRunnableStartOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServerRunnableStartOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ServerRunnableStartOperationItemProvider extends ExecutableStartOpe
 	public String getText(Object object) {
 		String label = ((ServerRunnableStartOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ServerRunnableStartOperation_type") :
-			getString("_UI_ServerRunnableStartOperation_type") + " " + label;
+			getString("_UI_ServerRunnableStartOperation_type") : //$NON-NLS-1$
+			getString("_UI_ServerRunnableStartOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

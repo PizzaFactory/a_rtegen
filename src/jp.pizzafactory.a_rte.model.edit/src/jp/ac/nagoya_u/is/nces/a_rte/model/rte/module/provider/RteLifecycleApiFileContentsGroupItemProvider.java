@@ -59,8 +59,8 @@ public class RteLifecycleApiFileContentsGroupItemProvider extends FunctionFileCo
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteLifecycleApiFileContentsGroup_rteLifecycleApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteLifecycleApiFileContentsGroup_rteLifecycleApi_feature", "_UI_RteLifecycleApiFileContentsGroup_type"),
+				 getString("_UI_RteLifecycleApiFileContentsGroup_rteLifecycleApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteLifecycleApiFileContentsGroup_rteLifecycleApi_feature", "_UI_RteLifecycleApiFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP__RTE_LIFECYCLE_API,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class RteLifecycleApiFileContentsGroupItemProvider extends FunctionFileCo
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteLifecycleApiFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteLifecycleApiFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteLifecycleApiFileContentsGroupItemProvider extends FunctionFileCo
 	public String getText(Object object) {
 		String label = ((RteLifecycleApiFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteLifecycleApiFileContentsGroup_type") :
-			getString("_UI_RteLifecycleApiFileContentsGroup_type") + " " + label;
+			getString("_UI_RteLifecycleApiFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_RteLifecycleApiFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

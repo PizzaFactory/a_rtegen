@@ -107,7 +107,7 @@ public class InteractionRootItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionRoot"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionRoot")); //$NON-NLS-1$
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class InteractionRootItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InteractionRoot_type");
+		return getString("_UI_InteractionRoot_type"); //$NON-NLS-1$
 	}
 	
 

@@ -63,8 +63,8 @@ public class AnyInstanceRefItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class AnyInstanceRefItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AnyInstanceRef_contextElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnyInstanceRef_contextElement_feature", "_UI_AnyInstanceRef_type"),
+				 getString("_UI_AnyInstanceRef_contextElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnyInstanceRef_contextElement_feature", "_UI_AnyInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ANY_INSTANCE_REF__CONTEXT_ELEMENT,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class AnyInstanceRefItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AnyInstanceRef_target_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AnyInstanceRef_target_feature", "_UI_AnyInstanceRef_type"),
+				 getString("_UI_AnyInstanceRef_target_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AnyInstanceRef_target_feature", "_UI_AnyInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ANY_INSTANCE_REF__TARGET,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class AnyInstanceRefItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnyInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AnyInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class AnyInstanceRefItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AnyInstanceRef_type");
+		return getString("_UI_AnyInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

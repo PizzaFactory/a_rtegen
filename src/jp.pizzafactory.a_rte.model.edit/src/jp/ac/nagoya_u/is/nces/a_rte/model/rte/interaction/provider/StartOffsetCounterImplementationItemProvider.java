@@ -61,8 +61,8 @@ public class StartOffsetCounterImplementationItemProvider extends VariableImplem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_StartOffsetCounterImplementation_maxCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_StartOffsetCounterImplementation_maxCount_feature", "_UI_StartOffsetCounterImplementation_type"),
+				 getString("_UI_StartOffsetCounterImplementation_maxCount_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_StartOffsetCounterImplementation_maxCount_feature", "_UI_StartOffsetCounterImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.START_OFFSET_COUNTER_IMPLEMENTATION__MAX_COUNT,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class StartOffsetCounterImplementationItemProvider extends VariableImplem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StartOffsetCounterImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StartOffsetCounterImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class StartOffsetCounterImplementationItemProvider extends VariableImplem
 	public String getText(Object object) {
 		String label = ((StartOffsetCounterImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_StartOffsetCounterImplementation_type") :
-			getString("_UI_StartOffsetCounterImplementation_type") + " " + label;
+			getString("_UI_StartOffsetCounterImplementation_type") : //$NON-NLS-1$
+			getString("_UI_StartOffsetCounterImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

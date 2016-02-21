@@ -62,8 +62,8 @@ public class ComSendSignalTrustedFunctionItemProvider extends TrustedFunctionIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendSignalTrustedFunction_isGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalTrustedFunction_isGroup_feature", "_UI_ComSendSignalTrustedFunction_type"),
+				 getString("_UI_ComSendSignalTrustedFunction_isGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalTrustedFunction_isGroup_feature", "_UI_ComSendSignalTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_SIGNAL_TRUSTED_FUNCTION__IS_GROUP,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class ComSendSignalTrustedFunctionItemProvider extends TrustedFunctionIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendSignalTrustedFunction_signalGroupSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalTrustedFunction_signalGroupSymbolName_feature", "_UI_ComSendSignalTrustedFunction_type"),
+				 getString("_UI_ComSendSignalTrustedFunction_signalGroupSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalTrustedFunction_signalGroupSymbolName_feature", "_UI_ComSendSignalTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_SIGNAL_TRUSTED_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class ComSendSignalTrustedFunctionItemProvider extends TrustedFunctionIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalTrustedFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalTrustedFunction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class ComSendSignalTrustedFunctionItemProvider extends TrustedFunctionIte
 	public String getText(Object object) {
 		String label = ((ComSendSignalTrustedFunction)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendSignalTrustedFunction_type") :
-			getString("_UI_ComSendSignalTrustedFunction_type") + " " + label;
+			getString("_UI_ComSendSignalTrustedFunction_type") : //$NON-NLS-1$
+			getString("_UI_ComSendSignalTrustedFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

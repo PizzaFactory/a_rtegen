@@ -192,7 +192,7 @@ public abstract class EcucAbstractReferenceValueImpl extends M2ObjectImpl implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (definitionRef: ");
+		result.append(" (definitionRef: "); //$NON-NLS-1$
 		result.append(definitionRef);
 		result.append(')');
 		return result.toString();

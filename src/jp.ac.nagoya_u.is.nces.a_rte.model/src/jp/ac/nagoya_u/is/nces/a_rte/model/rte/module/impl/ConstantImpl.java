@@ -534,15 +534,15 @@ public class ConstantImpl extends ValueImpl implements Constant {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
-		result.append(", externalSymbolName: ");
+		result.append(", externalSymbolName: "); //$NON-NLS-1$
 		result.append(externalSymbolName);
-		result.append(", value: ");
+		result.append(", value: "); //$NON-NLS-1$
 		result.append(value);
-		result.append(", constantValueType: ");
+		result.append(", constantValueType: "); //$NON-NLS-1$
 		result.append(constantValueType);
-		result.append(", representedVariableName: ");
+		result.append(", representedVariableName: "); //$NON-NLS-1$
 		result.append(representedVariableName);
 		result.append(')');
 		return result.toString();

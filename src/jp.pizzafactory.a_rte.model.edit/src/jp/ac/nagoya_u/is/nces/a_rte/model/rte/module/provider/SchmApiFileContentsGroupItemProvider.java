@@ -59,8 +59,8 @@ public class SchmApiFileContentsGroupItemProvider extends FunctionFileContentsGr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchmApiFileContentsGroup_schmApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApiFileContentsGroup_schmApi_feature", "_UI_SchmApiFileContentsGroup_type"),
+				 getString("_UI_SchmApiFileContentsGroup_schmApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApiFileContentsGroup_schmApi_feature", "_UI_SchmApiFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SCHM_API_FILE_CONTENTS_GROUP__SCHM_API,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class SchmApiFileContentsGroupItemProvider extends FunctionFileContentsGr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmApiFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmApiFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class SchmApiFileContentsGroupItemProvider extends FunctionFileContentsGr
 	public String getText(Object object) {
 		String label = ((SchmApiFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SchmApiFileContentsGroup_type") :
-			getString("_UI_SchmApiFileContentsGroup_type") + " " + label;
+			getString("_UI_SchmApiFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_SchmApiFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

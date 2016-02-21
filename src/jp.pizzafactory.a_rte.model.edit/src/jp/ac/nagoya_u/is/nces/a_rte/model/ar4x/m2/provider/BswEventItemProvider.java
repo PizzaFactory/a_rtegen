@@ -64,8 +64,8 @@ public class BswEventItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswEvent_startsOnEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswEvent_startsOnEvent_feature", "_UI_BswEvent_type"),
+				 getString("_UI_BswEvent_startsOnEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswEvent_startsOnEvent_feature", "_UI_BswEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_EVENT__STARTS_ON_EVENT,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class BswEventItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswEvent_config_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswEvent_config_feature", "_UI_BswEvent_type"),
+				 getString("_UI_BswEvent_config_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswEvent_config_feature", "_UI_BswEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_EVENT__CONFIG,
 				 true,
 				 false,
@@ -137,8 +137,8 @@ public class BswEventItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((BswEvent)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswEvent_type") :
-			getString("_UI_BswEvent_type") + " " + label;
+			getString("_UI_BswEvent_type") : //$NON-NLS-1$
+			getString("_UI_BswEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

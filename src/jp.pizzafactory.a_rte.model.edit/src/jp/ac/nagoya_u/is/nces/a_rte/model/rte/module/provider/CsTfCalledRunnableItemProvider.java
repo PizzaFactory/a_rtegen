@@ -64,8 +64,8 @@ public class CsTfCalledRunnableItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CsTfCalledRunnable_csTfOpidConstantName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CsTfCalledRunnable_csTfOpidConstantName_feature", "_UI_CsTfCalledRunnable_type"),
+				 getString("_UI_CsTfCalledRunnable_csTfOpidConstantName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CsTfCalledRunnable_csTfOpidConstantName_feature", "_UI_CsTfCalledRunnable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CS_TF_CALLED_RUNNABLE__CS_TF_OPID_CONSTANT_NAME,
 				 true,
 				 false,
@@ -113,7 +113,7 @@ public class CsTfCalledRunnableItemProvider extends ModuleObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CsTfCalledRunnable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CsTfCalledRunnable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class CsTfCalledRunnableItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((CsTfCalledRunnable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CsTfCalledRunnable_type") :
-			getString("_UI_CsTfCalledRunnable_type") + " " + label;
+			getString("_UI_CsTfCalledRunnable_type") : //$NON-NLS-1$
+			getString("_UI_CsTfCalledRunnable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

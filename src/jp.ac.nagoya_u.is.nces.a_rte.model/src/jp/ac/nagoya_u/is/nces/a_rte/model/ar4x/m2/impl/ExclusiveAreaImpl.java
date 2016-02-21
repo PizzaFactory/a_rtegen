@@ -154,7 +154,7 @@ public class ExclusiveAreaImpl extends IdentifiableImpl implements ExclusiveArea
 	public void setParent(InternalBehavior newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.EXCLUSIVE_AREA__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

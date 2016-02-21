@@ -63,8 +63,8 @@ public class OsTaskEventsTriggeredByModeItemProvider extends ModuleObjectItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTaskEventsTriggeredByMode_startMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEventsTriggeredByMode_startMode_feature", "_UI_OsTaskEventsTriggeredByMode_type"),
+				 getString("_UI_OsTaskEventsTriggeredByMode_startMode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEventsTriggeredByMode_startMode_feature", "_UI_OsTaskEventsTriggeredByMode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_TASK_EVENTS_TRIGGERED_BY_MODE__START_MODE,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class OsTaskEventsTriggeredByModeItemProvider extends ModuleObjectItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEventsTriggeredByMode"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEventsTriggeredByMode")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class OsTaskEventsTriggeredByModeItemProvider extends ModuleObjectItemPro
 	public String getText(Object object) {
 		String label = ((OsTaskEventsTriggeredByMode)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsTaskEventsTriggeredByMode_type") :
-			getString("_UI_OsTaskEventsTriggeredByMode_type") + " " + label;
+			getString("_UI_OsTaskEventsTriggeredByMode_type") : //$NON-NLS-1$
+			getString("_UI_OsTaskEventsTriggeredByMode_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

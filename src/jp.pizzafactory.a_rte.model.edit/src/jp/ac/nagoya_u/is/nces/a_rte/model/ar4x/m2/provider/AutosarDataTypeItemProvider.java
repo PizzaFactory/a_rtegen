@@ -66,8 +66,8 @@ public class AutosarDataTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarDataType_invalidValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_invalidValue_feature", "_UI_AutosarDataType_type"),
+				 getString("_UI_AutosarDataType_invalidValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_invalidValue_feature", "_UI_AutosarDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_DATA_TYPE__INVALID_VALUE,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class AutosarDataTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarDataType_compuMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_compuMethod_feature", "_UI_AutosarDataType_type"),
+				 getString("_UI_AutosarDataType_compuMethod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_compuMethod_feature", "_UI_AutosarDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_DATA_TYPE__COMPU_METHOD,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class AutosarDataTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarDataType_dataConstr_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_dataConstr_feature", "_UI_AutosarDataType_type"),
+				 getString("_UI_AutosarDataType_dataConstr_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_dataConstr_feature", "_UI_AutosarDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_DATA_TYPE__DATA_CONSTR,
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class AutosarDataTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarDataType_swAddrMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_swAddrMethod_feature", "_UI_AutosarDataType_type"),
+				 getString("_UI_AutosarDataType_swAddrMethod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarDataType_swAddrMethod_feature", "_UI_AutosarDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_DATA_TYPE__SW_ADDR_METHOD,
 				 true,
 				 false,
@@ -183,8 +183,8 @@ public class AutosarDataTypeItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((AutosarDataType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AutosarDataType_type") :
-			getString("_UI_AutosarDataType_type") + " " + label;
+			getString("_UI_AutosarDataType_type") : //$NON-NLS-1$
+			getString("_UI_AutosarDataType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

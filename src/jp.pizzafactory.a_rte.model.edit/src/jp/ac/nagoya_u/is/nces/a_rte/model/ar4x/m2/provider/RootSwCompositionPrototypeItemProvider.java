@@ -59,8 +59,8 @@ public class RootSwCompositionPrototypeItemProvider extends IdentifiableItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RootSwCompositionPrototype_softwareComposition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RootSwCompositionPrototype_softwareComposition_feature", "_UI_RootSwCompositionPrototype_type"),
+				 getString("_UI_RootSwCompositionPrototype_softwareComposition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RootSwCompositionPrototype_softwareComposition_feature", "_UI_RootSwCompositionPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE__SOFTWARE_COMPOSITION,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RootSwCompositionPrototypeItemProvider extends IdentifiableItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RootSwCompositionPrototype"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RootSwCompositionPrototype")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RootSwCompositionPrototypeItemProvider extends IdentifiableItemProv
 	public String getText(Object object) {
 		String label = ((RootSwCompositionPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RootSwCompositionPrototype_type") :
-			getString("_UI_RootSwCompositionPrototype_type") + " " + label;
+			getString("_UI_RootSwCompositionPrototype_type") : //$NON-NLS-1$
+			getString("_UI_RootSwCompositionPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

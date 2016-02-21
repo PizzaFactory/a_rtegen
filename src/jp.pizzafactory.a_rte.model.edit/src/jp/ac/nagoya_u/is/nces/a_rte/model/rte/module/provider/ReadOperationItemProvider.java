@@ -65,8 +65,8 @@ public class ReadOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReadOperation_invalidValueConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_invalidValueConstant_feature", "_UI_ReadOperation_type"),
+				 getString("_UI_ReadOperation_invalidValueConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_invalidValueConstant_feature", "_UI_ReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.READ_OPERATION__INVALID_VALUE_CONSTANT,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class ReadOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReadOperation_readValueVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_readValueVariable_feature", "_UI_ReadOperation_type"),
+				 getString("_UI_ReadOperation_readValueVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_readValueVariable_feature", "_UI_ReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.READ_OPERATION__READ_VALUE_VARIABLE,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class ReadOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReadOperation_readStatusVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_readStatusVariable_feature", "_UI_ReadOperation_type"),
+				 getString("_UI_ReadOperation_readStatusVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReadOperation_readStatusVariable_feature", "_UI_ReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.READ_OPERATION__READ_STATUS_VARIABLE,
 				 true,
 				 false,
@@ -160,8 +160,8 @@ public class ReadOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((ReadOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ReadOperation_type") :
-			getString("_UI_ReadOperation_type") + " " + label;
+			getString("_UI_ReadOperation_type") : //$NON-NLS-1$
+			getString("_UI_ReadOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

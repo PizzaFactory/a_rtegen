@@ -255,7 +255,7 @@ public class UnionMemberImpl extends ModuleObjectImpl implements UnionMember {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (memberName: ");
+		result.append(" (memberName: "); //$NON-NLS-1$
 		result.append(memberName);
 		result.append(')');
 		return result.toString();

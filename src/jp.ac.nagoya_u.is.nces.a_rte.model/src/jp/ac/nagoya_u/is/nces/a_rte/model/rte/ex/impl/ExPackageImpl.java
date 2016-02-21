@@ -1745,349 +1745,349 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(timeValueExEClass, TimeValueEx.class, "TimeValueEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(timeValueExEClass, TimeValueEx.class, "TimeValueEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		EOperation op = initEOperation(getTimeValueEx__IsGreaterThanOrEquals__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isGreaterThanOrEquals", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getTimeValueEx__IsGreaterThanOrEquals__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isGreaterThanOrEquals", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getTimeValueEx__IsMultiplesOf__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isMultiplesOf", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeValueEx__IsMultiplesOf__BigDecimal_BigDecimal(), ecorePackage.getEBoolean(), "isMultiplesOf", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getTimeValueEx__Subtract__BigDecimal_BigDecimal(), theM2Package.getTimeValue(), "subtract", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getTimeValueEx__Subtract__BigDecimal_BigDecimal(), theM2Package.getTimeValue(), "subtract", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getTimeValue(), "another", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(alignmentTypeExEClass, AlignmentTypeEx.class, "AlignmentTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(alignmentTypeExEClass, AlignmentTypeEx.class, "AlignmentTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getAlignmentTypeEx__GetMemoryMappingAlignment__String(), theM2Package.getAlignmentType(), "getMemoryMappingAlignment", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getAlignmentType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAlignmentTypeEx__GetMemoryMappingAlignment__String(), theM2Package.getAlignmentType(), "getMemoryMappingAlignment", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getAlignmentType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(atomicSwComponentTypeExEClass, AtomicSwComponentTypeEx.class, "AtomicSwComponentTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(atomicSwComponentTypeExEClass, AtomicSwComponentTypeEx.class, "AtomicSwComponentTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(valueSpecificationExEClass, ValueSpecificationEx.class, "ValueSpecificationEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(valueSpecificationExEClass, ValueSpecificationEx.class, "ValueSpecificationEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__GetEndValueSpec__ValueSpecification(), theM2Package.getValueSpecification(), "getEndValueSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__GetEndValueSpec__ValueSpecification(), theM2Package.getValueSpecification(), "getEndValueSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__GetValueSpecAsText__ValueSpecification(), theM2Package.getString(), "getValueSpecAsText", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__GetValueSpecAsText__ValueSpecification(), theM2Package.getString(), "getValueSpecAsText", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsForVALUE__ValueSpecification(), ecorePackage.getEBoolean(), "isForVALUE", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForVALUE__ValueSpecification(), ecorePackage.getEBoolean(), "isForVALUE", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForARRAY", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForARRAY", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForSTRUCTURE", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForSTRUCTURE", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForUNION", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isForUNION", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), ecorePackage.getEBoolean(), "isForDATA_REFERENCE", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), ecorePackage.getEBoolean(), "isForDATA_REFERENCE", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isValidValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), ecorePackage.getEBoolean(), "isValidValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "value", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "type", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getValueSpecification(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getValueSpecification(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(nonqueuedSenderComSpecExEClass, NonqueuedSenderComSpecEx.class, "NonqueuedSenderComSpecEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(nonqueuedSenderComSpecExEClass, NonqueuedSenderComSpecEx.class, "NonqueuedSenderComSpecEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), ecorePackage.getEBoolean(), "hasValidInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getNonqueuedSenderComSpec(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), ecorePackage.getEBoolean(), "hasValidInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getNonqueuedSenderComSpec(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(compuMethodExEClass, CompuMethodEx.class, "CompuMethodEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(compuMethodExEClass, CompuMethodEx.class, "CompuMethodEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getCompuMethod(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getCompuMethod(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(compuScaleExEClass, CompuScaleEx.class, "CompuScaleEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(compuScaleExEClass, CompuScaleEx.class, "CompuScaleEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getCompuScaleEx__ProvidesEnumConstant__CompuScale(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getCompuScale(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompuScaleEx__ProvidesEnumConstant__CompuScale(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getCompuScale(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getCompuScaleEx__GetEnumLiteral__CompuScale(), theM2Package.getCIdentifier(), "getEnumLiteral", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getCompuScale(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getCompuScaleEx__GetEnumLiteral__CompuScale(), theM2Package.getCIdentifier(), "getEnumLiteral", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getCompuScale(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(applicationDataTypeExEClass, ApplicationDataTypeEx.class, "ApplicationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(applicationDataTypeExEClass, ApplicationDataTypeEx.class, "ApplicationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), ecorePackage.getEBoolean(), "providesUpperLowerLimitConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getApplicationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), ecorePackage.getEBoolean(), "providesUpperLowerLimitConstant", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getApplicationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(implementationDataTypeExEClass, ImplementationDataTypeEx.class, "ImplementationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getImplementationDataTypeEx_CompuMethodEx(), this.getCompuMethodEx(), null, "compuMethodEx", null, 1, 1, ImplementationDataTypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(implementationDataTypeExEClass, ImplementationDataTypeEx.class, "ImplementationDataTypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getImplementationDataTypeEx_CompuMethodEx(), this.getCompuMethodEx(), null, "compuMethodEx", null, 1, 1, ImplementationDataTypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), ecorePackage.getEBoolean(), "providesTypeDefinition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), ecorePackage.getEBoolean(), "providesTypeDefinition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), ecorePackage.getEBoolean(), "providesEnumConstant", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getImplementationDataTypeEx__GetCompuMethod__ImplementationDataType_ApplicationDataType(), theM2Package.getCompuMethod(), "getCompuMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getImplementationDataTypeEx__GetCompuMethod__ImplementationDataType_ApplicationDataType(), theM2Package.getCompuMethod(), "getCompuMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getImplementationDataType(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getApplicationDataType(), "applicationDataType", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(exclusiveAreaExEClass, ExclusiveAreaEx.class, "ExclusiveAreaEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExclusiveAreaEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ExclusiveAreaEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(exclusiveAreaExEClass, ExclusiveAreaEx.class, "ExclusiveAreaEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getExclusiveAreaEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ExclusiveAreaEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), theEcucPackage.getEcucPartition(), "getUsingPartitionsOfBswExclusiveArea", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), theEcucPackage.getEcucPartition(), "getUsingPartitionsOfBswExclusiveArea", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesRteEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesRteEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesSchmEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), ecorePackage.getEBoolean(), "providesSchmEnterExitApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getExclusiveArea(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(senderReceiverToSignalMappingExEClass, SenderReceiverToSignalMappingEx.class, "SenderReceiverToSignalMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(senderReceiverToSignalMappingExEClass, SenderReceiverToSignalMappingEx.class, "SenderReceiverToSignalMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getSenderReceiverToSignalMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getSenderReceiverToSignalMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(senderReceiverToSignalGroupMappingExEClass, SenderReceiverToSignalGroupMappingEx.class, "SenderReceiverToSignalGroupMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(senderReceiverToSignalGroupMappingExEClass, SenderReceiverToSignalGroupMappingEx.class, "SenderReceiverToSignalGroupMappingEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getSenderReceiverToSignalGroupMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping(), theInstancePackage.getVariableDataInstanceInComposition(), "getMappedDataInstanceInComposition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getSenderReceiverToSignalGroupMapping(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osTaskExEClass, OsTaskEx.class, "OsTaskEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(osTaskExEClass, OsTaskEx.class, "OsTaskEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getOsTaskEx__GetOwnerPartition__OsTask(), theEcucPackage.getEcucPartition(), "getOwnerPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getOsTask(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getOsTaskEx__GetOwnerPartition__OsTask(), theEcucPackage.getEcucPartition(), "getOwnerPartition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getOsTask(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSignalExEClass, ComSignalEx.class, "ComSignalEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSignalEx_SenderReceiverToSignalMappingEx(), this.getSenderReceiverToSignalMappingEx(), null, "senderReceiverToSignalMappingEx", null, 1, 1, ComSignalEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSignalExEClass, ComSignalEx.class, "ComSignalEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSignalEx_SenderReceiverToSignalMappingEx(), this.getSenderReceiverToSignalMappingEx(), null, "senderReceiverToSignalMappingEx", null, 1, 1, ComSignalEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalEx__IsSender__ComSignal(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalEx__IsSender__ComSignal(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalEx__IsReceiver__ComSignal(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalEx__IsReceiver__ComSignal(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignal(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSignalGroupExEClass, ComSignalGroupEx.class, "ComSignalGroupEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx(), this.getSenderReceiverToSignalGroupMappingEx(), null, "senderReceiverToSignalGroupMappingEx", null, 1, 1, ComSignalGroupEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSignalGroupExEClass, ComSignalGroupEx.class, "ComSignalGroupEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSignalGroupEx_SenderReceiverToSignalGroupMappingEx(), this.getSenderReceiverToSignalGroupMappingEx(), null, "senderReceiverToSignalGroupMappingEx", null, 1, 1, ComSignalGroupEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalGroupEx__IsSender__ComSignalGroup(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalGroupEx__IsSender__ComSignalGroup(), ecorePackage.getEBoolean(), "isSender", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalGroupEx__IsReceiver__ComSignalGroup(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalGroupEx__IsReceiver__ComSignalGroup(), ecorePackage.getEBoolean(), "isReceiver", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), theInstancePackage.getVariableDataInstanceInComposition(), "getVariableDataInstanceInCompositions", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getComSignalGroup(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucPartitionExEClass, EcucPartitionEx.class, "EcucPartitionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ecucPartitionExEClass, EcucPartitionEx.class, "EcucPartitionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getEcucPartitionEx__IsInMasterCore__EcucPartition(), ecorePackage.getEBoolean(), "isInMasterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__IsInMasterCore__EcucPartition(), ecorePackage.getEBoolean(), "isInMasterCore", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getEcucPartitionEx__IsMasterBswPartition__EcucPartition(), ecorePackage.getEBoolean(), "isMasterBswPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__IsMasterBswPartition__EcucPartition(), ecorePackage.getEBoolean(), "isMasterBswPartition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getEcucPartitionEx__ProvidesRestartPartitionApi__EcucPartition(), ecorePackage.getEBoolean(), "providesRestartPartitionApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__ProvidesRestartPartitionApi__EcucPartition(), ecorePackage.getEBoolean(), "providesRestartPartitionApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), ecorePackage.getEBoolean(), "providesPartitionRestartingApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), ecorePackage.getEBoolean(), "providesPartitionRestartingApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theEcucPackage.getEcucPartition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataPrototypeExEClass, VariableDataPrototypeEx.class, "VariableDataPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(variableDataPrototypeExEClass, VariableDataPrototypeEx.class, "VariableDataPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype(), theM2Package.getString(), "getSectionInitializationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype(), theM2Package.getString(), "getSectionInitializationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getVariableDataPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataInstanceInCompositionExEClass, VariableDataInstanceInCompositionEx.class, "VariableDataInstanceInCompositionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableDataInstanceInCompositionEx_ValueSpecificationEx(), this.getValueSpecificationEx(), null, "valueSpecificationEx", null, 1, 1, VariableDataInstanceInCompositionEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(variableDataInstanceInCompositionExEClass, VariableDataInstanceInCompositionEx.class, "VariableDataInstanceInCompositionEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInCompositionEx_ValueSpecificationEx(), this.getValueSpecificationEx(), null, "valueSpecificationEx", null, 1, 1, VariableDataInstanceInCompositionEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetPartition__VariableDataInstanceInComposition(), theEcucPackage.getEcucPartition(), "getPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetPartition__VariableDataInstanceInComposition(), theEcucPackage.getEcucPartition(), "getPartition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtDeclaration__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtDeclaration__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtDeclaration", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtStart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtStart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtStart", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtPartitionRestart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__InitAtPartitionRestart__VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "initAtPartitionRestart", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitValueAsText__VariableDataInstanceInComposition(), theM2Package.getString(), "getInitValueAsText", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitValueAsText__VariableDataInstanceInComposition(), theM2Package.getString(), "getInitValueAsText", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitializationStrategy__VariableDataInstanceInSwc(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitializationStrategy__VariableDataInstanceInSwc(), theEcucPackage.getRteInitializationStrategyEnum(), "getInitializationStrategy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSectionInitializationPolicy__VariableDataInstanceInSwc(), theM2Package.getString(), "getSectionInitializationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSectionInitializationPolicy__VariableDataInstanceInSwc(), theM2Package.getString(), "getSectionInitializationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetReceiverInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getReceiverInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetReceiverInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getReceiverInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getSenderInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderInitValue__VariableDataInstanceInComposition(), theM2Package.getValueSpecification(), "getSenderInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetReceiverSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getReceiverSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetReceiverSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getReceiverSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSenderSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition(), theM2Package.getSwAddrMethod(), "getSenderSwAddrMethod", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), ecorePackage.getEBoolean(), "equalsInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v1", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInComposition(), "v2", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableDataInstanceInSwcExEClass, VariableDataInstanceInSwcEx.class, "VariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableDataInstanceInSwcEx_AlignmentTypeEx(), this.getAlignmentTypeEx(), null, "alignmentTypeEx", null, 1, 1, VariableDataInstanceInSwcEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(variableDataInstanceInSwcExEClass, VariableDataInstanceInSwcEx.class, "VariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVariableDataInstanceInSwcEx_AlignmentTypeEx(), this.getAlignmentTypeEx(), null, "alignmentTypeEx", null, 1, 1, VariableDataInstanceInSwcEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInitValueConstant", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInitValueConstant", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getVariableDataInstanceInSwcEx__GetMemoryMappingAlignment__VariableDataInstanceInSwc(), theM2Package.getAlignmentType(), "getMemoryMappingAlignment", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getVariableDataInstanceInSwcEx__GetMemoryMappingAlignment__VariableDataInstanceInSwc(), theM2Package.getAlignmentType(), "getMemoryMappingAlignment", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(pVariableDataInstanceInSwcExEClass, PVariableDataInstanceInSwcEx.class, "PVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(pVariableDataInstanceInSwcExEClass, PVariableDataInstanceInSwcEx.class, "PVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesWriteApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesWriteApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInvalidateApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesInvalidateApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOldValueVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOldValueVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOldValueVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOldValueVariable", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOccurrenceVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOccurrenceVariable", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterOccurrenceVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterOccurrenceVariable", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReadApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReadApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReadApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReadApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReceiveApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReceiveApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRVariableDataInstanceInSwcEx__ProvidesReceiveApi__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesReceiveApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rOperationInstanceInSwcExEClass, ROperationInstanceInSwcEx.class, "ROperationInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rOperationInstanceInSwcExEClass, ROperationInstanceInSwcEx.class, "ROperationInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getROperationInstanceInSwcEx__ProvidesCallApi__ROperationInstanceInSwc(), ecorePackage.getEBoolean(), "providesCallApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getROperationInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getROperationInstanceInSwcEx__ProvidesCallApi__ROperationInstanceInSwc(), ecorePackage.getEBoolean(), "providesCallApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getROperationInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(assemblyDataInstanceConnectorExEClass, AssemblyDataInstanceConnectorEx.class, "AssemblyDataInstanceConnectorEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssemblyDataInstanceConnectorEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, AssemblyDataInstanceConnectorEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(assemblyDataInstanceConnectorExEClass, AssemblyDataInstanceConnectorEx.class, "AssemblyDataInstanceConnectorEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getAssemblyDataInstanceConnectorEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, AssemblyDataInstanceConnectorEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getAssemblyDataInstanceConnectorEx__IsInterPartition__AssemblyDataInstanceConnector(), ecorePackage.getEBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getAssemblyDataInstanceConnector(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getAssemblyDataInstanceConnectorEx__IsInterPartition__AssemblyDataInstanceConnector(), ecorePackage.getEBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getAssemblyDataInstanceConnector(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(receiverExEClass, ReceiverEx.class, "ReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(receiverExEClass, ReceiverEx.class, "ReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(externalEcuSenderExEClass, ExternalEcuSenderEx.class, "ExternalEcuSenderEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalEcuSenderEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, ExternalEcuSenderEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(externalEcuSenderExEClass, ExternalEcuSenderEx.class, "ExternalEcuSenderEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getExternalEcuSenderEx_VariableDataInstanceInCompositionEx(), this.getVariableDataInstanceInCompositionEx(), null, "variableDataInstanceInCompositionEx", null, 1, 1, ExternalEcuSenderEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteFilter__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteFilter__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteFilter", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteInvalidation__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInvalidation", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteInvalidation__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInvalidation", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvalidateCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvalidateCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), theInteractionPackage.getTimingTriggeringEntityStartImplementation(), "getTimingTriggeringEntityStartImplementations", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getEntityStarter(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), theInteractionPackage.getTimingTriggeringEntityStartImplementation(), "getTimingTriggeringEntityStartImplementations", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getEntityStarter(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(bswSchedulableEntityExEClass, BswSchedulableEntityEx.class, "BswSchedulableEntityEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx(), this.getModeDeclarationGroupPrototypeEx(), null, "modeDeclarationGroupPrototypeEx", null, 1, 1, BswSchedulableEntityEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(bswSchedulableEntityExEClass, BswSchedulableEntityEx.class, "BswSchedulableEntityEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getBswSchedulableEntityEx_ModeDeclarationGroupPrototypeEx(), this.getModeDeclarationGroupPrototypeEx(), null, "modeDeclarationGroupPrototypeEx", null, 1, 1, BswSchedulableEntityEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallRootBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBswSchedulableEntityEx__GetCallRootBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallRootBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity(), theEcucPackage.getOsTask(), "getMappedTasks", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity(), theEcucPackage.getOsTask(), "getMappedTasks", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntitiesByMode", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity(), theM2Package.getBswSchedulableEntity(), "getCallerBswSchedulableEntitiesByMode", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getBswSchedulableEntity(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(modeDeclarationGroupPrototypeExEClass, ModeDeclarationGroupPrototypeEx.class, "ModeDeclarationGroupPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ModeDeclarationGroupPrototypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(modeDeclarationGroupPrototypeExEClass, ModeDeclarationGroupPrototypeEx.class, "ModeDeclarationGroupPrototypeEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getModeDeclarationGroupPrototypeEx_BswSchedulableEntityEx(), this.getBswSchedulableEntityEx(), null, "bswSchedulableEntityEx", null, 1, 1, ModeDeclarationGroupPrototypeEx.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForManager", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForManager", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForUser", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartitionForUser", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype(), theEcucPackage.getEcucPartition(), "getUsingPartition", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeManagerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeManagerBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeUserBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype(), theM2Package.getBswSchedulableEntity(), "getModeUserBswSchedulableEntities", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype(), theM2Package.getBswModuleDescription(), "getParentBswModuleDescription", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype(), theM2Package.getBswModuleDescription(), "getParentBswModuleDescription", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), theM2Package.getModeDeclarationGroupPrototype(), "getConnectedProvidedModePrototypes", 0, -1, IS_UNIQUE, !IS_ORDERED);
-		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), theM2Package.getModeDeclarationGroupPrototype(), "getConnectedProvidedModePrototypes", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		// Create annotations
 		// stereotypes
@@ -2105,13 +2105,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	protected void createStereotypesAnnotations() {
-		String source = "stereotypes";		
+		String source = "stereotypes"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "extension", "true"
-		   });																																																																																																																																														
+			 "extension", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2121,15 +2121,15 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";			
+		String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																																																																																																													
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2139,513 +2139,513 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";					
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"; //$NON-NLS-1$	
 		addAnnotation
 		  (getValueSpecificationEx__GetEndValueSpec__ValueSpecification(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.oclIsKindOf(m2::ConstantReference)\n\t\t\t\t\t\tthen this_.oclAsType(m2::ConstantReference).getEndValueSpec()\n\t\t\t\t\telse this_\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if this_.oclIsKindOf(m2::ConstantReference)\n\t\t\t\t\t\tthen this_.oclAsType(m2::ConstantReference).getEndValueSpec()\n\t\t\t\t\telse this_\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__GetValueSpecAsText__ValueSpecification(), 
 		   source, 
 		   new String[] {
-			 "body", "let endValueSpec : m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin if endValueSpec.oclIsKindOf(ar4x::m2::NumericalValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::NumericalValueSpecification).value.toString()\n\t\t\t\t\telse if endValueSpec.oclIsKindOf(ar4x::m2::TextValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::TextValueSpecification).value\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });		
+			 "body", "let endValueSpec : m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin if endValueSpec.oclIsKindOf(ar4x::m2::NumericalValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::NumericalValueSpecification).value.toString()\n\t\t\t\t\telse if endValueSpec.oclIsKindOf(ar4x::m2::TextValueSpecification)\n\t\t\t\t\t\tthen endValueSpec.oclAsType(ar4x::m2::TextValueSpecification).value\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsForVALUE__ValueSpecification(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification) or end.oclIsKindOf(ar4x::m2::TextValueSpecification)"
-		   });		
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(this_)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification) or end.oclIsKindOf(ar4x::m2::TextValueSpecification)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsForARRAY__ValueSpecification_ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::ArrayValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->size() = type.subElement->first().arraySize\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->forAll(v | isForVALUE(v))"
-		   });		
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::ArrayValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->size() = type.subElement->first().arraySize\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::ArrayValueSpecification).element->forAll(v | isForVALUE(v))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsForSTRUCTURE__ValueSpecification_ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = type.subElement->size()\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->forAll(v | isForVALUE(v))"
-		   });		
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = type.subElement->size()\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->forAll(v | isForVALUE(v))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsForUNION__ValueSpecification_ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = 1\n\t\t\t\tand\n\t\t\t\tisForVALUE(end.oclAsType(ar4x::m2::RecordValueSpecification).field->first())"
-		   });		
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::RecordValueSpecification)\n\t\t\t\tand\n\t\t\t\tend.oclAsType(ar4x::m2::RecordValueSpecification).field->size() = 1\n\t\t\t\tand\n\t\t\t\tisForVALUE(end.oclAsType(ar4x::m2::RecordValueSpecification).field->first())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsForDATA_REFERENCE__ValueSpecification(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification)"
-		   });		
+			 "body", "\n\t\t\t\tlet end : ar4x::m2::ValueSpecification = getEndValueSpec(value)\n\t\t\t\tin\n\t\t\t\tend.oclIsKindOf(ar4x::m2::NumericalValueSpecification)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__IsValidValue__ValueSpecification_ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\tisForVALUE(value)\n\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\tisForARRAY(value, type)\n\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\tisForSTRUCTURE(value, type)\n\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\tisForUNION(value, type)\n\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\tisForDATA_REFERENCE(value)\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif endif endif endif"
-		   });		
+			 "body", "\n\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\tisForVALUE(value)\n\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\tisForARRAY(value, type)\n\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\tisForSTRUCTURE(value, type)\n\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\tisForUNION(value, type)\n\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\tisForDATA_REFERENCE(value)\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif endif endif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getValueSpecificationEx__EqualsInitValue__ValueSpecification_ValueSpecification(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet endV1 : ar4x::m2::ValueSpecification = getEndValueSpec(v1),\n\t\t\t\t\tendV2 : ar4x::m2::ValueSpecification = getEndValueSpec(v2)\n\t\t\t\tin\n\t\t\t\tif endV1.oclIsTypeOf(ar4x::m2::ArrayValueSpecification) then\n\t\t\t\t\tlet arrayV1 : ar4x::m2::ArrayValueSpecification = endV1.oclAsType(ar4x::m2::ArrayValueSpecification),\n\t\t\t\t\t\tarrayV2 : ar4x::m2::ArrayValueSpecification = endV2.oclAsType(ar4x::m2::ArrayValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif arrayV1.element->size() <> arrayV2.element->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(arrayV1.element->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(arrayV1.element->at(i), arrayV2.element->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse if endV1.oclIsTypeOf(ar4x::m2::RecordValueSpecification) then\n\t\t\t\t\tlet recV1 : ar4x::m2::RecordValueSpecification = endV1.oclAsType(ar4x::m2::RecordValueSpecification),\n\t\t\t\t\t\trecV2 : ar4x::m2::RecordValueSpecification = endV2.oclAsType(ar4x::m2::RecordValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif recV1.field->size() <> recV2.field->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(recV1.field->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(recV1.field->at(i), recV2.field->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse\n\t\t\t\t\tgetValueSpecAsText(endV1) = getValueSpecAsText(endV2)\n\t\t\t\tendif endif"
-		   });		
+			 "body", "\n\t\t\t\tlet endV1 : ar4x::m2::ValueSpecification = getEndValueSpec(v1),\n\t\t\t\t\tendV2 : ar4x::m2::ValueSpecification = getEndValueSpec(v2)\n\t\t\t\tin\n\t\t\t\tif endV1.oclIsTypeOf(ar4x::m2::ArrayValueSpecification) then\n\t\t\t\t\tlet arrayV1 : ar4x::m2::ArrayValueSpecification = endV1.oclAsType(ar4x::m2::ArrayValueSpecification),\n\t\t\t\t\t\tarrayV2 : ar4x::m2::ArrayValueSpecification = endV2.oclAsType(ar4x::m2::ArrayValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif arrayV1.element->size() <> arrayV2.element->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(arrayV1.element->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(arrayV1.element->at(i), arrayV2.element->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse if endV1.oclIsTypeOf(ar4x::m2::RecordValueSpecification) then\n\t\t\t\t\tlet recV1 : ar4x::m2::RecordValueSpecification = endV1.oclAsType(ar4x::m2::RecordValueSpecification),\n\t\t\t\t\t\trecV2 : ar4x::m2::RecordValueSpecification = endV2.oclAsType(ar4x::m2::RecordValueSpecification)\n\t\t\t\t\tin\n\t\t\t\t\tif recV1.field->size() <> recV2.field->size() then\n\t\t\t\t\t\tfalse\n\t\t\t\t\telse\n\t\t\t\t\t\tSequence{1..(recV1.field->size())}->iterate(i : Integer;\n\t\t\t\t\t\t\tflag : Boolean = true | flag and equalsInitValue(recV1.field->at(i), recV2.field->at(i)))\n\t\t\t\t\tendif\n\t\t\t\telse\n\t\t\t\t\tgetValueSpecAsText(endV1) = getValueSpecAsText(endV2)\n\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getNonqueuedSenderComSpecEx__HasValidInitValue__NonqueuedSenderComSpec(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tif this_.initValue.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse if this_.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then\n\t\t\t\t\tlet type : ar4x::m2::ImplementationDataType = this_.dataElement.type.oclAsType(ar4x::m2::ImplementationDataType)\n\t\t\t\t\tin\n\t\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\t\tValueSpecificationEx::isForVALUE(this_.initValue)\n\t\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'TYPE_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse\n\t\t\t\t\t\tfalse\n\t\t\t\t\tendif endif endif endif endif endif\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif"
-		   });		
+			 "body", "\n\t\t\t\tif this_.initValue.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse if this_.dataElement.type.oclIsTypeOf(ar4x::m2::ImplementationDataType) then\n\t\t\t\t\tlet type : ar4x::m2::ImplementationDataType = this_.dataElement.type.oclAsType(ar4x::m2::ImplementationDataType)\n\t\t\t\t\tin\n\t\t\t\t\tif type.category = \'VALUE\' then\n\t\t\t\t\t\tValueSpecificationEx::isForVALUE(this_.initValue)\n\t\t\t\t\telse if type.category = \'ARRAY\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'STRUCTURE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'UNION\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'DATA_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse if type.category = \'TYPE_REFERENCE\' then\n\t\t\t\t\t\ttrue\n\t\t\t\t\telse\n\t\t\t\t\t\tfalse\n\t\t\t\t\tendif endif endif endif endif endif\n\t\t\t\telse\n\t\t\t\t\tfalse\n\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getCompuMethodEx__ProvidesEnumConstant__CompuMethod(), 
 		   source, 
 		   new String[] {
-			 "body", "Set{\'TEXTTABLE\', \'SCALE_LINEAR_AND_TEXTTABLE\', \'SCALE_RATIONAL_AND_TEXTTABLE\'}\n\t\t\t\t\t->includes(this_.category) and not this_.compuInternalToPhys.oclIsUndefined()"
-		   });		
+			 "body", "Set{\'TEXTTABLE\', \'SCALE_LINEAR_AND_TEXTTABLE\', \'SCALE_RATIONAL_AND_TEXTTABLE\'}\n\t\t\t\t\t->includes(this_.category) and not this_.compuInternalToPhys.oclIsUndefined()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getCompuScaleEx__ProvidesEnumConstant__CompuScale(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.lowerLimit.oclIsUndefined() and not this_.upperLimit.oclIsUndefined() and this_.lowerLimit.value =\n\t\t\t\t\tthis_.upperLimit.value"
-		   });		
+			 "body", "not this_.lowerLimit.oclIsUndefined() and not this_.upperLimit.oclIsUndefined() and this_.lowerLimit.value =\n\t\t\t\t\tthis_.upperLimit.value" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getCompuScaleEx__GetEnumLiteral__CompuScale(), 
 		   source, 
 		   new String[] {
-			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif"
-		   });		
+			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.dataConstr.getUpperLimitValue().oclIsUndefined() and not\n\t\t\t\t\tthis_.dataConstr.getLowerLimitValue().oclIsUndefined()"
-		   });		
+			 "body", "not this_.dataConstr.getUpperLimitValue().oclIsUndefined() and not\n\t\t\t\t\tthis_.dataConstr.getLowerLimitValue().oclIsUndefined()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getImplementationDataTypeEx__ProvidesTypeDefinition__ImplementationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.baseType.oclIsUndefined()\n\t\t\t\t\t then true\n\t\t\t\t\telse not this_.baseType.nativeDeclaration.oclIsUndefined()\n\t\t\t\t\tendif"
-		   });		
+			 "body", "if this_.baseType.oclIsUndefined()\n\t\t\t\t\t then true\n\t\t\t\t\telse not this_.baseType.nativeDeclaration.oclIsUndefined()\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getImplementationDataTypeEx__ProvidesEnumConstant__ImplementationDataType_ApplicationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "let compuMethod : m2::CompuMethod = getCompuMethod(this_, applicationDataType)\n\t\t\t\tin if compuMethod.oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse compuMethodEx.providesEnumConstant(compuMethod)\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let compuMethod : m2::CompuMethod = getCompuMethod(this_, applicationDataType)\n\t\t\t\tin if compuMethod.oclIsUndefined()\n\t\t\t\t\tthen false\n\t\t\t\t\telse compuMethodEx.providesEnumConstant(compuMethod)\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getImplementationDataTypeEx__GetCompuMethod__ImplementationDataType_ApplicationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "if not applicationDataType.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applicationDataType.compuMethod\n\t\t\t\t\telse if not this_.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });			
+			 "body", "if not applicationDataType.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen applicationDataType.compuMethod\n\t\t\t\t\telse if not this_.compuMethod.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuMethod\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
-		   });			
+			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)",
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"
-		   });			
+			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)",
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
-		   });			
+			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSenderReceiverToSignalGroupMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalGroupMapping(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if this_.dataElement.oclIsKindOf(instance::VariableDataInstanceInComposition)\n\t\t\t\t\tthen this_.dataElement.oclAsType(instance::VariableDataInstanceInComposition)\n\t\t\t\t\telse\n\t\t\t\t\tlet dataInstanceInComposition : instance::VariableDataInstanceInComposition =\n\t\t\t\t\t\tinstance::DelegationDataInstanceConnector.allInstances()\n\t\t\t\t\t\t->any(outer = this_.dataElement).inner\n\t\t\t\t\tin if dataInstanceInComposition.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse dataInstanceInComposition\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOsTaskEx__GetOwnerPartition__OsTask(), 
 		   source, 
 		   new String[] {
-			 "body", "let partition : ecuc::EcucPartition = this_.ownerApplication.osAppEcucPartition->any(true)\n\t\t\t\tin if partition.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse partition\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let partition : ecuc::EcucPartition = this_.ownerApplication.osAppEcucPartition->any(true)\n\t\t\t\tin if partition.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse partition\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalEx__IsSender__ComSignal(), 
 		   source, 
 		   new String[] {
-			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())"
-		   });		
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalEx__IsReceiver__ComSignal(), 
 		   source, 
 		   new String[] {
-			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())"
-		   });			
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalEx__GetVariableDataInstanceInCompositions__ComSignal(), 
 		   source, 
 		   new String[] {
-			 "body", "let systemSignal : ar4x::m2::SystemSignal = this_.comSystemTemplateSystemSignal.iSignal.systemSignal\n\t\t\t\tin if systemSignal.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.systemSignal = systemSignal)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let systemSignal : ar4x::m2::SystemSignal = this_.comSystemTemplateSystemSignal.iSignal.systemSignal\n\t\t\t\tin if systemSignal.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.systemSignal = systemSignal)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalGroupEx__IsSender__ComSignalGroup(), 
 		   source, 
 		   new String[] {
-			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())"
-		   });		
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isProvided())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalGroupEx__IsReceiver__ComSignalGroup(), 
 		   source, 
 		   new String[] {
-			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())"
-		   });			
+			 "body", "getVariableDataInstanceInCompositions(this_)\n\t\t\t\t\t->exists(isRequired())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalGroupEx__GetVariableDataInstanceInCompositions__ComSignalGroup(), 
 		   source, 
 		   new String[] {
-			 "body", "let systemSignalGroup : ar4x::m2::SystemSignalGroup = this_.comSystemTemplateSignalGroup.iSignalGroup.systemSignalGroup\n\t\t\t\tin if systemSignalGroup.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalGroupMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.signalGroup = systemSignalGroup)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalGroupMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let systemSignalGroup : ar4x::m2::SystemSignalGroup = this_.comSystemTemplateSignalGroup.iSignalGroup.systemSignalGroup\n\t\t\t\tin if systemSignalGroup.oclIsUndefined()\n\t\t\t\t\tthen OrderedSet{}\n\t\t\t\t\telse ar4x::m2::SenderReceiverToSignalGroupMapping.allInstances()\n\t\t\t\t\t\t->select(m | m.signalGroup = systemSignalGroup)\n\t\t\t\t\t\t->collect(m | senderReceiverToSignalGroupMappingEx.getMappedDataInstanceInComposition(m))\n\t\t\t\t\t\t->select(not oclIsUndefined())\n\t\t\t\t\t\t->asOrderedSet()\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartitionEx__IsInMasterCore__EcucPartition(), 
 		   source, 
 		   new String[] {
-			 "body", "let osOs : ecuc::OsOS = ecuc::OsOS.allInstances()\n\t\t\t\t\t->any(true)\n\t\t\t\tin this_.getOwnerCore().oclIsUndefined() or osOs.osMasterCoreId = this_.getOwnerCore()"
-		   });			
+			 "body", "let osOs : ecuc::OsOS = ecuc::OsOS.allInstances()\n\t\t\t\t\t->any(true)\n\t\t\t\tin this_.getOwnerCore().oclIsUndefined() or osOs.osMasterCoreId = this_.getOwnerCore()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartitionEx__IsMasterBswPartition__EcucPartition(), 
 		   source, 
 		   new String[] {
-			 "body", "isInMasterCore(this_) and this_.ecucPartitionBswModuleExecution"
-		   });			
+			 "body", "isInMasterCore(this_) and this_.ecucPartitionBswModuleExecution" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartitionEx__ProvidesRestartPartitionApi__EcucPartition(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.partitionCanBeRestarted"
-		   });			
+			 "body", "this_.partitionCanBeRestarted" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartitionEx__ProvidesPartitionRestartingApi__EcucPartition(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.partitionCanBeRestarted"
-		   });			
+			 "body", "this_.partitionCanBeRestarted" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__InitAtDeclaration__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART"
-		   });			
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__InitAtStart__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
-		   });			
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__InitAtPartitionRestart__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
-		   });			
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__GetInitializationStrategy__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let behavior : ar4x::ecuc::RteInitializationBehavior = ecuc::RteInitializationBehavior.allInstances()\n\t\t\t\t\t->select(rteSectionInitializationPolicy\n\t\t\t\t\t\t->includes(getSectionInitializationPolicy(this_)))\n\t\t\t\t\t->any(true)\n\t\t\t\tin if behavior.oclIsUndefined()\n\t\t\t\t\tthen ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START\n\t\t\t\t\telse behavior.rteInitializationStrategy\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let behavior : ar4x::ecuc::RteInitializationBehavior = ecuc::RteInitializationBehavior.allInstances()\n\t\t\t\t\t->select(rteSectionInitializationPolicy\n\t\t\t\t\t\t->includes(getSectionInitializationPolicy(this_)))\n\t\t\t\t\t->any(true)\n\t\t\t\tin if behavior.oclIsUndefined()\n\t\t\t\t\tthen ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START\n\t\t\t\t\telse behavior.rteInitializationStrategy\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__GetSectionInitializationPolicy__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swAddrMethod.sectionInitializationPolicy\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swAddrMethod.sectionInitializationPolicy\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataPrototypeEx__GetSwAddrMethod__VariableDataPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if not swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen swAddrMethod\n\t\t\t\t\telse if not this_.getImplementationDataType().oclIsUndefined()\n\t\t\t\t\tthen this_.getImplementationDataType().getLeafImplementationDataType()\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });		
+			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if not swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen swAddrMethod\n\t\t\t\t\telse if not this_.getImplementationDataType().oclIsUndefined()\n\t\t\t\t\tthen this_.getImplementationDataType().getLeafImplementationDataType()\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetPartition__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let swComponentInstance : instance::SwComponentInstanceInSystem = this_.parent.contextComponent.instance\n\t\t\t\t\t->first()\n\t\t\t\tin if swComponentInstance.oclIsUndefined() or swComponentInstance.ownerPartition->isEmpty()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swComponentInstance.ownerPartition->any(true)\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let swComponentInstance : instance::SwComponentInstanceInSystem = this_.parent.contextComponent.instance\n\t\t\t\t\t->first()\n\t\t\t\tin if swComponentInstance.oclIsUndefined() or swComponentInstance.ownerPartition->isEmpty()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swComponentInstance.ownerPartition->any(true)\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__InitAtDeclaration__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART"
-		   });			
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION or\n\t\t\t\t\tinitStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__InitAtStart__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
-		   });			
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START or initStrategy =\n\t\t\t\t\tecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__InitAtPartitionRestart__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"
-		   });		
+			 "body", "let initStrategy : ecuc::RteInitializationStrategyEnum =\n\t\t\t\t\tgetInitializationStrategy(this_.prototype)\n\t\t\t\tin initStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART or\n\t\t\t\t\tinitStrategy = ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetInitValueAsText__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let initValue : m2::ValueSpecification = getInitValue(this_)\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse valueSpecificationEx.getValueSpecAsText(initValue)\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let initValue : m2::ValueSpecification = getInitValue(this_)\n\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse valueSpecificationEx.getValueSpecAsText(initValue)\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetInitializationStrategy__VariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "let behavior : ar4x::ecuc::RteInitializationBehavior = ecuc::RteInitializationBehavior.allInstances()\n\t\t\t\t\t->select(rteSectionInitializationPolicy\n\t\t\t\t\t\t->includes(getSectionInitializationPolicy(this_)))\n\t\t\t\t\t->any(true)\n\t\t\t\tin if behavior.oclIsUndefined()\n\t\t\t\t\tthen ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START\n\t\t\t\t\telse behavior.rteInitializationStrategy\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let behavior : ar4x::ecuc::RteInitializationBehavior = ecuc::RteInitializationBehavior.allInstances()\n\t\t\t\t\t->select(rteSectionInitializationPolicy\n\t\t\t\t\t\t->includes(getSectionInitializationPolicy(this_)))\n\t\t\t\t\t->any(true)\n\t\t\t\tin if behavior.oclIsUndefined()\n\t\t\t\t\tthen ecuc::RteInitializationStrategyEnum::RTE_INITIALIZATION_STRATEGY_AT_RTE_START\n\t\t\t\t\telse behavior.rteInitializationStrategy\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetSectionInitializationPolicy__VariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swAddrMethod.sectionInitializationPolicy\n\t\t\t\t\tendif"
-		   });			
+			 "body", "let swAddrMethod : m2::SwAddrMethod = this_.getSwAddrMethod()\n\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swAddrMethod.sectionInitializationPolicy\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetInitValue__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let receiverInitValue : m2::ValueSpecification = getReceiverInitValue(this_) , senderInitValue :\n\t\t\t\t\tm2::ValueSpecification = getSenderInitValue(this_)\n\t\t\t\tin if not receiverInitValue.oclIsUndefined()\n\t\t\t\t\tthen receiverInitValue\n\t\t\t\t\telse senderInitValue\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let receiverInitValue : m2::ValueSpecification = getReceiverInitValue(this_) , senderInitValue :\n\t\t\t\t\tm2::ValueSpecification = getSenderInitValue(this_)\n\t\t\t\tin if not receiverInitValue.oclIsUndefined()\n\t\t\t\t\tthen receiverInitValue\n\t\t\t\t\telse senderInitValue\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetReceiverInitValue__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.prototype.oclIsKindOf(instance::RVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\telse\n\t\t\t\t\tlet initValue : m2::ValueSpecification =\n\t\t\t\t\t\tthis_.requesterConnection.requester.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse initValue\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });		
+			 "body", "if this_.prototype.oclIsKindOf(instance::RVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\telse\n\t\t\t\t\tlet initValue : m2::ValueSpecification =\n\t\t\t\t\t\tthis_.requesterConnection.requester.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse initValue\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetSenderInitValue__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.prototype.oclIsKindOf(instance::PVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.oclAsType(instance::PVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\telse\n\t\t\t\t\tlet initValue : m2::ValueSpecification =\n\t\t\t\t\t\tthis_.providerConnection.provider.prototype.oclAsType(instance::PVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse initValue\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });			
+			 "body", "if this_.prototype.oclIsKindOf(instance::PVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.oclAsType(instance::PVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\telse\n\t\t\t\t\tlet initValue : m2::ValueSpecification =\n\t\t\t\t\t\tthis_.providerConnection.provider.prototype.oclAsType(instance::PVariableDataInstanceInSwc).getInitValue()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if initValue.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse initValue\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetSwAddrMethod__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "let receiverSwAddrMethod : m2::SwAddrMethod = getReceiverSwAddrMethod(this_) , senderSwAddrMethod :\n\t\t\t\t\tm2::SwAddrMethod = getSenderSwAddrMethod(this_)\n\t\t\t\tin if not senderSwAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen senderSwAddrMethod\n\t\t\t\t\telse receiverSwAddrMethod\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let receiverSwAddrMethod : m2::SwAddrMethod = getReceiverSwAddrMethod(this_) , senderSwAddrMethod :\n\t\t\t\t\tm2::SwAddrMethod = getSenderSwAddrMethod(this_)\n\t\t\t\tin if not senderSwAddrMethod.oclIsUndefined()\n\t\t\t\t\tthen senderSwAddrMethod\n\t\t\t\t\telse receiverSwAddrMethod\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetReceiverSwAddrMethod__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.prototype.oclIsKindOf(instance::RVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.getSwAddrMethod()\n\t\t\t\t\telse\n\t\t\t\t\tlet swAddrMethod : m2::SwAddrMethod =\n\t\t\t\t\t\tthis_.requesterConnection.requester.prototype.getSwAddrMethod()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse swAddrMethod\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });		
+			 "body", "if this_.prototype.oclIsKindOf(instance::RVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.getSwAddrMethod()\n\t\t\t\t\telse\n\t\t\t\t\tlet swAddrMethod : m2::SwAddrMethod =\n\t\t\t\t\t\tthis_.requesterConnection.requester.prototype.getSwAddrMethod()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse swAddrMethod\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__GetSenderSwAddrMethod__VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "if this_.prototype.oclIsKindOf(instance::PVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.getSwAddrMethod()\n\t\t\t\t\telse\n\t\t\t\t\tlet swAddrMethod : m2::SwAddrMethod =\n\t\t\t\t\t\tthis_.providerConnection.provider.prototype.getSwAddrMethod()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse swAddrMethod\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif"
-		   });		
+			 "body", "if this_.prototype.oclIsKindOf(instance::PVariableDataInstanceInSwc)\n\t\t\t\t\tthen this_.prototype.getSwAddrMethod()\n\t\t\t\t\telse\n\t\t\t\t\tlet swAddrMethod : m2::SwAddrMethod =\n\t\t\t\t\t\tthis_.providerConnection.provider.prototype.getSwAddrMethod()\n\t\t\t\t\t\t->any(not oclIsUndefined())\n\t\t\t\t\tin if swAddrMethod.oclIsUndefined()\n\t\t\t\t\t\tthen null\n\t\t\t\t\t\telse swAddrMethod\n\t\t\t\t\t\tendif\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInCompositionEx__EqualsInitValue__VariableDataInstanceInComposition_VariableDataInstanceInComposition(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\tlet initValue1 : m2::ValueSpecification = getInitValue(v1),\n\t\t\t\t\tinitValue2 : m2::ValueSpecification = getInitValue(v2)\n\t\t\t\tin\n\t\t\t\tif initValue1.oclIsUndefined() and initValue2.oclIsUndefined() then\n\t\t\t\t\ttrue\n\t\t\t\telse if initValue1.oclIsUndefined() or initValue2.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse\n\t\t\t\t\tvalueSpecificationEx.equalsInitValue(initValue1, initValue2)\n\t\t\t\tendif endif"
-		   });			
+			 "body", "\n\t\t\t\tlet initValue1 : m2::ValueSpecification = getInitValue(v1),\n\t\t\t\t\tinitValue2 : m2::ValueSpecification = getInitValue(v2)\n\t\t\t\tin\n\t\t\t\tif initValue1.oclIsUndefined() and initValue2.oclIsUndefined() then\n\t\t\t\t\ttrue\n\t\t\t\telse if initValue1.oclIsUndefined() or initValue2.oclIsUndefined() then\n\t\t\t\t\tfalse\n\t\t\t\telse\n\t\t\t\t\tvalueSpecificationEx.equalsInitValue(initValue1, initValue2)\n\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwcEx__ProvidesInitValueConstant__VariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics()"
-		   });			
+			 "body", "not this_.isEventSemantics()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getVariableDataInstanceInSwcEx__GetMemoryMappingAlignment__VariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "let swAlignment : String = this_.getSwAlignment(), baseType : m2::SwBaseType = this_.getBaseType() in\n\t\t\t\t\tif not swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen alignmentTypeEx.getMemoryMappingAlignment(swAlignment)\n\t\t\t\t\telse if not baseType.baseTypeSize.oclIsUndefined()\n\t\t\t\t\t\tthen baseType.baseTypeSize.toString()\n\t\t\t\t\t\telse null\n\t\t\t\t\tendif endif"
-		   });			
+			 "body", "let swAlignment : String = this_.getSwAlignment(), baseType : m2::SwBaseType = this_.getBaseType() in\n\t\t\t\t\tif not swAlignment.oclIsUndefined()\n\t\t\t\t\t\tthen alignmentTypeEx.getMemoryMappingAlignment(swAlignment)\n\t\t\t\t\telse if not baseType.baseTypeSize.oclIsUndefined()\n\t\t\t\t\t\tthen baseType.baseTypeSize.toString()\n\t\t\t\t\t\telse null\n\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)"
-		   });			
+			 "body", "not this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)"
-		   });			
+			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)"
-		   });			
+			 "body", "this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "requiresFilterOldValueVariable(this_) or requiresFilterOccurrenceVariable(this_)"
-		   });			
+			 "body", "requiresFilterOldValueVariable(this_) or requiresFilterOccurrenceVariable(this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__RequiresFilterOldValueVariable__RVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::maskedNewDiffersMaskedOld"
-		   });			
+			 "body", "not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::maskedNewDiffersMaskedOld" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__RequiresFilterOccurrenceVariable__RVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::oneEveryN"
-		   });			
+			 "body", "not this_.getFilter().oclIsUndefined() and this_.getFilter().dataFilterType =\n\t\t\t\t\tm2::DataFilterTypeEnum::oneEveryN" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__ProvidesReadApi__RVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)"
-		   });			
+			 "body", "not this_.isEventSemantics() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__ProvidesReceiveApi__RVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)"
-		   });			
+			 "body", "this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataReceivePointByArgument\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getROperationInstanceInSwcEx__ProvidesCallApi__ROperationInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.getOwnerAtomicSwc().internalBehavior.runnable.serverCallPoint\n\t\t\t\t\t->exists(operation = this_)"
-		   });		
+			 "body", "this_.getOwnerAtomicSwc().internalBehavior.runnable.serverCallPoint\n\t\t\t\t\t->exists(operation = this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getAssemblyDataInstanceConnectorEx__IsInterPartition__AssemblyDataInstanceConnector(), 
 		   source, 
 		   new String[] {
-			 "body", "variableDataInstanceInCompositionEx.getPartition(this_.provider) <>\n\t\t\t\t\tvariableDataInstanceInCompositionEx.getPartition(this_.requester)"
-		   });			
+			 "body", "variableDataInstanceInCompositionEx.getPartition(this_.provider) <>\n\t\t\t\t\tvariableDataInstanceInCompositionEx.getPartition(this_.requester)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__RequiresRteFilter__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\tfilterReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isFilterEnabled())\n\t\t\t\tin receivers->exists(isFilterEnabled())\n\t\t\t\t\tand (receivers->exists(hasMultipleSenders())\n\t\t\t\t\t\tor not receivers->forAll(isFilterEnabled())\n\t\t\t\t\t\tor filterReceivers->exists(r1, r2 | not r1.getFilter().isCompatibleWith(r2.getFilter())))"
-		   });			
+			 "body", "let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\tfilterReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isFilterEnabled())\n\t\t\t\tin receivers->exists(isFilterEnabled())\n\t\t\t\t\tand (receivers->exists(hasMultipleSenders())\n\t\t\t\t\t\tor not receivers->forAll(isFilterEnabled())\n\t\t\t\t\t\tor filterReceivers->exists(r1, r2 | not r1.getFilter().isCompatibleWith(r2.getFilter())))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__RequiresRteInvalidation__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\t\tinvReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isInvalidationEnabled())\n\t\t\t\tin receivers->exists(isInvalidationEnabled())\n\t\t\t\t\tand (not receivers->forAll(isInvalidationEnabled())\n\t\t\t\t\t\tor invReceivers->exists(r1, r2 | r1.getHandleInvalid() <> r2.getHandleInvalid()))"
-		   });			
+			 "body", "let receivers : Set(rte::interaction::InternalEcuReceiver) = this_.getInternalEcuReceivers() ,\n\t\t\t\t\t\tinvReceivers : Set(rte::interaction::InternalEcuReceiver) = receivers->select(isInvalidationEnabled())\n\t\t\t\tin receivers->exists(isInvalidationEnabled())\n\t\t\t\t\tand (not receivers->forAll(isInvalidationEnabled())\n\t\t\t\t\t\tor invReceivers->exists(r1, r2 | r1.getHandleInvalid() <> r2.getHandleInvalid()))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))"
-		   });			
+			 "body", "this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined())"
-		   });			
+			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))"
-		   });			
+			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))"
-		   });			
+			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)"
-		   });		
+			 "body", "providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.startInteraction.implementation\n\t\t\t\t\t->select(oclIsKindOf(interaction::TimingTriggeringEntityStartImplementation)).oclAsType(interaction::TimingTriggeringEntityStartImplementation)\n\t\t\t\t\t->asOrderedSet()"
-		   });			
+			 "body", "this_.startInteraction.implementation\n\t\t\t\t\t->select(oclIsKindOf(interaction::TimingTriggeringEntityStartImplementation)).oclAsType(interaction::TimingTriggeringEntityStartImplementation)\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getBswSchedulableEntityEx__GetUsingPartition__BswSchedulableEntity(), 
 		   source, 
 		   new String[] {
-			 "body", "if ar4x::m2::BswImplementation.allInstances()->exists(behavior = this_.parent) then\n\t\t\t\t\t\t\tgetCallRootBswSchedulableEntities(this_)->collect(m | getMappedTasks(m)).ownerApplication.osAppEcucPartition->asSet()\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\tendif"
-		   });				
+			 "body", "if ar4x::m2::BswImplementation.allInstances()->exists(behavior = this_.parent) then\n\t\t\t\t\t\t\tgetCallRootBswSchedulableEntities(this_)->collect(m | getMappedTasks(m)).ownerApplication.osAppEcucPartition->asSet()\n\t\t\t\t\t\telse\n\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getBswSchedulableEntityEx__GetMappedTasks__BswSchedulableEntity(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.event.config->select(not rteBswMappedToTask.oclIsUndefined()).rteBswMappedToTask->asSet()"
-		   });			
+			 "body", "this_.event.config->select(not rteBswMappedToTask.oclIsUndefined()).rteBswMappedToTask->asSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getBswSchedulableEntityEx__GetCallerBswSchedulableEntities__BswSchedulableEntity(), 
 		   source, 
 		   new String[] {
-			 "body", "getCallerBswSchedulableEntitiesByMode(this_)"
-		   });			
+			 "body", "getCallerBswSchedulableEntitiesByMode(this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getBswSchedulableEntityEx__GetCallerBswSchedulableEntitiesByMode__BswSchedulableEntity(), 
 		   source, 
 		   new String[] {
-			 "body", "let sourceEvent : Set(ar4x::m2::BswModeSwitchEvent) = this_.event->select(oclIsKindOf(ar4x::m2::BswModeSwitchEvent)).oclAsType(ar4x::m2::BswModeSwitchEvent)->select(config->exists(rteBswMappedToTask.oclIsUndefined()))->asSet(),\n\t\t\t\t\t\teventSourceRequiredModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = sourceEvent.modeIref.contextModeDeclarationGroup->select(m | this_.accessedModeGroup->includes(m))->asSet(),\n\t\t\t\t\t\teventSourceProvidedModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = eventSourceRequiredModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getConnectedProvidedModePrototypes(m))->asSet()\n\t\t\t\t\t\tin eventSourceProvidedModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getModeManagerBswSchedulableEntities(m))->asSet()"
-		   });			
+			 "body", "let sourceEvent : Set(ar4x::m2::BswModeSwitchEvent) = this_.event->select(oclIsKindOf(ar4x::m2::BswModeSwitchEvent)).oclAsType(ar4x::m2::BswModeSwitchEvent)->select(config->exists(rteBswMappedToTask.oclIsUndefined()))->asSet(),\n\t\t\t\t\t\teventSourceRequiredModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = sourceEvent.modeIref.contextModeDeclarationGroup->select(m | this_.accessedModeGroup->includes(m))->asSet(),\n\t\t\t\t\t\teventSourceProvidedModePrototypes : Set(ar4x::m2::ModeDeclarationGroupPrototype) = eventSourceRequiredModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getConnectedProvidedModePrototypes(m))->asSet()\n\t\t\t\t\t\tin eventSourceProvidedModePrototypes->collect(m | modeDeclarationGroupPrototypeEx.getModeManagerBswSchedulableEntities(m))->asSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetUsingPartitionForManager__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\t\tgetModeManagerBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()"
-		   });			
+			 "body", "\n\t\t\t\t\tgetModeManagerBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetUsingPartitionForUser__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\t\tgetModeUserBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()"
-		   });			
+			 "body", "\n\t\t\t\t\tgetModeUserBswSchedulableEntities(this_)\n\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetUsingPartition__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "\n\t\t\t\t\tgetUsingPartitionForManager(this_)->union(getUsingPartitionForUser(this_))->asOrderedSet()"
-		   });			
+			 "body", "\n\t\t\t\t\tgetUsingPartitionForManager(this_)->union(getUsingPartitionForUser(this_))->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetModeManagerBswSchedulableEntities__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(managedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif"
-		   });			
+			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(managedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetModeUserBswSchedulableEntities__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(accessedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif"
-		   });			
+			 "body", "let enableInternalBehavior : ar4x::m2::BswInternalBehavior = getParentBswModuleDescription(this_).getEnableInternalBehavior()\n\t\t\t\t\t\tin if not enableInternalBehavior.oclIsUndefined() then\n\t\t\t\t\t\t\t\tenableInternalBehavior.bswSchedulableEntity->select(accessedModeGroup->includes(this_))\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tSet{}\n\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetParentBswModuleDescription__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "let providerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(providedModeGroup->includes(this_))->any(true),\n\t\t\t\t\t\trequirerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(requiredModeGroup->includes(this_))->any(true)\n\t\t\t\t\t\tin if not providerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\tproviderBswm\n\t\t\t\t\t\t\telse if not requirerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\trequirerBswm\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tnull\n\t\t\t\t\t\t\tendif endif"
-		   });			
+			 "body", "let providerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(providedModeGroup->includes(this_))->any(true),\n\t\t\t\t\t\trequirerBswm : ar4x::m2::BswModuleDescription = ar4x::m2::BswModuleDescription.allInstances()->select(requiredModeGroup->includes(this_))->any(true)\n\t\t\t\t\t\tin if not providerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\tproviderBswm\n\t\t\t\t\t\t\telse if not requirerBswm.oclIsUndefined() then\n\t\t\t\t\t\t\t\trequirerBswm\n\t\t\t\t\t\t\telse\n\t\t\t\t\t\t\t\tnull\n\t\t\t\t\t\t\tendif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()"
+			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

@@ -63,8 +63,8 @@ public class TimingEventItemProvider extends EventItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingEvent_period_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingEvent_period_feature", "_UI_TimingEvent_type"),
+				 getString("_UI_TimingEvent_period_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingEvent_period_feature", "_UI_TimingEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.TIMING_EVENT__PERIOD,
 				 true,
 				 false,
@@ -82,7 +82,7 @@ public class TimingEventItemProvider extends EventItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingEvent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class TimingEventItemProvider extends EventItemProvider {
 		BigDecimal labelValue = ((TimingEvent)object).getPeriod();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TimingEvent_type") :
-			getString("_UI_TimingEvent_type") + " " + label;
+			getString("_UI_TimingEvent_type") : //$NON-NLS-1$
+			getString("_UI_TimingEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

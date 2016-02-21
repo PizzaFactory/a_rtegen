@@ -67,8 +67,8 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsApplication_osApplicationCoreAssignment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osApplicationCoreAssignment_feature", "_UI_OsApplication_type"),
+				 getString("_UI_OsApplication_osApplicationCoreAssignment_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osApplicationCoreAssignment_feature", "_UI_OsApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_APPLICATION__OS_APPLICATION_CORE_ASSIGNMENT,
 				 true,
 				 false,
@@ -89,8 +89,8 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsApplication_osTrusted_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osTrusted_feature", "_UI_OsApplication_type"),
+				 getString("_UI_OsApplication_osTrusted_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osTrusted_feature", "_UI_OsApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_APPLICATION__OS_TRUSTED,
 				 true,
 				 false,
@@ -111,8 +111,8 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsApplication_osAppEcucPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osAppEcucPartition_feature", "_UI_OsApplication_type"),
+				 getString("_UI_OsApplication_osAppEcucPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osAppEcucPartition_feature", "_UI_OsApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_APPLICATION__OS_APP_ECUC_PARTITION,
 				 true,
 				 false,
@@ -133,8 +133,8 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsApplication_osAppTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osAppTask_feature", "_UI_OsApplication_type"),
+				 getString("_UI_OsApplication_osAppTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplication_osAppTask_feature", "_UI_OsApplication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_APPLICATION__OS_APP_TASK,
 				 true,
 				 false,
@@ -182,7 +182,7 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsApplication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsApplication")); //$NON-NLS-1$
 	}
 
 	/**
@@ -195,8 +195,8 @@ public class OsApplicationItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsApplication)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsApplication_type") :
-			getString("_UI_OsApplication_type") + " " + label;
+			getString("_UI_OsApplication_type") : //$NON-NLS-1$
+			getString("_UI_OsApplication_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

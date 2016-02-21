@@ -64,8 +64,8 @@ public class SchmEnterApiItemProvider extends SchmApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchmEnterApi_isNoneExclude_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchmEnterApi_isNoneExclude_feature", "_UI_SchmEnterApi_type"),
+				 getString("_UI_SchmEnterApi_isNoneExclude_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchmEnterApi_isNoneExclude_feature", "_UI_SchmEnterApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SCHM_ENTER_API__IS_NONE_EXCLUDE,
 				 true,
 				 false,
@@ -113,7 +113,7 @@ public class SchmEnterApiItemProvider extends SchmApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmEnterApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SchmEnterApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class SchmEnterApiItemProvider extends SchmApiItemProvider {
 	public String getText(Object object) {
 		String label = ((SchmEnterApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SchmEnterApi_type") :
-			getString("_UI_SchmEnterApi_type") + " " + label;
+			getString("_UI_SchmEnterApi_type") : //$NON-NLS-1$
+			getString("_UI_SchmEnterApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

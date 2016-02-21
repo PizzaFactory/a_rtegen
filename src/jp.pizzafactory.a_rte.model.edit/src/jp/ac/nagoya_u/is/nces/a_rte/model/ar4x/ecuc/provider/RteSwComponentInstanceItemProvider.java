@@ -63,8 +63,8 @@ public class RteSwComponentInstanceItemProvider extends EcucContainerItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteSwComponentInstance_rteSoftwareComponentInstance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteSwComponentInstance_rteSoftwareComponentInstance_feature", "_UI_RteSwComponentInstance_type"),
+				 getString("_UI_RteSwComponentInstance_rteSoftwareComponentInstance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteSwComponentInstance_rteSoftwareComponentInstance_feature", "_UI_RteSwComponentInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_SW_COMPONENT_INSTANCE__RTE_SOFTWARE_COMPONENT_INSTANCE,
 				 true,
 				 false,
@@ -113,7 +113,7 @@ public class RteSwComponentInstanceItemProvider extends EcucContainerItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSwComponentInstance"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSwComponentInstance")); //$NON-NLS-1$
 	}
 
 	/**
@@ -126,8 +126,8 @@ public class RteSwComponentInstanceItemProvider extends EcucContainerItemProvide
 	public String getText(Object object) {
 		String label = ((RteSwComponentInstance)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteSwComponentInstance_type") :
-			getString("_UI_RteSwComponentInstance_type") + " " + label;
+			getString("_UI_RteSwComponentInstance_type") : //$NON-NLS-1$
+			getString("_UI_RteSwComponentInstance_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

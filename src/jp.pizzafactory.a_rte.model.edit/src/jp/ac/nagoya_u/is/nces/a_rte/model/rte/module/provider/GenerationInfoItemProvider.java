@@ -63,8 +63,8 @@ public class GenerationInfoItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GenerationInfo_generatorName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generatorName_feature", "_UI_GenerationInfo_type"),
+				 getString("_UI_GenerationInfo_generatorName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generatorName_feature", "_UI_GenerationInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GENERATION_INFO__GENERATOR_NAME,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class GenerationInfoItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GenerationInfo_generatorVersion_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generatorVersion_feature", "_UI_GenerationInfo_type"),
+				 getString("_UI_GenerationInfo_generatorVersion_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generatorVersion_feature", "_UI_GenerationInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GENERATION_INFO__GENERATOR_VERSION,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class GenerationInfoItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GenerationInfo_generationDate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generationDate_feature", "_UI_GenerationInfo_type"),
+				 getString("_UI_GenerationInfo_generationDate_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GenerationInfo_generationDate_feature", "_UI_GenerationInfo_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GENERATION_INFO__GENERATION_DATE,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class GenerationInfoItemProvider extends ModuleObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GenerationInfo"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GenerationInfo")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class GenerationInfoItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((GenerationInfo)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GenerationInfo_type") :
-			getString("_UI_GenerationInfo_type") + " " + label;
+			getString("_UI_GenerationInfo_type") : //$NON-NLS-1$
+			getString("_UI_GenerationInfo_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

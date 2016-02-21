@@ -68,8 +68,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendApi_dataParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_dataParam_feature", "_UI_SendApi_type"),
+				 getString("_UI_SendApi_dataParam_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_dataParam_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_API__DATA_PARAM,
 				 true,
 				 false,
@@ -90,8 +90,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendApi_statusVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_statusVariable_feature", "_UI_SendApi_type"),
+				 getString("_UI_SendApi_statusVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_statusVariable_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_API__STATUS_VARIABLE,
 				 true,
 				 false,
@@ -112,8 +112,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendApi_trustedFunctionParamVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_trustedFunctionParamVariable_feature", "_UI_SendApi_type"),
+				 getString("_UI_SendApi_trustedFunctionParamVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_trustedFunctionParamVariable_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_API__TRUSTED_FUNCTION_PARAM_VARIABLE,
 				 true,
 				 false,
@@ -134,8 +134,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendApi_filterResultVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_filterResultVariable_feature", "_UI_SendApi_type"),
+				 getString("_UI_SendApi_filterResultVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_filterResultVariable_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_API__FILTER_RESULT_VARIABLE,
 				 true,
 				 false,
@@ -156,8 +156,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendApi_needsCheckArg_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_needsCheckArg_feature", "_UI_SendApi_type"),
+				 getString("_UI_SendApi_needsCheckArg_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_needsCheckArg_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_API__NEEDS_CHECK_ARG,
 				 true,
 				 false,
@@ -205,7 +205,7 @@ public class SendApiItemProvider extends RteApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SendApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SendApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -218,8 +218,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 	public String getText(Object object) {
 		String label = ((SendApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SendApi_type") :
-			getString("_UI_SendApi_type") + " " + label;
+			getString("_UI_SendApi_type") : //$NON-NLS-1$
+			getString("_UI_SendApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

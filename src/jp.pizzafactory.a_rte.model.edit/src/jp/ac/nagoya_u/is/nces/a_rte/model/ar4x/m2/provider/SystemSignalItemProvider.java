@@ -53,7 +53,7 @@ public class SystemSignalItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemSignal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemSignal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SystemSignalItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((SystemSignal)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SystemSignal_type") :
-			getString("_UI_SystemSignal_type") + " " + label;
+			getString("_UI_SystemSignal_type") : //$NON-NLS-1$
+			getString("_UI_SystemSignal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

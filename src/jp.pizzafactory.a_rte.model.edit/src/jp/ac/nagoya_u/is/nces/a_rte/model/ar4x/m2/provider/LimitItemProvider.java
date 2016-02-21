@@ -61,8 +61,8 @@ public class LimitItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Limit_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Limit_value_feature", "_UI_Limit_type"),
+				 getString("_UI_Limit_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Limit_value_feature", "_UI_Limit_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.LIMIT__VALUE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class LimitItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Limit"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Limit")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class LimitItemProvider extends M2ObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((Limit)object).getValue();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Limit_type") :
-			getString("_UI_Limit_type") + " " + label;
+			getString("_UI_Limit_type") : //$NON-NLS-1$
+			getString("_UI_Limit_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

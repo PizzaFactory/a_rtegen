@@ -355,7 +355,7 @@ public class PortApiOptionImpl extends M2ObjectImpl implements PortApiOption {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (enableTakeAddress: ");
+		result.append(" (enableTakeAddress: "); //$NON-NLS-1$
 		result.append(enableTakeAddress);
 		result.append(')');
 		return result.toString();

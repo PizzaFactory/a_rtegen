@@ -61,8 +61,8 @@ public class OsEventSetActivationOperationItemProvider extends ContextActivation
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetActivationOperation_activationOsEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetActivationOperation_activationOsEventId_feature", "_UI_OsEventSetActivationOperation_type"),
+				 getString("_UI_OsEventSetActivationOperation_activationOsEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetActivationOperation_activationOsEventId_feature", "_UI_OsEventSetActivationOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_EVENT_SET_ACTIVATION_OPERATION__ACTIVATION_OS_EVENT_ID,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class OsEventSetActivationOperationItemProvider extends ContextActivation
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetActivationOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetActivationOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class OsEventSetActivationOperationItemProvider extends ContextActivation
 	public String getText(Object object) {
 		String label = ((OsEventSetActivationOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsEventSetActivationOperation_type") :
-			getString("_UI_OsEventSetActivationOperation_type") + " " + label;
+			getString("_UI_OsEventSetActivationOperation_type") : //$NON-NLS-1$
+			getString("_UI_OsEventSetActivationOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

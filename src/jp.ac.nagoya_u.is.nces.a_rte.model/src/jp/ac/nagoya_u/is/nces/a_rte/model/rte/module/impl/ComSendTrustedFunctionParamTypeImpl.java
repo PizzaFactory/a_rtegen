@@ -192,7 +192,7 @@ public class ComSendTrustedFunctionParamTypeImpl extends TypeImpl implements Com
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isGroup: ");
+		result.append(" (isGroup: "); //$NON-NLS-1$
 		result.append(isGroup);
 		result.append(')');
 		return result.toString();

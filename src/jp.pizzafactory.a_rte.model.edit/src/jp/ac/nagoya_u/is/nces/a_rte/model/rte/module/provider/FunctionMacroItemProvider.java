@@ -62,8 +62,8 @@ public class FunctionMacroItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionMacro_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionMacro_symbolName_feature", "_UI_FunctionMacro_type"),
+				 getString("_UI_FunctionMacro_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionMacro_symbolName_feature", "_UI_FunctionMacro_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION_MACRO__SYMBOL_NAME,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class FunctionMacroItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionMacro_functionName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionMacro_functionName_feature", "_UI_FunctionMacro_type"),
+				 getString("_UI_FunctionMacro_functionName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionMacro_functionName_feature", "_UI_FunctionMacro_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION_MACRO__FUNCTION_NAME,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class FunctionMacroItemProvider extends ModuleObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionMacro"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/FunctionMacro")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class FunctionMacroItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((FunctionMacro)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_FunctionMacro_type") :
-			getString("_UI_FunctionMacro_type") + " " + label;
+			getString("_UI_FunctionMacro_type") : //$NON-NLS-1$
+			getString("_UI_FunctionMacro_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

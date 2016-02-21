@@ -62,8 +62,8 @@ public class IncludedDataTypeSetItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IncludedDataTypeSet_literalPrefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IncludedDataTypeSet_literalPrefix_feature", "_UI_IncludedDataTypeSet_type"),
+				 getString("_UI_IncludedDataTypeSet_literalPrefix_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IncludedDataTypeSet_literalPrefix_feature", "_UI_IncludedDataTypeSet_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INCLUDED_DATA_TYPE_SET__LITERAL_PREFIX,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class IncludedDataTypeSetItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IncludedDataTypeSet_dataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IncludedDataTypeSet_dataType_feature", "_UI_IncludedDataTypeSet_type"),
+				 getString("_UI_IncludedDataTypeSet_dataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IncludedDataTypeSet_dataType_feature", "_UI_IncludedDataTypeSet_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INCLUDED_DATA_TYPE_SET__DATA_TYPE,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class IncludedDataTypeSetItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IncludedDataTypeSet"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IncludedDataTypeSet")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class IncludedDataTypeSetItemProvider extends M2ObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((IncludedDataTypeSet)object).getLiteralPrefix();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IncludedDataTypeSet_type") :
-			getString("_UI_IncludedDataTypeSet_type") + " " + label;
+			getString("_UI_IncludedDataTypeSet_type") : //$NON-NLS-1$
+			getString("_UI_IncludedDataTypeSet_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -68,7 +68,7 @@ public class NonqueuedSenderComSpecExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NonqueuedSenderComSpecEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NonqueuedSenderComSpecEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class NonqueuedSenderComSpecExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_NonqueuedSenderComSpecEx_type");
+		return getString("_UI_NonqueuedSenderComSpecEx_type"); //$NON-NLS-1$
 	}
 	
 

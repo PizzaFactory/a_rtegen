@@ -195,7 +195,7 @@ public class OsEventSetActivationOperationImpl extends ContextActivationOperatio
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (activationOsEventId: ");
+		result.append(" (activationOsEventId: "); //$NON-NLS-1$
 		result.append(activationOsEventId);
 		result.append(')');
 		return result.toString();

@@ -117,7 +117,7 @@ public class FilterBufferImplementationImpl extends VariableImplementationImpl i
 	public void setParent(ReceiveInteraction newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != InteractionPackage.FILTER_BUFFER_IMPLEMENTATION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

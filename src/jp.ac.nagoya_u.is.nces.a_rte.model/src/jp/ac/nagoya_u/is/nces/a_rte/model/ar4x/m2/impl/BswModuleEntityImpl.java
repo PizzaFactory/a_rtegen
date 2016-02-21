@@ -191,7 +191,7 @@ public abstract class BswModuleEntityImpl extends ExecutableEntityImpl implement
 	public void setParent(BswInternalBehavior newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.BSW_MODULE_ENTITY__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

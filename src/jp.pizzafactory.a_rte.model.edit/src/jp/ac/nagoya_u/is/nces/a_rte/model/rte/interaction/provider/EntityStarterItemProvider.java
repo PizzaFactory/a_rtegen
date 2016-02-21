@@ -64,8 +64,8 @@ public class EntityStarterItemProvider extends InteractionEndItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntityStarter_expectedConfig_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStarter_expectedConfig_feature", "_UI_EntityStarter_type"),
+				 getString("_UI_EntityStarter_expectedConfig_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStarter_expectedConfig_feature", "_UI_EntityStarter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.ENTITY_STARTER__EXPECTED_CONFIG,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class EntityStarterItemProvider extends InteractionEndItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntityStarter_startInteraction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStarter_startInteraction_feature", "_UI_EntityStarter_type"),
+				 getString("_UI_EntityStarter_startInteraction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStarter_startInteraction_feature", "_UI_EntityStarter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.ENTITY_STARTER__START_INTERACTION,
 				 true,
 				 false,
@@ -138,8 +138,8 @@ public class EntityStarterItemProvider extends InteractionEndItemProvider {
 	public String getText(Object object) {
 		String label = ((EntityStarter)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EntityStarter_type") :
-			getString("_UI_EntityStarter_type") + " " + label;
+			getString("_UI_EntityStarter_type") : //$NON-NLS-1$
+			getString("_UI_EntityStarter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

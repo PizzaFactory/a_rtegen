@@ -59,8 +59,8 @@ public class RteBufferNonqueuedReadOperationItemProvider extends ReadOperationIt
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferNonqueuedReadOperation_accessVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferNonqueuedReadOperation_accessVariable_feature", "_UI_RteBufferNonqueuedReadOperation_type"),
+				 getString("_UI_RteBufferNonqueuedReadOperation_accessVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferNonqueuedReadOperation_accessVariable_feature", "_UI_RteBufferNonqueuedReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_NONQUEUED_READ_OPERATION__ACCESS_VARIABLE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RteBufferNonqueuedReadOperationItemProvider extends ReadOperationIt
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferNonqueuedReadOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferNonqueuedReadOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteBufferNonqueuedReadOperationItemProvider extends ReadOperationIt
 	public String getText(Object object) {
 		String label = ((RteBufferNonqueuedReadOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferNonqueuedReadOperation_type") :
-			getString("_UI_RteBufferNonqueuedReadOperation_type") + " " + label;
+			getString("_UI_RteBufferNonqueuedReadOperation_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferNonqueuedReadOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

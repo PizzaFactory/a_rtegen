@@ -53,7 +53,7 @@ public class EcuAbstractionSwComponentTypeItemProvider extends AtomicSwComponent
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcuAbstractionSwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcuAbstractionSwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class EcuAbstractionSwComponentTypeItemProvider extends AtomicSwComponent
 	public String getText(Object object) {
 		String label = ((EcuAbstractionSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcuAbstractionSwComponentType_type") :
-			getString("_UI_EcuAbstractionSwComponentType_type") + " " + label;
+			getString("_UI_EcuAbstractionSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_EcuAbstractionSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

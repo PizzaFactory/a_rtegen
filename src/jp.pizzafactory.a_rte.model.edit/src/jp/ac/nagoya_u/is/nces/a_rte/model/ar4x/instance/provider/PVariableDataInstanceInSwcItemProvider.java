@@ -59,8 +59,8 @@ public class PVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PVariableDataInstanceInSwc_contextPPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PVariableDataInstanceInSwc_contextPPort_feature", "_UI_PVariableDataInstanceInSwc_type"),
+				 getString("_UI_PVariableDataInstanceInSwc_contextPPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PVariableDataInstanceInSwc_contextPPort_feature", "_UI_PVariableDataInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PPORT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class PVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PVariableDataInstanceInSwc"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PVariableDataInstanceInSwc")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class PVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 	public String getText(Object object) {
 		String label = ((PVariableDataInstanceInSwc)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PVariableDataInstanceInSwc_type") :
-			getString("_UI_PVariableDataInstanceInSwc_type") + " " + label;
+			getString("_UI_PVariableDataInstanceInSwc_type") : //$NON-NLS-1$
+			getString("_UI_PVariableDataInstanceInSwc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

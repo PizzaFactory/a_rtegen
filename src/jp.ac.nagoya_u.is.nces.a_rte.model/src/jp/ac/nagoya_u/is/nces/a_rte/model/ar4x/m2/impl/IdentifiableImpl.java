@@ -192,7 +192,7 @@ public abstract class IdentifiableImpl extends ReferrableImpl implements Identif
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (category: ");
+		result.append(" (category: "); //$NON-NLS-1$
 		result.append(category);
 		result.append(')');
 		return result.toString();

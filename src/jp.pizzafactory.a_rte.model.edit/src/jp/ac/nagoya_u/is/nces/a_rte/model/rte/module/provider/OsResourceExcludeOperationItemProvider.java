@@ -61,8 +61,8 @@ public class OsResourceExcludeOperationItemProvider extends ExcludeOperationItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsResourceExcludeOperation_osResourceId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsResourceExcludeOperation_osResourceId_feature", "_UI_OsResourceExcludeOperation_type"),
+				 getString("_UI_OsResourceExcludeOperation_osResourceId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsResourceExcludeOperation_osResourceId_feature", "_UI_OsResourceExcludeOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_RESOURCE_EXCLUDE_OPERATION__OS_RESOURCE_ID,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class OsResourceExcludeOperationItemProvider extends ExcludeOperationItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsResourceExcludeOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsResourceExcludeOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class OsResourceExcludeOperationItemProvider extends ExcludeOperationItem
 	public String getText(Object object) {
 		String label = ((OsResourceExcludeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsResourceExcludeOperation_type") :
-			getString("_UI_OsResourceExcludeOperation_type") + " " + label;
+			getString("_UI_OsResourceExcludeOperation_type") : //$NON-NLS-1$
+			getString("_UI_OsResourceExcludeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

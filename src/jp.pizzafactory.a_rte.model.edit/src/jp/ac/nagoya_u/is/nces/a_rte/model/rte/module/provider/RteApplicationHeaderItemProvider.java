@@ -66,8 +66,8 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApplicationHeader_hasInlineApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_hasInlineApi_feature", "_UI_RteApplicationHeader_type"),
+				 getString("_UI_RteApplicationHeader_hasInlineApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_hasInlineApi_feature", "_UI_RteApplicationHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_APPLICATION_HEADER__HAS_INLINE_API,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApplicationHeader_sourceMacro_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_sourceMacro_feature", "_UI_RteApplicationHeader_type"),
+				 getString("_UI_RteApplicationHeader_sourceMacro_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_sourceMacro_feature", "_UI_RteApplicationHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_APPLICATION_HEADER__SOURCE_MACRO,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApplicationHeader_constant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_constant_feature", "_UI_RteApplicationHeader_type"),
+				 getString("_UI_RteApplicationHeader_constant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationHeader_constant_feature", "_UI_RteApplicationHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_APPLICATION_HEADER__CONSTANT,
 				 true,
 				 false,
@@ -162,7 +162,7 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApplicationHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApplicationHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -175,8 +175,8 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 	public String getText(Object object) {
 		String label = ((RteApplicationHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteApplicationHeader_type") :
-			getString("_UI_RteApplicationHeader_type") + " " + label;
+			getString("_UI_RteApplicationHeader_type") : //$NON-NLS-1$
+			getString("_UI_RteApplicationHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -254,7 +254,7 @@ public class RteApplicationHeaderItemProvider extends HeaderFileItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

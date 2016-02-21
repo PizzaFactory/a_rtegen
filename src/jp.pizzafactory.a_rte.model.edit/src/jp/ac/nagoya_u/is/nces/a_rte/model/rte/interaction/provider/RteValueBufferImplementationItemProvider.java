@@ -53,7 +53,7 @@ public class RteValueBufferImplementationItemProvider extends ValueBufferImpleme
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteValueBufferImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteValueBufferImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RteValueBufferImplementationItemProvider extends ValueBufferImpleme
 	public String getText(Object object) {
 		String label = ((RteValueBufferImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteValueBufferImplementation_type") :
-			getString("_UI_RteValueBufferImplementation_type") + " " + label;
+			getString("_UI_RteValueBufferImplementation_type") : //$NON-NLS-1$
+			getString("_UI_RteValueBufferImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -65,8 +65,8 @@ public class ImplementationDataTypeElementItemProvider extends IdentifiableItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplementationDataTypeElement_arraySize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeElement_arraySize_feature", "_UI_ImplementationDataTypeElement_type"),
+				 getString("_UI_ImplementationDataTypeElement_arraySize_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeElement_arraySize_feature", "_UI_ImplementationDataTypeElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class ImplementationDataTypeElementItemProvider extends IdentifiableItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplementationDataTypeElement_arraySizeSemantics_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeElement_arraySizeSemantics_feature", "_UI_ImplementationDataTypeElement_type"),
+				 getString("_UI_ImplementationDataTypeElement_arraySizeSemantics_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeElement_arraySizeSemantics_feature", "_UI_ImplementationDataTypeElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IMPLEMENTATION_DATA_TYPE_ELEMENT__ARRAY_SIZE_SEMANTICS,
 				 true,
 				 false,
@@ -137,7 +137,7 @@ public class ImplementationDataTypeElementItemProvider extends IdentifiableItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataTypeElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataTypeElement")); //$NON-NLS-1$
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class ImplementationDataTypeElementItemProvider extends IdentifiableItemP
 	public String getText(Object object) {
 		String label = ((ImplementationDataTypeElement)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ImplementationDataTypeElement_type") :
-			getString("_UI_ImplementationDataTypeElement_type") + " " + label;
+			getString("_UI_ImplementationDataTypeElement_type") : //$NON-NLS-1$
+			getString("_UI_ImplementationDataTypeElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

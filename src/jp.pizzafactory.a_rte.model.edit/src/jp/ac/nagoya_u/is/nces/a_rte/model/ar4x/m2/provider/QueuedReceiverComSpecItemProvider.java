@@ -61,8 +61,8 @@ public class QueuedReceiverComSpecItemProvider extends ReceiverComSpecItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_QueuedReceiverComSpec_queueLength_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_QueuedReceiverComSpec_queueLength_feature", "_UI_QueuedReceiverComSpec_type"),
+				 getString("_UI_QueuedReceiverComSpec_queueLength_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_QueuedReceiverComSpec_queueLength_feature", "_UI_QueuedReceiverComSpec_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.QUEUED_RECEIVER_COM_SPEC__QUEUE_LENGTH,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class QueuedReceiverComSpecItemProvider extends ReceiverComSpecItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/QueuedReceiverComSpec"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/QueuedReceiverComSpec")); //$NON-NLS-1$
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class QueuedReceiverComSpecItemProvider extends ReceiverComSpecItemProvid
 		Integer labelValue = ((QueuedReceiverComSpec)object).getQueueLength();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_QueuedReceiverComSpec_type") :
-			getString("_UI_QueuedReceiverComSpec_type") + " " + label;
+			getString("_UI_QueuedReceiverComSpec_type") : //$NON-NLS-1$
+			getString("_UI_QueuedReceiverComSpec_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -93,7 +93,7 @@ public class RteItemProvider extends EcucModuleItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rte"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rte")); //$NON-NLS-1$
 	}
 
 	/**
@@ -106,8 +106,8 @@ public class RteItemProvider extends EcucModuleItemProvider {
 	public String getText(Object object) {
 		String label = ((Rte)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Rte_type") :
-			getString("_UI_Rte_type") + " " + label;
+			getString("_UI_Rte_type") : //$NON-NLS-1$
+			getString("_UI_Rte_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

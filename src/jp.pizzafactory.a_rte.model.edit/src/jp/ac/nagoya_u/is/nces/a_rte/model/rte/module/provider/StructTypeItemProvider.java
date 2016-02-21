@@ -88,7 +88,7 @@ public class StructTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/StructType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/StructType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class StructTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((StructType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_StructType_type") :
-			getString("_UI_StructType_type") + " " + label;
+			getString("_UI_StructType_type") : //$NON-NLS-1$
+			getString("_UI_StructType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

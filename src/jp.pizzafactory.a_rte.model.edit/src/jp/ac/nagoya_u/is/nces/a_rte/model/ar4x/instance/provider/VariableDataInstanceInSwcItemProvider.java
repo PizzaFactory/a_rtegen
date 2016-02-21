@@ -61,8 +61,8 @@ public class VariableDataInstanceInSwcItemProvider extends VariableDataInstanceI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInSwc_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_prototype_feature", "_UI_VariableDataInstanceInSwc_type"),
+				 getString("_UI_VariableDataInstanceInSwc_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_prototype_feature", "_UI_VariableDataInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_SWC__PROTOTYPE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class VariableDataInstanceInSwcItemProvider extends VariableDataInstanceI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInSwc_contextPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_contextPort_feature", "_UI_VariableDataInstanceInSwc_type"),
+				 getString("_UI_VariableDataInstanceInSwc_contextPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_contextPort_feature", "_UI_VariableDataInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class VariableDataInstanceInSwcItemProvider extends VariableDataInstanceI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInSwc_instance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_instance_feature", "_UI_VariableDataInstanceInSwc_type"),
+				 getString("_UI_VariableDataInstanceInSwc_instance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInSwc_instance_feature", "_UI_VariableDataInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_SWC__INSTANCE,
 				 true,
 				 false,
@@ -126,8 +126,8 @@ public class VariableDataInstanceInSwcItemProvider extends VariableDataInstanceI
 	public String getText(Object object) {
 		String label = ((VariableDataInstanceInSwc)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableDataInstanceInSwc_type") :
-			getString("_UI_VariableDataInstanceInSwc_type") + " " + label;
+			getString("_UI_VariableDataInstanceInSwc_type") : //$NON-NLS-1$
+			getString("_UI_VariableDataInstanceInSwc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

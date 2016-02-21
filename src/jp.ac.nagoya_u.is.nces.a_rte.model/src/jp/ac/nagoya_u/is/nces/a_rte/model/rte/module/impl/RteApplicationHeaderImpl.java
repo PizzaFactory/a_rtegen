@@ -429,7 +429,7 @@ public class RteApplicationHeaderImpl extends HeaderFileImpl implements RteAppli
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (hasInlineApi: ");
+		result.append(" (hasInlineApi: "); //$NON-NLS-1$
 		result.append(hasInlineApi);
 		result.append(')');
 		return result.toString();

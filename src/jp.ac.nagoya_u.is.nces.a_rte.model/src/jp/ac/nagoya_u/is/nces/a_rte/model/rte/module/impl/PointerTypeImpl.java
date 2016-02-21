@@ -310,9 +310,9 @@ public class PointerTypeImpl extends TypeImpl implements PointerType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isConstPointer: ");
+		result.append(" (isConstPointer: "); //$NON-NLS-1$
 		result.append(isConstPointer);
-		result.append(", isConstTarget: ");
+		result.append(", isConstTarget: "); //$NON-NLS-1$
 		result.append(isConstTarget);
 		result.append(')');
 		return result.toString();

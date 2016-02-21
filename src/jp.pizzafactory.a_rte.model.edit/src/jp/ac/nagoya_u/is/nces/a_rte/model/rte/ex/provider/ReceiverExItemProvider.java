@@ -68,7 +68,7 @@ public class ReceiverExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReceiverEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReceiverEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class ReceiverExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ReceiverEx_type");
+		return getString("_UI_ReceiverEx_type"); //$NON-NLS-1$
 	}
 	
 

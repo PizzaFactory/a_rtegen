@@ -88,7 +88,7 @@ public class RestartPartitionApiItemProvider extends RteLifecycleApiItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestartPartitionApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RestartPartitionApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class RestartPartitionApiItemProvider extends RteLifecycleApiItemProvider
 	public String getText(Object object) {
 		String label = ((RestartPartitionApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RestartPartitionApi_type") :
-			getString("_UI_RestartPartitionApi_type") + " " + label;
+			getString("_UI_RestartPartitionApi_type") : //$NON-NLS-1$
+			getString("_UI_RestartPartitionApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

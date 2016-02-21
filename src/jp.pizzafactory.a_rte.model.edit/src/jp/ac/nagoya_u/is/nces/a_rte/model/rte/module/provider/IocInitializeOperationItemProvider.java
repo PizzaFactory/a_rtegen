@@ -59,8 +59,8 @@ public class IocInitializeOperationItemProvider extends InitializeOperationItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocInitializeOperation_initIocApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocInitializeOperation_initIocApi_feature", "_UI_IocInitializeOperation_type"),
+				 getString("_UI_IocInitializeOperation_initIocApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocInitializeOperation_initIocApi_feature", "_UI_IocInitializeOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_INITIALIZE_OPERATION__INIT_IOC_API,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class IocInitializeOperationItemProvider extends InitializeOperationItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocInitializeOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocInitializeOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class IocInitializeOperationItemProvider extends InitializeOperationItemP
 	public String getText(Object object) {
 		String label = ((IocInitializeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocInitializeOperation_type") :
-			getString("_UI_IocInitializeOperation_type") + " " + label;
+			getString("_UI_IocInitializeOperation_type") : //$NON-NLS-1$
+			getString("_UI_IocInitializeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

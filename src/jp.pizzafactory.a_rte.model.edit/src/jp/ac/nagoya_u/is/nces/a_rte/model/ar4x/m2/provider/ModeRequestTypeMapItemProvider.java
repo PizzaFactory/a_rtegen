@@ -59,8 +59,8 @@ public class ModeRequestTypeMapItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeRequestTypeMap_implementationDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeRequestTypeMap_implementationDataType_feature", "_UI_ModeRequestTypeMap_type"),
+				 getString("_UI_ModeRequestTypeMap_implementationDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeRequestTypeMap_implementationDataType_feature", "_UI_ModeRequestTypeMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.MODE_REQUEST_TYPE_MAP__IMPLEMENTATION_DATA_TYPE,
 				 true,
 				 false,
@@ -81,8 +81,8 @@ public class ModeRequestTypeMapItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeRequestTypeMap_modeGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeRequestTypeMap_modeGroup_feature", "_UI_ModeRequestTypeMap_type"),
+				 getString("_UI_ModeRequestTypeMap_modeGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeRequestTypeMap_modeGroup_feature", "_UI_ModeRequestTypeMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.MODE_REQUEST_TYPE_MAP__MODE_GROUP,
 				 true,
 				 false,
@@ -100,7 +100,7 @@ public class ModeRequestTypeMapItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeRequestTypeMap"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeRequestTypeMap")); //$NON-NLS-1$
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class ModeRequestTypeMapItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ModeRequestTypeMap_type");
+		return getString("_UI_ModeRequestTypeMap_type"); //$NON-NLS-1$
 	}
 	
 

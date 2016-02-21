@@ -65,8 +65,8 @@ public class PortApiOptionItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortApiOption_port_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortApiOption_port_feature", "_UI_PortApiOption_type"),
+				 getString("_UI_PortApiOption_port_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortApiOption_port_feature", "_UI_PortApiOption_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_API_OPTION__PORT,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class PortApiOptionItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortApiOption_enableTakeAddress_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortApiOption_enableTakeAddress_feature", "_UI_PortApiOption_type"),
+				 getString("_UI_PortApiOption_enableTakeAddress_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortApiOption_enableTakeAddress_feature", "_UI_PortApiOption_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_API_OPTION__ENABLE_TAKE_ADDRESS,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class PortApiOptionItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortApiOption"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortApiOption")); //$NON-NLS-1$
 	}
 
 	/**
@@ -150,8 +150,8 @@ public class PortApiOptionItemProvider extends M2ObjectItemProvider {
 		Boolean labelValue = ((PortApiOption)object).getEnableTakeAddress();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PortApiOption_type") :
-			getString("_UI_PortApiOption_type") + " " + label;
+			getString("_UI_PortApiOption_type") : //$NON-NLS-1$
+			getString("_UI_PortApiOption_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -493,7 +493,7 @@ public class SendApiImpl extends RteApiImpl implements SendApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (needsCheckArg: ");
+		result.append(" (needsCheckArg: "); //$NON-NLS-1$
 		result.append(needsCheckArg);
 		result.append(')');
 		return result.toString();

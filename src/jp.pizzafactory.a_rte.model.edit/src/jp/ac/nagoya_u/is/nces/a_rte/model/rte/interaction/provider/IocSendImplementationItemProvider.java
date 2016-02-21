@@ -59,8 +59,8 @@ public class IocSendImplementationItemProvider extends SendImplementationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocSendImplementation_osIocSenderProperties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendImplementation_osIocSenderProperties_feature", "_UI_IocSendImplementation_type"),
+				 getString("_UI_IocSendImplementation_osIocSenderProperties_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendImplementation_osIocSenderProperties_feature", "_UI_IocSendImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.IOC_SEND_IMPLEMENTATION__OS_IOC_SENDER_PROPERTIES,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class IocSendImplementationItemProvider extends SendImplementationItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class IocSendImplementationItemProvider extends SendImplementationItemPro
 	public String getText(Object object) {
 		String label = ((IocSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocSendImplementation_type") :
-			getString("_UI_IocSendImplementation_type") + " " + label;
+			getString("_UI_IocSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_IocSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

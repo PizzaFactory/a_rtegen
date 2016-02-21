@@ -60,8 +60,8 @@ public class MaskedNewDiffersXFilterOperationItemProvider extends FilterOperatio
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MaskedNewDiffersXFilterOperation_mask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersXFilterOperation_mask_feature", "_UI_MaskedNewDiffersXFilterOperation_type"),
+				 getString("_UI_MaskedNewDiffersXFilterOperation_mask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersXFilterOperation_mask_feature", "_UI_MaskedNewDiffersXFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MASKED_NEW_DIFFERS_XFILTER_OPERATION__MASK,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class MaskedNewDiffersXFilterOperationItemProvider extends FilterOperatio
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MaskedNewDiffersXFilterOperation_x_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersXFilterOperation_x_feature", "_UI_MaskedNewDiffersXFilterOperation_type"),
+				 getString("_UI_MaskedNewDiffersXFilterOperation_x_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersXFilterOperation_x_feature", "_UI_MaskedNewDiffersXFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MASKED_NEW_DIFFERS_XFILTER_OPERATION__X,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class MaskedNewDiffersXFilterOperationItemProvider extends FilterOperatio
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MaskedNewDiffersXFilterOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MaskedNewDiffersXFilterOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class MaskedNewDiffersXFilterOperationItemProvider extends FilterOperatio
 	public String getText(Object object) {
 		String label = ((MaskedNewDiffersXFilterOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MaskedNewDiffersXFilterOperation_type") :
-			getString("_UI_MaskedNewDiffersXFilterOperation_type") + " " + label;
+			getString("_UI_MaskedNewDiffersXFilterOperation_type") : //$NON-NLS-1$
+			getString("_UI_MaskedNewDiffersXFilterOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

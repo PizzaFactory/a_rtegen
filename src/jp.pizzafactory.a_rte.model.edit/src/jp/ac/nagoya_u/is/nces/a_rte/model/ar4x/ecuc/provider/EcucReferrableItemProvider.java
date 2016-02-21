@@ -64,8 +64,8 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucReferrable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_id_feature", "_UI_EcucReferrable_type"),
+				 getString("_UI_EcucReferrable_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_id_feature", "_UI_EcucReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_REFERRABLE__ID,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucReferrable_shortName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_shortName_feature", "_UI_EcucReferrable_type"),
+				 getString("_UI_EcucReferrable_shortName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_shortName_feature", "_UI_EcucReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_REFERRABLE__SHORT_NAME,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucReferrable_reference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_reference_feature", "_UI_EcucReferrable_type"),
+				 getString("_UI_EcucReferrable_reference_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_reference_feature", "_UI_EcucReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_REFERRABLE__REFERENCE,
 				 true,
 				 false,
@@ -130,8 +130,8 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucReferrable_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_source_feature", "_UI_EcucReferrable_type"),
+				 getString("_UI_EcucReferrable_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferrable_source_feature", "_UI_EcucReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_REFERRABLE__SOURCE,
 				 true,
 				 false,
@@ -149,7 +149,7 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucReferrable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucReferrable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class EcucReferrableItemProvider extends EcucObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucReferrable)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucReferrable_type") :
-			getString("_UI_EcucReferrable_type") + " " + label;
+			getString("_UI_EcucReferrable_type") : //$NON-NLS-1$
+			getString("_UI_EcucReferrable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

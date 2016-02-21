@@ -61,8 +61,8 @@ public class ExecutableEntityItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutableEntity_canEnterExclusiveArea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_canEnterExclusiveArea_feature", "_UI_ExecutableEntity_type"),
+				 getString("_UI_ExecutableEntity_canEnterExclusiveArea_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_canEnterExclusiveArea_feature", "_UI_ExecutableEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXECUTABLE_ENTITY__CAN_ENTER_EXCLUSIVE_AREA,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class ExecutableEntityItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutableEntity_runsInsideExclusiveArea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_runsInsideExclusiveArea_feature", "_UI_ExecutableEntity_type"),
+				 getString("_UI_ExecutableEntity_runsInsideExclusiveArea_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_runsInsideExclusiveArea_feature", "_UI_ExecutableEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXECUTABLE_ENTITY__RUNS_INSIDE_EXCLUSIVE_AREA,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class ExecutableEntityItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutableEntity_swAddrMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_swAddrMethod_feature", "_UI_ExecutableEntity_type"),
+				 getString("_UI_ExecutableEntity_swAddrMethod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntity_swAddrMethod_feature", "_UI_ExecutableEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXECUTABLE_ENTITY__SW_ADDR_METHOD,
 				 true,
 				 false,
@@ -126,8 +126,8 @@ public class ExecutableEntityItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((ExecutableEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExecutableEntity_type") :
-			getString("_UI_ExecutableEntity_type") + " " + label;
+			getString("_UI_ExecutableEntity_type") : //$NON-NLS-1$
+			getString("_UI_ExecutableEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

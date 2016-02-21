@@ -246,9 +246,9 @@ public class SwAddrMethodImpl extends ArElementImpl implements SwAddrMethod {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (memoryAllocationKeywordPolicy: ");
+		result.append(" (memoryAllocationKeywordPolicy: "); //$NON-NLS-1$
 		result.append(memoryAllocationKeywordPolicy);
-		result.append(", sectionInitializationPolicy: ");
+		result.append(", sectionInitializationPolicy: "); //$NON-NLS-1$
 		result.append(sectionInitializationPolicy);
 		result.append(')');
 		return result.toString();

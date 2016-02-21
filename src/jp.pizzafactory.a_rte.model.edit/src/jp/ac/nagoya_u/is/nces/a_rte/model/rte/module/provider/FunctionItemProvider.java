@@ -66,8 +66,8 @@ public class FunctionItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Function_returnType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Function_returnType_feature", "_UI_Function_type"),
+				 getString("_UI_Function_returnType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Function_returnType_feature", "_UI_Function_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION__RETURN_TYPE,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class FunctionItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Function_memoryMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Function_memoryMapping_feature", "_UI_Function_type"),
+				 getString("_UI_Function_memoryMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Function_memoryMapping_feature", "_UI_Function_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION__MEMORY_MAPPING,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class FunctionItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Function_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Function_symbolName_feature", "_UI_Function_type"),
+				 getString("_UI_Function_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Function_symbolName_feature", "_UI_Function_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION__SYMBOL_NAME,
 				 true,
 				 false,
@@ -163,8 +163,8 @@ public class FunctionItemProvider extends ModuleReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((Function)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Function_type") :
-			getString("_UI_Function_type") + " " + label;
+			getString("_UI_Function_type") : //$NON-NLS-1$
+			getString("_UI_Function_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

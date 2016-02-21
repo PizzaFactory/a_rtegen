@@ -158,7 +158,7 @@ public class StartOffsetCounterImplementationImpl extends VariableImplementation
 	public void setParent(EntityStarter newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != InteractionPackage.START_OFFSET_COUNTER_IMPLEMENTATION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -293,7 +293,7 @@ public class StartOffsetCounterImplementationImpl extends VariableImplementation
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (maxCount: ");
+		result.append(" (maxCount: "); //$NON-NLS-1$
 		result.append(maxCount);
 		result.append(')');
 		return result.toString();

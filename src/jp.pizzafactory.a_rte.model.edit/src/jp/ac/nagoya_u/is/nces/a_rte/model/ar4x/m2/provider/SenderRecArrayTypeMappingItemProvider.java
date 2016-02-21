@@ -58,8 +58,8 @@ public class SenderRecArrayTypeMappingItemProvider extends SenderRecCompositeTyp
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderRecArrayTypeMapping_arrayElementMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayTypeMapping_arrayElementMapping_feature", "_UI_SenderRecArrayTypeMapping_type"),
+				 getString("_UI_SenderRecArrayTypeMapping_arrayElementMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecArrayTypeMapping_arrayElementMapping_feature", "_UI_SenderRecArrayTypeMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_REC_ARRAY_TYPE_MAPPING__ARRAY_ELEMENT_MAPPING,
 				 true,
 				 false,
@@ -77,7 +77,7 @@ public class SenderRecArrayTypeMappingItemProvider extends SenderRecCompositeTyp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecArrayTypeMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecArrayTypeMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class SenderRecArrayTypeMappingItemProvider extends SenderRecCompositeTyp
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderRecArrayTypeMapping_type");
+		return getString("_UI_SenderRecArrayTypeMapping_type"); //$NON-NLS-1$
 	}
 	
 

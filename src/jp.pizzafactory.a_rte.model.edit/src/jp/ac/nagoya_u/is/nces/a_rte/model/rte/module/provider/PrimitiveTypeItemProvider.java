@@ -53,7 +53,7 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class PrimitiveTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((PrimitiveType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PrimitiveType_type") :
-			getString("_UI_PrimitiveType_type") + " " + label;
+			getString("_UI_PrimitiveType_type") : //$NON-NLS-1$
+			getString("_UI_PrimitiveType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

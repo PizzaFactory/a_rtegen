@@ -61,8 +61,8 @@ public class EcucModuleItemProvider extends EcucReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucModule_referenceBase_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModule_referenceBase_feature", "_UI_EcucModule_type"),
+				 getString("_UI_EcucModule_referenceBase_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModule_referenceBase_feature", "_UI_EcucModule_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_MODULE__REFERENCE_BASE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class EcucModuleItemProvider extends EcucReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucModule)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucModule_type") :
-			getString("_UI_EcucModule_type") + " " + label;
+			getString("_UI_EcucModule_type") : //$NON-NLS-1$
+			getString("_UI_EcucModule_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

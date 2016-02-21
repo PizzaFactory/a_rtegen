@@ -460,7 +460,7 @@ public abstract class FunctionImpl extends ModuleReferrableImpl implements Funct
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
 		result.append(')');
 		return result.toString();

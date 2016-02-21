@@ -401,15 +401,15 @@ public abstract class TypeImpl extends ModuleReferrableImpl implements Type {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
-		result.append(", isAnonymous: ");
+		result.append(", isAnonymous: "); //$NON-NLS-1$
 		result.append(isAnonymous);
-		result.append(", signedness: ");
+		result.append(", signedness: "); //$NON-NLS-1$
 		result.append(signedness);
-		result.append(", originalTypeSymbolName: ");
+		result.append(", originalTypeSymbolName: "); //$NON-NLS-1$
 		result.append(originalTypeSymbolName);
-		result.append(", size: ");
+		result.append(", size: "); //$NON-NLS-1$
 		result.append(size);
 		result.append(')');
 		return result.toString();

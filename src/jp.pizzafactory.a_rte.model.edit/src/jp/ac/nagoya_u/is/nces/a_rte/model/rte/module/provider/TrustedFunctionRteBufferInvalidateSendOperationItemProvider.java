@@ -60,8 +60,8 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteBufferInvalidateSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteBufferInvalidateSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 	public String getText(Object object) {
 		String label = ((TrustedFunctionRteBufferInvalidateSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_type") :
-			getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_type") + " " + label;
+			getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

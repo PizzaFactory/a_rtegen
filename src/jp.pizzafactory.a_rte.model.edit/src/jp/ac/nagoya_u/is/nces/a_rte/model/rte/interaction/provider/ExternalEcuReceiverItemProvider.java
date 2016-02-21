@@ -60,8 +60,8 @@ public class ExternalEcuReceiverItemProvider extends ReceiverItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuReceiver_sourceSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuReceiver_sourceSignal_feature", "_UI_ExternalEcuReceiver_type"),
+				 getString("_UI_ExternalEcuReceiver_sourceSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuReceiver_sourceSignal_feature", "_UI_ExternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class ExternalEcuReceiverItemProvider extends ReceiverItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuReceiver_sourceSignalGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuReceiver_sourceSignalGroup_feature", "_UI_ExternalEcuReceiver_type"),
+				 getString("_UI_ExternalEcuReceiver_sourceSignalGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuReceiver_sourceSignalGroup_feature", "_UI_ExternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class ExternalEcuReceiverItemProvider extends ReceiverItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalEcuReceiver"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalEcuReceiver")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class ExternalEcuReceiverItemProvider extends ReceiverItemProvider {
 	public String getText(Object object) {
 		String label = ((ExternalEcuReceiver)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExternalEcuReceiver_type") :
-			getString("_UI_ExternalEcuReceiver_type") + " " + label;
+			getString("_UI_ExternalEcuReceiver_type") : //$NON-NLS-1$
+			getString("_UI_ExternalEcuReceiver_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

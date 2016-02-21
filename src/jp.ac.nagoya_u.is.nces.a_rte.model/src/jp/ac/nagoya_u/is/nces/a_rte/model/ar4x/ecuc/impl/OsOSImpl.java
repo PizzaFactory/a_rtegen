@@ -288,9 +288,9 @@ public class OsOSImpl extends EcucContainerImpl implements OsOS {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osNumberOfCores: ");
+		result.append(" (osNumberOfCores: "); //$NON-NLS-1$
 		result.append(osNumberOfCores);
-		result.append(", osMasterCoreId: ");
+		result.append(", osMasterCoreId: "); //$NON-NLS-1$
 		result.append(osMasterCoreId);
 		result.append(')');
 		return result.toString();

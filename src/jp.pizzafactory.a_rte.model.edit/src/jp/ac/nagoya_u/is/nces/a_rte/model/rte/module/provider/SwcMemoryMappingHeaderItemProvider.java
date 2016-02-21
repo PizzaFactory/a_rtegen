@@ -59,8 +59,8 @@ public class SwcMemoryMappingHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwcMemoryMappingHeader_memoryMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwcMemoryMappingHeader_memoryMapping_feature", "_UI_SwcMemoryMappingHeader_type"),
+				 getString("_UI_SwcMemoryMappingHeader_memoryMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwcMemoryMappingHeader_memoryMapping_feature", "_UI_SwcMemoryMappingHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SWC_MEMORY_MAPPING_HEADER__MEMORY_MAPPING,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class SwcMemoryMappingHeaderItemProvider extends HeaderFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcMemoryMappingHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcMemoryMappingHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class SwcMemoryMappingHeaderItemProvider extends HeaderFileItemProvider {
 	public String getText(Object object) {
 		String label = ((SwcMemoryMappingHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwcMemoryMappingHeader_type") :
-			getString("_UI_SwcMemoryMappingHeader_type") + " " + label;
+			getString("_UI_SwcMemoryMappingHeader_type") : //$NON-NLS-1$
+			getString("_UI_SwcMemoryMappingHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

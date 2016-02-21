@@ -408,9 +408,9 @@ public class ImplementationDataTypeElementImpl extends IdentifiableImpl implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (arraySize: ");
+		result.append(" (arraySize: "); //$NON-NLS-1$
 		result.append(arraySize);
-		result.append(", arraySizeSemantics: ");
+		result.append(", arraySizeSemantics: "); //$NON-NLS-1$
 		result.append(arraySizeSemantics);
 		result.append(')');
 		return result.toString();

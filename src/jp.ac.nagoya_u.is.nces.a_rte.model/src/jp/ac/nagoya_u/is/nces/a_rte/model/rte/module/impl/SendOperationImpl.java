@@ -454,7 +454,7 @@ public abstract class SendOperationImpl extends OperationImpl implements SendOpe
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isWriteApi: ");
+		result.append(" (isWriteApi: "); //$NON-NLS-1$
 		result.append(isWriteApi);
 		result.append(')');
 		return result.toString();

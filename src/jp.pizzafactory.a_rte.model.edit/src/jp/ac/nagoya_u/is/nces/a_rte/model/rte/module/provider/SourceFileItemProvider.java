@@ -59,8 +59,8 @@ public class SourceFileItemProvider extends FileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SourceFile_includeHeader_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SourceFile_includeHeader_feature", "_UI_SourceFile_type"),
+				 getString("_UI_SourceFile_includeHeader_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SourceFile_includeHeader_feature", "_UI_SourceFile_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SOURCE_FILE__INCLUDE_HEADER,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class SourceFileItemProvider extends FileItemProvider {
 	public String getText(Object object) {
 		String label = ((SourceFile)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SourceFile_type") :
-			getString("_UI_SourceFile_type") + " " + label;
+			getString("_UI_SourceFile_type") : //$NON-NLS-1$
+			getString("_UI_SourceFile_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

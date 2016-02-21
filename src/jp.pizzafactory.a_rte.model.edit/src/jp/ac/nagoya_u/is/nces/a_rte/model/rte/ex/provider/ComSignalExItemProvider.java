@@ -75,8 +75,8 @@ public class ComSignalExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSignalEx_senderReceiverToSignalMappingEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignalEx_senderReceiverToSignalMappingEx_feature", "_UI_ComSignalEx_type"),
+				 getString("_UI_ComSignalEx_senderReceiverToSignalMappingEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignalEx_senderReceiverToSignalMappingEx_feature", "_UI_ComSignalEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.COM_SIGNAL_EX__SENDER_RECEIVER_TO_SIGNAL_MAPPING_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class ComSignalExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignalEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignalEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class ComSignalExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ComSignalEx_type");
+		return getString("_UI_ComSignalEx_type"); //$NON-NLS-1$
 	}
 	
 

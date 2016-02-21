@@ -89,7 +89,7 @@ public class ClientServerInterfaceItemProvider extends PortInterfaceItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ClientServerInterface"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ClientServerInterface")); //$NON-NLS-1$
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ClientServerInterfaceItemProvider extends PortInterfaceItemProvider
 	public String getText(Object object) {
 		String label = ((ClientServerInterface)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ClientServerInterface_type") :
-			getString("_UI_ClientServerInterface_type") + " " + label;
+			getString("_UI_ClientServerInterface_type") : //$NON-NLS-1$
+			getString("_UI_ClientServerInterface_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

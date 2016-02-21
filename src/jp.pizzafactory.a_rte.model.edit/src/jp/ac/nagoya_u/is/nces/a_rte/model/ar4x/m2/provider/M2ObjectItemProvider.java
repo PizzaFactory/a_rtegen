@@ -68,7 +68,7 @@ public class M2ObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_M2Object_type");
+		return getString("_UI_M2Object_type"); //$NON-NLS-1$
 	}
 	
 

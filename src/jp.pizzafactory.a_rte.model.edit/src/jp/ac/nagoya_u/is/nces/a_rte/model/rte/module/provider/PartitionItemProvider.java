@@ -64,8 +64,8 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Partition_isBswPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Partition_isBswPartition_feature", "_UI_Partition_type"),
+				 getString("_UI_Partition_isBswPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Partition_isBswPartition_feature", "_UI_Partition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PARTITION__IS_BSW_PARTITION,
 				 true,
 				 false,
@@ -140,7 +140,7 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Partition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Partition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -153,8 +153,8 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 	public String getText(Object object) {
 		String label = ((Partition)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Partition_type") :
-			getString("_UI_Partition_type") + " " + label;
+			getString("_UI_Partition_type") : //$NON-NLS-1$
+			getString("_UI_Partition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -557,7 +557,7 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

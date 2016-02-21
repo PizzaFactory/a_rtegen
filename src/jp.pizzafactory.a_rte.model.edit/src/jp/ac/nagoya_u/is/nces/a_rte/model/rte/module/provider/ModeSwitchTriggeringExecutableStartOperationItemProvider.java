@@ -59,8 +59,8 @@ public class ModeSwitchTriggeringExecutableStartOperationItemProvider extends Ex
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeSwitchTriggeringExecutableStartOperation_startMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeSwitchTriggeringExecutableStartOperation_startMode_feature", "_UI_ModeSwitchTriggeringExecutableStartOperation_type"),
+				 getString("_UI_ModeSwitchTriggeringExecutableStartOperation_startMode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeSwitchTriggeringExecutableStartOperation_startMode_feature", "_UI_ModeSwitchTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class ModeSwitchTriggeringExecutableStartOperationItemProvider extends Ex
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeSwitchTriggeringExecutableStartOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeSwitchTriggeringExecutableStartOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ModeSwitchTriggeringExecutableStartOperationItemProvider extends Ex
 	public String getText(Object object) {
 		String label = ((ModeSwitchTriggeringExecutableStartOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModeSwitchTriggeringExecutableStartOperation_type") :
-			getString("_UI_ModeSwitchTriggeringExecutableStartOperation_type") + " " + label;
+			getString("_UI_ModeSwitchTriggeringExecutableStartOperation_type") : //$NON-NLS-1$
+			getString("_UI_ModeSwitchTriggeringExecutableStartOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

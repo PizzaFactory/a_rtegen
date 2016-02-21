@@ -64,8 +64,8 @@ public class PortInstanceInCompositionItemProvider extends InstanceReferrableIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortInstanceInComposition_contextComponent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortInstanceInComposition_contextComponent_feature", "_UI_PortInstanceInComposition_type"),
+				 getString("_UI_PortInstanceInComposition_contextComponent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortInstanceInComposition_contextComponent_feature", "_UI_PortInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.PORT_INSTANCE_IN_COMPOSITION__CONTEXT_COMPONENT,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class PortInstanceInCompositionItemProvider extends InstanceReferrableIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortInstanceInComposition_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortInstanceInComposition_prototype_feature", "_UI_PortInstanceInComposition_type"),
+				 getString("_UI_PortInstanceInComposition_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortInstanceInComposition_prototype_feature", "_UI_PortInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.PORT_INSTANCE_IN_COMPOSITION__PROTOTYPE,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class PortInstanceInCompositionItemProvider extends InstanceReferrableIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortInstanceInComposition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortInstanceInComposition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class PortInstanceInCompositionItemProvider extends InstanceReferrableIte
 	public String getText(Object object) {
 		String label = ((PortInstanceInComposition)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PortInstanceInComposition_type") :
-			getString("_UI_PortInstanceInComposition_type") + " " + label;
+			getString("_UI_PortInstanceInComposition_type") : //$NON-NLS-1$
+			getString("_UI_PortInstanceInComposition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

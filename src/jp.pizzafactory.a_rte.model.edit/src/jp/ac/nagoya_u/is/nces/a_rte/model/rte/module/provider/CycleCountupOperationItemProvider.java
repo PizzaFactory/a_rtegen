@@ -60,8 +60,8 @@ public class CycleCountupOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CycleCountupOperation_counterVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CycleCountupOperation_counterVariable_feature", "_UI_CycleCountupOperation_type"),
+				 getString("_UI_CycleCountupOperation_counterVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CycleCountupOperation_counterVariable_feature", "_UI_CycleCountupOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CYCLE_COUNTUP_OPERATION__COUNTER_VARIABLE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class CycleCountupOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CycleCountupOperation_maxConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CycleCountupOperation_maxConstant_feature", "_UI_CycleCountupOperation_type"),
+				 getString("_UI_CycleCountupOperation_maxConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CycleCountupOperation_maxConstant_feature", "_UI_CycleCountupOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CYCLE_COUNTUP_OPERATION__MAX_CONSTANT,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class CycleCountupOperationItemProvider extends OperationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CycleCountupOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CycleCountupOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class CycleCountupOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((CycleCountupOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CycleCountupOperation_type") :
-			getString("_UI_CycleCountupOperation_type") + " " + label;
+			getString("_UI_CycleCountupOperation_type") : //$NON-NLS-1$
+			getString("_UI_CycleCountupOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

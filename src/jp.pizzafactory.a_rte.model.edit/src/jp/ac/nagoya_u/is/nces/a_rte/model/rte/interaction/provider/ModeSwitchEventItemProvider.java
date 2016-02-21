@@ -51,7 +51,7 @@ public class ModeSwitchEventItemProvider extends EventItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeSwitchEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeSwitchEvent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ModeSwitchEventItemProvider extends EventItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ModeSwitchEvent_type");
+		return getString("_UI_ModeSwitchEvent_type"); //$NON-NLS-1$
 	}
 	
 

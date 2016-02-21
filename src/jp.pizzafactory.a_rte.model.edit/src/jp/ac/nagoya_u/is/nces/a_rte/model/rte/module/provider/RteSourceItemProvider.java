@@ -63,8 +63,8 @@ public class RteSourceItemProvider extends SourceFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteSource_sourceMacro_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteSource_sourceMacro_feature", "_UI_RteSource_type"),
+				 getString("_UI_RteSource_sourceMacro_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteSource_sourceMacro_feature", "_UI_RteSource_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_SOURCE__SOURCE_MACRO,
 				 true,
 				 false,
@@ -123,7 +123,7 @@ public class RteSourceItemProvider extends SourceFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSource"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSource")); //$NON-NLS-1$
 	}
 
 	/**
@@ -136,8 +136,8 @@ public class RteSourceItemProvider extends SourceFileItemProvider {
 	public String getText(Object object) {
 		String label = ((RteSource)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteSource_type") :
-			getString("_UI_RteSource_type") + " " + label;
+			getString("_UI_RteSource_type") : //$NON-NLS-1$
+			getString("_UI_RteSource_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -63,8 +63,8 @@ public class BswModuleDescriptionItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModuleDescription_providedEntry_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleDescription_providedEntry_feature", "_UI_BswModuleDescription_type"),
+				 getString("_UI_BswModuleDescription_providedEntry_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleDescription_providedEntry_feature", "_UI_BswModuleDescription_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODULE_DESCRIPTION__PROVIDED_ENTRY,
 				 true,
 				 false,
@@ -114,7 +114,7 @@ public class BswModuleDescriptionItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModuleDescription"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModuleDescription")); //$NON-NLS-1$
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class BswModuleDescriptionItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((BswModuleDescription)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswModuleDescription_type") :
-			getString("_UI_BswModuleDescription_type") + " " + label;
+			getString("_UI_BswModuleDescription_type") : //$NON-NLS-1$
+			getString("_UI_BswModuleDescription_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -197,7 +197,7 @@ public class BswModuleDescriptionItemProvider extends ArElementItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

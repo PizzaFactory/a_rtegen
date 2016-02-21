@@ -457,9 +457,9 @@ public class CoreImpl extends LogicalCompartmentImpl implements Core {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (coreId: ");
+		result.append(" (coreId: "); //$NON-NLS-1$
 		result.append(coreId);
-		result.append(", isMasterCore: ");
+		result.append(", isMasterCore: "); //$NON-NLS-1$
 		result.append(isMasterCore);
 		result.append(')');
 		return result.toString();

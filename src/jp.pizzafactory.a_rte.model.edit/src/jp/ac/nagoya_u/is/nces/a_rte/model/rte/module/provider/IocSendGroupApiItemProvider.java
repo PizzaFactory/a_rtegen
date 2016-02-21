@@ -53,7 +53,7 @@ public class IocSendGroupApiItemProvider extends IocSendApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendGroupApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendGroupApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class IocSendGroupApiItemProvider extends IocSendApiItemProvider {
 	public String getText(Object object) {
 		String label = ((IocSendGroupApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocSendGroupApi_type") :
-			getString("_UI_IocSendGroupApi_type") + " " + label;
+			getString("_UI_IocSendGroupApi_type") : //$NON-NLS-1$
+			getString("_UI_IocSendGroupApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

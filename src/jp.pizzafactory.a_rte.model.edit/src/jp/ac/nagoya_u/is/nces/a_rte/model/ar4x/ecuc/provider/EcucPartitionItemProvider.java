@@ -64,8 +64,8 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucPartition_ecucPartitionBswModuleExecution_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_ecucPartitionBswModuleExecution_feature", "_UI_EcucPartition_type"),
+				 getString("_UI_EcucPartition_ecucPartitionBswModuleExecution_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_ecucPartitionBswModuleExecution_feature", "_UI_EcucPartition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucPartition_partitionCanBeRestarted_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_partitionCanBeRestarted_feature", "_UI_EcucPartition_type"),
+				 getString("_UI_EcucPartition_partitionCanBeRestarted_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_partitionCanBeRestarted_feature", "_UI_EcucPartition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_PARTITION__PARTITION_CAN_BE_RESTARTED,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucPartition_ecucPartitionSoftwareComponent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_ecucPartitionSoftwareComponent_feature", "_UI_EcucPartition_type"),
+				 getString("_UI_EcucPartition_ecucPartitionSoftwareComponent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_ecucPartitionSoftwareComponent_feature", "_UI_EcucPartition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_PARTITION__ECUC_PARTITION_SOFTWARE_COMPONENT,
 				 true,
 				 false,
@@ -130,8 +130,8 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucPartition_implOsApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_implOsApplication_feature", "_UI_EcucPartition_type"),
+				 getString("_UI_EcucPartition_implOsApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucPartition_implOsApplication_feature", "_UI_EcucPartition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.ECUC_PARTITION__IMPL_OS_APPLICATION,
 				 true,
 				 false,
@@ -149,7 +149,7 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucPartition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucPartition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class EcucPartitionItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucPartition)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucPartition_type") :
-			getString("_UI_EcucPartition_type") + " " + label;
+			getString("_UI_EcucPartition_type") : //$NON-NLS-1$
+			getString("_UI_EcucPartition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

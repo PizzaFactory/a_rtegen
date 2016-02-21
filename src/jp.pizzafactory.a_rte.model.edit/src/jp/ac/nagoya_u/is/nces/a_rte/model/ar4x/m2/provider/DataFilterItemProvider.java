@@ -68,8 +68,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_dataFilterType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_dataFilterType_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_dataFilterType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_dataFilterType_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__DATA_FILTER_TYPE,
 				 true,
 				 false,
@@ -90,8 +90,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_mask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_mask_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_mask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_mask_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__MASK,
 				 true,
 				 false,
@@ -112,8 +112,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_max_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_max_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_max_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_max_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__MAX,
 				 true,
 				 false,
@@ -134,8 +134,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_min_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_min_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_min_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_min_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__MIN,
 				 true,
 				 false,
@@ -156,8 +156,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_offset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_offset_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_offset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_offset_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__OFFSET,
 				 true,
 				 false,
@@ -178,8 +178,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_period_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_period_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_period_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_period_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__PERIOD,
 				 true,
 				 false,
@@ -200,8 +200,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataFilter_x_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_x_feature", "_UI_DataFilter_type"),
+				 getString("_UI_DataFilter_x_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataFilter_x_feature", "_UI_DataFilter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_FILTER__X,
 				 true,
 				 false,
@@ -219,7 +219,7 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataFilter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataFilter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -233,8 +233,8 @@ public class DataFilterItemProvider extends M2ObjectItemProvider {
 		DataFilterTypeEnum labelValue = ((DataFilter)object).getDataFilterType();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DataFilter_type") :
-			getString("_UI_DataFilter_type") + " " + label;
+			getString("_UI_DataFilter_type") : //$NON-NLS-1$
+			getString("_UI_DataFilter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

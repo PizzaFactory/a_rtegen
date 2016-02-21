@@ -62,8 +62,8 @@ public class OsSetEventApiItemProvider extends OsApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsSetEventApi_osTaskId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsSetEventApi_osTaskId_feature", "_UI_OsSetEventApi_type"),
+				 getString("_UI_OsSetEventApi_osTaskId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsSetEventApi_osTaskId_feature", "_UI_OsSetEventApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_SET_EVENT_API__OS_TASK_ID,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class OsSetEventApiItemProvider extends OsApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsSetEventApi_osEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsSetEventApi_osEventId_feature", "_UI_OsSetEventApi_type"),
+				 getString("_UI_OsSetEventApi_osEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsSetEventApi_osEventId_feature", "_UI_OsSetEventApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_SET_EVENT_API__OS_EVENT_ID,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class OsSetEventApiItemProvider extends OsApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSetEventApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSetEventApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class OsSetEventApiItemProvider extends OsApiItemProvider {
 	public String getText(Object object) {
 		String label = ((OsSetEventApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsSetEventApi_type") :
-			getString("_UI_OsSetEventApi_type") + " " + label;
+			getString("_UI_OsSetEventApi_type") : //$NON-NLS-1$
+			getString("_UI_OsSetEventApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

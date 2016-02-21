@@ -63,8 +63,8 @@ public class RteTypeHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteTypeHeader_rteType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_rteType_feature", "_UI_RteTypeHeader_type"),
+				 getString("_UI_RteTypeHeader_rteType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_rteType_feature", "_UI_RteTypeHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_TYPE_HEADER__RTE_TYPE,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class RteTypeHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteTypeHeader_rteTypeConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_rteTypeConstant_feature", "_UI_RteTypeHeader_type"),
+				 getString("_UI_RteTypeHeader_rteTypeConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_rteTypeConstant_feature", "_UI_RteTypeHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_TYPE_HEADER__RTE_TYPE_CONSTANT,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class RteTypeHeaderItemProvider extends HeaderFileItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteTypeHeader_providesSignalGroupTransmission_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_providesSignalGroupTransmission_feature", "_UI_RteTypeHeader_type"),
+				 getString("_UI_RteTypeHeader_providesSignalGroupTransmission_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteTypeHeader_providesSignalGroupTransmission_feature", "_UI_RteTypeHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_TYPE_HEADER__PROVIDES_SIGNAL_GROUP_TRANSMISSION,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class RteTypeHeaderItemProvider extends HeaderFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteTypeHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteTypeHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class RteTypeHeaderItemProvider extends HeaderFileItemProvider {
 	public String getText(Object object) {
 		String label = ((RteTypeHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteTypeHeader_type") :
-			getString("_UI_RteTypeHeader_type") + " " + label;
+			getString("_UI_RteTypeHeader_type") : //$NON-NLS-1$
+			getString("_UI_RteTypeHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

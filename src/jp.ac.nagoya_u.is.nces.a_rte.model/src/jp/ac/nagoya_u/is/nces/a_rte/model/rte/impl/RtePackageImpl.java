@@ -244,7 +244,7 @@ public class RtePackageImpl extends EPackageImpl implements RtePackage {
 		// Add supertypes to classes
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(rteRootEClass, RteRoot.class, "RteRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteRootEClass, RteRoot.class, "RteRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);
@@ -261,15 +261,15 @@ public class RtePackageImpl extends EPackageImpl implements RtePackage {
 	 * @generated
 	 */
 	protected void createImportAnnotations() {
-		String source = "http://www.eclipse.org/OCL/Import";		
+		String source = "http://www.eclipse.org/OCL/Import"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "ecore", "http://www.eclipse.org/emf/2002/Ecore#/",
-			 "ecuc", "ar4x.ecore#//ecuc",
-			 "instance", "ar4x.ecore#//instance",
-			 "m2", "ar4x.ecore#//m2"
+			 "ecore", "http://www.eclipse.org/emf/2002/Ecore#/", //$NON-NLS-1$ //$NON-NLS-2$
+			 "ecuc", "ar4x.ecore#//ecuc", //$NON-NLS-1$ //$NON-NLS-2$
+			 "instance", "ar4x.ecore#//instance", //$NON-NLS-1$ //$NON-NLS-2$
+			 "m2", "ar4x.ecore#//m2" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

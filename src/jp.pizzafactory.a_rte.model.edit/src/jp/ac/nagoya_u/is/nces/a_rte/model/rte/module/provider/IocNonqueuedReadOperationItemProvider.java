@@ -59,8 +59,8 @@ public class IocNonqueuedReadOperationItemProvider extends ReadOperationItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocNonqueuedReadOperation_accessApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocNonqueuedReadOperation_accessApi_feature", "_UI_IocNonqueuedReadOperation_type"),
+				 getString("_UI_IocNonqueuedReadOperation_accessApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocNonqueuedReadOperation_accessApi_feature", "_UI_IocNonqueuedReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_NONQUEUED_READ_OPERATION__ACCESS_API,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class IocNonqueuedReadOperationItemProvider extends ReadOperationItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocNonqueuedReadOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocNonqueuedReadOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class IocNonqueuedReadOperationItemProvider extends ReadOperationItemProv
 	public String getText(Object object) {
 		String label = ((IocNonqueuedReadOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocNonqueuedReadOperation_type") :
-			getString("_UI_IocNonqueuedReadOperation_type") + " " + label;
+			getString("_UI_IocNonqueuedReadOperation_type") : //$NON-NLS-1$
+			getString("_UI_IocNonqueuedReadOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -282,11 +282,11 @@ public class OsTaskEventImpl extends ModuleObjectImpl implements OsTaskEvent {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osTaskId: ");
+		result.append(" (osTaskId: "); //$NON-NLS-1$
 		result.append(osTaskId);
-		result.append(", osEventId: ");
+		result.append(", osEventId: "); //$NON-NLS-1$
 		result.append(osEventId);
-		result.append(", osTaskPriority: ");
+		result.append(", osTaskPriority: "); //$NON-NLS-1$
 		result.append(osTaskPriority);
 		result.append(')');
 		return result.toString();

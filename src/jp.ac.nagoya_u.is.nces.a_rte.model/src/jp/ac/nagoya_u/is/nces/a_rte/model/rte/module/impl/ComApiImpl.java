@@ -242,9 +242,9 @@ public abstract class ComApiImpl extends FunctionImpl implements ComApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isSignalGroup: ");
+		result.append(" (isSignalGroup: "); //$NON-NLS-1$
 		result.append(isSignalGroup);
-		result.append(", comSignalSymbolName: ");
+		result.append(", comSignalSymbolName: "); //$NON-NLS-1$
 		result.append(comSignalSymbolName);
 		result.append(')');
 		return result.toString();

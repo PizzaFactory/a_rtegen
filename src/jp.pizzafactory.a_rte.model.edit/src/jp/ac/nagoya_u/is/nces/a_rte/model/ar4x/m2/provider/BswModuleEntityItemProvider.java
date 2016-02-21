@@ -63,8 +63,8 @@ public class BswModuleEntityItemProvider extends ExecutableEntityItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModuleEntity_implementedEntry_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntity_implementedEntry_feature", "_UI_BswModuleEntity_type"),
+				 getString("_UI_BswModuleEntity_implementedEntry_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntity_implementedEntry_feature", "_UI_BswModuleEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODULE_ENTITY__IMPLEMENTED_ENTRY,
 				 true,
 				 false,
@@ -115,8 +115,8 @@ public class BswModuleEntityItemProvider extends ExecutableEntityItemProvider {
 	public String getText(Object object) {
 		String label = ((BswModuleEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswModuleEntity_type") :
-			getString("_UI_BswModuleEntity_type") + " " + label;
+			getString("_UI_BswModuleEntity_type") : //$NON-NLS-1$
+			getString("_UI_BswModuleEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -179,7 +179,7 @@ public class BswModuleEntityItemProvider extends ExecutableEntityItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

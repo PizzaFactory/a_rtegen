@@ -63,8 +63,8 @@ public class ComSignalItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSignal_comSystemTemplateSystemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comSystemTemplateSystemSignal_feature", "_UI_ComSignal_type"),
+				 getString("_UI_ComSignal_comSystemTemplateSystemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comSystemTemplateSystemSignal_feature", "_UI_ComSignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.COM_SIGNAL__COM_SYSTEM_TEMPLATE_SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ComSignalItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSignal_comHandleId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comHandleId_feature", "_UI_ComSignal_type"),
+				 getString("_UI_ComSignal_comHandleId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comHandleId_feature", "_UI_ComSignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.COM_SIGNAL__COM_HANDLE_ID,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ComSignalItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSignal_comTransferProperty_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comTransferProperty_feature", "_UI_ComSignal_type"),
+				 getString("_UI_ComSignal_comTransferProperty_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignal_comTransferProperty_feature", "_UI_ComSignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.COM_SIGNAL__COM_TRANSFER_PROPERTY,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class ComSignalItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class ComSignalItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((ComSignal)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSignal_type") :
-			getString("_UI_ComSignal_type") + " " + label;
+			getString("_UI_ComSignal_type") : //$NON-NLS-1$
+			getString("_UI_ComSignal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -195,7 +195,7 @@ public class OsSpinlockExcludeOperationImpl extends ExcludeOperationImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osSpinlockId: ");
+		result.append(" (osSpinlockId: "); //$NON-NLS-1$
 		result.append(osSpinlockId);
 		result.append(')');
 		return result.toString();

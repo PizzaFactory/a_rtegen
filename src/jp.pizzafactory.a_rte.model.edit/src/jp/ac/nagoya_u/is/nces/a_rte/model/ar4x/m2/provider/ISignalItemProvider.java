@@ -59,8 +59,8 @@ public class ISignalItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ISignal_systemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ISignal_systemSignal_feature", "_UI_ISignal_type"),
+				 getString("_UI_ISignal_systemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISignal_systemSignal_feature", "_UI_ISignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ISIGNAL__SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class ISignalItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ISignalItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((ISignal)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ISignal_type") :
-			getString("_UI_ISignal_type") + " " + label;
+			getString("_UI_ISignal_type") : //$NON-NLS-1$
+			getString("_UI_ISignal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

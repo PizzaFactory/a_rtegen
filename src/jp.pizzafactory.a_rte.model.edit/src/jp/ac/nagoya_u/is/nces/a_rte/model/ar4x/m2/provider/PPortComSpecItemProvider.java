@@ -51,7 +51,7 @@ public class PPortComSpecItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PPortComSpec_type");
+		return getString("_UI_PPortComSpec_type"); //$NON-NLS-1$
 	}
 	
 

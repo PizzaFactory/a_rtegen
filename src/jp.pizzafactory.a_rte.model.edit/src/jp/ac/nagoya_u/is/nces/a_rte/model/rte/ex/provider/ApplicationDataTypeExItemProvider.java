@@ -68,7 +68,7 @@ public class ApplicationDataTypeExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationDataTypeEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationDataTypeEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class ApplicationDataTypeExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ApplicationDataTypeEx_type");
+		return getString("_UI_ApplicationDataTypeEx_type"); //$NON-NLS-1$
 	}
 	
 

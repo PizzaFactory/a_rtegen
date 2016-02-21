@@ -273,7 +273,7 @@ public class CsTfCalledRunnableImpl extends ModuleObjectImpl implements CsTfCall
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (csTfOpidConstantName: ");
+		result.append(" (csTfOpidConstantName: "); //$NON-NLS-1$
 		result.append(csTfOpidConstantName);
 		result.append(')');
 		return result.toString();

@@ -62,8 +62,8 @@ public class IndexedArrayElementItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IndexedArrayElement_implementationArrayElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IndexedArrayElement_implementationArrayElement_feature", "_UI_IndexedArrayElement_type"),
+				 getString("_UI_IndexedArrayElement_implementationArrayElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexedArrayElement_implementationArrayElement_feature", "_UI_IndexedArrayElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INDEXED_ARRAY_ELEMENT__IMPLEMENTATION_ARRAY_ELEMENT,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class IndexedArrayElementItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IndexedArrayElement_index_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IndexedArrayElement_index_feature", "_UI_IndexedArrayElement_type"),
+				 getString("_UI_IndexedArrayElement_index_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IndexedArrayElement_index_feature", "_UI_IndexedArrayElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INDEXED_ARRAY_ELEMENT__INDEX,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class IndexedArrayElementItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IndexedArrayElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IndexedArrayElement")); //$NON-NLS-1$
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class IndexedArrayElementItemProvider extends M2ObjectItemProvider {
 		Integer labelValue = ((IndexedArrayElement)object).getIndex();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IndexedArrayElement_type") :
-			getString("_UI_IndexedArrayElement_type") + " " + label;
+			getString("_UI_IndexedArrayElement_type") : //$NON-NLS-1$
+			getString("_UI_IndexedArrayElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

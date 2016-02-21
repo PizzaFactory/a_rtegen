@@ -62,8 +62,8 @@ public class BswModeSenderPolicyItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModeSenderPolicy_providedModeGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModeSenderPolicy_providedModeGroup_feature", "_UI_BswModeSenderPolicy_type"),
+				 getString("_UI_BswModeSenderPolicy_providedModeGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModeSenderPolicy_providedModeGroup_feature", "_UI_BswModeSenderPolicy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODE_SENDER_POLICY__PROVIDED_MODE_GROUP,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class BswModeSenderPolicyItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModeSenderPolicy_queueLength_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModeSenderPolicy_queueLength_feature", "_UI_BswModeSenderPolicy_type"),
+				 getString("_UI_BswModeSenderPolicy_queueLength_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModeSenderPolicy_queueLength_feature", "_UI_BswModeSenderPolicy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODE_SENDER_POLICY__QUEUE_LENGTH,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class BswModeSenderPolicyItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModeSenderPolicy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModeSenderPolicy")); //$NON-NLS-1$
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class BswModeSenderPolicyItemProvider extends M2ObjectItemProvider {
 		Integer labelValue = ((BswModeSenderPolicy)object).getQueueLength();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswModeSenderPolicy_type") :
-			getString("_UI_BswModeSenderPolicy_type") + " " + label;
+			getString("_UI_BswModeSenderPolicy_type") : //$NON-NLS-1$
+			getString("_UI_BswModeSenderPolicy_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

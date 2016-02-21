@@ -55,8 +55,8 @@ public class InteractionItemProvider extends InteractionReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((Interaction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Interaction_type") :
-			getString("_UI_Interaction_type") + " " + label;
+			getString("_UI_Interaction_type") : //$NON-NLS-1$
+			getString("_UI_Interaction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

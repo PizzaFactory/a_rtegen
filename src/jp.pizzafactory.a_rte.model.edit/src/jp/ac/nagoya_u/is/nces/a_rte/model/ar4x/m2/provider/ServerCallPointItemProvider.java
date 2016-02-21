@@ -63,8 +63,8 @@ public class ServerCallPointItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ServerCallPoint_operation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServerCallPoint_operation_feature", "_UI_ServerCallPoint_type"),
+				 getString("_UI_ServerCallPoint_operation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServerCallPoint_operation_feature", "_UI_ServerCallPoint_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SERVER_CALL_POINT__OPERATION,
 				 true,
 				 false,
@@ -114,8 +114,8 @@ public class ServerCallPointItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((ServerCallPoint)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ServerCallPoint_type") :
-			getString("_UI_ServerCallPoint_type") + " " + label;
+			getString("_UI_ServerCallPoint_type") : //$NON-NLS-1$
+			getString("_UI_ServerCallPoint_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

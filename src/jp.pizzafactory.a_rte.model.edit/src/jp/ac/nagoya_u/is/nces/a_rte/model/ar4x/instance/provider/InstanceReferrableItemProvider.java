@@ -79,8 +79,8 @@ public class InstanceReferrableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceObject_instanceId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceObject_instanceId_feature", "_UI_IInstanceObject_type"),
+				 getString("_UI_IInstanceObject_instanceId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceObject_instanceId_feature", "_UI_IInstanceObject_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.IINSTANCE_OBJECT__INSTANCE_ID,
 				 true,
 				 false,
@@ -101,8 +101,8 @@ public class InstanceReferrableItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InstanceReferrable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InstanceReferrable_id_feature", "_UI_InstanceReferrable_type"),
+				 getString("_UI_InstanceReferrable_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstanceReferrable_id_feature", "_UI_InstanceReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.INSTANCE_REFERRABLE__ID,
 				 true,
 				 false,
@@ -122,8 +122,8 @@ public class InstanceReferrableItemProvider
 	public String getText(Object object) {
 		String label = ((InstanceReferrable)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InstanceReferrable_type") :
-			getString("_UI_InstanceReferrable_type") + " " + label;
+			getString("_UI_InstanceReferrable_type") : //$NON-NLS-1$
+			getString("_UI_InstanceReferrable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

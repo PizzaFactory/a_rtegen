@@ -253,7 +253,7 @@ public class BswModeSenderPolicyImpl extends M2ObjectImpl implements BswModeSend
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (queueLength: ");
+		result.append(" (queueLength: "); //$NON-NLS-1$
 		result.append(queueLength);
 		result.append(')');
 		return result.toString();

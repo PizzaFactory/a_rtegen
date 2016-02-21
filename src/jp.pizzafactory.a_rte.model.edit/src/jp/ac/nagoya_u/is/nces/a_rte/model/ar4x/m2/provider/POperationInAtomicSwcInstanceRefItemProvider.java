@@ -63,8 +63,8 @@ public class POperationInAtomicSwcInstanceRefItemProvider extends M2ObjectItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class POperationInAtomicSwcInstanceRefItemProvider extends M2ObjectItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_POperationInAtomicSwcInstanceRef_contextPPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInAtomicSwcInstanceRef_contextPPort_feature", "_UI_POperationInAtomicSwcInstanceRef_type"),
+				 getString("_UI_POperationInAtomicSwcInstanceRef_contextPPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInAtomicSwcInstanceRef_contextPPort_feature", "_UI_POperationInAtomicSwcInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.POPERATION_IN_ATOMIC_SWC_INSTANCE_REF__CONTEXT_PPORT,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class POperationInAtomicSwcInstanceRefItemProvider extends M2ObjectItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_POperationInAtomicSwcInstanceRef_targetProvidedOperation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInAtomicSwcInstanceRef_targetProvidedOperation_feature", "_UI_POperationInAtomicSwcInstanceRef_type"),
+				 getString("_UI_POperationInAtomicSwcInstanceRef_targetProvidedOperation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInAtomicSwcInstanceRef_targetProvidedOperation_feature", "_UI_POperationInAtomicSwcInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.POPERATION_IN_ATOMIC_SWC_INSTANCE_REF__TARGET_PROVIDED_OPERATION,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class POperationInAtomicSwcInstanceRefItemProvider extends M2ObjectItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/POperationInAtomicSwcInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/POperationInAtomicSwcInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class POperationInAtomicSwcInstanceRefItemProvider extends M2ObjectItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_POperationInAtomicSwcInstanceRef_type");
+		return getString("_UI_POperationInAtomicSwcInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

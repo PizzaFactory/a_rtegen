@@ -193,7 +193,7 @@ public abstract class EcucParameterValueImpl extends M2ObjectImpl implements Ecu
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (definitionRef: ");
+		result.append(" (definitionRef: "); //$NON-NLS-1$
 		result.append(definitionRef);
 		result.append(')');
 		return result.toString();

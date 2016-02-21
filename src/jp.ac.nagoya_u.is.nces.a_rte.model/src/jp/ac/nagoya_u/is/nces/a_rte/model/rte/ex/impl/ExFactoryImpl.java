@@ -127,7 +127,7 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 			case ExPackage.BSW_SCHEDULABLE_ENTITY_EX: return (EObject)createBswSchedulableEntityEx();
 			case ExPackage.MODE_DECLARATION_GROUP_PROTOTYPE_EX: return (EObject)createModeDeclarationGroupPrototypeEx();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

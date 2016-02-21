@@ -88,7 +88,7 @@ public class CompuMethodItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuMethod"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuMethod")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class CompuMethodItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((CompuMethod)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompuMethod_type") :
-			getString("_UI_CompuMethod_type") + " " + label;
+			getString("_UI_CompuMethod_type") : //$NON-NLS-1$
+			getString("_UI_CompuMethod_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

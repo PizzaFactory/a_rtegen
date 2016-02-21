@@ -62,8 +62,8 @@ public class TimingTriggeringEntityStartImplementationItemProvider extends Entit
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringEntityStartImplementation_cyclePeriod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringEntityStartImplementation_cyclePeriod_feature", "_UI_TimingTriggeringEntityStartImplementation_type"),
+				 getString("_UI_TimingTriggeringEntityStartImplementation_cyclePeriod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringEntityStartImplementation_cyclePeriod_feature", "_UI_TimingTriggeringEntityStartImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION__CYCLE_PERIOD,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class TimingTriggeringEntityStartImplementationItemProvider extends Entit
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringEntityStartImplementation_startOffset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringEntityStartImplementation_startOffset_feature", "_UI_TimingTriggeringEntityStartImplementation_type"),
+				 getString("_UI_TimingTriggeringEntityStartImplementation_startOffset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringEntityStartImplementation_startOffset_feature", "_UI_TimingTriggeringEntityStartImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION__START_OFFSET,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class TimingTriggeringEntityStartImplementationItemProvider extends Entit
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingTriggeringEntityStartImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingTriggeringEntityStartImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -117,8 +117,8 @@ public class TimingTriggeringEntityStartImplementationItemProvider extends Entit
 		Integer labelValue = ((TimingTriggeringEntityStartImplementation)object).getCyclePeriod();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TimingTriggeringEntityStartImplementation_type") :
-			getString("_UI_TimingTriggeringEntityStartImplementation_type") + " " + label;
+			getString("_UI_TimingTriggeringEntityStartImplementation_type") : //$NON-NLS-1$
+			getString("_UI_TimingTriggeringEntityStartImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

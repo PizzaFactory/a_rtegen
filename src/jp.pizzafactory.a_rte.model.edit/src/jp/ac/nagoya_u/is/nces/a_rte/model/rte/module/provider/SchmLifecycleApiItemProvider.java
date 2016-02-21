@@ -55,8 +55,8 @@ public class SchmLifecycleApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((SchmLifecycleApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SchmLifecycleApi_type") :
-			getString("_UI_SchmLifecycleApi_type") + " " + label;
+			getString("_UI_SchmLifecycleApi_type") : //$NON-NLS-1$
+			getString("_UI_SchmLifecycleApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

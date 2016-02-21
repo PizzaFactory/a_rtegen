@@ -2181,228 +2181,228 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		modeSwitchEventEClass.getESuperTypes().add(this.getEvent());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(interactionObjectEClass, InteractionObject.class, "InteractionObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(interactionObjectEClass, InteractionObject.class, "InteractionObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(interactionReferrableEClass, InteractionReferrable.class, "InteractionReferrable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInteractionReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, InteractionReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(interactionReferrableEClass, InteractionReferrable.class, "InteractionReferrable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getInteractionReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, InteractionReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(senderEClass, Sender.class, "Sender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSender_SendInteraction(), this.getSendInteraction(), this.getSendInteraction_Sender(), "sendInteraction", null, 0, -1, Sender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(senderEClass, Sender.class, "Sender", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSender_SendInteraction(), this.getSendInteraction(), this.getSendInteraction_Sender(), "sendInteraction", null, 0, -1, Sender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSender__HasMultipleReceivers(), ecorePackage.getEBoolean(), "hasMultipleReceivers", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSender__HasMultipleReceivers(), ecorePackage.getEBoolean(), "hasMultipleReceivers", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSender__GetReceivers(), this.getReceiver(), "getReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getSender__GetReceivers(), this.getReceiver(), "getReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSender__HasMultipleInternalEcuReceivers(), ecorePackage.getEBoolean(), "hasMultipleInternalEcuReceivers", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSender__HasMultipleInternalEcuReceivers(), ecorePackage.getEBoolean(), "hasMultipleInternalEcuReceivers", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSender__GetInternalEcuReceivers(), this.getInternalEcuReceiver(), "getInternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getSender__GetInternalEcuReceivers(), this.getInternalEcuReceiver(), "getInternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSender__GetExternalEcuReceivers(), this.getExternalEcuReceiver(), "getExternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getSender__GetExternalEcuReceivers(), this.getExternalEcuReceiver(), "getExternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(internalEcuSenderEClass, InternalEcuSender.class, "InternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternalEcuSender_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(internalEcuSenderEClass, InternalEcuSender.class, "InternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInternalEcuSender_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(externalEcuSenderEClass, ExternalEcuSender.class, "ExternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalEcuSender_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExternalEcuSender_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExternalEcuSender_RequiresRteFilter(), theM2Package.getBoolean(), "requiresRteFilter", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExternalEcuSender_RequiresRteInvalidation(), theM2Package.getBoolean(), "requiresRteInvalidation", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getExternalEcuSender_RequiresRteInitialization(), theM2Package.getBoolean(), "requiresRteInitialization", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(externalEcuSenderEClass, ExternalEcuSender.class, "ExternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getExternalEcuSender_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getExternalEcuSender_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getExternalEcuSender_RequiresRteFilter(), theM2Package.getBoolean(), "requiresRteFilter", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getExternalEcuSender_RequiresRteInvalidation(), theM2Package.getBoolean(), "requiresRteInvalidation", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getExternalEcuSender_RequiresRteInitialization(), theM2Package.getBoolean(), "requiresRteInitialization", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(sendInteractionEClass, SendInteraction.class, "SendInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSendInteraction_Sender(), this.getSender(), this.getSender_SendInteraction(), "sender", null, 0, -1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSendInteraction_ReceiveInteraction(), this.getReceiveInteraction(), this.getReceiveInteraction_SendInteraction(), "receiveInteraction", null, 1, 1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSendInteraction_Implementation(), this.getSendImplementation(), this.getSendImplementation_Parent(), "implementation", null, 0, 1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sendInteractionEClass, SendInteraction.class, "SendInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSendInteraction_Sender(), this.getSender(), this.getSender_SendInteraction(), "sender", null, 0, -1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSendInteraction_ReceiveInteraction(), this.getReceiveInteraction(), this.getReceiveInteraction_SendInteraction(), "receiveInteraction", null, 1, 1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSendInteraction_Implementation(), this.getSendImplementation(), this.getSendImplementation_Parent(), "implementation", null, 0, 1, SendInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSendInteraction__GetInternalEcuSenders(), this.getInternalEcuSender(), "getInternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getSendInteraction__GetInternalEcuSenders(), this.getInternalEcuSender(), "getInternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSendInteraction__GetExternalEcuSenders(), this.getExternalEcuSender(), "getExternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getSendInteraction__GetExternalEcuSenders(), this.getExternalEcuSender(), "getExternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSendInteraction__IsInterCore(), ecorePackage.getEBoolean(), "isInterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSendInteraction__IsInterCore(), ecorePackage.getEBoolean(), "isInterCore", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getSendInteraction__IsInterPartition(), ecorePackage.getEBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getSendInteraction__IsInterPartition(), ecorePackage.getEBoolean(), "isInterPartition", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(receiveInteractionEClass, ReceiveInteraction.class, "ReceiveInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReceiveInteraction_Receiver(), this.getReceiver(), this.getReceiver_ReceiveInteraction(), "receiver", null, 0, -1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReceiveInteraction_SendInteraction(), this.getSendInteraction(), this.getSendInteraction_ReceiveInteraction(), "sendInteraction", null, 0, -1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReceiveInteraction_ValueBufferImplementation(), this.getValueBufferImplementation(), this.getValueBufferImplementation_Parent(), "valueBufferImplementation", null, 0, 1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReceiveInteraction_FilterBufferImplementation(), this.getFilterBufferImplementation(), this.getFilterBufferImplementation_Parent(), "filterBufferImplementation", null, 0, 1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(receiveInteractionEClass, ReceiveInteraction.class, "ReceiveInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getReceiveInteraction_Receiver(), this.getReceiver(), this.getReceiver_ReceiveInteraction(), "receiver", null, 0, -1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getReceiveInteraction_SendInteraction(), this.getSendInteraction(), this.getSendInteraction_ReceiveInteraction(), "sendInteraction", null, 0, -1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getReceiveInteraction_ValueBufferImplementation(), this.getValueBufferImplementation(), this.getValueBufferImplementation_Parent(), "valueBufferImplementation", null, 0, 1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getReceiveInteraction_FilterBufferImplementation(), this.getFilterBufferImplementation(), this.getFilterBufferImplementation_Parent(), "filterBufferImplementation", null, 0, 1, ReceiveInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiveInteraction__GetInternalEcuReceivers(), this.getInternalEcuReceiver(), "getInternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getReceiveInteraction__GetInternalEcuReceivers(), this.getInternalEcuReceiver(), "getInternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiveInteraction__GetExternalEcuReceivers(), this.getExternalEcuReceiver(), "getExternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getReceiveInteraction__GetExternalEcuReceivers(), this.getExternalEcuReceiver(), "getExternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiveInteraction__ReceivesInterCore(), ecorePackage.getEBoolean(), "receivesInterCore", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getReceiveInteraction__ReceivesInterCore(), ecorePackage.getEBoolean(), "receivesInterCore", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiveInteraction__ReceivesFromMultipleCores(), ecorePackage.getEBoolean(), "receivesFromMultipleCores", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getReceiveInteraction__ReceivesFromMultipleCores(), ecorePackage.getEBoolean(), "receivesFromMultipleCores", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(receiverEClass, Receiver.class, "Receiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReceiver_ReceiveInteraction(), this.getReceiveInteraction(), this.getReceiveInteraction_Receiver(), "receiveInteraction", null, 0, -1, Receiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(receiverEClass, Receiver.class, "Receiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getReceiver_ReceiveInteraction(), this.getReceiveInteraction(), this.getReceiveInteraction_Receiver(), "receiveInteraction", null, 0, -1, Receiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiver__HasMultipleSenders(), ecorePackage.getEBoolean(), "hasMultipleSenders", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getReceiver__HasMultipleSenders(), ecorePackage.getEBoolean(), "hasMultipleSenders", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiver__GetSenders(), this.getSender(), "getSenders", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getReceiver__GetSenders(), this.getSender(), "getSenders", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiver__GetInternalEcuSenders(), this.getInternalEcuSender(), "getInternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getReceiver__GetInternalEcuSenders(), this.getInternalEcuSender(), "getInternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getReceiver__GetExternalEcuSenders(), this.getExternalEcuSender(), "getExternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getReceiver__GetExternalEcuSenders(), this.getExternalEcuSender(), "getExternalEcuSenders", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(internalEcuReceiverEClass, InternalEcuReceiver.class, "InternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternalEcuReceiver_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(internalEcuReceiverEClass, InternalEcuReceiver.class, "InternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInternalEcuReceiver_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInternalEcuReceiver__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInternalEcuReceiver__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInternalEcuReceiver__GetHandleInvalid(), theM2Package.getHandleInvalidEnum(), "getHandleInvalid", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInternalEcuReceiver__GetHandleInvalid(), theM2Package.getHandleInvalidEnum(), "getHandleInvalid", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInternalEcuReceiver__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInternalEcuReceiver__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInternalEcuReceiver__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInternalEcuReceiver__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInternalEcuReceiver__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInternalEcuReceiver__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(valueBufferImplementationEClass, ValueBufferImplementation.class, "ValueBufferImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValueBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_ValueBufferImplementation(), "parent", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getValueBufferImplementation_HasStatus(), theM2Package.getBoolean(), "hasStatus", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(valueBufferImplementationEClass, ValueBufferImplementation.class, "ValueBufferImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getValueBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_ValueBufferImplementation(), "parent", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getValueBufferImplementation_HasStatus(), theM2Package.getBoolean(), "hasStatus", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteValueBufferImplementationEClass, RteValueBufferImplementation.class, "RteValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteValueBufferImplementationEClass, RteValueBufferImplementation.class, "RteValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(externalEcuReceiverEClass, ExternalEcuReceiver.class, "ExternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExternalEcuReceiver_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExternalEcuReceiver_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(externalEcuReceiverEClass, ExternalEcuReceiver.class, "ExternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getExternalEcuReceiver_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getExternalEcuReceiver_SourceSignalGroup(), theEcucPackage.getComSignalGroup(), null, "sourceSignalGroup", null, 1, 1, ExternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(sendImplementationEClass, SendImplementation.class, "SendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSendImplementation_Parent(), this.getSendInteraction(), this.getSendInteraction_Implementation(), "parent", null, 1, 1, SendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(sendImplementationEClass, SendImplementation.class, "SendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSendImplementation_Parent(), this.getSendInteraction(), this.getSendInteraction_Implementation(), "parent", null, 1, 1, SendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteSendImplementationEClass, RteSendImplementation.class, "RteSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteSendImplementationEClass, RteSendImplementation.class, "RteSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(iocSendImplementationEClass, IocSendImplementation.class, "IocSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIocSendImplementation_OsIocSenderProperties(), theEcucPackage.getOsIocSenderProperties(), null, "osIocSenderProperties", null, 1, 1, IocSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(iocSendImplementationEClass, IocSendImplementation.class, "IocSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getIocSendImplementation_OsIocSenderProperties(), theEcucPackage.getOsIocSenderProperties(), null, "osIocSenderProperties", null, 1, 1, IocSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(directComSendImplementationEClass, DirectComSendImplementation.class, "DirectComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(directComSendImplementationEClass, DirectComSendImplementation.class, "DirectComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(trustedFunctionComSendImplementationEClass, TrustedFunctionComSendImplementation.class, "TrustedFunctionComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(trustedFunctionComSendImplementationEClass, TrustedFunctionComSendImplementation.class, "TrustedFunctionComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(periodicProxyComSendImplementationEClass, PeriodicProxyComSendImplementation.class, "PeriodicProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(periodicProxyComSendImplementationEClass, PeriodicProxyComSendImplementation.class, "PeriodicProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(immediateProxyComSendImplementationEClass, ImmediateProxyComSendImplementation.class, "ImmediateProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(immediateProxyComSendImplementationEClass, ImmediateProxyComSendImplementation.class, "ImmediateProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(filterBufferImplementationEClass, FilterBufferImplementation.class, "FilterBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFilterBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_FilterBufferImplementation(), "parent", null, 1, 1, FilterBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(filterBufferImplementationEClass, FilterBufferImplementation.class, "FilterBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getFilterBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_FilterBufferImplementation(), "parent", null, 1, 1, FilterBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(iocValueBufferImplementationEClass, IocValueBufferImplementation.class, "IocValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIocValueBufferImplementation_OsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "osIocCommunication", null, 1, 1, IocValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(iocValueBufferImplementationEClass, IocValueBufferImplementation.class, "IocValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getIocValueBufferImplementation_OsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "osIocCommunication", null, 1, 1, IocValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comValueBufferImplementationEClass, ComValueBufferImplementation.class, "ComValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComValueBufferImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComValueBufferImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comValueBufferImplementationEClass, ComValueBufferImplementation.class, "ComValueBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComValueBufferImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComValueBufferImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(variableImplementationEClass, VariableImplementation.class, "VariableImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableImplementation_OwnerPartition(), theEcucPackage.getEcucPartition(), null, "ownerPartition", null, 0, 1, VariableImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(variableImplementationEClass, VariableImplementation.class, "VariableImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVariableImplementation_OwnerPartition(), theEcucPackage.getEcucPartition(), null, "ownerPartition", null, 0, 1, VariableImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(interactionEndEClass, InteractionEnd.class, "InteractionEnd", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInteractionEnd_OwnerPartition(), theEcucPackage.getEcucPartition(), null, "ownerPartition", null, 0, 1, InteractionEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(interactionEndEClass, InteractionEnd.class, "InteractionEnd", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInteractionEnd_OwnerPartition(), theEcucPackage.getEcucPartition(), null, "ownerPartition", null, 0, 1, InteractionEnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getInteractionEnd__GetOwnerCore(), theM2Package.getInteger(), "getOwnerCore", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getInteractionEnd__GetOwnerCore(), theM2Package.getInteger(), "getOwnerCore", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSendImplementationEClass, ComSendImplementation.class, "ComSendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSendImplementationEClass, ComSendImplementation.class, "ComSendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSendImplementation_ComSignal(), theEcucPackage.getComSignal(), null, "comSignal", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendImplementation_ComSignalGroup(), theEcucPackage.getComSignalGroup(), null, "comSignalGroup", null, 1, 1, ComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(interactionRootEClass, InteractionRoot.class, "InteractionRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInteractionRoot_InteractionEnd(), this.getInteractionEnd(), null, "interactionEnd", null, 0, -1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInteractionRoot_Interaction(), this.getInteraction(), null, "interaction", null, 0, -1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInteractionRoot_GeneratedEcuConfiguration(), this.getGeneratedEcuConfiguration(), null, "generatedEcuConfiguration", null, 0, 1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(interactionRootEClass, InteractionRoot.class, "InteractionRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getInteractionRoot_InteractionEnd(), this.getInteractionEnd(), null, "interactionEnd", null, 0, -1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInteractionRoot_Interaction(), this.getInteraction(), null, "interaction", null, 0, -1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInteractionRoot_GeneratedEcuConfiguration(), this.getGeneratedEcuConfiguration(), null, "generatedEcuConfiguration", null, 0, 1, InteractionRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(trustedFunctionRteSendImplementationEClass, TrustedFunctionRteSendImplementation.class, "TrustedFunctionRteSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrustedFunctionRteSendImplementation_WriteOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "writeOsTrustedFunction", null, 1, 1, TrustedFunctionRteSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrustedFunctionRteSendImplementation_InvalidateOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "invalidateOsTrustedFunction", null, 0, 1, TrustedFunctionRteSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(trustedFunctionRteSendImplementationEClass, TrustedFunctionRteSendImplementation.class, "TrustedFunctionRteSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getTrustedFunctionRteSendImplementation_WriteOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "writeOsTrustedFunction", null, 1, 1, TrustedFunctionRteSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTrustedFunctionRteSendImplementation_InvalidateOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "invalidateOsTrustedFunction", null, 0, 1, TrustedFunctionRteSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(proxyComSendImplementationEClass, ProxyComSendImplementation.class, "ProxyComSendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyComSendImplementation_ProxyInteraction(), this.getComSendProxyInteraction(), null, "proxyInteraction", null, 1, 1, ProxyComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(proxyComSendImplementationEClass, ProxyComSendImplementation.class, "ProxyComSendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getProxyComSendImplementation_ProxyInteraction(), this.getComSendProxyInteraction(), null, "proxyInteraction", null, 1, 1, ProxyComSendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSendProxyInteractionEClass, ComSendProxyInteraction.class, "ComSendProxyInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendProxyInteraction_RequesterPartition(), theEcucPackage.getEcucPartition(), null, "requesterPartition", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyInteraction_SignalDataType(), theM2Package.getImplementationDataType(), null, "signalDataType", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyInteraction_RequestOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "requestOsIocCommunication", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyInteraction_ValueOsIocCommunicationForComplexType(), theEcucPackage.getOsIocCommunication(), null, "valueOsIocCommunicationForComplexType", null, 0, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendProxyInteraction_Proxy(), this.getComSendProxy(), this.getComSendProxy_Interaction(), "proxy", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSendProxyInteractionEClass, ComSendProxyInteraction.class, "ComSendProxyInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_RequesterPartition(), theEcucPackage.getEcucPartition(), null, "requesterPartition", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_SignalDataType(), theM2Package.getImplementationDataType(), null, "signalDataType", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_RequestOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "requestOsIocCommunication", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_ValueOsIocCommunicationForComplexType(), theEcucPackage.getOsIocCommunication(), null, "valueOsIocCommunicationForComplexType", null, 0, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_Proxy(), this.getComSendProxy(), this.getComSendProxy_Interaction(), "proxy", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSendProxyEClass, ComSendProxy.class, "ComSendProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendProxy_Interaction(), this.getComSendProxyInteraction(), this.getComSendProxyInteraction_Proxy(), "interaction", null, 0, -1, ComSendProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSendProxyEClass, ComSendProxy.class, "ComSendProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSendProxy_Interaction(), this.getComSendProxyInteraction(), this.getComSendProxyInteraction_Proxy(), "interaction", null, 0, -1, ComSendProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getComSendProxy__GetRequesterOsApplications(), theEcucPackage.getOsApplication(), "getRequesterOsApplications", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getComSendProxy__GetRequesterOsApplications(), theEcucPackage.getOsApplication(), "getRequesterOsApplications", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(periodicComSendProxyEClass, PeriodicComSendProxy.class, "PeriodicComSendProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(periodicComSendProxyEClass, PeriodicComSendProxy.class, "PeriodicComSendProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(immediateComSendProxyEClass, ImmediateComSendProxy.class, "ImmediateComSendProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getImmediateComSendProxy_OsEvent(), theEcucPackage.getOsEvent(), null, "osEvent", null, 1, 1, ImmediateComSendProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(immediateComSendProxyEClass, ImmediateComSendProxy.class, "ImmediateComSendProxy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getImmediateComSendProxy_OsEvent(), theEcucPackage.getOsEvent(), null, "osEvent", null, 1, 1, ImmediateComSendProxy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(interactionEClass, Interaction.class, "Interaction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(interactionEClass, Interaction.class, "Interaction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(entityStarterEClass, EntityStarter.class, "EntityStarter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntityStarter_ExpectedConfig(), theEcucPackage.getRteUsedOsActivation(), null, "expectedConfig", null, 1, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityStarter_StartInteraction(), this.getEntityStartInteraction(), this.getEntityStartInteraction_Starter(), "startInteraction", null, 0, -1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityStarter_StartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation_Parent(), "startOffsetCounterImplementation", null, 0, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityStarter_CycleCounterImplementation(), this.getCycleCounterImplementation(), this.getCycleCounterImplementation_Parent(), "cycleCounterImplementation", null, 0, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(entityStarterEClass, EntityStarter.class, "EntityStarter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEntityStarter_ExpectedConfig(), theEcucPackage.getRteUsedOsActivation(), null, "expectedConfig", null, 1, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStarter_StartInteraction(), this.getEntityStartInteraction(), this.getEntityStartInteraction_Starter(), "startInteraction", null, 0, -1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStarter_StartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation_Parent(), "startOffsetCounterImplementation", null, 0, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStarter_CycleCounterImplementation(), this.getCycleCounterImplementation(), this.getCycleCounterImplementation_Parent(), "cycleCounterImplementation", null, 0, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osTaskActivateEntityStarterEClass, OsTaskActivateEntityStarter.class, "OsTaskActivateEntityStarter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsTaskActivateEntityStarter_SourceOsTask(), theEcucPackage.getOsTask(), null, "sourceOsTask", null, 1, 1, OsTaskActivateEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osTaskActivateEntityStarterEClass, OsTaskActivateEntityStarter.class, "OsTaskActivateEntityStarter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsTaskActivateEntityStarter_SourceOsTask(), theEcucPackage.getOsTask(), null, "sourceOsTask", null, 1, 1, OsTaskActivateEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osEventSetEntityStarterEClass, OsEventSetEntityStarter.class, "OsEventSetEntityStarter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsEventSetEntityStarter_SourceOsTask(), theEcucPackage.getOsTask(), null, "sourceOsTask", null, 1, 1, OsEventSetEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsEventSetEntityStarter_SourceOsEvent(), theEcucPackage.getOsEvent(), null, "sourceOsEvent", null, 1, 1, OsEventSetEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osEventSetEntityStarterEClass, OsEventSetEntityStarter.class, "OsEventSetEntityStarter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsEventSetEntityStarter_SourceOsTask(), theEcucPackage.getOsTask(), null, "sourceOsTask", null, 1, 1, OsEventSetEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsEventSetEntityStarter_SourceOsEvent(), theEcucPackage.getOsEvent(), null, "sourceOsEvent", null, 1, 1, OsEventSetEntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(entityStartInteractionEClass, EntityStartInteraction.class, "EntityStartInteraction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEntityStartInteraction_Starter(), this.getEntityStarter(), this.getEntityStarter_StartInteraction(), "starter", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityStartInteraction_Implementation(), this.getEntityStartImplementation(), null, "implementation", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntityStartInteraction_EventToTaskMapping(), this.getEventToTaskMapping(), null, "eventToTaskMapping", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(entityStartInteractionEClass, EntityStartInteraction.class, "EntityStartInteraction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEntityStartInteraction_Starter(), this.getEntityStarter(), this.getEntityStarter_StartInteraction(), "starter", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStartInteraction_Implementation(), this.getEntityStartImplementation(), null, "implementation", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStartInteraction_EventToTaskMapping(), this.getEventToTaskMapping(), null, "eventToTaskMapping", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(entityStartImplementationEClass, EntityStartImplementation.class, "EntityStartImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(entityStartImplementationEClass, EntityStartImplementation.class, "EntityStartImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(timingTriggeringEntityStartImplementationEClass, TimingTriggeringEntityStartImplementation.class, "TimingTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimingTriggeringEntityStartImplementation_CyclePeriod(), theM2Package.getPositiveInteger(), "cyclePeriod", null, 1, 1, TimingTriggeringEntityStartImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimingTriggeringEntityStartImplementation_StartOffset(), theM2Package.getInteger(), "startOffset", null, 1, 1, TimingTriggeringEntityStartImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(timingTriggeringEntityStartImplementationEClass, TimingTriggeringEntityStartImplementation.class, "TimingTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTimingTriggeringEntityStartImplementation_CyclePeriod(), theM2Package.getPositiveInteger(), "cyclePeriod", null, 1, 1, TimingTriggeringEntityStartImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getTimingTriggeringEntityStartImplementation_StartOffset(), theM2Package.getInteger(), "startOffset", null, 1, 1, TimingTriggeringEntityStartImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getTimingTriggeringEntityStartImplementation__GetCycleOffset(), theM2Package.getInteger(), "getCycleOffset", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTimingTriggeringEntityStartImplementation__GetCycleOffset(), theM2Package.getInteger(), "getCycleOffset", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresCycleAdjust(), ecorePackage.getEBoolean(), "requiresCycleAdjust", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresCycleAdjust(), ecorePackage.getEBoolean(), "requiresCycleAdjust", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust(), ecorePackage.getEBoolean(), "requiresStartOffsetAdjust", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust(), ecorePackage.getEBoolean(), "requiresStartOffsetAdjust", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(modeSwitchTriggeringEntityStartImplementationEClass, ModeSwitchTriggeringEntityStartImplementation.class, "ModeSwitchTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(modeSwitchTriggeringEntityStartImplementationEClass, ModeSwitchTriggeringEntityStartImplementation.class, "ModeSwitchTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(runnableEntityStartInteractionEClass, RunnableEntityStartInteraction.class, "RunnableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(runnableEntityStartInteractionEClass, RunnableEntityStartInteraction.class, "RunnableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(startOffsetCounterImplementationEClass, StartOffsetCounterImplementation.class, "StartOffsetCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStartOffsetCounterImplementation_MaxCount(), theM2Package.getInteger(), "maxCount", null, 1, 1, StartOffsetCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getStartOffsetCounterImplementation_Parent(), this.getEntityStarter(), this.getEntityStarter_StartOffsetCounterImplementation(), "parent", null, 1, 1, StartOffsetCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(startOffsetCounterImplementationEClass, StartOffsetCounterImplementation.class, "StartOffsetCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getStartOffsetCounterImplementation_MaxCount(), theM2Package.getInteger(), "maxCount", null, 1, 1, StartOffsetCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getStartOffsetCounterImplementation_Parent(), this.getEntityStarter(), this.getEntityStarter_StartOffsetCounterImplementation(), "parent", null, 1, 1, StartOffsetCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(cycleCounterImplementationEClass, CycleCounterImplementation.class, "CycleCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCycleCounterImplementation_MaxCount(), theM2Package.getInteger(), "maxCount", null, 1, 1, CycleCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCycleCounterImplementation_Parent(), this.getEntityStarter(), this.getEntityStarter_CycleCounterImplementation(), "parent", null, 1, 1, CycleCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(cycleCounterImplementationEClass, CycleCounterImplementation.class, "CycleCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getCycleCounterImplementation_MaxCount(), theM2Package.getInteger(), "maxCount", null, 1, 1, CycleCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCycleCounterImplementation_Parent(), this.getEntityStarter(), this.getEntityStarter_CycleCounterImplementation(), "parent", null, 1, 1, CycleCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(generatedEcuConfigurationEClass, GeneratedEcuConfiguration.class, "GeneratedEcuConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGeneratedEcuConfiguration_GeneratedOsTask(), theEcucPackage.getOsTask(), null, "generatedOsTask", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratedEcuConfiguration_GeneratedOsEvent(), theEcucPackage.getOsEvent(), null, "generatedOsEvent", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratedEcuConfiguration_GeneratedOsSpinlock(), theEcucPackage.getOsSpinlock(), null, "generatedOsSpinlock", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratedEcuConfiguration_GeneratedOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "generatedOsIocCommunication", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneratedEcuConfiguration_GeneratedOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "generatedOsTrustedFunction", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(generatedEcuConfigurationEClass, GeneratedEcuConfiguration.class, "GeneratedEcuConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getGeneratedEcuConfiguration_GeneratedOsTask(), theEcucPackage.getOsTask(), null, "generatedOsTask", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGeneratedEcuConfiguration_GeneratedOsEvent(), theEcucPackage.getOsEvent(), null, "generatedOsEvent", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGeneratedEcuConfiguration_GeneratedOsSpinlock(), theEcucPackage.getOsSpinlock(), null, "generatedOsSpinlock", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGeneratedEcuConfiguration_GeneratedOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "generatedOsIocCommunication", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getGeneratedEcuConfiguration_GeneratedOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "generatedOsTrustedFunction", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(bswSchedulableEntityStartInteractionEClass, BswSchedulableEntityStartInteraction.class, "BswSchedulableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(bswSchedulableEntityStartInteractionEClass, BswSchedulableEntityStartInteraction.class, "BswSchedulableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(eventToTaskMappingEClass, EventToTaskMapping.class, "EventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEventToTaskMapping_ActivationOffset(), theM2Package.getTimeValue(), "activationOffset", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventToTaskMapping_Event(), this.getEvent(), null, "event", null, 1, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEventToTaskMapping_PositionInTask(), theModulePackage.getInteger(), "positionInTask", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(eventToTaskMappingEClass, EventToTaskMapping.class, "EventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getEventToTaskMapping_ActivationOffset(), theM2Package.getTimeValue(), "activationOffset", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEventToTaskMapping_Event(), this.getEvent(), null, "event", null, 1, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEventToTaskMapping_PositionInTask(), theModulePackage.getInteger(), "positionInTask", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEvent_StartOnEvent(), theM2Package.getExecutableEntity(), null, "startOnEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEvent_SourceBswEvent(), theM2Package.getBswEvent(), null, "sourceBswEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEvent_StartOnEvent(), theM2Package.getExecutableEntity(), null, "startOnEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEvent_SourceBswEvent(), theM2Package.getBswEvent(), null, "sourceBswEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimingEvent_Period(), theM2Package.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTimingEvent_Period(), theM2Package.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(modeSwitchEventEClass, ModeSwitchEvent.class, "ModeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(modeSwitchEventEClass, ModeSwitchEvent.class, "ModeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
@@ -2418,15 +2418,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";		
+		String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																													
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2436,168 +2436,168 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * @generated
 	 */
 	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";			
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"; //$NON-NLS-1$	
 		addAnnotation
 		  (getSender__HasMultipleReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "getReceivers()->size() > 1"
-		   });		
+			 "body", "getReceivers()->size() > 1" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSender__GetReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sendInteraction.receiveInteraction.receiver->asOrderedSet()"
-		   });		
+			 "body", "self.sendInteraction.receiveInteraction.receiver->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSender__HasMultipleInternalEcuReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "getInternalEcuReceivers()->size() > 1"
-		   });		
+			 "body", "getInternalEcuReceivers()->size() > 1" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSender__GetInternalEcuReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sendInteraction.receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.sendInteraction.receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSender__GetExternalEcuReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sendInteraction.receiveInteraction.getExternalEcuReceivers()\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.sendInteraction.receiveInteraction.getExternalEcuReceivers()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSendInteraction__GetInternalEcuSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sender\n\t\t\t\t\t->select(oclIsKindOf(interaction::InternalEcuSender)).oclAsType(interaction::InternalEcuSender)\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.sender\n\t\t\t\t\t->select(oclIsKindOf(interaction::InternalEcuSender)).oclAsType(interaction::InternalEcuSender)\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSendInteraction__GetExternalEcuSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sender\n\t\t\t\t\t->select(oclIsKindOf(interaction::ExternalEcuSender)).oclAsType(interaction::ExternalEcuSender)\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.sender\n\t\t\t\t\t->select(oclIsKindOf(interaction::ExternalEcuSender)).oclAsType(interaction::ExternalEcuSender)\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSendInteraction__IsInterCore(), 
 		   source, 
 		   new String[] {
-			 "body", "let senderCores : Set(m2::Integer) = self.sender.getOwnerCore()->asOrderedSet(),\n\t\t\t\t\t\treceiverCores : Set(m2::Integer) = self.receiveInteraction.receiver.getOwnerCore()->asOrderedSet()\n\t\t\t\tin senderCores->symmetricDifference(receiverCores)->notEmpty()"
-		   });		
+			 "body", "let senderCores : Set(m2::Integer) = self.sender.getOwnerCore()->asOrderedSet(),\n\t\t\t\t\t\treceiverCores : Set(m2::Integer) = self.receiveInteraction.receiver.getOwnerCore()->asOrderedSet()\n\t\t\t\tin senderCores->symmetricDifference(receiverCores)->notEmpty()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSendInteraction__IsInterPartition(), 
 		   source, 
 		   new String[] {
-			 "body", "let senderPartitions : Set(ecuc::EcucPartition) = self.sender.ownerPartition->asOrderedSet(),\n\t\t\t\t\t\treceiverPartitions : Set(ecuc::EcucPartition) = self.receiveInteraction.receiver.ownerPartition->asOrderedSet()\n\t\t\t\tin senderPartitions->symmetricDifference(receiverPartitions)->notEmpty()"
-		   });		
+			 "body", "let senderPartitions : Set(ecuc::EcucPartition) = self.sender.ownerPartition->asOrderedSet(),\n\t\t\t\t\t\treceiverPartitions : Set(ecuc::EcucPartition) = self.receiveInteraction.receiver.ownerPartition->asOrderedSet()\n\t\t\t\tin senderPartitions->symmetricDifference(receiverPartitions)->notEmpty()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiveInteraction__GetInternalEcuReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "self.receiver\n\t\t\t\t\t->select(oclIsKindOf(interaction::InternalEcuReceiver)).oclAsType(interaction::InternalEcuReceiver)\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.receiver\n\t\t\t\t\t->select(oclIsKindOf(interaction::InternalEcuReceiver)).oclAsType(interaction::InternalEcuReceiver)\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiveInteraction__GetExternalEcuReceivers(), 
 		   source, 
 		   new String[] {
-			 "body", "self.receiver\n\t\t\t\t\t->select(oclIsKindOf(interaction::ExternalEcuReceiver)).oclAsType(interaction::ExternalEcuReceiver)\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.receiver\n\t\t\t\t\t->select(oclIsKindOf(interaction::ExternalEcuReceiver)).oclAsType(interaction::ExternalEcuReceiver)\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiveInteraction__ReceivesInterCore(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sendInteraction->exists(isInterCore())"
-		   });		
+			 "body", "self.sendInteraction->exists(isInterCore())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiveInteraction__ReceivesFromMultipleCores(), 
 		   source, 
 		   new String[] {
-			 "body", "self.sendInteraction.sender.getOwnerCore()->asSet()->size() > 1"
-		   });		
+			 "body", "self.sendInteraction.sender.getOwnerCore()->asSet()->size() > 1" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiver__HasMultipleSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "getSenders()->size() > 1"
-		   });		
+			 "body", "getSenders()->size() > 1" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiver__GetSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "self.receiveInteraction.sendInteraction.sender\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.receiveInteraction.sendInteraction.sender\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiver__GetInternalEcuSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "self.receiveInteraction.sendInteraction.getInternalEcuSenders()\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.receiveInteraction.sendInteraction.getInternalEcuSenders()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getReceiver__GetExternalEcuSenders(), 
 		   source, 
 		   new String[] {
-			 "body", "self.receiveInteraction.sendInteraction.getExternalEcuSenders()\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.receiveInteraction.sendInteraction.getExternalEcuSenders()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInternalEcuReceiver__IsInvalidationEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isInvalidationEnabled()"
-		   });		
+			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isInvalidationEnabled()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInternalEcuReceiver__GetHandleInvalid(), 
 		   source, 
 		   new String[] {
-			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInvalidationPolicy().handleInvalid"
-		   });		
+			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getInvalidationPolicy().handleInvalid" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInternalEcuReceiver__IsFilterEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isFilterEnabled()"
-		   });		
+			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isFilterEnabled()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInternalEcuReceiver__GetFilter(), 
 		   source, 
 		   new String[] {
-			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getFilter()"
-		   });		
+			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).getFilter()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInternalEcuReceiver__IsAliveTimeoutEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isAliveTimeoutEnabled()"
-		   });		
+			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isAliveTimeoutEnabled()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getInteractionEnd__GetOwnerCore(), 
 		   source, 
 		   new String[] {
-			 "body", "if self.ownerPartition.getOwnerCore().oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse self.ownerPartition.getOwnerCore()\n\t\t\t\t\tendif"
-		   });				
+			 "body", "if self.ownerPartition.getOwnerCore().oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse self.ownerPartition.getOwnerCore()\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSendProxy__GetRequesterOsApplications(), 
 		   source, 
 		   new String[] {
-			 "body", "self.interaction.requesterPartition.implOsApplication->asOrderedSet()"
-		   });		
+			 "body", "self.interaction.requesterPartition.implOsApplication->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getTimingTriggeringEntityStartImplementation__GetCycleOffset(), 
 		   source, 
 		   new String[] {
-			 "body", "self.startOffset.mod(self.cyclePeriod)"
-		   });		
+			 "body", "self.startOffset.mod(self.cyclePeriod)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getTimingTriggeringEntityStartImplementation__RequiresCycleAdjust(), 
 		   source, 
 		   new String[] {
-			 "body", "self.cyclePeriod > 1"
-		   });		
+			 "body", "self.cyclePeriod > 1" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust(), 
 		   source, 
 		   new String[] {
-			 "body", "self.startOffset > 0"
+			 "body", "self.startOffset > 0" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

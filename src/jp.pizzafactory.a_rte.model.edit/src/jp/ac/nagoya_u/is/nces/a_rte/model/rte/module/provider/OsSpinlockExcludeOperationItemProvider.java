@@ -61,8 +61,8 @@ public class OsSpinlockExcludeOperationItemProvider extends ExcludeOperationItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsSpinlockExcludeOperation_osSpinlockId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlockExcludeOperation_osSpinlockId_feature", "_UI_OsSpinlockExcludeOperation_type"),
+				 getString("_UI_OsSpinlockExcludeOperation_osSpinlockId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlockExcludeOperation_osSpinlockId_feature", "_UI_OsSpinlockExcludeOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_SPINLOCK_EXCLUDE_OPERATION__OS_SPINLOCK_ID,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class OsSpinlockExcludeOperationItemProvider extends ExcludeOperationItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSpinlockExcludeOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSpinlockExcludeOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class OsSpinlockExcludeOperationItemProvider extends ExcludeOperationItem
 	public String getText(Object object) {
 		String label = ((OsSpinlockExcludeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsSpinlockExcludeOperation_type") :
-			getString("_UI_OsSpinlockExcludeOperation_type") + " " + label;
+			getString("_UI_OsSpinlockExcludeOperation_type") : //$NON-NLS-1$
+			getString("_UI_OsSpinlockExcludeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

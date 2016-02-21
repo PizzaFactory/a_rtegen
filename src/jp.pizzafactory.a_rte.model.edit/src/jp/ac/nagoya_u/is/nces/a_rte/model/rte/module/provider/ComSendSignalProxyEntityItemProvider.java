@@ -89,7 +89,7 @@ public class ComSendSignalProxyEntityItemProvider extends BswSchedulableEntityIt
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalProxyEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalProxyEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ComSendSignalProxyEntityItemProvider extends BswSchedulableEntityIt
 	public String getText(Object object) {
 		String label = ((ComSendSignalProxyEntity)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendSignalProxyEntity_type") :
-			getString("_UI_ComSendSignalProxyEntity_type") + " " + label;
+			getString("_UI_ComSendSignalProxyEntity_type") : //$NON-NLS-1$
+			getString("_UI_ComSendSignalProxyEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

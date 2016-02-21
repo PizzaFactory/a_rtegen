@@ -63,8 +63,8 @@ public class NumericalValueSpecificationItemProvider extends ValueSpecificationI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NumericalValueSpecification_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NumericalValueSpecification_value_feature", "_UI_NumericalValueSpecification_type"),
+				 getString("_UI_NumericalValueSpecification_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NumericalValueSpecification_value_feature", "_UI_NumericalValueSpecification_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.NUMERICAL_VALUE_SPECIFICATION__VALUE,
 				 true,
 				 false,
@@ -82,7 +82,7 @@ public class NumericalValueSpecificationItemProvider extends ValueSpecificationI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NumericalValueSpecification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NumericalValueSpecification")); //$NON-NLS-1$
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class NumericalValueSpecificationItemProvider extends ValueSpecificationI
 		BigDecimal labelValue = ((NumericalValueSpecification)object).getValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NumericalValueSpecification_type") :
-			getString("_UI_NumericalValueSpecification_type") + " " + label;
+			getString("_UI_NumericalValueSpecification_type") : //$NON-NLS-1$
+			getString("_UI_NumericalValueSpecification_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

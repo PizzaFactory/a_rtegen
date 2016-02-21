@@ -95,7 +95,7 @@ public class OsItemProvider extends EcucModuleItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Os"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Os")); //$NON-NLS-1$
 	}
 
 	/**
@@ -108,8 +108,8 @@ public class OsItemProvider extends EcucModuleItemProvider {
 	public String getText(Object object) {
 		String label = ((Os)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Os_type") :
-			getString("_UI_Os_type") + " " + label;
+			getString("_UI_Os_type") : //$NON-NLS-1$
+			getString("_UI_Os_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

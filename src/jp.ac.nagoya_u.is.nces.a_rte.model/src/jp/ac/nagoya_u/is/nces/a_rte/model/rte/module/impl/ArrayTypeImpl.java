@@ -195,7 +195,7 @@ public class ArrayTypeImpl extends TypeImpl implements ArrayType {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (arraySize: ");
+		result.append(" (arraySize: "); //$NON-NLS-1$
 		result.append(arraySize);
 		result.append(')');
 		return result.toString();

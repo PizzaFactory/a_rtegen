@@ -63,8 +63,8 @@ public class BswModuleEntryItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModuleEntry_serviceId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_serviceId_feature", "_UI_BswModuleEntry_type"),
+				 getString("_UI_BswModuleEntry_serviceId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_serviceId_feature", "_UI_BswModuleEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODULE_ENTRY__SERVICE_ID,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class BswModuleEntryItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModuleEntry_callType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_callType_feature", "_UI_BswModuleEntry_type"),
+				 getString("_UI_BswModuleEntry_callType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_callType_feature", "_UI_BswModuleEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODULE_ENTRY__CALL_TYPE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class BswModuleEntryItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswModuleEntry_executionContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_executionContext_feature", "_UI_BswModuleEntry_type"),
+				 getString("_UI_BswModuleEntry_executionContext_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswModuleEntry_executionContext_feature", "_UI_BswModuleEntry_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_MODULE_ENTRY__EXECUTION_CONTEXT,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class BswModuleEntryItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModuleEntry"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswModuleEntry")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class BswModuleEntryItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((BswModuleEntry)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswModuleEntry_type") :
-			getString("_UI_BswModuleEntry_type") + " " + label;
+			getString("_UI_BswModuleEntry_type") : //$NON-NLS-1$
+			getString("_UI_BswModuleEntry_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

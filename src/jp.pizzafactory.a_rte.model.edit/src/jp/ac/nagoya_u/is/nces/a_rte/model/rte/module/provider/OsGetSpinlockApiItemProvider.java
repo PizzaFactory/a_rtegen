@@ -53,7 +53,7 @@ public class OsGetSpinlockApiItemProvider extends OsApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsGetSpinlockApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsGetSpinlockApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class OsGetSpinlockApiItemProvider extends OsApiItemProvider {
 	public String getText(Object object) {
 		String label = ((OsGetSpinlockApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsGetSpinlockApi_type") :
-			getString("_UI_OsGetSpinlockApi_type") + " " + label;
+			getString("_UI_OsGetSpinlockApi_type") : //$NON-NLS-1$
+			getString("_UI_OsGetSpinlockApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

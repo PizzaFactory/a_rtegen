@@ -61,8 +61,8 @@ public class ModuleReferrableItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModuleReferrable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModuleReferrable_id_feature", "_UI_ModuleReferrable_type"),
+				 getString("_UI_ModuleReferrable_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModuleReferrable_id_feature", "_UI_ModuleReferrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODULE_REFERRABLE__ID,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class ModuleReferrableItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((ModuleReferrable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModuleReferrable_type") :
-			getString("_UI_ModuleReferrable_type") + " " + label;
+			getString("_UI_ModuleReferrable_type") : //$NON-NLS-1$
+			getString("_UI_ModuleReferrable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -698,9 +698,9 @@ public class SwDataDefPropsImpl extends M2ObjectImpl implements SwDataDefProps {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (swImplPolicy: ");
+		result.append(" (swImplPolicy: "); //$NON-NLS-1$
 		result.append(swImplPolicy);
-		result.append(", swAlignment: ");
+		result.append(", swAlignment: "); //$NON-NLS-1$
 		result.append(swAlignment);
 		result.append(')');
 		return result.toString();

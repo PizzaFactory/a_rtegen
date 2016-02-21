@@ -53,7 +53,7 @@ public class DirectComSendImplementationItemProvider extends ComSendImplementati
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DirectComSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DirectComSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class DirectComSendImplementationItemProvider extends ComSendImplementati
 	public String getText(Object object) {
 		String label = ((DirectComSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DirectComSendImplementation_type") :
-			getString("_UI_DirectComSendImplementation_type") + " " + label;
+			getString("_UI_DirectComSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_DirectComSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -63,8 +63,8 @@ public class ModeMachineInstanceItemProvider extends ModuleReferrableItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeMachineInstance_initModeConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeMachineInstance_initModeConstant_feature", "_UI_ModeMachineInstance_type"),
+				 getString("_UI_ModeMachineInstance_initModeConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeMachineInstance_initModeConstant_feature", "_UI_ModeMachineInstance_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_MACHINE_INSTANCE__INIT_MODE_CONSTANT,
 				 true,
 				 false,
@@ -115,7 +115,7 @@ public class ModeMachineInstanceItemProvider extends ModuleReferrableItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeMachineInstance"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeMachineInstance")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class ModeMachineInstanceItemProvider extends ModuleReferrableItemProvide
 	public String getText(Object object) {
 		String label = ((ModeMachineInstance)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModeMachineInstance_type") :
-			getString("_UI_ModeMachineInstance_type") + " " + label;
+			getString("_UI_ModeMachineInstance_type") : //$NON-NLS-1$
+			getString("_UI_ModeMachineInstance_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -255,7 +255,7 @@ public class ModeMachineInstanceItemProvider extends ModuleReferrableItemProvide
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

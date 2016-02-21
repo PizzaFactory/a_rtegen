@@ -5,7 +5,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,33 +14,17 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.IResourceChangeListener;
-import org.eclipse.core.resources.IResourceDelta;
-import org.eclipse.core.resources.IResourceDeltaVisitor;
-import org.eclipse.core.resources.ResourcesPlugin;
-
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
-
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
-
 import org.eclipse.jface.util.LocalSelectionTransfer;
-
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -55,29 +38,21 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.custom.CTabFolder;
-
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.Transfer;
-
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
-
 import org.eclipse.swt.graphics.Point;
-
 import org.eclipse.swt.layout.FillLayout;
-
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
-
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -85,94 +60,57 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-
-import org.eclipse.ui.dialogs.SaveAsDialog;
-
-import org.eclipse.ui.ide.IGotoMarker;
-
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
-
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
-
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CommandStack;
 import org.eclipse.emf.common.command.CommandStackListener;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.ui.ViewerPane;
-
 import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
-
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
 import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
-
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
-
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.provider.InstanceItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.provider.EcucItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.provider.M2ItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.provider.Ar4xItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.provider.ExItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.provider.InteractionItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.provider.ModuleItemProviderAdapterFactory;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.provider.RteItemProviderAdapterFactory;
-
+import jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor;
 import jp.pizzafactory.a_rte.model.rte.presentation.RteEditorPlugin;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
@@ -183,7 +121,29 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
  */
 public class InstanceEditor
 	extends MultiPageEditorPart
-	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider {
+	/**
+	 * The filters for file extensions supported by the editor.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final List<String> FILE_EXTENSION_FILTERS = prefixExtensions(InstanceModelWizard.FILE_EXTENSIONS, "*."); //$NON-NLS-1$
+
+	/**
+	 * Returns a new unmodifiable list containing prefixed versions of the extensions in the given list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static List<String> prefixExtensions(List<String> extensions, String prefix) {
+		List<String> result = new ArrayList<String>();
+		for (String extension : extensions) {
+			result.add(prefix + extension);
+		}
+		return Collections.unmodifiableList(result);
+	}
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -322,15 +282,6 @@ public class InstanceEditor
 	 * @generated
 	 */
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
-
-	/**
-	 * The MarkerHelper is responsible for creating workspace resource markers presented
-	 * in Eclipse's Problems View.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
 
 	/**
 	 * This listens for when the outline becomes active
@@ -474,84 +425,6 @@ public class InstanceEditor
 		};
 
 	/**
-	 * This listens for workspace changes.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IResourceChangeListener resourceChangeListener =
-		new IResourceChangeListener() {
-			public void resourceChanged(IResourceChangeEvent event) {
-				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-						protected ResourceSet resourceSet = editingDomain.getResourceSet();
-						protected Collection<Resource> changedResources = new ArrayList<Resource>();
-						protected Collection<Resource> removedResources = new ArrayList<Resource>();
-
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
-								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
-											removedResources.add(resource);
-										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
-										}
-									}
-								}
-								return false;
-							}
-
-							return true;
-						}
-
-						public Collection<Resource> getChangedResources() {
-							return changedResources;
-						}
-
-						public Collection<Resource> getRemovedResources() {
-							return removedResources;
-						}
-					}
-
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-					delta.accept(visitor);
-
-					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(InstanceEditor.this, false);
-									 }
-								 }
-							 });
-					}
-
-					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == InstanceEditor.this) {
-										 handleActivate();
-									 }
-								 }
-							 });
-					}
-				}
-				catch (CoreException exception) {
-					RteEditorPlugin.INSTANCE.log(exception);
-				}
-			}
-		};
-
-	/**
 	 * Handles activation of the editor or it's associated views.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,7 +507,7 @@ public class InstanceEditor
 			BasicDiagnostic diagnostic =
 				new BasicDiagnostic
 					(Diagnostic.OK,
-					 "jp.pizzafactory.a_rte.model.editor",
+					 "jp.pizzafactory.a_rte.model.editor", //$NON-NLS-1$
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
@@ -654,7 +527,6 @@ public class InstanceEditor
 			else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
-				problemEditorPart.setMarkerHelper(markerHelper);
 				try {
 					addPage(++lastEditorPage, problemEditorPart, getEditorInput());
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
@@ -663,18 +535,6 @@ public class InstanceEditor
 				}
 				catch (PartInitException exception) {
 					RteEditorPlugin.INSTANCE.log(exception);
-				}
-			}
-
-			if (markerHelper.hasMarkers(editingDomain.getResourceSet())) {
-				markerHelper.deleteMarkers(editingDomain.getResourceSet());
-				if (diagnostic.getSeverity() != Diagnostic.OK) {
-					try {
-						markerHelper.createMarkers(diagnostic);
-					}
-					catch (CoreException exception) {
-						RteEditorPlugin.INSTANCE.log(exception);
-					}
 				}
 			}
 		}
@@ -690,8 +550,8 @@ public class InstanceEditor
 		return
 			MessageDialog.openQuestion
 				(getSite().getShell(),
-				 getString("_UI_FileConflict_label"),
-				 getString("_WARN_FileConflict"));
+				 getString("_UI_FileConflict_label"), //$NON-NLS-1$
+				 getString("_WARN_FileConflict")); //$NON-NLS-1$
 	}
 
 	/**
@@ -951,8 +811,8 @@ public class InstanceEditor
 	 * @generated
 	 */
 	protected void createContextMenuFor(StructuredViewer viewer) {
-		MenuManager contextMenu = new MenuManager("#PopUp");
-		contextMenu.add(new Separator("additions"));
+		MenuManager contextMenu = new MenuManager("#PopUp"); //$NON-NLS-1$
+		contextMenu.add(new Separator("additions")); //$NON-NLS-1$
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
 		Menu menu= contextMenu.createContextMenu(viewer.getControl());
@@ -1004,9 +864,9 @@ public class InstanceEditor
 			BasicDiagnostic basicDiagnostic =
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "jp.pizzafactory.a_rte.model.editor",
+					 "jp.pizzafactory.a_rte.model.editor", //$NON-NLS-1$
 					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
+					 getString("_UI_CreateModelError_message", resource.getURI()), //$NON-NLS-1$
 					 new Object [] { exception == null ? (Object)resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
@@ -1015,9 +875,9 @@ public class InstanceEditor
 			return
 				new BasicDiagnostic
 					(Diagnostic.ERROR,
-					 "jp.pizzafactory.a_rte.model.editor",
+					 "jp.pizzafactory.a_rte.model.editor", //$NON-NLS-1$
 					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
+					 getString("_UI_CreateModelError_message", resource.getURI()), //$NON-NLS-1$
 					 new Object[] { exception });
 		}
 		else {
@@ -1071,7 +931,7 @@ public class InstanceEditor
 
 				createContextMenuFor(selectionViewer);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_SelectionPage_label"));
+				setPageText(pageIndex, getString("_UI_SelectionPage_label")); //$NON-NLS-1$
 			}
 
 			// Create a page for the parent tree view.
@@ -1100,7 +960,7 @@ public class InstanceEditor
 
 				createContextMenuFor(parentViewer);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_ParentPage_label"));
+				setPageText(pageIndex, getString("_UI_ParentPage_label")); //$NON-NLS-1$
 			}
 
 			// This is the page for the list viewer
@@ -1125,7 +985,7 @@ public class InstanceEditor
 
 				createContextMenuFor(listViewer);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_ListPage_label"));
+				setPageText(pageIndex, getString("_UI_ListPage_label")); //$NON-NLS-1$
 			}
 
 			// This is the page for the tree viewer
@@ -1152,7 +1012,7 @@ public class InstanceEditor
 
 				createContextMenuFor(treeViewer);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TreePage_label"));
+				setPageText(pageIndex, getString("_UI_TreePage_label")); //$NON-NLS-1$
 			}
 
 			// This is the page for the table viewer.
@@ -1181,21 +1041,21 @@ public class InstanceEditor
 
 				TableColumn objectColumn = new TableColumn(table, SWT.NONE);
 				layout.addColumnData(new ColumnWeightData(3, 100, true));
-				objectColumn.setText(getString("_UI_ObjectColumn_label"));
+				objectColumn.setText(getString("_UI_ObjectColumn_label")); //$NON-NLS-1$
 				objectColumn.setResizable(true);
 
 				TableColumn selfColumn = new TableColumn(table, SWT.NONE);
 				layout.addColumnData(new ColumnWeightData(2, 100, true));
-				selfColumn.setText(getString("_UI_SelfColumn_label"));
+				selfColumn.setText(getString("_UI_SelfColumn_label")); //$NON-NLS-1$
 				selfColumn.setResizable(true);
 
-				tableViewer.setColumnProperties(new String [] {"a", "b"});
+				tableViewer.setColumnProperties(new String [] {"a", "b"}); //$NON-NLS-1$ //$NON-NLS-2$
 				tableViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
 				createContextMenuFor(tableViewer);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TablePage_label"));
+				setPageText(pageIndex, getString("_UI_TablePage_label")); //$NON-NLS-1$
 			}
 
 			// This is the page for the table tree viewer.
@@ -1223,22 +1083,22 @@ public class InstanceEditor
 				tree.setLinesVisible(true);
 
 				TreeColumn objectColumn = new TreeColumn(tree, SWT.NONE);
-				objectColumn.setText(getString("_UI_ObjectColumn_label"));
+				objectColumn.setText(getString("_UI_ObjectColumn_label")); //$NON-NLS-1$
 				objectColumn.setResizable(true);
 				objectColumn.setWidth(250);
 
 				TreeColumn selfColumn = new TreeColumn(tree, SWT.NONE);
-				selfColumn.setText(getString("_UI_SelfColumn_label"));
+				selfColumn.setText(getString("_UI_SelfColumn_label")); //$NON-NLS-1$
 				selfColumn.setResizable(true);
 				selfColumn.setWidth(200);
 
-				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"});
+				treeViewerWithColumns.setColumnProperties(new String [] {"a", "b"}); //$NON-NLS-1$ //$NON-NLS-2$
 				treeViewerWithColumns.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				treeViewerWithColumns.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 
 				createContextMenuFor(treeViewerWithColumns);
 				int pageIndex = addPage(viewerPane.getControl());
-				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
+				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label")); //$NON-NLS-1$
 			}
 
 			getSite().getShell().getDisplay().asyncExec
@@ -1282,7 +1142,7 @@ public class InstanceEditor
 	 */
 	protected void hideTabs() {
 		if (getPageCount() <= 1) {
-			setPageText(0, "");
+			setPageText(0, ""); //$NON-NLS-1$
 			if (getContainer() instanceof CTabFolder) {
 				((CTabFolder)getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
@@ -1300,7 +1160,7 @@ public class InstanceEditor
 	 */
 	protected void showTabs() {
 		if (getPageCount() > 1) {
-			setPageText(0, getString("_UI_SelectionPage_label"));
+			setPageText(0, getString("_UI_SelectionPage_label")); //$NON-NLS-1$
 			if (getContainer() instanceof CTabFolder) {
 				((CTabFolder)getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
@@ -1338,9 +1198,6 @@ public class InstanceEditor
 		}
 		else if (key.equals(IPropertySheetPage.class)) {
 			return getPropertySheetPage();
-		}
-		else if (key.equals(IGotoMarker.class)) {
-			return this;
 		}
 		else {
 			return super.getAdapter(key);
@@ -1504,12 +1361,11 @@ public class InstanceEditor
 
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
-		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
+		IRunnableWithProgress operation =
+			new IRunnableWithProgress() {
 				// This is the method that gets invoked when the operation runs.
 				//
-				@Override
-				public void execute(IProgressMonitor monitor) {
+				public void run(IProgressMonitor monitor) {
 					// Save the resources to the file system.
 					//
 					boolean first = true;
@@ -1592,14 +1448,11 @@ public class InstanceEditor
 	 */
 	@Override
 	public void doSaveAs() {
-		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
-		saveAsDialog.open();
-		IPath path = saveAsDialog.getResult();
-		if (path != null) {
-			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
-			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
-			}
+		String[] filters = FILE_EXTENSION_FILTERS.toArray(new String[FILE_EXTENSION_FILTERS.size()]);
+		String[] files = RteEditorAdvisor.openFilePathDialog(getSite().getShell(), SWT.SAVE, filters);
+		if (files.length > 0) {
+			URI uri = URI.createFileURI(files[0]);
+			doSaveAs(uri, new URIEditorInput(uri));
 		}
 	}
 
@@ -1620,18 +1473,6 @@ public class InstanceEditor
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void gotoMarker(IMarker marker) {
-		List<?> targetObjects = markerHelper.getTargetObjects(editingDomain, marker);
-		if (!targetObjects.isEmpty()) {
-			setSelectionToViewer(targetObjects);
-		}
-	}
-
-	/**
 	 * This is called during startup.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1644,7 +1485,6 @@ public class InstanceEditor
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
 	}
 
 	/**
@@ -1722,22 +1562,22 @@ public class InstanceEditor
 				Collection<?> collection = ((IStructuredSelection)selection).toList();
 				switch (collection.size()) {
 					case 0: {
-						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
+						statusLineManager.setMessage(getString("_UI_NoObjectSelected")); //$NON-NLS-1$
 						break;
 					}
 					case 1: {
 						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
-						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
+						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text)); //$NON-NLS-1$
 						break;
 					}
 					default: {
-						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size()))); //$NON-NLS-1$
 						break;
 					}
 				}
 			}
 			else {
-				statusLineManager.setMessage("");
+				statusLineManager.setMessage(""); //$NON-NLS-1$
 			}
 		}
 	}
@@ -1807,8 +1647,6 @@ public class InstanceEditor
 	@Override
 	public void dispose() {
 		updateProblemIndication = false;
-
-		ResourcesPlugin.getWorkspace().removeResourceChangeListener(resourceChangeListener);
 
 		getSite().getPage().removePartListener(partListener);
 

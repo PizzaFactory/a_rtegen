@@ -63,8 +63,8 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntityStartInteraction_starter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStartInteraction_starter_feature", "_UI_EntityStartInteraction_type"),
+				 getString("_UI_EntityStartInteraction_starter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStartInteraction_starter_feature", "_UI_EntityStartInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.ENTITY_START_INTERACTION__STARTER,
 				 true,
 				 false,
@@ -115,8 +115,8 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 	public String getText(Object object) {
 		String label = ((EntityStartInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EntityStartInteraction_type") :
-			getString("_UI_EntityStartInteraction_type") + " " + label;
+			getString("_UI_EntityStartInteraction_type") : //$NON-NLS-1$
+			getString("_UI_EntityStartInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

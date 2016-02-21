@@ -67,8 +67,8 @@ public class SendOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendOperation_sendValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_sendValue_feature", "_UI_SendOperation_type"),
+				 getString("_UI_SendOperation_sendValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_sendValue_feature", "_UI_SendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_OPERATION__SEND_VALUE,
 				 true,
 				 false,
@@ -89,8 +89,8 @@ public class SendOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendOperation_sendStatus_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_sendStatus_feature", "_UI_SendOperation_type"),
+				 getString("_UI_SendOperation_sendStatus_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_sendStatus_feature", "_UI_SendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_OPERATION__SEND_STATUS,
 				 true,
 				 false,
@@ -111,8 +111,8 @@ public class SendOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendOperation_returnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_returnVariable_feature", "_UI_SendOperation_type"),
+				 getString("_UI_SendOperation_returnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_returnVariable_feature", "_UI_SendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_OPERATION__RETURN_VARIABLE,
 				 true,
 				 false,
@@ -133,8 +133,8 @@ public class SendOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SendOperation_isWriteApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_isWriteApi_feature", "_UI_SendOperation_type"),
+				 getString("_UI_SendOperation_isWriteApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendOperation_isWriteApi_feature", "_UI_SendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SEND_OPERATION__IS_WRITE_API,
 				 true,
 				 false,
@@ -184,8 +184,8 @@ public class SendOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((SendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SendOperation_type") :
-			getString("_UI_SendOperation_type") + " " + label;
+			getString("_UI_SendOperation_type") : //$NON-NLS-1$
+			getString("_UI_SendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

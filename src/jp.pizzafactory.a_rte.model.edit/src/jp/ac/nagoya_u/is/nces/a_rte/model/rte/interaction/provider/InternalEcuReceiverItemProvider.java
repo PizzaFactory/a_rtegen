@@ -59,8 +59,8 @@ public class InternalEcuReceiverItemProvider extends ReceiverItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InternalEcuReceiver_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuReceiver_source_feature", "_UI_InternalEcuReceiver_type"),
+				 getString("_UI_InternalEcuReceiver_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuReceiver_source_feature", "_UI_InternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.INTERNAL_ECU_RECEIVER__SOURCE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class InternalEcuReceiverItemProvider extends ReceiverItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalEcuReceiver"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalEcuReceiver")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class InternalEcuReceiverItemProvider extends ReceiverItemProvider {
 	public String getText(Object object) {
 		String label = ((InternalEcuReceiver)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InternalEcuReceiver_type") :
-			getString("_UI_InternalEcuReceiver_type") + " " + label;
+			getString("_UI_InternalEcuReceiver_type") : //$NON-NLS-1$
+			getString("_UI_InternalEcuReceiver_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

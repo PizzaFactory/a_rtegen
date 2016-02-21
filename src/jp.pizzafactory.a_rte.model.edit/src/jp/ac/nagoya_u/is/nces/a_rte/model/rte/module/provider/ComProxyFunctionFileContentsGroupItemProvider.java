@@ -59,8 +59,8 @@ public class ComProxyFunctionFileContentsGroupItemProvider extends FunctionFileC
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunctionFileContentsGroup_comProxyFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunctionFileContentsGroup_comProxyFunction_feature", "_UI_ComProxyFunctionFileContentsGroup_type"),
+				 getString("_UI_ComProxyFunctionFileContentsGroup_comProxyFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunctionFileContentsGroup_comProxyFunction_feature", "_UI_ComProxyFunctionFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION_FILE_CONTENTS_GROUP__COM_PROXY_FUNCTION,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class ComProxyFunctionFileContentsGroupItemProvider extends FunctionFileC
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunctionFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunctionFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ComProxyFunctionFileContentsGroupItemProvider extends FunctionFileC
 	public String getText(Object object) {
 		String label = ((ComProxyFunctionFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComProxyFunctionFileContentsGroup_type") :
-			getString("_UI_ComProxyFunctionFileContentsGroup_type") + " " + label;
+			getString("_UI_ComProxyFunctionFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_ComProxyFunctionFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

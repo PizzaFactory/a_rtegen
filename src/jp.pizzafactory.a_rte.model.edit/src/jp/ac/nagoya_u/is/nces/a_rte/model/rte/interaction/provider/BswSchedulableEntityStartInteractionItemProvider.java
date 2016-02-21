@@ -53,7 +53,7 @@ public class BswSchedulableEntityStartInteractionItemProvider extends EntityStar
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntityStartInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntityStartInteraction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class BswSchedulableEntityStartInteractionItemProvider extends EntityStar
 	public String getText(Object object) {
 		String label = ((BswSchedulableEntityStartInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswSchedulableEntityStartInteraction_type") :
-			getString("_UI_BswSchedulableEntityStartInteraction_type") + " " + label;
+			getString("_UI_BswSchedulableEntityStartInteraction_type") : //$NON-NLS-1$
+			getString("_UI_BswSchedulableEntityStartInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

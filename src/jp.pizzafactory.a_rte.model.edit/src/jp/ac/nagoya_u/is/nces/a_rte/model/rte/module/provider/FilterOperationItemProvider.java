@@ -59,8 +59,8 @@ public class FilterOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FilterOperation_filterResultVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FilterOperation_filterResultVariable_feature", "_UI_FilterOperation_type"),
+				 getString("_UI_FilterOperation_filterResultVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FilterOperation_filterResultVariable_feature", "_UI_FilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FILTER_OPERATION__FILTER_RESULT_VARIABLE,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class FilterOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((FilterOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_FilterOperation_type") :
-			getString("_UI_FilterOperation_type") + " " + label;
+			getString("_UI_FilterOperation_type") : //$NON-NLS-1$
+			getString("_UI_FilterOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

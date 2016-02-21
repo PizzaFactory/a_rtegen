@@ -166,7 +166,7 @@ public class LocalVariableImpl extends VariableImpl implements LocalVariable {
 	public void setParent(Function newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.LOCAL_VARIABLE__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

@@ -63,8 +63,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringExecutableStartOperation_cyclePeriodConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cyclePeriodConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"),
+				 getString("_UI_TimingTriggeringExecutableStartOperation_cyclePeriodConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cyclePeriodConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringExecutableStartOperation_cycleOffsetConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cycleOffsetConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"),
+				 getString("_UI_TimingTriggeringExecutableStartOperation_cycleOffsetConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cycleOffsetConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_OFFSET_CONSTANT,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringExecutableStartOperation_startOffsetConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_startOffsetConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"),
+				 getString("_UI_TimingTriggeringExecutableStartOperation_startOffsetConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_startOffsetConstant_feature", "_UI_TimingTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_CONSTANT,
 				 true,
 				 false,
@@ -129,8 +129,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringExecutableStartOperation_startOffsetCounterVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_startOffsetCounterVariable_feature", "_UI_TimingTriggeringExecutableStartOperation_type"),
+				 getString("_UI_TimingTriggeringExecutableStartOperation_startOffsetCounterVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_startOffsetCounterVariable_feature", "_UI_TimingTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_COUNTER_VARIABLE,
 				 true,
 				 false,
@@ -151,8 +151,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TimingTriggeringExecutableStartOperation_cycleCounterVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cycleCounterVariable_feature", "_UI_TimingTriggeringExecutableStartOperation_type"),
+				 getString("_UI_TimingTriggeringExecutableStartOperation_cycleCounterVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TimingTriggeringExecutableStartOperation_cycleCounterVariable_feature", "_UI_TimingTriggeringExecutableStartOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE,
 				 true,
 				 false,
@@ -170,7 +170,7 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingTriggeringExecutableStartOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TimingTriggeringExecutableStartOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -183,8 +183,8 @@ public class TimingTriggeringExecutableStartOperationItemProvider extends Execut
 	public String getText(Object object) {
 		String label = ((TimingTriggeringExecutableStartOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TimingTriggeringExecutableStartOperation_type") :
-			getString("_UI_TimingTriggeringExecutableStartOperation_type") + " " + label;
+			getString("_UI_TimingTriggeringExecutableStartOperation_type") : //$NON-NLS-1$
+			getString("_UI_TimingTriggeringExecutableStartOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

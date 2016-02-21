@@ -191,7 +191,7 @@ public abstract class IocApiImpl extends FunctionImpl implements IocApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (mappingName: ");
+		result.append(" (mappingName: "); //$NON-NLS-1$
 		result.append(mappingName);
 		result.append(')');
 		return result.toString();

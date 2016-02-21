@@ -55,8 +55,8 @@ public class AutosarDataPrototypeItemProvider extends DataPrototypeItemProvider 
 	public String getText(Object object) {
 		String label = ((AutosarDataPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AutosarDataPrototype_type") :
-			getString("_UI_AutosarDataPrototype_type") + " " + label;
+			getString("_UI_AutosarDataPrototype_type") : //$NON-NLS-1$
+			getString("_UI_AutosarDataPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

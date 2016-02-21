@@ -64,8 +64,8 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaImplMechanism_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaImplMechanism_feature", "_UI_RteExclusiveAreaImplementation_type"),
+				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaImplMechanism_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaImplMechanism_feature", "_UI_RteExclusiveAreaImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EXCLUSIVE_AREA_IMPLEMENTATION__RTE_EXCLUSIVE_AREA_IMPL_MECHANISM,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveArea_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveArea_feature", "_UI_RteExclusiveAreaImplementation_type"),
+				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveArea_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveArea_feature", "_UI_RteExclusiveAreaImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EXCLUSIVE_AREA_IMPLEMENTATION__RTE_EXCLUSIVE_AREA,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsResource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsResource_feature", "_UI_RteExclusiveAreaImplementation_type"),
+				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsResource_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsResource_feature", "_UI_RteExclusiveAreaImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EXCLUSIVE_AREA_IMPLEMENTATION__RTE_EXCLUSIVE_AREA_OS_RESOURCE,
 				 true,
 				 false,
@@ -130,8 +130,8 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsSpinlock_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsSpinlock_feature", "_UI_RteExclusiveAreaImplementation_type"),
+				 getString("_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsSpinlock_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteExclusiveAreaImplementation_rteExclusiveAreaOsSpinlock_feature", "_UI_RteExclusiveAreaImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EXCLUSIVE_AREA_IMPLEMENTATION__RTE_EXCLUSIVE_AREA_OS_SPINLOCK,
 				 true,
 				 false,
@@ -149,7 +149,7 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteExclusiveAreaImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteExclusiveAreaImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class RteExclusiveAreaImplementationItemProvider extends EcucContainerIte
 	public String getText(Object object) {
 		String label = ((RteExclusiveAreaImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteExclusiveAreaImplementation_type") :
-			getString("_UI_RteExclusiveAreaImplementation_type") + " " + label;
+			getString("_UI_RteExclusiveAreaImplementation_type") : //$NON-NLS-1$
+			getString("_UI_RteExclusiveAreaImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -488,7 +488,7 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 	public void setParent(Core newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.PARTITION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -1513,7 +1513,7 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isBswPartition: ");
+		result.append(" (isBswPartition: "); //$NON-NLS-1$
 		result.append(isBswPartition);
 		result.append(')');
 		return result.toString();

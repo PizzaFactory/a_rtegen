@@ -89,7 +89,7 @@ public class ArPackageItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArPackage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArPackage")); //$NON-NLS-1$
 	}
 
 	/**
@@ -102,8 +102,8 @@ public class ArPackageItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((ArPackage)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ArPackage_type") :
-			getString("_UI_ArPackage_type") + " " + label;
+			getString("_UI_ArPackage_type") : //$NON-NLS-1$
+			getString("_UI_ArPackage_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

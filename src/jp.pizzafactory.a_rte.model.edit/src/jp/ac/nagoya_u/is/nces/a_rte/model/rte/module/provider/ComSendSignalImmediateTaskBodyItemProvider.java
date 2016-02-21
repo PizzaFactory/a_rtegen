@@ -62,8 +62,8 @@ public class ComSendSignalImmediateTaskBodyItemProvider extends TaskBodyItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendSignalImmediateTaskBody_startEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalImmediateTaskBody_startEntity_feature", "_UI_ComSendSignalImmediateTaskBody_type"),
+				 getString("_UI_ComSendSignalImmediateTaskBody_startEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalImmediateTaskBody_startEntity_feature", "_UI_ComSendSignalImmediateTaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__START_ENTITY,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class ComSendSignalImmediateTaskBodyItemProvider extends TaskBodyItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendSignalImmediateTaskBody_osEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalImmediateTaskBody_osEventId_feature", "_UI_ComSendSignalImmediateTaskBody_type"),
+				 getString("_UI_ComSendSignalImmediateTaskBody_osEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendSignalImmediateTaskBody_osEventId_feature", "_UI_ComSendSignalImmediateTaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__OS_EVENT_ID,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class ComSendSignalImmediateTaskBodyItemProvider extends TaskBodyItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalImmediateTaskBody"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalImmediateTaskBody")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class ComSendSignalImmediateTaskBodyItemProvider extends TaskBodyItemProv
 	public String getText(Object object) {
 		String label = ((ComSendSignalImmediateTaskBody)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendSignalImmediateTaskBody_type") :
-			getString("_UI_ComSendSignalImmediateTaskBody_type") + " " + label;
+			getString("_UI_ComSendSignalImmediateTaskBody_type") : //$NON-NLS-1$
+			getString("_UI_ComSendSignalImmediateTaskBody_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

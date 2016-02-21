@@ -443,11 +443,11 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (shortLabel: ");
+		result.append(" (shortLabel: "); //$NON-NLS-1$
 		result.append(shortLabel);
-		result.append(", symbol: ");
+		result.append(", symbol: "); //$NON-NLS-1$
 		result.append(symbol);
-		result.append(", vt: ");
+		result.append(", vt: "); //$NON-NLS-1$
 		result.append(vt);
 		result.append(')');
 		return result.toString();

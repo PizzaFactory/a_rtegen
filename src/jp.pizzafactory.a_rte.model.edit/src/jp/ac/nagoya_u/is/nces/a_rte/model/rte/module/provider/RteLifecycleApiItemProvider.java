@@ -55,8 +55,8 @@ public class RteLifecycleApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((RteLifecycleApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteLifecycleApi_type") :
-			getString("_UI_RteLifecycleApi_type") + " " + label;
+			getString("_UI_RteLifecycleApi_type") : //$NON-NLS-1$
+			getString("_UI_RteLifecycleApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

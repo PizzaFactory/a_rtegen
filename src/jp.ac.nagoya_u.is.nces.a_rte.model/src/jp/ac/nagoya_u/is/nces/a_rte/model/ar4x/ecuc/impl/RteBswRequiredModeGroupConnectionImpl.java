@@ -139,7 +139,7 @@ public class RteBswRequiredModeGroupConnectionImpl extends EcucContainerImpl imp
 	public void setParent(RteBswModuleInstance newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != EcucPackage.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

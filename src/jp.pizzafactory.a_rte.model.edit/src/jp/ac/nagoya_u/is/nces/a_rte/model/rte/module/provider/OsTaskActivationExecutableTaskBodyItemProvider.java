@@ -88,7 +88,7 @@ public class OsTaskActivationExecutableTaskBodyItemProvider extends TaskBodyItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskActivationExecutableTaskBody"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskActivationExecutableTaskBody")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class OsTaskActivationExecutableTaskBodyItemProvider extends TaskBodyItem
 	public String getText(Object object) {
 		String label = ((OsTaskActivationExecutableTaskBody)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsTaskActivationExecutableTaskBody_type") :
-			getString("_UI_OsTaskActivationExecutableTaskBody_type") + " " + label;
+			getString("_UI_OsTaskActivationExecutableTaskBody_type") : //$NON-NLS-1$
+			getString("_UI_OsTaskActivationExecutableTaskBody_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

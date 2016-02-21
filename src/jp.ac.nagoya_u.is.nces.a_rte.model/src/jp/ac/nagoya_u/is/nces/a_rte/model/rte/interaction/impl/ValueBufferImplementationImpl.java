@@ -136,7 +136,7 @@ public abstract class ValueBufferImplementationImpl extends VariableImplementati
 	public void setParent(ReceiveInteraction newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != InteractionPackage.VALUE_BUFFER_IMPLEMENTATION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -292,7 +292,7 @@ public abstract class ValueBufferImplementationImpl extends VariableImplementati
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (hasStatus: ");
+		result.append(" (hasStatus: "); //$NON-NLS-1$
 		result.append(hasStatus);
 		result.append(')');
 		return result.toString();

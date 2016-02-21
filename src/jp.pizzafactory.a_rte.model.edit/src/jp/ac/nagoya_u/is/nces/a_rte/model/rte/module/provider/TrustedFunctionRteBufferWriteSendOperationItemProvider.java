@@ -59,8 +59,8 @@ public class TrustedFunctionRteBufferWriteSendOperationItemProvider extends Trus
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteBufferWriteSendOperation_accessTrustedFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferWriteSendOperation_accessTrustedFunction_feature", "_UI_TrustedFunctionRteBufferWriteSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteBufferWriteSendOperation_accessTrustedFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferWriteSendOperation_accessTrustedFunction_feature", "_UI_TrustedFunctionRteBufferWriteSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class TrustedFunctionRteBufferWriteSendOperationItemProvider extends Trus
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteBufferWriteSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteBufferWriteSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class TrustedFunctionRteBufferWriteSendOperationItemProvider extends Trus
 	public String getText(Object object) {
 		String label = ((TrustedFunctionRteBufferWriteSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionRteBufferWriteSendOperation_type") :
-			getString("_UI_TrustedFunctionRteBufferWriteSendOperation_type") + " " + label;
+			getString("_UI_TrustedFunctionRteBufferWriteSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionRteBufferWriteSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

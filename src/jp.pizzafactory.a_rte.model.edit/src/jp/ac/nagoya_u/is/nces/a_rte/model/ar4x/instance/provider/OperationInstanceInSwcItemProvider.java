@@ -61,8 +61,8 @@ public class OperationInstanceInSwcItemProvider extends InstanceReferrableItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInSwc_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_prototype_feature", "_UI_OperationInstanceInSwc_type"),
+				 getString("_UI_OperationInstanceInSwc_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_prototype_feature", "_UI_OperationInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_SWC__PROTOTYPE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class OperationInstanceInSwcItemProvider extends InstanceReferrableItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInSwc_contextPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_contextPort_feature", "_UI_OperationInstanceInSwc_type"),
+				 getString("_UI_OperationInstanceInSwc_contextPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_contextPort_feature", "_UI_OperationInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class OperationInstanceInSwcItemProvider extends InstanceReferrableItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInSwc_instance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_instance_feature", "_UI_OperationInstanceInSwc_type"),
+				 getString("_UI_OperationInstanceInSwc_instance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInSwc_instance_feature", "_UI_OperationInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_SWC__INSTANCE,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class OperationInstanceInSwcItemProvider extends InstanceReferrableItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationInstanceInSwc"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationInstanceInSwc")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class OperationInstanceInSwcItemProvider extends InstanceReferrableItemPr
 	public String getText(Object object) {
 		String label = ((OperationInstanceInSwc)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OperationInstanceInSwc_type") :
-			getString("_UI_OperationInstanceInSwc_type") + " " + label;
+			getString("_UI_OperationInstanceInSwc_type") : //$NON-NLS-1$
+			getString("_UI_OperationInstanceInSwc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

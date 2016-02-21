@@ -65,8 +65,8 @@ public class VariableItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_type_feature", "_UI_Variable_type"),
+				 getString("_UI_Variable_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_type_feature", "_UI_Variable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.VARIABLE__TYPE,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class VariableItemProvider extends ValueItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_symbolName_feature", "_UI_Variable_type"),
+				 getString("_UI_Variable_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_symbolName_feature", "_UI_Variable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.VARIABLE__SYMBOL_NAME,
 				 true,
 				 false,
@@ -138,8 +138,8 @@ public class VariableItemProvider extends ValueItemProvider {
 	public String getText(Object object) {
 		String label = ((Variable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Variable_type") :
-			getString("_UI_Variable_type") + " " + label;
+			getString("_UI_Variable_type") : //$NON-NLS-1$
+			getString("_UI_Variable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

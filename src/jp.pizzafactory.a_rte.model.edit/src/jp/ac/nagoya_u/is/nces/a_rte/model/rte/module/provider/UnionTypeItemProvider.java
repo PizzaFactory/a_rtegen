@@ -88,7 +88,7 @@ public class UnionTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnionType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnionType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class UnionTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((UnionType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_UnionType_type") :
-			getString("_UI_UnionType_type") + " " + label;
+			getString("_UI_UnionType_type") : //$NON-NLS-1$
+			getString("_UI_UnionType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

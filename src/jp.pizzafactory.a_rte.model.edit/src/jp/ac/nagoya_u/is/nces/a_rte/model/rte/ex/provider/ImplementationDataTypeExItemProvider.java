@@ -75,8 +75,8 @@ public class ImplementationDataTypeExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplementationDataTypeEx_compuMethodEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeEx_compuMethodEx_feature", "_UI_ImplementationDataTypeEx_type"),
+				 getString("_UI_ImplementationDataTypeEx_compuMethodEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataTypeEx_compuMethodEx_feature", "_UI_ImplementationDataTypeEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.IMPLEMENTATION_DATA_TYPE_EX__COMPU_METHOD_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class ImplementationDataTypeExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataTypeEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataTypeEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class ImplementationDataTypeExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ImplementationDataTypeEx_type");
+		return getString("_UI_ImplementationDataTypeEx_type"); //$NON-NLS-1$
 	}
 	
 

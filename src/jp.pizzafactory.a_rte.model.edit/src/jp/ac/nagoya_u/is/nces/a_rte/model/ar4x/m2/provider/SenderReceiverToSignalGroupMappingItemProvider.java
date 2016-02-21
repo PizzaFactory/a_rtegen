@@ -64,8 +64,8 @@ public class SenderReceiverToSignalGroupMappingItemProvider extends DataMappingI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderReceiverToSignalGroupMapping_signalGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalGroupMapping_signalGroup_feature", "_UI_SenderReceiverToSignalGroupMapping_type"),
+				 getString("_UI_SenderReceiverToSignalGroupMapping_signalGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalGroupMapping_signalGroup_feature", "_UI_SenderReceiverToSignalGroupMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__SIGNAL_GROUP,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class SenderReceiverToSignalGroupMappingItemProvider extends DataMappingI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderReceiverToSignalGroupMapping_dataElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalGroupMapping_dataElement_feature", "_UI_SenderReceiverToSignalGroupMapping_type"),
+				 getString("_UI_SenderReceiverToSignalGroupMapping_dataElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalGroupMapping_dataElement_feature", "_UI_SenderReceiverToSignalGroupMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING__DATA_ELEMENT,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class SenderReceiverToSignalGroupMappingItemProvider extends DataMappingI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderReceiverToSignalGroupMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderReceiverToSignalGroupMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -147,7 +147,7 @@ public class SenderReceiverToSignalGroupMappingItemProvider extends DataMappingI
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderReceiverToSignalGroupMapping_type");
+		return getString("_UI_SenderReceiverToSignalGroupMapping_type"); //$NON-NLS-1$
 	}
 	
 

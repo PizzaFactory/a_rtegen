@@ -61,8 +61,8 @@ public class MacroItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Macro_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Macro_symbolName_feature", "_UI_Macro_type"),
+				 getString("_UI_Macro_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Macro_symbolName_feature", "_UI_Macro_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MACRO__SYMBOL_NAME,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class MacroItemProvider extends ModuleReferrableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Macro"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Macro")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class MacroItemProvider extends ModuleReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((Macro)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Macro_type") :
-			getString("_UI_Macro_type") + " " + label;
+			getString("_UI_Macro_type") : //$NON-NLS-1$
+			getString("_UI_Macro_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

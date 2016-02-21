@@ -61,8 +61,8 @@ public class RunnableEntityItemProvider extends ExecutableEntityItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RunnableEntity_hasReturnValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RunnableEntity_hasReturnValue_feature", "_UI_RunnableEntity_type"),
+				 getString("_UI_RunnableEntity_hasReturnValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RunnableEntity_hasReturnValue_feature", "_UI_RunnableEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RUNNABLE_ENTITY__HAS_RETURN_VALUE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class RunnableEntityItemProvider extends ExecutableEntityItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RunnableEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RunnableEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class RunnableEntityItemProvider extends ExecutableEntityItemProvider {
 	public String getText(Object object) {
 		String label = ((RunnableEntity)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RunnableEntity_type") :
-			getString("_UI_RunnableEntity_type") + " " + label;
+			getString("_UI_RunnableEntity_type") : //$NON-NLS-1$
+			getString("_UI_RunnableEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

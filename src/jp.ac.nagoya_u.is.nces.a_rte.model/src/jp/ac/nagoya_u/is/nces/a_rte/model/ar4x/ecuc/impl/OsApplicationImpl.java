@@ -447,9 +447,9 @@ public class OsApplicationImpl extends EcucContainerImpl implements OsApplicatio
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osApplicationCoreAssignment: ");
+		result.append(" (osApplicationCoreAssignment: "); //$NON-NLS-1$
 		result.append(osApplicationCoreAssignment);
-		result.append(", osTrusted: ");
+		result.append(", osTrusted: "); //$NON-NLS-1$
 		result.append(osTrusted);
 		result.append(')');
 		return result.toString();

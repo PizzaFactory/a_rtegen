@@ -67,8 +67,8 @@ public class EventToTaskMappingItemProvider extends InteractionObjectItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EventToTaskMapping_activationOffset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventToTaskMapping_activationOffset_feature", "_UI_EventToTaskMapping_type"),
+				 getString("_UI_EventToTaskMapping_activationOffset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventToTaskMapping_activationOffset_feature", "_UI_EventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EVENT_TO_TASK_MAPPING__ACTIVATION_OFFSET,
 				 true,
 				 false,
@@ -89,8 +89,8 @@ public class EventToTaskMappingItemProvider extends InteractionObjectItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EventToTaskMapping_positionInTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EventToTaskMapping_positionInTask_feature", "_UI_EventToTaskMapping_type"),
+				 getString("_UI_EventToTaskMapping_positionInTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EventToTaskMapping_positionInTask_feature", "_UI_EventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK,
 				 true,
 				 false,
@@ -138,7 +138,7 @@ public class EventToTaskMappingItemProvider extends InteractionObjectItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EventToTaskMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EventToTaskMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class EventToTaskMappingItemProvider extends InteractionObjectItemProvide
 		BigDecimal labelValue = ((EventToTaskMapping)object).getActivationOffset();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EventToTaskMapping_type") :
-			getString("_UI_EventToTaskMapping_type") + " " + label;
+			getString("_UI_EventToTaskMapping_type") : //$NON-NLS-1$
+			getString("_UI_EventToTaskMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -59,8 +59,8 @@ public class SenderItemProvider extends InteractionEndItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Sender_sendInteraction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Sender_sendInteraction_feature", "_UI_Sender_type"),
+				 getString("_UI_Sender_sendInteraction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sender_sendInteraction_feature", "_UI_Sender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.SENDER__SEND_INTERACTION,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class SenderItemProvider extends InteractionEndItemProvider {
 	public String getText(Object object) {
 		String label = ((Sender)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Sender_type") :
-			getString("_UI_Sender_type") + " " + label;
+			getString("_UI_Sender_type") : //$NON-NLS-1$
+			getString("_UI_Sender_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

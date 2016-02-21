@@ -61,8 +61,8 @@ public class ExclusiveAreaItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExclusiveArea_swcConfig_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_swcConfig_feature", "_UI_ExclusiveArea_type"),
+				 getString("_UI_ExclusiveArea_swcConfig_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_swcConfig_feature", "_UI_ExclusiveArea_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXCLUSIVE_AREA__SWC_CONFIG,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class ExclusiveAreaItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExclusiveArea_bswConfig_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_bswConfig_feature", "_UI_ExclusiveArea_type"),
+				 getString("_UI_ExclusiveArea_bswConfig_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_bswConfig_feature", "_UI_ExclusiveArea_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXCLUSIVE_AREA__BSW_CONFIG,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class ExclusiveAreaItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExclusiveArea_enterExecutableEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_enterExecutableEntity_feature", "_UI_ExclusiveArea_type"),
+				 getString("_UI_ExclusiveArea_enterExecutableEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveArea_enterExecutableEntity_feature", "_UI_ExclusiveArea_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.EXCLUSIVE_AREA__ENTER_EXECUTABLE_ENTITY,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class ExclusiveAreaItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExclusiveArea"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExclusiveArea")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class ExclusiveAreaItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((ExclusiveArea)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExclusiveArea_type") :
-			getString("_UI_ExclusiveArea_type") + " " + label;
+			getString("_UI_ExclusiveArea_type") : //$NON-NLS-1$
+			getString("_UI_ExclusiveArea_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

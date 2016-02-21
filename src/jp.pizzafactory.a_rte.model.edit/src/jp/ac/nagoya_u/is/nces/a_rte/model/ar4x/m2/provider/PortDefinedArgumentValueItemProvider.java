@@ -63,8 +63,8 @@ public class PortDefinedArgumentValueItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortDefinedArgumentValue_valueType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortDefinedArgumentValue_valueType_feature", "_UI_PortDefinedArgumentValue_type"),
+				 getString("_UI_PortDefinedArgumentValue_valueType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortDefinedArgumentValue_valueType_feature", "_UI_PortDefinedArgumentValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_DEFINED_ARGUMENT_VALUE__VALUE_TYPE,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class PortDefinedArgumentValueItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortDefinedArgumentValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PortDefinedArgumentValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -123,7 +123,7 @@ public class PortDefinedArgumentValueItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PortDefinedArgumentValue_type");
+		return getString("_UI_PortDefinedArgumentValue_type"); //$NON-NLS-1$
 	}
 	
 

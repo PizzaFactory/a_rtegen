@@ -59,8 +59,8 @@ public class ImmediateComSendProxyItemProvider extends ComSendProxyItemProvider 
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImmediateComSendProxy_osEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImmediateComSendProxy_osEvent_feature", "_UI_ImmediateComSendProxy_type"),
+				 getString("_UI_ImmediateComSendProxy_osEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImmediateComSendProxy_osEvent_feature", "_UI_ImmediateComSendProxy_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY__OS_EVENT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class ImmediateComSendProxyItemProvider extends ComSendProxyItemProvider 
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImmediateComSendProxy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImmediateComSendProxy")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ImmediateComSendProxyItemProvider extends ComSendProxyItemProvider 
 	public String getText(Object object) {
 		String label = ((ImmediateComSendProxy)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ImmediateComSendProxy_type") :
-			getString("_UI_ImmediateComSendProxy_type") + " " + label;
+			getString("_UI_ImmediateComSendProxy_type") : //$NON-NLS-1$
+			getString("_UI_ImmediateComSendProxy_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
