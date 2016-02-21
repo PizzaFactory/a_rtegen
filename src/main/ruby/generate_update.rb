@@ -3,7 +3,6 @@
 require "fileutils"
 
 REPOSITORY_NAME="A-RTEGEN tuned by PizzaFactory Update Site"
-BASE_URL="/a_rtegen"
 
 def generate_content(base, dirs)
   FileUtils.mkdir_p("target/#{base}")
@@ -20,7 +19,7 @@ def generate_content(base, dirs)
  <children size='#{dirs.length}'>
 __END_CONTENT_HEADER
   dirs.each do |path| f.print <<__END_CONTENT_CHILDREN
-    <child location='#{BASE_URL}/#{path}'/>
+    <child location='#{File.basename(path)}'/>
 __END_CONTENT_CHILDREN
   end
   f.print <<__END_CONTENT_FOOTER
@@ -44,7 +43,7 @@ def generate_artifacts(base, dirs)
  <children size='#{dirs.length}'>
 __END_ARTIFACTS_HEADER
   dirs.each do |path| f.print <<__END_ARTIFACTS_CHILDREN
-    <child location='#{BASE_URL}/#{path}'/>
+    <child location='#{File.basename(path)}'/>
 __END_ARTIFACTS_CHILDREN
   end
   f.print <<__END_ARTIFACTS_FOOTER
