@@ -123,7 +123,7 @@ public class RteModuleItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteModule"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteModule")); //$NON-NLS-1$
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class RteModuleItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RteModule_type");
+		return getString("_UI_RteModule_type"); //$NON-NLS-1$
 	}
 	
 
@@ -391,7 +391,7 @@ public class RteModuleItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

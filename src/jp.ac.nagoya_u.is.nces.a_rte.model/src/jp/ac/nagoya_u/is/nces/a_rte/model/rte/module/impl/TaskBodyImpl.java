@@ -191,7 +191,7 @@ public abstract class TaskBodyImpl extends FunctionImpl implements TaskBody {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osTaskId: ");
+		result.append(" (osTaskId: "); //$NON-NLS-1$
 		result.append(osTaskId);
 		result.append(')');
 		return result.toString();

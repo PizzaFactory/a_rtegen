@@ -255,7 +255,7 @@ public class IndexedArrayElementImpl extends M2ObjectImpl implements IndexedArra
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (index: ");
+		result.append(" (index: "); //$NON-NLS-1$
 		result.append(index);
 		result.append(')');
 		return result.toString();

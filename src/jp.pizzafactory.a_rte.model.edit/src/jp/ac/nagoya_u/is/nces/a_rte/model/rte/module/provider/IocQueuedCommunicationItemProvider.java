@@ -90,7 +90,7 @@ public class IocQueuedCommunicationItemProvider extends IocCommunicationItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedCommunication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedCommunication")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class IocQueuedCommunicationItemProvider extends IocCommunicationItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_IocQueuedCommunication_type");
+		return getString("_UI_IocQueuedCommunication_type"); //$NON-NLS-1$
 	}
 	
 

@@ -53,7 +53,7 @@ public class ServiceProxySwComponentTypeItemProvider extends AtomicSwComponentTy
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceProxySwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceProxySwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ServiceProxySwComponentTypeItemProvider extends AtomicSwComponentTy
 	public String getText(Object object) {
 		String label = ((ServiceProxySwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ServiceProxySwComponentType_type") :
-			getString("_UI_ServiceProxySwComponentType_type") + " " + label;
+			getString("_UI_ServiceProxySwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_ServiceProxySwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

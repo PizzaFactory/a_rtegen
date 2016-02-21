@@ -59,8 +59,8 @@ public class TrustedFunctionRteOperationItemProvider extends SendOperationItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteOperation_tempReturnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteOperation_type"),
+				 getString("_UI_TrustedFunctionRteOperation_tempReturnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class TrustedFunctionRteOperationItemProvider extends SendOperationItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class TrustedFunctionRteOperationItemProvider extends SendOperationItemPr
 	public String getText(Object object) {
 		String label = ((TrustedFunctionRteOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionRteOperation_type") :
-			getString("_UI_TrustedFunctionRteOperation_type") + " " + label;
+			getString("_UI_TrustedFunctionRteOperation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionRteOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

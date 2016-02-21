@@ -64,8 +64,8 @@ public class OsIocCommunicationItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocCommunication_osIocBufferLength_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocCommunication_osIocBufferLength_feature", "_UI_OsIocCommunication_type"),
+				 getString("_UI_OsIocCommunication_osIocBufferLength_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocCommunication_osIocBufferLength_feature", "_UI_OsIocCommunication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_COMMUNICATION__OS_IOC_BUFFER_LENGTH,
 				 true,
 				 false,
@@ -115,7 +115,7 @@ public class OsIocCommunicationItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocCommunication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocCommunication")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class OsIocCommunicationItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsIocCommunication)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsIocCommunication_type") :
-			getString("_UI_OsIocCommunication_type") + " " + label;
+			getString("_UI_OsIocCommunication_type") : //$NON-NLS-1$
+			getString("_UI_OsIocCommunication_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

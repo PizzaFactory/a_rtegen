@@ -63,8 +63,8 @@ public class ComplexComSendProxyOperationItemProvider extends OperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComplexComSendProxyOperation_accessApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_accessApi_feature", "_UI_ComplexComSendProxyOperation_type"),
+				 getString("_UI_ComplexComSendProxyOperation_accessApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_accessApi_feature", "_UI_ComplexComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COMPLEX_COM_SEND_PROXY_OPERATION__ACCESS_API,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ComplexComSendProxyOperationItemProvider extends OperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComplexComSendProxyOperation_functionTableSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_functionTableSymbolName_feature", "_UI_ComplexComSendProxyOperation_type"),
+				 getString("_UI_ComplexComSendProxyOperation_functionTableSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_functionTableSymbolName_feature", "_UI_ComplexComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COMPLEX_COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ComplexComSendProxyOperationItemProvider extends OperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComplexComSendProxyOperation_tableIndexVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_tableIndexVariable_feature", "_UI_ComplexComSendProxyOperation_type"),
+				 getString("_UI_ComplexComSendProxyOperation_tableIndexVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComplexComSendProxyOperation_tableIndexVariable_feature", "_UI_ComplexComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COMPLEX_COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class ComplexComSendProxyOperationItemProvider extends OperationItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexComSendProxyOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexComSendProxyOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class ComplexComSendProxyOperationItemProvider extends OperationItemProvi
 	public String getText(Object object) {
 		String label = ((ComplexComSendProxyOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComplexComSendProxyOperation_type") :
-			getString("_UI_ComplexComSendProxyOperation_type") + " " + label;
+			getString("_UI_ComplexComSendProxyOperation_type") : //$NON-NLS-1$
+			getString("_UI_ComplexComSendProxyOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

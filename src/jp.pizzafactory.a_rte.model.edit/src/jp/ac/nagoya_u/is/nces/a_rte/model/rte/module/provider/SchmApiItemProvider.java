@@ -62,8 +62,8 @@ public class SchmApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchmApi_returnValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApi_returnValue_feature", "_UI_SchmApi_type"),
+				 getString("_UI_SchmApi_returnValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApi_returnValue_feature", "_UI_SchmApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SCHM_API__RETURN_VALUE,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class SchmApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SchmApi_isInline_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApi_isInline_feature", "_UI_SchmApi_type"),
+				 getString("_UI_SchmApi_isInline_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SchmApi_isInline_feature", "_UI_SchmApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.SCHM_API__IS_INLINE,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class SchmApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((SchmApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SchmApi_type") :
-			getString("_UI_SchmApi_type") + " " + label;
+			getString("_UI_SchmApi_type") : //$NON-NLS-1$
+			getString("_UI_SchmApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

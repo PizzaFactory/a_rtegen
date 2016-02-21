@@ -53,7 +53,7 @@ public class ConstantMemberItemProvider extends ConstantItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantMember"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantMember")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ConstantMemberItemProvider extends ConstantItemProvider {
 	public String getText(Object object) {
 		String label = ((ConstantMember)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ConstantMember_type") :
-			getString("_UI_ConstantMember_type") + " " + label;
+			getString("_UI_ConstantMember_type") : //$NON-NLS-1$
+			getString("_UI_ConstantMember_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

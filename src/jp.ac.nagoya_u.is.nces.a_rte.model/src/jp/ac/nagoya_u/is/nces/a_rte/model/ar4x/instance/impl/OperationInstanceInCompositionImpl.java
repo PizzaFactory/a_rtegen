@@ -232,7 +232,7 @@ public class OperationInstanceInCompositionImpl extends InstanceReferrableImpl i
 	public void setParent(PortInstanceInComposition newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != InstancePackage.OPERATION_INSTANCE_IN_COMPOSITION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

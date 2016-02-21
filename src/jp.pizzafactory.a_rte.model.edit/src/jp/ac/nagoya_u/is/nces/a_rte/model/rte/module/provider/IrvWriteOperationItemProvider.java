@@ -64,8 +64,8 @@ public class IrvWriteOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IrvWriteOperation_accessVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IrvWriteOperation_accessVariable_feature", "_UI_IrvWriteOperation_type"),
+				 getString("_UI_IrvWriteOperation_accessVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IrvWriteOperation_accessVariable_feature", "_UI_IrvWriteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IRV_WRITE_OPERATION__ACCESS_VARIABLE,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class IrvWriteOperationItemProvider extends OperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IrvWriteOperation_writeValueVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IrvWriteOperation_writeValueVariable_feature", "_UI_IrvWriteOperation_type"),
+				 getString("_UI_IrvWriteOperation_writeValueVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IrvWriteOperation_writeValueVariable_feature", "_UI_IrvWriteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IRV_WRITE_OPERATION__WRITE_VALUE_VARIABLE,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class IrvWriteOperationItemProvider extends OperationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IrvWriteOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IrvWriteOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -148,8 +148,8 @@ public class IrvWriteOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((IrvWriteOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IrvWriteOperation_type") :
-			getString("_UI_IrvWriteOperation_type") + " " + label;
+			getString("_UI_IrvWriteOperation_type") : //$NON-NLS-1$
+			getString("_UI_IrvWriteOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

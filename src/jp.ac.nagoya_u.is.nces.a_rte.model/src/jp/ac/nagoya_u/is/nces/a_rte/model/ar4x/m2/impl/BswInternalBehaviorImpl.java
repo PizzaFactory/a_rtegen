@@ -232,7 +232,7 @@ public class BswInternalBehaviorImpl extends IdentifiableImpl implements BswInte
 	public void setParent(BswModuleDescription newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.BSW_INTERNAL_BEHAVIOR__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

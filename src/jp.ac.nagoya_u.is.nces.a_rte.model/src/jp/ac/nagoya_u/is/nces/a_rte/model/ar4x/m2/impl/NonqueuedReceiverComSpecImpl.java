@@ -341,7 +341,7 @@ public class NonqueuedReceiverComSpecImpl extends ReceiverComSpecImpl implements
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (aliveTimeout: ");
+		result.append(" (aliveTimeout: "); //$NON-NLS-1$
 		result.append(aliveTimeout);
 		result.append(')');
 		return result.toString();

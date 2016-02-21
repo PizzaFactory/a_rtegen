@@ -193,7 +193,7 @@ public abstract class TrustedFunctionImpl extends FunctionImpl implements Truste
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (trustedFunctionIndex: ");
+		result.append(" (trustedFunctionIndex: "); //$NON-NLS-1$
 		result.append(trustedFunctionIndex);
 		result.append(')');
 		return result.toString();

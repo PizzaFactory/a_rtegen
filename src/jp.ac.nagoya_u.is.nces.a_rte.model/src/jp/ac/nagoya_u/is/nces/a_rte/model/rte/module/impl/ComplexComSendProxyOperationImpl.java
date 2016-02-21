@@ -315,7 +315,7 @@ public class ComplexComSendProxyOperationImpl extends OperationImpl implements C
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (functionTableSymbolName: ");
+		result.append(" (functionTableSymbolName: "); //$NON-NLS-1$
 		result.append(functionTableSymbolName);
 		result.append(')');
 		return result.toString();

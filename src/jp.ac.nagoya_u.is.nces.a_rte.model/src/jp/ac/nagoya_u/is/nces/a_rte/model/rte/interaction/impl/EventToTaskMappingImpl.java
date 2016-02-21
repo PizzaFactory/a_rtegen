@@ -326,9 +326,9 @@ public class EventToTaskMappingImpl extends InteractionObjectImpl implements Eve
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (activationOffset: ");
+		result.append(" (activationOffset: "); //$NON-NLS-1$
 		result.append(activationOffset);
-		result.append(", positionInTask: ");
+		result.append(", positionInTask: "); //$NON-NLS-1$
 		result.append(positionInTask);
 		result.append(')');
 		return result.toString();

@@ -58,8 +58,8 @@ public class ConstantReferenceItemProvider extends ValueSpecificationItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConstantReference_constant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConstantReference_constant_feature", "_UI_ConstantReference_type"),
+				 getString("_UI_ConstantReference_constant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConstantReference_constant_feature", "_UI_ConstantReference_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.CONSTANT_REFERENCE__CONSTANT,
 				 true,
 				 false,
@@ -77,7 +77,7 @@ public class ConstantReferenceItemProvider extends ValueSpecificationItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantReference"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ConstantReference")); //$NON-NLS-1$
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class ConstantReferenceItemProvider extends ValueSpecificationItemProvide
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ConstantReference_type");
+		return getString("_UI_ConstantReference_type"); //$NON-NLS-1$
 	}
 	
 

@@ -53,7 +53,7 @@ public class ComSendSignalPeriodicEntityItemProvider extends ComSendSignalProxyE
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalPeriodicEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalPeriodicEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComSendSignalPeriodicEntityItemProvider extends ComSendSignalProxyE
 	public String getText(Object object) {
 		String label = ((ComSendSignalPeriodicEntity)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendSignalPeriodicEntity_type") :
-			getString("_UI_ComSendSignalPeriodicEntity_type") + " " + label;
+			getString("_UI_ComSendSignalPeriodicEntity_type") : //$NON-NLS-1$
+			getString("_UI_ComSendSignalPeriodicEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

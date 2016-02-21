@@ -60,8 +60,8 @@ public class TrustedFunctionRteSendImplementationItemProvider extends SendImplem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendImplementation_writeOsTrustedFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendImplementation_writeOsTrustedFunction_feature", "_UI_TrustedFunctionRteSendImplementation_type"),
+				 getString("_UI_TrustedFunctionRteSendImplementation_writeOsTrustedFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendImplementation_writeOsTrustedFunction_feature", "_UI_TrustedFunctionRteSendImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION__WRITE_OS_TRUSTED_FUNCTION,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class TrustedFunctionRteSendImplementationItemProvider extends SendImplem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendImplementation_invalidateOsTrustedFunction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendImplementation_invalidateOsTrustedFunction_feature", "_UI_TrustedFunctionRteSendImplementation_type"),
+				 getString("_UI_TrustedFunctionRteSendImplementation_invalidateOsTrustedFunction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendImplementation_invalidateOsTrustedFunction_feature", "_UI_TrustedFunctionRteSendImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION__INVALIDATE_OS_TRUSTED_FUNCTION,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class TrustedFunctionRteSendImplementationItemProvider extends SendImplem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class TrustedFunctionRteSendImplementationItemProvider extends SendImplem
 	public String getText(Object object) {
 		String label = ((TrustedFunctionRteSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionRteSendImplementation_type") :
-			getString("_UI_TrustedFunctionRteSendImplementation_type") + " " + label;
+			getString("_UI_TrustedFunctionRteSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionRteSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

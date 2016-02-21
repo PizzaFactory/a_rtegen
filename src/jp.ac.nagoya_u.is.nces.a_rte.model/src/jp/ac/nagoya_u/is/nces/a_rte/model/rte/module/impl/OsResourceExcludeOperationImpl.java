@@ -195,7 +195,7 @@ public class OsResourceExcludeOperationImpl extends ExcludeOperationImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osResourceId: ");
+		result.append(" (osResourceId: "); //$NON-NLS-1$
 		result.append(osResourceId);
 		result.append(')');
 		return result.toString();

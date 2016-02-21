@@ -63,8 +63,8 @@ public class ModeInBswModuleDescriptionInstanceRefItemProvider extends M2ObjectI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ModeInBswModuleDescriptionInstanceRefItemProvider extends M2ObjectI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeInBswModuleDescriptionInstanceRef_contextModeDeclarationGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeInBswModuleDescriptionInstanceRef_contextModeDeclarationGroup_feature", "_UI_ModeInBswModuleDescriptionInstanceRef_type"),
+				 getString("_UI_ModeInBswModuleDescriptionInstanceRef_contextModeDeclarationGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeInBswModuleDescriptionInstanceRef_contextModeDeclarationGroup_feature", "_UI_ModeInBswModuleDescriptionInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__CONTEXT_MODE_DECLARATION_GROUP,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ModeInBswModuleDescriptionInstanceRefItemProvider extends M2ObjectI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeInBswModuleDescriptionInstanceRef_targetMode_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeInBswModuleDescriptionInstanceRef_targetMode_feature", "_UI_ModeInBswModuleDescriptionInstanceRef_type"),
+				 getString("_UI_ModeInBswModuleDescriptionInstanceRef_targetMode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeInBswModuleDescriptionInstanceRef_targetMode_feature", "_UI_ModeInBswModuleDescriptionInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__TARGET_MODE,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class ModeInBswModuleDescriptionInstanceRefItemProvider extends M2ObjectI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeInBswModuleDescriptionInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeInBswModuleDescriptionInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class ModeInBswModuleDescriptionInstanceRefItemProvider extends M2ObjectI
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ModeInBswModuleDescriptionInstanceRef_type");
+		return getString("_UI_ModeInBswModuleDescriptionInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

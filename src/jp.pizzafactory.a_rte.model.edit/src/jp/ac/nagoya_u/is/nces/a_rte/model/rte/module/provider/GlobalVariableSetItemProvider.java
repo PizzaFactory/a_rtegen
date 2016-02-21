@@ -88,7 +88,7 @@ public class GlobalVariableSetItemProvider extends GlobalVariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariableSet"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariableSet")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class GlobalVariableSetItemProvider extends GlobalVariableItemProvider {
 	public String getText(Object object) {
 		String label = ((GlobalVariableSet)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GlobalVariableSet_type") :
-			getString("_UI_GlobalVariableSet_type") + " " + label;
+			getString("_UI_GlobalVariableSet_type") : //$NON-NLS-1$
+			getString("_UI_GlobalVariableSet_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -53,7 +53,7 @@ public class PeriodicComSendProxyItemProvider extends ComSendProxyItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PeriodicComSendProxy"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PeriodicComSendProxy")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class PeriodicComSendProxyItemProvider extends ComSendProxyItemProvider {
 	public String getText(Object object) {
 		String label = ((PeriodicComSendProxy)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PeriodicComSendProxy_type") :
-			getString("_UI_PeriodicComSendProxy_type") + " " + label;
+			getString("_UI_PeriodicComSendProxy_type") : //$NON-NLS-1$
+			getString("_UI_PeriodicComSendProxy_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

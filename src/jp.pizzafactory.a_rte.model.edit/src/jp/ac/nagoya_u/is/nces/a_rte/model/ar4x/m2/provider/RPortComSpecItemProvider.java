@@ -51,7 +51,7 @@ public class RPortComSpecItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RPortComSpec_type");
+		return getString("_UI_RPortComSpec_type"); //$NON-NLS-1$
 	}
 	
 

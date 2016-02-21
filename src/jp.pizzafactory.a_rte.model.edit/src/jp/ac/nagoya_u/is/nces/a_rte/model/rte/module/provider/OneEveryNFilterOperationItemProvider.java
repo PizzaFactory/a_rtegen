@@ -61,8 +61,8 @@ public class OneEveryNFilterOperationItemProvider extends FilterOperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OneEveryNFilterOperation_occurrenceVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_occurrenceVariable_feature", "_UI_OneEveryNFilterOperation_type"),
+				 getString("_UI_OneEveryNFilterOperation_occurrenceVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_occurrenceVariable_feature", "_UI_OneEveryNFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.ONE_EVERY_NFILTER_OPERATION__OCCURRENCE_VARIABLE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class OneEveryNFilterOperationItemProvider extends FilterOperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OneEveryNFilterOperation_period_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_period_feature", "_UI_OneEveryNFilterOperation_type"),
+				 getString("_UI_OneEveryNFilterOperation_period_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_period_feature", "_UI_OneEveryNFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.ONE_EVERY_NFILTER_OPERATION__PERIOD,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class OneEveryNFilterOperationItemProvider extends FilterOperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OneEveryNFilterOperation_offset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_offset_feature", "_UI_OneEveryNFilterOperation_type"),
+				 getString("_UI_OneEveryNFilterOperation_offset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OneEveryNFilterOperation_offset_feature", "_UI_OneEveryNFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.ONE_EVERY_NFILTER_OPERATION__OFFSET,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class OneEveryNFilterOperationItemProvider extends FilterOperationItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OneEveryNFilterOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OneEveryNFilterOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class OneEveryNFilterOperationItemProvider extends FilterOperationItemPro
 	public String getText(Object object) {
 		String label = ((OneEveryNFilterOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OneEveryNFilterOperation_type") :
-			getString("_UI_OneEveryNFilterOperation_type") + " " + label;
+			getString("_UI_OneEveryNFilterOperation_type") : //$NON-NLS-1$
+			getString("_UI_OneEveryNFilterOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

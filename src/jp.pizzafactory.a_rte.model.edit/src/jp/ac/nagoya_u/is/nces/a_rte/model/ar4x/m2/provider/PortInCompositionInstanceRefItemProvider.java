@@ -62,8 +62,8 @@ public class PortInCompositionInstanceRefItemProvider extends M2ObjectItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class PortInCompositionInstanceRefItemProvider extends M2ObjectItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortInCompositionInstanceRef_contextComponent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortInCompositionInstanceRef_contextComponent_feature", "_UI_PortInCompositionInstanceRef_type"),
+				 getString("_UI_PortInCompositionInstanceRef_contextComponent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortInCompositionInstanceRef_contextComponent_feature", "_UI_PortInCompositionInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_IN_COMPOSITION_INSTANCE_REF__CONTEXT_COMPONENT,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class PortInCompositionInstanceRefItemProvider extends M2ObjectItemProvid
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PortInCompositionInstanceRef_type");
+		return getString("_UI_PortInCompositionInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

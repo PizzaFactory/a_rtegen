@@ -46,10 +46,129 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.*;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AnyInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationError;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationPrimitiveDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArPackage;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDataPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArgumentDirectionEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AssemblySwConnector;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswCallTypeEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswCalledEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswExecutionContextEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInterruptEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSenderPolicy;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntry;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswTimingEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ClientServerInterface;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ClientServerOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ComplexDeviceDriverSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompositionSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Compu;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuMethod;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ConstantReference;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ConstantSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataConstr;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataConstrRule;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilterTypeEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMap;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataTypeMappingSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DelegationSwConnector;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcuAbstractionSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucConfigurationVariantEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucContainerValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucInstanceReferenceValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucModuleConfigurationValues;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucNumericalParamValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucReferenceValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucTextualParamValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.EcucValueCollection;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.HandleInvalidEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalIPdu;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ISignalToIPduMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataTypeElement;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IncludedDataTypeSet;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.IndexedArrayElement;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InternalConstrs;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InvalidationPolicy;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Limit;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.MemoryAllocationKeywordPolicyType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeActivationKind;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclaration;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeRequestTypeMap;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedReceiverComSpec;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedSenderComSpec;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NumericalValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NvBlockSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.OperationInvokedEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.POperationInAtomicSwcInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PPortInCompositionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PPortPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PPortPrototypeInCompositionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortInterface;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.QueuedReceiverComSpec;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ROperationInAtomicSwcInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortInCompositionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototypeInCompositionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ReferenceValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RootSwCompositionPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayElementMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecArrayTypeMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordElementMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderRecRecordTypeMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverInterface;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalGroupMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderReceiverToSignalMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SensorActuatorSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ServiceProxySwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ServiceSwComponentType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwBaseType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwDataDefProps;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwImplPolicyEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwPointerTargetProps;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcBswMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcBswRunnableMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SynchronousServerCallPoint;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SystemSignalGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TextValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimingEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableAccess;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototypeInSystemInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -214,7 +333,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.SENDER_REC_ARRAY_ELEMENT_MAPPING: return (EObject)createSenderRecArrayElementMapping();
 			case M2Package.SW_POINTER_TARGET_PROPS: return (EObject)createSwPointerTargetProps();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -283,7 +402,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.ALIGNMENT_TYPE:
 				return createAlignmentTypeFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -352,7 +471,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.ALIGNMENT_TYPE:
 				return convertAlignmentTypeToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -961,7 +1080,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public System createSystem() {
+	public jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System createSystem() {
 		SystemImpl system = new SystemImpl();
 		return system;
 	}
@@ -1483,7 +1602,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public ArgumentDirectionEnum createArgumentDirectionEnumFromString(EDataType eDataType, String initialValue) {
 		ArgumentDirectionEnum result = ArgumentDirectionEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1503,7 +1622,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public DataFilterTypeEnum createDataFilterTypeEnumFromString(EDataType eDataType, String initialValue) {
 		DataFilterTypeEnum result = DataFilterTypeEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1523,7 +1642,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public HandleInvalidEnum createHandleInvalidEnumFromString(EDataType eDataType, String initialValue) {
 		HandleInvalidEnum result = HandleInvalidEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1543,7 +1662,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public SwImplPolicyEnum createSwImplPolicyEnumFromString(EDataType eDataType, String initialValue) {
 		SwImplPolicyEnum result = SwImplPolicyEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1563,7 +1682,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public MemoryAllocationKeywordPolicyType createMemoryAllocationKeywordPolicyTypeFromString(EDataType eDataType, String initialValue) {
 		MemoryAllocationKeywordPolicyType result = MemoryAllocationKeywordPolicyType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1583,7 +1702,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public EcucConfigurationVariantEnum createEcucConfigurationVariantEnumFromString(EDataType eDataType, String initialValue) {
 		EcucConfigurationVariantEnum result = EcucConfigurationVariantEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1603,7 +1722,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public ModeActivationKind createModeActivationKindFromString(EDataType eDataType, String initialValue) {
 		ModeActivationKind result = ModeActivationKind.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1623,7 +1742,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public BswCallTypeEnum createBswCallTypeEnumFromString(EDataType eDataType, String initialValue) {
 		BswCallTypeEnum result = BswCallTypeEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1643,7 +1762,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public BswExecutionContextEnum createBswExecutionContextEnumFromString(EDataType eDataType, String initialValue) {
 		BswExecutionContextEnum result = BswExecutionContextEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -1663,7 +1782,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 */
 	public ArraySizeSemanticsEnum createArraySizeSemanticsEnumFromString(EDataType eDataType, String initialValue) {
 		ArraySizeSemanticsEnum result = ArraySizeSemanticsEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 

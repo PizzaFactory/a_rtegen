@@ -60,8 +60,8 @@ public class OsEventSetEntityStarterItemProvider extends EntityStarterItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetEntityStarter_sourceOsTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetEntityStarter_sourceOsTask_feature", "_UI_OsEventSetEntityStarter_type"),
+				 getString("_UI_OsEventSetEntityStarter_sourceOsTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetEntityStarter_sourceOsTask_feature", "_UI_OsEventSetEntityStarter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class OsEventSetEntityStarterItemProvider extends EntityStarterItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetEntityStarter_sourceOsEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetEntityStarter_sourceOsEvent_feature", "_UI_OsEventSetEntityStarter_type"),
+				 getString("_UI_OsEventSetEntityStarter_sourceOsEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetEntityStarter_sourceOsEvent_feature", "_UI_OsEventSetEntityStarter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_EVENT,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class OsEventSetEntityStarterItemProvider extends EntityStarterItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetEntityStarter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetEntityStarter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class OsEventSetEntityStarterItemProvider extends EntityStarterItemProvid
 	public String getText(Object object) {
 		String label = ((OsEventSetEntityStarter)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsEventSetEntityStarter_type") :
-			getString("_UI_OsEventSetEntityStarter_type") + " " + label;
+			getString("_UI_OsEventSetEntityStarter_type") : //$NON-NLS-1$
+			getString("_UI_OsEventSetEntityStarter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

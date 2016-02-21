@@ -55,8 +55,8 @@ public class EcucContainerItemProvider extends EcucReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucContainer)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucContainer_type") :
-			getString("_UI_EcucContainer_type") + " " + label;
+			getString("_UI_EcucContainer_type") : //$NON-NLS-1$
+			getString("_UI_EcucContainer_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

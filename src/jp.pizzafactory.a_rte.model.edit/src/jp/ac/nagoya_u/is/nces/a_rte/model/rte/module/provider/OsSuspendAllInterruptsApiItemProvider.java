@@ -53,7 +53,7 @@ public class OsSuspendAllInterruptsApiItemProvider extends OsApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSuspendAllInterruptsApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSuspendAllInterruptsApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class OsSuspendAllInterruptsApiItemProvider extends OsApiItemProvider {
 	public String getText(Object object) {
 		String label = ((OsSuspendAllInterruptsApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsSuspendAllInterruptsApi_type") :
-			getString("_UI_OsSuspendAllInterruptsApi_type") + " " + label;
+			getString("_UI_OsSuspendAllInterruptsApi_type") : //$NON-NLS-1$
+			getString("_UI_OsSuspendAllInterruptsApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

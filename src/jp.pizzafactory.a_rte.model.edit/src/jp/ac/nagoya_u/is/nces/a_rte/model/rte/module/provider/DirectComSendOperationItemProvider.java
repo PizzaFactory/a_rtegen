@@ -53,7 +53,7 @@ public class DirectComSendOperationItemProvider extends ComSendOperationItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DirectComSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DirectComSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class DirectComSendOperationItemProvider extends ComSendOperationItemProv
 	public String getText(Object object) {
 		String label = ((DirectComSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DirectComSendOperation_type") :
-			getString("_UI_DirectComSendOperation_type") + " " + label;
+			getString("_UI_DirectComSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_DirectComSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

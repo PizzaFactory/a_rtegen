@@ -64,8 +64,8 @@ public class ProxyComSendOperationItemProvider extends ComSendOperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProxyComSendOperation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_type_feature", "_UI_ProxyComSendOperation_type"),
+				 getString("_UI_ProxyComSendOperation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_type_feature", "_UI_ProxyComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PROXY_COM_SEND_OPERATION__TYPE,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class ProxyComSendOperationItemProvider extends ComSendOperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProxyComSendOperation_requestProxyIocApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_requestProxyIocApi_feature", "_UI_ProxyComSendOperation_type"),
+				 getString("_UI_ProxyComSendOperation_requestProxyIocApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_requestProxyIocApi_feature", "_UI_ProxyComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class ProxyComSendOperationItemProvider extends ComSendOperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProxyComSendOperation_valueProxyIocApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_valueProxyIocApi_feature", "_UI_ProxyComSendOperation_type"),
+				 getString("_UI_ProxyComSendOperation_valueProxyIocApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_valueProxyIocApi_feature", "_UI_ProxyComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API,
 				 true,
 				 false,
@@ -130,8 +130,8 @@ public class ProxyComSendOperationItemProvider extends ComSendOperationItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProxyComSendOperation_proxyFunctionIndexConstantName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_proxyFunctionIndexConstantName_feature", "_UI_ProxyComSendOperation_type"),
+				 getString("_UI_ProxyComSendOperation_proxyFunctionIndexConstantName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendOperation_proxyFunctionIndexConstantName_feature", "_UI_ProxyComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME,
 				 true,
 				 false,
@@ -151,8 +151,8 @@ public class ProxyComSendOperationItemProvider extends ComSendOperationItemProvi
 	public String getText(Object object) {
 		String label = ((ProxyComSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ProxyComSendOperation_type") :
-			getString("_UI_ProxyComSendOperation_type") + " " + label;
+			getString("_UI_ProxyComSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_ProxyComSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -59,8 +59,8 @@ public class DataTypeMapItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataTypeMap_implementationDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTypeMap_implementationDataType_feature", "_UI_DataTypeMap_type"),
+				 getString("_UI_DataTypeMap_implementationDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataTypeMap_implementationDataType_feature", "_UI_DataTypeMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_TYPE_MAP__IMPLEMENTATION_DATA_TYPE,
 				 true,
 				 false,
@@ -81,8 +81,8 @@ public class DataTypeMapItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataTypeMap_applicationDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataTypeMap_applicationDataType_feature", "_UI_DataTypeMap_type"),
+				 getString("_UI_DataTypeMap_applicationDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataTypeMap_applicationDataType_feature", "_UI_DataTypeMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_TYPE_MAP__APPLICATION_DATA_TYPE,
 				 true,
 				 false,
@@ -100,7 +100,7 @@ public class DataTypeMapItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataTypeMap"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataTypeMap")); //$NON-NLS-1$
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class DataTypeMapItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataTypeMap_type");
+		return getString("_UI_DataTypeMap_type"); //$NON-NLS-1$
 	}
 	
 

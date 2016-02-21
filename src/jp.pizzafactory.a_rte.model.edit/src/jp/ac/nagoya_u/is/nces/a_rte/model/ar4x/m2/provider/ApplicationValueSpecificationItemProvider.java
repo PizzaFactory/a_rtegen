@@ -51,7 +51,7 @@ public class ApplicationValueSpecificationItemProvider extends ValueSpecificatio
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationValueSpecification"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationValueSpecification")); //$NON-NLS-1$
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ApplicationValueSpecificationItemProvider extends ValueSpecificatio
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ApplicationValueSpecification_type");
+		return getString("_UI_ApplicationValueSpecification_type"); //$NON-NLS-1$
 	}
 	
 

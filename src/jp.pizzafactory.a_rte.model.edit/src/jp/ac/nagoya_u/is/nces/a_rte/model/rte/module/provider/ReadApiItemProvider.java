@@ -63,8 +63,8 @@ public class ReadApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReadApi_dataParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReadApi_dataParam_feature", "_UI_ReadApi_type"),
+				 getString("_UI_ReadApi_dataParam_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReadApi_dataParam_feature", "_UI_ReadApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.READ_API__DATA_PARAM,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class ReadApiItemProvider extends RteApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReadApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ReadApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class ReadApiItemProvider extends RteApiItemProvider {
 	public String getText(Object object) {
 		String label = ((ReadApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ReadApi_type") :
-			getString("_UI_ReadApi_type") + " " + label;
+			getString("_UI_ReadApi_type") : //$NON-NLS-1$
+			getString("_UI_ReadApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

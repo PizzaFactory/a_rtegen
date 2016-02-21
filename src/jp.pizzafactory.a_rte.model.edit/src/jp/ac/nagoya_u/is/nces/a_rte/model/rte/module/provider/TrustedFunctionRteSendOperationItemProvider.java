@@ -64,8 +64,8 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendOperation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_type_feature", "_UI_TrustedFunctionRteSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteSendOperation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_type_feature", "_UI_TrustedFunctionRteSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_SEND_OPERATION__TYPE,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendOperation_srSendTfSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_srSendTfSymbolName_feature", "_UI_TrustedFunctionRteSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteSendOperation_srSendTfSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_srSendTfSymbolName_feature", "_UI_TrustedFunctionRteSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_SEND_OPERATION__SR_SEND_TF_SYMBOL_NAME,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendOperation_trustedFunctionParamVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_trustedFunctionParamVariable_feature", "_UI_TrustedFunctionRteSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteSendOperation_trustedFunctionParamVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_trustedFunctionParamVariable_feature", "_UI_TrustedFunctionRteSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE,
 				 true,
 				 false,
@@ -130,8 +130,8 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteSendOperation_isGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_isGroup_feature", "_UI_TrustedFunctionRteSendOperation_type"),
+				 getString("_UI_TrustedFunctionRteSendOperation_isGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteSendOperation_isGroup_feature", "_UI_TrustedFunctionRteSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_GROUP,
 				 true,
 				 false,
@@ -149,7 +149,7 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionRteSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -162,8 +162,8 @@ public class TrustedFunctionRteSendOperationItemProvider extends TrustedFunction
 	public String getText(Object object) {
 		String label = ((TrustedFunctionRteSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionRteSendOperation_type") :
-			getString("_UI_TrustedFunctionRteSendOperation_type") + " " + label;
+			getString("_UI_TrustedFunctionRteSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionRteSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

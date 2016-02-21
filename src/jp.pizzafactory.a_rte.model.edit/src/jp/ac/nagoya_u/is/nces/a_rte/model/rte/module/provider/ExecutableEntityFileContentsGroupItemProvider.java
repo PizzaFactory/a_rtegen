@@ -59,8 +59,8 @@ public class ExecutableEntityFileContentsGroupItemProvider extends FunctionFileC
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExecutableEntityFileContentsGroup_executableEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntityFileContentsGroup_executableEntity_feature", "_UI_ExecutableEntityFileContentsGroup_type"),
+				 getString("_UI_ExecutableEntityFileContentsGroup_executableEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExecutableEntityFileContentsGroup_executableEntity_feature", "_UI_ExecutableEntityFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP__EXECUTABLE_ENTITY,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class ExecutableEntityFileContentsGroupItemProvider extends FunctionFileC
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExecutableEntityFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExecutableEntityFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ExecutableEntityFileContentsGroupItemProvider extends FunctionFileC
 	public String getText(Object object) {
 		String label = ((ExecutableEntityFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExecutableEntityFileContentsGroup_type") :
-			getString("_UI_ExecutableEntityFileContentsGroup_type") + " " + label;
+			getString("_UI_ExecutableEntityFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_ExecutableEntityFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

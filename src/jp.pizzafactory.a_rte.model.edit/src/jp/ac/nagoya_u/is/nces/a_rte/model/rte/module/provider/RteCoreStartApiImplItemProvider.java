@@ -88,7 +88,7 @@ public class RteCoreStartApiImplItemProvider extends RteLifecycleApiItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteCoreStartApiImpl"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteCoreStartApiImpl")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class RteCoreStartApiImplItemProvider extends RteLifecycleApiItemProvider
 	public String getText(Object object) {
 		String label = ((RteCoreStartApiImpl)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteCoreStartApiImpl_type") :
-			getString("_UI_RteCoreStartApiImpl_type") + " " + label;
+			getString("_UI_RteCoreStartApiImpl_type") : //$NON-NLS-1$
+			getString("_UI_RteCoreStartApiImpl_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

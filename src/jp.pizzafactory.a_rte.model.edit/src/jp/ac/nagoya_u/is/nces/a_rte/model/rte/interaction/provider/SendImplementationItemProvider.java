@@ -55,8 +55,8 @@ public class SendImplementationItemProvider extends InteractionReferrableItemPro
 	public String getText(Object object) {
 		String label = ((SendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SendImplementation_type") :
-			getString("_UI_SendImplementation_type") + " " + label;
+			getString("_UI_SendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_SendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

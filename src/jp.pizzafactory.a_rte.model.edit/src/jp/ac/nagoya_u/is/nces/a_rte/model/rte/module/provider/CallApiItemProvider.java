@@ -65,8 +65,8 @@ public class CallApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CallApi_operationParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_operationParam_feature", "_UI_CallApi_type"),
+				 getString("_UI_CallApi_operationParam_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_operationParam_feature", "_UI_CallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CALL_API__OPERATION_PARAM,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class CallApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CallApi_portArgValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_portArgValue_feature", "_UI_CallApi_type"),
+				 getString("_UI_CallApi_portArgValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_portArgValue_feature", "_UI_CallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CALL_API__PORT_ARG_VALUE,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class CallApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CallApi_returnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_returnVariable_feature", "_UI_CallApi_type"),
+				 getString("_UI_CallApi_returnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallApi_returnVariable_feature", "_UI_CallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CALL_API__RETURN_VARIABLE,
 				 true,
 				 false,
@@ -158,7 +158,7 @@ public class CallApiItemProvider extends RteApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CallApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -171,8 +171,8 @@ public class CallApiItemProvider extends RteApiItemProvider {
 	public String getText(Object object) {
 		String label = ((CallApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CallApi_type") :
-			getString("_UI_CallApi_type") + " " + label;
+			getString("_UI_CallApi_type") : //$NON-NLS-1$
+			getString("_UI_CallApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

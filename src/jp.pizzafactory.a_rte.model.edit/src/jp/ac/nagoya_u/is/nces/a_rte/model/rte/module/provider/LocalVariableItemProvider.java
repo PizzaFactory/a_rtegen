@@ -59,8 +59,8 @@ public class LocalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LocalVariable_initValueConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LocalVariable_initValueConstant_feature", "_UI_LocalVariable_type"),
+				 getString("_UI_LocalVariable_initValueConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_LocalVariable_initValueConstant_feature", "_UI_LocalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.LOCAL_VARIABLE__INIT_VALUE_CONSTANT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class LocalVariableItemProvider extends VariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/LocalVariable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class LocalVariableItemProvider extends VariableItemProvider {
 	public String getText(Object object) {
 		String label = ((LocalVariable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_LocalVariable_type") :
-			getString("_UI_LocalVariable_type") + " " + label;
+			getString("_UI_LocalVariable_type") : //$NON-NLS-1$
+			getString("_UI_LocalVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

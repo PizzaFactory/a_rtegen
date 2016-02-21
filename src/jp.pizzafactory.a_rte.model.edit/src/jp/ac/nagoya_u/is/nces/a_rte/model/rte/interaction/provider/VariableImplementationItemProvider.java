@@ -59,8 +59,8 @@ public class VariableImplementationItemProvider extends InteractionReferrableIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableImplementation_ownerPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableImplementation_ownerPartition_feature", "_UI_VariableImplementation_type"),
+				 getString("_UI_VariableImplementation_ownerPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableImplementation_ownerPartition_feature", "_UI_VariableImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.VARIABLE_IMPLEMENTATION__OWNER_PARTITION,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class VariableImplementationItemProvider extends InteractionReferrableIte
 	public String getText(Object object) {
 		String label = ((VariableImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableImplementation_type") :
-			getString("_UI_VariableImplementation_type") + " " + label;
+			getString("_UI_VariableImplementation_type") : //$NON-NLS-1$
+			getString("_UI_VariableImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -68,7 +68,7 @@ public class RVariableDataInstanceInSwcExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RVariableDataInstanceInSwcEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RVariableDataInstanceInSwcEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class RVariableDataInstanceInSwcExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RVariableDataInstanceInSwcEx_type");
+		return getString("_UI_RVariableDataInstanceInSwcEx_type"); //$NON-NLS-1$
 	}
 	
 

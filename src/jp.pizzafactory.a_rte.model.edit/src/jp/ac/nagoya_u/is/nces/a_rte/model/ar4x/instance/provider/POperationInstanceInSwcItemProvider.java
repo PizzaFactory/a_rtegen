@@ -59,8 +59,8 @@ public class POperationInstanceInSwcItemProvider extends OperationInstanceInSwcI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_POperationInstanceInSwc_operationInvokedEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInstanceInSwc_operationInvokedEvent_feature", "_UI_POperationInstanceInSwc_type"),
+				 getString("_UI_POperationInstanceInSwc_operationInvokedEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_POperationInstanceInSwc_operationInvokedEvent_feature", "_UI_POperationInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.POPERATION_INSTANCE_IN_SWC__OPERATION_INVOKED_EVENT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class POperationInstanceInSwcItemProvider extends OperationInstanceInSwcI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/POperationInstanceInSwc"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/POperationInstanceInSwc")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class POperationInstanceInSwcItemProvider extends OperationInstanceInSwcI
 	public String getText(Object object) {
 		String label = ((POperationInstanceInSwc)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_POperationInstanceInSwc_type") :
-			getString("_UI_POperationInstanceInSwc_type") + " " + label;
+			getString("_UI_POperationInstanceInSwc_type") : //$NON-NLS-1$
+			getString("_UI_POperationInstanceInSwc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

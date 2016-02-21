@@ -68,7 +68,7 @@ public class EcucObjectItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucObject"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class EcucObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EcucObject_type");
+		return getString("_UI_EcucObject_type"); //$NON-NLS-1$
 	}
 	
 

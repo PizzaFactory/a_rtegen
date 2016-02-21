@@ -75,8 +75,8 @@ public class ExclusiveAreaExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExclusiveAreaEx_bswSchedulableEntityEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveAreaEx_bswSchedulableEntityEx_feature", "_UI_ExclusiveAreaEx_type"),
+				 getString("_UI_ExclusiveAreaEx_bswSchedulableEntityEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExclusiveAreaEx_bswSchedulableEntityEx_feature", "_UI_ExclusiveAreaEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.EXCLUSIVE_AREA_EX__BSW_SCHEDULABLE_ENTITY_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class ExclusiveAreaExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExclusiveAreaEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExclusiveAreaEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class ExclusiveAreaExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ExclusiveAreaEx_type");
+		return getString("_UI_ExclusiveAreaEx_type"); //$NON-NLS-1$
 	}
 	
 

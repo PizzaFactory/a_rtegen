@@ -64,8 +64,8 @@ public class AutosarVariableRefItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarVariableRef_autosarVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarVariableRef_autosarVariable_feature", "_UI_AutosarVariableRef_type"),
+				 getString("_UI_AutosarVariableRef_autosarVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarVariableRef_autosarVariable_feature", "_UI_AutosarVariableRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class AutosarVariableRefItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AutosarVariableRef_localVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarVariableRef_localVariable_feature", "_UI_AutosarVariableRef_type"),
+				 getString("_UI_AutosarVariableRef_localVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AutosarVariableRef_localVariable_feature", "_UI_AutosarVariableRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class AutosarVariableRefItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AutosarVariableRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AutosarVariableRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class AutosarVariableRefItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AutosarVariableRef_type");
+		return getString("_UI_AutosarVariableRef_type"); //$NON-NLS-1$
 	}
 	
 

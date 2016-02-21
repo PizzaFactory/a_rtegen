@@ -2292,217 +2292,217 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		rteBswExclusiveAreaImplEClass.getESuperTypes().add(this.getEcucContainer());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(ecucObjectEClass, EcucObject.class, "EcucObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ecucObjectEClass, EcucObject.class, "EcucObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(ecucReferrableEClass, EcucReferrable.class, "EcucReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEcucReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEcucReferrable_ShortName(), theM2Package.getIdentifier(), "shortName", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEcucReferrable_Reference(), theM2Package.getRef(), "reference", null, 1, 1, EcucReferrable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucReferrable_Source(), theM2Package.getIdentifiable(), null, "source", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecucReferrableEClass, EcucReferrable.class, "EcucReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getEcucReferrable_Id(), theM2Package.getString(), "id", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEcucReferrable_ShortName(), theM2Package.getIdentifier(), "shortName", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEcucReferrable_Reference(), theM2Package.getRef(), "reference", null, 1, 1, EcucReferrable.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucReferrable_Source(), theM2Package.getIdentifiable(), null, "source", null, 1, 1, EcucReferrable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucModuleEClass, EcucModule.class, "EcucModule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEcucModule_ReferenceBase(), theM2Package.getRef(), "referenceBase", null, 1, 1, EcucModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecucModuleEClass, EcucModule.class, "EcucModule", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getEcucModule_ReferenceBase(), theM2Package.getRef(), "referenceBase", null, 1, 1, EcucModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucContainerEClass, EcucContainer.class, "EcucContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(ecucContainerEClass, EcucContainer.class, "EcucContainer", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(rteEClass, Rte.class, "Rte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRte_RteGeneration(), this.getRteGeneration(), null, "rteGeneration", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteBswGeneral(), this.getRteBswGeneral(), null, "rteBswGeneral", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteSwComponentInstance(), this.getRteSwComponentInstance(), null, "rteSwComponentInstance", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteOsInteraction(), this.getRteOsInteraction(), null, "rteOsInteraction", null, 1, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteInitializationBehavior(), this.getRteInitializationBehavior(), null, "rteInitializationBehavior", null, 1, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_RteBswModuleInstance(), this.getRteBswModuleInstance(), null, "rteBswModuleInstance", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteEClass, Rte.class, "Rte", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRte_RteGeneration(), this.getRteGeneration(), null, "rteGeneration", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRte_RteBswGeneral(), this.getRteBswGeneral(), null, "rteBswGeneral", null, 1, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRte_RteSwComponentInstance(), this.getRteSwComponentInstance(), null, "rteSwComponentInstance", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRte_RteOsInteraction(), this.getRteOsInteraction(), null, "rteOsInteraction", null, 1, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRte_RteInitializationBehavior(), this.getRteInitializationBehavior(), null, "rteInitializationBehavior", null, 1, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRte_RteBswModuleInstance(), this.getRteBswModuleInstance(), null, "rteBswModuleInstance", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteGenerationEClass, RteGeneration.class, "RteGeneration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteGenerationEClass, RteGeneration.class, "RteGeneration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(rteBswGeneralEClass, RteBswGeneral.class, "RteBswGeneral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteBswGeneral_RteUseComShadowSignalApi(), theM2Package.getBoolean(), "rteUseComShadowSignalApi", null, 1, 1, RteBswGeneral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteBswGeneralEClass, RteBswGeneral.class, "RteBswGeneral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRteBswGeneral_RteUseComShadowSignalApi(), theM2Package.getBoolean(), "rteUseComShadowSignalApi", null, 1, 1, RteBswGeneral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucRootEClass, EcucRoot.class, "EcucRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEcucRoot_Rte(), this.getRte(), null, "rte", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucRoot_Os(), this.getOs(), null, "os", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucRoot_Com(), this.getCom(), null, "com", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucRoot_EcuC(), this.getEcuC(), null, "ecuC", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecucRootEClass, EcucRoot.class, "EcucRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEcucRoot_Rte(), this.getRte(), null, "rte", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucRoot_Os(), this.getOs(), null, "os", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucRoot_Com(), this.getCom(), null, "com", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucRoot_EcuC(), this.getEcuC(), null, "ecuC", null, 0, 1, EcucRoot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteSwComponentInstanceEClass, RteSwComponentInstance.class, "RteSwComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteSwComponentInstance_RteEventToTaskMapping(), this.getRteEventToTaskMapping(), null, "rteEventToTaskMapping", null, 0, -1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSwComponentInstance_RteExclusiveAreaImplementation(), this.getRteExclusiveAreaImplementation(), null, "rteExclusiveAreaImplementation", null, 0, -1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteSwComponentInstance_RteSoftwareComponentInstance(), theM2Package.getSwComponentPrototype(), null, "rteSoftwareComponentInstance", null, 0, 1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteSwComponentInstanceEClass, RteSwComponentInstance.class, "RteSwComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteSwComponentInstance_RteEventToTaskMapping(), this.getRteEventToTaskMapping(), null, "rteEventToTaskMapping", null, 0, -1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteSwComponentInstance_RteExclusiveAreaImplementation(), this.getRteExclusiveAreaImplementation(), null, "rteExclusiveAreaImplementation", null, 0, -1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteSwComponentInstance_RteSoftwareComponentInstance(), theM2Package.getSwComponentPrototype(), null, "rteSoftwareComponentInstance", null, 0, 1, RteSwComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteEventToTaskMappingEClass, RteEventToTaskMapping.class, "RteEventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteEventToTaskMapping_RteEvent(), theM2Package.getRteEvent(), theM2Package.getRteEvent_Config(), "rteEvent", null, 1, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteEventToTaskMapping_RteActivationOffset(), theM2Package.getTimeValue(), "rteActivationOffset", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteEventToTaskMapping_RteMappedToTask(), this.getOsTask(), this.getOsTask_MappedRteEvent(), "rteMappedToTask", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteEventToTaskMapping_RtePositionInTask(), theM2Package.getInteger(), "rtePositionInTask", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteEventToTaskMapping_RteUsedOsAlarm(), this.getOsAlarm(), null, "rteUsedOsAlarm", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteEventToTaskMapping_RteUsedOsEvent(), this.getOsEvent(), null, "rteUsedOsEvent", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteEventToTaskMappingEClass, RteEventToTaskMapping.class, "RteEventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteEventToTaskMapping_RteEvent(), theM2Package.getRteEvent(), theM2Package.getRteEvent_Config(), "rteEvent", null, 1, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteEventToTaskMapping_RteActivationOffset(), theM2Package.getTimeValue(), "rteActivationOffset", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteEventToTaskMapping_RteMappedToTask(), this.getOsTask(), this.getOsTask_MappedRteEvent(), "rteMappedToTask", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteEventToTaskMapping_RtePositionInTask(), theM2Package.getInteger(), "rtePositionInTask", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteEventToTaskMapping_RteUsedOsAlarm(), this.getOsAlarm(), null, "rteUsedOsAlarm", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteEventToTaskMapping_RteUsedOsEvent(), this.getOsEvent(), null, "rteUsedOsEvent", null, 0, 1, RteEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osEClass, Os.class, "Os", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOs_OsTask(), this.getOsTask(), null, "osTask", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsEvent(), this.getOsEvent(), null, "osEvent", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsApplication(), this.getOsApplication(), null, "osApplication", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsAlarm(), this.getOsAlarm(), null, "osAlarm", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsResource(), this.getOsResource(), null, "osResource", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsSpinlock(), this.getOsSpinlock(), null, "osSpinlock", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsIoc(), this.getOsIoc(), null, "osIoc", null, 0, 1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOs_OsOS(), this.getOsOS(), null, "osOS", null, 1, 1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osEClass, Os.class, "Os", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOs_OsTask(), this.getOsTask(), null, "osTask", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsEvent(), this.getOsEvent(), null, "osEvent", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsApplication(), this.getOsApplication(), null, "osApplication", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsAlarm(), this.getOsAlarm(), null, "osAlarm", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsResource(), this.getOsResource(), null, "osResource", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsSpinlock(), this.getOsSpinlock(), null, "osSpinlock", null, 0, -1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsIoc(), this.getOsIoc(), null, "osIoc", null, 0, 1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOs_OsOS(), this.getOsOS(), null, "osOS", null, 1, 1, Os.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osTaskEClass, OsTask.class, "OsTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsTask_OsTaskActivation(), theM2Package.getPositiveInteger(), "osTaskActivation", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsTask_OsTaskPriority(), theM2Package.getInteger(), "osTaskPriority", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsTask_OsTaskSchedule(), this.getOsTaskScheduleEnum(), "osTaskSchedule", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsTask_OsTaskAccessingApplication(), this.getOsApplication(), null, "osTaskAccessingApplication", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getOsTask_OsTaskEvent(), this.getOsEvent(), null, "osTaskEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getOsTask_MappedRteEvent(), this.getRteEventToTaskMapping(), this.getRteEventToTaskMapping_RteMappedToTask(), "mappedRteEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getOsTask_OwnerApplication(), this.getOsApplication(), this.getOsApplication_OsAppTask(), "ownerApplication", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getOsTask_MappedRteBswEvent(), this.getRteBswEventToTaskMapping(), this.getRteBswEventToTaskMapping_RteBswMappedToTask(), "mappedRteBswEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osTaskEClass, OsTask.class, "OsTask", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsTask_OsTaskActivation(), theM2Package.getPositiveInteger(), "osTaskActivation", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsTask_OsTaskPriority(), theM2Package.getInteger(), "osTaskPriority", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsTask_OsTaskSchedule(), this.getOsTaskScheduleEnum(), "osTaskSchedule", null, 1, 1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsTask_OsTaskAccessingApplication(), this.getOsApplication(), null, "osTaskAccessingApplication", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsTask_OsTaskEvent(), this.getOsEvent(), null, "osTaskEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsTask_MappedRteEvent(), this.getRteEventToTaskMapping(), this.getRteEventToTaskMapping_RteMappedToTask(), "mappedRteEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsTask_OwnerApplication(), this.getOsApplication(), this.getOsApplication_OsAppTask(), "ownerApplication", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsTask_MappedRteBswEvent(), this.getRteBswEventToTaskMapping(), this.getRteBswEventToTaskMapping_RteBswMappedToTask(), "mappedRteBswEvent", null, 0, -1, OsTask.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteExclusiveAreaImplementationEClass, RteExclusiveAreaImplementation.class, "RteExclusiveAreaImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteExclusiveAreaImplementation_RteExclusiveAreaImplMechanism(), this.getRteExclusiveAreaImplMechanismEnum(), "rteExclusiveAreaImplMechanism", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteExclusiveAreaImplementation_RteExclusiveArea(), theM2Package.getExclusiveArea(), theM2Package.getExclusiveArea_SwcConfig(), "rteExclusiveArea", null, 1, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteExclusiveAreaImplementation_RteExclusiveAreaOsResource(), this.getOsResource(), null, "rteExclusiveAreaOsResource", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteExclusiveAreaImplementation_RteExclusiveAreaOsSpinlock(), this.getOsSpinlock(), null, "rteExclusiveAreaOsSpinlock", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteExclusiveAreaImplementationEClass, RteExclusiveAreaImplementation.class, "RteExclusiveAreaImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRteExclusiveAreaImplementation_RteExclusiveAreaImplMechanism(), this.getRteExclusiveAreaImplMechanismEnum(), "rteExclusiveAreaImplMechanism", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteExclusiveAreaImplementation_RteExclusiveArea(), theM2Package.getExclusiveArea(), theM2Package.getExclusiveArea_SwcConfig(), "rteExclusiveArea", null, 1, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteExclusiveAreaImplementation_RteExclusiveAreaOsResource(), this.getOsResource(), null, "rteExclusiveAreaOsResource", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteExclusiveAreaImplementation_RteExclusiveAreaOsSpinlock(), this.getOsSpinlock(), null, "rteExclusiveAreaOsSpinlock", null, 0, 1, RteExclusiveAreaImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osEventEClass, OsEvent.class, "OsEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsEvent_OsEventMask(), theM2Package.getUnlimitedInteger(), "osEventMask", null, 0, 1, OsEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osEventEClass, OsEvent.class, "OsEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsEvent_OsEventMask(), theM2Package.getUnlimitedInteger(), "osEventMask", null, 0, 1, OsEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comEClass, Com.class, "Com", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCom_ComConfig(), this.getComConfig(), null, "comConfig", null, 1, 1, Com.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comEClass, Com.class, "Com", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCom_ComConfig(), this.getComConfig(), null, "comConfig", null, 1, 1, Com.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comConfigEClass, ComConfig.class, "ComConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComConfig_ComSignal(), this.getComSignal(), null, "comSignal", null, 0, -1, ComConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComConfig_ComSignalGroup(), this.getComSignalGroup(), null, "comSignalGroup", null, 0, -1, ComConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comConfigEClass, ComConfig.class, "ComConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComConfig_ComSignal(), this.getComSignal(), null, "comSignal", null, 0, -1, ComConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComConfig_ComSignalGroup(), this.getComSignalGroup(), null, "comSignalGroup", null, 0, -1, ComConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSignalEClass, ComSignal.class, "ComSignal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSignal_ComSystemTemplateSystemSignal(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSystemSignal", null, 0, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComSignal_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComSignal_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSignalEClass, ComSignal.class, "ComSignal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSignal_ComSystemTemplateSystemSignal(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSystemSignal", null, 0, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComSignal_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComSignal_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getComSignal__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComSignal__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comSignalGroupEClass, ComSignalGroup.class, "ComSignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSignalGroup_ComGroupSignal(), this.getComGroupSignal(), null, "comGroupSignal", null, 0, -1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSignalGroup_ComSystemTemplateSignalGroup(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSignalGroup", null, 0, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComSignalGroup_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComSignalGroup_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSignalGroupEClass, ComSignalGroup.class, "ComSignalGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComSignalGroup_ComGroupSignal(), this.getComGroupSignal(), null, "comGroupSignal", null, 0, -1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSignalGroup_ComSystemTemplateSignalGroup(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSignalGroup", null, 0, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComSignalGroup_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComSignalGroup_ComTransferProperty(), this.getComTransferPropertyEnum(), "comTransferProperty", null, 0, 1, ComSignalGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getComSignalGroup__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getComSignalGroup__TransfersImmediately(), ecorePackage.getEBoolean(), "transfersImmediately", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(comGroupSignalEClass, ComGroupSignal.class, "ComGroupSignal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComGroupSignal_ComSystemTemplateSystemSignal(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSystemSignal", null, 0, 1, ComGroupSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComGroupSignal_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComGroupSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comGroupSignalEClass, ComGroupSignal.class, "ComGroupSignal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getComGroupSignal_ComSystemTemplateSystemSignal(), theM2Package.getISignalToIPduMapping(), null, "comSystemTemplateSystemSignal", null, 0, 1, ComGroupSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComGroupSignal_ComHandleId(), theM2Package.getInteger(), "comHandleId", null, 1, 1, ComGroupSignal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osAlarmEClass, OsAlarm.class, "OsAlarm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsAlarm_ExpectedConfig(), this.getRteUsedOsActivation(), this.getRteUsedOsActivation_RteActivationOsAlarm(), "expectedConfig", null, 0, -1, OsAlarm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(osAlarmEClass, OsAlarm.class, "OsAlarm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsAlarm_ExpectedConfig(), this.getRteUsedOsActivation(), this.getRteUsedOsActivation_RteActivationOsAlarm(), "expectedConfig", null, 0, -1, OsAlarm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osResourceEClass, OsResource.class, "OsResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(osResourceEClass, OsResource.class, "OsResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(osApplicationEClass, OsApplication.class, "OsApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsApplication_OsApplicationCoreAssignment(), theM2Package.getInteger(), "osApplicationCoreAssignment", null, 0, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsApplication_OsTrusted(), theM2Package.getBoolean(), "osTrusted", null, 1, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsApplication_OsAppEcucPartition(), this.getEcucPartition(), this.getEcucPartition_ImplOsApplication(), "osAppEcucPartition", null, 0, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsApplication_OsApplicationTrustedFunction(), this.getOsApplicationTrustedFunction(), this.getOsApplicationTrustedFunction_Parent(), "osApplicationTrustedFunction", null, 0, -1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsApplication_OsAppTask(), this.getOsTask(), this.getOsTask_OwnerApplication(), "osAppTask", null, 0, -1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osApplicationEClass, OsApplication.class, "OsApplication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsApplication_OsApplicationCoreAssignment(), theM2Package.getInteger(), "osApplicationCoreAssignment", null, 0, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsApplication_OsTrusted(), theM2Package.getBoolean(), "osTrusted", null, 1, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsApplication_OsAppEcucPartition(), this.getEcucPartition(), this.getEcucPartition_ImplOsApplication(), "osAppEcucPartition", null, 0, 1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsApplication_OsApplicationTrustedFunction(), this.getOsApplicationTrustedFunction(), this.getOsApplicationTrustedFunction_Parent(), "osApplicationTrustedFunction", null, 0, -1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsApplication_OsAppTask(), this.getOsTask(), this.getOsTask_OwnerApplication(), "osAppTask", null, 0, -1, OsApplication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecuCEClass, EcuC.class, "EcuC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEcuC_EcucPartitionCollection(), this.getEcucPartitionCollection(), null, "ecucPartitionCollection", null, 0, 1, EcuC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecuCEClass, EcuC.class, "EcuC", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEcuC_EcucPartitionCollection(), this.getEcucPartitionCollection(), null, "ecucPartitionCollection", null, 0, 1, EcuC.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucPartitionCollectionEClass, EcucPartitionCollection.class, "EcucPartitionCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEcucPartitionCollection_EcucPartition(), this.getEcucPartition(), null, "ecucPartition", null, 0, -1, EcucPartitionCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecucPartitionCollectionEClass, EcucPartitionCollection.class, "EcucPartitionCollection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEcucPartitionCollection_EcucPartition(), this.getEcucPartition(), null, "ecucPartition", null, 0, -1, EcucPartitionCollection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getEcucPartitionCollection__GetAssignedCores(), theM2Package.getInteger(), "getAssignedCores", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getEcucPartitionCollection__GetAssignedCores(), theM2Package.getInteger(), "getAssignedCores", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucPartitionEClass, EcucPartition.class, "EcucPartition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEcucPartition_EcucPartitionBswModuleExecution(), theM2Package.getBoolean(), "ecucPartitionBswModuleExecution", null, 1, 1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEcucPartition_PartitionCanBeRestarted(), theM2Package.getBoolean(), "partitionCanBeRestarted", null, 1, 1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucPartition_EcucPartitionSoftwareComponent(), theInstancePackage.getSwComponentInstanceInSystem(), theInstancePackage.getSwComponentInstanceInSystem_OwnerPartition(), "ecucPartitionSoftwareComponent", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEcucPartition_ImplOsApplication(), this.getOsApplication(), this.getOsApplication_OsAppEcucPartition(), "implOsApplication", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(ecucPartitionEClass, EcucPartition.class, "EcucPartition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getEcucPartition_EcucPartitionBswModuleExecution(), theM2Package.getBoolean(), "ecucPartitionBswModuleExecution", null, 1, 1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEcucPartition_PartitionCanBeRestarted(), theM2Package.getBoolean(), "partitionCanBeRestarted", null, 1, 1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucPartition_EcucPartitionSoftwareComponent(), theInstancePackage.getSwComponentInstanceInSystem(), theInstancePackage.getSwComponentInstanceInSystem_OwnerPartition(), "ecucPartitionSoftwareComponent", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEcucPartition_ImplOsApplication(), this.getOsApplication(), this.getOsApplication_OsAppEcucPartition(), "implOsApplication", null, 0, -1, EcucPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getEcucPartition__IsTrusted(), ecorePackage.getEBoolean(), "isTrusted", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getEcucPartition__IsTrusted(), ecorePackage.getEBoolean(), "isTrusted", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getEcucPartition__GetOwnerCore(), theM2Package.getInteger(), "getOwnerCore", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getEcucPartition__GetOwnerCore(), theM2Package.getInteger(), "getOwnerCore", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osSpinlockEClass, OsSpinlock.class, "OsSpinlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsSpinlock_OsSpinlockAccessingApplication(), this.getOsApplication(), null, "osSpinlockAccessingApplication", null, 0, -1, OsSpinlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getOsSpinlock_OsSpinlockLockMethod(), this.getOsSpinlockLockMethodEnum(), "osSpinlockLockMethod", null, 1, 1, OsSpinlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osSpinlockEClass, OsSpinlock.class, "OsSpinlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsSpinlock_OsSpinlockAccessingApplication(), this.getOsApplication(), null, "osSpinlockAccessingApplication", null, 0, -1, OsSpinlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsSpinlock_OsSpinlockLockMethod(), this.getOsSpinlockLockMethodEnum(), "osSpinlockLockMethod", null, 1, 1, OsSpinlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteOsInteractionEClass, RteOsInteraction.class, "RteOsInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteOsInteraction_RteUsedOsActivation(), this.getRteUsedOsActivation(), null, "rteUsedOsActivation", null, 0, -1, RteOsInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteOsInteractionEClass, RteOsInteraction.class, "RteOsInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteOsInteraction_RteUsedOsActivation(), this.getRteUsedOsActivation(), null, "rteUsedOsActivation", null, 0, -1, RteOsInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteUsedOsActivationEClass, RteUsedOsActivation.class, "RteUsedOsActivation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteUsedOsActivation_RteExpectedTickDuration(), theM2Package.getTimeValue(), "rteExpectedTickDuration", null, 1, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteUsedOsActivation_RteExpectedActivationOffset(), theM2Package.getTimeValue(), "rteExpectedActivationOffset", null, 1, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteUsedOsActivation_RteActivationOsAlarm(), this.getOsAlarm(), this.getOsAlarm_ExpectedConfig(), "rteActivationOsAlarm", null, 0, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteUsedOsActivationEClass, RteUsedOsActivation.class, "RteUsedOsActivation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRteUsedOsActivation_RteExpectedTickDuration(), theM2Package.getTimeValue(), "rteExpectedTickDuration", null, 1, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteUsedOsActivation_RteExpectedActivationOffset(), theM2Package.getTimeValue(), "rteExpectedActivationOffset", null, 1, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteUsedOsActivation_RteActivationOsAlarm(), this.getOsAlarm(), this.getOsAlarm_ExpectedConfig(), "rteActivationOsAlarm", null, 0, 1, RteUsedOsActivation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteInitializationBehaviorEClass, RteInitializationBehavior.class, "RteInitializationBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteInitializationBehavior_RteInitializationStrategy(), this.getRteInitializationStrategyEnum(), "rteInitializationStrategy", null, 1, 1, RteInitializationBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteInitializationBehavior_RteSectionInitializationPolicy(), theM2Package.getSectionInitializationPolicyType(), "rteSectionInitializationPolicy", null, 1, -1, RteInitializationBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteInitializationBehaviorEClass, RteInitializationBehavior.class, "RteInitializationBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRteInitializationBehavior_RteInitializationStrategy(), this.getRteInitializationStrategyEnum(), "rteInitializationStrategy", null, 1, 1, RteInitializationBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteInitializationBehavior_RteSectionInitializationPolicy(), theM2Package.getSectionInitializationPolicyType(), "rteSectionInitializationPolicy", null, 1, -1, RteInitializationBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osIocEClass, OsIoc.class, "OsIoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsIoc_OsIocCommunication(), this.getOsIocCommunication(), null, "osIocCommunication", null, 0, -1, OsIoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(osIocEClass, OsIoc.class, "OsIoc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsIoc_OsIocCommunication(), this.getOsIocCommunication(), null, "osIocCommunication", null, 0, -1, OsIoc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osIocCommunicationEClass, OsIocCommunication.class, "OsIocCommunication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsIocCommunication_OsIocSenderProperties(), this.getOsIocSenderProperties(), this.getOsIocSenderProperties_Parent(), "osIocSenderProperties", null, 1, -1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsIocCommunication_OsIocReceiverProperties(), this.getOsIocReceiverProperties(), null, "osIocReceiverProperties", null, 1, 1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsIocCommunication_OsIocDataProperties(), this.getOsIocDataProperties(), null, "osIocDataProperties", null, 1, -1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsIocCommunication_OsIocBufferLength(), theM2Package.getInteger(), "osIocBufferLength", null, 0, 1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osIocCommunicationEClass, OsIocCommunication.class, "OsIocCommunication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsIocCommunication_OsIocSenderProperties(), this.getOsIocSenderProperties(), this.getOsIocSenderProperties_Parent(), "osIocSenderProperties", null, 1, -1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsIocCommunication_OsIocReceiverProperties(), this.getOsIocReceiverProperties(), null, "osIocReceiverProperties", null, 1, 1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsIocCommunication_OsIocDataProperties(), this.getOsIocDataProperties(), null, "osIocDataProperties", null, 1, -1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsIocCommunication_OsIocBufferLength(), theM2Package.getInteger(), "osIocBufferLength", null, 0, 1, OsIocCommunication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getOsIocCommunication__GetLoopbackSenderProperties(), this.getOsIocSenderProperties(), "getLoopbackSenderProperties", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOsIocCommunication__GetLoopbackSenderProperties(), this.getOsIocSenderProperties(), "getLoopbackSenderProperties", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osIocSenderPropertiesEClass, OsIocSenderProperties.class, "OsIocSenderProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsIocSenderProperties_OsIocSendingOsApplication(), this.getOsApplication(), null, "osIocSendingOsApplication", null, 1, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsIocSenderProperties_Parent(), this.getOsIocCommunication(), this.getOsIocCommunication_OsIocSenderProperties(), "parent", null, 1, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsIocSenderProperties_OsIocSenderId(), theM2Package.getInteger(), "osIocSenderId", null, 0, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osIocSenderPropertiesEClass, OsIocSenderProperties.class, "OsIocSenderProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsIocSenderProperties_OsIocSendingOsApplication(), this.getOsApplication(), null, "osIocSendingOsApplication", null, 1, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsIocSenderProperties_Parent(), this.getOsIocCommunication(), this.getOsIocCommunication_OsIocSenderProperties(), "parent", null, 1, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsIocSenderProperties_OsIocSenderId(), theM2Package.getInteger(), "osIocSenderId", null, 0, 1, OsIocSenderProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osIocReceiverPropertiesEClass, OsIocReceiverProperties.class, "OsIocReceiverProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOsIocReceiverProperties_OsIocReceivingOsApplication(), this.getOsApplication(), null, "osIocReceivingOsApplication", null, 1, 1, OsIocReceiverProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osIocReceiverPropertiesEClass, OsIocReceiverProperties.class, "OsIocReceiverProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getOsIocReceiverProperties_OsIocReceivingOsApplication(), this.getOsApplication(), null, "osIocReceivingOsApplication", null, 1, 1, OsIocReceiverProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osIocDataPropertiesEClass, OsIocDataProperties.class, "OsIocDataProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsIocDataProperties_OsIocDataPropertyIndex(), theM2Package.getInteger(), "osIocDataPropertyIndex", null, 0, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsIocDataProperties_OsIocInitValue(), theM2Package.getVerbatimString(), "osIocInitValue", null, 0, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsIocDataProperties_OsIocDataType(), theM2Package.getImplementationDataType(), null, "osIocDataType", null, 1, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osIocDataPropertiesEClass, OsIocDataProperties.class, "OsIocDataProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsIocDataProperties_OsIocDataPropertyIndex(), theM2Package.getInteger(), "osIocDataPropertyIndex", null, 0, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsIocDataProperties_OsIocInitValue(), theM2Package.getVerbatimString(), "osIocInitValue", null, 0, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsIocDataProperties_OsIocDataType(), theM2Package.getImplementationDataType(), null, "osIocDataType", null, 1, 1, OsIocDataProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osApplicationTrustedFunctionEClass, OsApplicationTrustedFunction.class, "OsApplicationTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsApplicationTrustedFunction_OsTrustedFunctionName(), theM2Package.getCIdentifier(), "osTrustedFunctionName", null, 1, 1, OsApplicationTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOsApplicationTrustedFunction_Parent(), this.getOsApplication(), this.getOsApplication_OsApplicationTrustedFunction(), "parent", null, 1, 1, OsApplicationTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(osApplicationTrustedFunctionEClass, OsApplicationTrustedFunction.class, "OsApplicationTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsApplicationTrustedFunction_OsTrustedFunctionName(), theM2Package.getCIdentifier(), "osTrustedFunctionName", null, 1, 1, OsApplicationTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getOsApplicationTrustedFunction_Parent(), this.getOsApplication(), this.getOsApplication_OsApplicationTrustedFunction(), "parent", null, 1, 1, OsApplicationTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(osOSEClass, OsOS.class, "OsOS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOsOS_OsNumberOfCores(), theM2Package.getInteger(), "osNumberOfCores", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOsOS_OsMasterCoreId(), theM2Package.getInteger(), "osMasterCoreId", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(osOSEClass, OsOS.class, "OsOS", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getOsOS_OsNumberOfCores(), theM2Package.getInteger(), "osNumberOfCores", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getOsOS_OsMasterCoreId(), theM2Package.getInteger(), "osMasterCoreId", null, 0, 1, OsOS.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getOsOS__IsMulticoreOs(), ecorePackage.getEBoolean(), "isMulticoreOs", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getOsOS__IsMulticoreOs(), ecorePackage.getEBoolean(), "isMulticoreOs", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteBswEventToTaskMappingEClass, RteBswEventToTaskMapping.class, "RteBswEventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRteBswEventToTaskMapping_RteBswActivationOffset(), theM2Package.getTimeValue(), "rteBswActivationOffset", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswEventToTaskMapping_RteBswEvent(), theM2Package.getBswEvent(), theM2Package.getBswEvent_Config(), "rteBswEvent", null, 1, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteBswEventToTaskMapping_RteBswPositionInTask(), theM2Package.getInteger(), "rteBswPositionInTask", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswEventToTaskMapping_RteBswMappedToTask(), this.getOsTask(), this.getOsTask_MappedRteBswEvent(), "rteBswMappedToTask", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsAlarm(), this.getOsAlarm(), null, "rteBswUsedOsAlarm", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsEvent(), this.getOsEvent(), null, "rteBswUsedOsEvent", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteBswEventToTaskMappingEClass, RteBswEventToTaskMapping.class, "RteBswEventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getRteBswEventToTaskMapping_RteBswActivationOffset(), theM2Package.getTimeValue(), "rteBswActivationOffset", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswEventToTaskMapping_RteBswEvent(), theM2Package.getBswEvent(), theM2Package.getBswEvent_Config(), "rteBswEvent", null, 1, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteBswEventToTaskMapping_RteBswPositionInTask(), theM2Package.getInteger(), "rteBswPositionInTask", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswEventToTaskMapping_RteBswMappedToTask(), this.getOsTask(), this.getOsTask_MappedRteBswEvent(), "rteBswMappedToTask", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsAlarm(), this.getOsAlarm(), null, "rteBswUsedOsAlarm", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswEventToTaskMapping_RteBswUsedOsEvent(), this.getOsEvent(), null, "rteBswUsedOsEvent", null, 0, 1, RteBswEventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteBswRequiredModeGroupConnectionEClass, RteBswRequiredModeGroupConnection.class, "RteBswRequiredModeGroupConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBswRequiredModeGroupConnection_Parent(), this.getRteBswModuleInstance(), this.getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), "parent", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswProvidedModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswRequiredModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteBswRequiredModeGroupConnectionEClass, RteBswRequiredModeGroupConnection.class, "RteBswRequiredModeGroupConnection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteBswRequiredModeGroupConnection_Parent(), this.getRteBswModuleInstance(), this.getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), "parent", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswProvidedModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup(), theM2Package.getModeDeclarationGroupPrototype(), null, "rteBswRequiredModeGroup", null, 1, 1, RteBswRequiredModeGroupConnection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteBswModuleInstanceEClass, RteBswModuleInstance.class, "RteBswModuleInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBswModuleInstance_RteBswEventToTaskMapping(), this.getRteBswEventToTaskMapping(), null, "rteBswEventToTaskMapping", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswModuleInstance_RteBswExclusiveAreaImpl(), this.getRteBswExclusiveAreaImpl(), null, "rteBswExclusiveAreaImpl", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswModuleInstance_RteBswImplementation(), theM2Package.getBswImplementation(), null, "rteBswImplementation", null, 1, 1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection_Parent(), "rteBswRequiredModeGroupConnection", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(rteBswModuleInstanceEClass, RteBswModuleInstance.class, "RteBswModuleInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteBswModuleInstance_RteBswEventToTaskMapping(), this.getRteBswEventToTaskMapping(), null, "rteBswEventToTaskMapping", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswModuleInstance_RteBswExclusiveAreaImpl(), this.getRteBswExclusiveAreaImpl(), null, "rteBswExclusiveAreaImpl", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswModuleInstance_RteBswImplementation(), theM2Package.getBswImplementation(), null, "rteBswImplementation", null, 1, 1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection(), this.getRteBswRequiredModeGroupConnection_Parent(), "rteBswRequiredModeGroupConnection", null, 0, -1, RteBswModuleInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteBswExclusiveAreaImplEClass, RteBswExclusiveAreaImpl.class, "RteBswExclusiveAreaImpl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveArea(), theM2Package.getExclusiveArea(), theM2Package.getExclusiveArea_BswConfig(), "rteBswExclusiveArea", null, 1, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsResource(), this.getOsResource(), null, "rteBswExclusiveAreaOsResource", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRteBswExclusiveAreaImpl_RteExclusiveAreaImplMechanism(), this.getRteExclusiveAreaImplMechanismEnum(), "rteExclusiveAreaImplMechanism", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsSpinlock(), this.getOsSpinlock(), null, "rteBswExclusiveAreaOsSpinlock", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(rteBswExclusiveAreaImplEClass, RteBswExclusiveAreaImpl.class, "RteBswExclusiveAreaImpl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveArea(), theM2Package.getExclusiveArea(), theM2Package.getExclusiveArea_BswConfig(), "rteBswExclusiveArea", null, 1, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsResource(), this.getOsResource(), null, "rteBswExclusiveAreaOsResource", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getRteBswExclusiveAreaImpl_RteExclusiveAreaImplMechanism(), this.getRteExclusiveAreaImplMechanismEnum(), "rteExclusiveAreaImplMechanism", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsSpinlock(), this.getOsSpinlock(), null, "rteBswExclusiveAreaOsSpinlock", null, 0, 1, RteBswExclusiveAreaImpl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Initialize enums and add enum literals
-		initEEnum(osTaskScheduleEnumEEnum, OsTaskScheduleEnum.class, "OsTaskScheduleEnum");
+		initEEnum(osTaskScheduleEnumEEnum, OsTaskScheduleEnum.class, "OsTaskScheduleEnum"); //$NON-NLS-1$
 		addEEnumLiteral(osTaskScheduleEnumEEnum, OsTaskScheduleEnum.FULL);
 		addEEnumLiteral(osTaskScheduleEnumEEnum, OsTaskScheduleEnum.NON);
 
-		initEEnum(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.class, "RteExclusiveAreaImplMechanismEnum");
+		initEEnum(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.class, "RteExclusiveAreaImplMechanismEnum"); //$NON-NLS-1$
 		addEEnumLiteral(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.ALL_INTERRUPT_BLOCKING);
 		addEEnumLiteral(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.COOPERATIVE_RUNNABLE_PLACEMENT);
 		addEEnumLiteral(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.OS_INTERRUPT_BLOCKING);
@@ -2510,19 +2510,19 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		addEEnumLiteral(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.OS_SPINLOCK);
 		addEEnumLiteral(rteExclusiveAreaImplMechanismEnumEEnum, RteExclusiveAreaImplMechanismEnum.NONE);
 
-		initEEnum(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.class, "ComTransferPropertyEnum");
+		initEEnum(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.class, "ComTransferPropertyEnum"); //$NON-NLS-1$
 		addEEnumLiteral(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.PENDING);
 		addEEnumLiteral(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.TRIGGERED);
 		addEEnumLiteral(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.TRIGGERED_ON_CHANGE);
 		addEEnumLiteral(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.TRIGGERED_ON_CHANGE_WITHOUT_REPETITION);
 		addEEnumLiteral(comTransferPropertyEnumEEnum, ComTransferPropertyEnum.TRIGGERED_WITHOUT_REPETITION);
 
-		initEEnum(osSpinlockLockMethodEnumEEnum, OsSpinlockLockMethodEnum.class, "OsSpinlockLockMethodEnum");
+		initEEnum(osSpinlockLockMethodEnumEEnum, OsSpinlockLockMethodEnum.class, "OsSpinlockLockMethodEnum"); //$NON-NLS-1$
 		addEEnumLiteral(osSpinlockLockMethodEnumEEnum, OsSpinlockLockMethodEnum.LOCK_NOTHING);
 		addEEnumLiteral(osSpinlockLockMethodEnumEEnum, OsSpinlockLockMethodEnum.LOCK_CAT2_INTERRUPTS);
 		addEEnumLiteral(osSpinlockLockMethodEnumEEnum, OsSpinlockLockMethodEnum.LOCK_ALL_INTERRUPTS);
 
-		initEEnum(rteInitializationStrategyEnumEEnum, RteInitializationStrategyEnum.class, "RteInitializationStrategyEnum");
+		initEEnum(rteInitializationStrategyEnumEEnum, RteInitializationStrategyEnum.class, "RteInitializationStrategyEnum"); //$NON-NLS-1$
 		addEEnumLiteral(rteInitializationStrategyEnumEEnum, RteInitializationStrategyEnum.RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION);
 		addEEnumLiteral(rteInitializationStrategyEnumEEnum, RteInitializationStrategyEnum.RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART);
 		addEEnumLiteral(rteInitializationStrategyEnumEEnum, RteInitializationStrategyEnum.RTE_INITIALIZATION_STRATEGY_AT_RTE_START);
@@ -2547,15 +2547,15 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";		
+		String source = "http://www.eclipse.org/emf/2002/Ecore"; //$NON-NLS-1$	
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });												
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2565,25 +2565,25 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * @generated
 	 */
 	protected void createStereotypesAnnotations() {
-		String source = "stereotypes";			
+		String source = "stereotypes"; //$NON-NLS-1$	
 		addAnnotation
 		  (getEcucReferrable_ShortName(), 
 		   source, 
 		   new String[] {
-			 "nonEcuc", "true"
-		   });		
+			 "nonEcuc", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucReferrable_Source(), 
 		   source, 
 		   new String[] {
-			 "nonEcuc", "true"
-		   });		
+			 "nonEcuc", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucModule_ReferenceBase(), 
 		   source, 
 		   new String[] {
-			 "nonEcuc", "true"
-		   });									
+			 "nonEcuc", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2593,19 +2593,19 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * @generated
 	 */
 	protected void createTagsAnnotations() {
-		String source = "tags";						
+		String source = "tags"; //$NON-NLS-1$	
 		addAnnotation
 		  (getOsTask_OsTaskAccessingApplication(), 
 		   source, 
 		   new String[] {
-			 "ecuc.definitionShortName", "OsTaskAccessingApplication"
-		   });							
+			 "ecuc.definitionShortName", "OsTaskAccessingApplication" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOsSpinlock_OsSpinlockAccessingApplication(), 
 		   source, 
 		   new String[] {
-			 "ecuc.definitionShortName", "OsSpinlockAccessingApplication"
-		   });		
+			 "ecuc.definitionShortName", "OsSpinlockAccessingApplication" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2615,48 +2615,48 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 * @generated
 	 */
 	protected void createPivotAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";							
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"; //$NON-NLS-1$	
 		addAnnotation
 		  (getComSignal__TransfersImmediately(), 
 		   source, 
 		   new String[] {
-			 "body", "not comTransferProperty.oclIsUndefined() and comTransferProperty <> ComTransferPropertyEnum::PENDING"
-		   });		
+			 "body", "not comTransferProperty.oclIsUndefined() and comTransferProperty <> ComTransferPropertyEnum::PENDING" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getComSignalGroup__TransfersImmediately(), 
 		   source, 
 		   new String[] {
-			 "body", "not comTransferProperty.oclIsUndefined() and comTransferProperty <> ComTransferPropertyEnum::PENDING"
-		   });		
+			 "body", "not comTransferProperty.oclIsUndefined() and comTransferProperty <> ComTransferPropertyEnum::PENDING" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartitionCollection__GetAssignedCores(), 
 		   source, 
 		   new String[] {
-			 "body", "self.ecucPartition.getOwnerCore()\n\t\t\t\t\t->asOrderedSet()"
-		   });		
+			 "body", "self.ecucPartition.getOwnerCore()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartition__IsTrusted(), 
 		   source, 
 		   new String[] {
-			 "body", "let osApp : OsApplication = self.implOsApplication->any(true)\n\t\t\t\t\t\t\tin if osApp.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen false\n\t\t\t\t\t\t\t\t\telse osApp.osTrusted\n\t\t\t\t\t\t\t\tendif"
-		   });		
+			 "body", "let osApp : OsApplication = self.implOsApplication->any(true)\n\t\t\t\t\t\t\tin if osApp.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen false\n\t\t\t\t\t\t\t\t\telse osApp.osTrusted\n\t\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEcucPartition__GetOwnerCore(), 
 		   source, 
 		   new String[] {
-			 "body", "let osApp : OsApplication = self.implOsApplication->any(true)\n\t\t\t\t\t\t\tin if osApp.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse osApp.osApplicationCoreAssignment\n\t\t\t\t\t\t\t\tendif"
-		   });			
+			 "body", "let osApp : OsApplication = self.implOsApplication->any(true)\n\t\t\t\t\t\t\tin if osApp.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse osApp.osApplicationCoreAssignment\n\t\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOsIocCommunication__GetLoopbackSenderProperties(), 
 		   source, 
 		   new String[] {
-			 "body", "let loopback : OsIocSenderProperties = osIocSenderProperties\n\t\t\t\t\t->any(osIocSendingOsApplication = self.osIocReceiverProperties.osIocReceivingOsApplication)\n\t\t\t\tin if loopback.oclIsUndefined()\n\t\t\t\t\tthen null else loopback\n\t\t\t\t\tendif"
-		   });		
+			 "body", "let loopback : OsIocSenderProperties = osIocSenderProperties\n\t\t\t\t\t->any(osIocSendingOsApplication = self.osIocReceiverProperties.osIocReceivingOsApplication)\n\t\t\t\tin if loopback.oclIsUndefined()\n\t\t\t\t\tthen null else loopback\n\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOsOS__IsMulticoreOs(), 
 		   source, 
 		   new String[] {
-			 "body", "not self.osNumberOfCores.oclIsUndefined()"
+			 "body", "not self.osNumberOfCores.oclIsUndefined()" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

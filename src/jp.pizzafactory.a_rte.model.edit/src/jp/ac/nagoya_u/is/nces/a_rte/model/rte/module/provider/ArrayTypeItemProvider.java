@@ -61,8 +61,8 @@ public class ArrayTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArrayType_arraySize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayType_arraySize_feature", "_UI_ArrayType_type"),
+				 getString("_UI_ArrayType_arraySize_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArrayType_arraySize_feature", "_UI_ArrayType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.ARRAY_TYPE__ARRAY_SIZE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class ArrayTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrayType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArrayType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class ArrayTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((ArrayType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ArrayType_type") :
-			getString("_UI_ArrayType_type") + " " + label;
+			getString("_UI_ArrayType_type") : //$NON-NLS-1$
+			getString("_UI_ArrayType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

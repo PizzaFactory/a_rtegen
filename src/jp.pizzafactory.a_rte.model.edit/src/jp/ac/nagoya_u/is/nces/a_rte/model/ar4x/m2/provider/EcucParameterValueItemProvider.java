@@ -61,8 +61,8 @@ public class EcucParameterValueItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucParameterValue_definitionRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucParameterValue_definitionRef_feature", "_UI_EcucParameterValue_type"),
+				 getString("_UI_EcucParameterValue_definitionRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucParameterValue_definitionRef_feature", "_UI_EcucParameterValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_PARAMETER_VALUE__DEFINITION_REF,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class EcucParameterValueItemProvider extends M2ObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucParameterValue)object).getDefinitionRef();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucParameterValue_type") :
-			getString("_UI_EcucParameterValue_type") + " " + label;
+			getString("_UI_EcucParameterValue_type") : //$NON-NLS-1$
+			getString("_UI_EcucParameterValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

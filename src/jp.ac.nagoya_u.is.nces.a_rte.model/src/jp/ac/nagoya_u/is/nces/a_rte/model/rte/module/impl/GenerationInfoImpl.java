@@ -299,11 +299,11 @@ public class GenerationInfoImpl extends ModuleObjectImpl implements GenerationIn
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (generatorName: ");
+		result.append(" (generatorName: "); //$NON-NLS-1$
 		result.append(generatorName);
-		result.append(", generatorVersion: ");
+		result.append(", generatorVersion: "); //$NON-NLS-1$
 		result.append(generatorVersion);
-		result.append(", generationDate: ");
+		result.append(", generationDate: "); //$NON-NLS-1$
 		result.append(generationDate);
 		result.append(')');
 		return result.toString();

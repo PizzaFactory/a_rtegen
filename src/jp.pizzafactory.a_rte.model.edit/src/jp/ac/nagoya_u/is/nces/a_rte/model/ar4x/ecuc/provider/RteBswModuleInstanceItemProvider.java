@@ -93,7 +93,7 @@ public class RteBswModuleInstanceItemProvider extends EcucContainerItemProvider 
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswModuleInstance"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswModuleInstance")); //$NON-NLS-1$
 	}
 
 	/**
@@ -106,8 +106,8 @@ public class RteBswModuleInstanceItemProvider extends EcucContainerItemProvider 
 	public String getText(Object object) {
 		String label = ((RteBswModuleInstance)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBswModuleInstance_type") :
-			getString("_UI_RteBswModuleInstance_type") + " " + label;
+			getString("_UI_RteBswModuleInstance_type") : //$NON-NLS-1$
+			getString("_UI_RteBswModuleInstance_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

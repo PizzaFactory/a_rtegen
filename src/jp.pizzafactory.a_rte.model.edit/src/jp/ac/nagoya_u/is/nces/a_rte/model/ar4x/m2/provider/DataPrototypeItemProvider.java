@@ -66,8 +66,8 @@ public class DataPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataPrototype_swAddrMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_swAddrMethod_feature", "_UI_DataPrototype_type"),
+				 getString("_UI_DataPrototype_swAddrMethod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_swAddrMethod_feature", "_UI_DataPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_PROTOTYPE__SW_ADDR_METHOD,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class DataPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataPrototype_swAlignment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_swAlignment_feature", "_UI_DataPrototype_type"),
+				 getString("_UI_DataPrototype_swAlignment_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_swAlignment_feature", "_UI_DataPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_PROTOTYPE__SW_ALIGNMENT,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class DataPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataPrototype_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_type_feature", "_UI_DataPrototype_type"),
+				 getString("_UI_DataPrototype_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataPrototype_type_feature", "_UI_DataPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.DATA_PROTOTYPE__TYPE,
 				 true,
 				 false,
@@ -161,8 +161,8 @@ public class DataPrototypeItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((DataPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DataPrototype_type") :
-			getString("_UI_DataPrototype_type") + " " + label;
+			getString("_UI_DataPrototype_type") : //$NON-NLS-1$
+			getString("_UI_DataPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -60,8 +60,8 @@ public class MaskedNewDiffersMaskedOldFilterOperationItemProvider extends Filter
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_oldValueVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersMaskedOldFilterOperation_oldValueVariable_feature", "_UI_MaskedNewDiffersMaskedOldFilterOperation_type"),
+				 getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_oldValueVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersMaskedOldFilterOperation_oldValueVariable_feature", "_UI_MaskedNewDiffersMaskedOldFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION__OLD_VALUE_VARIABLE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class MaskedNewDiffersMaskedOldFilterOperationItemProvider extends Filter
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_mask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersMaskedOldFilterOperation_mask_feature", "_UI_MaskedNewDiffersMaskedOldFilterOperation_type"),
+				 getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_mask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MaskedNewDiffersMaskedOldFilterOperation_mask_feature", "_UI_MaskedNewDiffersMaskedOldFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION__MASK,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class MaskedNewDiffersMaskedOldFilterOperationItemProvider extends Filter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MaskedNewDiffersMaskedOldFilterOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/MaskedNewDiffersMaskedOldFilterOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class MaskedNewDiffersMaskedOldFilterOperationItemProvider extends Filter
 	public String getText(Object object) {
 		String label = ((MaskedNewDiffersMaskedOldFilterOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_type") :
-			getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_type") + " " + label;
+			getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_type") : //$NON-NLS-1$
+			getString("_UI_MaskedNewDiffersMaskedOldFilterOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -59,8 +59,8 @@ public class SystemSignalGroupItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SystemSignalGroup_systemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SystemSignalGroup_systemSignal_feature", "_UI_SystemSignalGroup_type"),
+				 getString("_UI_SystemSignalGroup_systemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SystemSignalGroup_systemSignal_feature", "_UI_SystemSignalGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SYSTEM_SIGNAL_GROUP__SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class SystemSignalGroupItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemSignalGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemSignalGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class SystemSignalGroupItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((SystemSignalGroup)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SystemSignalGroup_type") :
-			getString("_UI_SystemSignalGroup_type") + " " + label;
+			getString("_UI_SystemSignalGroup_type") : //$NON-NLS-1$
+			getString("_UI_SystemSignalGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

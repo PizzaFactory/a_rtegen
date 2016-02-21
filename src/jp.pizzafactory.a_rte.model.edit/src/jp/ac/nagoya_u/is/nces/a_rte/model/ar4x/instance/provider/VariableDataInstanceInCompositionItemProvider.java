@@ -61,8 +61,8 @@ public class VariableDataInstanceInCompositionItemProvider extends VariableDataI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInComposition_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_prototype_feature", "_UI_VariableDataInstanceInComposition_type"),
+				 getString("_UI_VariableDataInstanceInComposition_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_prototype_feature", "_UI_VariableDataInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION__PROTOTYPE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class VariableDataInstanceInCompositionItemProvider extends VariableDataI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInComposition_requesterConnection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_requesterConnection_feature", "_UI_VariableDataInstanceInComposition_type"),
+				 getString("_UI_VariableDataInstanceInComposition_requesterConnection_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_requesterConnection_feature", "_UI_VariableDataInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION__REQUESTER_CONNECTION,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class VariableDataInstanceInCompositionItemProvider extends VariableDataI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInComposition_providerConnection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_providerConnection_feature", "_UI_VariableDataInstanceInComposition_type"),
+				 getString("_UI_VariableDataInstanceInComposition_providerConnection_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInComposition_providerConnection_feature", "_UI_VariableDataInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION__PROVIDER_CONNECTION,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class VariableDataInstanceInCompositionItemProvider extends VariableDataI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataInstanceInComposition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataInstanceInComposition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class VariableDataInstanceInCompositionItemProvider extends VariableDataI
 	public String getText(Object object) {
 		String label = ((VariableDataInstanceInComposition)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableDataInstanceInComposition_type") :
-			getString("_UI_VariableDataInstanceInComposition_type") + " " + label;
+			getString("_UI_VariableDataInstanceInComposition_type") : //$NON-NLS-1$
+			getString("_UI_VariableDataInstanceInComposition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

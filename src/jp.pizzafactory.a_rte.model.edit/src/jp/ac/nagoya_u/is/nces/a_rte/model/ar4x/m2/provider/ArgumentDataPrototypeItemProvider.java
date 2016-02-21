@@ -61,8 +61,8 @@ public class ArgumentDataPrototypeItemProvider extends AutosarDataPrototypeItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArgumentDataPrototype_direction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArgumentDataPrototype_direction_feature", "_UI_ArgumentDataPrototype_type"),
+				 getString("_UI_ArgumentDataPrototype_direction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArgumentDataPrototype_direction_feature", "_UI_ArgumentDataPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ARGUMENT_DATA_PROTOTYPE__DIRECTION,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class ArgumentDataPrototypeItemProvider extends AutosarDataPrototypeItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArgumentDataPrototype"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArgumentDataPrototype")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class ArgumentDataPrototypeItemProvider extends AutosarDataPrototypeItemP
 	public String getText(Object object) {
 		String label = ((ArgumentDataPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ArgumentDataPrototype_type") :
-			getString("_UI_ArgumentDataPrototype_type") + " " + label;
+			getString("_UI_ArgumentDataPrototype_type") : //$NON-NLS-1$
+			getString("_UI_ArgumentDataPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

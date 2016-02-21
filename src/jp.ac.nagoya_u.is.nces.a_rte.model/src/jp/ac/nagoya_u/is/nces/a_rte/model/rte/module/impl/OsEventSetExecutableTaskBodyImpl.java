@@ -351,9 +351,9 @@ public class OsEventSetExecutableTaskBodyImpl extends TaskBodyImpl implements Os
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osEventId: ");
+		result.append(" (osEventId: "); //$NON-NLS-1$
 		result.append(osEventId);
-		result.append(", checksOsEventId: ");
+		result.append(", checksOsEventId: "); //$NON-NLS-1$
 		result.append(checksOsEventId);
 		result.append(')');
 		return result.toString();

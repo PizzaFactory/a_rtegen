@@ -66,8 +66,8 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompuScale_shortLabel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_shortLabel_feature", "_UI_CompuScale_type"),
+				 getString("_UI_CompuScale_shortLabel_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_shortLabel_feature", "_UI_CompuScale_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.COMPU_SCALE__SHORT_LABEL,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompuScale_symbol_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_symbol_feature", "_UI_CompuScale_type"),
+				 getString("_UI_CompuScale_symbol_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_symbol_feature", "_UI_CompuScale_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.COMPU_SCALE__SYMBOL,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CompuScale_vt_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_vt_feature", "_UI_CompuScale_type"),
+				 getString("_UI_CompuScale_vt_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_vt_feature", "_UI_CompuScale_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.COMPU_SCALE__VT,
 				 true,
 				 false,
@@ -160,7 +160,7 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuScale"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompuScale")); //$NON-NLS-1$
 	}
 
 	/**
@@ -173,8 +173,8 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((CompuScale)object).getShortLabel();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CompuScale_type") :
-			getString("_UI_CompuScale_type") + " " + label;
+			getString("_UI_CompuScale_type") : //$NON-NLS-1$
+			getString("_UI_CompuScale_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -242,7 +242,7 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

@@ -55,8 +55,8 @@ public class OsApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((OsApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsApi_type") :
-			getString("_UI_OsApi_type") + " " + label;
+			getString("_UI_OsApi_type") : //$NON-NLS-1$
+			getString("_UI_OsApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

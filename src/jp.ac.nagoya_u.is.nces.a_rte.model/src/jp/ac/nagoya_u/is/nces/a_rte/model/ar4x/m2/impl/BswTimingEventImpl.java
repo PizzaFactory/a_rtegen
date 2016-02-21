@@ -197,7 +197,7 @@ public class BswTimingEventImpl extends BswEventImpl implements BswTimingEvent {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (period: ");
+		result.append(" (period: "); //$NON-NLS-1$
 		result.append(period);
 		result.append(')');
 		return result.toString();

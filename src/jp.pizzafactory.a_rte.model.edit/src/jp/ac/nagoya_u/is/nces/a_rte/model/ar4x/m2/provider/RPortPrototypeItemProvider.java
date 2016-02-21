@@ -63,8 +63,8 @@ public class RPortPrototypeItemProvider extends PortPrototypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RPortPrototype_requiredInterface_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RPortPrototype_requiredInterface_feature", "_UI_RPortPrototype_type"),
+				 getString("_UI_RPortPrototype_requiredInterface_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RPortPrototype_requiredInterface_feature", "_UI_RPortPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.RPORT_PROTOTYPE__REQUIRED_INTERFACE,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class RPortPrototypeItemProvider extends PortPrototypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RPortPrototype"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RPortPrototype")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class RPortPrototypeItemProvider extends PortPrototypeItemProvider {
 	public String getText(Object object) {
 		String label = ((RPortPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RPortPrototype_type") :
-			getString("_UI_RPortPrototype_type") + " " + label;
+			getString("_UI_RPortPrototype_type") : //$NON-NLS-1$
+			getString("_UI_RPortPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

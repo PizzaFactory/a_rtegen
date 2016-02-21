@@ -67,8 +67,8 @@ public class NonqueuedReceiverComSpecItemProvider extends ReceiverComSpecItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NonqueuedReceiverComSpec_aliveTimeout_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NonqueuedReceiverComSpec_aliveTimeout_feature", "_UI_NonqueuedReceiverComSpec_type"),
+				 getString("_UI_NonqueuedReceiverComSpec_aliveTimeout_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NonqueuedReceiverComSpec_aliveTimeout_feature", "_UI_NonqueuedReceiverComSpec_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.NONQUEUED_RECEIVER_COM_SPEC__ALIVE_TIMEOUT,
 				 true,
 				 false,
@@ -89,8 +89,8 @@ public class NonqueuedReceiverComSpecItemProvider extends ReceiverComSpecItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NonqueuedReceiverComSpec_initValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NonqueuedReceiverComSpec_initValue_feature", "_UI_NonqueuedReceiverComSpec_type"),
+				 getString("_UI_NonqueuedReceiverComSpec_initValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NonqueuedReceiverComSpec_initValue_feature", "_UI_NonqueuedReceiverComSpec_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.NONQUEUED_RECEIVER_COM_SPEC__INIT_VALUE,
 				 true,
 				 false,
@@ -138,7 +138,7 @@ public class NonqueuedReceiverComSpecItemProvider extends ReceiverComSpecItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NonqueuedReceiverComSpec"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NonqueuedReceiverComSpec")); //$NON-NLS-1$
 	}
 
 	/**
@@ -152,8 +152,8 @@ public class NonqueuedReceiverComSpecItemProvider extends ReceiverComSpecItemPro
 		BigDecimal labelValue = ((NonqueuedReceiverComSpec)object).getAliveTimeout();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NonqueuedReceiverComSpec_type") :
-			getString("_UI_NonqueuedReceiverComSpec_type") + " " + label;
+			getString("_UI_NonqueuedReceiverComSpec_type") : //$NON-NLS-1$
+			getString("_UI_NonqueuedReceiverComSpec_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

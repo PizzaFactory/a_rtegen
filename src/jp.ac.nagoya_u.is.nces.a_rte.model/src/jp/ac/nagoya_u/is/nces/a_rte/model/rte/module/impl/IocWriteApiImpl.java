@@ -117,7 +117,7 @@ public class IocWriteApiImpl extends IocApiImpl implements IocWriteApi {
 	public void setParent(IocNonqueuedCommunication newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.IOC_WRITE_API__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

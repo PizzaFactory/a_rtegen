@@ -3,22 +3,90 @@
 
 <plugin>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension
+         point="org.eclipse.core.runtime.applications"
+         id="RteEditorAdvisorApplication">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteModelWizardID"
-            name="%_UI_RteModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/RteModelFile.gif">
-         <description>%_UI_RteModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <application>
+         <run class="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor$Application"/>
+      </application>
    </extension>
 
+
+   <extension point="org.eclipse.ui.perspectives">
+      <!-- @generated rte -->
+      <perspective
+            name="%_UI_Perspective_label"
+            class="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor$Perspective"
+            id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorPerspective">
+      </perspective>
+   </extension>
+
+   <extension point="org.eclipse.ui.commands">
+      <!-- @generated rte -->
+      <command
+            name="%_UI_Menu_OpenURI_label"
+            description="%_UI_Menu_OpenURI_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenURICommand"/>
+      <command
+            name="%_UI_Menu_Open_label"
+            description="%_UI_Menu_Open_description"
+            categoryId="org.eclipse.ui.category.file"
+            id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenCommand"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.bindings">
+      <!-- @generated rte -->
+      <key
+            commandId="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenURICommand"
+            sequence="M1+U"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenCommand"
+            sequence="M1+O"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated rte -->
+      <actionSet
+            label="%_UI_RteEditorAdvisor_ActionSet_label"
+            visible="true"
+            id="RteEditorAdvisorActionSet">
+         <action
+               label="%_UI_Menu_About_label"
+               class="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor$AboutAction"
+               menubarPath="help/additions"
+               id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorAboutAction"/>
+         <action
+               label="%_UI_Menu_OpenURI_label"
+               definitionId="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenURICommand"
+               class="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor$OpenURIAction"
+               menubarPath="file/additions"
+               id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenURIAction"/>
+         <action
+               label="%_UI_Menu_Open_label"
+               definitionId="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenCommand"
+               class="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor$OpenAction"
+               menubarPath="file/additions"
+               id="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisorOpenAction"/>
+      </actionSet>
+   </extension>
+
+   <extension point="org.eclipse.ui.actionSets">
+      <!-- @generated rte -->
+      <actionSet
+            label="%_UI_RteModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteActionBarContributorActionSet">
+         <action
+               label="%_UI_RteModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteActionBarContributorNewAction"/>
+      </actionSet>
+   </extension>
    <extension point="org.eclipse.ui.editors">
       <!-- @generated rte -->
       <editor
@@ -31,20 +99,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExModelWizardID"
-            name="%_UI_ExModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ExModelFile.gif">
-         <description>%_UI_ExModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_ExModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExActionBarContributorActionSet">
+         <action
+               label="%_UI_ExModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.presentation.ExActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -59,20 +125,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionModelWizardID"
-            name="%_UI_InteractionModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/InteractionModelFile.gif">
-         <description>%_UI_InteractionModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_InteractionModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionActionBarContributorActionSet">
+         <action
+               label="%_UI_InteractionModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.presentation.InteractionActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -87,20 +151,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleModelWizardID"
-            name="%_UI_ModuleModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ModuleModelFile.gif">
-         <description>%_UI_ModuleModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_ModuleModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleActionBarContributorActionSet">
+         <action
+               label="%_UI_ModuleModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.presentation.ModuleActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -115,20 +177,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xModelWizardID"
-            name="%_UI_Ar4xModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/Ar4xModelFile.gif">
-         <description>%_UI_Ar4xModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_Ar4xModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xActionBarContributorActionSet">
+         <action
+               label="%_UI_Ar4xModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.presentation.Ar4xActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -143,20 +203,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ModelWizardID"
-            name="%_UI_M2ModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/M2ModelFile.gif">
-         <description>%_UI_M2ModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_M2ModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ActionBarContributorActionSet">
+         <action
+               label="%_UI_M2ModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.presentation.M2ActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -171,20 +229,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucModelWizardID"
-            name="%_UI_EcucModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/EcucModelFile.gif">
-         <description>%_UI_EcucModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_EcucModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucActionBarContributorActionSet">
+         <action
+               label="%_UI_EcucModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.presentation.EcucActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">
@@ -199,20 +255,18 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
+   <extension point="org.eclipse.ui.actionSets">
       <!-- @generated rte -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceModelWizardID"
-            name="%_UI_InstanceModelWizard_label"
-            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/InstanceModelFile.gif">
-         <description>%_UI_InstanceModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
+      <actionSet
+            label="%_UI_InstanceModelWizard_ActionSet_label"
+            visible="true"
+            id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceActionBarContributorActionSet">
+         <action
+               label="%_UI_InstanceModelWizard_label"
+               class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceActionBarContributor$NewAction"
+               menubarPath="file/new/additions"
+               id="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.presentation.InstanceActionBarContributorNewAction"/>
+      </actionSet>
    </extension>
 
    <extension point="org.eclipse.ui.editors">

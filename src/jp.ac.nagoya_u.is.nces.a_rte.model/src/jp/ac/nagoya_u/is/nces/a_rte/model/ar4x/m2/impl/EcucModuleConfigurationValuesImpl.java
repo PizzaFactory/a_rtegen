@@ -355,11 +355,11 @@ public class EcucModuleConfigurationValuesImpl extends ArElementImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (definitionRef: ");
+		result.append(" (definitionRef: "); //$NON-NLS-1$
 		result.append(definitionRef);
-		result.append(", ecucDefEdition: ");
+		result.append(", ecucDefEdition: "); //$NON-NLS-1$
 		result.append(ecucDefEdition);
-		result.append(", implementationConfigVariant: ");
+		result.append(", implementationConfigVariant: "); //$NON-NLS-1$
 		result.append(implementationConfigVariant);
 		result.append(')');
 		return result.toString();

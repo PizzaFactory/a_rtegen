@@ -231,7 +231,7 @@ public class OsSpinlockImpl extends EcucContainerImpl implements OsSpinlock {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osSpinlockLockMethod: ");
+		result.append(" (osSpinlockLockMethod: "); //$NON-NLS-1$
 		result.append(osSpinlockLockMethod);
 		result.append(')');
 		return result.toString();

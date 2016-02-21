@@ -54,7 +54,7 @@ public class BswCalledEntityItemProvider extends BswModuleEntityItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswCalledEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswCalledEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -67,8 +67,8 @@ public class BswCalledEntityItemProvider extends BswModuleEntityItemProvider {
 	public String getText(Object object) {
 		String label = ((BswCalledEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswCalledEntity_type") :
-			getString("_UI_BswCalledEntity_type") + " " + label;
+			getString("_UI_BswCalledEntity_type") : //$NON-NLS-1$
+			getString("_UI_BswCalledEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -114,7 +114,7 @@ public class BswCalledEntityItemProvider extends BswModuleEntityItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

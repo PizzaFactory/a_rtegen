@@ -65,8 +65,8 @@ public class VariableDataPrototypeInSystemInstanceRefItemProvider extends M2Obje
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class VariableDataPrototypeInSystemInstanceRefItemProvider extends M2Obje
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataPrototypeInSystemInstanceRef_contextComponent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataPrototypeInSystemInstanceRef_contextComponent_feature", "_UI_VariableDataPrototypeInSystemInstanceRef_type"),
+				 getString("_UI_VariableDataPrototypeInSystemInstanceRef_contextComponent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataPrototypeInSystemInstanceRef_contextComponent_feature", "_UI_VariableDataPrototypeInSystemInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.VARIABLE_DATA_PROTOTYPE_IN_SYSTEM_INSTANCE_REF__CONTEXT_COMPONENT,
 				 true,
 				 false,
@@ -137,7 +137,7 @@ public class VariableDataPrototypeInSystemInstanceRefItemProvider extends M2Obje
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataPrototypeInSystemInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataPrototypeInSystemInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class VariableDataPrototypeInSystemInstanceRefItemProvider extends M2Obje
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VariableDataPrototypeInSystemInstanceRef_type");
+		return getString("_UI_VariableDataPrototypeInSystemInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

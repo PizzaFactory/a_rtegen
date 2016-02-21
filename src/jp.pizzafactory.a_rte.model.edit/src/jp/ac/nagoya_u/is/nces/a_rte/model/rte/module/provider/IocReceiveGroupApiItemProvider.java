@@ -61,8 +61,8 @@ public class IocReceiveGroupApiItemProvider extends IocReceiveApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocReceiveGroupApi_comSendSignalSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocReceiveGroupApi_comSendSignalSymbolName_feature", "_UI_IocReceiveGroupApi_type"),
+				 getString("_UI_IocReceiveGroupApi_comSendSignalSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocReceiveGroupApi_comSendSignalSymbolName_feature", "_UI_IocReceiveGroupApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_RECEIVE_GROUP_API__COM_SEND_SIGNAL_SYMBOL_NAME,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class IocReceiveGroupApiItemProvider extends IocReceiveApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocReceiveGroupApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocReceiveGroupApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class IocReceiveGroupApiItemProvider extends IocReceiveApiItemProvider {
 	public String getText(Object object) {
 		String label = ((IocReceiveGroupApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocReceiveGroupApi_type") :
-			getString("_UI_IocReceiveGroupApi_type") + " " + label;
+			getString("_UI_IocReceiveGroupApi_type") : //$NON-NLS-1$
+			getString("_UI_IocReceiveGroupApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

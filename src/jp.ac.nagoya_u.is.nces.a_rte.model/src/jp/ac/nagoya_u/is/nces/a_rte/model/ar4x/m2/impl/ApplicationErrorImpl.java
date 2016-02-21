@@ -159,7 +159,7 @@ public class ApplicationErrorImpl extends IdentifiableImpl implements Applicatio
 	public void setParent(ClientServerInterface newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.APPLICATION_ERROR__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -294,7 +294,7 @@ public class ApplicationErrorImpl extends IdentifiableImpl implements Applicatio
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (errorCode: ");
+		result.append(" (errorCode: "); //$NON-NLS-1$
 		result.append(errorCode);
 		result.append(')');
 		return result.toString();

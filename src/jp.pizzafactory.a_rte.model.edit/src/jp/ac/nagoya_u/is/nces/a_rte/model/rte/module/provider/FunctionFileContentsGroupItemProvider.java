@@ -60,8 +60,8 @@ public class FunctionFileContentsGroupItemProvider extends ModuleObjectItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionFileContentsGroup_memoryMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionFileContentsGroup_memoryMapping_feature", "_UI_FunctionFileContentsGroup_type"),
+				 getString("_UI_FunctionFileContentsGroup_memoryMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionFileContentsGroup_memoryMapping_feature", "_UI_FunctionFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION_FILE_CONTENTS_GROUP__MEMORY_MAPPING,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class FunctionFileContentsGroupItemProvider extends ModuleObjectItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FunctionFileContentsGroup_function_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionFileContentsGroup_function_feature", "_UI_FunctionFileContentsGroup_type"),
+				 getString("_UI_FunctionFileContentsGroup_function_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_FunctionFileContentsGroup_function_feature", "_UI_FunctionFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FUNCTION_FILE_CONTENTS_GROUP__FUNCTION,
 				 true,
 				 false,
@@ -103,8 +103,8 @@ public class FunctionFileContentsGroupItemProvider extends ModuleObjectItemProvi
 	public String getText(Object object) {
 		String label = ((FunctionFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_FunctionFileContentsGroup_type") :
-			getString("_UI_FunctionFileContentsGroup_type") + " " + label;
+			getString("_UI_FunctionFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_FunctionFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

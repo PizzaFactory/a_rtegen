@@ -51,7 +51,7 @@ public class DataMappingItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataMapping_type");
+		return getString("_UI_DataMapping_type"); //$NON-NLS-1$
 	}
 	
 

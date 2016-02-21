@@ -61,8 +61,8 @@ public class BswTimingEventItemProvider extends BswEventItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswTimingEvent_period_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswTimingEvent_period_feature", "_UI_BswTimingEvent_type"),
+				 getString("_UI_BswTimingEvent_period_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswTimingEvent_period_feature", "_UI_BswTimingEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_TIMING_EVENT__PERIOD,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class BswTimingEventItemProvider extends BswEventItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswTimingEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswTimingEvent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class BswTimingEventItemProvider extends BswEventItemProvider {
 	public String getText(Object object) {
 		String label = ((BswTimingEvent)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswTimingEvent_type") :
-			getString("_UI_BswTimingEvent_type") + " " + label;
+			getString("_UI_BswTimingEvent_type") : //$NON-NLS-1$
+			getString("_UI_BswTimingEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

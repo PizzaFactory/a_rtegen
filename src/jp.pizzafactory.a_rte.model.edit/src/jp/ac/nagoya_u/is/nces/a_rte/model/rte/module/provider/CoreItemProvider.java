@@ -65,8 +65,8 @@ public class CoreItemProvider extends LogicalCompartmentItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Core_coreId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Core_coreId_feature", "_UI_Core_type"),
+				 getString("_UI_Core_coreId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Core_coreId_feature", "_UI_Core_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CORE__CORE_ID,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class CoreItemProvider extends LogicalCompartmentItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Core_isMasterCore_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Core_isMasterCore_feature", "_UI_Core_type"),
+				 getString("_UI_Core_isMasterCore_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Core_isMasterCore_feature", "_UI_Core_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.CORE__IS_MASTER_CORE,
 				 true,
 				 false,
@@ -138,7 +138,7 @@ public class CoreItemProvider extends LogicalCompartmentItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Core"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Core")); //$NON-NLS-1$
 	}
 
 	/**
@@ -151,8 +151,8 @@ public class CoreItemProvider extends LogicalCompartmentItemProvider {
 	public String getText(Object object) {
 		String label = ((Core)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Core_type") :
-			getString("_UI_Core_type") + " " + label;
+			getString("_UI_Core_type") : //$NON-NLS-1$
+			getString("_UI_Core_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

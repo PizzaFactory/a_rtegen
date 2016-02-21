@@ -59,8 +59,8 @@ public class EventItemProvider extends InteractionObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_startOnEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_startOnEvent_feature", "_UI_Event_type"),
+				 getString("_UI_Event_startOnEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_startOnEvent_feature", "_UI_Event_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EVENT__START_ON_EVENT,
 				 true,
 				 false,
@@ -81,8 +81,8 @@ public class EventItemProvider extends InteractionObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Event_sourceBswEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Event_sourceBswEvent_feature", "_UI_Event_type"),
+				 getString("_UI_Event_sourceBswEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Event_sourceBswEvent_feature", "_UI_Event_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EVENT__SOURCE_BSW_EVENT,
 				 true,
 				 false,
@@ -100,7 +100,7 @@ public class EventItemProvider extends InteractionObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Event")); //$NON-NLS-1$
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class EventItemProvider extends InteractionObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Event_type");
+		return getString("_UI_Event_type"); //$NON-NLS-1$
 	}
 	
 

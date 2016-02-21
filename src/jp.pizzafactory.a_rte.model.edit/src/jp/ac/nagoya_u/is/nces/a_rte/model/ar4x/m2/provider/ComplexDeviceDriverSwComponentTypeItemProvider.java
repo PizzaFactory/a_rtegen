@@ -53,7 +53,7 @@ public class ComplexDeviceDriverSwComponentTypeItemProvider extends AtomicSwComp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexDeviceDriverSwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComplexDeviceDriverSwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComplexDeviceDriverSwComponentTypeItemProvider extends AtomicSwComp
 	public String getText(Object object) {
 		String label = ((ComplexDeviceDriverSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComplexDeviceDriverSwComponentType_type") :
-			getString("_UI_ComplexDeviceDriverSwComponentType_type") + " " + label;
+			getString("_UI_ComplexDeviceDriverSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_ComplexDeviceDriverSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -53,7 +53,7 @@ public class SwcMemoryMappingItemProvider extends MemoryMappingItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcMemoryMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcMemoryMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SwcMemoryMappingItemProvider extends MemoryMappingItemProvider {
 	public String getText(Object object) {
 		String label = ((SwcMemoryMapping)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwcMemoryMapping_type") :
-			getString("_UI_SwcMemoryMapping_type") + " " + label;
+			getString("_UI_SwcMemoryMapping_type") : //$NON-NLS-1$
+			getString("_UI_SwcMemoryMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

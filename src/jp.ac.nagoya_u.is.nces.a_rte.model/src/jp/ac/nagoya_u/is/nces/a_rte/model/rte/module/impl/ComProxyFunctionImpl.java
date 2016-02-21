@@ -243,7 +243,7 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	public void setParent(Partition newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.COM_PROXY_FUNCTION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -554,17 +554,17 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (iocReceiveSymbolName: ");
+		result.append(" (iocReceiveSymbolName: "); //$NON-NLS-1$
 		result.append(iocReceiveSymbolName);
-		result.append(", signalGroupSymbolName: ");
+		result.append(", signalGroupSymbolName: "); //$NON-NLS-1$
 		result.append(signalGroupSymbolName);
-		result.append(", bufferComProxySymbolName: ");
+		result.append(", bufferComProxySymbolName: "); //$NON-NLS-1$
 		result.append(bufferComProxySymbolName);
-		result.append(", bufferComMetaComplexDataSymbolName: ");
+		result.append(", bufferComMetaComplexDataSymbolName: "); //$NON-NLS-1$
 		result.append(bufferComMetaComplexDataSymbolName);
-		result.append(", proxyDataTypeName: ");
+		result.append(", proxyDataTypeName: "); //$NON-NLS-1$
 		result.append(proxyDataTypeName);
-		result.append(", isGroup: ");
+		result.append(", isGroup: "); //$NON-NLS-1$
 		result.append(isGroup);
 		result.append(')');
 		return result.toString();

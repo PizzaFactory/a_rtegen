@@ -255,7 +255,7 @@ public abstract class FileImpl extends ModuleReferrableImpl implements File {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (fileName: ");
+		result.append(" (fileName: "); //$NON-NLS-1$
 		result.append(fileName);
 		result.append(')');
 		return result.toString();

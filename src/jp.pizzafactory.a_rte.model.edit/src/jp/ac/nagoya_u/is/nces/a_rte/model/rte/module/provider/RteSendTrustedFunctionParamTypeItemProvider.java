@@ -53,7 +53,7 @@ public class RteSendTrustedFunctionParamTypeItemProvider extends TypeItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSendTrustedFunctionParamType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSendTrustedFunctionParamType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RteSendTrustedFunctionParamTypeItemProvider extends TypeItemProvide
 	public String getText(Object object) {
 		String label = ((RteSendTrustedFunctionParamType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteSendTrustedFunctionParamType_type") :
-			getString("_UI_RteSendTrustedFunctionParamType_type") + " " + label;
+			getString("_UI_RteSendTrustedFunctionParamType_type") : //$NON-NLS-1$
+			getString("_UI_RteSendTrustedFunctionParamType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -298,11 +298,11 @@ public class ParameterImpl extends VariableImpl implements Parameter {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (passType: ");
+		result.append(" (passType: "); //$NON-NLS-1$
 		result.append(passType);
-		result.append(", direction: ");
+		result.append(", direction: "); //$NON-NLS-1$
 		result.append(direction);
-		result.append(", hasConst: ");
+		result.append(", hasConst: "); //$NON-NLS-1$
 		result.append(hasConst);
 		result.append(')');
 		return result.toString();

@@ -61,8 +61,8 @@ public class IocApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocApi_mappingName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocApi_mappingName_feature", "_UI_IocApi_type"),
+				 getString("_UI_IocApi_mappingName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocApi_mappingName_feature", "_UI_IocApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_API__MAPPING_NAME,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class IocApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((IocApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocApi_type") :
-			getString("_UI_IocApi_type") + " " + label;
+			getString("_UI_IocApi_type") : //$NON-NLS-1$
+			getString("_UI_IocApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

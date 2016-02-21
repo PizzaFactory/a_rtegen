@@ -61,8 +61,8 @@ public class SwComponentInstanceInSystemItemProvider extends InstanceReferrableI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwComponentInstanceInSystem_contextRootComposition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_contextRootComposition_feature", "_UI_SwComponentInstanceInSystem_type"),
+				 getString("_UI_SwComponentInstanceInSystem_contextRootComposition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_contextRootComposition_feature", "_UI_SwComponentInstanceInSystem_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM__CONTEXT_ROOT_COMPOSITION,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class SwComponentInstanceInSystemItemProvider extends InstanceReferrableI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwComponentInstanceInSystem_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_prototype_feature", "_UI_SwComponentInstanceInSystem_type"),
+				 getString("_UI_SwComponentInstanceInSystem_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_prototype_feature", "_UI_SwComponentInstanceInSystem_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM__PROTOTYPE,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class SwComponentInstanceInSystemItemProvider extends InstanceReferrableI
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwComponentInstanceInSystem_ownerPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_ownerPartition_feature", "_UI_SwComponentInstanceInSystem_type"),
+				 getString("_UI_SwComponentInstanceInSystem_ownerPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentInstanceInSystem_ownerPartition_feature", "_UI_SwComponentInstanceInSystem_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.SW_COMPONENT_INSTANCE_IN_SYSTEM__OWNER_PARTITION,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class SwComponentInstanceInSystemItemProvider extends InstanceReferrableI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwComponentInstanceInSystem"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwComponentInstanceInSystem")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class SwComponentInstanceInSystemItemProvider extends InstanceReferrableI
 	public String getText(Object object) {
 		String label = ((SwComponentInstanceInSystem)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwComponentInstanceInSystem_type") :
-			getString("_UI_SwComponentInstanceInSystem_type") + " " + label;
+			getString("_UI_SwComponentInstanceInSystem_type") : //$NON-NLS-1$
+			getString("_UI_SwComponentInstanceInSystem_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

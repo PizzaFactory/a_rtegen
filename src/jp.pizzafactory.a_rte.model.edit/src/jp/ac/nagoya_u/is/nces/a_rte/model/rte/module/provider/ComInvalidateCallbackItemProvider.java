@@ -63,8 +63,8 @@ public class ComInvalidateCallbackItemProvider extends ComCallbackItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComInvalidateCallback_filterResultVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComInvalidateCallback_filterResultVariable_feature", "_UI_ComInvalidateCallback_type"),
+				 getString("_UI_ComInvalidateCallback_filterResultVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComInvalidateCallback_filterResultVariable_feature", "_UI_ComInvalidateCallback_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_INVALIDATE_CALLBACK__FILTER_RESULT_VARIABLE,
 				 true,
 				 false,
@@ -112,7 +112,7 @@ public class ComInvalidateCallbackItemProvider extends ComCallbackItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComInvalidateCallback"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComInvalidateCallback")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,8 +125,8 @@ public class ComInvalidateCallbackItemProvider extends ComCallbackItemProvider {
 	public String getText(Object object) {
 		String label = ((ComInvalidateCallback)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComInvalidateCallback_type") :
-			getString("_UI_ComInvalidateCallback_type") + " " + label;
+			getString("_UI_ComInvalidateCallback_type") : //$NON-NLS-1$
+			getString("_UI_ComInvalidateCallback_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

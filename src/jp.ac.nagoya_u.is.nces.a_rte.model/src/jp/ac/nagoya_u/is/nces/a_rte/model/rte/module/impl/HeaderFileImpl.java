@@ -230,7 +230,7 @@ public abstract class HeaderFileImpl extends FileImpl implements HeaderFile {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (guardName: ");
+		result.append(" (guardName: "); //$NON-NLS-1$
 		result.append(guardName);
 		result.append(')');
 		return result.toString();

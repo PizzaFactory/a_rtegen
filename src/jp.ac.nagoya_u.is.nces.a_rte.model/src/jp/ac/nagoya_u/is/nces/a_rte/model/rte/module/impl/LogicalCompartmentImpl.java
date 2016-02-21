@@ -192,7 +192,7 @@ public abstract class LogicalCompartmentImpl extends ModuleReferrableImpl implem
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (compartmentName: ");
+		result.append(" (compartmentName: "); //$NON-NLS-1$
 		result.append(compartmentName);
 		result.append(')');
 		return result.toString();

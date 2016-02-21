@@ -58,8 +58,8 @@ public class ReceiverComSpecItemProvider extends RPortComSpecItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReceiverComSpec_dataElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiverComSpec_dataElement_feature", "_UI_ReceiverComSpec_type"),
+				 getString("_UI_ReceiverComSpec_dataElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReceiverComSpec_dataElement_feature", "_UI_ReceiverComSpec_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.RECEIVER_COM_SPEC__DATA_ELEMENT,
 				 true,
 				 false,
@@ -77,7 +77,7 @@ public class ReceiverComSpecItemProvider extends RPortComSpecItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ReceiverComSpec_type");
+		return getString("_UI_ReceiverComSpec_type"); //$NON-NLS-1$
 	}
 	
 

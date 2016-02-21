@@ -66,8 +66,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_initValueConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initValueConstant_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_initValueConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initValueConstant_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__INIT_VALUE_CONSTANT,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_memoryMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_memoryMapping_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_memoryMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_memoryMapping_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__MEMORY_MAPPING,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_initAtDefinition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initAtDefinition_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_initAtDefinition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initAtDefinition_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__INIT_AT_DEFINITION,
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_initWithConstantValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initWithConstantValue_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_initWithConstantValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_initWithConstantValue_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__INIT_WITH_CONSTANT_VALUE,
 				 true,
 				 false,
@@ -154,8 +154,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_hasConst_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_hasConst_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_hasConst_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_hasConst_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__HAS_CONST,
 				 true,
 				 false,
@@ -176,8 +176,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariable_hasStatic_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_hasStatic_feature", "_UI_GlobalVariable_type"),
+				 getString("_UI_GlobalVariable_hasStatic_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariable_hasStatic_feature", "_UI_GlobalVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE__HAS_STATIC,
 				 true,
 				 false,
@@ -195,7 +195,7 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class GlobalVariableItemProvider extends VariableItemProvider {
 	public String getText(Object object) {
 		String label = ((GlobalVariable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GlobalVariable_type") :
-			getString("_UI_GlobalVariable_type") + " " + label;
+			getString("_UI_GlobalVariable_type") : //$NON-NLS-1$
+			getString("_UI_GlobalVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -58,8 +58,8 @@ public class SenderComSpecItemProvider extends PPortComSpecItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderComSpec_dataElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderComSpec_dataElement_feature", "_UI_SenderComSpec_type"),
+				 getString("_UI_SenderComSpec_dataElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderComSpec_dataElement_feature", "_UI_SenderComSpec_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_COM_SPEC__DATA_ELEMENT,
 				 true,
 				 false,
@@ -77,7 +77,7 @@ public class SenderComSpecItemProvider extends PPortComSpecItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderComSpec_type");
+		return getString("_UI_SenderComSpec_type"); //$NON-NLS-1$
 	}
 	
 

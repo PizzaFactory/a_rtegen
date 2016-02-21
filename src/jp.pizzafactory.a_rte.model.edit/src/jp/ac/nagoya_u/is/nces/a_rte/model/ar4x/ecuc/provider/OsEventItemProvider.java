@@ -61,8 +61,8 @@ public class OsEventItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEvent_osEventMask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEvent_osEventMask_feature", "_UI_OsEvent_type"),
+				 getString("_UI_OsEvent_osEventMask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEvent_osEventMask_feature", "_UI_OsEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_EVENT__OS_EVENT_MASK,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class OsEventItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEvent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class OsEventItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsEvent)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsEvent_type") :
-			getString("_UI_OsEvent_type") + " " + label;
+			getString("_UI_OsEvent_type") : //$NON-NLS-1$
+			getString("_UI_OsEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

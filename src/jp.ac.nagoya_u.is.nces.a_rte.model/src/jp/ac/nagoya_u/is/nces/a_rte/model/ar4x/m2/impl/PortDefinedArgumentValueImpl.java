@@ -222,7 +222,7 @@ public class PortDefinedArgumentValueImpl extends M2ObjectImpl implements PortDe
 	public void setParent(PortApiOption newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.PORT_DEFINED_ARGUMENT_VALUE__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

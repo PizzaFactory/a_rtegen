@@ -263,7 +263,7 @@ public class RteTypeHeaderImpl extends HeaderFileImpl implements RteTypeHeader {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (providesSignalGroupTransmission: ");
+		result.append(" (providesSignalGroupTransmission: "); //$NON-NLS-1$
 		result.append(providesSignalGroupTransmission);
 		result.append(')');
 		return result.toString();

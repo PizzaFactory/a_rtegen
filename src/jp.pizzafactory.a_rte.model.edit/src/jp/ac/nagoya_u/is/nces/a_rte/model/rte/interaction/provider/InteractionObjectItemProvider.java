@@ -68,7 +68,7 @@ public class InteractionObjectItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionObject"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InteractionObject")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class InteractionObjectItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InteractionObject_type");
+		return getString("_UI_InteractionObject_type"); //$NON-NLS-1$
 	}
 	
 

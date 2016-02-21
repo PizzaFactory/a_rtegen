@@ -53,7 +53,7 @@ public class NoneExcludeOperationItemProvider extends ExcludeOperationItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoneExcludeOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NoneExcludeOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class NoneExcludeOperationItemProvider extends ExcludeOperationItemProvid
 	public String getText(Object object) {
 		String label = ((NoneExcludeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NoneExcludeOperation_type") :
-			getString("_UI_NoneExcludeOperation_type") + " " + label;
+			getString("_UI_NoneExcludeOperation_type") : //$NON-NLS-1$
+			getString("_UI_NoneExcludeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

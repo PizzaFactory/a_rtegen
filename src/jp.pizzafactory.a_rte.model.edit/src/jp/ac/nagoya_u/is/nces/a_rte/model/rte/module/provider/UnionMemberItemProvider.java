@@ -62,8 +62,8 @@ public class UnionMemberItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_UnionMember_memberName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_UnionMember_memberName_feature", "_UI_UnionMember_type"),
+				 getString("_UI_UnionMember_memberName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_UnionMember_memberName_feature", "_UI_UnionMember_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.UNION_MEMBER__MEMBER_NAME,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class UnionMemberItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_UnionMember_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_UnionMember_type_feature", "_UI_UnionMember_type"),
+				 getString("_UI_UnionMember_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_UnionMember_type_feature", "_UI_UnionMember_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.UNION_MEMBER__TYPE,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class UnionMemberItemProvider extends ModuleObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnionMember"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/UnionMember")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class UnionMemberItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((UnionMember)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_UnionMember_type") :
-			getString("_UI_UnionMember_type") + " " + label;
+			getString("_UI_UnionMember_type") : //$NON-NLS-1$
+			getString("_UI_UnionMember_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

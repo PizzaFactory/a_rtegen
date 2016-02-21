@@ -300,7 +300,7 @@ public class InvalidationPolicyImpl extends M2ObjectImpl implements Invalidation
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (handleInvalid: ");
+		result.append(" (handleInvalid: "); //$NON-NLS-1$
 		result.append(handleInvalid);
 		result.append(')');
 		return result.toString();

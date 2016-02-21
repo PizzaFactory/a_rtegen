@@ -60,8 +60,8 @@ public class SwComponentPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwComponentPrototype_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentPrototype_type_feature", "_UI_SwComponentPrototype_type"),
+				 getString("_UI_SwComponentPrototype_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentPrototype_type_feature", "_UI_SwComponentPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_COMPONENT_PROTOTYPE__TYPE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class SwComponentPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwComponentPrototype_instance_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentPrototype_instance_feature", "_UI_SwComponentPrototype_type"),
+				 getString("_UI_SwComponentPrototype_instance_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwComponentPrototype_instance_feature", "_UI_SwComponentPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_COMPONENT_PROTOTYPE__INSTANCE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class SwComponentPrototypeItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwComponentPrototype"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwComponentPrototype")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class SwComponentPrototypeItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((SwComponentPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwComponentPrototype_type") :
-			getString("_UI_SwComponentPrototype_type") + " " + label;
+			getString("_UI_SwComponentPrototype_type") : //$NON-NLS-1$
+			getString("_UI_SwComponentPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

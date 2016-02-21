@@ -59,8 +59,8 @@ public class BswSchedulableEntityItemProvider extends BswModuleEntityItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswSchedulableEntity_event_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswSchedulableEntity_event_feature", "_UI_BswSchedulableEntity_type"),
+				 getString("_UI_BswSchedulableEntity_event_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswSchedulableEntity_event_feature", "_UI_BswSchedulableEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_SCHEDULABLE_ENTITY__EVENT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class BswSchedulableEntityItemProvider extends BswModuleEntityItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class BswSchedulableEntityItemProvider extends BswModuleEntityItemProvide
 	public String getText(Object object) {
 		String label = ((BswSchedulableEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswSchedulableEntity_type") :
-			getString("_UI_BswSchedulableEntity_type") + " " + label;
+			getString("_UI_BswSchedulableEntity_type") : //$NON-NLS-1$
+			getString("_UI_BswSchedulableEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -138,7 +138,7 @@ public class BswSchedulableEntityItemProvider extends BswModuleEntityItemProvide
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

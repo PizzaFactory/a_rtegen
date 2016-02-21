@@ -59,8 +59,8 @@ public class RteApplicationTypeHeaderItemProvider extends HeaderFileItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApplicationTypeHeader_constant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationTypeHeader_constant_feature", "_UI_RteApplicationTypeHeader_type"),
+				 getString("_UI_RteApplicationTypeHeader_constant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApplicationTypeHeader_constant_feature", "_UI_RteApplicationTypeHeader_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_APPLICATION_TYPE_HEADER__CONSTANT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RteApplicationTypeHeaderItemProvider extends HeaderFileItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApplicationTypeHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteApplicationTypeHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RteApplicationTypeHeaderItemProvider extends HeaderFileItemProvider
 	public String getText(Object object) {
 		String label = ((RteApplicationTypeHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteApplicationTypeHeader_type") :
-			getString("_UI_RteApplicationTypeHeader_type") + " " + label;
+			getString("_UI_RteApplicationTypeHeader_type") : //$NON-NLS-1$
+			getString("_UI_RteApplicationTypeHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

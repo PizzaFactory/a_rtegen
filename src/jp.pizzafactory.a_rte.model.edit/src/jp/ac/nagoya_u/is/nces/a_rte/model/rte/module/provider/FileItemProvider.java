@@ -62,8 +62,8 @@ public class FileItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_File_fileName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_File_fileName_feature", "_UI_File_type"),
+				 getString("_UI_File_fileName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_File_fileName_feature", "_UI_File_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FILE__FILE_NAME,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class FileItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_File_generationInfo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_File_generationInfo_feature", "_UI_File_type"),
+				 getString("_UI_File_generationInfo_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_File_generationInfo_feature", "_UI_File_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.FILE__GENERATION_INFO,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class FileItemProvider extends ModuleReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((File)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_File_type") :
-			getString("_UI_File_type") + " " + label;
+			getString("_UI_File_type") : //$NON-NLS-1$
+			getString("_UI_File_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

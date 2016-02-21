@@ -363,9 +363,9 @@ public class RteUsedOsActivationImpl extends EcucContainerImpl implements RteUse
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteExpectedTickDuration: ");
+		result.append(" (rteExpectedTickDuration: "); //$NON-NLS-1$
 		result.append(rteExpectedTickDuration);
-		result.append(", rteExpectedActivationOffset: ");
+		result.append(", rteExpectedActivationOffset: "); //$NON-NLS-1$
 		result.append(rteExpectedActivationOffset);
 		result.append(')');
 		return result.toString();

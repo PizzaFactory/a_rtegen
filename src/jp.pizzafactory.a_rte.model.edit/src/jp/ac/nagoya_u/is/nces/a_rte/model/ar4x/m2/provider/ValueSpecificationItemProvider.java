@@ -51,7 +51,7 @@ public class ValueSpecificationItemProvider extends M2ObjectItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ValueSpecification_type");
+		return getString("_UI_ValueSpecification_type"); //$NON-NLS-1$
 	}
 	
 

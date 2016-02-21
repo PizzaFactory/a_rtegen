@@ -53,7 +53,7 @@ public class RunnableEntityStartInteractionItemProvider extends EntityStartInter
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RunnableEntityStartInteraction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RunnableEntityStartInteraction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RunnableEntityStartInteractionItemProvider extends EntityStartInter
 	public String getText(Object object) {
 		String label = ((RunnableEntityStartInteraction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RunnableEntityStartInteraction_type") :
-			getString("_UI_RunnableEntityStartInteraction_type") + " " + label;
+			getString("_UI_RunnableEntityStartInteraction_type") : //$NON-NLS-1$
+			getString("_UI_RunnableEntityStartInteraction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

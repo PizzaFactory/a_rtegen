@@ -55,8 +55,8 @@ public class ComCallbackItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((ComCallback)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComCallback_type") :
-			getString("_UI_ComCallback_type") + " " + label;
+			getString("_UI_ComCallback_type") : //$NON-NLS-1$
+			getString("_UI_ComCallback_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

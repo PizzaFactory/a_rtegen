@@ -308,9 +308,9 @@ public class OsIocDataPropertiesImpl extends EcucContainerImpl implements OsIocD
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osIocDataPropertyIndex: ");
+		result.append(" (osIocDataPropertyIndex: "); //$NON-NLS-1$
 		result.append(osIocDataPropertyIndex);
-		result.append(", osIocInitValue: ");
+		result.append(", osIocInitValue: "); //$NON-NLS-1$
 		result.append(osIocInitValue);
 		result.append(')');
 		return result.toString();

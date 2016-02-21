@@ -273,7 +273,7 @@ public class SwPointerTargetPropsImpl extends M2ObjectImpl implements SwPointerT
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (targetCategory: ");
+		result.append(" (targetCategory: "); //$NON-NLS-1$
 		result.append(targetCategory);
 		result.append(')');
 		return result.toString();

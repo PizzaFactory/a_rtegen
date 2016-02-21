@@ -63,8 +63,8 @@ public class OsIocDataPropertiesItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocDataProperties_osIocDataPropertyIndex_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocDataPropertyIndex_feature", "_UI_OsIocDataProperties_type"),
+				 getString("_UI_OsIocDataProperties_osIocDataPropertyIndex_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocDataPropertyIndex_feature", "_UI_OsIocDataProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_DATA_PROPERTIES__OS_IOC_DATA_PROPERTY_INDEX,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class OsIocDataPropertiesItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocDataProperties_osIocInitValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocInitValue_feature", "_UI_OsIocDataProperties_type"),
+				 getString("_UI_OsIocDataProperties_osIocInitValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocInitValue_feature", "_UI_OsIocDataProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_DATA_PROPERTIES__OS_IOC_INIT_VALUE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class OsIocDataPropertiesItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocDataProperties_osIocDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocDataType_feature", "_UI_OsIocDataProperties_type"),
+				 getString("_UI_OsIocDataProperties_osIocDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocDataProperties_osIocDataType_feature", "_UI_OsIocDataProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_DATA_PROPERTIES__OS_IOC_DATA_TYPE,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class OsIocDataPropertiesItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocDataProperties"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocDataProperties")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class OsIocDataPropertiesItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsIocDataProperties)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsIocDataProperties_type") :
-			getString("_UI_OsIocDataProperties_type") + " " + label;
+			getString("_UI_OsIocDataProperties_type") : //$NON-NLS-1$
+			getString("_UI_OsIocDataProperties_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

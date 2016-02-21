@@ -65,8 +65,8 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InternalBehavior_dataTypeMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InternalBehavior_dataTypeMapping_feature", "_UI_InternalBehavior_type"),
+				 getString("_UI_InternalBehavior_dataTypeMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalBehavior_dataTypeMapping_feature", "_UI_InternalBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswInternalBehavior_implementation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswInternalBehavior_implementation_feature", "_UI_BswInternalBehavior_type"),
+				 getString("_UI_BswInternalBehavior_implementation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswInternalBehavior_implementation_feature", "_UI_BswInternalBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_INTERNAL_BEHAVIOR__IMPLEMENTATION,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswInternalBehavior_bswSchedulableEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswInternalBehavior_bswSchedulableEntity_feature", "_UI_BswInternalBehavior_type"),
+				 getString("_UI_BswInternalBehavior_bswSchedulableEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswInternalBehavior_bswSchedulableEntity_feature", "_UI_BswInternalBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_INTERNAL_BEHAVIOR__BSW_SCHEDULABLE_ENTITY,
 				 false,
 				 false,
@@ -161,7 +161,7 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswInternalBehavior"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswInternalBehavior")); //$NON-NLS-1$
 	}
 
 	/**
@@ -174,8 +174,8 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((BswInternalBehavior)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswInternalBehavior_type") :
-			getString("_UI_BswInternalBehavior_type") + " " + label;
+			getString("_UI_BswInternalBehavior_type") : //$NON-NLS-1$
+			getString("_UI_BswInternalBehavior_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

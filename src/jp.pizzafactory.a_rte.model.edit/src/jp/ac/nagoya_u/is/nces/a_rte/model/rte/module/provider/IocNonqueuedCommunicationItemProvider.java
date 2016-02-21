@@ -63,8 +63,8 @@ public class IocNonqueuedCommunicationItemProvider extends IocCommunicationItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocNonqueuedCommunication_initValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocNonqueuedCommunication_initValue_feature", "_UI_IocNonqueuedCommunication_type"),
+				 getString("_UI_IocNonqueuedCommunication_initValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocNonqueuedCommunication_initValue_feature", "_UI_IocNonqueuedCommunication_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_NONQUEUED_COMMUNICATION__INIT_VALUE,
 				 true,
 				 false,
@@ -114,7 +114,7 @@ public class IocNonqueuedCommunicationItemProvider extends IocCommunicationItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocNonqueuedCommunication"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocNonqueuedCommunication")); //$NON-NLS-1$
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class IocNonqueuedCommunicationItemProvider extends IocCommunicationItemP
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_IocNonqueuedCommunication_type");
+		return getString("_UI_IocNonqueuedCommunication_type"); //$NON-NLS-1$
 	}
 	
 

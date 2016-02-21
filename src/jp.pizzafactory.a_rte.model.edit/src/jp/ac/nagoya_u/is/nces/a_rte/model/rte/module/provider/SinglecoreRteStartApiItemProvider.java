@@ -88,7 +88,7 @@ public class SinglecoreRteStartApiItemProvider extends RteStartApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SinglecoreRteStartApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SinglecoreRteStartApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class SinglecoreRteStartApiItemProvider extends RteStartApiItemProvider {
 	public String getText(Object object) {
 		String label = ((SinglecoreRteStartApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SinglecoreRteStartApi_type") :
-			getString("_UI_SinglecoreRteStartApi_type") + " " + label;
+			getString("_UI_SinglecoreRteStartApi_type") : //$NON-NLS-1$
+			getString("_UI_SinglecoreRteStartApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

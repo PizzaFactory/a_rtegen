@@ -63,8 +63,8 @@ public class VariableInAtomicSwcInstanceRefItemProvider extends M2ObjectItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IInstanceRef_instanceRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"),
+				 getString("_UI_IInstanceRef_instanceRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IInstanceRef_instanceRef_feature", "_UI_IInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IINSTANCE_REF__INSTANCE_REF,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class VariableInAtomicSwcInstanceRefItemProvider extends M2ObjectItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableInAtomicSwcInstanceRef_portPrototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableInAtomicSwcInstanceRef_portPrototype_feature", "_UI_VariableInAtomicSwcInstanceRef_type"),
+				 getString("_UI_VariableInAtomicSwcInstanceRef_portPrototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableInAtomicSwcInstanceRef_portPrototype_feature", "_UI_VariableInAtomicSwcInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__PORT_PROTOTYPE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class VariableInAtomicSwcInstanceRefItemProvider extends M2ObjectItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableInAtomicSwcInstanceRef_targetDataPrototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableInAtomicSwcInstanceRef_targetDataPrototype_feature", "_UI_VariableInAtomicSwcInstanceRef_type"),
+				 getString("_UI_VariableInAtomicSwcInstanceRef_targetDataPrototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableInAtomicSwcInstanceRef_targetDataPrototype_feature", "_UI_VariableInAtomicSwcInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__TARGET_DATA_PROTOTYPE,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class VariableInAtomicSwcInstanceRefItemProvider extends M2ObjectItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableInAtomicSwcInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableInAtomicSwcInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class VariableInAtomicSwcInstanceRefItemProvider extends M2ObjectItemProv
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VariableInAtomicSwcInstanceRef_type");
+		return getString("_UI_VariableInAtomicSwcInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

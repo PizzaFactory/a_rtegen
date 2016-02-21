@@ -75,8 +75,8 @@ public class VariableDataInstanceInCompositionExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_VariableDataInstanceInCompositionEx_valueSpecificationEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInCompositionEx_valueSpecificationEx_feature", "_UI_VariableDataInstanceInCompositionEx_type"),
+				 getString("_UI_VariableDataInstanceInCompositionEx_valueSpecificationEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableDataInstanceInCompositionEx_valueSpecificationEx_feature", "_UI_VariableDataInstanceInCompositionEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX__VALUE_SPECIFICATION_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class VariableDataInstanceInCompositionExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataInstanceInCompositionEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableDataInstanceInCompositionEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class VariableDataInstanceInCompositionExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_VariableDataInstanceInCompositionEx_type");
+		return getString("_UI_VariableDataInstanceInCompositionEx_type"); //$NON-NLS-1$
 	}
 	
 

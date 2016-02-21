@@ -336,7 +336,7 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 	public void setParent(Swc newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.RTE_API__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -557,11 +557,11 @@ public abstract class RteApiImpl extends FunctionImpl implements RteApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (apiMappingName: ");
+		result.append(" (apiMappingName: "); //$NON-NLS-1$
 		result.append(apiMappingName);
-		result.append(", isConnected: ");
+		result.append(", isConnected: "); //$NON-NLS-1$
 		result.append(isConnected);
-		result.append(", isInline: ");
+		result.append(", isInline: "); //$NON-NLS-1$
 		result.append(isInline);
 		result.append(')');
 		return result.toString();

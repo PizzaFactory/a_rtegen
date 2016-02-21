@@ -65,8 +65,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TfCallApi_csTfParamTypeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfParamTypeName_feature", "_UI_TfCallApi_type"),
+				 getString("_UI_TfCallApi_csTfParamTypeName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfParamTypeName_feature", "_UI_TfCallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TF_CALL_API__CS_TF_PARAM_TYPE_NAME,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TfCallApi_csTfArgcConstantName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfArgcConstantName_feature", "_UI_TfCallApi_type"),
+				 getString("_UI_TfCallApi_csTfArgcConstantName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfArgcConstantName_feature", "_UI_TfCallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TF_CALL_API__CS_TF_ARGC_CONSTANT_NAME,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TfCallApi_csTfOpidConstantName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfOpidConstantName_feature", "_UI_TfCallApi_type"),
+				 getString("_UI_TfCallApi_csTfOpidConstantName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfOpidConstantName_feature", "_UI_TfCallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TF_CALL_API__CS_TF_OPID_CONSTANT_NAME,
 				 true,
 				 false,
@@ -131,8 +131,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TfCallApi_csTfName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfName_feature", "_UI_TfCallApi_type"),
+				 getString("_UI_TfCallApi_csTfName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_csTfName_feature", "_UI_TfCallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TF_CALL_API__CS_TF_NAME,
 				 true,
 				 false,
@@ -153,8 +153,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TfCallApi_needsCheckArg_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_needsCheckArg_feature", "_UI_TfCallApi_type"),
+				 getString("_UI_TfCallApi_needsCheckArg_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TfCallApi_needsCheckArg_feature", "_UI_TfCallApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TF_CALL_API__NEEDS_CHECK_ARG,
 				 true,
 				 false,
@@ -172,7 +172,7 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TfCallApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TfCallApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -185,8 +185,8 @@ public class TfCallApiItemProvider extends CallApiItemProvider {
 	public String getText(Object object) {
 		String label = ((TfCallApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TfCallApi_type") :
-			getString("_UI_TfCallApi_type") + " " + label;
+			getString("_UI_TfCallApi_type") : //$NON-NLS-1$
+			getString("_UI_TfCallApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -59,8 +59,8 @@ public class TaskBodyFileContentsGroupItemProvider extends FunctionFileContentsG
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TaskBodyFileContentsGroup_taskBody_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TaskBodyFileContentsGroup_taskBody_feature", "_UI_TaskBodyFileContentsGroup_type"),
+				 getString("_UI_TaskBodyFileContentsGroup_taskBody_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TaskBodyFileContentsGroup_taskBody_feature", "_UI_TaskBodyFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TASK_BODY_FILE_CONTENTS_GROUP__TASK_BODY,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class TaskBodyFileContentsGroupItemProvider extends FunctionFileContentsG
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskBodyFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskBodyFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class TaskBodyFileContentsGroupItemProvider extends FunctionFileContentsG
 	public String getText(Object object) {
 		String label = ((TaskBodyFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TaskBodyFileContentsGroup_type") :
-			getString("_UI_TaskBodyFileContentsGroup_type") + " " + label;
+			getString("_UI_TaskBodyFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_TaskBodyFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -60,8 +60,8 @@ public class NewIsOutsideFilterOperationItemProvider extends FilterOperationItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NewIsOutsideFilterOperation_min_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NewIsOutsideFilterOperation_min_feature", "_UI_NewIsOutsideFilterOperation_type"),
+				 getString("_UI_NewIsOutsideFilterOperation_min_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NewIsOutsideFilterOperation_min_feature", "_UI_NewIsOutsideFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.NEW_IS_OUTSIDE_FILTER_OPERATION__MIN,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class NewIsOutsideFilterOperationItemProvider extends FilterOperationItem
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NewIsOutsideFilterOperation_max_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NewIsOutsideFilterOperation_max_feature", "_UI_NewIsOutsideFilterOperation_type"),
+				 getString("_UI_NewIsOutsideFilterOperation_max_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NewIsOutsideFilterOperation_max_feature", "_UI_NewIsOutsideFilterOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.NEW_IS_OUTSIDE_FILTER_OPERATION__MAX,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class NewIsOutsideFilterOperationItemProvider extends FilterOperationItem
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NewIsOutsideFilterOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NewIsOutsideFilterOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class NewIsOutsideFilterOperationItemProvider extends FilterOperationItem
 	public String getText(Object object) {
 		String label = ((NewIsOutsideFilterOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NewIsOutsideFilterOperation_type") :
-			getString("_UI_NewIsOutsideFilterOperation_type") + " " + label;
+			getString("_UI_NewIsOutsideFilterOperation_type") : //$NON-NLS-1$
+			getString("_UI_NewIsOutsideFilterOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

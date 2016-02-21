@@ -59,8 +59,8 @@ public class BswImplementationItemProvider extends ImplementationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswImplementation_behavior_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswImplementation_behavior_feature", "_UI_BswImplementation_type"),
+				 getString("_UI_BswImplementation_behavior_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswImplementation_behavior_feature", "_UI_BswImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_IMPLEMENTATION__BEHAVIOR,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class BswImplementationItemProvider extends ImplementationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class BswImplementationItemProvider extends ImplementationItemProvider {
 	public String getText(Object object) {
 		String label = ((BswImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswImplementation_type") :
-			getString("_UI_BswImplementation_type") + " " + label;
+			getString("_UI_BswImplementation_type") : //$NON-NLS-1$
+			getString("_UI_BswImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

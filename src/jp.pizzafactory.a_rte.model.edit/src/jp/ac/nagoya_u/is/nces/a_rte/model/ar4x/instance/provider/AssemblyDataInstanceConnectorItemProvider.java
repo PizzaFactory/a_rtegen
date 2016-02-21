@@ -76,8 +76,8 @@ public class AssemblyDataInstanceConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyDataInstanceConnector_provider_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnector_provider_feature", "_UI_AssemblyDataInstanceConnector_type"),
+				 getString("_UI_AssemblyDataInstanceConnector_provider_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnector_provider_feature", "_UI_AssemblyDataInstanceConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.ASSEMBLY_DATA_INSTANCE_CONNECTOR__PROVIDER,
 				 true,
 				 false,
@@ -98,8 +98,8 @@ public class AssemblyDataInstanceConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyDataInstanceConnector_requester_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnector_requester_feature", "_UI_AssemblyDataInstanceConnector_type"),
+				 getString("_UI_AssemblyDataInstanceConnector_requester_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnector_requester_feature", "_UI_AssemblyDataInstanceConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.ASSEMBLY_DATA_INSTANCE_CONNECTOR__REQUESTER,
 				 true,
 				 false,
@@ -117,7 +117,7 @@ public class AssemblyDataInstanceConnectorItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyDataInstanceConnector"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyDataInstanceConnector")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class AssemblyDataInstanceConnectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AssemblyDataInstanceConnector_type");
+		return getString("_UI_AssemblyDataInstanceConnector_type"); //$NON-NLS-1$
 	}
 	
 

@@ -64,8 +64,8 @@ public class AssemblySwConnectorItemProvider extends SwConnectorItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblySwConnector_requester_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblySwConnector_requester_feature", "_UI_AssemblySwConnector_type"),
+				 getString("_UI_AssemblySwConnector_requester_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblySwConnector_requester_feature", "_UI_AssemblySwConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ASSEMBLY_SW_CONNECTOR__REQUESTER,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class AssemblySwConnectorItemProvider extends SwConnectorItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblySwConnector_provider_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblySwConnector_provider_feature", "_UI_AssemblySwConnector_type"),
+				 getString("_UI_AssemblySwConnector_provider_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblySwConnector_provider_feature", "_UI_AssemblySwConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ASSEMBLY_SW_CONNECTOR__PROVIDER,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class AssemblySwConnectorItemProvider extends SwConnectorItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblySwConnector"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblySwConnector")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class AssemblySwConnectorItemProvider extends SwConnectorItemProvider {
 	public String getText(Object object) {
 		String label = ((AssemblySwConnector)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AssemblySwConnector_type") :
-			getString("_UI_AssemblySwConnector_type") + " " + label;
+			getString("_UI_AssemblySwConnector_type") : //$NON-NLS-1$
+			getString("_UI_AssemblySwConnector_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

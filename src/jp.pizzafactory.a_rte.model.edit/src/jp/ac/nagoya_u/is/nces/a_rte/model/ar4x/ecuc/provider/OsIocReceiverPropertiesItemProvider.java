@@ -59,8 +59,8 @@ public class OsIocReceiverPropertiesItemProvider extends EcucContainerItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocReceiverProperties_osIocReceivingOsApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocReceiverProperties_osIocReceivingOsApplication_feature", "_UI_OsIocReceiverProperties_type"),
+				 getString("_UI_OsIocReceiverProperties_osIocReceivingOsApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocReceiverProperties_osIocReceivingOsApplication_feature", "_UI_OsIocReceiverProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_RECEIVER_PROPERTIES__OS_IOC_RECEIVING_OS_APPLICATION,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class OsIocReceiverPropertiesItemProvider extends EcucContainerItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocReceiverProperties"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocReceiverProperties")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class OsIocReceiverPropertiesItemProvider extends EcucContainerItemProvid
 	public String getText(Object object) {
 		String label = ((OsIocReceiverProperties)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsIocReceiverProperties_type") :
-			getString("_UI_OsIocReceiverProperties_type") + " " + label;
+			getString("_UI_OsIocReceiverProperties_type") : //$NON-NLS-1$
+			getString("_UI_OsIocReceiverProperties_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

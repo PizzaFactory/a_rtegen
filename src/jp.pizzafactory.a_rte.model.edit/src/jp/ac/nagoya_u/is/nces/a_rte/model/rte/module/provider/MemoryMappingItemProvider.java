@@ -62,8 +62,8 @@ public class MemoryMappingItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MemoryMapping_prefix_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MemoryMapping_prefix_feature", "_UI_MemoryMapping_type"),
+				 getString("_UI_MemoryMapping_prefix_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MemoryMapping_prefix_feature", "_UI_MemoryMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MEMORY_MAPPING__PREFIX,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class MemoryMappingItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MemoryMapping_memorySectionSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MemoryMapping_memorySectionSymbolName_feature", "_UI_MemoryMapping_type"),
+				 getString("_UI_MemoryMapping_memorySectionSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_MemoryMapping_memorySectionSymbolName_feature", "_UI_MemoryMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class MemoryMappingItemProvider extends ModuleReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((MemoryMapping)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_MemoryMapping_type") :
-			getString("_UI_MemoryMapping_type") + " " + label;
+			getString("_UI_MemoryMapping_type") : //$NON-NLS-1$
+			getString("_UI_MemoryMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

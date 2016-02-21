@@ -233,9 +233,9 @@ public class RteInitializationBehaviorImpl extends EcucContainerImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteInitializationStrategy: ");
+		result.append(" (rteInitializationStrategy: "); //$NON-NLS-1$
 		result.append(rteInitializationStrategy);
-		result.append(", rteSectionInitializationPolicy: ");
+		result.append(", rteSectionInitializationPolicy: "); //$NON-NLS-1$
 		result.append(rteSectionInitializationPolicy);
 		result.append(')');
 		return result.toString();

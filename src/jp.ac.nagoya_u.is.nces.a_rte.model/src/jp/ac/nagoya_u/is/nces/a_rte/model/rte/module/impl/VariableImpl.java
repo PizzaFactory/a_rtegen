@@ -323,7 +323,7 @@ public abstract class VariableImpl extends ValueImpl implements Variable {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
 		result.append(')');
 		return result.toString();

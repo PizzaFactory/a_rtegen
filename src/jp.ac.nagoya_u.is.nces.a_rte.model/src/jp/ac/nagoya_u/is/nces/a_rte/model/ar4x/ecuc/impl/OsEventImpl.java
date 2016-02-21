@@ -194,7 +194,7 @@ public class OsEventImpl extends EcucContainerImpl implements OsEvent {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osEventMask: ");
+		result.append(" (osEventMask: "); //$NON-NLS-1$
 		result.append(osEventMask);
 		result.append(')');
 		return result.toString();

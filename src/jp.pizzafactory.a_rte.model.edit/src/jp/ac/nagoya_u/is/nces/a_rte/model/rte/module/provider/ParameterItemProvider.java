@@ -63,8 +63,8 @@ public class ParameterItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_passType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_passType_feature", "_UI_Parameter_type"),
+				 getString("_UI_Parameter_passType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_passType_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PARAMETER__PASS_TYPE,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ParameterItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_direction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_direction_feature", "_UI_Parameter_type"),
+				 getString("_UI_Parameter_direction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_direction_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PARAMETER__DIRECTION,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ParameterItemProvider extends VariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_hasConst_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_hasConst_feature", "_UI_Parameter_type"),
+				 getString("_UI_Parameter_hasConst_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_hasConst_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PARAMETER__HAS_CONST,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class ParameterItemProvider extends VariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class ParameterItemProvider extends VariableItemProvider {
 	public String getText(Object object) {
 		String label = ((Parameter)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Parameter_type") :
-			getString("_UI_Parameter_type") + " " + label;
+			getString("_UI_Parameter_type") : //$NON-NLS-1$
+			getString("_UI_Parameter_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -61,8 +61,8 @@ public class OsApplicationTrustedFunctionItemProvider extends EcucContainerItemP
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsApplicationTrustedFunction_osTrustedFunctionName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplicationTrustedFunction_osTrustedFunctionName_feature", "_UI_OsApplicationTrustedFunction_type"),
+				 getString("_UI_OsApplicationTrustedFunction_osTrustedFunctionName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsApplicationTrustedFunction_osTrustedFunctionName_feature", "_UI_OsApplicationTrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_APPLICATION_TRUSTED_FUNCTION__OS_TRUSTED_FUNCTION_NAME,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class OsApplicationTrustedFunctionItemProvider extends EcucContainerItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsApplicationTrustedFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsApplicationTrustedFunction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class OsApplicationTrustedFunctionItemProvider extends EcucContainerItemP
 	public String getText(Object object) {
 		String label = ((OsApplicationTrustedFunction)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsApplicationTrustedFunction_type") :
-			getString("_UI_OsApplicationTrustedFunction_type") + " " + label;
+			getString("_UI_OsApplicationTrustedFunction_type") : //$NON-NLS-1$
+			getString("_UI_OsApplicationTrustedFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

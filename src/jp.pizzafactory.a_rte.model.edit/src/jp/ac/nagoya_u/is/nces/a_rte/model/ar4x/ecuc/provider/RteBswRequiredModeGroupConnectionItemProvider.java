@@ -60,8 +60,8 @@ public class RteBswRequiredModeGroupConnectionItemProvider extends EcucContainer
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswRequiredModeGroupConnection_rteBswProvidedModeGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswRequiredModeGroupConnection_rteBswProvidedModeGroup_feature", "_UI_RteBswRequiredModeGroupConnection_type"),
+				 getString("_UI_RteBswRequiredModeGroupConnection_rteBswProvidedModeGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswRequiredModeGroupConnection_rteBswProvidedModeGroup_feature", "_UI_RteBswRequiredModeGroupConnection_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_PROVIDED_MODE_GROUP,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class RteBswRequiredModeGroupConnectionItemProvider extends EcucContainer
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswRequiredModeGroupConnection_rteBswRequiredModeGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswRequiredModeGroupConnection_rteBswRequiredModeGroup_feature", "_UI_RteBswRequiredModeGroupConnection_type"),
+				 getString("_UI_RteBswRequiredModeGroupConnection_rteBswRequiredModeGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswRequiredModeGroupConnection_rteBswRequiredModeGroup_feature", "_UI_RteBswRequiredModeGroupConnection_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class RteBswRequiredModeGroupConnectionItemProvider extends EcucContainer
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswRequiredModeGroupConnection"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswRequiredModeGroupConnection")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class RteBswRequiredModeGroupConnectionItemProvider extends EcucContainer
 	public String getText(Object object) {
 		String label = ((RteBswRequiredModeGroupConnection)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBswRequiredModeGroupConnection_type") :
-			getString("_UI_RteBswRequiredModeGroupConnection_type") + " " + label;
+			getString("_UI_RteBswRequiredModeGroupConnection_type") : //$NON-NLS-1$
+			getString("_UI_RteBswRequiredModeGroupConnection_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -66,8 +66,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswActivationOffset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswActivationOffset_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswActivationOffset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswActivationOffset_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_ACTIVATION_OFFSET,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswEvent_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswEvent_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_EVENT,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswPositionInTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswPositionInTask_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswPositionInTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswPositionInTask_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_POSITION_IN_TASK,
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswMappedToTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswMappedToTask_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswMappedToTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswMappedToTask_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_MAPPED_TO_TASK,
 				 true,
 				 false,
@@ -154,8 +154,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswUsedOsAlarm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswUsedOsAlarm_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswUsedOsAlarm_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswUsedOsAlarm_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_ALARM,
 				 true,
 				 false,
@@ -176,8 +176,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBswEventToTaskMapping_rteBswUsedOsEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswUsedOsEvent_feature", "_UI_RteBswEventToTaskMapping_type"),
+				 getString("_UI_RteBswEventToTaskMapping_rteBswUsedOsEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBswEventToTaskMapping_rteBswUsedOsEvent_feature", "_UI_RteBswEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_BSW_EVENT_TO_TASK_MAPPING__RTE_BSW_USED_OS_EVENT,
 				 true,
 				 false,
@@ -195,7 +195,7 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswEventToTaskMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBswEventToTaskMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class RteBswEventToTaskMappingItemProvider extends EcucContainerItemProvi
 	public String getText(Object object) {
 		String label = ((RteBswEventToTaskMapping)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBswEventToTaskMapping_type") :
-			getString("_UI_RteBswEventToTaskMapping_type") + " " + label;
+			getString("_UI_RteBswEventToTaskMapping_type") : //$NON-NLS-1$
+			getString("_UI_RteBswEventToTaskMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -65,8 +65,8 @@ public class ImplementationDataTypeItemProvider extends AutosarDataTypeItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplementationDataType_baseType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataType_baseType_feature", "_UI_ImplementationDataType_type"),
+				 getString("_UI_ImplementationDataType_baseType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataType_baseType_feature", "_UI_ImplementationDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IMPLEMENTATION_DATA_TYPE__BASE_TYPE,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class ImplementationDataTypeItemProvider extends AutosarDataTypeItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ImplementationDataType_swAlignment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataType_swAlignment_feature", "_UI_ImplementationDataType_type"),
+				 getString("_UI_ImplementationDataType_swAlignment_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationDataType_swAlignment_feature", "_UI_ImplementationDataType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.IMPLEMENTATION_DATA_TYPE__SW_ALIGNMENT,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class ImplementationDataTypeItemProvider extends AutosarDataTypeItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ImplementationDataType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class ImplementationDataTypeItemProvider extends AutosarDataTypeItemProvi
 	public String getText(Object object) {
 		String label = ((ImplementationDataType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ImplementationDataType_type") :
-			getString("_UI_ImplementationDataType_type") + " " + label;
+			getString("_UI_ImplementationDataType_type") : //$NON-NLS-1$
+			getString("_UI_ImplementationDataType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

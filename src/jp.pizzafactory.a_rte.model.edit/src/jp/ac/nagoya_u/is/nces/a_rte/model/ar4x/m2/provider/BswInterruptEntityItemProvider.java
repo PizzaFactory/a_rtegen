@@ -61,8 +61,8 @@ public class BswInterruptEntityItemProvider extends BswModuleEntityItemProvider 
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswInterruptEntity_interruptSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswInterruptEntity_interruptSource_feature", "_UI_BswInterruptEntity_type"),
+				 getString("_UI_BswInterruptEntity_interruptSource_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswInterruptEntity_interruptSource_feature", "_UI_BswInterruptEntity_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.BSW_INTERRUPT_ENTITY__INTERRUPT_SOURCE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class BswInterruptEntityItemProvider extends BswModuleEntityItemProvider 
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswInterruptEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswInterruptEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class BswInterruptEntityItemProvider extends BswModuleEntityItemProvider 
 	public String getText(Object object) {
 		String label = ((BswInterruptEntity)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BswInterruptEntity_type") :
-			getString("_UI_BswInterruptEntity_type") + " " + label;
+			getString("_UI_BswInterruptEntity_type") : //$NON-NLS-1$
+			getString("_UI_BswInterruptEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -146,7 +146,7 @@ public class BswInterruptEntityItemProvider extends BswModuleEntityItemProvider 
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

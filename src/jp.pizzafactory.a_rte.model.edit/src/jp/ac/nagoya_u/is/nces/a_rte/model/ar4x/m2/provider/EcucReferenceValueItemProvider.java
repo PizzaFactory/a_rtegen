@@ -59,8 +59,8 @@ public class EcucReferenceValueItemProvider extends EcucAbstractReferenceValueIt
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucReferenceValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferenceValue_value_feature", "_UI_EcucReferenceValue_type"),
+				 getString("_UI_EcucReferenceValue_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucReferenceValue_value_feature", "_UI_EcucReferenceValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_REFERENCE_VALUE__VALUE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class EcucReferenceValueItemProvider extends EcucAbstractReferenceValueIt
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucReferenceValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucReferenceValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class EcucReferenceValueItemProvider extends EcucAbstractReferenceValueIt
 	public String getText(Object object) {
 		String label = ((EcucReferenceValue)object).getDefinitionRef();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucReferenceValue_type") :
-			getString("_UI_EcucReferenceValue_type") + " " + label;
+			getString("_UI_EcucReferenceValue_type") : //$NON-NLS-1$
+			getString("_UI_EcucReferenceValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

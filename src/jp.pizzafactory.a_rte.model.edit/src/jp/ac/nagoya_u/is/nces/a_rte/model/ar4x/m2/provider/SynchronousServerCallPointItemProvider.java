@@ -53,7 +53,7 @@ public class SynchronousServerCallPointItemProvider extends ServerCallPointItemP
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SynchronousServerCallPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SynchronousServerCallPoint")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class SynchronousServerCallPointItemProvider extends ServerCallPointItemP
 	public String getText(Object object) {
 		String label = ((SynchronousServerCallPoint)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SynchronousServerCallPoint_type") :
-			getString("_UI_SynchronousServerCallPoint_type") + " " + label;
+			getString("_UI_SynchronousServerCallPoint_type") : //$NON-NLS-1$
+			getString("_UI_SynchronousServerCallPoint_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

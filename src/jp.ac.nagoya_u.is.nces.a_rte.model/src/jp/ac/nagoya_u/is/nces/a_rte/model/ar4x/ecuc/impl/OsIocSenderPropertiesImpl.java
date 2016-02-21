@@ -209,7 +209,7 @@ public class OsIocSenderPropertiesImpl extends EcucContainerImpl implements OsIo
 	public void setParent(OsIocCommunication newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != EcucPackage.OS_IOC_SENDER_PROPERTIES__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -355,7 +355,7 @@ public class OsIocSenderPropertiesImpl extends EcucContainerImpl implements OsIo
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osIocSenderId: ");
+		result.append(" (osIocSenderId: "); //$NON-NLS-1$
 		result.append(osIocSenderId);
 		result.append(')');
 		return result.toString();

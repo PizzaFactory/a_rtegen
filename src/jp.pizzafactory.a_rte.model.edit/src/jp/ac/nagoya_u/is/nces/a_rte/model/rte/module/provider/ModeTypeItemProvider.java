@@ -62,8 +62,8 @@ public class ModeTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeType_guardName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeType_guardName_feature", "_UI_ModeType_type"),
+				 getString("_UI_ModeType_guardName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeType_guardName_feature", "_UI_ModeType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_TYPE__GUARD_NAME,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class ModeTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeType_implementationDataType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeType_implementationDataType_feature", "_UI_ModeType_type"),
+				 getString("_UI_ModeType_implementationDataType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeType_implementationDataType_feature", "_UI_ModeType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_TYPE__IMPLEMENTATION_DATA_TYPE,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class ModeTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class ModeTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((ModeType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModeType_type") :
-			getString("_UI_ModeType_type") + " " + label;
+			getString("_UI_ModeType_type") : //$NON-NLS-1$
+			getString("_UI_ModeType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

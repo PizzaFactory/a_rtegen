@@ -159,7 +159,7 @@ public class OsApplicationTrustedFunctionImpl extends EcucContainerImpl implemen
 	public void setParent(OsApplication newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != EcucPackage.OS_APPLICATION_TRUSTED_FUNCTION__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -294,7 +294,7 @@ public class OsApplicationTrustedFunctionImpl extends EcucContainerImpl implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osTrustedFunctionName: ");
+		result.append(" (osTrustedFunctionName: "); //$NON-NLS-1$
 		result.append(osTrustedFunctionName);
 		result.append(')');
 		return result.toString();

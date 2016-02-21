@@ -53,7 +53,7 @@ public class RteSendImplementationItemProvider extends SendImplementationItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RteSendImplementationItemProvider extends SendImplementationItemPro
 	public String getText(Object object) {
 		String label = ((RteSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteSendImplementation_type") :
-			getString("_UI_RteSendImplementation_type") + " " + label;
+			getString("_UI_RteSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_RteSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

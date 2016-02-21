@@ -61,8 +61,8 @@ public class EcucTextualParamValueItemProvider extends EcucParameterValueItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucTextualParamValue_value_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucTextualParamValue_value_feature", "_UI_EcucTextualParamValue_type"),
+				 getString("_UI_EcucTextualParamValue_value_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucTextualParamValue_value_feature", "_UI_EcucTextualParamValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_TEXTUAL_PARAM_VALUE__VALUE,
 				 true,
 				 false,
@@ -80,7 +80,7 @@ public class EcucTextualParamValueItemProvider extends EcucParameterValueItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucTextualParamValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucTextualParamValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -93,8 +93,8 @@ public class EcucTextualParamValueItemProvider extends EcucParameterValueItemPro
 	public String getText(Object object) {
 		String label = ((EcucTextualParamValue)object).getDefinitionRef();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucTextualParamValue_type") :
-			getString("_UI_EcucTextualParamValue_type") + " " + label;
+			getString("_UI_EcucTextualParamValue_type") : //$NON-NLS-1$
+			getString("_UI_EcucTextualParamValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

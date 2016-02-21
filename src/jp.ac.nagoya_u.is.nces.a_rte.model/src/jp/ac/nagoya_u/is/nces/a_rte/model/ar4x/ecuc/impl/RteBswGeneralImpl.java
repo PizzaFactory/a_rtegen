@@ -195,7 +195,7 @@ public class RteBswGeneralImpl extends EcucContainerImpl implements RteBswGenera
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteUseComShadowSignalApi: ");
+		result.append(" (rteUseComShadowSignalApi: "); //$NON-NLS-1$
 		result.append(rteUseComShadowSignalApi);
 		result.append(')');
 		return result.toString();

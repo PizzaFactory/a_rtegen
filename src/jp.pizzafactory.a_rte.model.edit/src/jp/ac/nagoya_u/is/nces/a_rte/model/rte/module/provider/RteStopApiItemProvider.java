@@ -53,7 +53,7 @@ public class RteStopApiItemProvider extends RteLifecycleApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteStopApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteStopApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RteStopApiItemProvider extends RteLifecycleApiItemProvider {
 	public String getText(Object object) {
 		String label = ((RteStopApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteStopApi_type") :
-			getString("_UI_RteStopApi_type") + " " + label;
+			getString("_UI_RteStopApi_type") : //$NON-NLS-1$
+			getString("_UI_RteStopApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

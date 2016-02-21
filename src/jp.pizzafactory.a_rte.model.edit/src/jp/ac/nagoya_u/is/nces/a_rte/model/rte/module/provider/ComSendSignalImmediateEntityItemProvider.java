@@ -53,7 +53,7 @@ public class ComSendSignalImmediateEntityItemProvider extends ComSendSignalProxy
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalImmediateEntity"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSendSignalImmediateEntity")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComSendSignalImmediateEntityItemProvider extends ComSendSignalProxy
 	public String getText(Object object) {
 		String label = ((ComSendSignalImmediateEntity)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComSendSignalImmediateEntity_type") :
-			getString("_UI_ComSendSignalImmediateEntity_type") + " " + label;
+			getString("_UI_ComSendSignalImmediateEntity_type") : //$NON-NLS-1$
+			getString("_UI_ComSendSignalImmediateEntity_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

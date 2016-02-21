@@ -62,8 +62,8 @@ public class RteInitializationBehaviorItemProvider extends EcucContainerItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteInitializationBehavior_rteInitializationStrategy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteInitializationBehavior_rteInitializationStrategy_feature", "_UI_RteInitializationBehavior_type"),
+				 getString("_UI_RteInitializationBehavior_rteInitializationStrategy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteInitializationBehavior_rteInitializationStrategy_feature", "_UI_RteInitializationBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_INITIALIZATION_BEHAVIOR__RTE_INITIALIZATION_STRATEGY,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class RteInitializationBehaviorItemProvider extends EcucContainerItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteInitializationBehavior_rteSectionInitializationPolicy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteInitializationBehavior_rteSectionInitializationPolicy_feature", "_UI_RteInitializationBehavior_type"),
+				 getString("_UI_RteInitializationBehavior_rteSectionInitializationPolicy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteInitializationBehavior_rteSectionInitializationPolicy_feature", "_UI_RteInitializationBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_INITIALIZATION_BEHAVIOR__RTE_SECTION_INITIALIZATION_POLICY,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class RteInitializationBehaviorItemProvider extends EcucContainerItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteInitializationBehavior"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteInitializationBehavior")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class RteInitializationBehaviorItemProvider extends EcucContainerItemProv
 	public String getText(Object object) {
 		String label = ((RteInitializationBehavior)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteInitializationBehavior_type") :
-			getString("_UI_RteInitializationBehavior_type") + " " + label;
+			getString("_UI_RteInitializationBehavior_type") : //$NON-NLS-1$
+			getString("_UI_RteInitializationBehavior_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

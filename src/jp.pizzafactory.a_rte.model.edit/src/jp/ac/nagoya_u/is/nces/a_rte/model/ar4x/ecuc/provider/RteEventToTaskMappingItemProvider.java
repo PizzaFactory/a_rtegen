@@ -66,8 +66,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rteEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteEvent_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rteEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteEvent_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_EVENT,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rteActivationOffset_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteActivationOffset_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rteActivationOffset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteActivationOffset_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_ACTIVATION_OFFSET,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rteMappedToTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteMappedToTask_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rteMappedToTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteMappedToTask_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_MAPPED_TO_TASK,
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rtePositionInTask_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rtePositionInTask_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rtePositionInTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rtePositionInTask_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_POSITION_IN_TASK,
 				 true,
 				 false,
@@ -154,8 +154,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rteUsedOsAlarm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteUsedOsAlarm_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rteUsedOsAlarm_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteUsedOsAlarm_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_ALARM,
 				 true,
 				 false,
@@ -176,8 +176,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEventToTaskMapping_rteUsedOsEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteUsedOsEvent_feature", "_UI_RteEventToTaskMapping_type"),
+				 getString("_UI_RteEventToTaskMapping_rteUsedOsEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEventToTaskMapping_rteUsedOsEvent_feature", "_UI_RteEventToTaskMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.RTE_EVENT_TO_TASK_MAPPING__RTE_USED_OS_EVENT,
 				 true,
 				 false,
@@ -195,7 +195,7 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteEventToTaskMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteEventToTaskMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class RteEventToTaskMappingItemProvider extends EcucContainerItemProvider
 	public String getText(Object object) {
 		String label = ((RteEventToTaskMapping)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteEventToTaskMapping_type") :
-			getString("_UI_RteEventToTaskMapping_type") + " " + label;
+			getString("_UI_RteEventToTaskMapping_type") : //$NON-NLS-1$
+			getString("_UI_RteEventToTaskMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -472,13 +472,13 @@ public class GlobalVariableImpl extends VariableImpl implements GlobalVariable {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (initAtDefinition: ");
+		result.append(" (initAtDefinition: "); //$NON-NLS-1$
 		result.append(initAtDefinition);
-		result.append(", initWithConstantValue: ");
+		result.append(", initWithConstantValue: "); //$NON-NLS-1$
 		result.append(initWithConstantValue);
-		result.append(", hasConst: ");
+		result.append(", hasConst: "); //$NON-NLS-1$
 		result.append(hasConst);
-		result.append(", hasStatic: ");
+		result.append(", hasStatic: "); //$NON-NLS-1$
 		result.append(hasStatic);
 		result.append(')');
 		return result.toString();

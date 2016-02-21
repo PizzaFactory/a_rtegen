@@ -304,7 +304,7 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 	public void setParent(SwcInternalBehavior newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != M2Package.RUNNABLE_ENTITY__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -521,7 +521,7 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbol: ");
+		result.append(" (symbol: "); //$NON-NLS-1$
 		result.append(symbol);
 		result.append(')');
 		return result.toString();

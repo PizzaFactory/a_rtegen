@@ -60,8 +60,8 @@ public class ISignalGroupItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ISignalGroup_systemSignalGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalGroup_systemSignalGroup_feature", "_UI_ISignalGroup_type"),
+				 getString("_UI_ISignalGroup_systemSignalGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalGroup_systemSignalGroup_feature", "_UI_ISignalGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ISIGNAL_GROUP__SYSTEM_SIGNAL_GROUP,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class ISignalGroupItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ISignalGroup_iSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalGroup_iSignal_feature", "_UI_ISignalGroup_type"),
+				 getString("_UI_ISignalGroup_iSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ISignalGroup_iSignal_feature", "_UI_ISignalGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ISIGNAL_GROUP__ISIGNAL,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class ISignalGroupItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignalGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ISignalGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class ISignalGroupItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((ISignalGroup)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ISignalGroup_type") :
-			getString("_UI_ISignalGroup_type") + " " + label;
+			getString("_UI_ISignalGroup_type") : //$NON-NLS-1$
+			getString("_UI_ISignalGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

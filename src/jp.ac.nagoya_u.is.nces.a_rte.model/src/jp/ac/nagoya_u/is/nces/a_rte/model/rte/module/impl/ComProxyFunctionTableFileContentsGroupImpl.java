@@ -176,7 +176,7 @@ public class ComProxyFunctionTableFileContentsGroupImpl extends ModuleObjectImpl
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (srWriteProxyName: ");
+		result.append(" (srWriteProxyName: "); //$NON-NLS-1$
 		result.append(srWriteProxyName);
 		result.append(')');
 		return result.toString();

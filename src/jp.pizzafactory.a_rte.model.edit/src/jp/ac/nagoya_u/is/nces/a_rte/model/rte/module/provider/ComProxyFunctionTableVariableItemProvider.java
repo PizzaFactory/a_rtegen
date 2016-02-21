@@ -53,7 +53,7 @@ public class ComProxyFunctionTableVariableItemProvider extends GlobalVariableIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunctionTableVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunctionTableVariable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComProxyFunctionTableVariableItemProvider extends GlobalVariableIte
 	public String getText(Object object) {
 		String label = ((ComProxyFunctionTableVariable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComProxyFunctionTableVariable_type") :
-			getString("_UI_ComProxyFunctionTableVariable_type") + " " + label;
+			getString("_UI_ComProxyFunctionTableVariable_type") : //$NON-NLS-1$
+			getString("_UI_ComProxyFunctionTableVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

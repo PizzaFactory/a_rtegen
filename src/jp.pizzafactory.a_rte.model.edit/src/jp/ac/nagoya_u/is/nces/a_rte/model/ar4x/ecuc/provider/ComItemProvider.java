@@ -88,7 +88,7 @@ public class ComItemProvider extends EcucModuleItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Com"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Com")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class ComItemProvider extends EcucModuleItemProvider {
 	public String getText(Object object) {
 		String label = ((Com)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Com_type") :
-			getString("_UI_Com_type") + " " + label;
+			getString("_UI_Com_type") : //$NON-NLS-1$
+			getString("_UI_Com_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

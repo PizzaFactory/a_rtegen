@@ -233,7 +233,7 @@ public class IncludedDataTypeSetImpl extends M2ObjectImpl implements IncludedDat
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (literalPrefix: ");
+		result.append(" (literalPrefix: "); //$NON-NLS-1$
 		result.append(literalPrefix);
 		result.append(')');
 		return result.toString();

@@ -150,7 +150,7 @@ public class RteCoreStartApiImplImpl extends RteLifecycleApiImpl implements RteC
 	public void setParent(Core newParent) {
 		if (newParent != eInternalContainer() || (eContainerFeatureID() != ModulePackage.RTE_CORE_START_API_IMPL__PARENT && newParent != null)) {
 			if (EcoreUtil.isAncestor(this, (EObject)newParent))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

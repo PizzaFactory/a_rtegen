@@ -62,8 +62,8 @@ public class SwAddrMethodItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwAddrMethod_memoryAllocationKeywordPolicy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwAddrMethod_memoryAllocationKeywordPolicy_feature", "_UI_SwAddrMethod_type"),
+				 getString("_UI_SwAddrMethod_memoryAllocationKeywordPolicy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwAddrMethod_memoryAllocationKeywordPolicy_feature", "_UI_SwAddrMethod_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_ADDR_METHOD__MEMORY_ALLOCATION_KEYWORD_POLICY,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class SwAddrMethodItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwAddrMethod_sectionInitializationPolicy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwAddrMethod_sectionInitializationPolicy_feature", "_UI_SwAddrMethod_type"),
+				 getString("_UI_SwAddrMethod_sectionInitializationPolicy_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwAddrMethod_sectionInitializationPolicy_feature", "_UI_SwAddrMethod_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_ADDR_METHOD__SECTION_INITIALIZATION_POLICY,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class SwAddrMethodItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwAddrMethod"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwAddrMethod")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class SwAddrMethodItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((SwAddrMethod)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwAddrMethod_type") :
-			getString("_UI_SwAddrMethod_type") + " " + label;
+			getString("_UI_SwAddrMethod_type") : //$NON-NLS-1$
+			getString("_UI_SwAddrMethod_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

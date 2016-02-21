@@ -61,8 +61,8 @@ public class TaskBodyItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TaskBody_osTaskId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TaskBody_osTaskId_feature", "_UI_TaskBody_type"),
+				 getString("_UI_TaskBody_osTaskId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TaskBody_osTaskId_feature", "_UI_TaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TASK_BODY__OS_TASK_ID,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class TaskBodyItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((TaskBody)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TaskBody_type") :
-			getString("_UI_TaskBody_type") + " " + label;
+			getString("_UI_TaskBody_type") : //$NON-NLS-1$
+			getString("_UI_TaskBody_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -65,8 +65,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuSender_sourceSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_sourceSignal_feature", "_UI_ExternalEcuSender_type"),
+				 getString("_UI_ExternalEcuSender_sourceSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_sourceSignal_feature", "_UI_ExternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuSender_sourceSignalGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_sourceSignalGroup_feature", "_UI_ExternalEcuSender_type"),
+				 getString("_UI_ExternalEcuSender_sourceSignalGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_sourceSignalGroup_feature", "_UI_ExternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_SENDER__SOURCE_SIGNAL_GROUP,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuSender_requiresRteFilter_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteFilter_feature", "_UI_ExternalEcuSender_type"),
+				 getString("_UI_ExternalEcuSender_requiresRteFilter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteFilter_feature", "_UI_ExternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER,
 				 true,
 				 false,
@@ -131,8 +131,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuSender_requiresRteInvalidation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteInvalidation_feature", "_UI_ExternalEcuSender_type"),
+				 getString("_UI_ExternalEcuSender_requiresRteInvalidation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteInvalidation_feature", "_UI_ExternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_SENDER__REQUIRES_RTE_INVALIDATION,
 				 true,
 				 false,
@@ -153,8 +153,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ExternalEcuSender_requiresRteInitialization_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteInitialization_feature", "_UI_ExternalEcuSender_type"),
+				 getString("_UI_ExternalEcuSender_requiresRteInitialization_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalEcuSender_requiresRteInitialization_feature", "_UI_ExternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.EXTERNAL_ECU_SENDER__REQUIRES_RTE_INITIALIZATION,
 				 true,
 				 false,
@@ -172,7 +172,7 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalEcuSender"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ExternalEcuSender")); //$NON-NLS-1$
 	}
 
 	/**
@@ -185,8 +185,8 @@ public class ExternalEcuSenderItemProvider extends SenderItemProvider {
 	public String getText(Object object) {
 		String label = ((ExternalEcuSender)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExternalEcuSender_type") :
-			getString("_UI_ExternalEcuSender_type") + " " + label;
+			getString("_UI_ExternalEcuSender_type") : //$NON-NLS-1$
+			getString("_UI_ExternalEcuSender_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

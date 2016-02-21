@@ -62,8 +62,8 @@ public class OsOSItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsOS_osNumberOfCores_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsOS_osNumberOfCores_feature", "_UI_OsOS_type"),
+				 getString("_UI_OsOS_osNumberOfCores_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsOS_osNumberOfCores_feature", "_UI_OsOS_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_OS__OS_NUMBER_OF_CORES,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class OsOSItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsOS_osMasterCoreId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsOS_osMasterCoreId_feature", "_UI_OsOS_type"),
+				 getString("_UI_OsOS_osMasterCoreId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsOS_osMasterCoreId_feature", "_UI_OsOS_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_OS__OS_MASTER_CORE_ID,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class OsOSItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsOS"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsOS")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class OsOSItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsOS)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsOS_type") :
-			getString("_UI_OsOS_type") + " " + label;
+			getString("_UI_OsOS_type") : //$NON-NLS-1$
+			getString("_UI_OsOS_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

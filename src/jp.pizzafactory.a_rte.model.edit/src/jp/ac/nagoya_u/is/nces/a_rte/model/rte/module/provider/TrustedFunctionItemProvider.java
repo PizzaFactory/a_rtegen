@@ -61,8 +61,8 @@ public class TrustedFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TrustedFunction_trustedFunctionIndex_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunction_trustedFunctionIndex_feature", "_UI_TrustedFunction_type"),
+				 getString("_UI_TrustedFunction_trustedFunctionIndex_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunction_trustedFunctionIndex_feature", "_UI_TrustedFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class TrustedFunctionItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((TrustedFunction)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunction_type") :
-			getString("_UI_TrustedFunction_type") + " " + label;
+			getString("_UI_TrustedFunction_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

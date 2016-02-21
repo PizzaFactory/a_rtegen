@@ -64,8 +64,8 @@ public class SenderReceiverToSignalMappingItemProvider extends DataMappingItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderReceiverToSignalMapping_systemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalMapping_systemSignal_feature", "_UI_SenderReceiverToSignalMapping_type"),
+				 getString("_UI_SenderReceiverToSignalMapping_systemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalMapping_systemSignal_feature", "_UI_SenderReceiverToSignalMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_MAPPING__SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class SenderReceiverToSignalMappingItemProvider extends DataMappingItemPr
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderReceiverToSignalMapping_dataElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalMapping_dataElement_feature", "_UI_SenderReceiverToSignalMapping_type"),
+				 getString("_UI_SenderReceiverToSignalMapping_dataElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderReceiverToSignalMapping_dataElement_feature", "_UI_SenderReceiverToSignalMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_RECEIVER_TO_SIGNAL_MAPPING__DATA_ELEMENT,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class SenderReceiverToSignalMappingItemProvider extends DataMappingItemPr
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderReceiverToSignalMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderReceiverToSignalMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class SenderReceiverToSignalMappingItemProvider extends DataMappingItemPr
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderReceiverToSignalMapping_type");
+		return getString("_UI_SenderReceiverToSignalMapping_type"); //$NON-NLS-1$
 	}
 	
 

@@ -53,7 +53,7 @@ public class IocEmptyQueueApiItemProvider extends IocApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocEmptyQueueApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocEmptyQueueApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class IocEmptyQueueApiItemProvider extends IocApiItemProvider {
 	public String getText(Object object) {
 		String label = ((IocEmptyQueueApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocEmptyQueueApi_type") :
-			getString("_UI_IocEmptyQueueApi_type") + " " + label;
+			getString("_UI_IocEmptyQueueApi_type") : //$NON-NLS-1$
+			getString("_UI_IocEmptyQueueApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

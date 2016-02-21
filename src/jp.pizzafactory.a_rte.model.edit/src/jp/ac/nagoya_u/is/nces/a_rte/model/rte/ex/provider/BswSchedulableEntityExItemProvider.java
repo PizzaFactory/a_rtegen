@@ -75,8 +75,8 @@ public class BswSchedulableEntityExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BswSchedulableEntityEx_modeDeclarationGroupPrototypeEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BswSchedulableEntityEx_modeDeclarationGroupPrototypeEx_feature", "_UI_BswSchedulableEntityEx_type"),
+				 getString("_UI_BswSchedulableEntityEx_modeDeclarationGroupPrototypeEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_BswSchedulableEntityEx_modeDeclarationGroupPrototypeEx_feature", "_UI_BswSchedulableEntityEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.BSW_SCHEDULABLE_ENTITY_EX__MODE_DECLARATION_GROUP_PROTOTYPE_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class BswSchedulableEntityExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntityEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BswSchedulableEntityEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class BswSchedulableEntityExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BswSchedulableEntityEx_type");
+		return getString("_UI_BswSchedulableEntityEx_type"); //$NON-NLS-1$
 	}
 	
 

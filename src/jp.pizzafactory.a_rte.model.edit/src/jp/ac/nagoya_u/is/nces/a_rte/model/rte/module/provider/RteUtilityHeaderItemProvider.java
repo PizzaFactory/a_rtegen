@@ -53,7 +53,7 @@ public class RteUtilityHeaderItemProvider extends HeaderFileItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteUtilityHeader"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteUtilityHeader")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class RteUtilityHeaderItemProvider extends HeaderFileItemProvider {
 	public String getText(Object object) {
 		String label = ((RteUtilityHeader)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteUtilityHeader_type") :
-			getString("_UI_RteUtilityHeader_type") + " " + label;
+			getString("_UI_RteUtilityHeader_type") : //$NON-NLS-1$
+			getString("_UI_RteUtilityHeader_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -68,7 +68,7 @@ public class ROperationInstanceInSwcExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ROperationInstanceInSwcEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ROperationInstanceInSwcEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class ROperationInstanceInSwcExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ROperationInstanceInSwcEx_type");
+		return getString("_UI_ROperationInstanceInSwcEx_type"); //$NON-NLS-1$
 	}
 	
 

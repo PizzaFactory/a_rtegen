@@ -53,7 +53,7 @@ public class BlackboxTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BlackboxType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BlackboxType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class BlackboxTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((BlackboxType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_BlackboxType_type") :
-			getString("_UI_BlackboxType_type") + " " + label;
+			getString("_UI_BlackboxType_type") : //$NON-NLS-1$
+			getString("_UI_BlackboxType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

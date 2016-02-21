@@ -63,8 +63,8 @@ public class SwBaseTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwBaseType_baseTypeEncoding_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_baseTypeEncoding_feature", "_UI_SwBaseType_type"),
+				 getString("_UI_SwBaseType_baseTypeEncoding_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_baseTypeEncoding_feature", "_UI_SwBaseType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_BASE_TYPE__BASE_TYPE_ENCODING,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class SwBaseTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwBaseType_baseTypeSize_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_baseTypeSize_feature", "_UI_SwBaseType_type"),
+				 getString("_UI_SwBaseType_baseTypeSize_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_baseTypeSize_feature", "_UI_SwBaseType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_BASE_TYPE__BASE_TYPE_SIZE,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class SwBaseTypeItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwBaseType_nativeDeclaration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_nativeDeclaration_feature", "_UI_SwBaseType_type"),
+				 getString("_UI_SwBaseType_nativeDeclaration_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwBaseType_nativeDeclaration_feature", "_UI_SwBaseType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SW_BASE_TYPE__NATIVE_DECLARATION,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class SwBaseTypeItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwBaseType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwBaseType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class SwBaseTypeItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((SwBaseType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwBaseType_type") :
-			getString("_UI_SwBaseType_type") + " " + label;
+			getString("_UI_SwBaseType_type") : //$NON-NLS-1$
+			getString("_UI_SwBaseType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

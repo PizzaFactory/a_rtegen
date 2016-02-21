@@ -275,7 +275,7 @@ public class RteEnterApiImpl extends RteApiImpl implements RteEnterApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isNoneExclude: ");
+		result.append(" (isNoneExclude: "); //$NON-NLS-1$
 		result.append(isNoneExclude);
 		result.append(')');
 		return result.toString();

@@ -64,8 +64,8 @@ public class SwcBswMappingItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwcBswMapping_swcBehavior_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswMapping_swcBehavior_feature", "_UI_SwcBswMapping_type"),
+				 getString("_UI_SwcBswMapping_swcBehavior_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswMapping_swcBehavior_feature", "_UI_SwcBswMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SWC_BSW_MAPPING__SWC_BEHAVIOR,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class SwcBswMappingItemProvider extends ArElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SwcBswMapping_bswBehavior_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswMapping_bswBehavior_feature", "_UI_SwcBswMapping_type"),
+				 getString("_UI_SwcBswMapping_bswBehavior_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SwcBswMapping_bswBehavior_feature", "_UI_SwcBswMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SWC_BSW_MAPPING__BSW_BEHAVIOR,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class SwcBswMappingItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcBswMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcBswMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -148,8 +148,8 @@ public class SwcBswMappingItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((SwcBswMapping)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwcBswMapping_type") :
-			getString("_UI_SwcBswMapping_type") + " " + label;
+			getString("_UI_SwcBswMapping_type") : //$NON-NLS-1$
+			getString("_UI_SwcBswMapping_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

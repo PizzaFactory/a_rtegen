@@ -66,8 +66,8 @@ public class OsEventSetExecutableTaskBodyItemProvider extends TaskBodyItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetExecutableTaskBody_osEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_osEventId_feature", "_UI_OsEventSetExecutableTaskBody_type"),
+				 getString("_UI_OsEventSetExecutableTaskBody_osEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_osEventId_feature", "_UI_OsEventSetExecutableTaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class OsEventSetExecutableTaskBodyItemProvider extends TaskBodyItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetExecutableTaskBody_checksOsEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_checksOsEventId_feature", "_UI_OsEventSetExecutableTaskBody_type"),
+				 getString("_UI_OsEventSetExecutableTaskBody_checksOsEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_checksOsEventId_feature", "_UI_OsEventSetExecutableTaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__CHECKS_OS_EVENT_ID,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class OsEventSetExecutableTaskBodyItemProvider extends TaskBodyItemProvid
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsEventSetExecutableTaskBody_eventVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_eventVariable_feature", "_UI_OsEventSetExecutableTaskBody_type"),
+				 getString("_UI_OsEventSetExecutableTaskBody_eventVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsEventSetExecutableTaskBody_eventVariable_feature", "_UI_OsEventSetExecutableTaskBody_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__EVENT_VARIABLE,
 				 true,
 				 false,
@@ -159,7 +159,7 @@ public class OsEventSetExecutableTaskBodyItemProvider extends TaskBodyItemProvid
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetExecutableTaskBody"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsEventSetExecutableTaskBody")); //$NON-NLS-1$
 	}
 
 	/**
@@ -172,8 +172,8 @@ public class OsEventSetExecutableTaskBodyItemProvider extends TaskBodyItemProvid
 	public String getText(Object object) {
 		String label = ((OsEventSetExecutableTaskBody)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsEventSetExecutableTaskBody_type") :
-			getString("_UI_OsEventSetExecutableTaskBody_type") + " " + label;
+			getString("_UI_OsEventSetExecutableTaskBody_type") : //$NON-NLS-1$
+			getString("_UI_OsEventSetExecutableTaskBody_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

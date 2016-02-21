@@ -134,7 +134,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.RTE_BSW_MODULE_INSTANCE: return (EObject)createRteBswModuleInstance();
 			case EcucPackage.RTE_BSW_EXCLUSIVE_AREA_IMPL: return (EObject)createRteBswExclusiveAreaImpl();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -157,7 +157,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.RTE_INITIALIZATION_STRATEGY_ENUM:
 				return createRteInitializationStrategyEnumFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -180,7 +180,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			case EcucPackage.RTE_INITIALIZATION_STRATEGY_ENUM:
 				return convertRteInitializationStrategyEnumToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -551,7 +551,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	 */
 	public OsTaskScheduleEnum createOsTaskScheduleEnumFromString(EDataType eDataType, String initialValue) {
 		OsTaskScheduleEnum result = OsTaskScheduleEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -571,7 +571,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	 */
 	public RteExclusiveAreaImplMechanismEnum createRteExclusiveAreaImplMechanismEnumFromString(EDataType eDataType, String initialValue) {
 		RteExclusiveAreaImplMechanismEnum result = RteExclusiveAreaImplMechanismEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -591,7 +591,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	 */
 	public ComTransferPropertyEnum createComTransferPropertyEnumFromString(EDataType eDataType, String initialValue) {
 		ComTransferPropertyEnum result = ComTransferPropertyEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -611,7 +611,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	 */
 	public OsSpinlockLockMethodEnum createOsSpinlockLockMethodEnumFromString(EDataType eDataType, String initialValue) {
 		OsSpinlockLockMethodEnum result = OsSpinlockLockMethodEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -631,7 +631,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	 */
 	public RteInitializationStrategyEnum createRteInitializationStrategyEnumFromString(EDataType eDataType, String initialValue) {
 		RteInitializationStrategyEnum result = RteInitializationStrategyEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 

@@ -55,8 +55,8 @@ public class SwConnectorItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((SwConnector)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwConnector_type") :
-			getString("_UI_SwConnector_type") + " " + label;
+			getString("_UI_SwConnector_type") : //$NON-NLS-1$
+			getString("_UI_SwConnector_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -567,9 +567,9 @@ public class RteEventToTaskMappingImpl extends EcucContainerImpl implements RteE
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteActivationOffset: ");
+		result.append(" (rteActivationOffset: "); //$NON-NLS-1$
 		result.append(rteActivationOffset);
-		result.append(", rtePositionInTask: ");
+		result.append(", rtePositionInTask: "); //$NON-NLS-1$
 		result.append(rtePositionInTask);
 		result.append(')');
 		return result.toString();

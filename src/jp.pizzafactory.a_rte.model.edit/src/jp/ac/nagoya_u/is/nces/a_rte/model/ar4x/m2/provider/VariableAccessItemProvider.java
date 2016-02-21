@@ -88,7 +88,7 @@ public class VariableAccessItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableAccess"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableAccess")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class VariableAccessItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((VariableAccess)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_VariableAccess_type") :
-			getString("_UI_VariableAccess_type") + " " + label;
+			getString("_UI_VariableAccess_type") : //$NON-NLS-1$
+			getString("_UI_VariableAccess_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

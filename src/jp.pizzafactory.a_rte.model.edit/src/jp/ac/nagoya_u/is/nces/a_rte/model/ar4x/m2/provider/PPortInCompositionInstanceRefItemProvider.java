@@ -58,8 +58,8 @@ public class PPortInCompositionInstanceRefItemProvider extends PortInComposition
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PPortInCompositionInstanceRef_targetPPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PPortInCompositionInstanceRef_targetPPort_feature", "_UI_PPortInCompositionInstanceRef_type"),
+				 getString("_UI_PPortInCompositionInstanceRef_targetPPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PPortInCompositionInstanceRef_targetPPort_feature", "_UI_PPortInCompositionInstanceRef_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PPORT_IN_COMPOSITION_INSTANCE_REF__TARGET_PPORT,
 				 true,
 				 false,
@@ -77,7 +77,7 @@ public class PPortInCompositionInstanceRefItemProvider extends PortInComposition
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PPortInCompositionInstanceRef"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PPortInCompositionInstanceRef")); //$NON-NLS-1$
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class PPortInCompositionInstanceRefItemProvider extends PortInComposition
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PPortInCompositionInstanceRef_type");
+		return getString("_UI_PPortInCompositionInstanceRef_type"); //$NON-NLS-1$
 	}
 	
 

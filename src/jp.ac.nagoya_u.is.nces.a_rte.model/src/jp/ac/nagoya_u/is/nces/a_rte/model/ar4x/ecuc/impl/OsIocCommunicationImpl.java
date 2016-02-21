@@ -411,7 +411,7 @@ public class OsIocCommunicationImpl extends EcucContainerImpl implements OsIocCo
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osIocBufferLength: ");
+		result.append(" (osIocBufferLength: "); //$NON-NLS-1$
 		result.append(osIocBufferLength);
 		result.append(')');
 		return result.toString();

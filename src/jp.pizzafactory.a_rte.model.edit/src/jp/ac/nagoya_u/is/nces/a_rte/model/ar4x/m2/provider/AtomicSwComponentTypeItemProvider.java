@@ -90,8 +90,8 @@ public class AtomicSwComponentTypeItemProvider extends SwComponentTypeItemProvid
 	public String getText(Object object) {
 		String label = ((AtomicSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AtomicSwComponentType_type") :
-			getString("_UI_AtomicSwComponentType_type") + " " + label;
+			getString("_UI_AtomicSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_AtomicSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

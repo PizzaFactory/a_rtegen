@@ -75,8 +75,8 @@ public class ComSignalGroupExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSignalGroupEx_senderReceiverToSignalGroupMappingEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignalGroupEx_senderReceiverToSignalGroupMappingEx_feature", "_UI_ComSignalGroupEx_type"),
+				 getString("_UI_ComSignalGroupEx_senderReceiverToSignalGroupMappingEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSignalGroupEx_senderReceiverToSignalGroupMappingEx_feature", "_UI_ComSignalGroupEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.COM_SIGNAL_GROUP_EX__SENDER_RECEIVER_TO_SIGNAL_GROUP_MAPPING_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class ComSignalGroupExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignalGroupEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComSignalGroupEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class ComSignalGroupExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ComSignalGroupEx_type");
+		return getString("_UI_ComSignalGroupEx_type"); //$NON-NLS-1$
 	}
 	
 

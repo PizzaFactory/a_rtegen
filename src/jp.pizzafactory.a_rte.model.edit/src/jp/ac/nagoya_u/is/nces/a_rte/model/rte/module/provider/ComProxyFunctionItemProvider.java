@@ -66,8 +66,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_iocReceiveSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_iocReceiveSymbolName_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_iocReceiveSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_iocReceiveSymbolName_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_signalGroupSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_signalGroupSymbolName_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_signalGroupSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_signalGroupSymbolName_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_bufferComProxySymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_bufferComProxySymbolName_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_bufferComProxySymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_bufferComProxySymbolName_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME,
 				 true,
 				 false,
@@ -132,8 +132,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_bufferComMetaComplexDataSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_bufferComMetaComplexDataSymbolName_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_bufferComMetaComplexDataSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_bufferComMetaComplexDataSymbolName_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME,
 				 true,
 				 false,
@@ -154,8 +154,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_proxyDataTypeName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_proxyDataTypeName_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_proxyDataTypeName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_proxyDataTypeName_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME,
 				 true,
 				 false,
@@ -176,8 +176,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComProxyFunction_isGroup_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_isGroup_feature", "_UI_ComProxyFunction_type"),
+				 getString("_UI_ComProxyFunction_isGroup_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComProxyFunction_isGroup_feature", "_UI_ComProxyFunction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_PROXY_FUNCTION__IS_GROUP,
 				 true,
 				 false,
@@ -195,7 +195,7 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunction"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComProxyFunction")); //$NON-NLS-1$
 	}
 
 	/**
@@ -208,8 +208,8 @@ public class ComProxyFunctionItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((ComProxyFunction)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComProxyFunction_type") :
-			getString("_UI_ComProxyFunction_type") + " " + label;
+			getString("_UI_ComProxyFunction_type") : //$NON-NLS-1$
+			getString("_UI_ComProxyFunction_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

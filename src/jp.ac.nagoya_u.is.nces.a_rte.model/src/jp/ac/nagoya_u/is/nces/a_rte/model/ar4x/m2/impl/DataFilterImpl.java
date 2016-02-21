@@ -564,19 +564,19 @@ public class DataFilterImpl extends M2ObjectImpl implements DataFilter {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (dataFilterType: ");
+		result.append(" (dataFilterType: "); //$NON-NLS-1$
 		result.append(dataFilterType);
-		result.append(", mask: ");
+		result.append(", mask: "); //$NON-NLS-1$
 		result.append(mask);
-		result.append(", max: ");
+		result.append(", max: "); //$NON-NLS-1$
 		result.append(max);
-		result.append(", min: ");
+		result.append(", min: "); //$NON-NLS-1$
 		result.append(min);
-		result.append(", offset: ");
+		result.append(", offset: "); //$NON-NLS-1$
 		result.append(offset);
-		result.append(", period: ");
+		result.append(", period: "); //$NON-NLS-1$
 		result.append(period);
-		result.append(", x: ");
+		result.append(", x: "); //$NON-NLS-1$
 		result.append(x);
 		result.append(')');
 		return result.toString();

@@ -75,8 +75,8 @@ public class AssemblyDataInstanceConnectorExItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AssemblyDataInstanceConnectorEx_variableDataInstanceInCompositionEx_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnectorEx_variableDataInstanceInCompositionEx_feature", "_UI_AssemblyDataInstanceConnectorEx_type"),
+				 getString("_UI_AssemblyDataInstanceConnectorEx_variableDataInstanceInCompositionEx_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AssemblyDataInstanceConnectorEx_variableDataInstanceInCompositionEx_feature", "_UI_AssemblyDataInstanceConnectorEx_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ExPackage.Literals.ASSEMBLY_DATA_INSTANCE_CONNECTOR_EX__VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX,
 				 true,
 				 false,
@@ -94,7 +94,7 @@ public class AssemblyDataInstanceConnectorExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyDataInstanceConnectorEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AssemblyDataInstanceConnectorEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class AssemblyDataInstanceConnectorExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AssemblyDataInstanceConnectorEx_type");
+		return getString("_UI_AssemblyDataInstanceConnectorEx_type"); //$NON-NLS-1$
 	}
 	
 

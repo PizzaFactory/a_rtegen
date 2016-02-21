@@ -68,7 +68,7 @@ public class OsTaskExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class OsTaskExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_OsTaskEx_type");
+		return getString("_UI_OsTaskEx_type"); //$NON-NLS-1$
 	}
 	
 

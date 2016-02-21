@@ -60,8 +60,8 @@ public class GlobalVariableFileContentsGroupItemProvider extends ModuleObjectIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariableFileContentsGroup_globalVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariableFileContentsGroup_globalVariable_feature", "_UI_GlobalVariableFileContentsGroup_type"),
+				 getString("_UI_GlobalVariableFileContentsGroup_globalVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariableFileContentsGroup_globalVariable_feature", "_UI_GlobalVariableFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__GLOBAL_VARIABLE,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class GlobalVariableFileContentsGroupItemProvider extends ModuleObjectIte
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_GlobalVariableFileContentsGroup_memoryMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariableFileContentsGroup_memoryMapping_feature", "_UI_GlobalVariableFileContentsGroup_type"),
+				 getString("_UI_GlobalVariableFileContentsGroup_memoryMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_GlobalVariableFileContentsGroup_memoryMapping_feature", "_UI_GlobalVariableFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP__MEMORY_MAPPING,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class GlobalVariableFileContentsGroupItemProvider extends ModuleObjectIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariableFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GlobalVariableFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class GlobalVariableFileContentsGroupItemProvider extends ModuleObjectIte
 	public String getText(Object object) {
 		String label = ((GlobalVariableFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_GlobalVariableFileContentsGroup_type") :
-			getString("_UI_GlobalVariableFileContentsGroup_type") + " " + label;
+			getString("_UI_GlobalVariableFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_GlobalVariableFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -99,7 +99,7 @@ public class Ar4xFactoryImpl extends EFactoryImpl implements Ar4xFactory {
 		switch (eClass.getClassifierID()) {
 			case Ar4xPackage.AR4X_ROOT: return (EObject)createAr4xRoot();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

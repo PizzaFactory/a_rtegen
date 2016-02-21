@@ -298,11 +298,11 @@ public class BswModuleEntryImpl extends ArElementImpl implements BswModuleEntry 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (serviceId: ");
+		result.append(" (serviceId: "); //$NON-NLS-1$
 		result.append(serviceId);
-		result.append(", callType: ");
+		result.append(", callType: "); //$NON-NLS-1$
 		result.append(callType);
-		result.append(", executionContext: ");
+		result.append(", executionContext: "); //$NON-NLS-1$
 		result.append(executionContext);
 		result.append(')');
 		return result.toString();

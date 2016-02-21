@@ -59,8 +59,8 @@ public class ComCallbackFileContentsGroupItemProvider extends FunctionFileConten
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComCallbackFileContentsGroup_comCallback_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComCallbackFileContentsGroup_comCallback_feature", "_UI_ComCallbackFileContentsGroup_type"),
+				 getString("_UI_ComCallbackFileContentsGroup_comCallback_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComCallbackFileContentsGroup_comCallback_feature", "_UI_ComCallbackFileContentsGroup_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_CALLBACK_FILE_CONTENTS_GROUP__COM_CALLBACK,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class ComCallbackFileContentsGroupItemProvider extends FunctionFileConten
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComCallbackFileContentsGroup"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComCallbackFileContentsGroup")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ComCallbackFileContentsGroupItemProvider extends FunctionFileConten
 	public String getText(Object object) {
 		String label = ((ComCallbackFileContentsGroup)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComCallbackFileContentsGroup_type") :
-			getString("_UI_ComCallbackFileContentsGroup_type") + " " + label;
+			getString("_UI_ComCallbackFileContentsGroup_type") : //$NON-NLS-1$
+			getString("_UI_ComCallbackFileContentsGroup_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

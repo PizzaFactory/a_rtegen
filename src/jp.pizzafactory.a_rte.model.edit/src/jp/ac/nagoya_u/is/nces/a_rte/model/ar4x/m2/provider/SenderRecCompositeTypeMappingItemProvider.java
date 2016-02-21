@@ -68,7 +68,7 @@ public class SenderRecCompositeTypeMappingItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderRecCompositeTypeMapping_type");
+		return getString("_UI_SenderRecCompositeTypeMapping_type"); //$NON-NLS-1$
 	}
 	
 

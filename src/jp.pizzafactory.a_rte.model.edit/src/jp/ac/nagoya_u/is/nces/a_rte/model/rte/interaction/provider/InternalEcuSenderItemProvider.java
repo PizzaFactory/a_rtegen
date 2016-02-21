@@ -59,8 +59,8 @@ public class InternalEcuSenderItemProvider extends SenderItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InternalEcuSender_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuSender_source_feature", "_UI_InternalEcuSender_type"),
+				 getString("_UI_InternalEcuSender_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuSender_source_feature", "_UI_InternalEcuSender_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.INTERNAL_ECU_SENDER__SOURCE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class InternalEcuSenderItemProvider extends SenderItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalEcuSender"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/InternalEcuSender")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class InternalEcuSenderItemProvider extends SenderItemProvider {
 	public String getText(Object object) {
 		String label = ((InternalEcuSender)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InternalEcuSender_type") :
-			getString("_UI_InternalEcuSender_type") + " " + label;
+			getString("_UI_InternalEcuSender_type") : //$NON-NLS-1$
+			getString("_UI_InternalEcuSender_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

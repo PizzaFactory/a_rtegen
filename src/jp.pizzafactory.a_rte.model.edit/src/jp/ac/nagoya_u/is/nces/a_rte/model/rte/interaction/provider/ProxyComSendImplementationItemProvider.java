@@ -59,8 +59,8 @@ public class ProxyComSendImplementationItemProvider extends ComSendImplementatio
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ProxyComSendImplementation_proxyInteraction_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendImplementation_proxyInteraction_feature", "_UI_ProxyComSendImplementation_type"),
+				 getString("_UI_ProxyComSendImplementation_proxyInteraction_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyComSendImplementation_proxyInteraction_feature", "_UI_ProxyComSendImplementation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class ProxyComSendImplementationItemProvider extends ComSendImplementatio
 	public String getText(Object object) {
 		String label = ((ProxyComSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ProxyComSendImplementation_type") :
-			getString("_UI_ProxyComSendImplementation_type") + " " + label;
+			getString("_UI_ProxyComSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_ProxyComSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

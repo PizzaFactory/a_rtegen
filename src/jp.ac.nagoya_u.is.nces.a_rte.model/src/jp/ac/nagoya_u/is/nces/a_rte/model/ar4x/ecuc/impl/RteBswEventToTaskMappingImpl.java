@@ -578,9 +578,9 @@ public class RteBswEventToTaskMappingImpl extends EcucContainerImpl implements R
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (rteBswActivationOffset: ");
+		result.append(" (rteBswActivationOffset: "); //$NON-NLS-1$
 		result.append(rteBswActivationOffset);
-		result.append(", rteBswPositionInTask: ");
+		result.append(", rteBswPositionInTask: "); //$NON-NLS-1$
 		result.append(rteBswPositionInTask);
 		result.append(')');
 		return result.toString();

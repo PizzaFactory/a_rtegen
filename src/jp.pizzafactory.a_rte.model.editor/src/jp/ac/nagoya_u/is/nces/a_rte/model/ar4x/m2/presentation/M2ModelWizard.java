@@ -12,79 +12,41 @@ import java.util.List;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
-
-import org.eclipse.emf.common.CommonPlugin;
-
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.xmi.XMLResource;
-
 import org.eclipse.emf.edit.ui.provider.ExtendedImageRegistry;
-
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.IStructuredSelection;
-
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
-
 import org.eclipse.swt.SWT;
-
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
-
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
-
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.part.ISetSelectionTarget;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.pizzafactory.a_rte.model.rte.provider.RteEditPlugin;
-
-
+import java.io.File;
+import jp.pizzafactory.a_rte.model.rte.presentation.RteEditorAdvisor;
 import jp.pizzafactory.a_rte.model.rte.presentation.RteEditorPlugin;
-
-import org.eclipse.core.runtime.Path;
-
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.StructuredSelection;
-
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Text;
 
 
 /**
@@ -129,14 +91,6 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 	protected M2Factory m2Factory = m2Package.getM2Factory();
 
 	/**
-	 * This is the file creation page.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected M2ModelWizardNewFileCreationPage newFileCreationPage;
-
-	/**
 	 * This is the initial object creation page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,8 +131,8 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(RteEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(RteEditorPlugin.INSTANCE.getImage("full/wizban/NewM2")));
+		setWindowTitle(RteEditorPlugin.INSTANCE.getString("_UI_Wizard_label")); //$NON-NLS-1$
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(RteEditorPlugin.INSTANCE.getImage("full/wizban/NewM2"))); //$NON-NLS-1$
 	}
 
 	/**
@@ -198,7 +152,7 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 					}
 				}
 			}
-			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+			Collections.sort(initialObjectNames, java.text.Collator.getInstance());
 		}
 		return initialObjectNames;
 	}
@@ -224,24 +178,28 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 	@Override
 	public boolean performFinish() {
 		try {
-			// Remember the file.
+			// Get the URI of the model file.
 			//
-			final IFile modelFile = getModelFile();
-
+			final URI fileURI = getModelURI();
+			if (new File(fileURI.toFileString()).exists()) {
+				if (!MessageDialog.openQuestion
+						(getShell(),
+						 RteEditorPlugin.INSTANCE.getString("_UI_Question_title"), //$NON-NLS-1$
+						 RteEditorPlugin.INSTANCE.getString("_WARN_FileConflict", new String []{ fileURI.toFileString() }))) //$NON-NLS-1$
+				{
+					initialObjectCreationPage.selectFileField();
+					return false;
+				}
+			}
+			
 			// Do the work within an operation.
 			//
-			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation() {
-					@Override
-					protected void execute(IProgressMonitor progressMonitor) {
+			IRunnableWithProgress operation = new IRunnableWithProgress() {
+				public void run(IProgressMonitor progressMonitor) {
 						try {
 							// Create a resource set
 							//
 							ResourceSet resourceSet = new ResourceSetImpl();
-
-							// Get the URI of the model file.
-							//
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
 
 							// Create a resource for this file.
 							//
@@ -271,85 +229,11 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 
 			getContainer().run(false, false, operation);
 
-			// Select the new file resource in the current view.
-			//
-			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
-			IWorkbenchPage page = workbenchWindow.getActivePage();
-			final IWorkbenchPart activePart = page.getActivePart();
-			if (activePart instanceof ISetSelectionTarget) {
-				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec
-					(new Runnable() {
-						 public void run() {
-							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
-						 }
-					 });
-			}
-
-			// Open an editor on the new file.
-			//
-			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), RteEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
-				return false;
-			}
-
-			return true;
+			return RteEditorAdvisor.openEditor(workbench, fileURI);			
 		}
 		catch (Exception exception) {
 			RteEditorPlugin.INSTANCE.log(exception);
 			return false;
-		}
-	}
-
-	/**
-	 * This is the one page of the wizard.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public class M2ModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
-		/**
-		 * Pass in the selection.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public M2ModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
-			super(pageId, selection);
-		}
-
-		/**
-		 * The framework calls this to see if the file is correct.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		@Override
-		protected boolean validatePage() {
-			if (super.validatePage()) {
-				String extension = new Path(getFileName()).getFileExtension();
-				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(RteEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
-					return false;
-				}
-				return true;
-			}
-			return false;
-		}
-
-		/**
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		public IFile getModelFile() {
-			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
 		}
 	}
 
@@ -360,6 +244,13 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public class M2ModelWizardInitialObjectCreationPage extends WizardPage {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		protected Text fileField;
+
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -397,8 +288,7 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -410,10 +300,58 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 				data.horizontalAlignment = GridData.FILL;
 				composite.setLayoutData(data);
 			}
+			
+			Label resourceURILabel = new Label(composite, SWT.LEFT);
+			{
+				resourceURILabel.setText(RteEditorPlugin.INSTANCE.getString("_UI_File_label")); //$NON-NLS-1$
 
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				resourceURILabel.setLayoutData(data);
+			}
+
+			Composite fileComposite = new Composite(composite, SWT.NONE);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.END;
+				fileComposite.setLayoutData(data);
+
+				GridLayout layout = new GridLayout();
+				data.horizontalAlignment = GridData.FILL;
+				layout.marginHeight = 0;
+				layout.marginWidth = 0;
+				layout.numColumns = 2;
+				fileComposite.setLayout(layout);
+			}
+
+			fileField = new Text(fileComposite, SWT.BORDER);
+			{
+				GridData data = new GridData();
+				data.horizontalAlignment = GridData.FILL;
+				data.grabExcessHorizontalSpace = true;
+				data.horizontalSpan = 1;
+				fileField.setLayoutData(data);
+			}
+
+			fileField.addModifyListener(validator);
+
+			Button resourceURIBrowseFileSystemButton = new Button(fileComposite, SWT.PUSH);
+			resourceURIBrowseFileSystemButton.setText(RteEditorPlugin.INSTANCE.getString("_UI_Browse_label")); //$NON-NLS-1$
+
+			resourceURIBrowseFileSystemButton.addSelectionListener
+				(new SelectionAdapter() {
+					 @Override
+					 public void widgetSelected(SelectionEvent event) {
+						 String[] filters = M2Editor.FILE_EXTENSION_FILTERS.toArray(new String[M2Editor.FILE_EXTENSION_FILTERS.size()]);
+						 String[] files = RteEditorAdvisor.openFilePathDialog(getShell(), SWT.SAVE, filters);
+						 if (files.length > 0) {
+							 fileField.setText(files[0]);
+						 }
+					 }
+				 });
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(RteEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(RteEditorPlugin.INSTANCE.getString("_UI_ModelObject")); //$NON-NLS-1$
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -439,7 +377,7 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(RteEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(RteEditorPlugin.INSTANCE.getString("_UI_XMLEncoding")); //$NON-NLS-1$
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -482,6 +420,20 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		protected boolean validatePage() {
+			URI fileURI = getFileURI();
+			if (fileURI == null || fileURI.isEmpty()) {
+				setErrorMessage(null);
+				return false;
+			}
+
+			String extension = fileURI.fileExtension();
+			if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+				String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension"; //$NON-NLS-1$ //$NON-NLS-2$
+				setErrorMessage(RteEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+				return false;
+			}
+
+			setErrorMessage(null);
 			return getInitialObjectName() != null && getEncodings().contains(encodingField.getText());
 		}
 
@@ -494,14 +446,9 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		public void setVisible(boolean visible) {
 			super.setVisible(visible);
 			if (visible) {
-				if (initialObjectField.getItemCount() == 1) {
-					initialObjectField.clearSelection();
-					encodingField.setFocus();
-				}
-				else {
-					encodingField.clearSelection();
-					initialObjectField.setFocus();
-				}
+				initialObjectField.clearSelection();
+				encodingField.clearSelection();
+				fileField.setFocus();
 			}
 		}
 
@@ -531,6 +478,33 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public URI getFileURI() {
+			try {
+				return URI.createFileURI(fileField.getText());
+			}
+			catch (Exception exception) {
+				// Ignore
+			}
+			return null;
+		}
+
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		public void selectFileField() {
+				initialObjectField.clearSelection();
+				encodingField.clearSelection();
+				fileField.selectAll();
+				fileField.setFocus();
+		}
+
+		/**
 		 * Returns the label for the specified type name.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -538,7 +512,7 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return RteEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return RteEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type"); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			catch(MissingResourceException mre) {
 				RteEditorPlugin.INSTANCE.log(mre);
@@ -554,7 +528,8 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(RteEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(RteEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) //$NON-NLS-1$
+				{
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -570,61 +545,20 @@ public class M2ModelWizard extends Wizard implements INewWizard {
 	 */
 		@Override
 	public void addPages() {
-		// Create a page, set the title, and the initial model file name.
-		//
-		newFileCreationPage = new M2ModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(RteEditorPlugin.INSTANCE.getString("_UI_M2ModelWizard_label"));
-		newFileCreationPage.setDescription(RteEditorPlugin.INSTANCE.getString("_UI_M2ModelWizard_description"));
-		newFileCreationPage.setFileName(RteEditorPlugin.INSTANCE.getString("_UI_M2EditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-		addPage(newFileCreationPage);
-
-		// Try and get the resource selection to determine a current directory for the file dialog.
-		//
-		if (selection != null && !selection.isEmpty()) {
-			// Get the resource...
-			//
-			Object selectedElement = selection.iterator().next();
-			if (selectedElement instanceof IResource) {
-				// Get the resource parent, if its a file.
-				//
-				IResource selectedResource = (IResource)selectedElement;
-				if (selectedResource.getType() == IResource.FILE) {
-					selectedResource = selectedResource.getParent();
-				}
-
-				// This gives us a directory...
-				//
-				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-					// Set this for the container.
-					//
-					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
-
-					// Make up a unique new name here.
-					//
-					String defaultModelBaseFilename = RteEditorPlugin.INSTANCE.getString("_UI_M2EditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
-					}
-					newFileCreationPage.setFileName(modelFilename);
-				}
-			}
-		}
-		initialObjectCreationPage = new M2ModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(RteEditorPlugin.INSTANCE.getString("_UI_M2ModelWizard_label"));
-		initialObjectCreationPage.setDescription(RteEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new M2ModelWizardInitialObjectCreationPage("Whatever2"); //$NON-NLS-1$
+		initialObjectCreationPage.setTitle(RteEditorPlugin.INSTANCE.getString("_UI_M2ModelWizard_label")); //$NON-NLS-1$
+		initialObjectCreationPage.setDescription(RteEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description")); //$NON-NLS-1$
 		addPage(initialObjectCreationPage);
 	}
 
 	/**
-	 * Get the file from the page.
+	 * Get the URI from the page.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IFile getModelFile() {
-		return newFileCreationPage.getModelFile();
+	public URI getModelURI() {
+		return initialObjectCreationPage.getFileURI();
 	}
 
 }

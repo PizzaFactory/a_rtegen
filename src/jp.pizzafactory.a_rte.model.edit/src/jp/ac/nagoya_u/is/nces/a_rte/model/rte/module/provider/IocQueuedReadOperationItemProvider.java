@@ -60,8 +60,8 @@ public class IocQueuedReadOperationItemProvider extends ReadOperationItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocQueuedReadOperation_accessApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedReadOperation_accessApi_feature", "_UI_IocQueuedReadOperation_type"),
+				 getString("_UI_IocQueuedReadOperation_accessApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedReadOperation_accessApi_feature", "_UI_IocQueuedReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_QUEUED_READ_OPERATION__ACCESS_API,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class IocQueuedReadOperationItemProvider extends ReadOperationItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocQueuedReadOperation_tempReturnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedReadOperation_tempReturnVariable_feature", "_UI_IocQueuedReadOperation_type"),
+				 getString("_UI_IocQueuedReadOperation_tempReturnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedReadOperation_tempReturnVariable_feature", "_UI_IocQueuedReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_QUEUED_READ_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class IocQueuedReadOperationItemProvider extends ReadOperationItemProvide
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedReadOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedReadOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class IocQueuedReadOperationItemProvider extends ReadOperationItemProvide
 	public String getText(Object object) {
 		String label = ((IocQueuedReadOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocQueuedReadOperation_type") :
-			getString("_UI_IocQueuedReadOperation_type") + " " + label;
+			getString("_UI_IocQueuedReadOperation_type") : //$NON-NLS-1$
+			getString("_UI_IocQueuedReadOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

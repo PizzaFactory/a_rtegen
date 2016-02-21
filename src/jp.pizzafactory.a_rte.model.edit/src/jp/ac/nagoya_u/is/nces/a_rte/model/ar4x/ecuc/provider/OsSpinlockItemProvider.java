@@ -62,8 +62,8 @@ public class OsSpinlockItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsSpinlock_osSpinlockAccessingApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlock_osSpinlockAccessingApplication_feature", "_UI_OsSpinlock_type"),
+				 getString("_UI_OsSpinlock_osSpinlockAccessingApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlock_osSpinlockAccessingApplication_feature", "_UI_OsSpinlock_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_SPINLOCK__OS_SPINLOCK_ACCESSING_APPLICATION,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class OsSpinlockItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsSpinlock_osSpinlockLockMethod_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlock_osSpinlockLockMethod_feature", "_UI_OsSpinlock_type"),
+				 getString("_UI_OsSpinlock_osSpinlockLockMethod_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsSpinlock_osSpinlockLockMethod_feature", "_UI_OsSpinlock_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_SPINLOCK__OS_SPINLOCK_LOCK_METHOD,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class OsSpinlockItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSpinlock"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsSpinlock")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class OsSpinlockItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((OsSpinlock)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsSpinlock_type") :
-			getString("_UI_OsSpinlock_type") + " " + label;
+			getString("_UI_OsSpinlock_type") : //$NON-NLS-1$
+			getString("_UI_OsSpinlock_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

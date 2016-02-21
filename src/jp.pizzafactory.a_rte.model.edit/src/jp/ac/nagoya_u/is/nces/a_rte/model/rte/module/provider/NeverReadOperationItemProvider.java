@@ -59,8 +59,8 @@ public class NeverReadOperationItemProvider extends ReadOperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_NeverReadOperation_initValueConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_NeverReadOperation_initValueConstant_feature", "_UI_NeverReadOperation_type"),
+				 getString("_UI_NeverReadOperation_initValueConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_NeverReadOperation_initValueConstant_feature", "_UI_NeverReadOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.NEVER_READ_OPERATION__INIT_VALUE_CONSTANT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class NeverReadOperationItemProvider extends ReadOperationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeverReadOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NeverReadOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class NeverReadOperationItemProvider extends ReadOperationItemProvider {
 	public String getText(Object object) {
 		String label = ((NeverReadOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NeverReadOperation_type") :
-			getString("_UI_NeverReadOperation_type") + " " + label;
+			getString("_UI_NeverReadOperation_type") : //$NON-NLS-1$
+			getString("_UI_NeverReadOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -53,7 +53,7 @@ public class PeriodicProxyComSendImplementationItemProvider extends ProxyComSend
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PeriodicProxyComSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PeriodicProxyComSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class PeriodicProxyComSendImplementationItemProvider extends ProxyComSend
 	public String getText(Object object) {
 		String label = ((PeriodicProxyComSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PeriodicProxyComSendImplementation_type") :
-			getString("_UI_PeriodicProxyComSendImplementation_type") + " " + label;
+			getString("_UI_PeriodicProxyComSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_PeriodicProxyComSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

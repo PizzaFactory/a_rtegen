@@ -88,7 +88,7 @@ public class DataConstrItemProvider extends ArElementItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataConstr"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataConstr")); //$NON-NLS-1$
 	}
 
 	/**
@@ -101,8 +101,8 @@ public class DataConstrItemProvider extends ArElementItemProvider {
 	public String getText(Object object) {
 		String label = ((DataConstr)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DataConstr_type") :
-			getString("_UI_DataConstr_type") + " " + label;
+			getString("_UI_DataConstr_type") : //$NON-NLS-1$
+			getString("_UI_DataConstr_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

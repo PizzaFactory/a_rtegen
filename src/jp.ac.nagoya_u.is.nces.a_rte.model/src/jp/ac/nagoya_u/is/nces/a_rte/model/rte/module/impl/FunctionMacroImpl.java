@@ -244,9 +244,9 @@ public class FunctionMacroImpl extends ModuleObjectImpl implements FunctionMacro
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbolName: ");
+		result.append(" (symbolName: "); //$NON-NLS-1$
 		result.append(symbolName);
-		result.append(", functionName: ");
+		result.append(", functionName: "); //$NON-NLS-1$
 		result.append(functionName);
 		result.append(')');
 		return result.toString();

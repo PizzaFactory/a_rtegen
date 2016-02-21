@@ -60,8 +60,8 @@ public class PortPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortPrototype_parent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortPrototype_parent_feature", "_UI_PortPrototype_type"),
+				 getString("_UI_PortPrototype_parent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortPrototype_parent_feature", "_UI_PortPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_PROTOTYPE__PARENT,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class PortPrototypeItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PortPrototype_portApiOption_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PortPrototype_portApiOption_feature", "_UI_PortPrototype_type"),
+				 getString("_UI_PortPrototype_portApiOption_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PortPrototype_portApiOption_feature", "_UI_PortPrototype_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.PORT_PROTOTYPE__PORT_API_OPTION,
 				 true,
 				 false,
@@ -103,8 +103,8 @@ public class PortPrototypeItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((PortPrototype)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PortPrototype_type") :
-			getString("_UI_PortPrototype_type") + " " + label;
+			getString("_UI_PortPrototype_type") : //$NON-NLS-1$
+			getString("_UI_PortPrototype_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

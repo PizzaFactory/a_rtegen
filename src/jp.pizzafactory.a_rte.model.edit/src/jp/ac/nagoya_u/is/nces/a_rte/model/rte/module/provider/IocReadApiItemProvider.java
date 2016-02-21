@@ -53,7 +53,7 @@ public class IocReadApiItemProvider extends IocApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocReadApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocReadApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class IocReadApiItemProvider extends IocApiItemProvider {
 	public String getText(Object object) {
 		String label = ((IocReadApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocReadApi_type") :
-			getString("_UI_IocReadApi_type") + " " + label;
+			getString("_UI_IocReadApi_type") : //$NON-NLS-1$
+			getString("_UI_IocReadApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

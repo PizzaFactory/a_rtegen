@@ -65,8 +65,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_symbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_symbolName_feature", "_UI_Type_type"),
+				 getString("_UI_Type_symbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_symbolName_feature", "_UI_Type_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TYPE__SYMBOL_NAME,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_isAnonymous_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_isAnonymous_feature", "_UI_Type_type"),
+				 getString("_UI_Type_isAnonymous_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_isAnonymous_feature", "_UI_Type_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TYPE__IS_ANONYMOUS,
 				 true,
 				 false,
@@ -109,8 +109,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_signedness_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_signedness_feature", "_UI_Type_type"),
+				 getString("_UI_Type_signedness_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_signedness_feature", "_UI_Type_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TYPE__SIGNEDNESS,
 				 true,
 				 false,
@@ -131,8 +131,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_originalTypeSymbolName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_originalTypeSymbolName_feature", "_UI_Type_type"),
+				 getString("_UI_Type_originalTypeSymbolName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_originalTypeSymbolName_feature", "_UI_Type_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TYPE__ORIGINAL_TYPE_SYMBOL_NAME,
 				 true,
 				 false,
@@ -153,8 +153,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_size_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_size_feature", "_UI_Type_type"),
+				 getString("_UI_Type_size_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Type_size_feature", "_UI_Type_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TYPE__SIZE,
 				 true,
 				 false,
@@ -174,8 +174,8 @@ public class TypeItemProvider extends ModuleReferrableItemProvider {
 	public String getText(Object object) {
 		String label = ((Type)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Type_type") :
-			getString("_UI_Type_type") + " " + label;
+			getString("_UI_Type_type") : //$NON-NLS-1$
+			getString("_UI_Type_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

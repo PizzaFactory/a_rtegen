@@ -53,7 +53,7 @@ public class ApplicationSwComponentTypeItemProvider extends AtomicSwComponentTyp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationSwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ApplicationSwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ApplicationSwComponentTypeItemProvider extends AtomicSwComponentTyp
 	public String getText(Object object) {
 		String label = ((ApplicationSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ApplicationSwComponentType_type") :
-			getString("_UI_ApplicationSwComponentType_type") + " " + label;
+			getString("_UI_ApplicationSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_ApplicationSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

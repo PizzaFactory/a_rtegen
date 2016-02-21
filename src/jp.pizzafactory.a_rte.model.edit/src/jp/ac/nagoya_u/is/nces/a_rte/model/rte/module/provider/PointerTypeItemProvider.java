@@ -63,8 +63,8 @@ public class PointerTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PointerType_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_type_feature", "_UI_PointerType_type"),
+				 getString("_UI_PointerType_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_type_feature", "_UI_PointerType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.POINTER_TYPE__TYPE,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class PointerTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PointerType_isConstPointer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_isConstPointer_feature", "_UI_PointerType_type"),
+				 getString("_UI_PointerType_isConstPointer_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_isConstPointer_feature", "_UI_PointerType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.POINTER_TYPE__IS_CONST_POINTER,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class PointerTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PointerType_isConstTarget_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_isConstTarget_feature", "_UI_PointerType_type"),
+				 getString("_UI_PointerType_isConstTarget_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PointerType_isConstTarget_feature", "_UI_PointerType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.POINTER_TYPE__IS_CONST_TARGET,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class PointerTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PointerType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PointerType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class PointerTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((PointerType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PointerType_type") :
-			getString("_UI_PointerType_type") + " " + label;
+			getString("_UI_PointerType_type") : //$NON-NLS-1$
+			getString("_UI_PointerType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

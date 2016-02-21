@@ -53,7 +53,7 @@ public class ServiceSwComponentTypeItemProvider extends AtomicSwComponentTypeIte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceSwComponentType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ServiceSwComponentType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ServiceSwComponentTypeItemProvider extends AtomicSwComponentTypeIte
 	public String getText(Object object) {
 		String label = ((ServiceSwComponentType)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ServiceSwComponentType_type") :
-			getString("_UI_ServiceSwComponentType_type") + " " + label;
+			getString("_UI_ServiceSwComponentType_type") : //$NON-NLS-1$
+			getString("_UI_ServiceSwComponentType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

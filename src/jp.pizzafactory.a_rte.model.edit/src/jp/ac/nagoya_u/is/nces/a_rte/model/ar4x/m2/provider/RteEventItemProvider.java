@@ -60,8 +60,8 @@ public class RteEventItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEvent_startOnEvent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEvent_startOnEvent_feature", "_UI_RteEvent_type"),
+				 getString("_UI_RteEvent_startOnEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEvent_startOnEvent_feature", "_UI_RteEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.RTE_EVENT__START_ON_EVENT,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class RteEventItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteEvent_config_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteEvent_config_feature", "_UI_RteEvent_type"),
+				 getString("_UI_RteEvent_config_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteEvent_config_feature", "_UI_RteEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.RTE_EVENT__CONFIG,
 				 true,
 				 false,
@@ -103,8 +103,8 @@ public class RteEventItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((RteEvent)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteEvent_type") :
-			getString("_UI_RteEvent_type") + " " + label;
+			getString("_UI_RteEvent_type") : //$NON-NLS-1$
+			getString("_UI_RteEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

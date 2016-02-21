@@ -53,7 +53,7 @@ public class AllInterruptBlockExcludeOperationItemProvider extends ExcludeOperat
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/AllInterruptBlockExcludeOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/AllInterruptBlockExcludeOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class AllInterruptBlockExcludeOperationItemProvider extends ExcludeOperat
 	public String getText(Object object) {
 		String label = ((AllInterruptBlockExcludeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_AllInterruptBlockExcludeOperation_type") :
-			getString("_UI_AllInterruptBlockExcludeOperation_type") + " " + label;
+			getString("_UI_AllInterruptBlockExcludeOperation_type") : //$NON-NLS-1$
+			getString("_UI_AllInterruptBlockExcludeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

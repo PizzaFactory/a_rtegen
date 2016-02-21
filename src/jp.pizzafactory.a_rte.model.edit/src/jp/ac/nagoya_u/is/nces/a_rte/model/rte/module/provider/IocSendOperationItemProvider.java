@@ -59,8 +59,8 @@ public class IocSendOperationItemProvider extends SendOperationItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocSendOperation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendOperation_type_feature", "_UI_IocSendOperation_type"),
+				 getString("_UI_IocSendOperation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendOperation_type_feature", "_UI_IocSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_SEND_OPERATION__TYPE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class IocSendOperationItemProvider extends SendOperationItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class IocSendOperationItemProvider extends SendOperationItemProvider {
 	public String getText(Object object) {
 		String label = ((IocSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocSendOperation_type") :
-			getString("_UI_IocSendOperation_type") + " " + label;
+			getString("_UI_IocSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_IocSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

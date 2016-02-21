@@ -64,8 +64,8 @@ public class SenderRecRecordElementMappingItemProvider extends M2ObjectItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderRecRecordElementMapping_implementationRecordElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecRecordElementMapping_implementationRecordElement_feature", "_UI_SenderRecRecordElementMapping_type"),
+				 getString("_UI_SenderRecRecordElementMapping_implementationRecordElement_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecRecordElementMapping_implementationRecordElement_feature", "_UI_SenderRecRecordElementMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_REC_RECORD_ELEMENT_MAPPING__IMPLEMENTATION_RECORD_ELEMENT,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class SenderRecRecordElementMappingItemProvider extends M2ObjectItemProvi
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SenderRecRecordElementMapping_systemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecRecordElementMapping_systemSignal_feature", "_UI_SenderRecRecordElementMapping_type"),
+				 getString("_UI_SenderRecRecordElementMapping_systemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SenderRecRecordElementMapping_systemSignal_feature", "_UI_SenderRecRecordElementMapping_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.SENDER_REC_RECORD_ELEMENT_MAPPING__SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -135,7 +135,7 @@ public class SenderRecRecordElementMappingItemProvider extends M2ObjectItemProvi
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecRecordElementMapping"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SenderRecRecordElementMapping")); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class SenderRecRecordElementMappingItemProvider extends M2ObjectItemProvi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_SenderRecRecordElementMapping_type");
+		return getString("_UI_SenderRecRecordElementMapping_type"); //$NON-NLS-1$
 	}
 	
 

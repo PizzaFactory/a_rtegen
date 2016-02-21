@@ -55,8 +55,8 @@ public class ExcludeOperationItemProvider extends OperationItemProvider {
 	public String getText(Object object) {
 		String label = ((ExcludeOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ExcludeOperation_type") :
-			getString("_UI_ExcludeOperation_type") + " " + label;
+			getString("_UI_ExcludeOperation_type") : //$NON-NLS-1$
+			getString("_UI_ExcludeOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -136,7 +136,7 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.TIMING_EVENT: return (EObject)createTimingEvent();
 			case InteractionPackage.MODE_SWITCH_EVENT: return (EObject)createModeSwitchEvent();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

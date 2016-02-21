@@ -61,8 +61,8 @@ public class PrimitiveComSendProxyOperationItemProvider extends OperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveComSendProxyOperation_readValueVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_readValueVariable_feature", "_UI_PrimitiveComSendProxyOperation_type"),
+				 getString("_UI_PrimitiveComSendProxyOperation_readValueVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_readValueVariable_feature", "_UI_PrimitiveComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class PrimitiveComSendProxyOperationItemProvider extends OperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveComSendProxyOperation_accessApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_accessApi_feature", "_UI_PrimitiveComSendProxyOperation_type"),
+				 getString("_UI_PrimitiveComSendProxyOperation_accessApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_accessApi_feature", "_UI_PrimitiveComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class PrimitiveComSendProxyOperationItemProvider extends OperationItemPro
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PrimitiveComSendProxyOperation_signalIdVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_signalIdVariable_feature", "_UI_PrimitiveComSendProxyOperation_type"),
+				 getString("_UI_PrimitiveComSendProxyOperation_signalIdVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PrimitiveComSendProxyOperation_signalIdVariable_feature", "_UI_PrimitiveComSendProxyOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class PrimitiveComSendProxyOperationItemProvider extends OperationItemPro
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveComSendProxyOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveComSendProxyOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class PrimitiveComSendProxyOperationItemProvider extends OperationItemPro
 	public String getText(Object object) {
 		String label = ((PrimitiveComSendProxyOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PrimitiveComSendProxyOperation_type") :
-			getString("_UI_PrimitiveComSendProxyOperation_type") + " " + label;
+			getString("_UI_PrimitiveComSendProxyOperation_type") : //$NON-NLS-1$
+			getString("_UI_PrimitiveComSendProxyOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

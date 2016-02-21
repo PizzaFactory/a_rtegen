@@ -59,8 +59,8 @@ public class RedefinitionStructTypeItemProvider extends StructTypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RedefinitionType_sourceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RedefinitionType_sourceType_feature", "_UI_RedefinitionType_type"),
+				 getString("_UI_RedefinitionType_sourceType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RedefinitionType_sourceType_feature", "_UI_RedefinitionType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.REDEFINITION_TYPE__SOURCE_TYPE,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RedefinitionStructTypeItemProvider extends StructTypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RedefinitionStructType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RedefinitionStructType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RedefinitionStructTypeItemProvider extends StructTypeItemProvider {
 	public String getText(Object object) {
 		String label = ((RedefinitionStructType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RedefinitionStructType_type") :
-			getString("_UI_RedefinitionStructType_type") + " " + label;
+			getString("_UI_RedefinitionStructType_type") : //$NON-NLS-1$
+			getString("_UI_RedefinitionStructType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

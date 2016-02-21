@@ -194,7 +194,7 @@ public class ArgumentDataPrototypeImpl extends AutosarDataPrototypeImpl implemen
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (direction: ");
+		result.append(" (direction: "); //$NON-NLS-1$
 		result.append(direction);
 		result.append(')');
 		return result.toString();

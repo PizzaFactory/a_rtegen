@@ -59,8 +59,8 @@ public class ModeQueuedVariableItemProvider extends GlobalVariableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModeQueuedVariable_queueType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModeQueuedVariable_queueType_feature", "_UI_ModeQueuedVariable_type"),
+				 getString("_UI_ModeQueuedVariable_queueType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModeQueuedVariable_queueType_feature", "_UI_ModeQueuedVariable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.MODE_QUEUED_VARIABLE__QUEUE_TYPE,
 				 false,
 				 false,
@@ -78,7 +78,7 @@ public class ModeQueuedVariableItemProvider extends GlobalVariableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeQueuedVariable"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ModeQueuedVariable")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class ModeQueuedVariableItemProvider extends GlobalVariableItemProvider {
 	public String getText(Object object) {
 		String label = ((ModeQueuedVariable)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ModeQueuedVariable_type") :
-			getString("_UI_ModeQueuedVariable_type") + " " + label;
+			getString("_UI_ModeQueuedVariable_type") : //$NON-NLS-1$
+			getString("_UI_ModeQueuedVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

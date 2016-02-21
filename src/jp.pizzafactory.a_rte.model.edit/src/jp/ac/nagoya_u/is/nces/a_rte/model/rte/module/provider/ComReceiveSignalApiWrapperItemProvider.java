@@ -53,7 +53,7 @@ public class ComReceiveSignalApiWrapperItemProvider extends ComSignalApiWrapperI
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComReceiveSignalApiWrapper"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComReceiveSignalApiWrapper")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class ComReceiveSignalApiWrapperItemProvider extends ComSignalApiWrapperI
 	public String getText(Object object) {
 		String label = ((ComReceiveSignalApiWrapper)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComReceiveSignalApiWrapper_type") :
-			getString("_UI_ComReceiveSignalApiWrapper_type") + " " + label;
+			getString("_UI_ComReceiveSignalApiWrapper_type") : //$NON-NLS-1$
+			getString("_UI_ComReceiveSignalApiWrapper_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

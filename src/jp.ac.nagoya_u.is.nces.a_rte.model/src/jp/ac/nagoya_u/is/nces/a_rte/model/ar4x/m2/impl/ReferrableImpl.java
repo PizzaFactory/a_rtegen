@@ -309,11 +309,11 @@ public abstract class ReferrableImpl extends M2ObjectImpl implements Referrable 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (id: "); //$NON-NLS-1$
 		result.append(id);
-		result.append(", shortName: ");
+		result.append(", shortName: "); //$NON-NLS-1$
 		result.append(shortName);
-		result.append(", reference: ");
+		result.append(", reference: "); //$NON-NLS-1$
 		result.append(reference);
 		result.append(')');
 		return result.toString();

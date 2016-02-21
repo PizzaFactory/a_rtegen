@@ -230,7 +230,7 @@ public abstract class ExecutableEntityImpl extends FunctionImpl implements Execu
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isNoMock: ");
+		result.append(" (isNoMock: "); //$NON-NLS-1$
 		result.append(isNoMock);
 		result.append(')');
 		return result.toString();

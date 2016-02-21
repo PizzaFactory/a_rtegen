@@ -150,7 +150,7 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (hasReturnValue: ");
+		result.append(" (hasReturnValue: "); //$NON-NLS-1$
 		result.append(hasReturnValue);
 		result.append(')');
 		return result.toString();

@@ -109,7 +109,7 @@ public class InstanceFactoryImpl extends EFactoryImpl implements InstanceFactory
 			case InstancePackage.SW_COMPONENT_INSTANCE_IN_SYSTEM: return (EObject)createSwComponentInstanceInSystem();
 			case InstancePackage.INSTANCE_ROOT: return (EObject)createInstanceRoot();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

@@ -65,8 +65,8 @@ public class WriteApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_WriteApi_dataParam_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_WriteApi_dataParam_feature", "_UI_WriteApi_type"),
+				 getString("_UI_WriteApi_dataParam_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_WriteApi_dataParam_feature", "_UI_WriteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.WRITE_API__DATA_PARAM,
 				 true,
 				 false,
@@ -87,8 +87,8 @@ public class WriteApiItemProvider extends RteApiItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_WriteApi_needsCheckArg_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_WriteApi_needsCheckArg_feature", "_UI_WriteApi_type"),
+				 getString("_UI_WriteApi_needsCheckArg_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_WriteApi_needsCheckArg_feature", "_UI_WriteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.WRITE_API__NEEDS_CHECK_ARG,
 				 true,
 				 false,
@@ -136,7 +136,7 @@ public class WriteApiItemProvider extends RteApiItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/WriteApi"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/WriteApi")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +149,8 @@ public class WriteApiItemProvider extends RteApiItemProvider {
 	public String getText(Object object) {
 		String label = ((WriteApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_WriteApi_type") :
-			getString("_UI_WriteApi_type") + " " + label;
+			getString("_UI_WriteApi_type") : //$NON-NLS-1$
+			getString("_UI_WriteApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

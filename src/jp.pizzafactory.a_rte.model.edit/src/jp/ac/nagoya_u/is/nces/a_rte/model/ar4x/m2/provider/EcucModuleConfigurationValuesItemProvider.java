@@ -66,8 +66,8 @@ public class EcucModuleConfigurationValuesItemProvider extends ArElementItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucModuleConfigurationValues_definitionRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_definitionRef_feature", "_UI_EcucModuleConfigurationValues_type"),
+				 getString("_UI_EcucModuleConfigurationValues_definitionRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_definitionRef_feature", "_UI_EcucModuleConfigurationValues_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF,
 				 true,
 				 false,
@@ -88,8 +88,8 @@ public class EcucModuleConfigurationValuesItemProvider extends ArElementItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucModuleConfigurationValues_ecucDefEdition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_ecucDefEdition_feature", "_UI_EcucModuleConfigurationValues_type"),
+				 getString("_UI_EcucModuleConfigurationValues_ecucDefEdition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_ecucDefEdition_feature", "_UI_EcucModuleConfigurationValues_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_MODULE_CONFIGURATION_VALUES__ECUC_DEF_EDITION,
 				 true,
 				 false,
@@ -110,8 +110,8 @@ public class EcucModuleConfigurationValuesItemProvider extends ArElementItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucModuleConfigurationValues_implementationConfigVariant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_implementationConfigVariant_feature", "_UI_EcucModuleConfigurationValues_type"),
+				 getString("_UI_EcucModuleConfigurationValues_implementationConfigVariant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucModuleConfigurationValues_implementationConfigVariant_feature", "_UI_EcucModuleConfigurationValues_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_MODULE_CONFIGURATION_VALUES__IMPLEMENTATION_CONFIG_VARIANT,
 				 true,
 				 false,
@@ -159,7 +159,7 @@ public class EcucModuleConfigurationValuesItemProvider extends ArElementItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucModuleConfigurationValues"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucModuleConfigurationValues")); //$NON-NLS-1$
 	}
 
 	/**
@@ -172,8 +172,8 @@ public class EcucModuleConfigurationValuesItemProvider extends ArElementItemProv
 	public String getText(Object object) {
 		String label = ((EcucModuleConfigurationValues)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucModuleConfigurationValues_type") :
-			getString("_UI_EcucModuleConfigurationValues_type") + " " + label;
+			getString("_UI_EcucModuleConfigurationValues_type") : //$NON-NLS-1$
+			getString("_UI_EcucModuleConfigurationValues_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

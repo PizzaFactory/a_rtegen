@@ -60,8 +60,8 @@ public class IocQueuedSendOperationItemProvider extends IocSendOperationItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocQueuedSendOperation_accessApi_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedSendOperation_accessApi_feature", "_UI_IocQueuedSendOperation_type"),
+				 getString("_UI_IocQueuedSendOperation_accessApi_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedSendOperation_accessApi_feature", "_UI_IocQueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_QUEUED_SEND_OPERATION__ACCESS_API,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class IocQueuedSendOperationItemProvider extends IocSendOperationItemProv
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_IocQueuedSendOperation_tempReturnVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedSendOperation_tempReturnVariable_feature", "_UI_IocQueuedSendOperation_type"),
+				 getString("_UI_IocQueuedSendOperation_tempReturnVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocQueuedSendOperation_tempReturnVariable_feature", "_UI_IocQueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class IocQueuedSendOperationItemProvider extends IocSendOperationItemProv
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedSendOperation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IocQueuedSendOperation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class IocQueuedSendOperationItemProvider extends IocSendOperationItemProv
 	public String getText(Object object) {
 		String label = ((IocQueuedSendOperation)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_IocQueuedSendOperation_type") :
-			getString("_UI_IocQueuedSendOperation_type") + " " + label;
+			getString("_UI_IocQueuedSendOperation_type") : //$NON-NLS-1$
+			getString("_UI_IocQueuedSendOperation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

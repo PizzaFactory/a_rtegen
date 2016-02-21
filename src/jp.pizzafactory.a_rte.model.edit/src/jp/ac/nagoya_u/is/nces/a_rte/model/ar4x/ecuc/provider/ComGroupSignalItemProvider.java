@@ -62,8 +62,8 @@ public class ComGroupSignalItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComGroupSignal_comSystemTemplateSystemSignal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComGroupSignal_comSystemTemplateSystemSignal_feature", "_UI_ComGroupSignal_type"),
+				 getString("_UI_ComGroupSignal_comSystemTemplateSystemSignal_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComGroupSignal_comSystemTemplateSystemSignal_feature", "_UI_ComGroupSignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.COM_GROUP_SIGNAL__COM_SYSTEM_TEMPLATE_SYSTEM_SIGNAL,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class ComGroupSignalItemProvider extends EcucContainerItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComGroupSignal_comHandleId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComGroupSignal_comHandleId_feature", "_UI_ComGroupSignal_type"),
+				 getString("_UI_ComGroupSignal_comHandleId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComGroupSignal_comHandleId_feature", "_UI_ComGroupSignal_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.COM_GROUP_SIGNAL__COM_HANDLE_ID,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class ComGroupSignalItemProvider extends EcucContainerItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComGroupSignal"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ComGroupSignal")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class ComGroupSignalItemProvider extends EcucContainerItemProvider {
 	public String getText(Object object) {
 		String label = ((ComGroupSignal)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ComGroupSignal_type") :
-			getString("_UI_ComGroupSignal_type") + " " + label;
+			getString("_UI_ComGroupSignal_type") : //$NON-NLS-1$
+			getString("_UI_ComGroupSignal_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

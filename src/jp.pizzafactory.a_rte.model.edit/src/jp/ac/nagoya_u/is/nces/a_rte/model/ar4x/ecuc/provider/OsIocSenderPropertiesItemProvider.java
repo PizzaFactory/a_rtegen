@@ -62,8 +62,8 @@ public class OsIocSenderPropertiesItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocSenderProperties_osIocSendingOsApplication_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocSenderProperties_osIocSendingOsApplication_feature", "_UI_OsIocSenderProperties_type"),
+				 getString("_UI_OsIocSenderProperties_osIocSendingOsApplication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocSenderProperties_osIocSendingOsApplication_feature", "_UI_OsIocSenderProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_SENDER_PROPERTIES__OS_IOC_SENDING_OS_APPLICATION,
 				 true,
 				 false,
@@ -84,8 +84,8 @@ public class OsIocSenderPropertiesItemProvider extends EcucContainerItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsIocSenderProperties_osIocSenderId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocSenderProperties_osIocSenderId_feature", "_UI_OsIocSenderProperties_type"),
+				 getString("_UI_OsIocSenderProperties_osIocSenderId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsIocSenderProperties_osIocSenderId_feature", "_UI_OsIocSenderProperties_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 EcucPackage.Literals.OS_IOC_SENDER_PROPERTIES__OS_IOC_SENDER_ID,
 				 true,
 				 false,
@@ -103,7 +103,7 @@ public class OsIocSenderPropertiesItemProvider extends EcucContainerItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocSenderProperties"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsIocSenderProperties")); //$NON-NLS-1$
 	}
 
 	/**
@@ -116,8 +116,8 @@ public class OsIocSenderPropertiesItemProvider extends EcucContainerItemProvider
 	public String getText(Object object) {
 		String label = ((OsIocSenderProperties)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsIocSenderProperties_type") :
-			getString("_UI_OsIocSenderProperties_type") + " " + label;
+			getString("_UI_OsIocSenderProperties_type") : //$NON-NLS-1$
+			getString("_UI_OsIocSenderProperties_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -60,8 +60,8 @@ public class RteBufferQueueTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueueType_maxLengthConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueueType_maxLengthConstant_feature", "_UI_RteBufferQueueType_type"),
+				 getString("_UI_RteBufferQueueType_maxLengthConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueueType_maxLengthConstant_feature", "_UI_RteBufferQueueType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUE_TYPE__MAX_LENGTH_CONSTANT,
 				 true,
 				 false,
@@ -82,8 +82,8 @@ public class RteBufferQueueTypeItemProvider extends TypeItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteBufferQueueType_elementType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueueType_elementType_feature", "_UI_RteBufferQueueType_type"),
+				 getString("_UI_RteBufferQueueType_elementType_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferQueueType_elementType_feature", "_UI_RteBufferQueueType_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_QUEUE_TYPE__ELEMENT_TYPE,
 				 true,
 				 false,
@@ -101,7 +101,7 @@ public class RteBufferQueueTypeItemProvider extends TypeItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueueType"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferQueueType")); //$NON-NLS-1$
 	}
 
 	/**
@@ -114,8 +114,8 @@ public class RteBufferQueueTypeItemProvider extends TypeItemProvider {
 	public String getText(Object object) {
 		String label = ((RteBufferQueueType)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferQueueType_type") :
-			getString("_UI_RteBufferQueueType_type") + " " + label;
+			getString("_UI_RteBufferQueueType_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferQueueType_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -63,8 +63,8 @@ public class PartedBswmItemProvider extends LogicalCompartmentItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PartedBswm_bswm_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PartedBswm_bswm_feature", "_UI_PartedBswm_type"),
+				 getString("_UI_PartedBswm_bswm_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PartedBswm_bswm_feature", "_UI_PartedBswm_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.PARTED_BSWM__BSWM,
 				 true,
 				 false,
@@ -115,7 +115,7 @@ public class PartedBswmItemProvider extends LogicalCompartmentItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PartedBswm"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/PartedBswm")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class PartedBswmItemProvider extends LogicalCompartmentItemProvider {
 	public String getText(Object object) {
 		String label = ((PartedBswm)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_PartedBswm_type") :
-			getString("_UI_PartedBswm_type") + " " + label;
+			getString("_UI_PartedBswm_type") : //$NON-NLS-1$
+			getString("_UI_PartedBswm_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

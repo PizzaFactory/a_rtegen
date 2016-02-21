@@ -63,8 +63,8 @@ public class OsTaskEventItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTaskEvent_osTaskId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osTaskId_feature", "_UI_OsTaskEvent_type"),
+				 getString("_UI_OsTaskEvent_osTaskId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osTaskId_feature", "_UI_OsTaskEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_ID,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class OsTaskEventItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTaskEvent_osEventId_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osEventId_feature", "_UI_OsTaskEvent_type"),
+				 getString("_UI_OsTaskEvent_osEventId_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osEventId_feature", "_UI_OsTaskEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_TASK_EVENT__OS_EVENT_ID,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class OsTaskEventItemProvider extends ModuleObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OsTaskEvent_osTaskPriority_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osTaskPriority_feature", "_UI_OsTaskEvent_type"),
+				 getString("_UI_OsTaskEvent_osTaskPriority_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OsTaskEvent_osTaskPriority_feature", "_UI_OsTaskEvent_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_PRIORITY,
 				 true,
 				 false,
@@ -126,7 +126,7 @@ public class OsTaskEventItemProvider extends ModuleObjectItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEvent"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OsTaskEvent")); //$NON-NLS-1$
 	}
 
 	/**
@@ -139,8 +139,8 @@ public class OsTaskEventItemProvider extends ModuleObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((OsTaskEvent)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OsTaskEvent_type") :
-			getString("_UI_OsTaskEvent_type") + " " + label;
+			getString("_UI_OsTaskEvent_type") : //$NON-NLS-1$
+			getString("_UI_OsTaskEvent_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -403,15 +403,15 @@ public class TfCallApiImpl extends CallApiImpl implements TfCallApi {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (csTfParamTypeName: ");
+		result.append(" (csTfParamTypeName: "); //$NON-NLS-1$
 		result.append(csTfParamTypeName);
-		result.append(", csTfArgcConstantName: ");
+		result.append(", csTfArgcConstantName: "); //$NON-NLS-1$
 		result.append(csTfArgcConstantName);
-		result.append(", csTfOpidConstantName: ");
+		result.append(", csTfOpidConstantName: "); //$NON-NLS-1$
 		result.append(csTfOpidConstantName);
-		result.append(", csTfName: ");
+		result.append(", csTfName: "); //$NON-NLS-1$
 		result.append(csTfName);
-		result.append(", needsCheckArg: ");
+		result.append(", needsCheckArg: "); //$NON-NLS-1$
 		result.append(needsCheckArg);
 		result.append(')');
 		return result.toString();

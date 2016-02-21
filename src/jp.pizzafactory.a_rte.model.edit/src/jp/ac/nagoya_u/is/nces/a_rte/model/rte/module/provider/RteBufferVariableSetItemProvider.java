@@ -91,7 +91,7 @@ public class RteBufferVariableSetItemProvider extends GlobalVariableItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferVariableSet"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RteBufferVariableSet")); //$NON-NLS-1$
 	}
 
 	/**
@@ -104,8 +104,8 @@ public class RteBufferVariableSetItemProvider extends GlobalVariableItemProvider
 	public String getText(Object object) {
 		String label = ((RteBufferVariableSet)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteBufferVariableSet_type") :
-			getString("_UI_RteBufferVariableSet_type") + " " + label;
+			getString("_UI_RteBufferVariableSet_type") : //$NON-NLS-1$
+			getString("_UI_RteBufferVariableSet_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -282,7 +282,7 @@ public class RteBufferVariableSetItemProvider extends GlobalVariableItemProvider
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

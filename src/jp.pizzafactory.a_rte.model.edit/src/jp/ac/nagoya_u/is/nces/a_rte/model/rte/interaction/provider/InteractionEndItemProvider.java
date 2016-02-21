@@ -59,8 +59,8 @@ public class InteractionEndItemProvider extends InteractionReferrableItemProvide
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InteractionEnd_ownerPartition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InteractionEnd_ownerPartition_feature", "_UI_InteractionEnd_type"),
+				 getString("_UI_InteractionEnd_ownerPartition_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InteractionEnd_ownerPartition_feature", "_UI_InteractionEnd_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.INTERACTION_END__OWNER_PARTITION,
 				 true,
 				 false,
@@ -80,8 +80,8 @@ public class InteractionEndItemProvider extends InteractionReferrableItemProvide
 	public String getText(Object object) {
 		String label = ((InteractionEnd)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_InteractionEnd_type") :
-			getString("_UI_InteractionEnd_type") + " " + label;
+			getString("_UI_InteractionEnd_type") : //$NON-NLS-1$
+			getString("_UI_InteractionEnd_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -76,8 +76,8 @@ public class DelegationDataInstanceConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelegationDataInstanceConnector_outer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationDataInstanceConnector_outer_feature", "_UI_DelegationDataInstanceConnector_type"),
+				 getString("_UI_DelegationDataInstanceConnector_outer_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationDataInstanceConnector_outer_feature", "_UI_DelegationDataInstanceConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.DELEGATION_DATA_INSTANCE_CONNECTOR__OUTER,
 				 true,
 				 false,
@@ -98,8 +98,8 @@ public class DelegationDataInstanceConnectorItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DelegationDataInstanceConnector_inner_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationDataInstanceConnector_inner_feature", "_UI_DelegationDataInstanceConnector_type"),
+				 getString("_UI_DelegationDataInstanceConnector_inner_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_DelegationDataInstanceConnector_inner_feature", "_UI_DelegationDataInstanceConnector_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.DELEGATION_DATA_INSTANCE_CONNECTOR__INNER,
 				 true,
 				 false,
@@ -117,7 +117,7 @@ public class DelegationDataInstanceConnectorItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DelegationDataInstanceConnector"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DelegationDataInstanceConnector")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class DelegationDataInstanceConnectorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DelegationDataInstanceConnector_type");
+		return getString("_UI_DelegationDataInstanceConnector_type"); //$NON-NLS-1$
 	}
 	
 

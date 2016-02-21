@@ -63,8 +63,8 @@ public class SwcInternalBehaviorItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InternalBehavior_dataTypeMapping_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InternalBehavior_dataTypeMapping_feature", "_UI_InternalBehavior_type"),
+				 getString("_UI_InternalBehavior_dataTypeMapping_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalBehavior_dataTypeMapping_feature", "_UI_InternalBehavior_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.INTERNAL_BEHAVIOR__DATA_TYPE_MAPPING,
 				 true,
 				 false,
@@ -117,7 +117,7 @@ public class SwcInternalBehaviorItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcInternalBehavior"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SwcInternalBehavior")); //$NON-NLS-1$
 	}
 
 	/**
@@ -130,8 +130,8 @@ public class SwcInternalBehaviorItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((SwcInternalBehavior)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SwcInternalBehavior_type") :
-			getString("_UI_SwcInternalBehavior_type") + " " + label;
+			getString("_UI_SwcInternalBehavior_type") : //$NON-NLS-1$
+			getString("_UI_SwcInternalBehavior_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

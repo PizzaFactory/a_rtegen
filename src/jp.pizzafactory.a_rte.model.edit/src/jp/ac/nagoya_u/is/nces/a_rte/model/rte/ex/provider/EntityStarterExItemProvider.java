@@ -68,7 +68,7 @@ public class EntityStarterExItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntityStarterEx"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EntityStarterEx")); //$NON-NLS-1$
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class EntityStarterExItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EntityStarterEx_type");
+		return getString("_UI_EntityStarterEx_type"); //$NON-NLS-1$
 	}
 	
 

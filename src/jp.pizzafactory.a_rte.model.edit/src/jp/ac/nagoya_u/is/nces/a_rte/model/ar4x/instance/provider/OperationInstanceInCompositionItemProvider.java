@@ -61,8 +61,8 @@ public class OperationInstanceInCompositionItemProvider extends InstanceReferrab
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInComposition_prototype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_prototype_feature", "_UI_OperationInstanceInComposition_type"),
+				 getString("_UI_OperationInstanceInComposition_prototype_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_prototype_feature", "_UI_OperationInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE,
 				 true,
 				 false,
@@ -83,8 +83,8 @@ public class OperationInstanceInCompositionItemProvider extends InstanceReferrab
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInComposition_requesterConnection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_requesterConnection_feature", "_UI_OperationInstanceInComposition_type"),
+				 getString("_UI_OperationInstanceInComposition_requesterConnection_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_requesterConnection_feature", "_UI_OperationInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_COMPOSITION__REQUESTER_CONNECTION,
 				 true,
 				 false,
@@ -105,8 +105,8 @@ public class OperationInstanceInCompositionItemProvider extends InstanceReferrab
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_OperationInstanceInComposition_providerConnection_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_providerConnection_feature", "_UI_OperationInstanceInComposition_type"),
+				 getString("_UI_OperationInstanceInComposition_providerConnection_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_OperationInstanceInComposition_providerConnection_feature", "_UI_OperationInstanceInComposition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.OPERATION_INSTANCE_IN_COMPOSITION__PROVIDER_CONNECTION,
 				 true,
 				 false,
@@ -124,7 +124,7 @@ public class OperationInstanceInCompositionItemProvider extends InstanceReferrab
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationInstanceInComposition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OperationInstanceInComposition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -137,8 +137,8 @@ public class OperationInstanceInCompositionItemProvider extends InstanceReferrab
 	public String getText(Object object) {
 		String label = ((OperationInstanceInComposition)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_OperationInstanceInComposition_type") :
-			getString("_UI_OperationInstanceInComposition_type") + " " + label;
+			getString("_UI_OperationInstanceInComposition_type") : //$NON-NLS-1$
+			getString("_UI_OperationInstanceInComposition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

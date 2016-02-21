@@ -64,8 +64,8 @@ public class EcucContainerValueItemProvider extends IdentifiableItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EcucContainerValue_definitionRef_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EcucContainerValue_definitionRef_feature", "_UI_EcucContainerValue_type"),
+				 getString("_UI_EcucContainerValue_definitionRef_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EcucContainerValue_definitionRef_feature", "_UI_EcucContainerValue_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.ECUC_CONTAINER_VALUE__DEFINITION_REF,
 				 true,
 				 false,
@@ -115,7 +115,7 @@ public class EcucContainerValueItemProvider extends IdentifiableItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucContainerValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EcucContainerValue")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class EcucContainerValueItemProvider extends IdentifiableItemProvider {
 	public String getText(Object object) {
 		String label = ((EcucContainerValue)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EcucContainerValue_type") :
-			getString("_UI_EcucContainerValue_type") + " " + label;
+			getString("_UI_EcucContainerValue_type") : //$NON-NLS-1$
+			getString("_UI_EcucContainerValue_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

@@ -424,9 +424,9 @@ public class EcucPartitionImpl extends EcucContainerImpl implements EcucPartitio
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (ecucPartitionBswModuleExecution: ");
+		result.append(" (ecucPartitionBswModuleExecution: "); //$NON-NLS-1$
 		result.append(ecucPartitionBswModuleExecution);
-		result.append(", partitionCanBeRestarted: ");
+		result.append(", partitionCanBeRestarted: "); //$NON-NLS-1$
 		result.append(partitionCanBeRestarted);
 		result.append(')');
 		return result.toString();

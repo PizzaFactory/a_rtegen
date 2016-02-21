@@ -59,8 +59,8 @@ public class RVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RVariableDataInstanceInSwc_contextRPort_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RVariableDataInstanceInSwc_contextRPort_feature", "_UI_RVariableDataInstanceInSwc_type"),
+				 getString("_UI_RVariableDataInstanceInSwc_contextRPort_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RVariableDataInstanceInSwc_contextRPort_feature", "_UI_RVariableDataInstanceInSwc_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InstancePackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT,
 				 true,
 				 false,
@@ -78,7 +78,7 @@ public class RVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RVariableDataInstanceInSwc"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RVariableDataInstanceInSwc")); //$NON-NLS-1$
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class RVariableDataInstanceInSwcItemProvider extends VariableDataInstance
 	public String getText(Object object) {
 		String label = ((RVariableDataInstanceInSwc)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RVariableDataInstanceInSwc_type") :
-			getString("_UI_RVariableDataInstanceInSwc_type") + " " + label;
+			getString("_UI_RVariableDataInstanceInSwc_type") : //$NON-NLS-1$
+			getString("_UI_RVariableDataInstanceInSwc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

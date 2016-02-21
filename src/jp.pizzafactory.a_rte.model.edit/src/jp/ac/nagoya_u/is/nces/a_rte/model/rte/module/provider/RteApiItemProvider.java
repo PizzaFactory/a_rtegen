@@ -67,8 +67,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_apiMappingName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_apiMappingName_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_apiMappingName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_apiMappingName_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__API_MAPPING_NAME,
 				 true,
 				 false,
@@ -89,8 +89,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_isConnected_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_isConnected_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_isConnected_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_isConnected_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__IS_CONNECTED,
 				 true,
 				 false,
@@ -111,8 +111,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_isInline_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_isInline_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_isInline_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_isInline_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__IS_INLINE,
 				 true,
 				 false,
@@ -133,8 +133,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_returnValue_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_returnValue_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_returnValue_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_returnValue_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__RETURN_VALUE,
 				 true,
 				 false,
@@ -155,8 +155,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_inlineConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineConstant_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_inlineConstant_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineConstant_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__INLINE_CONSTANT,
 				 true,
 				 false,
@@ -177,8 +177,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_inlineGlobalVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineGlobalVariable_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_inlineGlobalVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineGlobalVariable_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__INLINE_GLOBAL_VARIABLE,
 				 true,
 				 false,
@@ -199,8 +199,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RteApi_inlineRunnableEntity_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineRunnableEntity_feature", "_UI_RteApi_type"),
+				 getString("_UI_RteApi_inlineRunnableEntity_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteApi_inlineRunnableEntity_feature", "_UI_RteApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_API__INLINE_RUNNABLE_ENTITY,
 				 true,
 				 false,
@@ -220,8 +220,8 @@ public class RteApiItemProvider extends FunctionItemProvider {
 	public String getText(Object object) {
 		String label = ((RteApi)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_RteApi_type") :
-			getString("_UI_RteApi_type") + " " + label;
+			getString("_UI_RteApi_type") : //$NON-NLS-1$
+			getString("_UI_RteApi_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

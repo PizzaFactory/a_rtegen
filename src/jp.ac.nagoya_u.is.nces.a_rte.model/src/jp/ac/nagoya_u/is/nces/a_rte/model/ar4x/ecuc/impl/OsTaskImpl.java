@@ -518,11 +518,11 @@ public class OsTaskImpl extends EcucContainerImpl implements OsTask {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (osTaskActivation: ");
+		result.append(" (osTaskActivation: "); //$NON-NLS-1$
 		result.append(osTaskActivation);
-		result.append(", osTaskPriority: ");
+		result.append(", osTaskPriority: "); //$NON-NLS-1$
 		result.append(osTaskPriority);
-		result.append(", osTaskSchedule: ");
+		result.append(", osTaskSchedule: "); //$NON-NLS-1$
 		result.append(osTaskSchedule);
 		result.append(')');
 		return result.toString();

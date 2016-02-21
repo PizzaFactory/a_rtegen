@@ -115,7 +115,7 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rte"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Rte")); //$NON-NLS-1$
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 	public String getText(Object object) {
 		String label = ((Rte)object).getRoleName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Rte_type") :
-			getString("_UI_Rte_type") + " " + label;
+			getString("_UI_Rte_type") : //$NON-NLS-1$
+			getString("_UI_Rte_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
@@ -592,7 +592,7 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 
 		if (qualify) {
 			return getString
-				("_UI_CreateChild_text2",
+				("_UI_CreateChild_text2", //$NON-NLS-1$
 				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);

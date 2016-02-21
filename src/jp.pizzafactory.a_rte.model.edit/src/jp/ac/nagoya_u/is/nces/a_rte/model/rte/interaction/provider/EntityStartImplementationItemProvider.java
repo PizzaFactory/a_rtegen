@@ -51,7 +51,7 @@ public class EntityStartImplementationItemProvider extends InteractionObjectItem
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EntityStartImplementation_type");
+		return getString("_UI_EntityStartImplementation_type"); //$NON-NLS-1$
 	}
 	
 

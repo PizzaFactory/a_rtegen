@@ -53,7 +53,7 @@ public class TrustedFunctionComSendImplementationItemProvider extends ComSendImp
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionComSendImplementation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TrustedFunctionComSendImplementation")); //$NON-NLS-1$
 	}
 
 	/**
@@ -66,8 +66,8 @@ public class TrustedFunctionComSendImplementationItemProvider extends ComSendImp
 	public String getText(Object object) {
 		String label = ((TrustedFunctionComSendImplementation)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TrustedFunctionComSendImplementation_type") :
-			getString("_UI_TrustedFunctionComSendImplementation_type") + " " + label;
+			getString("_UI_TrustedFunctionComSendImplementation_type") : //$NON-NLS-1$
+			getString("_UI_TrustedFunctionComSendImplementation_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 

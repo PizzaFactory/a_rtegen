@@ -283,7 +283,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.POINTER_TYPE: return (EObject)createPointerType();
 			case ModulePackage.REDEFINITION_POINTER_TYPE: return (EObject)createRedefinitionPointerType();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -314,7 +314,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.INTEGER:
 				return createIntegerFromString(eDataType, initialValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -345,7 +345,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.INTEGER:
 				return convertIntegerToString(eDataType, instanceValue);
 			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
@@ -2186,7 +2186,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 */
 	public ParameterPassTypeEnum createParameterPassTypeEnumFromString(EDataType eDataType, String initialValue) {
 		ParameterPassTypeEnum result = ParameterPassTypeEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -2206,7 +2206,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 */
 	public ParameterDirectionEnum createParameterDirectionEnumFromString(EDataType eDataType, String initialValue) {
 		ParameterDirectionEnum result = ParameterDirectionEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -2226,7 +2226,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 */
 	public SignednessEnum createSignednessEnumFromString(EDataType eDataType, String initialValue) {
 		SignednessEnum result = SignednessEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 
@@ -2246,7 +2246,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 */
 	public ConstantValueTypeEnum createConstantValueTypeEnumFromString(EDataType eDataType, String initialValue) {
 		ConstantValueTypeEnum result = ConstantValueTypeEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		return result;
 	}
 

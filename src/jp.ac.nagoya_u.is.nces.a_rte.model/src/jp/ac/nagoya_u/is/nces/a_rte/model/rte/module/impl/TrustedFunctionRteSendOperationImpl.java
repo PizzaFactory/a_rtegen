@@ -368,9 +368,9 @@ public class TrustedFunctionRteSendOperationImpl extends TrustedFunctionRteOpera
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (srSendTfSymbolName: ");
+		result.append(" (srSendTfSymbolName: "); //$NON-NLS-1$
 		result.append(srSendTfSymbolName);
-		result.append(", isGroup: ");
+		result.append(", isGroup: "); //$NON-NLS-1$
 		result.append(isGroup);
 		result.append(')');
 		return result.toString();

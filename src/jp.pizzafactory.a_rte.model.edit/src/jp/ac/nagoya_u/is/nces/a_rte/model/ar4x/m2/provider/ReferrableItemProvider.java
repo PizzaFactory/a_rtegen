@@ -63,8 +63,8 @@ public class ReferrableItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Referrable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_id_feature", "_UI_Referrable_type"),
+				 getString("_UI_Referrable_id_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_id_feature", "_UI_Referrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.REFERRABLE__ID,
 				 true,
 				 false,
@@ -85,8 +85,8 @@ public class ReferrableItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Referrable_shortName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_shortName_feature", "_UI_Referrable_type"),
+				 getString("_UI_Referrable_shortName_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_shortName_feature", "_UI_Referrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.REFERRABLE__SHORT_NAME,
 				 true,
 				 false,
@@ -107,8 +107,8 @@ public class ReferrableItemProvider extends M2ObjectItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Referrable_reference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_reference_feature", "_UI_Referrable_type"),
+				 getString("_UI_Referrable_reference_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Referrable_reference_feature", "_UI_Referrable_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 M2Package.Literals.REFERRABLE__REFERENCE,
 				 true,
 				 false,
@@ -128,8 +128,8 @@ public class ReferrableItemProvider extends M2ObjectItemProvider {
 	public String getText(Object object) {
 		String label = ((Referrable)object).getId();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Referrable_type") :
-			getString("_UI_Referrable_type") + " " + label;
+			getString("_UI_Referrable_type") : //$NON-NLS-1$
+			getString("_UI_Referrable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 	
 
