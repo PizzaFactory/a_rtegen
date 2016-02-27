@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<artifacts size='1'>
+  <artifact classifier='osgi.bundle' id='jp.pizzafactory.mwe.utils' version='0.0.1.v20160227-0610'>
+    <properties size='5'>
+      <property name='artifact.size' value='6840'/>
+      <property name='download.size' value='6840'/>
+      <property name='maven-groupId' value='jp.pizzafactory.mwe'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.mwe.utils'/>
+      <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+    </properties>
+  </artifact>
+</artifacts>
