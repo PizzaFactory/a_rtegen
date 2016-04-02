@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -89,7 +89,7 @@ import com.google.common.base.Optional;
 import com.google.common.io.Files;
 
 /**
- * GENERATE¥Õ¥§¡¼¥º¸ş¤±¤ÎRTE¤òÀ¸À®¤¹¤ë¡£
+ * GENERATEãƒ•ã‚§ãƒ¼ã‚ºå‘ã‘ã®RTEã‚’ç”Ÿæˆã™ã‚‹ã€‚
  */
 public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private static final String GENERATED_ECUC_ARXML_FILE_NAME = "Rte_GeneratedEcuc.arxml";
@@ -110,17 +110,17 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private final GeneratedEcucModelExtractor ecucModelExtractor;
 	private final AutosarModelSaver saver;
 
-	// ¥Ç¥Ğ¥Ã¥°ÍÑ
+	// ãƒ‡ãƒãƒƒã‚°ç”¨
 	private final ModelSerializer serializer;
 
-	// ¥Æ¥¹¥È¥³¡¼¥ÉÀ¸À®ÍÑ
+	// ãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ç”Ÿæˆç”¨
 	private final RteTestModuleModelBuilder testModuleModelBuilder;
 	private final RteTestCodeGenerator testCodeGenerator;
 
 	/**
-	 * {@link GeneratePhaseRteGenerator}¤ò¹½ÃÛ¤¹¤ë¡£
-	 * @param generatorInitOptions RTE¥¸¥§¥Í¥ì¡¼¥¿¤Î½é´üÀßÄê¥ª¥×¥·¥ç¥ó
-	 * @throws AppException {@link GeneratePhaseRteGenerator}¤Î¹½ÃÛÃæ¤Ë¥¨¥é¡¼¤¬È¯À¸¤·¤¿¾ì¹ç
+	 * {@link GeneratePhaseRteGenerator}ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
+	 * @param generatorInitOptions RTEã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚¿ã®åˆæœŸè¨­å®šã‚ªãƒ—ã‚·ãƒ§ãƒ³
+	 * @throws AppException {@link GeneratePhaseRteGenerator}ã®æ§‹ç¯‰ä¸­ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆ
 	 */
 	public GeneratePhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		this.generatorInitOptions = generatorInitOptions;
@@ -156,7 +156,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			this.codeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 			this.testCodeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 
-		} catch (ModelException e) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+		} catch (ModelException e) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 			throw new AppException(e);
 		}
 	}
@@ -178,10 +178,10 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			try {
 				System.out.println("Checking input AUTOSAR XMLs...");
 
-				// ¥â¥Ç¥ë´Ä¶­¤Î½é´ü²½
+				// ãƒ¢ãƒ‡ãƒ«ç’°å¢ƒã®åˆæœŸåŒ–
 				ModelEnvironment.initResource(eGenSourceResource);
 
-				// AUTOSAR M2¥â¥Ç¥ë¤ÎÆÉ¤ß¹ş¤ß
+				// AUTOSAR M2ãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
 				this.loader.loadM2(eGenSourceResource, options.inputFiles);
 
 				ModelQuery query = new ModelQuery(eGenSourceResource);
@@ -192,14 +192,14 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				boolean hasRteConfig = rootSwCompositionPrototype.isPresent();
 				boolean hasSchmConfig = bswImplementation.isPresent();
 
-				// RootSwCompositionPrototype¤ÈBswImplementation¤¬Î¾Êı¶¦ÄêµÁ¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤Ï,
-				// [nrte_sws_226]¤Î¥á¥Ã¥»¡¼¥¸¤òÉ½¼¨¤·¤¿¤¦¤¨¤ÇRTE¤Î¸¡¾Ú·ë²Ì¤òÉ½¼¨¤¹¤ë.				
+				// RootSwCompositionPrototypeã¨BswImplementationãŒä¸¡æ–¹å…±å®šç¾©ã•ã‚Œã¦ã„ãªã„å ´åˆã¯,
+				// [nrte_sws_226]ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã—ãŸã†ãˆã§RTEã®æ¤œè¨¼çµæœã‚’è¡¨ç¤ºã™ã‚‹.				
 				boolean validatesRte = false;
 				if (!hasRteConfig && !hasSchmConfig) {
 					validatesRte = true;
 				}
 
-				// AUTOSAR M2¥â¥Ç¥ë¸¡¾Ú
+				// AUTOSAR M2ãƒ¢ãƒ‡ãƒ«æ¤œè¨¼
 				if (hasRteConfig || validatesRte) {
 					this.rteValidatorM2.validate(eGenSourceResource, diagnostics);
 				}
@@ -208,10 +208,10 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				}
 				this.commonValidatorM2.validate(eGenSourceResource, diagnostics);
 
-				// AUTOSAR Instance¥â¥Ç¥ë¤ÎÆÉ¤ß¹ş¤ß
+				// AUTOSAR Instanceãƒ¢ãƒ‡ãƒ«ã®èª­ã¿è¾¼ã¿
 				this.loader.loadInstance(eGenSourceResource);
 
-				// AUTOSAR Instance¥â¥Ç¥ë¸¡¾Ú
+				// AUTOSAR Instanceãƒ¢ãƒ‡ãƒ«æ¤œè¨¼
 				if (hasRteConfig || validatesRte) {
 					this.rteValidatorInstance.validate(eGenSourceResource, diagnostics);
 				}
@@ -231,27 +231,27 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 					return;
 				}
 
-				// AUTOSAR¥â¥Ç¥ë -> ¥¤¥ó¥¿¥é¥¯¥·¥ç¥ó¥â¥Ç¥ëÊÑ´¹
+				// AUTOSARãƒ¢ãƒ‡ãƒ« -> ã‚¤ãƒ³ã‚¿ãƒ©ã‚¯ã‚·ãƒ§ãƒ³ãƒ¢ãƒ‡ãƒ«å¤‰æ›
 				RteInteractionModelBuilderOptions builderOptions = options.createRteInteractionModelBuilderOptions();
 				this.interactionModelBuilder.build(eGenSourceResource, builderOptions);
 
-				// RTE¡¤¤â¤·¤¯¤ÏAUTOSAR XML¤ÎÀ¸À®
+				// RTEï¼Œã‚‚ã—ãã¯AUTOSAR XMLã®ç”Ÿæˆ
 				InteractionRoot interactionRoot = query.findSingleByKind(INTERACTION_ROOT);
 
 				generateInternalDataTypeFile(options);
 
 				if (interactionRoot.getGeneratedEcuConfiguration() != null) {
-					// ÉÔÂ­¾ğÊó¤¬¤¢¤ë¾ì¹ç¡¤AUTOSAR XML¤È¤·¤Æ½ĞÎÏ
+					// ä¸è¶³æƒ…å ±ãŒã‚ã‚‹å ´åˆï¼ŒAUTOSAR XMLã¨ã—ã¦å‡ºåŠ›
 					generateInsufficientArxmls(eGeneratedEcucResource, eGenSourceResource, options);
 				}
 				if (interactionRoot.getGeneratedEcuConfiguration() == null || options.forcesGenerateRte) {
-					// ÉÔÂ­¾ğÊó¤¬¤Ê¤¤¾ì¹ç¡¤RTE¤òÀ¸À®
+					// ä¸è¶³æƒ…å ±ãŒãªã„å ´åˆï¼ŒRTEã‚’ç”Ÿæˆ
 					generateRte(eGenSourceResource, options);
 				}
 
 			} finally {
-				// ¥â¥Ç¥ë¤ò¥À¥ó¥×
-				if (options.debugModeEnabled) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+				// ãƒ¢ãƒ‡ãƒ«ã‚’ãƒ€ãƒ³ãƒ—
+				if (options.debugModeEnabled) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 					File outputDirectory = new File(options.outputDirectory);
 					this.serializer.serialize(eGenSourceResource, new File(outputDirectory, SOURCE_MODELDUMP_FILE_NAME).getPath());
 					this.serializer.serialize(eGeneratedEcucResource, new File(outputDirectory, GENERATED_ECUC_MODELDUMP_FILE_NAME).getPath());
@@ -261,13 +261,13 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		} catch (PersistException e) {
 			throw new AppException(e);
 
-		} catch (M2MException e) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+		} catch (M2MException e) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 			throw new AppException(e);
 
-		} catch (ModelException e) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+		} catch (ModelException e) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 			throw new AppException(e);
 
-		} catch (CodegenException e) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		} catch (CodegenException e) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			throw new AppException(e);
 		}
 	}
@@ -279,7 +279,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 
 		File outputDir = new File(options.outputDirectory);
 
-		// ECUC ARXML¤Î½ĞÎÏ
+		// ECUC ARXMLã®å‡ºåŠ›
 		File generatedEcucFile = new File(outputDir, GENERATED_ECUC_ARXML_FILE_NAME);
 
 		System.out.println("Generating " + generatedEcucFile.getPath() + " ...");
@@ -290,7 +290,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	}
 
 	private void generateInternalDataTypeFile(GeneratorOptions options) throws AppException {
-		// ÆâÉô¥Ç¡¼¥¿·¿¤ÎARXML¤Î½ĞÎÏ
+		// å†…éƒ¨ãƒ‡ãƒ¼ã‚¿å‹ã®ARXMLã®å‡ºåŠ›
 		File outputDir = new File(options.outputDirectory);
 		File generatedInternalDataTypeFile = new File(outputDir, this.generatorInitOptions.internalDataTypesFile.getName());
 
@@ -313,24 +313,24 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		String messege = "Generating ";
 		if (hasRteConfig && hasSchmConfig) {
 			messege += "RTE and SCHM...";
-		} else if (hasRteConfig && !hasSchmConfig) { // COVERAGE (Ê¬´ôÌÖÍå¤Ï¤µ¤ì¤Æ¤¤¤ë¤Î¤Ç¥Æ¥¹¥ÈÍ×·ï¤òËş¤¿¤·¤Æ¤¤¤ë)
+		} else if (hasRteConfig && !hasSchmConfig) { // COVERAGE (åˆ†å²ç¶²ç¾…ã¯ã•ã‚Œã¦ã„ã‚‹ã®ã§ãƒ†ã‚¹ãƒˆè¦ä»¶ã‚’æº€ãŸã—ã¦ã„ã‚‹)
 			messege += "RTE...";
 		} else /* if (!rootSwCompositionPrototype.isPresent() && bswImplementation.isPresent()) */ {
 			messege += "SCHM...";
 		}
 		System.out.println(messege);
 
-		// AUTOSAR¥â¥Ç¥ë¡¤¥¤¥ó¥¿¥é¥¯¥·¥ç¥ó¥â¥Ç¥ë -> ¥â¥¸¥å¡¼¥ë¥â¥Ç¥ëÊÑ´¹
+		// AUTOSARãƒ¢ãƒ‡ãƒ«ï¼Œã‚¤ãƒ³ã‚¿ãƒ©ã‚¯ã‚·ãƒ§ãƒ³ãƒ¢ãƒ‡ãƒ« -> ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ãƒ¢ãƒ‡ãƒ«å¤‰æ›
 		RteModuleModelBuilderOptions builderOptions = options.createRteModuleModelBuilderOptions();
 		builderOptions.doesGenerateRte = hasRteConfig;
 		builderOptions.doesGenerateSchm = hasSchmConfig;
 		this.moduleModelBuilder.build(eGenSourceResource, builderOptions);
 
-		// RTE¥³¡¼¥ÉÀ¸À®
+		// RTEã‚³ãƒ¼ãƒ‰ç”Ÿæˆ
 		RteModule rteModule = query.findSingleByKind(ModulePackage.Literals.RTE_MODULE);
 		this.codeGenerator.generate(rteModule, new File(options.outputDirectory));
 
-		// RTE¥Æ¥¹¥È¥³¡¼¥ÉÀ¸À®
+		// RTEãƒ†ã‚¹ãƒˆã‚³ãƒ¼ãƒ‰ç”Ÿæˆ
 		if (options.doesGenerateTests) {
 			this.testModuleModelBuilder.build(eGenSourceResource);
 

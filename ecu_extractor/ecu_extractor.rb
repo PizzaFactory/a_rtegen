@@ -14,39 +14,39 @@
 #  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
 #  Copyright (C) 2013-2015 by Witz Corporation
 #
-#  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
-#  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
-#  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
-#  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
-#      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
-#      ����������˴ޤޤ�Ƥ��뤳�ȡ�
-#  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
-#      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
-#      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
-#      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
-#  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
-#      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
-#      �ȡ�
-#    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
-#        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
-#    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
-#        ��𤹤뤳�ȡ�
-#  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
-#      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
-#      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
-#      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
-#      ���դ��뤳�ȡ�
+#  上記著作権者は，以下の(1)～(4)の条件を満たす場合に限り，本ソフトウェ
+#  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+#  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+#  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+#      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+#      スコード中に含まれていること．
+#  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+#      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+#      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+#      の無保証規定を掲載すること．
+#  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+#      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+#      と．
+#    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+#        作権表示，この利用条件および下記の無保証規定を掲載すること．
+#    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+#        報告すること．
+#  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+#      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+#      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+#      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+#      免責すること．
 #
-#  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
-#  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
-#  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
-#  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+#  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+#  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+#  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+#  用する者に対して，AUTOSARパートナーになることを求めている．
 #
-#  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
-#  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
-#  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
-#  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
-#  ����Ǥ�����ʤ���
+#  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+#  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+#  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+#  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+#  の責任を負わない．
 #
 # $Id: ecu_extractor.rb 427 2015-03-23 12:38:40Z mtakada $
 
@@ -58,30 +58,30 @@ if (ARGV.size() == 0)
   abort("Argument error !!")
 end
 
-# ���Ϥ��줿���Ƥ�arxml��ޡ�������
+# 入力された全てのarxmlをマージする
 sOutputFilePrefix = nil
 cAllArxmlData = nil
 ARGV.each{|sFileName|
-  # �ե����뤬¸�ߤ��ʤ���票�顼
+  # ファイルが存在しない場合エラー
   if (!File.exist?(sFileName))
     abort("Argument error !! [#{sFileName}]")
   end
 
-  # arxml�ե�����Ǥʤ���票�顼
+  # arxmlファイルでない場合エラー
   if (File.extname(sFileName) != ".arxml")
     abort("not ARXML file !! [#{sFileName}]")
   end
 
-  # ���ϥե�����̾�ץ�ե��å�������
+  # 出力ファイル名プレフィックス作成
   if (sOutputFilePrefix.nil?())
     sOutputFilePrefix = File.dirname(sFileName) + "/" + File.basename(sFileName, File.extname(sFileName)) + "_"
   end
 
-  # XML�饤�֥��Ǥ��ɤ߹���
+  # XMLライブラリでの読み込み
   if (cAllArxmlData.nil?())
     cAllArxmlData = REXML::Document.new(open(sFileName))
   else
-    # ʣ����arxml��ޡ������Ƥ���
+    # 複数のarxmlをマージしていく
     cTempXml = REXML::Document.new(open(sFileName))
     XPath.each(cTempXml, "//AUTOSAR/AR-PACKAGES/AR-PACKAGE"){|cElement|
       cAllArxmlData.elements["AUTOSAR/AR-PACKAGES"].add_element(cElement)
@@ -90,30 +90,30 @@ ARGV.each{|sFileName|
 }
 
 
-# ECU���󥹥��󥹤򸡺�
+# ECUインスタンスを検索
 aEcuInstances = []
 XPath.each(cAllArxmlData, "//ECU-INSTANCE/SHORT-NAME"){|cElement|
   aEcuInstances.push(cElement.text())
 }
 
-# ECU���󥹥��󥹤�¸�ߤ��ʤ���票�顼
+# ECUインスタンスが存在しない場合エラー
 if (aEcuInstances.size() == 0)
   abort("ECU Instance not found !!")
 end
 
-# ECU���󥹥������SW-C������Ǽ����ϥå���
+# ECUインスタンス毎のSW-C情報を格納するハッシュ
 hSwcOfEcu = {}
 aEcuInstances.each{|sEcu|
   hSwcOfEcu[sEcu] = []
 }
 
-# ECU���󥹥�����Υ롼�ȥ���ݥ�����������Ǽ����ϥå���
+# ECUインスタンス毎のルートコンポジション情報を格納するハッシュ
 hCompositionOfEcu = {}
 aEcuInstances.each{|sEcu|
   hCompositionOfEcu[sEcu] = nil
 }
 
-# ��ECU���󥹥��󥹤˽�°����SW-C������ݥ����������
+# 各ECUインスタンスに所属するSW-C、コンポジションを取得
 XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   sEcuName = File.basename(cElement.elements["ECU-INSTANCE-REF"].text())
   if (!hSwcOfEcu.has_key?(sEcuName))
@@ -131,77 +131,77 @@ XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   end
 }
 
-# ECU-INSTANCE����ƥʤ���
+# ECU-INSTANCEコンテナを削除
 XPath.each(cAllArxmlData, "//ELEMENTS/ECU-INSTANCE"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
-# SWC-TO-ECU-MAPPING����ƥʤ���
+# SWC-TO-ECU-MAPPINGコンテナを削除
 XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
-# SWC-BSW-MAPPING����ƥʤ���
+# SWC-BSW-MAPPINGコンテナを削除
 XPath.each(cAllArxmlData, "//ELEMENTS/SWC-BSW-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
 cAllArxmlData.freeze()
 
-# ECU���ARXML���������
+# ECU毎にARXMLを作成する
 hSwcOfEcu.each{|sEcu, aSwc|
   cTempXml = cAllArxmlData.deep_clone()
 
-  # �оݳ���APPLICATION-SW-COMPONENT-TYPE����
+  # 対象外のAPPLICATION-SW-COMPONENT-TYPEを削除
   XPath.each(cTempXml, "//ELEMENTS/APPLICATION-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE����
+  # 対象外のCOMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPEを削除
   XPath.each(cTempXml, "//ELEMENTS/COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���SENSOR-ACTUATOR-SW-COMPONENT-TYPE����
+  # 対象外のSENSOR-ACTUATOR-SW-COMPONENT-TYPEを削除
   XPath.each(cTempXml, "//ELEMENTS/SENSOR-ACTUATOR-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���SENDER-RECEIVER-TO-SIGNAL-MAPPING����
+  # 対象外のSENDER-RECEIVER-TO-SIGNAL-MAPPINGを削除
   XPath.each(cTempXml, "//MAPPINGS/SYSTEM-MAPPING/DATA-MAPPINGS/SENDER-RECEIVER-TO-SIGNAL-MAPPING"){|cElement|
     if (!aSwc.include?(File.basename(cElement.elements["DATA-ELEMENT-IREF"].elements["CONTEXT-COMPONENT-REF"].text())))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���SW-COMPONENT-PROTOTYPE����
+  # 対象外のSW-COMPONENT-PROTOTYPEを削除
   XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/COMPONENTS/SW-COMPONENT-PROTOTYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # SW-COMPONENT-PROTOTYPE��̵���ʤ���ˤʤä�COMPOSITION-SW-COMPONENT-TYPE����
+  # SW-COMPONENT-PROTOTYPEが無くなり空になったCOMPOSITION-SW-COMPONENT-TYPEを削除
   XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/"){|cElement|
     if (cElement.elements["COMPONENTS"].has_elements?() == false)
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���ROOT-SW-COMPOSITION-PROTOTYPE����
+  # 対象外のROOT-SW-COMPOSITION-PROTOTYPEを削除
   XPath.each(cTempXml, "//ROOT-SOFTWARE-COMPOSITIONS/ROOT-SW-COMPOSITION-PROTOTYPE"){|cElement|
     if (hCompositionOfEcu[sEcu] != cElement.elements["SHORT-NAME"].text())
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �оݳ���ASSEMBLY-SW-CONNECTOR����
+  # 対象外のASSEMBLY-SW-CONNECTORを削除
   XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS/ASSEMBLY-SW-CONNECTOR"){|cElement|
     sProvider =  File.basename(cElement.elements["PROVIDER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
     sRequester =  File.basename(cElement.elements["REQUESTER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
@@ -210,14 +210,14 @@ hSwcOfEcu.each{|sEcu, aSwc|
     end
   }
 
-  # ASSEMBLY-SW-CONNECTOR��̵���ʤ���ˤʤä�CONNECTORS����
+  # ASSEMBLY-SW-CONNECTORが無くなり空になったCONNECTORSを削除
   XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS"){|cElement|
     if (cElement.has_elements?() == false)
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # �ڤ�Ф���XMLʸ�������
+  # 切り出したXML文字列作成
   sXmlCode = String.new()
   cTempXml.write(sXmlCode, 4, false)
   sXmlCode.gsub!("'", "\"")
@@ -225,7 +225,7 @@ hSwcOfEcu.each{|sEcu, aSwc|
   sXmlCode.gsub!("    ", "\t")
   sXmlCode.gsub!("\n", "\r\n")
 
-  # ���ϥե�����̾��<��Ƭ�Υե�����̾>_<ECU���󥹥���̾>.arxml
+  # 出力ファイル名：<先頭のファイル名>_<ECUインスタンス名>.arxml
   sOutputName = sOutputFilePrefix + sEcu + ".arxml"
   File.open(sOutputName, "w") {|io|
     io.print(sXmlCode)

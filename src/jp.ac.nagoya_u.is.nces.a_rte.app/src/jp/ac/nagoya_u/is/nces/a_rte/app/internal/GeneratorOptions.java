@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -53,118 +53,118 @@ import org.kohsuke.args4j.Option;
 import com.google.common.collect.Lists;
 
 /**
- * RTE�����ͥ졼���μ¹Ի��Υ��ץ�����ɽ����
+ * RTEジェネレータの実行時のオプションを表す。
  */
 public class GeneratorOptions {
 
 	/**
-	 * RTE�������ե�������ɽ����
+	 * RTEの生成フェーズを表す。
 	 */
 	public enum GenerationPhase {
 		/**
-		 * CONTRACT�ե�����
+		 * CONTRACTフェーズ
 		 */
 		CONTRACT,
 
 		/**
-		 * GENERATE�ե�����
+		 * GENERATEフェーズ
 		 */
 		GENERATE,
 	}
 
 	/**
-	 * �إ�פ�ɽ�����뤫�ɤ���
+	 * ヘルプを表示するかどうか
 	 */
 	@Option(name = "--help", usage = "Display this information")
 	public boolean showsHelp = false;
 
 	/**
-	 * ��������RTE�Υե��������������Υ����ॹ����פ���Ϥ��뤫�ɤ���
+	 * 生成したRTEのファイルに生成時刻のタイムスタンプを出力するかどうか
 	 */
 	@Option(name = "-t", aliases = "--output-timestamp", usage = "Write the generation timestamp in RTE/SCHM codes")
 	public boolean writeGenerationTimeStamp = false;
 
 	/**
-	 * RTE�����ͥ졼���ΥС�������ɽ�����뤫�ɤ���
+	 * RTEジェネレータのバージョンを表示するかどうか
 	 */
 	@Option(name = "-v", aliases = "--version", usage = "Display the version of the RTE generator")
 	public boolean showsVersion = false;
 
 	/**
-	 * ��������RTE�ν��ϥǥ��쥯�ȥ�Υѥ�
+	 * 生成したRTEの出力ディレクトリのパス
 	 */
 	@Option(name = "-o", aliases = "--output-directory", usage = "Specify the output directory for generated files (default: .)", metaVar = "<directory>")
 	public String outputDirectory = ".";
 
 	/**
-	 * RTE�������ե�����
+	 * RTEの生成フェーズ
 	 */
 	@Option(name = "-p", aliases = "--generation-phase", usage = "Specify the RTE/SCHM generation phase(CONTRACT or GENERATE) (default: GENERATE)", metaVar = "<phase>")
 	public GenerationPhase generationPhase = GenerationPhase.GENERATE;
 
 	/**
-	 * <p>�ǥХå��⡼�ɤ�ͭ���ˤ��뤫�ɤ���</p>
-	 * <p>�ǥХå��⡼�ɤ�ͭ�������ꤵ�줿��硢RTE�����ͥ졼���ϼ¹Ի���������ǥ�Υ���ץե��������Ϥ��롣</p>
+	 * <p>デバッグモードを有効にするかどうか</p>
+	 * <p>デバッグモードが有効に設定された場合、RTEジェネレータは実行時に内部モデルのダンプファイルを出力する。</p>
 	 */
 	@Option(hidden = true, name = "--debug", usage = "Enable debug mode")
 	public boolean debugModeEnabled = false;
 
 	/**
-	 * RTE����ե����졼�����إå�����Ϥ��뤫�ɤ���
+	 * RTEコンフィグレーションヘッダを出力するかどうか
 	 */
 	@Option(hidden = true, name = "--suppress-config-header", usage = "Suppress the generation of RTE Configuration Header")
 	public boolean suppressConfigHeader = false;
 
 	/**
-	 * ����ޥåԥ�header�Υ�����ȥ���������뤫�ɤ���
+	 * メモリマッピングheaderのスケルトンを生成するかどうか
 	 */
 	@Option(hidden = true, name = "--generate-memmap-skel", usage = "Generate memory mapping skeltons")
 	public boolean doesGenerateMemoryMappingHeaderSkelton = false;
 
 	/**
-	 * RTE�ƥ����ѤΥإ�ѥե�����(���ե⥸�塼��Υ����֡���å�)���������뤫�ɤ���
+	 * RTEテスト用のヘルパファイル(周辺モジュールのスタブ、モック)を生成するかどうか
 	 */
 	@Option(hidden = true, name = "--generate-tests", usage = "Generate test helpers")
 	public boolean doesGenerateTests = false;
 
 	/**
-	 * <p>RTE����Ū���������뤫�ɤ���</p>
-	 * <p>���Υ��ץ�������ꤵ�줿��硢RTE�����ͥ졼���ϡ�RTE��������ɬ�פ�ECUC����ե����졼�������­���Ƥ�����Ǥ⡢����ե����졼������䴰��ǽ�Ǥ����RTE���������롣</p>
+	 * <p>RTEを強制的に生成するかどうか</p>
+	 * <p>このオプションが設定された場合、RTEジェネレータは、RTEの生成に必要なECUCコンフィグレーションが不足している場合でも、コンフィグレーションが補完可能であればRTEを生成する。</p>
 	 */
 	@Option(hidden = true, name = "--force-generate-rte", usage = "Force to generate RTE")
 	public boolean forcesGenerateRte = false;
 
 	/**
-	 * <p>static inline�ˤ�륤��饤�󲽤��������뤫�ɤ���</p>
-	 * <p>���Υ��ץ����</p>
+	 * <p>static inlineによるインライン化を抑制するかどうか</p>
+	 * <p>このオプションが</p>
 	 */
 	@Option(name = "--without-static-inline", usage = "Suppress static inlines")
 	public boolean withoutStaticInline = false;
 
 	/**
-	 * <p>�ޥ�������б���COM����Ѥ��뤫�ɤ���</p>
-	 * <p>���Υ��ץ�������ꤵ�줿��硢RTE�����ͥ졼���ϥޥ�������б���COM�˺�Ŭ�����줿RTE���������롣</p>
+	 * <p>マルチコア対応のCOMを使用するかどうか</p>
+	 * <p>このオプションが設定された場合、RTEジェネレータはマルチコア対応のCOMに最適化されたRTEを生成する。</p>
 	 */
 	@Option(name = "--com-multicore", usage = "Use COM Apis for multi core support")
 	public boolean comMultiCore = false;
 	
 	/**
-	 * RTE�����ͥ졼�������ϤȤʤ�AUTOSAR XML
+	 * RTEジェネレータの入力となるAUTOSAR XML
 	 */
 	@Argument(usage = "Input files(AUTOSAR XMLs)", metaVar = "<file1> [<file2> [<file3>] ...]", required = true)
 	public List<String> inputFiles = Lists.newArrayList();
 
 	/**
-	 * �ġ�������ɽ���Τ���Υ��ץ���󤬻��ꤵ��Ƥ��뤫��Ƚ�ꤹ�롣
-	 * @return ɽ�����ץ���󤬻��ꤵ��Ƥ����硢true������ʳ��ξ�硢false��
+	 * ツール情報の表示のためのオプションが指定されているかを判定する。
+	 * @return 表示オプションが指定されている場合、true。それ以外の場合、false。
 	 */
 	public boolean isShowsOptionEnabled() {
 		return this.showsHelp || this.showsVersion;
 	}
 
 	/**
-	 * RTEϢ�ȥ�ǥ������ѤΥ��ץ������������롣
-	 * @return �����������ץ����
+	 * RTE連携モデル生成用のオプションを生成する。
+	 * @return 生成したオプション
 	 */
 	public RteInteractionModelBuilderOptions createRteInteractionModelBuilderOptions() {
 		RteInteractionModelBuilderOptions builderOptions = new RteInteractionModelBuilderOptions();
@@ -173,8 +173,8 @@ public class GeneratorOptions {
 	}
 
 	/**
-	 * RTE�⥸�塼���ǥ������ѤΥ��ץ������������롣
-	 * @return �����������ץ����
+	 * RTEモジュールモデル生成用のオプションを生成する。
+	 * @return 生成したオプション
 	 */
 	public RteModuleModelBuilderOptions createRteModuleModelBuilderOptions() {
 		RteModuleModelBuilderOptions builderOptions = new RteModuleModelBuilderOptions();

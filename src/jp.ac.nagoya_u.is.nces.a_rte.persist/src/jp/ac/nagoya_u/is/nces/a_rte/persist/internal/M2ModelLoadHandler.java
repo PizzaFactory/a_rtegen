@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -119,11 +119,11 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		}
 
 		public XmlContext createEClassRoleContextInWrapper(String xmlTagName, ExtendedEObject m2Element) {
-			return new XmlContext(xmlTagName, m2Element, null, XmlWrapType.ROLE, XmlContextType.ROLE); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+			return new XmlContext(xmlTagName, m2Element, null, XmlWrapType.ROLE, XmlContextType.ROLE); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 		}
 
 		public XmlContext createEDataTypeRoleContextInWrapper(String xmlTagName) {
-			return new XmlContext(xmlTagName, this.contextM2Element, this.contextM2Feature, XmlWrapType.ROLE, XmlContextType.ROLE); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+			return new XmlContext(xmlTagName, this.contextM2Element, this.contextM2Feature, XmlWrapType.ROLE, XmlContextType.ROLE); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 		}
 
 		public XmlContext createTypeContextInWrapper(String xmlTagName, ExtendedEObject m2Element) {
@@ -227,7 +227,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 					ExtendedEObject newElement = createM2Element(eClass);
 					setValueToCurrentContextM2Element(m2feature, newElement);
 					return currentXmlContext.createEClassRoleContext(localName, newElement, wrapType);
-				} else if (m2feature.getEType() instanceof EDataType) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤EType¤ÏEClass¤ÈEDataType¤Î¤¤¤º¤ì¤«¤Ç¤¢¤ë¤¿¤á)
+				} else if (m2feature.getEType() instanceof EDataType) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒETypeã¯EClassã¨EDataTypeã®ã„ãšã‚Œã‹ã§ã‚ã‚‹ãŸã‚)
 					return currentXmlContext.createEDataTypeRoleContext(localName, m2feature, wrapType);
 				}
 				break;
@@ -241,7 +241,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 			case REFERENCE:
 			case TYPE_REFERENCE:
 				return currentXmlContext.createReferenceContext(localName, m2feature, wrapType);
-			default: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+			default: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 				break;
 			}
 		}
@@ -259,7 +259,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 					ExtendedEObject newElement = createM2Element(eClass);
 					setValueToCurrentContextM2Element(getCurrentXmlContext().contextM2Feature, newElement);
 					return currentXmlContext.createEClassRoleContextInWrapper(localName, newElement);
-				} else if (currentXmlContext.contextM2Feature.getEType() instanceof EDataType) { // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+				} else if (currentXmlContext.contextM2Feature.getEType() instanceof EDataType) { // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 					return currentXmlContext.createEDataTypeRoleContextInWrapper(localName);
 				}
 			}
@@ -267,21 +267,21 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		case ROLE_WRAPPER_AND_TYPE:
 		case ROLE_AND_TYPE:
 			EClass eClass = (EClass) M2Package.eINSTANCE.getEClassifier(NameStringUtils.upperCaseWithHyphenToPascalCase(localName));
-			if (eClass != null) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (eClass != null) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				ExtendedEObject newElement = createM2Element(eClass);
 				setValueToCurrentContextM2Element(getCurrentXmlContext().contextM2Feature, newElement);
 				return currentXmlContext.createTypeContextInWrapper(localName, newElement);
 			}
 			break;
 		case REFERENCE_WRAPPER_AND_REFERENCE:
-			if (localName.equals(getCurrentXmlReferenceRoleName())) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤) 
+			if (localName.equals(getCurrentXmlReferenceRoleName())) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„) 
 				return currentXmlContext.createReferenceContextInWrapper(localName);
 			}
 			break;
-		default: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+		default: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 			break;
 		}
-		return currentXmlContext.createUnknownContext(localName); // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		return currentXmlContext.createUnknownContext(localName); // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 	}
 
 	/*
@@ -311,7 +311,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 				valueFeature = getCurrentXmlContext().contextM2Feature;
 			}
 
-			if (valueFeature != null && valueFeature.getEType() instanceof EDataType) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+			if (valueFeature != null && valueFeature.getEType() instanceof EDataType) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 				String originalValue = String.valueOf(ch, start, length);
 
 				Object value;
@@ -322,11 +322,11 @@ public class M2ModelLoadHandler extends DefaultHandler {
 						value = M2ModelUtils.convertValueForFeature(originalValue, valueFeature);
 					}
 				} catch (ModelException e) {
-					// ¥¸¥§¥Í¥ì¡¼¥¿¤ÇÌ¤»ÈÍÑ¤ÎEcucContainerValue¤ÎNumericalÃÍ¤Î¥Ñ¡¼¥¹¥¨¥é¡¼»ş¤Ë¡¢²¾¤ÎÃÍ¤ËÃÖ¤­´¹¤¨¤ë¤³¤È¤Ç¡¢
-					// Ì¤»ÈÍÑ¥Ñ¥é¥á¡¼¥¿¤Î·¿¥¨¥é¡¼¤Ë¤è¤êÀ¸À®½èÍı¤¬»ß¤Ş¤ë¤³¤È¤òËÉ¤°¡£
+					// ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚¿ã§æœªä½¿ç”¨ã®EcucContainerValueã®Numericalå€¤ã®ãƒ‘ãƒ¼ã‚¹ã‚¨ãƒ©ãƒ¼æ™‚ã«ã€ä»®ã®å€¤ã«ç½®ãæ›ãˆã‚‹ã“ã¨ã§ã€
+					// æœªä½¿ç”¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å‹ã‚¨ãƒ©ãƒ¼ã«ã‚ˆã‚Šç”Ÿæˆå‡¦ç†ãŒæ­¢ã¾ã‚‹ã“ã¨ã‚’é˜²ãã€‚
 					if (isSkippableNumericalParameter()) {
-						// »ÈÍÑ¤·¤Ê¤¤Numerical¥Ñ¥é¥á¡¼¥¿¤Ç¤¢¤ë¤¿¤á¡¢²¾¤ÎÃÍ(0)¤ò¥»¥Ã¥È¤¹¤ë¤³¤È¤ÇÂĞ½è¤¹¤ë¡£
-						// Ì¤»ÈÍÑ¤Ç¤¢¤ë¤¿¤á¥½¡¼¥¹½ĞÎÏ¤Ë±Æ¶Á¤»¤º¡¢¤Ş¤¿¡¢ÉÔÂ­¥³¥ó¥Õ¥£¥°¾ğÊó¤Î½ĞÎÏÂĞ¾İ¤Ë¤â¤Ê¤é¤Ê¤¤¤¿¤á¡¢²¾¤ÎÃÍ¤òÆş¤ì¤Æ¤âÌäÂê¤Ê¤¤¡£
+						// ä½¿ç”¨ã—ãªã„Numericalãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã‚ã‚‹ãŸã‚ã€ä»®ã®å€¤(0)ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã“ã¨ã§å¯¾å‡¦ã™ã‚‹ã€‚
+						// æœªä½¿ç”¨ã§ã‚ã‚‹ãŸã‚ã‚½ãƒ¼ã‚¹å‡ºåŠ›ã«å½±éŸ¿ã›ãšã€ã¾ãŸã€ä¸è¶³ã‚³ãƒ³ãƒ•ã‚£ã‚°æƒ…å ±ã®å‡ºåŠ›å¯¾è±¡ã«ã‚‚ãªã‚‰ãªã„ãŸã‚ã€ä»®ã®å€¤ã‚’å…¥ã‚Œã¦ã‚‚å•é¡Œãªã„ã€‚
 						value = new BigDecimal(0);
 					} else {
 						throw new SAXException("Error found in the parameter '" + valueFeature.getName() + "' of " + ModelLabels.getLabel(getCurrentXmlContext().contextM2Element) + ". " + e.getMessage(),
@@ -348,17 +348,17 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		}
 	}
 
-	/* ¥Ñ¡¼¥¹Ãæ¤ÎEcucModuleConfigurationValues¤òXmlContexts¤«¤é¼èÆÀ¤¹¤ë */
+	/* ãƒ‘ãƒ¼ã‚¹ä¸­ã®EcucModuleConfigurationValuesã‚’XmlContextsã‹ã‚‰å–å¾—ã™ã‚‹ */
 	private EcucModuleConfigurationValues getParsingEcucModuleConfigurationValues() {
 		for (XmlContext context : xmlContexts) {
 			if (context.contextM2Element instanceof EcucModuleConfigurationValues) {
 				return (EcucModuleConfigurationValues)context.contextM2Element;
 			}
 		}
-		return null; // COVERAGE ¾ï¤ËÌ¤ÅşÃ£(isSkippableNumericalParameter()¤«¤é¤Î¸Æ¤Ó½Ğ¤·¤Ç¤ÏÅşÃ£¤·¤Ê¤¤¤¿¤á¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+		return null; // COVERAGE å¸¸ã«æœªåˆ°é”(isSkippableNumericalParameter()ã‹ã‚‰ã®å‘¼ã³å‡ºã—ã§ã¯åˆ°é”ã—ãªã„ãŸã‚ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 	}
 	
-	/* ¥Ñ¡¼¥¹Ãæ¤ÎEcucContainerValue¤òXmlContexts¤«¤é¼èÆÀ¤¹¤ë */
+	/* ãƒ‘ãƒ¼ã‚¹ä¸­ã®EcucContainerValueã‚’XmlContextsã‹ã‚‰å–å¾—ã™ã‚‹ */
 	private List<EcucContainerValue> getParsingEcucContainerValues() {
 		List<EcucContainerValue> values = new ArrayList<EcucContainerValue>();
 		for (XmlContext context : xmlContexts) {
@@ -371,7 +371,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		return values;
 	}
 
-	/* containerClassÇÛ²¼¤Ë¡¢definitionRef¤Ç¼¨¤µ¤ì¤ë¥¯¥é¥¹¥ª¥Ö¥¸¥§¥¯¥È¤òºîÀ®¤¹¤ë */
+	/* containerClassé…ä¸‹ã«ã€definitionRefã§ç¤ºã•ã‚Œã‚‹ã‚¯ãƒ©ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã™ã‚‹ */
 	private ExtendedEObject createObjectInEcucPackage(ExtendedEObject containerClass, String definitionRef) {
 		EStructuralFeature eFeature = containerClass.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfContainerDef(definitionRef));
 		if (eFeature == null) {
@@ -381,16 +381,16 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		return (ExtendedEObject) EcucFactory.eINSTANCE.create(eClass);
 	}
 	
-	/* containerClassÇÛ²¼¤Ë¡¢definitionRef¤Ç¼¨¤µ¤ì¤ëfeature¤ò¥»¥Ã¥È²ÄÇ½¤« */
+	/* containerClassé…ä¸‹ã«ã€definitionRefã§ç¤ºã•ã‚Œã‚‹featureã‚’ã‚»ãƒƒãƒˆå¯èƒ½ã‹ */
 	private boolean isDefinedInEcore(ExtendedEObject containerClass, String definitionRef) {
 		EStructuralFeature eFeature = containerClass.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfContainerDef(definitionRef));
 		return eFeature != null;
 	}
 
 	/**
-	 * ¥Ñ¡¼¥¹Ãæ¤Î¥Ñ¥é¥á¡¼¥¿¤¬¡¢¥¹¥­¥Ã¥×²ÄÇ½(¥¸¥§¥Í¥ì¡¼¥¿¤Ç»ÈÍÑ¤·¤Ê¤¤)¤«¤òÈ½Äê¤¹¤ë
-	 * ecuc¤Î¥³¥ó¥Õ¥£¥°¾ğÊó¡¢¤«¤Ä¡¢¥¸¥§¥Í¥ì¡¼¥¿¤Ç»ÈÍÑ¤¹¤ëNumrical¥Ñ¥é¥á¡¼¥¿¤Î¾ì¹ç¤Ëtrue¤òÊÖ¤¹
-	 * ¤½¤ì°Ê³°¤Î¾ì¹ç¤Ëfalse¤òÊÖ¤¹
+	 * ãƒ‘ãƒ¼ã‚¹ä¸­ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒã€ã‚¹ã‚­ãƒƒãƒ—å¯èƒ½(ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚¿ã§ä½¿ç”¨ã—ãªã„)ã‹ã‚’åˆ¤å®šã™ã‚‹
+	 * ecucã®ã‚³ãƒ³ãƒ•ã‚£ã‚°æƒ…å ±ã€ã‹ã¤ã€ã‚¸ã‚§ãƒãƒ¬ãƒ¼ã‚¿ã§ä½¿ç”¨ã™ã‚‹Numricalãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å ´åˆã«trueã‚’è¿”ã™
+	 * ãã‚Œä»¥å¤–ã®å ´åˆã«falseã‚’è¿”ã™
 	 */
 	private boolean isSkippableNumericalParameter() {
 		ExtendedEObject valueClass = getCurrentXmlContext().contextM2Element;
@@ -400,30 +400,30 @@ public class M2ModelLoadHandler extends DefaultHandler {
 		EcucNumericalParamValue numericalValueClass = (EcucNumericalParamValue)valueClass;
 		
 		EcucModuleConfigurationValues configValues = getParsingEcucModuleConfigurationValues();
-		if (configValues == null) { // COVERAGE ¾ï¤Ëfalse(true¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// EcucModuleConfigurationValues¤ò¥Ñ¡¼¥¹Ãæ¤Ç¤Ê¤±¤ì¤Ğ¡¢Numerical¥Ñ¥é¥á¡¼¥¿¤ò¥Ñ¡¼¥¹¤·¤Ê¤¤¤¿¤á¡¢ÅşÃ£¤·¤Ê¤¤
+		if (configValues == null) { // COVERAGE å¸¸ã«false(trueã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// EcucModuleConfigurationValuesã‚’ãƒ‘ãƒ¼ã‚¹ä¸­ã§ãªã‘ã‚Œã°ã€Numericalãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ãƒ‘ãƒ¼ã‚¹ã—ãªã„ãŸã‚ã€åˆ°é”ã—ãªã„
 			return false;
 		}
 		
 		ExtendedEObject containerClass = EcucFactory.eINSTANCE.createEcucRoot();
 
-		// m2.EcucModuleConfigurationValues¤ËÂĞ±ş¤¹¤ëecuc¥Ñ¥Ã¥±¡¼¥¸¤Î¥¤¥ó¥¹¥¿¥ó¥¹¤òºîÀ®¤Ç¤­¤ë¤«¤Ë¤è¤ê¡¢ÂĞ¾İ¤«Èİ¤«¤òÈ½Äê¤¹¤ë
+		// m2.EcucModuleConfigurationValuesã«å¯¾å¿œã™ã‚‹ecucãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã§ãã‚‹ã‹ã«ã‚ˆã‚Šã€å¯¾è±¡ã‹å¦ã‹ã‚’åˆ¤å®šã™ã‚‹
 		containerClass = createObjectInEcucPackage(containerClass, configValues.getDefinitionRef());
 		if (containerClass == null) {
-			// ÂĞ¾İ¤È¤·¤Ê¤¤¥â¥¸¥å¡¼¥ë¤Ç¤¢¤ë¤¿¤á¡¢ÉÔÍ×¤Ê¥Ñ¥é¥á¡¼¥¿¤Ç¤¢¤ë
+			// å¯¾è±¡ã¨ã—ãªã„ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã§ã‚ã‚‹ãŸã‚ã€ä¸è¦ãªãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã‚ã‚‹
 			return true;
 		}
 
 		List<EcucContainerValue> containerValues = getParsingEcucContainerValues();
-		if (containerValues.isEmpty()) { // COVERAGE ¾ï¤Ëfalse(true¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// ¥³¥ó¥Æ¥Ê°Ê³°¤ÏNumerical¥Ñ¥é¥á¡¼¥¿¤òÊİ»ı¤·¤Ê¤¤¤¿¤á¡¢ÅşÃ£¤·¤Ê¤¤
+		if (containerValues.isEmpty()) { // COVERAGE å¸¸ã«false(trueã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// ã‚³ãƒ³ãƒ†ãƒŠä»¥å¤–ã¯Numericalãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä¿æŒã—ãªã„ãŸã‚ã€åˆ°é”ã—ãªã„
 			return false;
 		}
 		for (EcucContainerValue containerValue : containerValues) {
-			// m2.EcucContainerValue¤ËÂĞ±ş¤¹¤ëecuc¥Ñ¥Ã¥±¡¼¥¸¤Î¥¤¥ó¥¹¥¿¥ó¥¹¤òºîÀ®¤Ç¤­¤ë¤«¤Ë¤è¤ê¡¢ÂĞ¾İ¤«Èİ¤«¤òÈ½Äê¤¹¤ë
+			// m2.EcucContainerValueã«å¯¾å¿œã™ã‚‹ecucãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã§ãã‚‹ã‹ã«ã‚ˆã‚Šã€å¯¾è±¡ã‹å¦ã‹ã‚’åˆ¤å®šã™ã‚‹
 			containerClass = createObjectInEcucPackage(containerClass, containerValue.getDefinitionRef());
 			if (containerClass == null) {
-				// ÂĞ¾İ¤È¤·¤Ê¤¤¥³¥ó¥Æ¥Ê¤Ç¤¢¤ë¤¿¤á¡¢ÉÔÍ×¤Ê¥Ñ¥é¥á¡¼¥¿¤Ç¤¢¤ë
+				// å¯¾è±¡ã¨ã—ãªã„ã‚³ãƒ³ãƒ†ãƒŠã§ã‚ã‚‹ãŸã‚ã€ä¸è¦ãªãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã‚ã‚‹
 				return true;
 			}
 		}
@@ -447,7 +447,7 @@ public class M2ModelLoadHandler extends DefaultHandler {
 	}
 
 	private String getCurrentXmlRoleName() {
-		return M2XmlUtils.getXmlRoleName(getCurrentXmlContext().contextM2Feature); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤) 
+		return M2XmlUtils.getXmlRoleName(getCurrentXmlContext().contextM2Feature); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„) 
 	}
 
 	private String getCurrentXmlReferenceRoleName() {

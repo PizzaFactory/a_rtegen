@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -78,29 +78,29 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import com.google.common.base.Optional;
 
 /**
- * ��������RTE��������������ǻ��Ѥ��뼱�̻Ҥ��󶡤��ޤ���
+ * 生成するRTEソースコード中で使用する識別子を提供します．
  */
-public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ��ʤ�����static�᥽�åɷ��Υ��饹�Ǥ��뤿������ʤ�)
+public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，staticメソッド群のクラスであるため問題ない)
 
-	// ����ܥ����Ƭ��
+	// シンボルの接頭辞
 	private static final String TRUSTED_FUNCTION_NAME_PREFIX = "TRUSTED_";
 	private static final String IOC_SYMBOL_NAME_PREFIX = "Ioc";
 
 	private static final String RTE_SYMBOL_NAME_PREFIX = "Rte_";
 	private static final String RTE_CONSTANT_NAME_PREFIX = "RTE_";
-	private static final String RTE_GUARD_NAME_PREFIX = "RTE_"; // �����ɥޥ���̾����Ƭ��
+	private static final String RTE_GUARD_NAME_PREFIX = "RTE_"; // ガードマクロ名の接頭辞
 
 	private static final String SCHM_SYMBOL_NAME_PREFIX = "SchM_";
 	private static final String SCHM_CONSTANT_NAME_PREFIX = "SCHM_";
 
-	// ����ޥåԥ󥰤Υ���ܥ�̾
+	// メモリマッピングのシンボル名
 	public static final String RTE_MEMORY_MAPPING_PREFIX = "RTE";
 
-	// �ޥ����Υ���ܥ�̾
+	// マクロのシンボル名
 	public static final String OS_TRUSTED_MACRO = "TOPPERS_TRUSTED";
 	public static final String OS_NON_TRUSTED_MACRO = "TOPPERS_NON_TRUSTED";
 
-	// ���Υ���ܥ�̾
+	// 型のシンボル名
 	public static final String VOID_TYPE_NAME = "void";
 	public static final String BOOLEAN_TYPE_NAME = "boolean";
 	public static final String UINT8_TYPE_NAME = "uint8";
@@ -123,16 +123,16 @@ public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	public static final String COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE_NAME = "Rte_ComSendGroupTrustedFunctionParamType";
 	public static final String COM_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME = "Rte_SrWriteProxyFunctionTableIndex";
 
-	// ����Υ���ܥ�̾
+	// 定数のシンボル名
 	public static final String RTE_E_OK_CONSTANT_NAME = "RTE_E_OK";
 	public static final String RTE_E_INVALID_CONSTANT_NAME = "RTE_E_INVALID";
 	public static final String RTE_E_MAX_AGE_EXCEEDED_CONSTANT_NAME = "RTE_E_MAX_AGE_EXCEEDED";
 	public static final String COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT_NAME = "RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE";
 
-	// �������Х��ѿ��Υ���ܥ�̾
-	// ���ߤʤ���
+	// グローバル変数のシンボル名
+	// 現在なし。
 
-	// �ؿ��Υ���ܥ�̾
+	// 関数のシンボル名
 	private static final String CALL_BSW_FUNCTION_NAME_PREFIX = "Rte_Call_Bsw_";
 	private static final String OS_TASK_MACRO_NAME = "TASK";
 	public static final String OS_SET_EVENT_API_NAME = "Rte_Call_Bsw_SetEvent";
@@ -158,7 +158,7 @@ public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	public static final String SCHM_INIT_API_NAME = SCHM_SYMBOL_NAME_PREFIX + "Init";
 	public static final String SCHM_DEINIT_API_NAME = SCHM_SYMBOL_NAME_PREFIX + "Deinit";
 
-	// �����Υ���ܥ�̾
+	// 引数のシンボル名
 	public static final String OS_TRUSTED_FUNCTION_INDEX_PARAM_NAME = "tfn_idx";
 	public static final String OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME = "tfn_prm";
 	public static final String SR_DATA_PARAM_NAME = "data";
@@ -167,7 +167,7 @@ public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	public static final String IRV_DATA_PARAM_NAME = "data";
 	public static final String IRV_DATA_REFERENCE_PARAM_NAME = "p_data";
 
-	// ���������ѿ��Υ���ܥ�̾
+	// ローカル変数のシンボル名
 	public static final String RETURN_VALUE_LOCAL_VAR_NAME = "ercd";
 	public static final String TEMP_RETURN_VALUE_LOCAL_VAR_NAME = "tmp_ercd";
 	public static final String SR_DATA_VAR_NAME = "data";
@@ -718,7 +718,7 @@ public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 
 	public static String createComSignalSymbolicName(Optional<? extends EcucContainer> comSignalOrComSignalGroup) {
 		if (!comSignalOrComSignalGroup.isPresent()) {
-			// COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+			// COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			return "ComConf_ComSignal";
 		}
 		return "ComConf_ComSignal_" + comSignalOrComSignalGroup.get().getShortName();
@@ -733,12 +733,12 @@ public class SymbolNames { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	}
 
 	public static String createComSendSignalTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
-		// NOTE ����Ͽ���ؿ�̾���饷��ܥ�̾�����������߷פ����������μ����Ȥθߴ������ݤĤ��ᡢ����ؿ�̾�Ȱۤʤ륷��ܥ�̾����Ѥ��롣
+		// NOTE 本来は信頼関数名からシンボル名を生成する設計だが、以前の実装との互換性を保つため、信頼関数名と異なるシンボル名を使用する。
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.RTE_ID_PREFIX + "ComSendSignal" + "_" + sourceMasterBswPartition.getShortName();
 	}
 
 	public static String createComSendSignalGroupTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
-		// NOTE ����Ͽ���ؿ�̾���饷��ܥ�̾�����������߷פ����������μ����Ȥθߴ������ݤĤ��ᡢ����ؿ�̾�Ȱۤʤ륷��ܥ�̾����Ѥ��롣
+		// NOTE 本来は信頼関数名からシンボル名を生成する設計だが、以前の実装との互換性を保つため、信頼関数名と異なるシンボル名を使用する。
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.RTE_ID_PREFIX + "ComSendSignalGroup" + "_" + sourceMasterBswPartition.getShortName();
 	}
 

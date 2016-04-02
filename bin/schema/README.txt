@@ -1,3 +1,3 @@
 Please copy the schema files(AUTOSAR_4-0-3_STRICT.xsd, xml.xsd) to this folder you downloaded from autosar.org.
 
-¤³¤Î¥Õ¥©¥ë¥À¡¼¤Ëautosar.org¤«¤é¥À¥¦¥ó¥í¡¼¥É¤·¤¿¥¹¥­¡¼¥Þ¥Õ¥¡¥¤¥ë(AUTOSAR_4-0-3_STRICT.xsd, xml.xsd)¤ò¥³¥Ô¡¼¤·¤Æ¤¯¤À¤µ¤¤¡¥
+ã“ã®ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã«autosar.orgã‹ã‚‰ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ãŸã‚¹ã‚­ãƒ¼ãƒžãƒ•ã‚¡ã‚¤ãƒ«(AUTOSAR_4-0-3_STRICT.xsd, xml.xsd)ã‚’ã‚³ãƒ”ãƒ¼ã—ã¦ãã ã•ã„ï¼Ž

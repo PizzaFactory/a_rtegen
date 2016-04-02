@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -146,12 +146,12 @@ public class InitializeOperationModelBuilder {
 
 			if (this.context.query.get(sourceDataInstanceInComposition, initPredicateOperation)) {
 				if (sourceDataInstanceInSwc.isEventSemantics()) {
-					// ���٥�ȥ��ޥ�ƥ������ξ��
+					// イベントセマンティクスの場合
 					RteBufferQueuedVariable srRteBufferQueue = this.context.builtQuery.findDest(RTE_BUFFER_QUEUED_VARIABLE, sourceValueBufferImplementation);
 					targetInitializeOperation.getInitVariable().add(srRteBufferQueue);
 
 				} else {
-					// �ǡ������ޥ�ƥ������ξ��
+					// データセマンティクスの場合
 					RteBufferVariableSet srRteBufferVariableSet = this.context.builtQuery.findDest(RTE_BUFFER_VARIABLE_SET, sourceValueBufferImplementation);
 					targetInitializeOperation.getInitVariable().add(srRteBufferVariableSet);
 				}
@@ -188,7 +188,7 @@ public class InitializeOperationModelBuilder {
 
 	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, Optional<EcucPartition> sourcePartition, EOperation initPredicateOperation) throws ModelException {
 		if (!sourcePartition.isPresent()) {
-			// noPartition�ξ��ϡ�query��SwComponentInstanceInSystem���������
+			// noPartitionの場合は、queryでSwComponentInstanceInSystemを取得する
 			for (SwComponentInstanceInSystem sourceSwComponentInstanceInSystem : this.context.query.<SwComponentInstanceInSystem> findByKind(SW_COMPONENT_INSTANCE_IN_SYSTEM)) {
 				buildIrvInitVariables(targetInitializeOperation, initPredicateOperation, sourceSwComponentInstanceInSystem.getPrototype().getType());
 			}
@@ -201,7 +201,7 @@ public class InitializeOperationModelBuilder {
 
 	private void buildIrvInitVariables(VariableInitializeOperation targetInitializeOperation, EOperation initPredicateOperation, SwComponentType swComponentType)
 			throws ModelException {
-		if (!(swComponentType instanceof AtomicSwComponentType)) { // COVERAGE ���̤ã(�Զ�纮�����Τ���ã���륳���ɤʤΤǡ�̤���Х�å�������ʤ�)
+		if (!(swComponentType instanceof AtomicSwComponentType)) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			return;
 		}
 
@@ -214,7 +214,7 @@ public class InitializeOperationModelBuilder {
 	}
 
 	private void buildExcludeOperation(VariableInitializeOperation targetInitializeOperation) {
-		// NOTE RteBufferVariableSet��S/R�������̿��Хåե��ʳ��ˡ�IOC����������IRV�Хåե���COM�����Хåե���COM�ץ������Хåե��ˤ���Ѥ���Ƥ��뤿�ᡢ�ʲ��Υ�����ǰ��˼�������뤳�Ȥ����ա�
+		// NOTE RteBufferVariableSetはS/Rの内部通信バッファ以外に、IOC初期値定数、IRVバッファ、COM受信バッファ、COMプロキシバッファにも使用されているため、以下のクエリで一緒に取得されることに注意。
 		List<RteBufferVariableSet> rteBufferVariableSets = this.context.query.selectByKind(targetInitializeOperation.getInitVariable(), RTE_BUFFER_VARIABLE_SET);
 		boolean isRteBufferWithStatusExists = this.context.query.exists(rteBufferVariableSets, refExists(RTE_BUFFER_VARIABLE_SET__STATUS_VARIABLE));
 		boolean isSrQueueExists = this.context.query.exists(targetInitializeOperation.getInitVariable(), isKindOf(RTE_BUFFER_QUEUED_VARIABLE));
@@ -236,7 +236,7 @@ public class InitializeOperationModelBuilder {
 	private boolean anyVariableAccessedInterCore(VariableInitializeOperation targetInitializeOperation) {
 		List<EObject> sources = this.context.query.collect(targetInitializeOperation.getInitVariable(), MODULE_OBJECT__SOURCE);
 
-		// NOTE ������S/R�Τߤ��������̿���Ԥ����ᡢS/R��Ϣ�ȥ�ǥ뤫�饳�����̿���̵ͭ��Ƚ��
+		// NOTE 現状、S/Rのみがコア間通信を行うため、S/Rの連携モデルからコア間通信の有無を判定
 		List<RteValueBufferImplementation> sourceValueBufferImplementations = this.context.query.selectByKind(sources, RTE_VALUE_BUFFER_IMPLEMENTATION);
 		List<ReceiveInteraction> sourceReceiveInteractions = this.context.query.collect(sourceValueBufferImplementations, VALUE_BUFFER_IMPLEMENTATION__PARENT);
 		return this.context.query.exists(sourceReceiveInteractions, hasOp(RECEIVE_INTERACTION___RECEIVES_INTER_CORE, true));
