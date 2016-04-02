@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -317,13 +317,15 @@ package ar4x::instance
 
 	context VariableDataInstanceInSwc
 
-	def:
-	valueSpecificationEx : rte::ex::ValueSpecificationEx = rte::ex::ValueSpecificationEx.allInstances()->any(true)
+	def: valueSpecificationEx : rte::ex::ValueSpecificationEx = rte::ex::ValueSpecificationEx.allInstances()->any(true)
 
 	/*
 	 * PVariableDataInstanceInSwc
 	 */
 	context PVariableDataInstanceInSwc
+
+	def: comSignalEx : rte::ex::ComSignalEx = rte::ex::ComSignalEx.allInstances()->any(true)
+	def: comSignalGroupEx : rte::ex::ComSignalGroupEx = rte::ex::ComSignalGroupEx.allInstances()->any(true)
 
 	inv nrte_sws_0117:
 	not self.isInvalidationEnabled() or not self.getInvalidValue().oclIsUndefined()
@@ -357,6 +359,15 @@ package ar4x::instance
 	or
 	valueSpecificationEx.getValueSpecAsText(self.getInvalidValue()) <> valueSpecificationEx.getValueSpecAsText(self.getInitValue())
 
+	inv rte_sws_5506:
+	self.getComSpec().transmissionAcknowledge.oclIsUndefined()
+	or
+	Set{
+		AssemblyDataInstanceConnector.allInstances()->select(provider.prototype = self),
+		ar4x::ecuc::ComSignal.allInstances()->select(cs | comSignalEx.getVariableDataInstanceInCompositions(cs)->exists(prototype = self)),
+		ar4x::ecuc::ComSignalGroup.allInstances()->select(cs | comSignalGroupEx.getVariableDataInstanceInCompositions(cs)->exists(prototype = self))
+	}->flatten()->size() < 2
+	
 	/*
 	 * RVariableDataInstanceInSwc
 	 */
@@ -389,6 +400,13 @@ package ar4x::instance
 	self.getInvalidationPolicy().handleInvalid <> m2::HandleInvalidEnum::replace
 	or
 	valueSpecificationEx.getValueSpecAsText(self.getInvalidValue()) <> valueSpecificationEx.getValueSpecAsText(self.getInitValue())
+
+	inv rte_sws_7403:
+	not self.isEventSemantics()
+	or
+	self.getRelatedDataReceivedEvent()->size() < 2
+	or
+	not self.getRelatedDataReceivedEvent()->exists(e1, e2 | e1.startOnEvent <> e2.startOnEvent and e1.config->any(true).rteMappedToTask <> e2.config->any(true).rteMappedToTask)
 
 	/*
 	 * POperationInstanceInSwc

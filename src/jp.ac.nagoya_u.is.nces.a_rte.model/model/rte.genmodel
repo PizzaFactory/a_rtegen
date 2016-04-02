@@ -259,6 +259,9 @@
         <genOperations ecoreOperation="rte.ecore#//ex/PVariableDataInstanceInSwcEx/providesSendApi">
           <genParameters ecoreParameter="rte.ecore#//ex/PVariableDataInstanceInSwcEx/providesSendApi/this_"/>
         </genOperations>
+        <genOperations ecoreOperation="rte.ecore#//ex/PVariableDataInstanceInSwcEx/providesFeedbackApi">
+          <genParameters ecoreParameter="rte.ecore#//ex/PVariableDataInstanceInSwcEx/providesFeedbackApi/this_"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//ex/RVariableDataInstanceInSwcEx">
         <genOperations ecoreOperation="rte.ecore#//ex/RVariableDataInstanceInSwcEx/requiresFilterVariable">
@@ -302,17 +305,25 @@
         <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/requiresRteInitialization">
           <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/requiresRteInitialization/this_"/>
         </genOperations>
-        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComReceiveCallback">
-          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComReceiveCallback/this_"/>
+        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComRxCallback">
+          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComRxCallback/this_"/>
         </genOperations>
-        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComInvalidateCallback">
-          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComInvalidateCallback/this_"/>
+        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComInvCallback">
+          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComInvCallback/this_"/>
         </genOperations>
-        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComReceiveTimeoutCallback">
-          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComReceiveTimeoutCallback/this_"/>
+        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComRxTOutCallback">
+          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComRxTOutCallback/this_"/>
         </genOperations>
         <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuSenderEx/providesComCallback">
           <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuSenderEx/providesComCallback/this_"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//ex/ExternalEcuReceiverEx">
+        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuReceiverEx/providesComTxAndTxErrCallback">
+          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuReceiverEx/providesComTxAndTxErrCallback/this_"/>
+        </genOperations>
+        <genOperations ecoreOperation="rte.ecore#//ex/ExternalEcuReceiverEx/providesComTxTOutCallback">
+          <genParameters ecoreParameter="rte.ecore#//ex/ExternalEcuReceiverEx/providesComTxTOutCallback/this_"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//ex/EntityStarterEx">
@@ -364,6 +375,11 @@
           <genParameters ecoreParameter="rte.ecore#//ex/ModeDeclarationGroupPrototypeEx/getConnectedProvidedModePrototypes/this_"/>
         </genOperations>
       </genClasses>
+      <genClasses ecoreClass="rte.ecore#//ex/RteEventEx">
+        <genOperations ecoreOperation="rte.ecore#//ex/RteEventEx/getRelatedEntityStarter">
+          <genParameters ecoreParameter="rte.ecore#//ex/RteEventEx/getRelatedEntityStarter/this_"/>
+        </genOperations>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Interaction" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.rte"
         disposableProviderFactory="true" ecorePackage="rte.ecore#//interaction">
@@ -379,10 +395,15 @@
         <genOperations ecoreOperation="rte.ecore#//interaction/Sender/hasMultipleInternalEcuReceivers"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/Sender/getInternalEcuReceivers"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/Sender/getExternalEcuReceivers"/>
+        <genOperations ecoreOperation="rte.ecore#//interaction/Sender/hasSendImplementation"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//interaction/InternalEcuSender">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuSender/source"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuSender/tAckStatusVariableImplementation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuSender/activatesOnSendCompleted"/>
+        <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuSender/isEventSemantics"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//interaction/ExternalEcuSender">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -427,11 +448,16 @@
       <genClasses ecoreClass="rte.ecore#//interaction/InternalEcuReceiver">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuReceiver/source"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuReceiver/activatesOnReceived"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/InternalEcuReceiver/activatesOnReceiveError"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/isInvalidationEnabled"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/getHandleInvalid"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/isFilterEnabled"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/getFilter"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/isAliveTimeoutEnabled"/>
+        <genOperations ecoreOperation="rte.ecore#//interaction/InternalEcuReceiver/isEventSemantics"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//interaction/ValueBufferImplementation">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//interaction/ValueBufferImplementation/parent"/>
@@ -446,6 +472,7 @@
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//interaction/SendImplementation">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//interaction/SendImplementation/parent"/>
+        <genOperations ecoreOperation="rte.ecore#//interaction/SendImplementation/isEventSemantics"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//interaction/RteSendImplementation"/>
       <genClasses ecoreClass="rte.ecore#//interaction/IocSendImplementation">
@@ -456,6 +483,9 @@
       <genClasses ecoreClass="rte.ecore#//interaction/TrustedFunctionComSendImplementation"/>
       <genClasses ecoreClass="rte.ecore#//interaction/PeriodicProxyComSendImplementation"/>
       <genClasses ecoreClass="rte.ecore#//interaction/ImmediateProxyComSendImplementation"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/TAckStatusVariableImplementation">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//interaction/TAckStatusVariableImplementation/parent"/>
+      </genClasses>
       <genClasses ecoreClass="rte.ecore#//interaction/FilterBufferImplementation">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//interaction/FilterBufferImplementation/parent"/>
       </genClasses>
@@ -507,7 +537,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/ComSendProxyInteraction/requestOsIocCommunication"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//interaction/ComSendProxyInteraction/valueOsIocCommunicationForComplexType"/>
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/ComSendProxyInteraction/valueOsIocCommunication"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/ComSendProxyInteraction/proxy"/>
       </genClasses>
@@ -522,7 +552,20 @@
             ecoreFeature="ecore:EReference rte.ecore#//interaction/ImmediateComSendProxy/osEvent"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//interaction/Interaction"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/ExecutionContext">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/ExecutionContext/sourceOsTask"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/ExecutionContext/executionContextImplementation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/ExecutionContext/entityStarter"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rte.ecore#//interaction/ExecutionContextImplementation"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/InfiniteloopImplementation"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/OneShootImplementation"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/EventPoolingImplementation"/>
       <genClasses image="false" ecoreClass="rte.ecore#//interaction/EntityStarter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStarter/executionContext"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStarter/expectedConfig"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -544,7 +587,22 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStartInteraction/starter"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStartInteraction/implementation"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStartInteraction/eventToTaskMapping"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/EntityStartInteraction/activationOffset"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/EntityStartInteraction/positionInTask"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStartInteraction/startOnEvent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/EntityStartInteraction/timingTriggeringEntityStartCondition"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//interaction/TimingTriggeringEntityStartCondition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/TimingTriggeringEntityStartCondition/period"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//interaction/RunnableEntityStartInteraction">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/RunnableEntityStartInteraction/sourceEvent"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//interaction/BswSchedulableEntityStartInteraction">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//interaction/BswSchedulableEntityStartInteraction/sourceEvent"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//interaction/EntityStartImplementation"/>
       <genClasses ecoreClass="rte.ecore#//interaction/TimingTriggeringEntityStartImplementation">
@@ -554,8 +612,7 @@
         <genOperations ecoreOperation="rte.ecore#//interaction/TimingTriggeringEntityStartImplementation/requiresCycleAdjust"/>
         <genOperations ecoreOperation="rte.ecore#//interaction/TimingTriggeringEntityStartImplementation/requiresStartOffsetAdjust"/>
       </genClasses>
-      <genClasses ecoreClass="rte.ecore#//interaction/ModeSwitchTriggeringEntityStartImplementation"/>
-      <genClasses ecoreClass="rte.ecore#//interaction/RunnableEntityStartInteraction"/>
+      <genClasses ecoreClass="rte.ecore#//interaction/PlainEntityStartImplementation"/>
       <genClasses ecoreClass="rte.ecore#//interaction/StartOffsetCounterImplementation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/StartOffsetCounterImplementation/maxCount"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//interaction/StartOffsetCounterImplementation/parent"/>
@@ -576,22 +633,6 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//interaction/GeneratedEcuConfiguration/generatedOsTrustedFunction"/>
       </genClasses>
-      <genClasses ecoreClass="rte.ecore#//interaction/BswSchedulableEntityStartInteraction"/>
-      <genClasses ecoreClass="rte.ecore#//interaction/EventToTaskMapping">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/EventToTaskMapping/activationOffset"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//interaction/EventToTaskMapping/event"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/EventToTaskMapping/positionInTask"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//interaction/Event">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//interaction/Event/startOnEvent"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//interaction/Event/sourceBswEvent"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//interaction/TimingEvent">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//interaction/TimingEvent/period"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//interaction/ModeSwitchEvent"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Module" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.rte"
         disposableProviderFactory="true" ecorePackage="rte.ecore#//module">
@@ -659,6 +700,11 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/WriteApi/dataParam"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/WriteApi/needsCheckArg"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/WriteApi/activationOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/WriteApi/activationFlag"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/WriteApi/tAckStatus"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/SendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -674,6 +720,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferNonqueuedSendOperation/accessVariable"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferNonqueuedSendOperation/filterOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferNonqueuedSendOperation/activationFlagOnRxSuccess"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/RteBufferNonqueuedReadOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -836,7 +884,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/comSendSignalTfParamType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/comSendSignalGroupTfParamType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/csTfParamType"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/srRteSendTfParamType"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/srRteNonqueuedSendTfParamType"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/srRteQueuedSendTfParamType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/srRteBufferQueueMaxLengthConstant"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/srRteBufferQueueType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Rte/immediateConstant"/>
@@ -888,6 +937,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Partition/restartPartitionApi"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Partition/partitionTerminatedApi"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Partition/partitionRestartingApi"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Partition/tAckStatus"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/Swc">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//module/Swc/parent"/>
@@ -935,6 +985,11 @@
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/InvalidateApi">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/InvalidateApi/operation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/InvalidateApi/activationOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/InvalidateApi/activationFlag"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/InvalidateApi/tAckStatus"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/IocNonqueuedSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -943,19 +998,28 @@
       <genClasses ecoreClass="rte.ecore#//module/DirectComSendOperation"/>
       <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteOperation/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteOperation/tempReturnVariable"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteSendOperation/type"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/TrustedFunctionRteSendOperation/srSendTfSymbolName"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteOperation/trustedFunctionParamVariable"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteSendOperation/trustedFunctionParamVariable"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/TrustedFunctionRteSendOperation/isGroup"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteOperation/activationFlagOnRxSuccess"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteBufferWriteSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteBufferWriteSendOperation/accessTrustedFunction"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteBufferSendSendOperation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteBufferSendSendOperation/accessTrustedFunction"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteBufferInvalidateSendOperation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteBufferInvalidateSendOperation/accessTrustedFunction"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/RteBufferInvalidateTrustedFunction">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferInvalidateTrustedFunction/operation"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionComSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -994,38 +1058,67 @@
       <genClasses ecoreClass="rte.ecore#//module/IocReadApi"/>
       <genClasses ecoreClass="rte.ecore#//module/ComSendSignalApi"/>
       <genClasses ecoreClass="rte.ecore#//module/ComReceiveSignalApi"/>
-      <genClasses ecoreClass="rte.ecore#//module/ComReceiveCallback">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveCallback/operation"/>
+      <genClasses ecoreClass="rte.ecore#//module/ComRxCallback">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComRxCallback/operation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComRxCallback/activationOperation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveCallback/dataVariable"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxCallback/activationFlag"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveCallback/accessApi"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxCallback/dataVariable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxCallback/accessApi"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/ComSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/ComSendOperation/accessApi"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/ComSendOperation/tempReturnVariable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComSendOperation/tAckStatus"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComSendOperation/activationFlagOnTxErr"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/ComCallback"/>
-      <genClasses ecoreClass="rte.ecore#//module/ComReceiveTimeoutCallback">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveTimeoutCallback/operation"/>
+      <genClasses ecoreClass="rte.ecore#//module/ComRxTOutCallback">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComRxTOutCallback/operation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComRxTOutCallback/activationOperation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveTimeoutCallback/dataVariable"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxTOutCallback/activationFlag"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComReceiveTimeoutCallback/accessApi"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxTOutCallback/dataVariable"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComRxTOutCallback/accessApi"/>
       </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/ComInvalidateCallback">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComInvalidateCallback/operation"/>
+      <genClasses ecoreClass="rte.ecore#//module/ComInvCallback">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComInvCallback/operation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComInvCallback/activationOperation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComInvalidateCallback/filterResultVariable"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComInvCallback/activationFlag"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComInvCallback/filterResultVariable"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/ComSendSignalProxyEntity">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComSendSignalProxyEntity/primitiveOperation"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComSendSignalProxyEntity/complexOperation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComSendSignalProxyEntity/operation"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/ComSendSignalImmediateEntity"/>
       <genClasses ecoreClass="rte.ecore#//module/ComSendSignalPeriodicEntity"/>
+      <genClasses ecoreClass="rte.ecore#//module/TAckNotifyOperation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/TAckNotifyOperation/activationOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/TAckNotifyOperation/tAckStatus"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/ComTxTOutCallback">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComTxTOutCallback/tAckNotifyOperation"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/ComTAckCallback">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComTAckCallback/tAckNotifyOperation"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/ComTErrCallback">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComTErrCallback/tAckNotifyOperation"/>
+      </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/FilterOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/FilterOperation/filterResultVariable"/>
@@ -1078,9 +1171,11 @@
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/PartitionRestartingApi">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/PartitionRestartingApi/srInterPartitionTimeoutOperation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/PartitionRestartingApi/activationOperation"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/PartitionTerminatedApi">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/PartitionTerminatedApi/srInterPartitionTimeoutOperation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/PartitionTerminatedApi/activationOperation"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/RteLifecycleApi"/>
       <genClasses ecoreClass="rte.ecore#//module/SendApi">
@@ -1094,6 +1189,11 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/SendApi/filterResultVariable"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/SendApi/needsCheckArg"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/SendApi/activationOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/SendApi/activationFlag"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/SendApi/tAckStatus"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/ReceiveApi">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ReceiveApi/operation"/>
@@ -1127,6 +1227,8 @@
       <genClasses ecoreClass="rte.ecore#//module/IocSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/IocSendOperation/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/IocSendOperation/activationFlagOnRxSuccess"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/IocQueuedSendOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1199,6 +1301,9 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteExitApi/operation"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/RteExitApi/isNoneExclude"/>
       </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/OsBackgroundTaskActivationExecutableTaskBody">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/OsBackgroundTaskActivationExecutableTaskBody/operation"/>
+      </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/OsTaskActivationExecutableTaskBody">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/OsTaskActivationExecutableTaskBody/operation"/>
       </genClasses>
@@ -1230,6 +1335,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/TimingTriggeringExecutableStartOperation/cycleCounterVariable"/>
       </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/PlainExecutableStartOperation"/>
       <genClasses ecoreClass="rte.ecore#//module/ModeSwitchTriggeringExecutableStartOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/ModeSwitchTriggeringExecutableStartOperation/startMode"/>
@@ -1281,20 +1387,12 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/Variable/member"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/Variable/symbolName"/>
       </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/PrimitiveComSendProxyOperation">
+      <genClasses ecoreClass="rte.ecore#//module/ComSendProxyOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/PrimitiveComSendProxyOperation/readValueVariable"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComSendProxyOperation/accessApi"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComSendProxyOperation/functionTableSymbolName"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/PrimitiveComSendProxyOperation/accessApi"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/PrimitiveComSendProxyOperation/signalIdVariable"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/ComplexComSendProxyOperation">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComplexComSendProxyOperation/accessApi"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComplexComSendProxyOperation/functionTableSymbolName"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/ComplexComSendProxyOperation/tableIndexVariable"/>
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComSendProxyOperation/tableIndexVariable"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/IocReceiveGroupApi">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/IocReceiveGroupApi/comSendSignalSymbolName"/>
@@ -1328,6 +1426,11 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferWriteTrustedFunction/operation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferWriteTrustedFunction/dataVariable"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/RteBufferSendTrustedFunction">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferSendTrustedFunction/operation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferSendTrustedFunction/dataVariable"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/CsTrustedFunction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1464,7 +1567,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferQueueType/elementType"/>
       </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/RteSendTrustedFunctionParamType"/>
+      <genClasses ecoreClass="rte.ecore#//module/RteNonqueuedSendTrustedFunctionParamType"/>
+      <genClasses ecoreClass="rte.ecore#//module/RteQueuedSendTrustedFunctionParamType"/>
       <genClasses ecoreClass="rte.ecore#//module/ComSendTrustedFunctionParamType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComSendTrustedFunctionParamType/isGroup"/>
       </genClasses>
@@ -1472,15 +1576,6 @@
       <genClasses ecoreClass="rte.ecore#//module/NeverReadOperation">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/NeverReadOperation/initValueConstant"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/RteBufferInvalidateTrustedFunction">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/RteBufferInvalidateTrustedFunction/operation"/>
-      </genClasses>
-      <genClasses ecoreClass="rte.ecore#//module/TrustedFunctionRteBufferInvalidateSendOperation">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteBufferInvalidateSendOperation/accessTrustedFunction"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference rte.ecore#//module/TrustedFunctionRteBufferInvalidateSendOperation/tempReturnVariable"/>
       </genClasses>
       <genClasses image="false" ecoreClass="rte.ecore#//module/MemoryMapping">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/MemoryMapping/prefix"/>
@@ -1553,11 +1648,14 @@
       <genClasses ecoreClass="rte.ecore#//module/ComProxyFunction">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference rte.ecore#//module/ComProxyFunction/parent"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/iocReceiveSymbolName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/signalGroupSymbolName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/bufferComProxySymbolName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/bufferComMetaComplexDataSymbolName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/proxyDataTypeName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/sendSignalFunctionSymbolName"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComProxyFunction/bufferVariable"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/signalInformationSymbolName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ComProxyFunction/isGroup"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/ComProxyFunction/activationOperation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ComProxyFunction/tAckStatus"/>
       </genClasses>
       <genClasses ecoreClass="rte.ecore#//module/ComSendSignalApiWrapper"/>
       <genClasses ecoreClass="rte.ecore#//module/ComReceiveSignalApiWrapper"/>
@@ -1662,6 +1760,24 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference rte.ecore#//module/RedefinitionType/sourceType"/>
         <genOperations ecoreOperation="rte.ecore#//module/RedefinitionType/getLeafType"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/ActivationOperation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ActivationOperation/activationApi"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/ActivationOperation/activationFlag"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/ActivationOperation/osTaskPriority"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/OsActivateTaskApi">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rte.ecore#//module/OsActivateTaskApi/osTaskId"/>
+      </genClasses>
+      <genClasses ecoreClass="rte.ecore#//module/FeedbackApi">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference rte.ecore#//module/FeedbackApi/tAckStatus"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="rte.ecore#//module/LogicalBlock"/>
+      <genClasses ecoreClass="rte.ecore#//module/TAckStatus">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rte.ecore#//module/TAckStatus/statusVariable"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>
@@ -1875,11 +1991,11 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ar4x.ecore#//m2/AutosarVariableRef/localVariable"/>
       </genClasses>
-      <genClasses ecoreClass="ar4x.ecore#//m2/VariableInAtomicSwcInstanceRef">
+      <genClasses ecoreClass="ar4x.ecore#//m2/VariableInAtomicSwcTypeInstanceRef">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference ar4x.ecore#//m2/VariableInAtomicSwcInstanceRef/portPrototype"/>
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/VariableInAtomicSwcTypeInstanceRef/portPrototype"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference ar4x.ecore#//m2/VariableInAtomicSwcInstanceRef/targetDataPrototype"/>
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/VariableInAtomicSwcTypeInstanceRef/targetDataPrototype"/>
       </genClasses>
       <genClasses image="false" ecoreClass="ar4x.ecore#//m2/RteEvent">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -1889,6 +2005,28 @@
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//m2/TimingEvent">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/TimingEvent/period"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/BackgroundEvent"/>
+      <genClasses ecoreClass="ar4x.ecore#//m2/DataSendCompletedEvent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataSendCompletedEvent/eventSource"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataSendCompletedEvent/eventSourceData"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/DataReceivedEvent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataReceivedEvent/dataIref"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataReceivedEvent/data"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/DataReceiveErrorEvent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataReceiveErrorEvent/dataIref"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/DataReceiveErrorEvent/data"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/RVariableInAtomicSwcInstanceRef">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/RVariableInAtomicSwcInstanceRef/contextRPort"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference ar4x.ecore#//m2/RVariableInAtomicSwcInstanceRef/targetDataElement"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//m2/EcucModuleConfigurationValues">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/EcucModuleConfigurationValues/definitionRef"/>
@@ -1932,10 +2070,15 @@
       <genClasses image="false" ecoreClass="ar4x.ecore#//m2/SenderComSpec">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference ar4x.ecore#//m2/SenderComSpec/dataElement"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/SenderComSpec/transmissionAcknowledge"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/TransmissionAcknowledgementRequest">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/TransmissionAcknowledgementRequest/timeout"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//m2/NonqueuedSenderComSpec">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/NonqueuedSenderComSpec/initValue"/>
       </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/QueuedSenderComSpec"/>
       <genClasses ecoreClass="ar4x.ecore#//m2/NonqueuedReceiverComSpec">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/NonqueuedReceiverComSpec/aliveTimeout"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -2155,6 +2298,8 @@
             ecoreFeature="ecore:EReference ar4x.ecore#//m2/InvalidationPolicy/dataElement"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/InvalidationPolicy/handleInvalid"/>
         <genOperations ecoreOperation="ar4x.ecore#//m2/InvalidationPolicy/isInvalidationEnabled"/>
+        <genOperations ecoreOperation="ar4x.ecore#//m2/InvalidationPolicy/isInvalidationKeep"/>
+        <genOperations ecoreOperation="ar4x.ecore#//m2/InvalidationPolicy/isInvalidationReplace"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//m2/PortApiOption">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/PortApiOption/portArgValue"/>
@@ -2271,7 +2416,10 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/CompuScale/shortLabel"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/CompuScale/symbol"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/CompuScale/upperLimit"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/CompuScale/vt"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//m2/CompuScale/compuConst"/>
+      </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/CompuConst">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/CompuConst/vt"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//m2/AnyInstanceRef">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -2385,6 +2533,7 @@
       <genClasses ecoreClass="ar4x.ecore#//m2/BswTimingEvent">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/BswTimingEvent/period"/>
       </genClasses>
+      <genClasses ecoreClass="ar4x.ecore#//m2/BswBackgroundEvent"/>
       <genClasses ecoreClass="ar4x.ecore#//m2/BswCalledEntity"/>
       <genClasses ecoreClass="ar4x.ecore#//m2/BswInterruptEntity">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//m2/BswInterruptEntity/interruptSource"/>
@@ -2745,6 +2894,10 @@
         <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/getInvalidationPolicy"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/getInitValue"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/getComSpec"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/isAccessedByDataSendPoint"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/isTAckEnabled"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/isTAckTimeoutEnabled"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/PVariableDataInstanceInSwc/getRelatedDataSendCompletedEvent"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//instance/RVariableDataInstanceInSwc">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -2753,10 +2906,14 @@
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getFilter"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/isAliveTimeoutEnabled"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/isInvalidationEnabled"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/isInvalidationKeep"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/isInvalidationReplace"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getInvalidationPolicy"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getInitValue"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getQueueLength"/>
         <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getComSpec"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getRelatedDataReceivedEvent"/>
+        <genOperations ecoreOperation="ar4x.ecore#//instance/RVariableDataInstanceInSwc/getRelatedDataReceiveErrorEvent"/>
       </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//instance/AssemblyDataInstanceConnector">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

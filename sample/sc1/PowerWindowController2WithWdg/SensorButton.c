@@ -2,17 +2,19 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+ *  Copyright (C) 2013-2016 by Center for Embedded Computing Systems
  *              Graduate School of Information Science, Nagoya Univ., JAPAN
- *  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
- *  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
- *  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
- *  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+ *  Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+ *  Copyright (C) 2014-2016 by eSOL Co.,Ltd., JAPAN
+ *  Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+ *  Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+ *  Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
  *  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
- *  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
- *  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
- *  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
- *  Copyright (C) 2013-2015 by Witz Corporation
+ *  Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+ *  Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+ *  Copyright (C) 2015-2016 by SUZUKI MOTOR CORPORATION
+ *  Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+ *  Copyright (C) 2013-2016 by Witz Corporation
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,7 +50,7 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: SensorButton.c 427 2015-03-23 12:38:40Z mtakada $
+ *  $Id: SensorButton.c 651 2016-03-31 06:20:22Z mtakada $
  */
 
 #include "Os.h"
@@ -63,7 +65,7 @@ Button(void)
 
 	lock = FALSE;
 
-	Rte_Call_se4_CheckpointReached();
+	Rte_Call_se4_CheckpointReached(4);
 
 	Rte_Call_LockStateIn_GetLockState(&state);
 	/* ロックされている場合，LEDを付けて何もせずに終了 */
@@ -72,7 +74,7 @@ Button(void)
 		lock = TRUE;
 	}
 	else {
-		Rte_Call_se1_CheckpointReached();
+		Rte_Call_se1_CheckpointReached(1);
 		Rte_Call_LedStateOut_SetLedState(FALSE);
 	}
 
@@ -83,8 +85,8 @@ Button(void)
 		lock = TRUE;
 	}
 	else {
-		Rte_Call_se3_CheckpointReached();
-		Rte_Call_se2_CheckpointReached();
+		Rte_Call_se3_CheckpointReached(3);
+		Rte_Call_se2_CheckpointReached(2);
 		Rte_Call_LedStateOut_SetLedState2(FALSE);
 	}
 
@@ -95,7 +97,7 @@ Button(void)
 		lock = TRUE;
 	}
 	else {
-		Rte_Call_se5_CheckpointReached();
+		Rte_Call_se5_CheckpointReached(5);
 		Rte_Call_LedStateOut_SetLedState3(FALSE);
 	}
 
@@ -117,6 +119,6 @@ Button(void)
 		}
 	}
 
-	Rte_Call_se6_CheckpointReached();
+	Rte_Call_se6_CheckpointReached(6);
 	return;
 }

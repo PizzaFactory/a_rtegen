@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -256,24 +256,17 @@ endpackage
 
 package ar4x::ecuc
 
-	context EcucObject
-	
-	def: timeValueEx : rte::ex::TimeValueEx = rte::ex::TimeValueEx.allInstances()->any(true)
-
 	/*
 	 * RteEventToTaskMapping
 	 */
-
 	context RteEventToTaskMapping
 	
+	def: timeValueEx : rte::ex::TimeValueEx = rte::ex::TimeValueEx.allInstances()->any(true)
 	def: expectedConfig : RteUsedOsActivation = self.rteUsedOsAlarm.expectedConfig->first()
 	def: activationOffset : m2::TimeValue = if self.rteActivationOffset.oclIsUndefined() then null else self.rteActivationOffset endif
 
 	inv nrte_sws_0107:
 	not self.rteEvent.oclIsKindOf(ar4x::m2::OperationInvokedEvent) or self.rteMappedToTask.oclIsUndefined()
-
-	inv nrte_sws_0108:
-	not self.rteEvent.oclIsKindOf(ar4x::m2::OperationInvokedEvent) or self.rteUsedOsAlarm.oclIsUndefined()
 
 	inv nrte_sws_0109:
 	not self.rteEvent.oclIsKindOf(ar4x::m2::TimingEvent) or not self.rteMappedToTask.oclIsUndefined()
@@ -299,6 +292,63 @@ package ar4x::ecuc
 	self.rteMappedToTask.ownerApplication->isEmpty()
 	or
 	self.rteMappedToTask.ownerApplication.osAppEcucPartition.ecucPartitionSoftwareComponent->exists(prototype.type = self.rteEvent.startOnEvent.parent.parent)
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0354:
+	RteEventToTaskMapping.allInstances()->select(m | m.rteMappedToTask = self.rteMappedToTask and m.rteUsedOsEvent = self.rteUsedOsEvent)
+		->forAll(m | m.rteUsedOsAlarm = self.rteUsedOsAlarm)
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0355:
+	self.rteEvent.oclIsKindOf(ar4x::m2::BackgroundEvent) or self.rteEvent.oclIsKindOf(ar4x::m2::TimingEvent)
+	or
+	not RteEventToTaskMapping.allInstances()->select(m | m.rteMappedToTask = self.rteMappedToTask and m.rteUsedOsEvent = self.rteUsedOsEvent)
+		->exists(m | m.rteEvent.oclIsKindOf(ar4x::m2::BackgroundEvent) or m.rteEvent.oclIsKindOf(ar4x::m2::TimingEvent))
+
+	inv nrte_sws_0356:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::BackgroundEvent) or not self.rteMappedToTask.oclIsUndefined()
+
+	inv nrte_sws_0367:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataReceivedEvent) or not self.rteMappedToTask.oclIsUndefined()
+
+	inv nrte_sws_0368:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataReceiveErrorEvent) or not self.rteMappedToTask.oclIsUndefined()
+
+	inv nrte_sws_0369:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataSendCompletedEvent) or not self.rteMappedToTask.oclIsUndefined()
+
+	inv rte_sws_7809:
+	self.rteUsedOsAlarm.oclIsUndefined() or (self.rteEvent.oclIsKindOf(ar4x::m2::TimingEvent) or self.rteEvent.oclIsKindOf(ar4x::m2::BackgroundEvent)) 
+
+	inv rte_sws_7181:
+	let osApps : Set(OsApplication) = OsApplication.allInstances()->select(osApplicationCoreAssignment = self.rteMappedToTask.ownerApplication->any(true).osApplicationCoreAssignment)
+	in
+	not self.rteEvent.oclIsKindOf(ar4x::m2::BackgroundEvent) or not self.rteUsedOsAlarm.oclIsUndefined()
+	or not osApps.osAppTask->exists(t | t <> self.rteMappedToTask and t.osTaskPriority <= self.rteMappedToTask.osTaskPriority)
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0370:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataSendCompletedEvent)
+	or
+	not RteEventToTaskMapping.allInstances()->select(m | (not m.rteMappedToTask.oclIsUndefined()) and m.rteMappedToTask = self.rteMappedToTask and m.rteUsedOsEvent = self.rteUsedOsEvent)
+		->exists(m | not m.rteEvent.oclIsKindOf(ar4x::m2::DataSendCompletedEvent)
+						or (m.rteEvent.oclIsKindOf(ar4x::m2::DataSendCompletedEvent) and m.rteEvent.oclAsType(ar4x::m2::DataSendCompletedEvent).eventSourceData <> self.rteEvent.oclAsType(ar4x::m2::DataSendCompletedEvent).eventSourceData))
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0371:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataReceivedEvent)
+	or
+	not RteEventToTaskMapping.allInstances()->select(m | (not m.rteMappedToTask.oclIsUndefined()) and m.rteMappedToTask = self.rteMappedToTask and m.rteUsedOsEvent = self.rteUsedOsEvent)
+		->exists(m | not m.rteEvent.oclIsKindOf(ar4x::m2::DataReceivedEvent)
+						or (m.rteEvent.oclIsKindOf(ar4x::m2::DataReceivedEvent) and m.rteEvent.oclAsType(ar4x::m2::DataReceivedEvent).data <> self.rteEvent.oclAsType(ar4x::m2::DataReceivedEvent).data))
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0372:
+	not self.rteEvent.oclIsKindOf(ar4x::m2::DataReceiveErrorEvent)
+	or
+	not RteEventToTaskMapping.allInstances()->select(m | (not m.rteMappedToTask.oclIsUndefined()) and m.rteMappedToTask = self.rteMappedToTask and m.rteUsedOsEvent = self.rteUsedOsEvent)
+		->exists(m | not m.rteEvent.oclIsKindOf(ar4x::m2::DataReceiveErrorEvent)
+						or (m.rteEvent.oclIsKindOf(ar4x::m2::DataReceiveErrorEvent) and m.rteEvent.oclAsType(ar4x::m2::DataReceiveErrorEvent).data <> self.rteEvent.oclAsType(ar4x::m2::DataReceiveErrorEvent).data))
 
 	/*
 	 * RteExclusiveAreaImplementation
@@ -328,7 +378,8 @@ package ar4x::ecuc
 	or self.mappedRteEvent->forAll(not rteUsedOsEvent.oclIsUndefined())
 
 	inv nrte_sws_0147:
-	self.mappedRteEvent->isUnique(rtePositionInTask)
+	self.mappedRteEvent->size() < 2
+	or (self.mappedRteEvent->isUnique(rtePositionInTask) and self.mappedRteEvent->forAll(not rtePositionInTask.oclIsUndefined()))
 
 	inv nrte_sws_0154:
 	EcucPartitionCollection.allInstances()->isEmpty() or self.mappedRteEvent->isEmpty()

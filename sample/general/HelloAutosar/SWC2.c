@@ -2,17 +2,19 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+ *  Copyright (C) 2013-2016 by Center for Embedded Computing Systems
  *              Graduate School of Information Science, Nagoya Univ., JAPAN
- *  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
- *  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
- *  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
- *  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+ *  Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+ *  Copyright (C) 2014-2016 by eSOL Co.,Ltd., JAPAN
+ *  Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+ *  Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+ *  Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
  *  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
- *  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
- *  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
- *  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
- *  Copyright (C) 2013-2015 by Witz Corporation
+ *  Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+ *  Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+ *  Copyright (C) 2015-2016 by SUZUKI MOTOR CORPORATION
+ *  Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+ *  Copyright (C) 2013-2016 by Witz Corporation
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,11 +50,15 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  *
- *  $Id: SWC2.c 427 2015-03-23 12:38:40Z mtakada $
+ *  $Id: SWC2.c 651 2016-03-31 06:20:22Z mtakada $
  */
 
+#include "Os.h"
+#include "prc_sil.h"
 #include "Rte_SWC2.h"
 #include "t_syslog.h"
+
+#define LED_R_BASE	0x08000430
 
 #ifdef TOPPERS_PERFORMANCE
 extern void measure_swc2(void);
@@ -67,6 +73,23 @@ RunnableEntity2(void)
 	IDT_TimeCount cnt;
 	Rte_Read_SWC2_RPort_time(&cnt);
 	syslog(LOG_NOTICE, "Hello AUTOSAR [SW-C2] !! : %d", cnt);
+
+#ifdef TOPPERS_PERFORMANCE
+	/* 性能評価時は本関数内でOSを修正する */
+	measure_swc2();
+#endif /* TOPPERS_PERFORMANCE */
+}
+
+/*
+ *  バックグランドイベントで呼び出されるランナブル
+ */
+void
+RunnableEntityBG2(void)
+{
+	uint32	status;
+
+	status = sil_rew_iop((void *) LED_R_BASE);
+	sil_wrw_iop((void *) LED_R_BASE, status+1);
 
 #ifdef TOPPERS_PERFORMANCE
 	/* 性能評価時は本関数内でOSを修正する */

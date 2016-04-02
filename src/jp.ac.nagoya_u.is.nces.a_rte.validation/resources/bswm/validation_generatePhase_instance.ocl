@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -162,6 +162,30 @@ package ar4x::ecuc
 	not self.rteBswEvent.oclIsKindOf(ar4x::m2::BswTimingEvent) or expectedConfig.oclIsUndefined()
 	or timeValueEx.isMultiplesOf(self.rteBswEvent.oclAsType(ar4x::m2::BswTimingEvent).period, expectedConfig.rteExpectedTickDuration)
 
+	inv nrte_sws_0357:
+	not self.rteBswEvent.oclIsKindOf(ar4x::m2::BswBackgroundEvent) or not self.rteBswMappedToTask.oclIsUndefined()
+
+	inv nrte_sws_0352:
+	self.rteBswUsedOsAlarm.oclIsUndefined() or (self.rteBswEvent.oclIsKindOf(ar4x::m2::BswTimingEvent) or self.rteBswEvent.oclIsKindOf(ar4x::m2::BswBackgroundEvent)) 
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0354:
+	RteBswEventToTaskMapping.allInstances()->select(m | m.rteBswMappedToTask = self.rteBswMappedToTask and m.rteBswUsedOsEvent = self.rteBswUsedOsEvent)
+		->forAll(m | m.rteBswUsedOsAlarm = self.rteBswUsedOsAlarm)
+
+	/* irte_sws_007解除時に要修正 */
+	inv nrte_sws_0355:
+	self.rteBswEvent.oclIsKindOf(ar4x::m2::BswBackgroundEvent) or self.rteBswEvent.oclIsKindOf(ar4x::m2::BswTimingEvent)
+	or
+	not RteBswEventToTaskMapping.allInstances()->select(m | m.rteBswMappedToTask = self.rteBswMappedToTask and m.rteBswUsedOsEvent = self.rteBswUsedOsEvent)
+		->exists(m | m.rteBswEvent.oclIsKindOf(ar4x::m2::BswBackgroundEvent) or m.rteBswEvent.oclIsKindOf(ar4x::m2::BswTimingEvent))
+
+	inv nrte_sws_0353:
+	let osApps : Set(OsApplication) = OsApplication.allInstances()->select(osApplicationCoreAssignment = self.rteBswMappedToTask.ownerApplication->any(true).osApplicationCoreAssignment)
+	in
+	not self.rteBswEvent.oclIsKindOf(ar4x::m2::BswBackgroundEvent) or not self.rteBswUsedOsAlarm.oclIsUndefined()
+	or not osApps.osAppTask->exists(t | t <> self.rteBswMappedToTask and t.osTaskPriority <= self.rteBswMappedToTask.osTaskPriority)
+
 	/*
 	 * RteBswExclusiveAreaImpl
 	 */
@@ -192,7 +216,8 @@ package ar4x::ecuc
 	or self.mappedRteBswEvent->forAll(not rteBswUsedOsEvent.oclIsUndefined())
 
 	inv nrte_sws_0202:
-	self.mappedRteBswEvent->isUnique(rteBswPositionInTask)
+	self.mappedRteBswEvent->size() < 2
+	or (self.mappedRteBswEvent->isUnique(rteBswPositionInTask) and self.mappedRteBswEvent->forAll(not rteBswPositionInTask.oclIsUndefined()))
 
 	inv nrte_sws_0203:
 	EcucPartitionCollection.allInstances()->isEmpty() or self.mappedRteBswEvent->isEmpty()

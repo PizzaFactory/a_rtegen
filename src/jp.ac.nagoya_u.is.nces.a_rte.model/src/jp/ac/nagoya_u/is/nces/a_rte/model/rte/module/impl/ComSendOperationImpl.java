@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,18 +44,23 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,6 +71,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl#getAccessApi <em>Access Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl#getTempReturnVariable <em>Temp Return Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl#getTAckStatus <em>TAck Status</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl#getActivationFlagOnTxErr <em>Activation Flag On Tx Err</em>}</li>
  * </ul>
  * </p>
  *
@@ -91,6 +98,26 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 	 * @ordered
 	 */
 	protected Variable tempReturnVariable;
+
+	/**
+	 * The cached value of the '{@link #getTAckStatus() <em>TAck Status</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTAckStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected TAckStatus tAckStatus;
+
+	/**
+	 * The cached value of the '{@link #getActivationFlagOnTxErr() <em>Activation Flag On Tx Err</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivationFlagOnTxErr()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LocalVariable> activationFlagOnTxErr;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -192,6 +219,56 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TAckStatus getTAckStatus() {
+		if (tAckStatus != null && ((EObject)tAckStatus).eIsProxy()) {
+			InternalEObject oldTAckStatus = (InternalEObject)tAckStatus;
+			tAckStatus = (TAckStatus)eResolveProxy(oldTAckStatus);
+			if (tAckStatus != oldTAckStatus) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.COM_SEND_OPERATION__TACK_STATUS, oldTAckStatus, tAckStatus));
+			}
+		}
+		return tAckStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckStatus basicGetTAckStatus() {
+		return tAckStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTAckStatus(TAckStatus newTAckStatus) {
+		TAckStatus oldTAckStatus = tAckStatus;
+		tAckStatus = newTAckStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_SEND_OPERATION__TACK_STATUS, oldTAckStatus, tAckStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<LocalVariable> getActivationFlagOnTxErr() {
+		if (activationFlagOnTxErr == null) {
+			activationFlagOnTxErr = new EObjectResolvingEList<LocalVariable>(LocalVariable.class, this, ModulePackage.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR);
+		}
+		return activationFlagOnTxErr;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -201,6 +278,11 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 			case ModulePackage.COM_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				if (resolve) return getTempReturnVariable();
 				return basicGetTempReturnVariable();
+			case ModulePackage.COM_SEND_OPERATION__TACK_STATUS:
+				if (resolve) return getTAckStatus();
+				return basicGetTAckStatus();
+			case ModulePackage.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR:
+				return getActivationFlagOnTxErr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +292,7 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -218,6 +301,13 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 				return;
 			case ModulePackage.COM_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				setTempReturnVariable((Variable)newValue);
+				return;
+			case ModulePackage.COM_SEND_OPERATION__TACK_STATUS:
+				setTAckStatus((TAckStatus)newValue);
+				return;
+			case ModulePackage.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR:
+				getActivationFlagOnTxErr().clear();
+				getActivationFlagOnTxErr().addAll((Collection<? extends LocalVariable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,6 +327,12 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 			case ModulePackage.COM_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				setTempReturnVariable((Variable)null);
 				return;
+			case ModulePackage.COM_SEND_OPERATION__TACK_STATUS:
+				setTAckStatus((TAckStatus)null);
+				return;
+			case ModulePackage.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR:
+				getActivationFlagOnTxErr().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +349,10 @@ public abstract class ComSendOperationImpl extends SendOperationImpl implements 
 				return accessApi != null;
 			case ModulePackage.COM_SEND_OPERATION__TEMP_RETURN_VARIABLE:
 				return tempReturnVariable != null;
+			case ModulePackage.COM_SEND_OPERATION__TACK_STATUS:
+				return tAckStatus != null;
+			case ModulePackage.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR:
+				return activationFlagOnTxErr != null && !activationFlagOnTxErr.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

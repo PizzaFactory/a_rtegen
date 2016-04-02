@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,9 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_EXTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_INTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.SEND_INTERACTION__RECEIVE_INTERACTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.ACTIVATION_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION;
@@ -60,6 +63,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INTER_PARTITION_TIMEOUT_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_INITIALIZE_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.LOCAL_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__PREFIX;
@@ -67,11 +71,10 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP__MODE_TRANSITION_STATUS_CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_CORE_START_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_CORE_INIT_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TACK_NOTIFY_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
 
@@ -85,6 +88,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Receiver;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
@@ -94,13 +99,16 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsG
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -179,15 +187,25 @@ public class ModuleModelSorter {
 				} else if (SEND_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SendOperation> targetOperations = (EList<SendOperation>) targetFunction.eGet(eReference);
 					sortSendOperations(targetOperations);
-				} else if (PRIMITIVE_COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<PrimitiveComSendProxyOperation> targetOperations = (EList<PrimitiveComSendProxyOperation>) targetFunction.eGet(eReference);
+				} else if (COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<ComSendProxyOperation> targetOperations = (EList<ComSendProxyOperation>) targetFunction.eGet(eReference);
 					sortProxyComSendOperations(targetOperations);
+				} else if (ACTIVATION_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<ActivationOperation> targetOperations = (EList<ActivationOperation>) targetFunction.eGet(eReference);
+					sortActivationOperations(targetOperations);
+				} else if (TACK_NOTIFY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<TAckNotifyOperation> targetOperations = (EList<TAckNotifyOperation>) targetFunction.eGet(eReference);
+					sortTAckNortifyOperations(targetOperations);
 				} else if (RTE_CORE_START_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<RteCoreStartApiImpl> targetOperations = (EList<RteCoreStartApiImpl>) targetFunction.eGet(eReference);
 					sortRteCoreStartApi(targetOperations);
 				} else if (SCHM_CORE_INIT_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SchmCoreInitApiImpl> targetOperations = (EList<SchmCoreInitApiImpl>) targetFunction.eGet(eReference);
 					sortSchmCoreInitApi(targetOperations);
+				} else if (LOCAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<LocalVariable> targetLocalVariables = (EList<LocalVariable>) targetFunction.eGet(eReference);
+					sortLocalVariables(targetLocalVariables);
+
 				}
 
 				// NOTE ReadOperationは必ず多重度1のため，ソートを行なわない．
@@ -204,6 +222,17 @@ public class ModuleModelSorter {
 				}
 			}
 		}
+	}
+
+	private void sortTAckNortifyOperations(EList<TAckNotifyOperation> targetOperations) {
+		for (TAckNotifyOperation targetOperation : targetOperations) {
+			sortActivationOperations(targetOperation.getActivationOperation());
+		}
+	}
+
+	private void sortActivationOperations(EList<ActivationOperation> targetOperations) {
+		Ordering<ActivationOperation> ordering = Ordering.from(createActivationOperationTaskPriorityComparator()).compound(Ordering.from(createActivationOperationArgNameComparator()));
+		ECollections.sort(targetOperations, ordering);
 	}
 
 	private void sortInitializeOperations(EList<InitializeOperation> targetOperations) {
@@ -240,6 +269,38 @@ public class ModuleModelSorter {
 				.compound(Ordering.from(createInternalEcuReceiverComparator()).nullsLast().onResultOf(sendOperation2InternalEcuReceiver))
 				.compound(Ordering.from(createExternalEcuReceiverComparator()).nullsLast().onResultOf(sendOperation2ExternalEcuReceiver));
 		ECollections.sort(targetOperations, ordering);
+		
+		for (SendOperation targetOperation : targetOperations) {
+			for (EReference eReference : targetOperation.eClass().getEAllReferences()) {
+				if (eReference.isMany()) {
+					if (LOCAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {
+						@SuppressWarnings("unchecked")
+						EList<LocalVariable> targetLocalVariables = (EList<LocalVariable>) targetOperation.eGet(eReference);
+						sortLocalVariables(targetLocalVariables);
+					}
+				}
+			}
+		}
+	}
+	
+	private Comparator<ActivationOperation> createActivationOperationArgNameComparator() {
+		return new Comparator<ActivationOperation>() {
+			@Override
+			public int compare(ActivationOperation o1, ActivationOperation o2) {
+				String o1ActivationName = o1.getActivationApi() instanceof OsActivateTaskApi ? ((OsActivateTaskApi)o1.getActivationApi()).getOsTaskId() : ((OsSetEventApi)o1.getActivationApi()).getOsTaskId() + ((OsSetEventApi)o1.getActivationApi()).getOsEventId();
+				String o2ActivationName = o2.getActivationApi() instanceof OsActivateTaskApi ? ((OsActivateTaskApi)o2.getActivationApi()).getOsTaskId() : ((OsSetEventApi)o2.getActivationApi()).getOsTaskId() + ((OsSetEventApi)o2.getActivationApi()).getOsEventId();
+				return ComparisonChain.start().compare(o1ActivationName, o2ActivationName).result();
+			}
+		};
+	}
+	
+	private Comparator<ActivationOperation> createActivationOperationTaskPriorityComparator() {
+		return new Comparator<ActivationOperation>() {
+			@Override
+			public int compare(ActivationOperation o1, ActivationOperation o2) {
+				return o2.getOsTaskPriority() - o1.getOsTaskPriority();
+			}
+		};
 	}
 
 	private Comparator<InternalEcuReceiver> createInternalEcuReceiverComparator() {
@@ -275,8 +336,8 @@ public class ModuleModelSorter {
 		sortGlobalVariables(targetOperation.getTimeoutVariable());
 	}
 
-	private void sortProxyComSendOperations(EList<PrimitiveComSendProxyOperation> targetOperations) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
+	private void sortProxyComSendOperations(EList<ComSendProxyOperation> targetOperations) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
 		ECollections.sort(targetOperations, ordering);
 	}
 	
@@ -326,6 +387,11 @@ public class ModuleModelSorter {
 	private void sortGlobalVariables(EList<? extends GlobalVariable> targetGlobalVariables) {
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(VARIABLE__SYMBOL_NAME));
 		ECollections.sort(targetGlobalVariables, ordering);
+	}
+
+	private void sortLocalVariables(EList<? extends LocalVariable> targetLocalVariables) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(VARIABLE__SYMBOL_NAME));
+		ECollections.sort(targetLocalVariables, ordering);
 	}
 
 	private void sortFunctions(EList<? extends Function> targetFunctions) {

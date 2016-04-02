@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -55,11 +57,12 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getIocReceiveSymbolName <em>Ioc Receive Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComProxySymbolName <em>Buffer Com Proxy Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComMetaComplexDataSymbolName <em>Buffer Com Meta Complex Data Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getProxyDataTypeName <em>Proxy Data Type Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSendSignalFunctionSymbolName <em>Send Signal Function Symbol Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferVariable <em>Buffer Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalInformationSymbolName <em>Signal Information Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getIsGroup <em>Is Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getActivationOperation <em>Activation Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getTAckStatus <em>TAck Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -123,108 +126,82 @@ public interface ComProxyFunction extends Function {
 	void setIocReceiveSymbolName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Signal Group Symbol Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Send Signal Function Symbol Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Signal Group Symbol Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Send Signal Function Symbol Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signal Group Symbol Name</em>' attribute.
-	 * @see #setSignalGroupSymbolName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_SignalGroupSymbolName()
+	 * @return the value of the '<em>Send Signal Function Symbol Name</em>' attribute.
+	 * @see #setSendSignalFunctionSymbolName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_SendSignalFunctionSymbolName()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
 	 * @generated
 	 */
-	String getSignalGroupSymbolName();
+	String getSendSignalFunctionSymbolName();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSendSignalFunctionSymbolName <em>Send Signal Function Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Signal Group Symbol Name</em>' attribute.
-	 * @see #getSignalGroupSymbolName()
+	 * @param value the new value of the '<em>Send Signal Function Symbol Name</em>' attribute.
+	 * @see #getSendSignalFunctionSymbolName()
 	 * @generated
 	 */
-	void setSignalGroupSymbolName(String value);
+	void setSendSignalFunctionSymbolName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Buffer Com Proxy Symbol Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Buffer Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Buffer Com Proxy Symbol Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Buffer Variable</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buffer Com Proxy Symbol Name</em>' attribute.
-	 * @see #setBufferComProxySymbolName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_BufferComProxySymbolName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
+	 * @return the value of the '<em>Buffer Variable</em>' reference.
+	 * @see #setBufferVariable(Variable)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_BufferVariable()
+	 * @model required="true"
 	 * @generated
 	 */
-	String getBufferComProxySymbolName();
+	Variable getBufferVariable();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComProxySymbolName <em>Buffer Com Proxy Symbol Name</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferVariable <em>Buffer Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Buffer Com Proxy Symbol Name</em>' attribute.
-	 * @see #getBufferComProxySymbolName()
+	 * @param value the new value of the '<em>Buffer Variable</em>' reference.
+	 * @see #getBufferVariable()
 	 * @generated
 	 */
-	void setBufferComProxySymbolName(String value);
+	void setBufferVariable(Variable value);
 
 	/**
-	 * Returns the value of the '<em><b>Buffer Com Meta Complex Data Symbol Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Signal Information Symbol Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Buffer Com Meta Complex Data Symbol Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Signal Information Symbol Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Buffer Com Meta Complex Data Symbol Name</em>' attribute.
-	 * @see #setBufferComMetaComplexDataSymbolName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_BufferComMetaComplexDataSymbolName()
+	 * @return the value of the '<em>Signal Information Symbol Name</em>' attribute.
+	 * @see #setSignalInformationSymbolName(String)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_SignalInformationSymbolName()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
 	 * @generated
 	 */
-	String getBufferComMetaComplexDataSymbolName();
+	String getSignalInformationSymbolName();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComMetaComplexDataSymbolName <em>Buffer Com Meta Complex Data Symbol Name</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalInformationSymbolName <em>Signal Information Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Buffer Com Meta Complex Data Symbol Name</em>' attribute.
-	 * @see #getBufferComMetaComplexDataSymbolName()
+	 * @param value the new value of the '<em>Signal Information Symbol Name</em>' attribute.
+	 * @see #getSignalInformationSymbolName()
 	 * @generated
 	 */
-	void setBufferComMetaComplexDataSymbolName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Proxy Data Type Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Proxy Data Type Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proxy Data Type Name</em>' attribute.
-	 * @see #setProxyDataTypeName(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_ProxyDataTypeName()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CIdentifier" required="true"
-	 * @generated
-	 */
-	String getProxyDataTypeName();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getProxyDataTypeName <em>Proxy Data Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Proxy Data Type Name</em>' attribute.
-	 * @see #getProxyDataTypeName()
-	 * @generated
-	 */
-	void setProxyDataTypeName(String value);
+	void setSignalInformationSymbolName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Group</b></em>' attribute.
@@ -251,5 +228,47 @@ public interface ComProxyFunction extends Function {
 	 * @generated
 	 */
 	void setIsGroup(Boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Activation Operation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Activation Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_ActivationOperation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActivationOperation> getActivationOperation();
+
+	/**
+	 * Returns the value of the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>TAck Status</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>TAck Status</em>' reference.
+	 * @see #setTAckStatus(TAckStatus)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getComProxyFunction_TAckStatus()
+	 * @model
+	 * @generated
+	 */
+	TAckStatus getTAckStatus();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getTAckStatus <em>TAck Status</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>TAck Status</em>' reference.
+	 * @see #getTAckStatus()
+	 * @generated
+	 */
+	void setTAckStatus(TAckStatus value);
 
 } // ComProxyFunction

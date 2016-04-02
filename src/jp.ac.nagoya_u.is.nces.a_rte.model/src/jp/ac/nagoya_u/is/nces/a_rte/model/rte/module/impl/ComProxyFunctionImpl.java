@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,17 +44,23 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
+import java.util.Collection;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,11 +71,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getIocReceiveSymbolName <em>Ioc Receive Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getBufferComProxySymbolName <em>Buffer Com Proxy Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getBufferComMetaComplexDataSymbolName <em>Buffer Com Meta Complex Data Symbol Name</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getProxyDataTypeName <em>Proxy Data Type Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getSendSignalFunctionSymbolName <em>Send Signal Function Symbol Name</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getBufferVariable <em>Buffer Variable</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getSignalInformationSymbolName <em>Signal Information Symbol Name</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getIsGroup <em>Is Group</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getActivationOperation <em>Activation Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl#getTAckStatus <em>TAck Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -97,84 +104,54 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	protected String iocReceiveSymbolName = IOC_RECEIVE_SYMBOL_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSignalGroupSymbolName() <em>Signal Group Symbol Name</em>}' attribute.
+	 * The default value of the '{@link #getSendSignalFunctionSymbolName() <em>Send Signal Function Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignalGroupSymbolName()
+	 * @see #getSendSignalFunctionSymbolName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SIGNAL_GROUP_SYMBOL_NAME_EDEFAULT = null;
+	protected static final String SEND_SIGNAL_FUNCTION_SYMBOL_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSignalGroupSymbolName() <em>Signal Group Symbol Name</em>}' attribute.
+	 * The cached value of the '{@link #getSendSignalFunctionSymbolName() <em>Send Signal Function Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignalGroupSymbolName()
+	 * @see #getSendSignalFunctionSymbolName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String signalGroupSymbolName = SIGNAL_GROUP_SYMBOL_NAME_EDEFAULT;
+	protected String sendSignalFunctionSymbolName = SEND_SIGNAL_FUNCTION_SYMBOL_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getBufferComProxySymbolName() <em>Buffer Com Proxy Symbol Name</em>}' attribute.
+	 * The cached value of the '{@link #getBufferVariable() <em>Buffer Variable</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBufferComProxySymbolName()
+	 * @see #getBufferVariable()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BUFFER_COM_PROXY_SYMBOL_NAME_EDEFAULT = null;
+	protected Variable bufferVariable;
 
 	/**
-	 * The cached value of the '{@link #getBufferComProxySymbolName() <em>Buffer Com Proxy Symbol Name</em>}' attribute.
+	 * The default value of the '{@link #getSignalInformationSymbolName() <em>Signal Information Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBufferComProxySymbolName()
+	 * @see #getSignalInformationSymbolName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String bufferComProxySymbolName = BUFFER_COM_PROXY_SYMBOL_NAME_EDEFAULT;
+	protected static final String SIGNAL_INFORMATION_SYMBOL_NAME_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getBufferComMetaComplexDataSymbolName() <em>Buffer Com Meta Complex Data Symbol Name</em>}' attribute.
+	 * The cached value of the '{@link #getSignalInformationSymbolName() <em>Signal Information Symbol Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBufferComMetaComplexDataSymbolName()
+	 * @see #getSignalInformationSymbolName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getBufferComMetaComplexDataSymbolName() <em>Buffer Com Meta Complex Data Symbol Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBufferComMetaComplexDataSymbolName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String bufferComMetaComplexDataSymbolName = BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getProxyDataTypeName() <em>Proxy Data Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProxyDataTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String PROXY_DATA_TYPE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getProxyDataTypeName() <em>Proxy Data Type Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProxyDataTypeName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String proxyDataTypeName = PROXY_DATA_TYPE_NAME_EDEFAULT;
+	protected String signalInformationSymbolName = SIGNAL_INFORMATION_SYMBOL_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getIsGroup() <em>Is Group</em>}' attribute.
@@ -195,6 +172,26 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * @ordered
 	 */
 	protected Boolean isGroup = IS_GROUP_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getActivationOperation() <em>Activation Operation</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivationOperation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ActivationOperation> activationOperation;
+
+	/**
+	 * The cached value of the '{@link #getTAckStatus() <em>TAck Status</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTAckStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected TAckStatus tAckStatus;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -282,8 +279,8 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSignalGroupSymbolName() {
-		return signalGroupSymbolName;
+	public String getSendSignalFunctionSymbolName() {
+		return sendSignalFunctionSymbolName;
 	}
 
 	/**
@@ -291,11 +288,11 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSignalGroupSymbolName(String newSignalGroupSymbolName) {
-		String oldSignalGroupSymbolName = signalGroupSymbolName;
-		signalGroupSymbolName = newSignalGroupSymbolName;
+	public void setSendSignalFunctionSymbolName(String newSendSignalFunctionSymbolName) {
+		String oldSendSignalFunctionSymbolName = sendSignalFunctionSymbolName;
+		sendSignalFunctionSymbolName = newSendSignalFunctionSymbolName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME, oldSignalGroupSymbolName, signalGroupSymbolName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME, oldSendSignalFunctionSymbolName, sendSignalFunctionSymbolName));
 	}
 
 	/**
@@ -303,8 +300,16 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBufferComProxySymbolName() {
-		return bufferComProxySymbolName;
+	public Variable getBufferVariable() {
+		if (bufferVariable != null && ((EObject)bufferVariable).eIsProxy()) {
+			InternalEObject oldBufferVariable = (InternalEObject)bufferVariable;
+			bufferVariable = (Variable)eResolveProxy(oldBufferVariable);
+			if (bufferVariable != oldBufferVariable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE, oldBufferVariable, bufferVariable));
+			}
+		}
+		return bufferVariable;
 	}
 
 	/**
@@ -312,11 +317,20 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBufferComProxySymbolName(String newBufferComProxySymbolName) {
-		String oldBufferComProxySymbolName = bufferComProxySymbolName;
-		bufferComProxySymbolName = newBufferComProxySymbolName;
+	public Variable basicGetBufferVariable() {
+		return bufferVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBufferVariable(Variable newBufferVariable) {
+		Variable oldBufferVariable = bufferVariable;
+		bufferVariable = newBufferVariable;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME, oldBufferComProxySymbolName, bufferComProxySymbolName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE, oldBufferVariable, bufferVariable));
 	}
 
 	/**
@@ -324,8 +338,8 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getBufferComMetaComplexDataSymbolName() {
-		return bufferComMetaComplexDataSymbolName;
+	public String getSignalInformationSymbolName() {
+		return signalInformationSymbolName;
 	}
 
 	/**
@@ -333,32 +347,11 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBufferComMetaComplexDataSymbolName(String newBufferComMetaComplexDataSymbolName) {
-		String oldBufferComMetaComplexDataSymbolName = bufferComMetaComplexDataSymbolName;
-		bufferComMetaComplexDataSymbolName = newBufferComMetaComplexDataSymbolName;
+	public void setSignalInformationSymbolName(String newSignalInformationSymbolName) {
+		String oldSignalInformationSymbolName = signalInformationSymbolName;
+		signalInformationSymbolName = newSignalInformationSymbolName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME, oldBufferComMetaComplexDataSymbolName, bufferComMetaComplexDataSymbolName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getProxyDataTypeName() {
-		return proxyDataTypeName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProxyDataTypeName(String newProxyDataTypeName) {
-		String oldProxyDataTypeName = proxyDataTypeName;
-		proxyDataTypeName = newProxyDataTypeName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME, oldProxyDataTypeName, proxyDataTypeName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME, oldSignalInformationSymbolName, signalInformationSymbolName));
 	}
 
 	/**
@@ -387,6 +380,56 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ActivationOperation> getActivationOperation() {
+		if (activationOperation == null) {
+			activationOperation = new EObjectContainmentEList<ActivationOperation>(ActivationOperation.class, this, ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION);
+		}
+		return activationOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckStatus getTAckStatus() {
+		if (tAckStatus != null && ((EObject)tAckStatus).eIsProxy()) {
+			InternalEObject oldTAckStatus = (InternalEObject)tAckStatus;
+			tAckStatus = (TAckStatus)eResolveProxy(oldTAckStatus);
+			if (tAckStatus != oldTAckStatus) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS, oldTAckStatus, tAckStatus));
+			}
+		}
+		return tAckStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckStatus basicGetTAckStatus() {
+		return tAckStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTAckStatus(TAckStatus newTAckStatus) {
+		TAckStatus oldTAckStatus = tAckStatus;
+		tAckStatus = newTAckStatus;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS, oldTAckStatus, tAckStatus));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -408,6 +451,8 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 		switch (featureID) {
 			case ModulePackage.COM_PROXY_FUNCTION__PARENT:
 				return basicSetParent(null, msgs);
+			case ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION:
+				return ((InternalEList<?>)getActivationOperation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -438,16 +483,20 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 				return getParent();
 			case ModulePackage.COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME:
 				return getIocReceiveSymbolName();
-			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME:
-				return getSignalGroupSymbolName();
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME:
-				return getBufferComProxySymbolName();
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME:
-				return getBufferComMetaComplexDataSymbolName();
-			case ModulePackage.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME:
-				return getProxyDataTypeName();
+			case ModulePackage.COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME:
+				return getSendSignalFunctionSymbolName();
+			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE:
+				if (resolve) return getBufferVariable();
+				return basicGetBufferVariable();
+			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME:
+				return getSignalInformationSymbolName();
 			case ModulePackage.COM_PROXY_FUNCTION__IS_GROUP:
 				return getIsGroup();
+			case ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION:
+				return getActivationOperation();
+			case ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS:
+				if (resolve) return getTAckStatus();
+				return basicGetTAckStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -457,6 +506,7 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -466,20 +516,24 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 			case ModulePackage.COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME:
 				setIocReceiveSymbolName((String)newValue);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME:
-				setSignalGroupSymbolName((String)newValue);
+			case ModulePackage.COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME:
+				setSendSignalFunctionSymbolName((String)newValue);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME:
-				setBufferComProxySymbolName((String)newValue);
+			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE:
+				setBufferVariable((Variable)newValue);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME:
-				setBufferComMetaComplexDataSymbolName((String)newValue);
-				return;
-			case ModulePackage.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME:
-				setProxyDataTypeName((String)newValue);
+			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME:
+				setSignalInformationSymbolName((String)newValue);
 				return;
 			case ModulePackage.COM_PROXY_FUNCTION__IS_GROUP:
 				setIsGroup((Boolean)newValue);
+				return;
+			case ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION:
+				getActivationOperation().clear();
+				getActivationOperation().addAll((Collection<? extends ActivationOperation>)newValue);
+				return;
+			case ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS:
+				setTAckStatus((TAckStatus)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -499,20 +553,23 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 			case ModulePackage.COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME:
 				setIocReceiveSymbolName(IOC_RECEIVE_SYMBOL_NAME_EDEFAULT);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME:
-				setSignalGroupSymbolName(SIGNAL_GROUP_SYMBOL_NAME_EDEFAULT);
+			case ModulePackage.COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME:
+				setSendSignalFunctionSymbolName(SEND_SIGNAL_FUNCTION_SYMBOL_NAME_EDEFAULT);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME:
-				setBufferComProxySymbolName(BUFFER_COM_PROXY_SYMBOL_NAME_EDEFAULT);
+			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE:
+				setBufferVariable((Variable)null);
 				return;
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME:
-				setBufferComMetaComplexDataSymbolName(BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME_EDEFAULT);
-				return;
-			case ModulePackage.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME:
-				setProxyDataTypeName(PROXY_DATA_TYPE_NAME_EDEFAULT);
+			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME:
+				setSignalInformationSymbolName(SIGNAL_INFORMATION_SYMBOL_NAME_EDEFAULT);
 				return;
 			case ModulePackage.COM_PROXY_FUNCTION__IS_GROUP:
 				setIsGroup(IS_GROUP_EDEFAULT);
+				return;
+			case ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION:
+				getActivationOperation().clear();
+				return;
+			case ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS:
+				setTAckStatus((TAckStatus)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -530,16 +587,18 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 				return getParent() != null;
 			case ModulePackage.COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME:
 				return IOC_RECEIVE_SYMBOL_NAME_EDEFAULT == null ? iocReceiveSymbolName != null : !IOC_RECEIVE_SYMBOL_NAME_EDEFAULT.equals(iocReceiveSymbolName);
-			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME:
-				return SIGNAL_GROUP_SYMBOL_NAME_EDEFAULT == null ? signalGroupSymbolName != null : !SIGNAL_GROUP_SYMBOL_NAME_EDEFAULT.equals(signalGroupSymbolName);
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME:
-				return BUFFER_COM_PROXY_SYMBOL_NAME_EDEFAULT == null ? bufferComProxySymbolName != null : !BUFFER_COM_PROXY_SYMBOL_NAME_EDEFAULT.equals(bufferComProxySymbolName);
-			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME:
-				return BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME_EDEFAULT == null ? bufferComMetaComplexDataSymbolName != null : !BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME_EDEFAULT.equals(bufferComMetaComplexDataSymbolName);
-			case ModulePackage.COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME:
-				return PROXY_DATA_TYPE_NAME_EDEFAULT == null ? proxyDataTypeName != null : !PROXY_DATA_TYPE_NAME_EDEFAULT.equals(proxyDataTypeName);
+			case ModulePackage.COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME:
+				return SEND_SIGNAL_FUNCTION_SYMBOL_NAME_EDEFAULT == null ? sendSignalFunctionSymbolName != null : !SEND_SIGNAL_FUNCTION_SYMBOL_NAME_EDEFAULT.equals(sendSignalFunctionSymbolName);
+			case ModulePackage.COM_PROXY_FUNCTION__BUFFER_VARIABLE:
+				return bufferVariable != null;
+			case ModulePackage.COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME:
+				return SIGNAL_INFORMATION_SYMBOL_NAME_EDEFAULT == null ? signalInformationSymbolName != null : !SIGNAL_INFORMATION_SYMBOL_NAME_EDEFAULT.equals(signalInformationSymbolName);
 			case ModulePackage.COM_PROXY_FUNCTION__IS_GROUP:
 				return IS_GROUP_EDEFAULT == null ? isGroup != null : !IS_GROUP_EDEFAULT.equals(isGroup);
+			case ModulePackage.COM_PROXY_FUNCTION__ACTIVATION_OPERATION:
+				return activationOperation != null && !activationOperation.isEmpty();
+			case ModulePackage.COM_PROXY_FUNCTION__TACK_STATUS:
+				return tAckStatus != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -556,14 +615,10 @@ public class ComProxyFunctionImpl extends FunctionImpl implements ComProxyFuncti
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (iocReceiveSymbolName: ");
 		result.append(iocReceiveSymbolName);
-		result.append(", signalGroupSymbolName: ");
-		result.append(signalGroupSymbolName);
-		result.append(", bufferComProxySymbolName: ");
-		result.append(bufferComProxySymbolName);
-		result.append(", bufferComMetaComplexDataSymbolName: ");
-		result.append(bufferComMetaComplexDataSymbolName);
-		result.append(", proxyDataTypeName: ");
-		result.append(proxyDataTypeName);
+		result.append(", sendSignalFunctionSymbolName: ");
+		result.append(sendSignalFunctionSymbolName);
+		result.append(", signalInformationSymbolName: ");
+		result.append(signalInformationSymbolName);
 		result.append(", isGroup: ");
 		result.append(isGroup);
 		result.append(')');

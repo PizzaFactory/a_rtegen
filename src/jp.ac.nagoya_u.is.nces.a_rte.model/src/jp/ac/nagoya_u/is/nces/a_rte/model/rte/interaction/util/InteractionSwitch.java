@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -284,6 +284,15 @@ public class InteractionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InteractionPackage.TACK_STATUS_VARIABLE_IMPLEMENTATION: {
+				TAckStatusVariableImplementation tAckStatusVariableImplementation = (TAckStatusVariableImplementation)theEObject;
+				T result = caseTAckStatusVariableImplementation(tAckStatusVariableImplementation);
+				if (result == null) result = caseVariableImplementation(tAckStatusVariableImplementation);
+				if (result == null) result = caseInteractionReferrable(tAckStatusVariableImplementation);
+				if (result == null) result = caseInteractionObject(tAckStatusVariableImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case InteractionPackage.FILTER_BUFFER_IMPLEMENTATION: {
 				FilterBufferImplementation filterBufferImplementation = (FilterBufferImplementation)theEObject;
 				T result = caseFilterBufferImplementation(filterBufferImplementation);
@@ -409,6 +418,46 @@ public class InteractionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InteractionPackage.EXECUTION_CONTEXT: {
+				ExecutionContext executionContext = (ExecutionContext)theEObject;
+				T result = caseExecutionContext(executionContext);
+				if (result == null) result = caseInteractionEnd(executionContext);
+				if (result == null) result = caseInteractionReferrable(executionContext);
+				if (result == null) result = caseInteractionObject(executionContext);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.EXECUTION_CONTEXT_IMPLEMENTATION: {
+				ExecutionContextImplementation executionContextImplementation = (ExecutionContextImplementation)theEObject;
+				T result = caseExecutionContextImplementation(executionContextImplementation);
+				if (result == null) result = caseInteractionObject(executionContextImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.INFINITELOOP_IMPLEMENTATION: {
+				InfiniteloopImplementation infiniteloopImplementation = (InfiniteloopImplementation)theEObject;
+				T result = caseInfiniteloopImplementation(infiniteloopImplementation);
+				if (result == null) result = caseExecutionContextImplementation(infiniteloopImplementation);
+				if (result == null) result = caseInteractionObject(infiniteloopImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.ONE_SHOOT_IMPLEMENTATION: {
+				OneShootImplementation oneShootImplementation = (OneShootImplementation)theEObject;
+				T result = caseOneShootImplementation(oneShootImplementation);
+				if (result == null) result = caseExecutionContextImplementation(oneShootImplementation);
+				if (result == null) result = caseInteractionObject(oneShootImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.EVENT_POOLING_IMPLEMENTATION: {
+				EventPoolingImplementation eventPoolingImplementation = (EventPoolingImplementation)theEObject;
+				T result = caseEventPoolingImplementation(eventPoolingImplementation);
+				if (result == null) result = caseExecutionContextImplementation(eventPoolingImplementation);
+				if (result == null) result = caseInteractionObject(eventPoolingImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case InteractionPackage.ENTITY_STARTER: {
 				EntityStarter entityStarter = (EntityStarter)theEObject;
 				T result = caseEntityStarter(entityStarter);
@@ -447,6 +496,33 @@ public class InteractionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case InteractionPackage.TIMING_TRIGGERING_ENTITY_START_CONDITION: {
+				TimingTriggeringEntityStartCondition timingTriggeringEntityStartCondition = (TimingTriggeringEntityStartCondition)theEObject;
+				T result = caseTimingTriggeringEntityStartCondition(timingTriggeringEntityStartCondition);
+				if (result == null) result = caseInteractionObject(timingTriggeringEntityStartCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.RUNNABLE_ENTITY_START_INTERACTION: {
+				RunnableEntityStartInteraction runnableEntityStartInteraction = (RunnableEntityStartInteraction)theEObject;
+				T result = caseRunnableEntityStartInteraction(runnableEntityStartInteraction);
+				if (result == null) result = caseEntityStartInteraction(runnableEntityStartInteraction);
+				if (result == null) result = caseInteraction(runnableEntityStartInteraction);
+				if (result == null) result = caseInteractionReferrable(runnableEntityStartInteraction);
+				if (result == null) result = caseInteractionObject(runnableEntityStartInteraction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InteractionPackage.BSW_SCHEDULABLE_ENTITY_START_INTERACTION: {
+				BswSchedulableEntityStartInteraction bswSchedulableEntityStartInteraction = (BswSchedulableEntityStartInteraction)theEObject;
+				T result = caseBswSchedulableEntityStartInteraction(bswSchedulableEntityStartInteraction);
+				if (result == null) result = caseEntityStartInteraction(bswSchedulableEntityStartInteraction);
+				if (result == null) result = caseInteraction(bswSchedulableEntityStartInteraction);
+				if (result == null) result = caseInteractionReferrable(bswSchedulableEntityStartInteraction);
+				if (result == null) result = caseInteractionObject(bswSchedulableEntityStartInteraction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case InteractionPackage.ENTITY_START_IMPLEMENTATION: {
 				EntityStartImplementation entityStartImplementation = (EntityStartImplementation)theEObject;
 				T result = caseEntityStartImplementation(entityStartImplementation);
@@ -462,21 +538,11 @@ public class InteractionSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InteractionPackage.MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION: {
-				ModeSwitchTriggeringEntityStartImplementation modeSwitchTriggeringEntityStartImplementation = (ModeSwitchTriggeringEntityStartImplementation)theEObject;
-				T result = caseModeSwitchTriggeringEntityStartImplementation(modeSwitchTriggeringEntityStartImplementation);
-				if (result == null) result = caseEntityStartImplementation(modeSwitchTriggeringEntityStartImplementation);
-				if (result == null) result = caseInteractionObject(modeSwitchTriggeringEntityStartImplementation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.RUNNABLE_ENTITY_START_INTERACTION: {
-				RunnableEntityStartInteraction runnableEntityStartInteraction = (RunnableEntityStartInteraction)theEObject;
-				T result = caseRunnableEntityStartInteraction(runnableEntityStartInteraction);
-				if (result == null) result = caseEntityStartInteraction(runnableEntityStartInteraction);
-				if (result == null) result = caseInteraction(runnableEntityStartInteraction);
-				if (result == null) result = caseInteractionReferrable(runnableEntityStartInteraction);
-				if (result == null) result = caseInteractionObject(runnableEntityStartInteraction);
+			case InteractionPackage.PLAIN_ENTITY_START_IMPLEMENTATION: {
+				PlainEntityStartImplementation plainEntityStartImplementation = (PlainEntityStartImplementation)theEObject;
+				T result = casePlainEntityStartImplementation(plainEntityStartImplementation);
+				if (result == null) result = caseEntityStartImplementation(plainEntityStartImplementation);
+				if (result == null) result = caseInteractionObject(plainEntityStartImplementation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -502,46 +568,6 @@ public class InteractionSwitch<T> extends Switch<T> {
 				GeneratedEcuConfiguration generatedEcuConfiguration = (GeneratedEcuConfiguration)theEObject;
 				T result = caseGeneratedEcuConfiguration(generatedEcuConfiguration);
 				if (result == null) result = caseInteractionObject(generatedEcuConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.BSW_SCHEDULABLE_ENTITY_START_INTERACTION: {
-				BswSchedulableEntityStartInteraction bswSchedulableEntityStartInteraction = (BswSchedulableEntityStartInteraction)theEObject;
-				T result = caseBswSchedulableEntityStartInteraction(bswSchedulableEntityStartInteraction);
-				if (result == null) result = caseEntityStartInteraction(bswSchedulableEntityStartInteraction);
-				if (result == null) result = caseInteraction(bswSchedulableEntityStartInteraction);
-				if (result == null) result = caseInteractionReferrable(bswSchedulableEntityStartInteraction);
-				if (result == null) result = caseInteractionObject(bswSchedulableEntityStartInteraction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.EVENT_TO_TASK_MAPPING: {
-				EventToTaskMapping eventToTaskMapping = (EventToTaskMapping)theEObject;
-				T result = caseEventToTaskMapping(eventToTaskMapping);
-				if (result == null) result = caseInteractionObject(eventToTaskMapping);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.EVENT: {
-				Event event = (Event)theEObject;
-				T result = caseEvent(event);
-				if (result == null) result = caseInteractionObject(event);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.TIMING_EVENT: {
-				TimingEvent timingEvent = (TimingEvent)theEObject;
-				T result = caseTimingEvent(timingEvent);
-				if (result == null) result = caseEvent(timingEvent);
-				if (result == null) result = caseInteractionObject(timingEvent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case InteractionPackage.MODE_SWITCH_EVENT: {
-				ModeSwitchEvent modeSwitchEvent = (ModeSwitchEvent)theEObject;
-				T result = caseModeSwitchEvent(modeSwitchEvent);
-				if (result == null) result = caseEvent(modeSwitchEvent);
-				if (result == null) result = caseInteractionObject(modeSwitchEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -835,6 +861,21 @@ public class InteractionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>TAck Status Variable Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>TAck Status Variable Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTAckStatusVariableImplementation(TAckStatusVariableImplementation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Filter Buffer Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1045,6 +1086,81 @@ public class InteractionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Context</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionContext(ExecutionContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Context Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Context Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionContextImplementation(ExecutionContextImplementation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Infiniteloop Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Infiniteloop Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInfiniteloopImplementation(InfiniteloopImplementation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>One Shoot Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>One Shoot Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOneShootImplementation(OneShootImplementation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Event Pooling Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Event Pooling Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEventPoolingImplementation(EventPoolingImplementation object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Entity Starter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1105,6 +1221,21 @@ public class InteractionSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Timing Triggering Entity Start Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Timing Triggering Entity Start Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Entity Start Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1135,17 +1266,17 @@ public class InteractionSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Plain Entity Start Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Plain Entity Start Implementation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseModeSwitchTriggeringEntityStartImplementation(ModeSwitchTriggeringEntityStartImplementation object) {
+	public T casePlainEntityStartImplementation(PlainEntityStartImplementation object) {
 		return null;
 	}
 
@@ -1221,66 +1352,6 @@ public class InteractionSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBswSchedulableEntityStartInteraction(BswSchedulableEntityStartInteraction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event To Task Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event To Task Mapping</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEventToTaskMapping(EventToTaskMapping object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEvent(Event object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Timing Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Timing Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseTimingEvent(TimingEvent object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mode Switch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mode Switch Event</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModeSwitchEvent(ModeSwitchEvent object) {
 		return null;
 	}
 

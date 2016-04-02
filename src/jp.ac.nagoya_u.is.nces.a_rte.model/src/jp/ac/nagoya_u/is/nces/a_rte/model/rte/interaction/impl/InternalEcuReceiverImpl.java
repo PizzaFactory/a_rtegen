@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,9 +46,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.HandleInvalidEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 
@@ -60,6 +62,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +72,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getActivatesOnReceived <em>Activates On Received</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getActivatesOnReceiveError <em>Activates On Receive Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +89,25 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * @ordered
 	 */
 	protected VariableDataInstanceInComposition source;
+
+	/**
+	 * The cached value of the '{@link #getActivatesOnReceived() <em>Activates On Received</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivatesOnReceived()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EntityStarter> activatesOnReceived;
+	/**
+	 * The cached value of the '{@link #getActivatesOnReceiveError() <em>Activates On Receive Error</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivatesOnReceiveError()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EntityStarter> activatesOnReceiveError;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +164,30 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE, oldSource, source));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EntityStarter> getActivatesOnReceived() {
+		if (activatesOnReceived == null) {
+			activatesOnReceived = new EObjectResolvingEList<EntityStarter>(EntityStarter.class, this, InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED);
+		}
+		return activatesOnReceived;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EntityStarter> getActivatesOnReceiveError() {
+		if (activatesOnReceiveError == null) {
+			activatesOnReceiveError = new EObjectResolvingEList<EntityStarter>(EntityStarter.class, this, InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR);
+		}
+		return activatesOnReceiveError;
 	}
 
 	/**
@@ -263,6 +311,30 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isEventSemantics() <em>Is Event Semantics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEventSemantics()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_EVENT_SEMANTICS__EINVOCATION_DELEGATE = ((EOperation.Internal)InteractionPackage.Literals.INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isEventSemantics() {
+		try {
+			return (Boolean)IS_EVENT_SEMANTICS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -273,6 +345,10 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				return getActivatesOnReceived();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				return getActivatesOnReceiveError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,11 +358,20 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				setSource((VariableDataInstanceInComposition)newValue);
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				getActivatesOnReceived().clear();
+				getActivatesOnReceived().addAll((Collection<? extends EntityStarter>)newValue);
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				getActivatesOnReceiveError().clear();
+				getActivatesOnReceiveError().addAll((Collection<? extends EntityStarter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -303,6 +388,12 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				setSource((VariableDataInstanceInComposition)null);
 				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				getActivatesOnReceived().clear();
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				getActivatesOnReceiveError().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,6 +408,10 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 		switch (featureID) {
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				return source != null;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				return activatesOnReceived != null && !activatesOnReceived.isEmpty();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				return activatesOnReceiveError != null && !activatesOnReceiveError.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -339,6 +434,8 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 				return getFilter();
 			case InteractionPackage.INTERNAL_ECU_RECEIVER___IS_ALIVE_TIMEOUT_ENABLED:
 				return isAliveTimeoutEnabled();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS:
+				return isEventSemantics();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

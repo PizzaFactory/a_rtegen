@@ -7,17 +7,19 @@
 ----------------------------------------------------------------------
 ECU Extractor
 
-Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+Copyright (C) 2013-2016 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
-Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
-Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
-Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by eSOL Co.,Ltd., JAPAN
+Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
-Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
-Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
-Copyright (C) 2013-2015 by Witz Corporation
+Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+Copyright (C) 2015-2016 by SUZUKI MOTOR CORPORATION
+Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+Copyright (C) 2013-2016 by Witz Corporation
 
 上記著作権者は，以下の (1)～(3)の条件を満たす場合に限り，本ドキュメ
 ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,7 +47,7 @@ Copyright (C) 2013-2015 by Witz Corporation
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 427 2015-03-23 12:38:40Z mtakada $
+$Id: readme.txt 651 2016-03-31 06:20:22Z mtakada $
 ----------------------------------------------------------------------
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -68,9 +70,9 @@ ECU毎に切り出して生成する．
 ―――――――――――――――――――――――――――――――――――
 
 ECU ExtractorはRubyによって記述されているため，Rubyの実行環境が必要であ
-る．Cygwinに含まれる以下のバージョンのRubyで動作確認済みである．
+る．RubyInstaller for Windows から配布されている以下のバージョンで動作確認済みである．
 
-ruby 1.9.3p545 (2014-02-24) [i386-cygwin]
+ruby 2.0.0p645 (2015-04-13) [i386-mingw32]
 
 ―――――――――――――――――――――――――――――――――――
 (2.2) EcuExtract作成

@@ -9,7 +9,7 @@
 TOPPERS/A-RTEGEN
     Automotive Runtime Environment 
 
-Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
 
 上記著作権者は，以下の (1)〜(3)の条件を満たす場合に限り，本ドキュメ
 ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
@@ -37,7 +37,7 @@ Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 488 2015-04-14 08:39:42Z mtakada $
+$Id: readme.txt 651 2016-03-31 06:20:22Z mtakada $
 ----------------------------------------------------------------------
 
 ○目次
@@ -100,6 +100,8 @@ A-RTEGENを利用する場合は，AUTOSAR公開成果物より以下のXMLス�
 schemaディレクトリに配置する．
 ・AUTOSAR_4-0-3_STRICT.xsd
 ・xml.xsd
+また他のディレクトリに上記ファイルがある場合は，schemaディレクトリに配置せず
+次項のオプションパラメータ--schema-directoryを用いてXMLスキーマを指定することができる．
 
 AUTOSAR_4-0-3_STRICT.xsdとxml.xsdは以下の手順で取得する．
   1) AUTOSAR公式Webサイトにアクセス(http://www.autosar.org/)
@@ -114,7 +116,7 @@ AUTOSAR_4-0-3_STRICT.xsdとxml.xsdは以下の手順で取得する．
 
 A-RTEGEN(rtegen.sh)の使い方は，以下の通りである．
 
-rtegen.sh <file1> [<file2> [<file3>] ...] ... [--com-multicore] [--help] [--without-static-inline] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
+rtegen.sh <file1> [<file2> [<file3>] ...] ... [--com-multicore] [--help] [--schema-directory <directory>] [--without-static-inline] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
 
 	 <file1> [<file2> [<file3>] ...]
 		A-RTEGENの入力ファイル名(複数指定可)
@@ -124,6 +126,10 @@ rtegen.sh <file1> [<file2> [<file3>] ...] ... [--com-multicore] [--help] [--with
 
 	--help
 		オプションのリストと説明を表示する．
+
+	--schema-directory <スキーマ配置ディレクトリパス名>
+		スキーマファイルを配置するディレクトリのパス名を指定する．
+		デフォルトは bin/schema/．
 
 	--without-static-inline
 		RTE APIをインライン展開しない場合に指定する〔nrte_sws_0273〕．
@@ -207,28 +213,17 @@ Rte_CsCallTf_<c>
 	パーティション間のC/S連携のサーバーランナブル呼び出しの実現のために使用するOS信頼関数．
 	パーティション間のC/S連携が行われ，かつクライアント側のSW-Cの所属パーティションが非信頼パーティションである場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
-Rte_ComProxy<PI>_<PID>_<t>
-	(<PI>=即時送信ありの場合 Immediate．即時送信なしの場合 Periodic,
-     <PID> = 送信側SW-Cの所属するパーティションのショートネーム，<t> = 送信側データ要素の実装型と互換性のある型名(*1))
-	スレーブコアからのECU間連携の実現のために使用するIOC(プリミティブ実装データ型)．
-	スレーブコアからのECU間連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
-
-*1 型サイズの等しい符号なし整数型の名前となる．
-	・8ビット以下の実装型の場合，"uint8"．
-	・16ビット以下の実装型の場合，"uint16"．
-	・それ以外のサイズの実装型の場合，"uint32"．
-
-Rte_ComProxy<PI>_<PID>_ComplexDataType
+Rte_ComProxy<PI>_<PID>
 	(<PI>=即時送信ありの場合 Immediate．即時送信なしの場合 Periodic,
      <PID> = 送信側SW-Cの所属するパーティションのショートネーム)
-	スレーブコアからのECU間連携の実現のために使用するIOC(複合データ型)．
+	スレーブコアからのECU間連携の実現のために使用するIOC．
 	スレーブコアからのECU間連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
-Rte_ComProxy<PID>_<c>_<p>_<o>_<csg>
+Rte_ComProxy<PID>_<c>_<p>_<o>_<CS>
 	(<PID> = 送信側SW-Cの所属するパーティションのショートネーム，
 	 <c> = 送信側SW-Cのショートネーム，<p> = 送信側ポートのショートネーム，<o> = 送信側要素のショートネーム，
-     <csg> = COMシグナルグループのショートネーム)
-	スレーブコアからのECU間連携の実現のために使用するIOC(複合データ型)．
+     <CS> = COMシグナル使用時 COMシグナルのショートネーム，COMシグナルグループ使用時 COMシグナルグループのショートネーム)
+	スレーブコアからのECU間連携の実現のために使用するIOC．
 	スレーブコアからのECU間連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_Sr_<c>_<p>_<o>

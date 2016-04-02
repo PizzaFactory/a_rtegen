@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,8 +46,8 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -78,7 +78,7 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected SendOperation operation;
+	protected RteBufferNonqueuedSendOperation operation;
 
 	/**
 	 * The cached value of the '{@link #getDataVariable() <em>Data Variable</em>}' reference.
@@ -114,7 +114,7 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SendOperation getOperation() {
+	public RteBufferNonqueuedSendOperation getOperation() {
 		return operation;
 	}
 
@@ -123,8 +123,8 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperation(SendOperation newOperation, NotificationChain msgs) {
-		SendOperation oldOperation = operation;
+	public NotificationChain basicSetOperation(RteBufferNonqueuedSendOperation newOperation, NotificationChain msgs) {
+		RteBufferNonqueuedSendOperation oldOperation = operation;
 		operation = newOperation;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION, oldOperation, newOperation);
@@ -138,7 +138,7 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperation(SendOperation newOperation) {
+	public void setOperation(RteBufferNonqueuedSendOperation newOperation) {
 		if (newOperation != operation) {
 			NotificationChain msgs = null;
 			if (operation != null)
@@ -230,7 +230,7 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION:
-				setOperation((SendOperation)newValue);
+				setOperation((RteBufferNonqueuedSendOperation)newValue);
 				return;
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE:
 				setDataVariable((LocalVariable)newValue);
@@ -248,7 +248,7 @@ public class RteBufferWriteTrustedFunctionImpl extends TrustedFunctionImpl imple
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION:
-				setOperation((SendOperation)null);
+				setOperation((RteBufferNonqueuedSendOperation)null);
 				return;
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE:
 				setDataVariable((LocalVariable)null);

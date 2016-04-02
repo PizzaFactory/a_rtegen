@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -297,11 +297,11 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case M2Package.VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF: {
-				VariableInAtomicSwcInstanceRef variableInAtomicSwcInstanceRef = (VariableInAtomicSwcInstanceRef)theEObject;
-				T result = caseVariableInAtomicSwcInstanceRef(variableInAtomicSwcInstanceRef);
-				if (result == null) result = caseM2Object(variableInAtomicSwcInstanceRef);
-				if (result == null) result = caseIInstanceRef(variableInAtomicSwcInstanceRef);
+			case M2Package.VARIABLE_IN_ATOMIC_SWC_TYPE_INSTANCE_REF: {
+				VariableInAtomicSwcTypeInstanceRef variableInAtomicSwcTypeInstanceRef = (VariableInAtomicSwcTypeInstanceRef)theEObject;
+				T result = caseVariableInAtomicSwcTypeInstanceRef(variableInAtomicSwcTypeInstanceRef);
+				if (result == null) result = caseM2Object(variableInAtomicSwcTypeInstanceRef);
+				if (result == null) result = caseIInstanceRef(variableInAtomicSwcTypeInstanceRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +321,54 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiable(timingEvent);
 				if (result == null) result = caseReferrable(timingEvent);
 				if (result == null) result = caseM2Object(timingEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.BACKGROUND_EVENT: {
+				BackgroundEvent backgroundEvent = (BackgroundEvent)theEObject;
+				T result = caseBackgroundEvent(backgroundEvent);
+				if (result == null) result = caseRteEvent(backgroundEvent);
+				if (result == null) result = caseIdentifiable(backgroundEvent);
+				if (result == null) result = caseReferrable(backgroundEvent);
+				if (result == null) result = caseM2Object(backgroundEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.DATA_SEND_COMPLETED_EVENT: {
+				DataSendCompletedEvent dataSendCompletedEvent = (DataSendCompletedEvent)theEObject;
+				T result = caseDataSendCompletedEvent(dataSendCompletedEvent);
+				if (result == null) result = caseRteEvent(dataSendCompletedEvent);
+				if (result == null) result = caseIdentifiable(dataSendCompletedEvent);
+				if (result == null) result = caseReferrable(dataSendCompletedEvent);
+				if (result == null) result = caseM2Object(dataSendCompletedEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.DATA_RECEIVED_EVENT: {
+				DataReceivedEvent dataReceivedEvent = (DataReceivedEvent)theEObject;
+				T result = caseDataReceivedEvent(dataReceivedEvent);
+				if (result == null) result = caseRteEvent(dataReceivedEvent);
+				if (result == null) result = caseIdentifiable(dataReceivedEvent);
+				if (result == null) result = caseReferrable(dataReceivedEvent);
+				if (result == null) result = caseM2Object(dataReceivedEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.DATA_RECEIVE_ERROR_EVENT: {
+				DataReceiveErrorEvent dataReceiveErrorEvent = (DataReceiveErrorEvent)theEObject;
+				T result = caseDataReceiveErrorEvent(dataReceiveErrorEvent);
+				if (result == null) result = caseRteEvent(dataReceiveErrorEvent);
+				if (result == null) result = caseIdentifiable(dataReceiveErrorEvent);
+				if (result == null) result = caseReferrable(dataReceiveErrorEvent);
+				if (result == null) result = caseM2Object(dataReceiveErrorEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.RVARIABLE_IN_ATOMIC_SWC_INSTANCE_REF: {
+				RVariableInAtomicSwcInstanceRef rVariableInAtomicSwcInstanceRef = (RVariableInAtomicSwcInstanceRef)theEObject;
+				T result = caseRVariableInAtomicSwcInstanceRef(rVariableInAtomicSwcInstanceRef);
+				if (result == null) result = caseM2Object(rVariableInAtomicSwcInstanceRef);
+				if (result == null) result = caseIInstanceRef(rVariableInAtomicSwcInstanceRef);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -419,12 +467,28 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.TRANSMISSION_ACKNOWLEDGEMENT_REQUEST: {
+				TransmissionAcknowledgementRequest transmissionAcknowledgementRequest = (TransmissionAcknowledgementRequest)theEObject;
+				T result = caseTransmissionAcknowledgementRequest(transmissionAcknowledgementRequest);
+				if (result == null) result = caseM2Object(transmissionAcknowledgementRequest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.NONQUEUED_SENDER_COM_SPEC: {
 				NonqueuedSenderComSpec nonqueuedSenderComSpec = (NonqueuedSenderComSpec)theEObject;
 				T result = caseNonqueuedSenderComSpec(nonqueuedSenderComSpec);
 				if (result == null) result = caseSenderComSpec(nonqueuedSenderComSpec);
 				if (result == null) result = casePPortComSpec(nonqueuedSenderComSpec);
 				if (result == null) result = caseM2Object(nonqueuedSenderComSpec);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.QUEUED_SENDER_COM_SPEC: {
+				QueuedSenderComSpec queuedSenderComSpec = (QueuedSenderComSpec)theEObject;
+				T result = caseQueuedSenderComSpec(queuedSenderComSpec);
+				if (result == null) result = caseSenderComSpec(queuedSenderComSpec);
+				if (result == null) result = casePPortComSpec(queuedSenderComSpec);
+				if (result == null) result = caseM2Object(queuedSenderComSpec);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1045,6 +1109,13 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case M2Package.COMPU_CONST: {
+				CompuConst compuConst = (CompuConst)theEObject;
+				T result = caseCompuConst(compuConst);
+				if (result == null) result = caseM2Object(compuConst);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case M2Package.ANY_INSTANCE_REF: {
 				AnyInstanceRef anyInstanceRef = (AnyInstanceRef)theEObject;
 				T result = caseAnyInstanceRef(anyInstanceRef);
@@ -1290,6 +1361,16 @@ public class M2Switch<T> extends Switch<T> {
 				if (result == null) result = caseIdentifiable(bswTimingEvent);
 				if (result == null) result = caseReferrable(bswTimingEvent);
 				if (result == null) result = caseM2Object(bswTimingEvent);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case M2Package.BSW_BACKGROUND_EVENT: {
+				BswBackgroundEvent bswBackgroundEvent = (BswBackgroundEvent)theEObject;
+				T result = caseBswBackgroundEvent(bswBackgroundEvent);
+				if (result == null) result = caseBswEvent(bswBackgroundEvent);
+				if (result == null) result = caseIdentifiable(bswBackgroundEvent);
+				if (result == null) result = caseReferrable(bswBackgroundEvent);
+				if (result == null) result = caseM2Object(bswBackgroundEvent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1703,17 +1784,17 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Variable In Atomic Swc Instance Ref</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Variable In Atomic Swc Type Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Variable In Atomic Swc Instance Ref</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Variable In Atomic Swc Type Instance Ref</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseVariableInAtomicSwcInstanceRef(VariableInAtomicSwcInstanceRef object) {
+	public T caseVariableInAtomicSwcTypeInstanceRef(VariableInAtomicSwcTypeInstanceRef object) {
 		return null;
 	}
 
@@ -1744,6 +1825,81 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseTimingEvent(TimingEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Background Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Background Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBackgroundEvent(BackgroundEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Send Completed Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Send Completed Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataSendCompletedEvent(DataSendCompletedEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Received Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Received Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataReceivedEvent(DataReceivedEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Receive Error Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Receive Error Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataReceiveErrorEvent(DataReceiveErrorEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>RVariable In Atomic Swc Instance Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>RVariable In Atomic Swc Instance Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRVariableInAtomicSwcInstanceRef(RVariableInAtomicSwcInstanceRef object) {
 		return null;
 	}
 
@@ -1928,6 +2084,21 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Transmission Acknowledgement Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Transmission Acknowledgement Request</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTransmissionAcknowledgementRequest(TransmissionAcknowledgementRequest object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Nonqueued Sender Com Spec</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1939,6 +2110,21 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNonqueuedSenderComSpec(NonqueuedSenderComSpec object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Queued Sender Com Spec</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Queued Sender Com Spec</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQueuedSenderComSpec(QueuedSenderComSpec object) {
 		return null;
 	}
 
@@ -2978,6 +3164,21 @@ public class M2Switch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Compu Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Compu Const</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCompuConst(CompuConst object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Any Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3349,6 +3550,21 @@ public class M2Switch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBswTimingEvent(BswTimingEvent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bsw Background Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bsw Background Event</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBswBackgroundEvent(BswBackgroundEvent object) {
 		return null;
 	}
 

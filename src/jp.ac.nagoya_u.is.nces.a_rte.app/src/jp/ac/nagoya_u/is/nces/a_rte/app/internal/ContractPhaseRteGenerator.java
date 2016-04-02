@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT
 import java.io.File;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
+import jp.ac.nagoya_u.is.nces.a_rte.app.AppResources;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodegenException;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.RteCodeGenerator;
@@ -99,8 +100,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	public ContractPhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		try {
 			this.loader = AutosarModelLoader.forContractPhase();
-			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
-
+			
 			this.rteValidatorM2 = ModelValidator.forRteContractPhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteContractPhaseInstance();
 			this.bswmValidatorM2 = ModelValidator.forBswmContractPhaseM2();
@@ -146,6 +146,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 				ModelEnvironment.initResource(eResource);
 
 				// AUTOSAR M2モデルの読み込み
+				this.loader.setSchemaFile(AppResources.getSchemaFile(options.schemaDirectory));
 				this.loader.loadM2(eResource, options.inputFiles);
 
 				ModelQuery query = new ModelQuery(eResource);

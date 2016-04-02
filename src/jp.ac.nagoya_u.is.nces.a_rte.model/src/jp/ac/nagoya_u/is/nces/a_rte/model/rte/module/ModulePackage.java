@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -722,7 +722,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendOperation()
 	 * @generated
 	 */
-	int COM_SEND_OPERATION = 59;
+	int COM_SEND_OPERATION = 61;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DirectComSendOperationImpl <em>Direct Com Send Operation</em>}' class.
@@ -742,7 +742,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionComSendOperation()
 	 * @generated
 	 */
-	int TRUSTED_FUNCTION_COM_SEND_OPERATION = 48;
+	int TRUSTED_FUNCTION_COM_SEND_OPERATION = 50;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedReadOperationImpl <em>Ioc Nonqueued Read Operation</em>}' class.
@@ -752,7 +752,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedReadOperation()
 	 * @generated
 	 */
-	int IOC_NONQUEUED_READ_OPERATION = 51;
+	int IOC_NONQUEUED_READ_OPERATION = 53;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReadOperationImpl <em>Com Read Operation</em>}' class.
@@ -762,7 +762,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReadOperation()
 	 * @generated
 	 */
-	int COM_READ_OPERATION = 52;
+	int COM_READ_OPERATION = 54;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl <em>Ioc Nonqueued Communication</em>}' class.
@@ -772,7 +772,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedCommunication()
 	 * @generated
 	 */
-	int IOC_NONQUEUED_COMMUNICATION = 53;
+	int IOC_NONQUEUED_COMMUNICATION = 55;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl <em>Ioc Api</em>}' class.
@@ -782,7 +782,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocApi()
 	 * @generated
 	 */
-	int IOC_API = 116;
+	int IOC_API = 124;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocWriteApiImpl <em>Ioc Write Api</em>}' class.
@@ -792,7 +792,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocWriteApi()
 	 * @generated
 	 */
-	int IOC_WRITE_API = 54;
+	int IOC_WRITE_API = 56;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReadApiImpl <em>Ioc Read Api</em>}' class.
@@ -802,7 +802,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReadApi()
 	 * @generated
 	 */
-	int IOC_READ_API = 55;
+	int IOC_READ_API = 57;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl <em>Com Api</em>}' class.
@@ -812,7 +812,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComApi()
 	 * @generated
 	 */
-	int COM_API = 115;
+	int COM_API = 123;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiImpl <em>Com Send Signal Api</em>}' class.
@@ -822,7 +822,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApi()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_API = 56;
+	int COM_SEND_SIGNAL_API = 58;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiImpl <em>Com Receive Signal Api</em>}' class.
@@ -832,7 +832,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApi()
 	 * @generated
 	 */
-	int COM_RECEIVE_SIGNAL_API = 57;
+	int COM_RECEIVE_SIGNAL_API = 59;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl <em>Com Callback</em>}' class.
@@ -842,37 +842,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallback()
 	 * @generated
 	 */
-	int COM_CALLBACK = 60;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveCallbackImpl <em>Com Receive Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveCallback()
-	 * @generated
-	 */
-	int COM_RECEIVE_CALLBACK = 58;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveTimeoutCallbackImpl <em>Com Receive Timeout Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveTimeoutCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveTimeoutCallback()
-	 * @generated
-	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK = 61;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvalidateCallbackImpl <em>Com Invalidate Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvalidateCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvalidateCallback()
-	 * @generated
-	 */
-	int COM_INVALIDATE_CALLBACK = 62;
+	int COM_CALLBACK = 62;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
@@ -892,7 +862,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateEntity()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY = 64;
+	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY = 66;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl <em>Filter Operation</em>}' class.
@@ -902,7 +872,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFilterOperation()
 	 * @generated
 	 */
-	int FILTER_OPERATION = 66;
+	int FILTER_OPERATION = 72;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersMaskedOldFilterOperationImpl <em>Masked New Differs Masked Old Filter Operation</em>}' class.
@@ -912,7 +882,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersMaskedOldFilterOperation()
 	 * @generated
 	 */
-	int MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION = 67;
+	int MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION = 73;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersXFilterOperationImpl <em>Masked New Differs XFilter Operation</em>}' class.
@@ -922,7 +892,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersXFilterOperation()
 	 * @generated
 	 */
-	int MASKED_NEW_DIFFERS_XFILTER_OPERATION = 68;
+	int MASKED_NEW_DIFFERS_XFILTER_OPERATION = 74;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsWithinFilterOperationImpl <em>New Is Within Filter Operation</em>}' class.
@@ -932,7 +902,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsWithinFilterOperation()
 	 * @generated
 	 */
-	int NEW_IS_WITHIN_FILTER_OPERATION = 69;
+	int NEW_IS_WITHIN_FILTER_OPERATION = 75;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsOutsideFilterOperationImpl <em>New Is Outside Filter Operation</em>}' class.
@@ -942,7 +912,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsOutsideFilterOperation()
 	 * @generated
 	 */
-	int NEW_IS_OUTSIDE_FILTER_OPERATION = 70;
+	int NEW_IS_OUTSIDE_FILTER_OPERATION = 76;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewEqualsXFilterOperationImpl <em>Masked New Equals XFilter Operation</em>}' class.
@@ -952,7 +922,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewEqualsXFilterOperation()
 	 * @generated
 	 */
-	int MASKED_NEW_EQUALS_XFILTER_OPERATION = 71;
+	int MASKED_NEW_EQUALS_XFILTER_OPERATION = 77;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OneEveryNFilterOperationImpl <em>One Every NFilter Operation</em>}' class.
@@ -962,7 +932,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOneEveryNFilterOperation()
 	 * @generated
 	 */
-	int ONE_EVERY_NFILTER_OPERATION = 72;
+	int ONE_EVERY_NFILTER_OPERATION = 78;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
@@ -972,7 +942,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApi()
 	 * @generated
 	 */
-	int RTE_LIFECYCLE_API = 78;
+	int RTE_LIFECYCLE_API = 84;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
@@ -982,7 +952,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRestartPartitionApi()
 	 * @generated
 	 */
-	int RESTART_PARTITION_API = 75;
+	int RESTART_PARTITION_API = 81;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl <em>Partition Restarting Api</em>}' class.
@@ -992,7 +962,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionRestartingApi()
 	 * @generated
 	 */
-	int PARTITION_RESTARTING_API = 76;
+	int PARTITION_RESTARTING_API = 82;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl <em>Send Api</em>}' class.
@@ -1002,7 +972,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendApi()
 	 * @generated
 	 */
-	int SEND_API = 79;
+	int SEND_API = 85;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
@@ -1012,7 +982,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReceiveApi()
 	 * @generated
 	 */
-	int RECEIVE_API = 80;
+	int RECEIVE_API = 86;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl <em>Rte Buffer Queued Send Operation</em>}' class.
@@ -1022,7 +992,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedSendOperation()
 	 * @generated
 	 */
-	int RTE_BUFFER_QUEUED_SEND_OPERATION = 81;
+	int RTE_BUFFER_QUEUED_SEND_OPERATION = 87;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl <em>Rte Buffer Queued Variable</em>}' class.
@@ -1032,7 +1002,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedVariable()
 	 * @generated
 	 */
-	int RTE_BUFFER_QUEUED_VARIABLE = 82;
+	int RTE_BUFFER_QUEUED_VARIABLE = 88;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl <em>Ioc Queued Communication</em>}' class.
@@ -1042,7 +1012,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedCommunication()
 	 * @generated
 	 */
-	int IOC_QUEUED_COMMUNICATION = 84;
+	int IOC_QUEUED_COMMUNICATION = 90;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl <em>Ioc Receive Api</em>}' class.
@@ -1052,7 +1022,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveApi()
 	 * @generated
 	 */
-	int IOC_RECEIVE_API = 85;
+	int IOC_RECEIVE_API = 91;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl <em>Ioc Send Api</em>}' class.
@@ -1062,7 +1032,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendApi()
 	 * @generated
 	 */
-	int IOC_SEND_API = 86;
+	int IOC_SEND_API = 92;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
@@ -1072,7 +1042,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedSendOperation()
 	 * @generated
 	 */
-	int IOC_QUEUED_SEND_OPERATION = 88;
+	int IOC_QUEUED_SEND_OPERATION = 94;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl <em>Ioc Queued Read Operation</em>}' class.
@@ -1082,7 +1052,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedReadOperation()
 	 * @generated
 	 */
-	int IOC_QUEUED_READ_OPERATION = 89;
+	int IOC_QUEUED_READ_OPERATION = 95;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl <em>Call Api</em>}' class.
@@ -1092,7 +1062,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCallApi()
 	 * @generated
 	 */
-	int CALL_API = 90;
+	int CALL_API = 96;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl <em>Exclude Operation</em>}' class.
@@ -1102,7 +1072,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExcludeOperation()
 	 * @generated
 	 */
-	int EXCLUDE_OPERATION = 94;
+	int EXCLUDE_OPERATION = 100;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl <em>All Interrupt Block Exclude Operation</em>}' class.
@@ -1112,7 +1082,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getAllInterruptBlockExcludeOperation()
 	 * @generated
 	 */
-	int ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 95;
+	int ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 101;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl <em>Os Interrupt Block Exclude Operation</em>}' class.
@@ -1122,7 +1092,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsInterruptBlockExcludeOperation()
 	 * @generated
 	 */
-	int OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 96;
+	int OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 102;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl <em>Os Spinlock Exclude Operation</em>}' class.
@@ -1132,7 +1102,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSpinlockExcludeOperation()
 	 * @generated
 	 */
-	int OS_SPINLOCK_EXCLUDE_OPERATION = 97;
+	int OS_SPINLOCK_EXCLUDE_OPERATION = 103;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl <em>Os Resource Exclude Operation</em>}' class.
@@ -1142,7 +1112,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsResourceExcludeOperation()
 	 * @generated
 	 */
-	int OS_RESOURCE_EXCLUDE_OPERATION = 98;
+	int OS_RESOURCE_EXCLUDE_OPERATION = 104;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl <em>Constant</em>}' class.
@@ -1152,7 +1122,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstant()
 	 * @generated
 	 */
-	int CONSTANT = 100;
+	int CONSTANT = 106;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl <em>Context Activation Operation</em>}' class.
@@ -1162,7 +1132,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getContextActivationOperation()
 	 * @generated
 	 */
-	int CONTEXT_ACTIVATION_OPERATION = 108;
+	int CONTEXT_ACTIVATION_OPERATION = 115;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl <em>Os Task Activation Operation</em>}' class.
@@ -1172,7 +1142,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationOperation()
 	 * @generated
 	 */
-	int OS_TASK_ACTIVATION_OPERATION = 106;
+	int OS_TASK_ACTIVATION_OPERATION = 113;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl <em>Os Event Set Activation Operation</em>}' class.
@@ -1182,7 +1152,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetActivationOperation()
 	 * @generated
 	 */
-	int OS_EVENT_SET_ACTIVATION_OPERATION = 107;
+	int OS_EVENT_SET_ACTIVATION_OPERATION = 114;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl <em>Cycle Countup Operation</em>}' class.
@@ -1192,7 +1162,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCycleCountupOperation()
 	 * @generated
 	 */
-	int CYCLE_COUNTUP_OPERATION = 111;
+	int CYCLE_COUNTUP_OPERATION = 119;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl <em>Task Body</em>}' class.
@@ -1202,7 +1172,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBody()
 	 * @generated
 	 */
-	int TASK_BODY = 113;
+	int TASK_BODY = 121;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl <em>Ioc Empty Queue Api</em>}' class.
@@ -1212,7 +1182,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocEmptyQueueApi()
 	 * @generated
 	 */
-	int IOC_EMPTY_QUEUE_API = 114;
+	int IOC_EMPTY_QUEUE_API = 122;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl <em>Rte</em>}' class.
@@ -1232,7 +1202,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getValue()
 	 * @generated
 	 */
-	int VALUE = 117;
+	int VALUE = 125;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl <em>Variable</em>}' class.
@@ -1242,7 +1212,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariable()
 	 * @generated
 	 */
-	int VARIABLE = 123;
+	int VARIABLE = 131;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableSetImpl <em>Global Variable Set</em>}' class.
@@ -1262,7 +1232,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSourceFile()
 	 * @generated
 	 */
-	int SOURCE_FILE = 146;
+	int SOURCE_FILE = 154;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl <em>Header File</em>}' class.
@@ -1272,7 +1242,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getHeaderFile()
 	 * @generated
 	 */
-	int HEADER_FILE = 145;
+	int HEADER_FILE = 153;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl <em>Logical Compartment</em>}' class.
@@ -1302,7 +1272,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendOperation()
 	 * @generated
 	 */
-	int IOC_SEND_OPERATION = 87;
+	int IOC_SEND_OPERATION = 93;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteOperationImpl <em>Trusted Function Rte Operation</em>}' class.
@@ -1315,16 +1285,6 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_OPERATION = 45;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteSendOperationImpl <em>Trusted Function Rte Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteSendOperation()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION = 46;
-
-	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl <em>Proxy Com Send Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1332,7 +1292,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getProxyComSendOperation()
 	 * @generated
 	 */
-	int PROXY_COM_SEND_OPERATION = 140;
+	int PROXY_COM_SEND_OPERATION = 148;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ImmediateProxyComSendOperationImpl <em>Immediate Proxy Com Send Operation</em>}' class.
@@ -1342,7 +1302,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getImmediateProxyComSendOperation()
 	 * @generated
 	 */
-	int IMMEDIATE_PROXY_COM_SEND_OPERATION = 49;
+	int IMMEDIATE_PROXY_COM_SEND_OPERATION = 51;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PeriodicProxyComSendOperationImpl <em>Periodic Proxy Com Send Operation</em>}' class.
@@ -1352,7 +1312,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPeriodicProxyComSendOperation()
 	 * @generated
 	 */
-	int PERIODIC_PROXY_COM_SEND_OPERATION = 50;
+	int PERIODIC_PROXY_COM_SEND_OPERATION = 52;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl <em>Ioc Communication</em>}' class.
@@ -1362,7 +1322,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocCommunication()
 	 * @generated
 	 */
-	int IOC_COMMUNICATION = 139;
+	int IOC_COMMUNICATION = 147;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl <em>Com Send Signal Proxy Entity</em>}' class.
@@ -1372,7 +1332,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalProxyEntity()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_PROXY_ENTITY = 63;
+	int COM_SEND_SIGNAL_PROXY_ENTITY = 65;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalPeriodicEntityImpl <em>Com Send Signal Periodic Entity</em>}' class.
@@ -1382,7 +1342,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalPeriodicEntity()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_PERIODIC_ENTITY = 65;
+	int COM_SEND_SIGNAL_PERIODIC_ENTITY = 67;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCoreStartApiImplImpl <em>Rte Core Start Api Impl</em>}' class.
@@ -1392,7 +1352,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteCoreStartApiImpl()
 	 * @generated
 	 */
-	int RTE_CORE_START_API_IMPL = 73;
+	int RTE_CORE_START_API_IMPL = 79;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStopApiImpl <em>Rte Stop Api</em>}' class.
@@ -1402,7 +1362,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStopApi()
 	 * @generated
 	 */
-	int RTE_STOP_API = 74;
+	int RTE_STOP_API = 80;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
@@ -1412,7 +1372,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionTerminatedApi()
 	 * @generated
 	 */
-	int PARTITION_TERMINATED_API = 77;
+	int PARTITION_TERMINATED_API = 83;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl <em>Rte Buffer Queued Read Operation</em>}' class.
@@ -1422,7 +1382,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedReadOperation()
 	 * @generated
 	 */
-	int RTE_BUFFER_QUEUED_READ_OPERATION = 83;
+	int RTE_BUFFER_QUEUED_READ_OPERATION = 89;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl <em>Executable Start Operation</em>}' class.
@@ -1432,7 +1392,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableStartOperation()
 	 * @generated
 	 */
-	int EXECUTABLE_START_OPERATION = 92;
+	int EXECUTABLE_START_OPERATION = 98;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl <em>Executable Entity</em>}' class.
@@ -1452,7 +1412,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNoneExcludeOperation()
 	 * @generated
 	 */
-	int NONE_EXCLUDE_OPERATION = 99;
+	int NONE_EXCLUDE_OPERATION = 105;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl <em>Constant Member</em>}' class.
@@ -1462,7 +1422,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantMember()
 	 * @generated
 	 */
-	int CONSTANT_MEMBER = 101;
+	int CONSTANT_MEMBER = 107;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl <em>Rte Enter Api</em>}' class.
@@ -1472,7 +1432,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteEnterApi()
 	 * @generated
 	 */
-	int RTE_ENTER_API = 102;
+	int RTE_ENTER_API = 108;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl <em>Rte Exit Api</em>}' class.
@@ -1482,7 +1442,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteExitApi()
 	 * @generated
 	 */
-	int RTE_EXIT_API = 103;
+	int RTE_EXIT_API = 109;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
@@ -1492,7 +1452,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationExecutableTaskBody()
 	 * @generated
 	 */
-	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 104;
+	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 111;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl <em>Os Event Set Executable Task Body</em>}' class.
@@ -1502,7 +1462,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetExecutableTaskBody()
 	 * @generated
 	 */
-	int OS_EVENT_SET_EXECUTABLE_TASK_BODY = 105;
+	int OS_EVENT_SET_EXECUTABLE_TASK_BODY = 112;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl <em>Timing Triggering Executable Start Operation</em>}' class.
@@ -1512,7 +1472,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTimingTriggeringExecutableStartOperation()
 	 * @generated
 	 */
-	int TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = 109;
+	int TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = 116;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl <em>Start Offset Countup Operation</em>}' class.
@@ -1522,7 +1482,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStartOffsetCountupOperation()
 	 * @generated
 	 */
-	int START_OFFSET_COUNTUP_OPERATION = 112;
+	int START_OFFSET_COUNTUP_OPERATION = 120;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl <em>Trusted Function</em>}' class.
@@ -1532,7 +1492,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunction()
 	 * @generated
 	 */
-	int TRUSTED_FUNCTION = 118;
+	int TRUSTED_FUNCTION = 126;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl <em>Com Send Signal Trusted Function</em>}' class.
@@ -1542,7 +1502,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalTrustedFunction()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_TRUSTED_FUNCTION = 119;
+	int COM_SEND_SIGNAL_TRUSTED_FUNCTION = 127;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl <em>Os Api</em>}' class.
@@ -1552,7 +1512,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsApi()
 	 * @generated
 	 */
-	int OS_API = 121;
+	int OS_API = 129;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl <em>Os Set Event Api</em>}' class.
@@ -1562,7 +1522,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSetEventApi()
 	 * @generated
 	 */
-	int OS_SET_EVENT_API = 120;
+	int OS_SET_EVENT_API = 128;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl <em>Com Send Signal Immediate Task Body</em>}' class.
@@ -1572,7 +1532,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateTaskBody()
 	 * @generated
 	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = 122;
+	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = 130;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl <em>Ioc Receive Group Api</em>}' class.
@@ -1582,7 +1542,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveGroupApi()
 	 * @generated
 	 */
-	int IOC_RECEIVE_GROUP_API = 126;
+	int IOC_RECEIVE_GROUP_API = 133;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl <em>Root</em>}' class.
@@ -1592,7 +1552,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleRoot()
 	 * @generated
 	 */
-	int MODULE_ROOT = 127;
+	int MODULE_ROOT = 134;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl <em>Inter Partition Timeout Operation</em>}' class.
@@ -1602,7 +1562,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInterPartitionTimeoutOperation()
 	 * @generated
 	 */
-	int INTER_PARTITION_TIMEOUT_OPERATION = 128;
+	int INTER_PARTITION_TIMEOUT_OPERATION = 135;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl <em>Initialize Operation</em>}' class.
@@ -1612,7 +1572,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInitializeOperation()
 	 * @generated
 	 */
-	int INITIALIZE_OPERATION = 129;
+	int INITIALIZE_OPERATION = 136;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl <em>Variable Initialize Operation</em>}' class.
@@ -1622,7 +1582,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableInitializeOperation()
 	 * @generated
 	 */
-	int VARIABLE_INITIALIZE_OPERATION = 130;
+	int VARIABLE_INITIALIZE_OPERATION = 137;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl <em>Ioc Initialize Operation</em>}' class.
@@ -1632,7 +1592,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocInitializeOperation()
 	 * @generated
 	 */
-	int IOC_INITIALIZE_OPERATION = 131;
+	int IOC_INITIALIZE_OPERATION = 138;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl <em>Os Suspend All Interrupts Api</em>}' class.
@@ -1642,7 +1602,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSuspendAllInterruptsApi()
 	 * @generated
 	 */
-	int OS_SUSPEND_ALL_INTERRUPTS_API = 132;
+	int OS_SUSPEND_ALL_INTERRUPTS_API = 139;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl <em>Os Get Spinlock Api</em>}' class.
@@ -1652,7 +1612,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsGetSpinlockApi()
 	 * @generated
 	 */
-	int OS_GET_SPINLOCK_API = 133;
+	int OS_GET_SPINLOCK_API = 140;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl <em>Multicore Rte Start Api</em>}' class.
@@ -1662,7 +1622,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreRteStartApi()
 	 * @generated
 	 */
-	int MULTICORE_RTE_START_API = 134;
+	int MULTICORE_RTE_START_API = 141;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl <em>Rte Buffer Write Trusted Function</em>}' class.
@@ -1672,7 +1632,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferWriteTrustedFunction()
 	 * @generated
 	 */
-	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION = 135;
+	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION = 142;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl <em>Trusted Function Rte Buffer Write Send Operation</em>}' class.
@@ -1682,7 +1642,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferWriteSendOperation()
 	 * @generated
 	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = 47;
+	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = 46;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl <em>Disabled In Mode</em>}' class.
@@ -1692,7 +1652,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDisabledInMode()
 	 * @generated
 	 */
-	int DISABLED_IN_MODE = 93;
+	int DISABLED_IN_MODE = 99;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
@@ -1702,7 +1662,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeSwitchTriggeringExecutableStartOperation()
 	 * @generated
 	 */
-	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = 110;
+	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = 118;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl <em>Runnable Entity</em>}' class.
@@ -2480,13 +2440,40 @@ public interface ModulePackage extends EPackage {
 	int WRITE_API__NEEDS_CHECK_ARG = RTE_API_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_API__ACTIVATION_OPERATION = RTE_API_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_API__ACTIVATION_FLAG = RTE_API_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WRITE_API__TACK_STATUS = RTE_API_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Write Api</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WRITE_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 3;
+	int WRITE_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Write Api</em>' class.
@@ -2678,13 +2665,22 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_NONQUEUED_SEND_OPERATION__FILTER_OPERATION = SEND_OPERATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = SEND_OPERATION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Rte Buffer Nonqueued Send Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_BUFFER_NONQUEUED_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 2;
+	int RTE_BUFFER_NONQUEUED_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Rte Buffer Nonqueued Send Operation</em>' class.
@@ -5667,13 +5663,22 @@ public interface ModulePackage extends EPackage {
 	int RTE__CS_TF_PARAM_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Sr Rte Send Tf Param Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Sr Rte Nonqueued Send Tf Param Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__SR_RTE_SEND_TF_PARAM_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 15;
+	int RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Sr Rte Queued Send Tf Param Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list.
@@ -5682,7 +5687,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 16;
+	int RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list.
@@ -5691,7 +5696,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__SR_RTE_BUFFER_QUEUE_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 17;
+	int RTE__SR_RTE_BUFFER_QUEUE_TYPE = LOGICAL_COMPARTMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Immediate Constant</b></em>' containment reference list.
@@ -5700,7 +5705,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__IMMEDIATE_CONSTANT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 18;
+	int RTE__IMMEDIATE_CONSTANT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list.
@@ -5709,7 +5714,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION = LOGICAL_COMPARTMENT_FEATURE_COUNT + 19;
+	int RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION = LOGICAL_COMPARTMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Com Send Signal Periodic Entity</b></em>' containment reference.
@@ -5718,7 +5723,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 20;
+	int RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Com Send Signal Immediate Entity</b></em>' containment reference.
@@ -5727,7 +5732,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 21;
+	int RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Com Send Signal Immediate Task Body</b></em>' containment reference.
@@ -5736,7 +5741,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 22;
+	int RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = LOGICAL_COMPARTMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Com Callback</b></em>' containment reference list.
@@ -5745,7 +5750,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__COM_CALLBACK = LOGICAL_COMPARTMENT_FEATURE_COUNT + 23;
+	int RTE__COM_CALLBACK = LOGICAL_COMPARTMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Rte Start Api</b></em>' containment reference.
@@ -5754,7 +5759,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_START_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 24;
+	int RTE__RTE_START_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Rte Stop Api</b></em>' containment reference.
@@ -5763,7 +5768,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__RTE_STOP_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 25;
+	int RTE__RTE_STOP_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Schm Init Api</b></em>' containment reference.
@@ -5772,7 +5777,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__SCHM_INIT_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 26;
+	int RTE__SCHM_INIT_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Schm Deinit Api</b></em>' containment reference.
@@ -5781,7 +5786,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE__SCHM_DEINIT_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 27;
+	int RTE__SCHM_DEINIT_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The number of structural features of the '<em>Rte</em>' class.
@@ -5790,7 +5795,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_FEATURE_COUNT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 28;
+	int RTE_FEATURE_COUNT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 29;
 
 	/**
 	 * The number of operations of the '<em>Rte</em>' class.
@@ -6225,13 +6230,22 @@ public interface ModulePackage extends EPackage {
 	int PARTITION__PARTITION_RESTARTING_API = LOGICAL_COMPARTMENT_FEATURE_COUNT + 29;
 
 	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION__TACK_STATUS = LOGICAL_COMPARTMENT_FEATURE_COUNT + 30;
+
+	/**
 	 * The number of structural features of the '<em>Partition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION_FEATURE_COUNT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 30;
+	int PARTITION_FEATURE_COUNT = LOGICAL_COMPARTMENT_FEATURE_COUNT + 31;
 
 	/**
 	 * The number of operations of the '<em>Partition</em>' class.
@@ -7413,13 +7427,40 @@ public interface ModulePackage extends EPackage {
 	int INVALIDATE_API__OPERATION = RTE_API_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVALIDATE_API__ACTIVATION_OPERATION = RTE_API_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVALIDATE_API__ACTIVATION_FLAG = RTE_API_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVALIDATE_API__TACK_STATUS = RTE_API_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Invalidate Api</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INVALIDATE_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 1;
+	int INVALIDATE_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Invalidate Api</em>' class.
@@ -7512,13 +7553,22 @@ public interface ModulePackage extends EPackage {
 	int IOC_SEND_OPERATION__TYPE = SEND_OPERATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = SEND_OPERATION_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Ioc Send Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IOC_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 1;
+	int IOC_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Ioc Send Operation</em>' class.
@@ -7609,6 +7659,15 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_NONQUEUED_SEND_OPERATION__TYPE = IOC_SEND_OPERATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IOC_NONQUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS;
 
 	/**
 	 * The feature id for the '<em><b>Access Api</b></em>' reference.
@@ -7728,13 +7787,31 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = SEND_OPERATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SEND_OPERATION__TACK_STATUS = SEND_OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = SEND_OPERATION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Com Send Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 2;
+	int COM_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Com Send Operation</em>' class.
@@ -7836,6 +7913,24 @@ public interface ModulePackage extends EPackage {
 	int DIRECT_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = COM_SEND_OPERATION__TEMP_RETURN_VARIABLE;
 
 	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIRECT_COM_SEND_OPERATION__TACK_STATUS = COM_SEND_OPERATION__TACK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIRECT_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR;
+
+	/**
 	 * The number of structural features of the '<em>Direct Com Send Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7926,13 +8021,40 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_OPERATION__IS_WRITE_API = SEND_OPERATION__IS_WRITE_API;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_OPERATION__TYPE = SEND_OPERATION_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE = SEND_OPERATION_FEATURE_COUNT + 0;
+	int TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE = SEND_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Param Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = SEND_OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = SEND_OPERATION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Trusted Function Rte Operation</em>' class.
@@ -7941,7 +8063,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 1;
+	int TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Trusted Function Rte Operation</em>' class.
@@ -7953,139 +8075,14 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl <em>Trusted Function Rte Buffer Send Send Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferSendSendOperation()
 	 * @generated
-	 * @ordered
 	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Single Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__SINGLE_SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SINGLE_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__ROLE_NAME = TRUSTED_FUNCTION_RTE_OPERATION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Send Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__SEND_VALUE = TRUSTED_FUNCTION_RTE_OPERATION__SEND_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Send Status</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__SEND_STATUS = TRUSTED_FUNCTION_RTE_OPERATION__SEND_STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Exclude Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__EXCLUDE_OPERATION = TRUSTED_FUNCTION_RTE_OPERATION__EXCLUDE_OPERATION;
-
-	/**
-	 * The feature id for the '<em><b>Return Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__RETURN_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Is Write Api</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_WRITE_API = TRUSTED_FUNCTION_RTE_OPERATION__IS_WRITE_API;
-
-	/**
-	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__TEMP_RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__TYPE = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Sr Send Tf Symbol Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__SR_SEND_TF_SYMBOL_NAME = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Trusted Function Param Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Is Group</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_GROUP = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Trusted Function Rte Send Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION_FEATURE_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of operations of the '<em>Trusted Function Rte Send Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION = 47;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -8160,6 +8157,15 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__IS_WRITE_API = TRUSTED_FUNCTION_RTE_OPERATION__IS_WRITE_API;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__TYPE = TRUSTED_FUNCTION_RTE_OPERATION__TYPE;
+
+	/**
 	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8167,6 +8173,24 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__TEMP_RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Param Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS;
 
 	/**
 	 * The feature id for the '<em><b>Access Trusted Function</b></em>' reference.
@@ -8194,6 +8218,1289 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__SINGLE_SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ROLE_NAME = TRUSTED_FUNCTION_RTE_OPERATION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Send Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__SEND_VALUE = TRUSTED_FUNCTION_RTE_OPERATION__SEND_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Send Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__SEND_STATUS = TRUSTED_FUNCTION_RTE_OPERATION__SEND_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Exclude Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__EXCLUDE_OPERATION = TRUSTED_FUNCTION_RTE_OPERATION__EXCLUDE_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Is Write Api</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__IS_WRITE_API = TRUSTED_FUNCTION_RTE_OPERATION__IS_WRITE_API;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__TYPE = TRUSTED_FUNCTION_RTE_OPERATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__TEMP_RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Param Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Access Trusted Function</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trusted Function Rte Buffer Send Send Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION_FEATURE_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trusted Function Rte Buffer Send Send Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl <em>Com Rx Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxCallback()
+	 * @generated
+	 */
+	int COM_RX_CALLBACK = 60;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl <em>Com Rx TOut Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxTOutCallback()
+	 * @generated
+	 */
+	int COM_RX_TOUT_CALLBACK = 63;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl <em>Com Inv Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvCallback()
+	 * @generated
+	 */
+	int COM_INV_CALLBACK = 64;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl <em>TAck Notify Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckNotifyOperation()
+	 * @generated
+	 */
+	int TACK_NOTIFY_OPERATION = 68;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl <em>Com Tx TOut Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTxTOutCallback()
+	 * @generated
+	 */
+	int COM_TX_TOUT_CALLBACK = 69;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl <em>Com TAck Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTAckCallback()
+	 * @generated
+	 */
+	int COM_TACK_CALLBACK = 70;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl <em>Com TErr Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTErrCallback()
+	 * @generated
+	 */
+	int COM_TERR_CALLBACK = 71;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
+	 * @generated
+	 */
+	int TF_CALL_API = 97;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 110;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
+	 * @generated
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION = 117;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
+	 * @generated
+	 */
+	int COM_SEND_PROXY_OPERATION = 132;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION = 143;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
+	 * @generated
+	 */
+	int CS_TRUSTED_FUNCTION = 144;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
+	 * @generated
+	 */
+	int CS_TF_CALLED_RUNNABLE = 145;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
+	 * @generated
+	 */
+	int SERVER_RUNNABLE_START_OPERATION = 146;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
+	 * @generated
+	 */
+	int IOC_SEND_GROUP_API = 149;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
+	 * @generated
+	 */
+	int IOC_QUEUED_GROUP_COMMUNICATION = 150;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
+	 * @generated
+	 */
+	int RTE_START_API = 152;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
+	 * @generated
+	 */
+	int SINGLECORE_RTE_START_API = 151;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl <em>Rte Internal Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteInternalHeader()
+	 * @generated
+	 */
+	int RTE_INTERNAL_HEADER = 155;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeDeclarationGroup()
+	 * @generated
+	 */
+	int MODE_DECLARATION_GROUP = 157;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl <em>Mode Machine Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeMachineInstance()
+	 * @generated
+	 */
+	int MODE_MACHINE_INSTANCE = 160;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl <em>Function Macro</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionMacro()
+	 * @generated
+	 */
+	int FUNCTION_MACRO = 161;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl <em>Com Proxy Function Table File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunctionTableFileContentsGroup()
+	 * @generated
+	 */
+	int COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP = 162;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveType()
+	 * @generated
+	 */
+	int PRIMITIVE_TYPE = 163;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
+	 * @generated
+	 */
+	int MODE_TYPE = 156;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl <em>Redefinition Primitive Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionPrimitiveType()
+	 * @generated
+	 */
+	int REDEFINITION_PRIMITIVE_TYPE = 164;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl <em>Array Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getArrayType()
+	 * @generated
+	 */
+	int ARRAY_TYPE = 165;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl <em>Redefinition Array Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionArrayType()
+	 * @generated
+	 */
+	int REDEFINITION_ARRAY_TYPE = 166;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl <em>Union Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionType()
+	 * @generated
+	 */
+	int UNION_TYPE = 167;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl <em>Redefinition Union Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionUnionType()
+	 * @generated
+	 */
+	int REDEFINITION_UNION_TYPE = 168;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl <em>Struct Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructType()
+	 * @generated
+	 */
+	int STRUCT_TYPE = 169;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl <em>Redefinition Struct Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionStructType()
+	 * @generated
+	 */
+	int REDEFINITION_STRUCT_TYPE = 170;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl <em>Blackbox Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxType()
+	 * @generated
+	 */
+	int BLACKBOX_TYPE = 171;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl <em>Union Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionMember()
+	 * @generated
+	 */
+	int UNION_MEMBER = 172;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl <em>Struct Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructMember()
+	 * @generated
+	 */
+	int STRUCT_MEMBER = 173;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl <em>Variable Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableMember()
+	 * @generated
+	 */
+	int VARIABLE_MEMBER = 174;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl <em>Rte Utility Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteUtilityHeader()
+	 * @generated
+	 */
+	int RTE_UTILITY_HEADER = 175;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl <em>Blackbox Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxHeader()
+	 * @generated
+	 */
+	int BLACKBOX_HEADER = 176;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl <em>Rte Buffer Queue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueueType()
+	 * @generated
+	 */
+	int RTE_BUFFER_QUEUE_TYPE = 177;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
+	 * @generated
+	 */
+	int MODE_QUEUE_TYPE = 158;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 180;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl <em>Cs Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunctionParamType()
+	 * @generated
+	 */
+	int CS_TRUSTED_FUNCTION_PARAM_TYPE = 181;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl <em>Never Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNeverReadOperation()
+	 * @generated
+	 */
+	int NEVER_READ_OPERATION = 182;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
+	 * @generated
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = 49;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferInvalidateSendOperation()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION = 48;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMemoryMapping()
+	 * @generated
+	 */
+	int MEMORY_MAPPING = 183;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl <em>Swc Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMapping()
+	 * @generated
+	 */
+	int SWC_MEMORY_MAPPING = 184;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl <em>Bsw Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMapping()
+	 * @generated
+	 */
+	int BSW_MEMORY_MAPPING = 185;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl <em>Global Variable File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableFileContentsGroup()
+	 * @generated
+	 */
+	int GLOBAL_VARIABLE_FILE_CONTENTS_GROUP = 186;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl <em>Function File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionFileContentsGroup()
+	 * @generated
+	 */
+	int FUNCTION_FILE_CONTENTS_GROUP = 187;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl <em>Rte Api File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApiFileContentsGroup()
+	 * @generated
+	 */
+	int RTE_API_FILE_CONTENTS_GROUP = 188;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl <em>Rte Lifecycle Api File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApiFileContentsGroup()
+	 * @generated
+	 */
+	int RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP = 189;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl <em>Task Body File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBodyFileContentsGroup()
+	 * @generated
+	 */
+	int TASK_BODY_FILE_CONTENTS_GROUP = 190;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl <em>Bsw Schedulable Entity File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntityFileContentsGroup()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP = 191;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl <em>Com Callback File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallbackFileContentsGroup()
+	 * @generated
+	 */
+	int COM_CALLBACK_FILE_CONTENTS_GROUP = 192;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl <em>Trusted Function File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionFileContentsGroup()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_FILE_CONTENTS_GROUP = 193;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl <em>Executable Entity File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntityFileContentsGroup()
+	 * @generated
+	 */
+	int EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP = 194;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl <em>Bsw Memory Mapping Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMappingHeader()
+	 * @generated
+	 */
+	int BSW_MEMORY_MAPPING_HEADER = 195;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl <em>Swc Memory Mapping Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMappingHeader()
+	 * @generated
+	 */
+	int SWC_MEMORY_MAPPING_HEADER = 196;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl <em>Generation Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGenerationInfo()
+	 * @generated
+	 */
+	int GENERATION_INFO = 197;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl <em>Macro</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMacro()
+	 * @generated
+	 */
+	int MACRO = 198;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl <em>Schm Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmApi()
+	 * @generated
+	 */
+	int SCHM_API = 199;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl <em>Com Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_SIGNAL_API_WRAPPER = 200;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl <em>Com Proxy Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunction()
+	 * @generated
+	 */
+	int COM_PROXY_FUNCTION = 201;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl <em>Com Send Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_API_WRAPPER = 202;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl <em>Com Receive Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_RECEIVE_SIGNAL_API_WRAPPER = 203;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl <em>Schm Lifecycle Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmLifecycleApi()
+	 * @generated
+	 */
+	int SCHM_LIFECYCLE_API = 204;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl <em>Schm Enter Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmEnterApi()
+	 * @generated
+	 */
+	int SCHM_ENTER_API = 205;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl <em>Schm Exit Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmExitApi()
+	 * @generated
+	 */
+	int SCHM_EXIT_API = 206;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl <em>Schm Switch Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmSwitchApi()
+	 * @generated
+	 */
+	int SCHM_SWITCH_API = 208;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
+	 * @generated
+	 */
+	int MODE_QUEUED_VARIABLE = 159;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
+	 * @generated
+	 */
+	int SCHM_MODE_API = 207;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl <em>Os Task Events Triggered By Mode</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEventsTriggeredByMode()
+	 * @generated
+	 */
+	int OS_TASK_EVENTS_TRIGGERED_BY_MODE = 209;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl <em>Os Task Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEvent()
+	 * @generated
+	 */
+	int OS_TASK_EVENT = 210;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl <em>Rte Nonqueued Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteNonqueuedSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 178;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl <em>Rte Queued Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteQueuedSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 179;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SINGLE_SOURCE = TRUSTED_FUNCTION_RTE_OPERATION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ROLE_NAME = TRUSTED_FUNCTION_RTE_OPERATION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Send Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SEND_VALUE = TRUSTED_FUNCTION_RTE_OPERATION__SEND_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Send Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SEND_STATUS = TRUSTED_FUNCTION_RTE_OPERATION__SEND_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Exclude Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__EXCLUDE_OPERATION = TRUSTED_FUNCTION_RTE_OPERATION__EXCLUDE_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Is Write Api</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__IS_WRITE_API = TRUSTED_FUNCTION_RTE_OPERATION__IS_WRITE_API;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TYPE = TRUSTED_FUNCTION_RTE_OPERATION__TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Param Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS;
+
+	/**
+	 * The feature id for the '<em><b>Access Trusted Function</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION_FEATURE_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__SOURCE = FUNCTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__SINGLE_SOURCE = FUNCTION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__ROLE_NAME = FUNCTION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__ID = FUNCTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__RETURN_TYPE = FUNCTION__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__PARAM = FUNCTION__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__LOCAL_VARIABLE = FUNCTION__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__LOCAL_TYPE = FUNCTION__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__MEMORY_MAPPING = FUNCTION__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__SYMBOL_NAME = FUNCTION__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = FUNCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_FEATURE_COUNT = FUNCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SOURCE = TRUSTED_FUNCTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SINGLE_SOURCE = TRUSTED_FUNCTION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__ROLE_NAME = TRUSTED_FUNCTION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__ID = TRUSTED_FUNCTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__RETURN_TYPE = TRUSTED_FUNCTION__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__PARAM = TRUSTED_FUNCTION__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__LOCAL_VARIABLE = TRUSTED_FUNCTION__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__LOCAL_TYPE = TRUSTED_FUNCTION__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__MEMORY_MAPPING = TRUSTED_FUNCTION__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SYMBOL_NAME = TRUSTED_FUNCTION__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION = TRUSTED_FUNCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Rte Buffer Invalidate Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION_FEATURE_COUNT = TRUSTED_FUNCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Rte Buffer Invalidate Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -8284,6 +9591,24 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUSTED_FUNCTION_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = COM_SEND_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_COM_SEND_OPERATION__TACK_STATUS = COM_SEND_OPERATION__TACK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -8430,6 +9755,24 @@ public interface ModulePackage extends EPackage {
 	int PROXY_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = COM_SEND_OPERATION__TEMP_RETURN_VARIABLE;
 
 	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_COM_SEND_OPERATION__TACK_STATUS = COM_SEND_OPERATION__TACK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8572,6 +9915,24 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IMMEDIATE_PROXY_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = PROXY_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMMEDIATE_PROXY_COM_SEND_OPERATION__TACK_STATUS = PROXY_COM_SEND_OPERATION__TACK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMMEDIATE_PROXY_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = PROXY_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -8725,6 +10086,24 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int PERIODIC_PROXY_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = PROXY_COM_SEND_OPERATION__TEMP_RETURN_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERIODIC_PROXY_COM_SEND_OPERATION__TACK_STATUS = PROXY_COM_SEND_OPERATION__TACK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag On Tx Err</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERIODIC_PROXY_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = PROXY_COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -9894,7 +11273,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+	int COM_RX_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Single Source</b></em>' reference.
@@ -9903,7 +11282,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+	int COM_RX_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -9912,7 +11291,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+	int COM_RX_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -9921,7 +11300,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__ID = COM_CALLBACK__ID;
+	int COM_RX_CALLBACK__ID = COM_CALLBACK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' reference.
@@ -9930,7 +11309,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+	int COM_RX_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
@@ -9939,7 +11318,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+	int COM_RX_CALLBACK__PARAM = COM_CALLBACK__PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
@@ -9948,7 +11327,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+	int COM_RX_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
@@ -9957,7 +11336,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+	int COM_RX_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
@@ -9966,7 +11345,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+	int COM_RX_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
@@ -9975,7 +11354,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+	int COM_RX_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
@@ -9984,7 +11363,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+	int COM_RX_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_RX_CALLBACK__ACTIVATION_OPERATION = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_RX_CALLBACK__ACTIVATION_FLAG = COM_CALLBACK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Data Variable</b></em>' reference.
@@ -9993,7 +11390,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__DATA_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 1;
+	int COM_RX_CALLBACK__DATA_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Access Api</b></em>' reference.
@@ -10002,25 +11399,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK__ACCESS_API = COM_CALLBACK_FEATURE_COUNT + 2;
+	int COM_RX_CALLBACK__ACCESS_API = COM_CALLBACK_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Com Receive Callback</em>' class.
+	 * The number of structural features of the '<em>Com Rx Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 3;
+	int COM_RX_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Com Receive Callback</em>' class.
+	 * The number of operations of the '<em>Com Rx Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+	int COM_RX_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10029,7 +11426,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+	int COM_RX_TOUT_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Single Source</b></em>' reference.
@@ -10038,7 +11435,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+	int COM_RX_TOUT_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -10047,7 +11444,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+	int COM_RX_TOUT_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10056,7 +11453,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__ID = COM_CALLBACK__ID;
+	int COM_RX_TOUT_CALLBACK__ID = COM_CALLBACK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' reference.
@@ -10065,7 +11462,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+	int COM_RX_TOUT_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
@@ -10074,7 +11471,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+	int COM_RX_TOUT_CALLBACK__PARAM = COM_CALLBACK__PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
@@ -10083,7 +11480,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+	int COM_RX_TOUT_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
@@ -10092,7 +11489,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+	int COM_RX_TOUT_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
@@ -10101,7 +11498,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+	int COM_RX_TOUT_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
@@ -10110,7 +11507,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+	int COM_RX_TOUT_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
@@ -10119,7 +11516,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+	int COM_RX_TOUT_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_RX_TOUT_CALLBACK__ACTIVATION_OPERATION = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_RX_TOUT_CALLBACK__ACTIVATION_FLAG = COM_CALLBACK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Data Variable</b></em>' reference.
@@ -10128,7 +11543,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__DATA_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 1;
+	int COM_RX_TOUT_CALLBACK__DATA_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Access Api</b></em>' reference.
@@ -10137,25 +11552,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK__ACCESS_API = COM_CALLBACK_FEATURE_COUNT + 2;
+	int COM_RX_TOUT_CALLBACK__ACCESS_API = COM_CALLBACK_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of structural features of the '<em>Com Receive Timeout Callback</em>' class.
+	 * The number of structural features of the '<em>Com Rx TOut Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 3;
+	int COM_RX_TOUT_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 5;
 
 	/**
-	 * The number of operations of the '<em>Com Receive Timeout Callback</em>' class.
+	 * The number of operations of the '<em>Com Rx TOut Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_RECEIVE_TIMEOUT_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+	int COM_RX_TOUT_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10164,7 +11579,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+	int COM_INV_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Single Source</b></em>' reference.
@@ -10173,7 +11588,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+	int COM_INV_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -10182,7 +11597,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+	int COM_INV_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -10191,7 +11606,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__ID = COM_CALLBACK__ID;
+	int COM_INV_CALLBACK__ID = COM_CALLBACK__ID;
 
 	/**
 	 * The feature id for the '<em><b>Return Type</b></em>' reference.
@@ -10200,7 +11615,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+	int COM_INV_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
@@ -10209,7 +11624,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+	int COM_INV_CALLBACK__PARAM = COM_CALLBACK__PARAM;
 
 	/**
 	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
@@ -10218,7 +11633,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+	int COM_INV_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
@@ -10227,7 +11642,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+	int COM_INV_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
@@ -10236,7 +11651,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+	int COM_INV_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
 
 	/**
 	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
@@ -10245,7 +11660,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+	int COM_INV_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
@@ -10254,7 +11669,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+	int COM_INV_CALLBACK__OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_INV_CALLBACK__ACTIVATION_OPERATION = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_INV_CALLBACK__ACTIVATION_FLAG = COM_CALLBACK_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Filter Result Variable</b></em>' reference.
@@ -10263,25 +11696,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK__FILTER_RESULT_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 1;
+	int COM_INV_CALLBACK__FILTER_RESULT_VARIABLE = COM_CALLBACK_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of structural features of the '<em>Com Invalidate Callback</em>' class.
+	 * The number of structural features of the '<em>Com Inv Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 2;
+	int COM_INV_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 4;
 
 	/**
-	 * The number of operations of the '<em>Com Invalidate Callback</em>' class.
+	 * The number of operations of the '<em>Com Inv Callback</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_INVALIDATE_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+	int COM_INV_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10401,22 +11834,13 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_PROXY_ENTITY__PARENT_PARTED_BSWM = BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Operation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION = BSW_SCHEDULABLE_ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Complex Operation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION = BSW_SCHEDULABLE_ENTITY_FEATURE_COUNT + 1;
+	int COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION = BSW_SCHEDULABLE_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Com Send Signal Proxy Entity</em>' class.
@@ -10425,7 +11849,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_SIGNAL_PROXY_ENTITY_FEATURE_COUNT = BSW_SCHEDULABLE_ENTITY_FEATURE_COUNT + 2;
+	int COM_SEND_SIGNAL_PROXY_ENTITY_FEATURE_COUNT = BSW_SCHEDULABLE_ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Com Send Signal Proxy Entity</em>' class.
@@ -10554,22 +11978,13 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY__PARENT_PARTED_BSWM = COM_SEND_SIGNAL_PROXY_ENTITY__PARENT_PARTED_BSWM;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Operation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY__PRIMITIVE_OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION;
-
-	/**
-	 * The feature id for the '<em><b>Complex Operation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY__COMPLEX_OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION;
+	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY__OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION;
 
 	/**
 	 * The number of structural features of the '<em>Com Send Signal Immediate Entity</em>' class.
@@ -10707,22 +12122,13 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_PERIODIC_ENTITY__PARENT_PARTED_BSWM = COM_SEND_SIGNAL_PROXY_ENTITY__PARENT_PARTED_BSWM;
 
 	/**
-	 * The feature id for the '<em><b>Primitive Operation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_SIGNAL_PERIODIC_ENTITY__PRIMITIVE_OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION;
-
-	/**
-	 * The feature id for the '<em><b>Complex Operation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COM_SEND_SIGNAL_PERIODIC_ENTITY__COMPLEX_OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION;
+	int COM_SEND_SIGNAL_PERIODIC_ENTITY__OPERATION = COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION;
 
 	/**
 	 * The number of structural features of the '<em>Com Send Signal Periodic Entity</em>' class.
@@ -10741,6 +12147,393 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_SIGNAL_PERIODIC_ENTITY_OPERATION_COUNT = COM_SEND_SIGNAL_PROXY_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_NOTIFY_OPERATION__ACTIVATION_OPERATION = 0;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_NOTIFY_OPERATION__TACK_STATUS = 1;
+
+	/**
+	 * The number of structural features of the '<em>TAck Notify Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_NOTIFY_OPERATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>TAck Notify Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_NOTIFY_OPERATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__ID = COM_CALLBACK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>TAck Notify Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK__TACK_NOTIFY_OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Com Tx TOut Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Com Tx TOut Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TX_TOUT_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__ID = COM_CALLBACK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>TAck Notify Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK__TACK_NOTIFY_OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Com TAck Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Com TAck Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TACK_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__SOURCE = COM_CALLBACK__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__SINGLE_SOURCE = COM_CALLBACK__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__ROLE_NAME = COM_CALLBACK__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__ID = COM_CALLBACK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__RETURN_TYPE = COM_CALLBACK__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__PARAM = COM_CALLBACK__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__LOCAL_VARIABLE = COM_CALLBACK__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__LOCAL_TYPE = COM_CALLBACK__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__MEMORY_MAPPING = COM_CALLBACK__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__SYMBOL_NAME = COM_CALLBACK__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>TAck Notify Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK__TACK_NOTIFY_OPERATION = COM_CALLBACK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Com TErr Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK_FEATURE_COUNT = COM_CALLBACK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Com TErr Callback</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_TERR_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -11796,13 +13589,22 @@ public interface ModulePackage extends EPackage {
 	int PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = RTE_LIFECYCLE_API_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION_RESTARTING_API__ACTIVATION_OPERATION = RTE_LIFECYCLE_API_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Partition Restarting Api</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION_RESTARTING_API_FEATURE_COUNT = RTE_LIFECYCLE_API_FEATURE_COUNT + 1;
+	int PARTITION_RESTARTING_API_FEATURE_COUNT = RTE_LIFECYCLE_API_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Partition Restarting Api</em>' class.
@@ -11913,13 +13715,22 @@ public interface ModulePackage extends EPackage {
 	int PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = RTE_LIFECYCLE_API_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARTITION_TERMINATED_API__ACTIVATION_OPERATION = RTE_LIFECYCLE_API_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Partition Terminated Api</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARTITION_TERMINATED_API_FEATURE_COUNT = RTE_LIFECYCLE_API_FEATURE_COUNT + 1;
+	int PARTITION_TERMINATED_API_FEATURE_COUNT = RTE_LIFECYCLE_API_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Partition Terminated Api</em>' class.
@@ -12147,13 +13958,40 @@ public interface ModulePackage extends EPackage {
 	int SEND_API__NEEDS_CHECK_ARG = RTE_API_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_API__ACTIVATION_OPERATION = RTE_API_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_API__ACTIVATION_FLAG = RTE_API_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_API__TACK_STATUS = RTE_API_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Send Api</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 6;
+	int SEND_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Send Api</em>' class.
@@ -13083,6 +14921,15 @@ public interface ModulePackage extends EPackage {
 	int IOC_QUEUED_SEND_OPERATION__TYPE = IOC_SEND_OPERATION__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IOC_QUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS;
+
+	/**
 	 * The feature id for the '<em><b>Access Api</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13432,16 +15279,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CALL_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
-	 * @generated
-	 */
-	int TF_CALL_API = 91;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -14890,6 +16727,132 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__SOURCE = TASK_BODY__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__SINGLE_SOURCE = TASK_BODY__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__ROLE_NAME = TASK_BODY__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__ID = TASK_BODY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__RETURN_TYPE = TASK_BODY__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__PARAM = TASK_BODY__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__LOCAL_VARIABLE = TASK_BODY__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__LOCAL_TYPE = TASK_BODY__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__MEMORY_MAPPING = TASK_BODY__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__SYMBOL_NAME = TASK_BODY__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Os Task Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OS_TASK_ID = TASK_BODY__OS_TASK_ID;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = TASK_BODY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Os Background Task Activation Executable Task Body</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY_FEATURE_COUNT = TASK_BODY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Os Background Task Activation Executable Task Body</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__SOURCE = TASK_BODY__SOURCE;
 
 	/**
@@ -15511,6 +17474,78 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__SOURCE = EXECUTABLE_START_OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__SINGLE_SOURCE = EXECUTABLE_START_OPERATION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__ROLE_NAME = EXECUTABLE_START_OPERATION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Start Executable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__START_EXECUTABLE = EXECUTABLE_START_OPERATION__START_EXECUTABLE;
+
+	/**
+	 * The feature id for the '<em><b>Riea Exclude Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION = EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Disabled In Mode</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION__DISABLED_IN_MODE = EXECUTABLE_START_OPERATION__DISABLED_IN_MODE;
+
+	/**
+	 * The number of structural features of the '<em>Plain Executable Start Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION_FEATURE_COUNT = EXECUTABLE_START_OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Plain Executable Start Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
 	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__SOURCE = EXECUTABLE_START_OPERATION__SOURCE;
 
 	/**
@@ -15827,123 +17862,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_EMPTY_QUEUE_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__SOURCE = FUNCTION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Single Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__SINGLE_SOURCE = FUNCTION__SINGLE_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__ROLE_NAME = FUNCTION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__ID = FUNCTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__RETURN_TYPE = FUNCTION__RETURN_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__PARAM = FUNCTION__PARAM;
-
-	/**
-	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__LOCAL_VARIABLE = FUNCTION__LOCAL_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__LOCAL_TYPE = FUNCTION__LOCAL_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__MEMORY_MAPPING = FUNCTION__MEMORY_MAPPING;
-
-	/**
-	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__SYMBOL_NAME = FUNCTION__SYMBOL_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Trusted Function Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = FUNCTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Trusted Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_FEATURE_COUNT = FUNCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Trusted Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -16450,23 +18368,13 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveComSendProxyOperationImpl <em>Primitive Com Send Proxy Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveComSendProxyOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveComSendProxyOperation()
-	 * @generated
-	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION = 124;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__SOURCE = OPERATION__SOURCE;
+	int COM_SEND_PROXY_OPERATION__SOURCE = OPERATION__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Single Source</b></em>' reference.
@@ -16475,7 +18383,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__SINGLE_SOURCE = OPERATION__SINGLE_SOURCE;
+	int COM_SEND_PROXY_OPERATION__SINGLE_SOURCE = OPERATION__SINGLE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -16484,16 +18392,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__ROLE_NAME = OPERATION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Read Value Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE = OPERATION_FEATURE_COUNT + 0;
+	int COM_SEND_PROXY_OPERATION__ROLE_NAME = OPERATION__ROLE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Access Api</b></em>' reference.
@@ -16502,80 +18401,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API = OPERATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Signal Id Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE = OPERATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Primitive Com Send Proxy Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Primitive Com Send Proxy Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_COM_SEND_PROXY_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComplexComSendProxyOperationImpl <em>Complex Com Send Proxy Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComplexComSendProxyOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComplexComSendProxyOperation()
-	 * @generated
-	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION = 125;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__SOURCE = OPERATION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Single Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__SINGLE_SOURCE = OPERATION__SINGLE_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__ROLE_NAME = OPERATION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Access Api</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__ACCESS_API = OPERATION_FEATURE_COUNT + 0;
+	int COM_SEND_PROXY_OPERATION__ACCESS_API = OPERATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Function Table Symbol Name</b></em>' attribute.
@@ -16584,7 +18410,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = OPERATION_FEATURE_COUNT + 1;
+	int COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = OPERATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Table Index Variable</b></em>' reference.
@@ -16593,25 +18419,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = OPERATION_FEATURE_COUNT + 2;
+	int COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = OPERATION_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of structural features of the '<em>Complex Com Send Proxy Operation</em>' class.
+	 * The number of structural features of the '<em>Com Send Proxy Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
+	int COM_SEND_PROXY_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
 
 	/**
-	 * The number of operations of the '<em>Complex Com Send Proxy Operation</em>' class.
+	 * The number of operations of the '<em>Com Send Proxy Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLEX_COM_SEND_PROXY_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+	int COM_SEND_PROXY_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17442,14 +19268,139 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
 	 * @generated
+	 * @ordered
 	 */
-	int CS_TRUSTED_FUNCTION = 136;
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__SOURCE = TRUSTED_FUNCTION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__SINGLE_SOURCE = TRUSTED_FUNCTION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__ROLE_NAME = TRUSTED_FUNCTION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__ID = TRUSTED_FUNCTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__RETURN_TYPE = TRUSTED_FUNCTION__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__PARAM = TRUSTED_FUNCTION__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__LOCAL_VARIABLE = TRUSTED_FUNCTION__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__LOCAL_TYPE = TRUSTED_FUNCTION__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__MEMORY_MAPPING = TRUSTED_FUNCTION__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__SYMBOL_NAME = TRUSTED_FUNCTION__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Trusted Function Index</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__OPERATION = TRUSTED_FUNCTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Data Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION__DATA_VARIABLE = TRUSTED_FUNCTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Rte Buffer Send Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION_FEATURE_COUNT = TRUSTED_FUNCTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Rte Buffer Send Trusted Function</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17596,16 +19547,6 @@ public interface ModulePackage extends EPackage {
 	int CS_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
-	 * @generated
-	 */
-	int CS_TF_CALLED_RUNNABLE = 137;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17667,16 +19608,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CS_TF_CALLED_RUNNABLE_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
-	 * @generated
-	 */
-	int SERVER_RUNNABLE_START_OPERATION = 138;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17758,16 +19689,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_RUNNABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
-	 * @generated
-	 */
-	int IOC_SEND_GROUP_API = 141;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17887,16 +19808,6 @@ public interface ModulePackage extends EPackage {
 	int IOC_SEND_GROUP_API_OPERATION_COUNT = IOC_SEND_API_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
-	 * @generated
-	 */
-	int IOC_QUEUED_GROUP_COMMUNICATION = 142;
-
-	/**
 	 * The feature id for the '<em><b>Receive Api</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17931,16 +19842,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_QUEUED_GROUP_COMMUNICATION_OPERATION_COUNT = IOC_COMMUNICATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
-	 * @generated
-	 */
-	int RTE_START_API = 144;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18049,16 +19950,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_START_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
-	 * @generated
-	 */
-	int SINGLECORE_RTE_START_API = 143;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18176,16 +20067,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLECORE_RTE_START_API_OPERATION_COUNT = RTE_START_API_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl <em>Rte Internal Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteInternalHeader()
-	 * @generated
-	 */
-	int RTE_INTERNAL_HEADER = 147;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18411,566 +20292,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_INTERNAL_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeDeclarationGroup()
-	 * @generated
-	 */
-	int MODE_DECLARATION_GROUP = 149;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl <em>Mode Machine Instance</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeMachineInstance()
-	 * @generated
-	 */
-	int MODE_MACHINE_INSTANCE = 152;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl <em>Function Macro</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionMacro()
-	 * @generated
-	 */
-	int FUNCTION_MACRO = 153;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl <em>Com Proxy Function Table File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunctionTableFileContentsGroup()
-	 * @generated
-	 */
-	int COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP = 154;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveType()
-	 * @generated
-	 */
-	int PRIMITIVE_TYPE = 155;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
-	 * @generated
-	 */
-	int MODE_TYPE = 148;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl <em>Redefinition Primitive Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionPrimitiveType()
-	 * @generated
-	 */
-	int REDEFINITION_PRIMITIVE_TYPE = 156;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl <em>Array Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getArrayType()
-	 * @generated
-	 */
-	int ARRAY_TYPE = 157;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl <em>Redefinition Array Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionArrayType()
-	 * @generated
-	 */
-	int REDEFINITION_ARRAY_TYPE = 158;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl <em>Union Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionType()
-	 * @generated
-	 */
-	int UNION_TYPE = 159;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl <em>Redefinition Union Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionUnionType()
-	 * @generated
-	 */
-	int REDEFINITION_UNION_TYPE = 160;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl <em>Struct Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructType()
-	 * @generated
-	 */
-	int STRUCT_TYPE = 161;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl <em>Redefinition Struct Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionStructType()
-	 * @generated
-	 */
-	int REDEFINITION_STRUCT_TYPE = 162;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl <em>Blackbox Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxType()
-	 * @generated
-	 */
-	int BLACKBOX_TYPE = 163;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl <em>Union Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionMember()
-	 * @generated
-	 */
-	int UNION_MEMBER = 164;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl <em>Struct Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructMember()
-	 * @generated
-	 */
-	int STRUCT_MEMBER = 165;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl <em>Variable Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableMember()
-	 * @generated
-	 */
-	int VARIABLE_MEMBER = 166;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl <em>Rte Utility Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteUtilityHeader()
-	 * @generated
-	 */
-	int RTE_UTILITY_HEADER = 167;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl <em>Blackbox Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxHeader()
-	 * @generated
-	 */
-	int BLACKBOX_HEADER = 168;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl <em>Rte Buffer Queue Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueueType()
-	 * @generated
-	 */
-	int RTE_BUFFER_QUEUE_TYPE = 169;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
-	 * @generated
-	 */
-	int MODE_QUEUE_TYPE = 150;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSendTrustedFunctionParamTypeImpl <em>Rte Send Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSendTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteSendTrustedFunctionParamType()
-	 * @generated
-	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 170;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendTrustedFunctionParamType()
-	 * @generated
-	 */
-	int COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 171;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl <em>Cs Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunctionParamType()
-	 * @generated
-	 */
-	int CS_TRUSTED_FUNCTION_PARAM_TYPE = 172;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl <em>Never Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNeverReadOperation()
-	 * @generated
-	 */
-	int NEVER_READ_OPERATION = 173;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
-	 * @generated
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = 174;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferInvalidateSendOperation()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION = 175;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMemoryMapping()
-	 * @generated
-	 */
-	int MEMORY_MAPPING = 176;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl <em>Swc Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMapping()
-	 * @generated
-	 */
-	int SWC_MEMORY_MAPPING = 177;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl <em>Bsw Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMapping()
-	 * @generated
-	 */
-	int BSW_MEMORY_MAPPING = 178;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl <em>Global Variable File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableFileContentsGroup()
-	 * @generated
-	 */
-	int GLOBAL_VARIABLE_FILE_CONTENTS_GROUP = 179;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl <em>Function File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionFileContentsGroup()
-	 * @generated
-	 */
-	int FUNCTION_FILE_CONTENTS_GROUP = 180;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl <em>Rte Api File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApiFileContentsGroup()
-	 * @generated
-	 */
-	int RTE_API_FILE_CONTENTS_GROUP = 181;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl <em>Rte Lifecycle Api File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApiFileContentsGroup()
-	 * @generated
-	 */
-	int RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP = 182;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl <em>Task Body File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBodyFileContentsGroup()
-	 * @generated
-	 */
-	int TASK_BODY_FILE_CONTENTS_GROUP = 183;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl <em>Bsw Schedulable Entity File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntityFileContentsGroup()
-	 * @generated
-	 */
-	int BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP = 184;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl <em>Com Callback File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallbackFileContentsGroup()
-	 * @generated
-	 */
-	int COM_CALLBACK_FILE_CONTENTS_GROUP = 185;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl <em>Trusted Function File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionFileContentsGroup()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_FILE_CONTENTS_GROUP = 186;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl <em>Executable Entity File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntityFileContentsGroup()
-	 * @generated
-	 */
-	int EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP = 187;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl <em>Bsw Memory Mapping Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMappingHeader()
-	 * @generated
-	 */
-	int BSW_MEMORY_MAPPING_HEADER = 188;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl <em>Swc Memory Mapping Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMappingHeader()
-	 * @generated
-	 */
-	int SWC_MEMORY_MAPPING_HEADER = 189;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl <em>Generation Info</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGenerationInfo()
-	 * @generated
-	 */
-	int GENERATION_INFO = 190;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl <em>Macro</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMacro()
-	 * @generated
-	 */
-	int MACRO = 191;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl <em>Schm Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmApi()
-	 * @generated
-	 */
-	int SCHM_API = 192;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl <em>Com Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_SIGNAL_API_WRAPPER = 193;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl <em>Com Proxy Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunction()
-	 * @generated
-	 */
-	int COM_PROXY_FUNCTION = 194;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl <em>Com Send Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_API_WRAPPER = 195;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl <em>Com Receive Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_RECEIVE_SIGNAL_API_WRAPPER = 196;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl <em>Schm Lifecycle Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmLifecycleApi()
-	 * @generated
-	 */
-	int SCHM_LIFECYCLE_API = 197;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl <em>Schm Enter Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmEnterApi()
-	 * @generated
-	 */
-	int SCHM_ENTER_API = 198;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl <em>Schm Exit Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmExitApi()
-	 * @generated
-	 */
-	int SCHM_EXIT_API = 199;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl <em>Schm Switch Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmSwitchApi()
-	 * @generated
-	 */
-	int SCHM_SWITCH_API = 201;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
-	 * @generated
-	 */
-	int MODE_QUEUED_VARIABLE = 151;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
-	 * @generated
-	 */
-	int SCHM_MODE_API = 200;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl <em>Os Task Events Triggered By Mode</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEventsTriggeredByMode()
-	 * @generated
-	 */
-	int OS_TASK_EVENTS_TRIGGERED_BY_MODE = 202;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl <em>Os Task Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEvent()
-	 * @generated
-	 */
-	int OS_TASK_EVENT = 203;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21202,7 +22523,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SOURCE = TYPE__SOURCE;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SOURCE = TYPE__SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Single Source</b></em>' reference.
@@ -21211,7 +22532,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SINGLE_SOURCE = TYPE__SINGLE_SOURCE;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SINGLE_SOURCE = TYPE__SINGLE_SOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -21220,7 +22541,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ROLE_NAME = TYPE__ROLE_NAME;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ROLE_NAME = TYPE__ROLE_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -21229,7 +22550,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ID = TYPE__ID;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ID = TYPE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
@@ -21238,7 +22559,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SYMBOL_NAME = TYPE__SYMBOL_NAME;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SYMBOL_NAME = TYPE__SYMBOL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Is Anonymous</b></em>' attribute.
@@ -21247,7 +22568,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_ANONYMOUS = TYPE__IS_ANONYMOUS;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_ANONYMOUS = TYPE__IS_ANONYMOUS;
 
 	/**
 	 * The feature id for the '<em><b>Signedness</b></em>' attribute.
@@ -21256,7 +22577,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIGNEDNESS = TYPE__SIGNEDNESS;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIGNEDNESS = TYPE__SIGNEDNESS;
 
 	/**
 	 * The feature id for the '<em><b>Original Type Symbol Name</b></em>' attribute.
@@ -21265,7 +22586,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ORIGINAL_TYPE_SYMBOL_NAME = TYPE__ORIGINAL_TYPE_SYMBOL_NAME;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ORIGINAL_TYPE_SYMBOL_NAME = TYPE__ORIGINAL_TYPE_SYMBOL_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -21274,25 +22595,124 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIZE = TYPE__SIZE;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIZE = TYPE__SIZE;
 
 	/**
-	 * The number of structural features of the '<em>Rte Send Trusted Function Param Type</em>' class.
+	 * The number of structural features of the '<em>Rte Nonqueued Send Trusted Function Param Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Rte Send Trusted Function Param Type</em>' class.
+	 * The number of operations of the '<em>Rte Nonqueued Send Trusted Function Param Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SOURCE = TYPE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SINGLE_SOURCE = TYPE__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ROLE_NAME = TYPE__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ID = TYPE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SYMBOL_NAME = TYPE__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Is Anonymous</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_ANONYMOUS = TYPE__IS_ANONYMOUS;
+
+	/**
+	 * The feature id for the '<em><b>Signedness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIGNEDNESS = TYPE__SIGNEDNESS;
+
+	/**
+	 * The feature id for the '<em><b>Original Type Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__ORIGINAL_TYPE_SYMBOL_NAME = TYPE__ORIGINAL_TYPE_SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE__SIZE = TYPE__SIZE;
+
+	/**
+	 * The number of structural features of the '<em>Rte Queued Send Trusted Function Param Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Rte Queued Send Trusted Function Param Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21590,240 +23010,6 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int NEVER_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SOURCE = TRUSTED_FUNCTION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Single Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SINGLE_SOURCE = TRUSTED_FUNCTION__SINGLE_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__ROLE_NAME = TRUSTED_FUNCTION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__ID = TRUSTED_FUNCTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Return Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__RETURN_TYPE = TRUSTED_FUNCTION__RETURN_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__PARAM = TRUSTED_FUNCTION__PARAM;
-
-	/**
-	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__LOCAL_VARIABLE = TRUSTED_FUNCTION__LOCAL_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__LOCAL_TYPE = TRUSTED_FUNCTION__LOCAL_TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__MEMORY_MAPPING = TRUSTED_FUNCTION__MEMORY_MAPPING;
-
-	/**
-	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__SYMBOL_NAME = TRUSTED_FUNCTION__SYMBOL_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Trusted Function Index</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX;
-
-	/**
-	 * The feature id for the '<em><b>Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION = TRUSTED_FUNCTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Rte Buffer Invalidate Trusted Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION_FEATURE_COUNT = TRUSTED_FUNCTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Rte Buffer Invalidate Trusted Function</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SOURCE = SEND_OPERATION__SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Single Source</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SINGLE_SOURCE = SEND_OPERATION__SINGLE_SOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ROLE_NAME = SEND_OPERATION__ROLE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Send Value</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SEND_VALUE = SEND_OPERATION__SEND_VALUE;
-
-	/**
-	 * The feature id for the '<em><b>Send Status</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__SEND_STATUS = SEND_OPERATION__SEND_STATUS;
-
-	/**
-	 * The feature id for the '<em><b>Exclude Operation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__EXCLUDE_OPERATION = SEND_OPERATION__EXCLUDE_OPERATION;
-
-	/**
-	 * The feature id for the '<em><b>Return Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__RETURN_VARIABLE = SEND_OPERATION__RETURN_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Is Write Api</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__IS_WRITE_API = SEND_OPERATION__IS_WRITE_API;
-
-	/**
-	 * The feature id for the '<em><b>Access Trusted Function</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = SEND_OPERATION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Temp Return Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE = SEND_OPERATION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION_FEATURE_COUNT = SEND_OPERATION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23392,40 +24578,31 @@ public interface ModulePackage extends EPackage {
 	int COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Signal Group Symbol Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Send Signal Function Symbol Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 2;
+	int COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Buffer Com Proxy Symbol Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Buffer Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 3;
+	int COM_PROXY_FUNCTION__BUFFER_VARIABLE = FUNCTION_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Buffer Com Meta Complex Data Symbol Name</b></em>' attribute.
+	 * The feature id for the '<em><b>Signal Information Symbol Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Proxy Data Type Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME = FUNCTION_FEATURE_COUNT + 5;
+	int COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME = FUNCTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Group</b></em>' attribute.
@@ -23434,7 +24611,25 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_PROXY_FUNCTION__IS_GROUP = FUNCTION_FEATURE_COUNT + 6;
+	int COM_PROXY_FUNCTION__IS_GROUP = FUNCTION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_PROXY_FUNCTION__ACTIVATION_OPERATION = FUNCTION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_PROXY_FUNCTION__TACK_STATUS = FUNCTION_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Com Proxy Function</em>' class.
@@ -23443,7 +24638,7 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COM_PROXY_FUNCTION_FEATURE_COUNT = FUNCTION_FEATURE_COUNT + 7;
+	int COM_PROXY_FUNCTION_FEATURE_COUNT = FUNCTION_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Com Proxy Function</em>' class.
@@ -24614,7 +25809,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleInterlinkHeader()
 	 * @generated
 	 */
-	int MODULE_INTERLINK_HEADER = 204;
+	int MODULE_INTERLINK_HEADER = 211;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24750,7 +25945,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmApiFileContentsGroup()
 	 * @generated
 	 */
-	int SCHM_API_FILE_CONTENTS_GROUP = 205;
+	int SCHM_API_FILE_CONTENTS_GROUP = 212;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24832,7 +26027,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSignalApiWrapperFileContentsGroup()
 	 * @generated
 	 */
-	int COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP = 206;
+	int COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP = 213;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24914,7 +26109,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunctionFileContentsGroup()
 	 * @generated
 	 */
-	int COM_PROXY_FUNCTION_FILE_CONTENTS_GROUP = 207;
+	int COM_PROXY_FUNCTION_FILE_CONTENTS_GROUP = 214;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24996,7 +26191,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleInterlinkTypeHeader()
 	 * @generated
 	 */
-	int MODULE_INTERLINK_TYPE_HEADER = 208;
+	int MODULE_INTERLINK_TYPE_HEADER = 215;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25123,7 +26318,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmLifecycleApiFileContentsGroup()
 	 * @generated
 	 */
-	int SCHM_LIFECYCLE_API_FILE_CONTENTS_GROUP = 209;
+	int SCHM_LIFECYCLE_API_FILE_CONTENTS_GROUP = 216;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25205,7 +26400,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartedBswm()
 	 * @generated
 	 */
-	int PARTED_BSWM = 210;
+	int PARTED_BSWM = 217;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25332,7 +26527,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswm()
 	 * @generated
 	 */
-	int BSWM = 211;
+	int BSWM = 218;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25432,7 +26627,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmDeinitApi()
 	 * @generated
 	 */
-	int SCHM_DEINIT_API = 212;
+	int SCHM_DEINIT_API = 219;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25550,7 +26745,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmInitApi()
 	 * @generated
 	 */
-	int SCHM_INIT_API = 213;
+	int SCHM_INIT_API = 220;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25704,7 +26899,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreSchmInitApi()
 	 * @generated
 	 */
-	int SINGLECORE_SCHM_INIT_API = 214;
+	int SINGLECORE_SCHM_INIT_API = 221;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25858,7 +27053,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreSchmInitApi()
 	 * @generated
 	 */
-	int MULTICORE_SCHM_INIT_API = 215;
+	int MULTICORE_SCHM_INIT_API = 222;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -26021,7 +27216,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmCoreInitApiImpl()
 	 * @generated
 	 */
-	int SCHM_CORE_INIT_API_IMPL = 216;
+	int SCHM_CORE_INIT_API_IMPL = 223;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -26184,7 +27379,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPointerType()
 	 * @generated
 	 */
-	int POINTER_TYPE = 217;
+	int POINTER_TYPE = 224;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -26320,7 +27515,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionPointerType()
 	 * @generated
 	 */
-	int REDEFINITION_POINTER_TYPE = 218;
+	int REDEFINITION_POINTER_TYPE = 225;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -26474,7 +27669,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionType()
 	 * @generated
 	 */
-	int REDEFINITION_TYPE = 219;
+	int REDEFINITION_TYPE = 226;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -26594,6 +27789,551 @@ public interface ModulePackage extends EPackage {
 	int REDEFINITION_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ActivationOperationImpl <em>Activation Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ActivationOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getActivationOperation()
+	 * @generated
+	 */
+	int ACTIVATION_OPERATION = 227;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__SOURCE = OPERATION__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__SINGLE_SOURCE = OPERATION__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__ROLE_NAME = OPERATION__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Activation Api</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__ACTIVATION_API = OPERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Activation Flag</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__ACTIVATION_FLAG = OPERATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Os Task Priority</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION__OS_TASK_PRIORITY = OPERATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Activation Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION_FEATURE_COUNT = OPERATION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Activation Operation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVATION_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsActivateTaskApiImpl <em>Os Activate Task Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsActivateTaskApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsActivateTaskApi()
+	 * @generated
+	 */
+	int OS_ACTIVATE_TASK_API = 228;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__SOURCE = OS_API__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__SINGLE_SOURCE = OS_API__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__ROLE_NAME = OS_API__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__ID = OS_API__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__RETURN_TYPE = OS_API__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__PARAM = OS_API__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__LOCAL_VARIABLE = OS_API__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__LOCAL_TYPE = OS_API__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__MEMORY_MAPPING = OS_API__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__SYMBOL_NAME = OS_API__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Os Task Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API__OS_TASK_ID = OS_API_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Os Activate Task Api</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API_FEATURE_COUNT = OS_API_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Os Activate Task Api</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_ACTIVATE_TASK_API_OPERATION_COUNT = OS_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FeedbackApiImpl <em>Feedback Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FeedbackApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFeedbackApi()
+	 * @generated
+	 */
+	int FEEDBACK_API = 229;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__SOURCE = RTE_API__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__SINGLE_SOURCE = RTE_API__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__ROLE_NAME = RTE_API__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__ID = RTE_API__ID;
+
+	/**
+	 * The feature id for the '<em><b>Return Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__RETURN_TYPE = RTE_API__RETURN_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__PARAM = RTE_API__PARAM;
+
+	/**
+	 * The feature id for the '<em><b>Local Variable</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__LOCAL_VARIABLE = RTE_API__LOCAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Local Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__LOCAL_TYPE = RTE_API__LOCAL_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Memory Mapping</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__MEMORY_MAPPING = RTE_API__MEMORY_MAPPING;
+
+	/**
+	 * The feature id for the '<em><b>Symbol Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__SYMBOL_NAME = RTE_API__SYMBOL_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__PARENT = RTE_API__PARENT;
+
+	/**
+	 * The feature id for the '<em><b>Api Mapping Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__API_MAPPING_NAME = RTE_API__API_MAPPING_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Is Connected</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__IS_CONNECTED = RTE_API__IS_CONNECTED;
+
+	/**
+	 * The feature id for the '<em><b>Is Inline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__IS_INLINE = RTE_API__IS_INLINE;
+
+	/**
+	 * The feature id for the '<em><b>Return Value</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__RETURN_VALUE = RTE_API__RETURN_VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Inline Constant</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__INLINE_CONSTANT = RTE_API__INLINE_CONSTANT;
+
+	/**
+	 * The feature id for the '<em><b>Inline Global Variable</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__INLINE_GLOBAL_VARIABLE = RTE_API__INLINE_GLOBAL_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Inline Runnable Entity</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__INLINE_RUNNABLE_ENTITY = RTE_API__INLINE_RUNNABLE_ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API__TACK_STATUS = RTE_API_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Feedback Api</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API_FEATURE_COUNT = RTE_API_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Feedback Api</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEEDBACK_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalBlockImpl <em>Logical Block</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalBlockImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLogicalBlock()
+	 * @generated
+	 */
+	int LOGICAL_BLOCK = 230;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK__SOURCE = MODULE_REFERRABLE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK__SINGLE_SOURCE = MODULE_REFERRABLE__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK__ROLE_NAME = MODULE_REFERRABLE__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK__ID = MODULE_REFERRABLE__ID;
+
+	/**
+	 * The number of structural features of the '<em>Logical Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK_FEATURE_COUNT = MODULE_REFERRABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Logical Block</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOGICAL_BLOCK_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckStatusImpl <em>TAck Status</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckStatusImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckStatus()
+	 * @generated
+	 */
+	int TACK_STATUS = 231;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS__SOURCE = LOGICAL_BLOCK__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Single Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS__SINGLE_SOURCE = LOGICAL_BLOCK__SINGLE_SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS__ROLE_NAME = LOGICAL_BLOCK__ROLE_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS__ID = LOGICAL_BLOCK__ID;
+
+	/**
+	 * The feature id for the '<em><b>Status Variable</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS__STATUS_VARIABLE = LOGICAL_BLOCK_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>TAck Status</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_FEATURE_COUNT = LOGICAL_BLOCK_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>TAck Status</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_OPERATION_COUNT = LOGICAL_BLOCK_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum <em>Parameter Pass Type Enum</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26601,7 +28341,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getParameterPassTypeEnum()
 	 * @generated
 	 */
-	int PARAMETER_PASS_TYPE_ENUM = 220;
+	int PARAMETER_PASS_TYPE_ENUM = 232;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum <em>Parameter Direction Enum</em>}' enum.
@@ -26611,7 +28351,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getParameterDirectionEnum()
 	 * @generated
 	 */
-	int PARAMETER_DIRECTION_ENUM = 221;
+	int PARAMETER_DIRECTION_ENUM = 233;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum <em>Signedness Enum</em>}' enum.
@@ -26621,7 +28361,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSignednessEnum()
 	 * @generated
 	 */
-	int SIGNEDNESS_ENUM = 222;
+	int SIGNEDNESS_ENUM = 234;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum <em>Constant Value Type Enum</em>}' enum.
@@ -26631,7 +28371,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantValueTypeEnum()
 	 * @generated
 	 */
-	int CONSTANT_VALUE_TYPE_ENUM = 223;
+	int CONSTANT_VALUE_TYPE_ENUM = 235;
 
 	/**
 	 * The meta object id for the '<em>String</em>' data type.
@@ -26641,7 +28381,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getString()
 	 * @generated
 	 */
-	int STRING = 224;
+	int STRING = 236;
 
 	/**
 	 * The meta object id for the '<em>Verbatim String</em>' data type.
@@ -26651,7 +28391,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVerbatimString()
 	 * @generated
 	 */
-	int VERBATIM_STRING = 225;
+	int VERBATIM_STRING = 237;
 
 	/**
 	 * The meta object id for the '<em>CIdentifier</em>' data type.
@@ -26661,7 +28401,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCIdentifier()
 	 * @generated
 	 */
-	int CIDENTIFIER = 226;
+	int CIDENTIFIER = 238;
 
 	/**
 	 * The meta object id for the '<em>Boolean</em>' data type.
@@ -26671,7 +28411,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBoolean()
 	 * @generated
 	 */
-	int BOOLEAN = 227;
+	int BOOLEAN = 239;
 
 	/**
 	 * The meta object id for the '<em>Integer</em>' data type.
@@ -26681,7 +28421,7 @@ public interface ModulePackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInteger()
 	 * @generated
 	 */
-	int INTEGER = 228;
+	int INTEGER = 240;
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleObject <em>Object</em>}'.
@@ -26801,6 +28541,39 @@ public interface ModulePackage extends EPackage {
 	EAttribute getWriteApi_NeedsCheckArg();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getActivationOperation()
+	 * @see #getWriteApi()
+	 * @generated
+	 */
+	EReference getWriteApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getActivationFlag()
+	 * @see #getWriteApi()
+	 * @generated
+	 */
+	EReference getWriteApi_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi#getTAckStatus()
+	 * @see #getWriteApi()
+	 * @generated
+	 */
+	EReference getWriteApi_TAckStatus();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation <em>Send Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26896,6 +28669,17 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRteBufferNonqueuedSendOperation_FilterOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag On Rx Success</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation#getActivationFlagOnRxSuccess()
+	 * @see #getRteBufferNonqueuedSendOperation()
+	 * @generated
+	 */
+	EReference getRteBufferNonqueuedSendOperation_ActivationFlagOnRxSuccess();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedReadOperation <em>Rte Buffer Nonqueued Read Operation</em>}'.
@@ -28283,6 +30067,17 @@ public interface ModulePackage extends EPackage {
 	EReference getPartition_PartitionRestartingApi();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_TAckStatus();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody <em>Task Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28922,6 +30717,39 @@ public interface ModulePackage extends EPackage {
 	EReference getInvalidateApi_Operation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationOperation()
+	 * @see #getInvalidateApi()
+	 * @generated
+	 */
+	EReference getInvalidateApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationFlag()
+	 * @see #getInvalidateApi()
+	 * @generated
+	 */
+	EReference getInvalidateApi_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getTAckStatus()
+	 * @see #getInvalidateApi()
+	 * @generated
+	 */
+	EReference getInvalidateApi_TAckStatus();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocNonqueuedSendOperation <em>Ioc Nonqueued Send Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28963,6 +30791,17 @@ public interface ModulePackage extends EPackage {
 	EClass getTrustedFunctionRteOperation();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getType()
+	 * @see #getTrustedFunctionRteOperation()
+	 * @generated
+	 */
+	EReference getTrustedFunctionRteOperation_Type();
+
+	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28974,58 +30813,47 @@ public interface ModulePackage extends EPackage {
 	EReference getTrustedFunctionRteOperation_TempReturnVariable();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation <em>Trusted Function Rte Send Operation</em>}'.
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Trusted Function Rte Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation
+	 * @return the meta object for the reference list '<em>Activation Flag On Rx Success</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getActivationFlagOnRxSuccess()
+	 * @see #getTrustedFunctionRteOperation()
 	 * @generated
 	 */
-	EClass getTrustedFunctionRteSendOperation();
+	EReference getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getType()
-	 * @see #getTrustedFunctionRteSendOperation()
-	 * @generated
-	 */
-	EReference getTrustedFunctionRteSendOperation_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getSrSendTfSymbolName <em>Sr Send Tf Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sr Send Tf Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getSrSendTfSymbolName()
-	 * @see #getTrustedFunctionRteSendOperation()
-	 * @generated
-	 */
-	EAttribute getTrustedFunctionRteSendOperation_SrSendTfSymbolName();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Trusted Function Param Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getTrustedFunctionParamVariable()
-	 * @see #getTrustedFunctionRteSendOperation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable()
+	 * @see #getTrustedFunctionRteOperation()
 	 * @generated
 	 */
-	EReference getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable();
+	EReference getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getIsGroup <em>Is Group</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation <em>Trusted Function Rte Buffer Send Send Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Group</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation#getIsGroup()
-	 * @see #getTrustedFunctionRteSendOperation()
+	 * @return the meta object for class '<em>Trusted Function Rte Buffer Send Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation
 	 * @generated
 	 */
-	EAttribute getTrustedFunctionRteSendOperation_IsGroup();
+	EClass getTrustedFunctionRteBufferSendSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation#getAccessTrustedFunction <em>Access Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation#getAccessTrustedFunction()
+	 * @see #getTrustedFunctionRteBufferSendSendOperation()
+	 * @generated
+	 */
+	EReference getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation <em>Trusted Function Com Send Operation</em>}'.
@@ -29271,47 +31099,69 @@ public interface ModulePackage extends EPackage {
 	EClass getComReceiveSignalApi();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback <em>Com Receive Callback</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback <em>Com Rx Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Receive Callback</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback
+	 * @return the meta object for class '<em>Com Rx Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback
 	 * @generated
 	 */
-	EClass getComReceiveCallback();
+	EClass getComRxCallback();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getOperation()
-	 * @see #getComReceiveCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getOperation()
+	 * @see #getComRxCallback()
 	 * @generated
 	 */
-	EReference getComReceiveCallback_Operation();
+	EReference getComRxCallback_Operation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getDataVariable <em>Data Variable</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getActivationOperation()
+	 * @see #getComRxCallback()
+	 * @generated
+	 */
+	EReference getComRxCallback_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getActivationFlag()
+	 * @see #getComRxCallback()
+	 * @generated
+	 */
+	EReference getComRxCallback_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getDataVariable <em>Data Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Data Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getDataVariable()
-	 * @see #getComReceiveCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getDataVariable()
+	 * @see #getComRxCallback()
 	 * @generated
 	 */
-	EReference getComReceiveCallback_DataVariable();
+	EReference getComRxCallback_DataVariable();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getAccessApi <em>Access Api</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getAccessApi <em>Access Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback#getAccessApi()
-	 * @see #getComReceiveCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback#getAccessApi()
+	 * @see #getComRxCallback()
 	 * @generated
 	 */
-	EReference getComReceiveCallback_AccessApi();
+	EReference getComRxCallback_AccessApi();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation <em>Com Send Operation</em>}'.
@@ -29346,6 +31196,28 @@ public interface ModulePackage extends EPackage {
 	EReference getComSendOperation_TempReturnVariable();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation#getTAckStatus()
+	 * @see #getComSendOperation()
+	 * @generated
+	 */
+	EReference getComSendOperation_TAckStatus();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation#getActivationFlagOnTxErr <em>Activation Flag On Tx Err</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag On Tx Err</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation#getActivationFlagOnTxErr()
+	 * @see #getComSendOperation()
+	 * @generated
+	 */
+	EReference getComSendOperation_ActivationFlagOnTxErr();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback <em>Com Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29356,79 +31228,123 @@ public interface ModulePackage extends EPackage {
 	EClass getComCallback();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback <em>Com Receive Timeout Callback</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback <em>Com Rx TOut Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Receive Timeout Callback</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback
+	 * @return the meta object for class '<em>Com Rx TOut Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback
 	 * @generated
 	 */
-	EClass getComReceiveTimeoutCallback();
+	EClass getComRxTOutCallback();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getOperation()
-	 * @see #getComReceiveTimeoutCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getOperation()
+	 * @see #getComRxTOutCallback()
 	 * @generated
 	 */
-	EReference getComReceiveTimeoutCallback_Operation();
+	EReference getComRxTOutCallback_Operation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getDataVariable <em>Data Variable</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getActivationOperation()
+	 * @see #getComRxTOutCallback()
+	 * @generated
+	 */
+	EReference getComRxTOutCallback_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getActivationFlag()
+	 * @see #getComRxTOutCallback()
+	 * @generated
+	 */
+	EReference getComRxTOutCallback_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getDataVariable <em>Data Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Data Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getDataVariable()
-	 * @see #getComReceiveTimeoutCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getDataVariable()
+	 * @see #getComRxTOutCallback()
 	 * @generated
 	 */
-	EReference getComReceiveTimeoutCallback_DataVariable();
+	EReference getComRxTOutCallback_DataVariable();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getAccessApi <em>Access Api</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getAccessApi <em>Access Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback#getAccessApi()
-	 * @see #getComReceiveTimeoutCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback#getAccessApi()
+	 * @see #getComRxTOutCallback()
 	 * @generated
 	 */
-	EReference getComReceiveTimeoutCallback_AccessApi();
+	EReference getComRxTOutCallback_AccessApi();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback <em>Com Invalidate Callback</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback <em>Com Inv Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Invalidate Callback</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback
+	 * @return the meta object for class '<em>Com Inv Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback
 	 * @generated
 	 */
-	EClass getComInvalidateCallback();
+	EClass getComInvCallback();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback#getOperation <em>Operation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback#getOperation()
-	 * @see #getComInvalidateCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getOperation()
+	 * @see #getComInvCallback()
 	 * @generated
 	 */
-	EReference getComInvalidateCallback_Operation();
+	EReference getComInvCallback_Operation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback#getFilterResultVariable <em>Filter Result Variable</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getActivationOperation()
+	 * @see #getComInvCallback()
+	 * @generated
+	 */
+	EReference getComInvCallback_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getActivationFlag()
+	 * @see #getComInvCallback()
+	 * @generated
+	 */
+	EReference getComInvCallback_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getFilterResultVariable <em>Filter Result Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Filter Result Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback#getFilterResultVariable()
-	 * @see #getComInvalidateCallback()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback#getFilterResultVariable()
+	 * @see #getComInvCallback()
 	 * @generated
 	 */
-	EReference getComInvalidateCallback_FilterResultVariable();
+	EReference getComInvCallback_FilterResultVariable();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity <em>Com Send Signal Proxy Entity</em>}'.
@@ -29441,26 +31357,15 @@ public interface ModulePackage extends EPackage {
 	EClass getComSendSignalProxyEntity();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getPrimitiveOperation <em>Primitive Operation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getOperation <em>Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Primitive Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getPrimitiveOperation()
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getOperation()
 	 * @see #getComSendSignalProxyEntity()
 	 * @generated
 	 */
-	EReference getComSendSignalProxyEntity_PrimitiveOperation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getComplexOperation <em>Complex Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Complex Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity#getComplexOperation()
-	 * @see #getComSendSignalProxyEntity()
-	 * @generated
-	 */
-	EReference getComSendSignalProxyEntity_ComplexOperation();
+	EReference getComSendSignalProxyEntity_Operation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}'.
@@ -29481,6 +31386,101 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComSendSignalPeriodicEntity();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation <em>TAck Notify Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TAck Notify Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation
+	 * @generated
+	 */
+	EClass getTAckNotifyOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation#getActivationOperation()
+	 * @see #getTAckNotifyOperation()
+	 * @generated
+	 */
+	EReference getTAckNotifyOperation_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation#getTAckStatus()
+	 * @see #getTAckNotifyOperation()
+	 * @generated
+	 */
+	EReference getTAckNotifyOperation_TAckStatus();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback <em>Com Tx TOut Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Tx TOut Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback
+	 * @generated
+	 */
+	EClass getComTxTOutCallback();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback#getTAckNotifyOperation <em>TAck Notify Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>TAck Notify Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback#getTAckNotifyOperation()
+	 * @see #getComTxTOutCallback()
+	 * @generated
+	 */
+	EReference getComTxTOutCallback_TAckNotifyOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback <em>Com TAck Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com TAck Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback
+	 * @generated
+	 */
+	EClass getComTAckCallback();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback#getTAckNotifyOperation <em>TAck Notify Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>TAck Notify Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback#getTAckNotifyOperation()
+	 * @see #getComTAckCallback()
+	 * @generated
+	 */
+	EReference getComTAckCallback_TAckNotifyOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback <em>Com TErr Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com TErr Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback
+	 * @generated
+	 */
+	EClass getComTErrCallback();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback#getTAckNotifyOperation <em>TAck Notify Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>TAck Notify Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback#getTAckNotifyOperation()
+	 * @see #getComTErrCallback()
+	 * @generated
+	 */
+	EReference getComTErrCallback_TAckNotifyOperation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FilterOperation <em>Filter Operation</em>}'.
@@ -30452,6 +32452,26 @@ public interface ModulePackage extends EPackage {
 	EReference getRteBufferQueueType_ElementType();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType <em>Rte Nonqueued Send Trusted Function Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType
+	 * @generated
+	 */
+	EClass getRteNonqueuedSendTrustedFunctionParamType();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType <em>Rte Queued Send Trusted Function Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Queued Send Trusted Function Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType
+	 * @generated
+	 */
+	EClass getRteQueuedSendTrustedFunctionParamType();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType <em>Mode Queue Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30482,16 +32502,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModeQueueType_ElementType();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType <em>Rte Send Trusted Function Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Send Trusted Function Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType
-	 * @generated
-	 */
-	EClass getRteSendTrustedFunctionParamType();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType <em>Com Send Trusted Function Param Type</em>}'.
@@ -30586,17 +32596,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getTempReturnVariable()
-	 * @see #getTrustedFunctionRteBufferInvalidateSendOperation()
-	 * @generated
-	 */
-	EReference getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping <em>Memory Mapping</em>}'.
@@ -31097,48 +33096,37 @@ public interface ModulePackage extends EPackage {
 	EAttribute getComProxyFunction_IocReceiveSymbolName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}'.
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSendSignalFunctionSymbolName <em>Send Signal Function Symbol Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Signal Group Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalGroupSymbolName()
+	 * @return the meta object for the attribute '<em>Send Signal Function Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSendSignalFunctionSymbolName()
 	 * @see #getComProxyFunction()
 	 * @generated
 	 */
-	EAttribute getComProxyFunction_SignalGroupSymbolName();
+	EAttribute getComProxyFunction_SendSignalFunctionSymbolName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComProxySymbolName <em>Buffer Com Proxy Symbol Name</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferVariable <em>Buffer Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Buffer Com Proxy Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComProxySymbolName()
+	 * @return the meta object for the reference '<em>Buffer Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferVariable()
 	 * @see #getComProxyFunction()
 	 * @generated
 	 */
-	EAttribute getComProxyFunction_BufferComProxySymbolName();
+	EReference getComProxyFunction_BufferVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComMetaComplexDataSymbolName <em>Buffer Com Meta Complex Data Symbol Name</em>}'.
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalInformationSymbolName <em>Signal Information Symbol Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Buffer Com Meta Complex Data Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getBufferComMetaComplexDataSymbolName()
+	 * @return the meta object for the attribute '<em>Signal Information Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getSignalInformationSymbolName()
 	 * @see #getComProxyFunction()
 	 * @generated
 	 */
-	EAttribute getComProxyFunction_BufferComMetaComplexDataSymbolName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getProxyDataTypeName <em>Proxy Data Type Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proxy Data Type Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getProxyDataTypeName()
-	 * @see #getComProxyFunction()
-	 * @generated
-	 */
-	EAttribute getComProxyFunction_ProxyDataTypeName();
+	EAttribute getComProxyFunction_SignalInformationSymbolName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getIsGroup <em>Is Group</em>}'.
@@ -31150,6 +33138,28 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getComProxyFunction_IsGroup();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getActivationOperation()
+	 * @see #getComProxyFunction()
+	 * @generated
+	 */
+	EReference getComProxyFunction_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction#getTAckStatus()
+	 * @see #getComProxyFunction()
+	 * @generated
+	 */
+	EReference getComProxyFunction_TAckStatus();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApiWrapper <em>Com Send Signal Api Wrapper</em>}'.
@@ -31916,6 +33926,122 @@ public interface ModulePackage extends EPackage {
 	EOperation getRedefinitionType__GetLeafType();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation
+	 * @generated
+	 */
+	EClass getActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getActivationApi <em>Activation Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Activation Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getActivationApi()
+	 * @see #getActivationOperation()
+	 * @generated
+	 */
+	EReference getActivationOperation_ActivationApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getActivationFlag()
+	 * @see #getActivationOperation()
+	 * @generated
+	 */
+	EReference getActivationOperation_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getOsTaskPriority <em>Os Task Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Task Priority</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation#getOsTaskPriority()
+	 * @see #getActivationOperation()
+	 * @generated
+	 */
+	EAttribute getActivationOperation_OsTaskPriority();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi <em>Os Activate Task Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Activate Task Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi
+	 * @generated
+	 */
+	EClass getOsActivateTaskApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi#getOsTaskId <em>Os Task Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Task Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi#getOsTaskId()
+	 * @see #getOsActivateTaskApi()
+	 * @generated
+	 */
+	EAttribute getOsActivateTaskApi_OsTaskId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi <em>Feedback Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Feedback Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi
+	 * @generated
+	 */
+	EClass getFeedbackApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi#getTAckStatus()
+	 * @see #getFeedbackApi()
+	 * @generated
+	 */
+	EReference getFeedbackApi_TAckStatus();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalBlock <em>Logical Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Logical Block</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalBlock
+	 * @generated
+	 */
+	EClass getLogicalBlock();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus
+	 * @generated
+	 */
+	EClass getTAckStatus();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus#getStatusVariable <em>Status Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Status Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus#getStatusVariable()
+	 * @see #getTAckStatus()
+	 * @generated
+	 */
+	EReference getTAckStatus_StatusVariable();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi <em>Restart Partition Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31958,6 +34084,17 @@ public interface ModulePackage extends EPackage {
 	EReference getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation()
+	 * @see #getPartitionRestartingApi()
+	 * @generated
+	 */
+	EReference getPartitionRestartingApi_ActivationOperation();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi <em>Partition Terminated Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31977,6 +34114,17 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation()
+	 * @see #getPartitionTerminatedApi()
+	 * @generated
+	 */
+	EReference getPartitionTerminatedApi_ActivationOperation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi <em>Rte Lifecycle Api</em>}'.
@@ -32063,6 +34211,39 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSendApi_NeedsCheckArg();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_TAckStatus();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi <em>Receive Api</em>}'.
@@ -32275,6 +34456,17 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getIocSendOperation_Type();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag On Rx Success</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess()
+	 * @see #getIocSendOperation()
+	 * @generated
+	 */
+	EReference getIocSendOperation_ActivationFlagOnRxSuccess();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation <em>Ioc Queued Send Operation</em>}'.
@@ -32863,6 +35055,27 @@ public interface ModulePackage extends EPackage {
 	EAttribute getRteExitApi_IsNoneExclude();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody <em>Os Background Task Activation Executable Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Background Task Activation Executable Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody
+	 * @generated
+	 */
+	EClass getOsBackgroundTaskActivationExecutableTaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation()
+	 * @see #getOsBackgroundTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	EReference getOsBackgroundTaskActivationExecutableTaskBody_Operation();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody <em>Os Task Activation Executable Task Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33075,6 +35288,16 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation <em>Plain Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plain Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation
+	 * @generated
+	 */
+	EClass getPlainExecutableStartOperation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation <em>Mode Switch Triggering Executable Start Operation</em>}'.
@@ -33487,15 +35710,26 @@ public interface ModulePackage extends EPackage {
 	EReference getRte_CsTfParamType();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType <em>Sr Rte Nonqueued Send Tf Param Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sr Rte Send Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType()
+	 * @return the meta object for the containment reference '<em>Sr Rte Nonqueued Send Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType()
 	 * @see #getRte()
 	 * @generated
 	 */
-	EReference getRte_SrRteSendTfParamType();
+	EReference getRte_SrRteNonqueuedSendTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType <em>Sr Rte Queued Send Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sr Rte Queued Send Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SrRteQueuedSendTfParamType();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}'.
@@ -33722,90 +35956,47 @@ public interface ModulePackage extends EPackage {
 	EAttribute getVariable_SymbolName();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation <em>Primitive Com Send Proxy Operation</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation <em>Com Send Proxy Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Primitive Com Send Proxy Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation
+	 * @return the meta object for class '<em>Com Send Proxy Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation
 	 * @generated
 	 */
-	EClass getPrimitiveComSendProxyOperation();
+	EClass getComSendProxyOperation();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getReadValueVariable <em>Read Value Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Read Value Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getReadValueVariable()
-	 * @see #getPrimitiveComSendProxyOperation()
-	 * @generated
-	 */
-	EReference getPrimitiveComSendProxyOperation_ReadValueVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getAccessApi <em>Access Api</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi <em>Access Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getAccessApi()
-	 * @see #getPrimitiveComSendProxyOperation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi()
+	 * @see #getComSendProxyOperation()
 	 * @generated
 	 */
-	EReference getPrimitiveComSendProxyOperation_AccessApi();
+	EReference getComSendProxyOperation_AccessApi();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getSignalIdVariable <em>Signal Id Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Signal Id Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation#getSignalIdVariable()
-	 * @see #getPrimitiveComSendProxyOperation()
-	 * @generated
-	 */
-	EReference getPrimitiveComSendProxyOperation_SignalIdVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation <em>Complex Com Send Proxy Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Complex Com Send Proxy Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation
-	 * @generated
-	 */
-	EClass getComplexComSendProxyOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getAccessApi <em>Access Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getAccessApi()
-	 * @see #getComplexComSendProxyOperation()
-	 * @generated
-	 */
-	EReference getComplexComSendProxyOperation_AccessApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}'.
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Function Table Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getFunctionTableSymbolName()
-	 * @see #getComplexComSendProxyOperation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName()
+	 * @see #getComSendProxyOperation()
 	 * @generated
 	 */
-	EAttribute getComplexComSendProxyOperation_FunctionTableSymbolName();
+	EAttribute getComSendProxyOperation_FunctionTableSymbolName();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getTableIndexVariable <em>Table Index Variable</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable <em>Table Index Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Table Index Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation#getTableIndexVariable()
-	 * @see #getComplexComSendProxyOperation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable()
+	 * @see #getComSendProxyOperation()
 	 * @generated
 	 */
-	EReference getComplexComSendProxyOperation_TableIndexVariable();
+	EReference getComSendProxyOperation_TableIndexVariable();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getType <em>Type</em>}'.
@@ -34049,6 +36240,38 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRteBufferWriteTrustedFunction_DataVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Send Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction
+	 * @generated
+	 */
+	EClass getRteBufferSendTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation()
+	 * @see #getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferSendTrustedFunction_Operation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable <em>Data Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable()
+	 * @see #getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferSendTrustedFunction_DataVariable();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction <em>Cs Trusted Function</em>}'.
@@ -34519,6 +36742,30 @@ public interface ModulePackage extends EPackage {
 		EAttribute WRITE_API__NEEDS_CHECK_ARG = eINSTANCE.getWriteApi_NeedsCheckArg();
 
 		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_API__ACTIVATION_OPERATION = eINSTANCE.getWriteApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_API__ACTIVATION_FLAG = eINSTANCE.getWriteApi_ActivationFlag();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WRITE_API__TACK_STATUS = eINSTANCE.getWriteApi_TAckStatus();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl <em>Send Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -34593,6 +36840,14 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RTE_BUFFER_NONQUEUED_SEND_OPERATION__FILTER_OPERATION = eINSTANCE.getRteBufferNonqueuedSendOperation_FilterOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getRteBufferNonqueuedSendOperation_ActivationFlagOnRxSuccess();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedReadOperationImpl <em>Rte Buffer Nonqueued Read Operation</em>}' class.
@@ -35665,6 +37920,14 @@ public interface ModulePackage extends EPackage {
 		EReference PARTITION__PARTITION_RESTARTING_API = eINSTANCE.getPartition_PartitionRestartingApi();
 
 		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__TACK_STATUS = eINSTANCE.getPartition_TAckStatus();
+
+		/**
 		 * The meta object literal for the '<em><b>Task Body</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -36157,6 +38420,30 @@ public interface ModulePackage extends EPackage {
 		EReference INVALIDATE_API__OPERATION = eINSTANCE.getInvalidateApi_Operation();
 
 		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INVALIDATE_API__ACTIVATION_OPERATION = eINSTANCE.getInvalidateApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INVALIDATE_API__ACTIVATION_FLAG = eINSTANCE.getInvalidateApi_ActivationFlag();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INVALIDATE_API__TACK_STATUS = eINSTANCE.getInvalidateApi_TAckStatus();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedSendOperationImpl <em>Ioc Nonqueued Send Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -36195,6 +38482,14 @@ public interface ModulePackage extends EPackage {
 		EClass TRUSTED_FUNCTION_RTE_OPERATION = eINSTANCE.getTrustedFunctionRteOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRUSTED_FUNCTION_RTE_OPERATION__TYPE = eINSTANCE.getTrustedFunctionRteOperation_Type();
+
+		/**
 		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -36203,30 +38498,12 @@ public interface ModulePackage extends EPackage {
 		EReference TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getTrustedFunctionRteOperation_TempReturnVariable();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteSendOperationImpl <em>Trusted Function Rte Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteSendOperation()
-		 * @generated
-		 */
-		EClass TRUSTED_FUNCTION_RTE_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRUSTED_FUNCTION_RTE_SEND_OPERATION__TYPE = eINSTANCE.getTrustedFunctionRteSendOperation_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Send Tf Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRUSTED_FUNCTION_RTE_SEND_OPERATION__SR_SEND_TF_SYMBOL_NAME = eINSTANCE.getTrustedFunctionRteSendOperation_SrSendTfSymbolName();
+		EReference TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess();
 
 		/**
 		 * The meta object literal for the '<em><b>Trusted Function Param Variable</b></em>' reference feature.
@@ -36234,15 +38511,25 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRUSTED_FUNCTION_RTE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable();
+		EReference TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Group</b></em>' attribute feature.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl <em>Trusted Function Rte Buffer Send Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferSendSendOperation()
+		 * @generated
+		 */
+		EClass TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteBufferSendSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Trusted Function</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_GROUP = eINSTANCE.getTrustedFunctionRteSendOperation_IsGroup();
+		EReference TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl <em>Trusted Function Com Send Operation</em>}' class.
@@ -36449,14 +38736,14 @@ public interface ModulePackage extends EPackage {
 		EClass COM_RECEIVE_SIGNAL_API = eINSTANCE.getComReceiveSignalApi();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveCallbackImpl <em>Com Receive Callback</em>}' class.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl <em>Com Rx Callback</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveCallbackImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveCallback()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxCallback()
 		 * @generated
 		 */
-		EClass COM_RECEIVE_CALLBACK = eINSTANCE.getComReceiveCallback();
+		EClass COM_RX_CALLBACK = eINSTANCE.getComRxCallback();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
@@ -36464,7 +38751,23 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_CALLBACK__OPERATION = eINSTANCE.getComReceiveCallback_Operation();
+		EReference COM_RX_CALLBACK__OPERATION = eINSTANCE.getComRxCallback_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_RX_CALLBACK__ACTIVATION_OPERATION = eINSTANCE.getComRxCallback_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_RX_CALLBACK__ACTIVATION_FLAG = eINSTANCE.getComRxCallback_ActivationFlag();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
@@ -36472,7 +38775,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_CALLBACK__DATA_VARIABLE = eINSTANCE.getComReceiveCallback_DataVariable();
+		EReference COM_RX_CALLBACK__DATA_VARIABLE = eINSTANCE.getComRxCallback_DataVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
@@ -36480,7 +38783,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_CALLBACK__ACCESS_API = eINSTANCE.getComReceiveCallback_AccessApi();
+		EReference COM_RX_CALLBACK__ACCESS_API = eINSTANCE.getComRxCallback_AccessApi();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl <em>Com Send Operation</em>}' class.
@@ -36509,6 +38812,22 @@ public interface ModulePackage extends EPackage {
 		EReference COM_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getComSendOperation_TempReturnVariable();
 
 		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_OPERATION__TACK_STATUS = eINSTANCE.getComSendOperation_TAckStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag On Tx Err</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR = eINSTANCE.getComSendOperation_ActivationFlagOnTxErr();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl <em>Com Callback</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -36519,14 +38838,14 @@ public interface ModulePackage extends EPackage {
 		EClass COM_CALLBACK = eINSTANCE.getComCallback();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveTimeoutCallbackImpl <em>Com Receive Timeout Callback</em>}' class.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl <em>Com Rx TOut Callback</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveTimeoutCallbackImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveTimeoutCallback()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxTOutCallback()
 		 * @generated
 		 */
-		EClass COM_RECEIVE_TIMEOUT_CALLBACK = eINSTANCE.getComReceiveTimeoutCallback();
+		EClass COM_RX_TOUT_CALLBACK = eINSTANCE.getComRxTOutCallback();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
@@ -36534,7 +38853,23 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_TIMEOUT_CALLBACK__OPERATION = eINSTANCE.getComReceiveTimeoutCallback_Operation();
+		EReference COM_RX_TOUT_CALLBACK__OPERATION = eINSTANCE.getComRxTOutCallback_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_RX_TOUT_CALLBACK__ACTIVATION_OPERATION = eINSTANCE.getComRxTOutCallback_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_RX_TOUT_CALLBACK__ACTIVATION_FLAG = eINSTANCE.getComRxTOutCallback_ActivationFlag();
 
 		/**
 		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
@@ -36542,7 +38877,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_TIMEOUT_CALLBACK__DATA_VARIABLE = eINSTANCE.getComReceiveTimeoutCallback_DataVariable();
+		EReference COM_RX_TOUT_CALLBACK__DATA_VARIABLE = eINSTANCE.getComRxTOutCallback_DataVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
@@ -36550,17 +38885,17 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_RECEIVE_TIMEOUT_CALLBACK__ACCESS_API = eINSTANCE.getComReceiveTimeoutCallback_AccessApi();
+		EReference COM_RX_TOUT_CALLBACK__ACCESS_API = eINSTANCE.getComRxTOutCallback_AccessApi();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvalidateCallbackImpl <em>Com Invalidate Callback</em>}' class.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl <em>Com Inv Callback</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvalidateCallbackImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvalidateCallback()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvCallback()
 		 * @generated
 		 */
-		EClass COM_INVALIDATE_CALLBACK = eINSTANCE.getComInvalidateCallback();
+		EClass COM_INV_CALLBACK = eINSTANCE.getComInvCallback();
 
 		/**
 		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
@@ -36568,7 +38903,23 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_INVALIDATE_CALLBACK__OPERATION = eINSTANCE.getComInvalidateCallback_Operation();
+		EReference COM_INV_CALLBACK__OPERATION = eINSTANCE.getComInvCallback_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_INV_CALLBACK__ACTIVATION_OPERATION = eINSTANCE.getComInvCallback_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_INV_CALLBACK__ACTIVATION_FLAG = eINSTANCE.getComInvCallback_ActivationFlag();
 
 		/**
 		 * The meta object literal for the '<em><b>Filter Result Variable</b></em>' reference feature.
@@ -36576,7 +38927,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_INVALIDATE_CALLBACK__FILTER_RESULT_VARIABLE = eINSTANCE.getComInvalidateCallback_FilterResultVariable();
+		EReference COM_INV_CALLBACK__FILTER_RESULT_VARIABLE = eINSTANCE.getComInvCallback_FilterResultVariable();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl <em>Com Send Signal Proxy Entity</em>}' class.
@@ -36589,20 +38940,12 @@ public interface ModulePackage extends EPackage {
 		EClass COM_SEND_SIGNAL_PROXY_ENTITY = eINSTANCE.getComSendSignalProxyEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Primitive Operation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION = eINSTANCE.getComSendSignalProxyEntity_PrimitiveOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Complex Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION = eINSTANCE.getComSendSignalProxyEntity_ComplexOperation();
+		EReference COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION = eINSTANCE.getComSendSignalProxyEntity_Operation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateEntityImpl <em>Com Send Signal Immediate Entity</em>}' class.
@@ -36623,6 +38966,86 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass COM_SEND_SIGNAL_PERIODIC_ENTITY = eINSTANCE.getComSendSignalPeriodicEntity();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl <em>TAck Notify Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckNotifyOperation()
+		 * @generated
+		 */
+		EClass TACK_NOTIFY_OPERATION = eINSTANCE.getTAckNotifyOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TACK_NOTIFY_OPERATION__ACTIVATION_OPERATION = eINSTANCE.getTAckNotifyOperation_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TACK_NOTIFY_OPERATION__TACK_STATUS = eINSTANCE.getTAckNotifyOperation_TAckStatus();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl <em>Com Tx TOut Callback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTxTOutCallback()
+		 * @generated
+		 */
+		EClass COM_TX_TOUT_CALLBACK = eINSTANCE.getComTxTOutCallback();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Notify Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_TX_TOUT_CALLBACK__TACK_NOTIFY_OPERATION = eINSTANCE.getComTxTOutCallback_TAckNotifyOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl <em>Com TAck Callback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTAckCallback()
+		 * @generated
+		 */
+		EClass COM_TACK_CALLBACK = eINSTANCE.getComTAckCallback();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Notify Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_TACK_CALLBACK__TACK_NOTIFY_OPERATION = eINSTANCE.getComTAckCallback_TAckNotifyOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl <em>Com TErr Callback</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTErrCallback()
+		 * @generated
+		 */
+		EClass COM_TERR_CALLBACK = eINSTANCE.getComTErrCallback();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Notify Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_TERR_CALLBACK__TACK_NOTIFY_OPERATION = eINSTANCE.getComTErrCallback_TAckNotifyOperation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl <em>Filter Operation</em>}' class.
@@ -37417,6 +39840,26 @@ public interface ModulePackage extends EPackage {
 		EReference RTE_BUFFER_QUEUE_TYPE__ELEMENT_TYPE = eINSTANCE.getRteBufferQueueType_ElementType();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl <em>Rte Nonqueued Send Trusted Function Param Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteNonqueuedSendTrustedFunctionParamType()
+		 * @generated
+		 */
+		EClass RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = eINSTANCE.getRteNonqueuedSendTrustedFunctionParamType();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl <em>Rte Queued Send Trusted Function Param Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteQueuedSendTrustedFunctionParamType()
+		 * @generated
+		 */
+		EClass RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = eINSTANCE.getRteQueuedSendTrustedFunctionParamType();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -37441,16 +39884,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODE_QUEUE_TYPE__ELEMENT_TYPE = eINSTANCE.getModeQueueType_ElementType();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSendTrustedFunctionParamTypeImpl <em>Rte Send Trusted Function Param Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSendTrustedFunctionParamTypeImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteSendTrustedFunctionParamType()
-		 * @generated
-		 */
-		EClass RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE = eINSTANCE.getRteSendTrustedFunctionParamType();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
@@ -37533,14 +39966,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
@@ -37957,36 +40382,28 @@ public interface ModulePackage extends EPackage {
 		EAttribute COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME = eINSTANCE.getComProxyFunction_IocReceiveSymbolName();
 
 		/**
-		 * The meta object literal for the '<em><b>Signal Group Symbol Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Send Signal Function Symbol Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME = eINSTANCE.getComProxyFunction_SignalGroupSymbolName();
+		EAttribute COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME = eINSTANCE.getComProxyFunction_SendSignalFunctionSymbolName();
 
 		/**
-		 * The meta object literal for the '<em><b>Buffer Com Proxy Symbol Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Buffer Variable</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME = eINSTANCE.getComProxyFunction_BufferComProxySymbolName();
+		EReference COM_PROXY_FUNCTION__BUFFER_VARIABLE = eINSTANCE.getComProxyFunction_BufferVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Buffer Com Meta Complex Data Symbol Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Signal Information Symbol Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME = eINSTANCE.getComProxyFunction_BufferComMetaComplexDataSymbolName();
-
-		/**
-		 * The meta object literal for the '<em><b>Proxy Data Type Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME = eINSTANCE.getComProxyFunction_ProxyDataTypeName();
+		EAttribute COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME = eINSTANCE.getComProxyFunction_SignalInformationSymbolName();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Group</b></em>' attribute feature.
@@ -37995,6 +40412,22 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COM_PROXY_FUNCTION__IS_GROUP = eINSTANCE.getComProxyFunction_IsGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_PROXY_FUNCTION__ACTIVATION_OPERATION = eINSTANCE.getComProxyFunction_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_PROXY_FUNCTION__TACK_STATUS = eINSTANCE.getComProxyFunction_TAckStatus();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl <em>Com Send Signal Api Wrapper</em>}' class.
@@ -38625,6 +41058,104 @@ public interface ModulePackage extends EPackage {
 		EOperation REDEFINITION_TYPE___GET_LEAF_TYPE = eINSTANCE.getRedefinitionType__GetLeafType();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ActivationOperationImpl <em>Activation Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ActivationOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getActivationOperation()
+		 * @generated
+		 */
+		EClass ACTIVATION_OPERATION = eINSTANCE.getActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTIVATION_OPERATION__ACTIVATION_API = eINSTANCE.getActivationOperation_ActivationApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTIVATION_OPERATION__ACTIVATION_FLAG = eINSTANCE.getActivationOperation_ActivationFlag();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Task Priority</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTIVATION_OPERATION__OS_TASK_PRIORITY = eINSTANCE.getActivationOperation_OsTaskPriority();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsActivateTaskApiImpl <em>Os Activate Task Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsActivateTaskApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsActivateTaskApi()
+		 * @generated
+		 */
+		EClass OS_ACTIVATE_TASK_API = eINSTANCE.getOsActivateTaskApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Task Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_ACTIVATE_TASK_API__OS_TASK_ID = eINSTANCE.getOsActivateTaskApi_OsTaskId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FeedbackApiImpl <em>Feedback Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FeedbackApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFeedbackApi()
+		 * @generated
+		 */
+		EClass FEEDBACK_API = eINSTANCE.getFeedbackApi();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FEEDBACK_API__TACK_STATUS = eINSTANCE.getFeedbackApi_TAckStatus();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalBlockImpl <em>Logical Block</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalBlockImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLogicalBlock()
+		 * @generated
+		 */
+		EClass LOGICAL_BLOCK = eINSTANCE.getLogicalBlock();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckStatusImpl <em>TAck Status</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckStatusImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckStatus()
+		 * @generated
+		 */
+		EClass TACK_STATUS = eINSTANCE.getTAckStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Status Variable</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TACK_STATUS__STATUS_VARIABLE = eINSTANCE.getTAckStatus_StatusVariable();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -38661,6 +41192,14 @@ public interface ModulePackage extends EPackage {
 		EReference PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_RESTARTING_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionRestartingApi_ActivationOperation();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -38677,6 +41216,14 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_TERMINATED_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionTerminatedApi_ActivationOperation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
@@ -38745,6 +41292,30 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEND_API__NEEDS_CHECK_ARG = eINSTANCE.getSendApi_NeedsCheckArg();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__ACTIVATION_OPERATION = eINSTANCE.getSendApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__ACTIVATION_FLAG = eINSTANCE.getSendApi_ActivationFlag();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__TACK_STATUS = eINSTANCE.getSendApi_TAckStatus();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
@@ -38921,6 +41492,14 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference IOC_SEND_OPERATION__TYPE = eINSTANCE.getIocSendOperation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getIocSendOperation_ActivationFlagOnRxSuccess();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
@@ -39401,6 +41980,24 @@ public interface ModulePackage extends EPackage {
 		EAttribute RTE_EXIT_API__IS_NONE_EXCLUDE = eINSTANCE.getRteExitApi_IsNoneExclude();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
+		 * @generated
+		 */
+		EClass OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody_Operation();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -39571,6 +42168,16 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE = eINSTANCE.getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
+		 * @generated
+		 */
+		EClass PLAIN_EXECUTABLE_START_OPERATION = eINSTANCE.getPlainExecutableStartOperation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
@@ -39893,12 +42500,20 @@ public interface ModulePackage extends EPackage {
 		EReference RTE__CS_TF_PARAM_TYPE = eINSTANCE.getRte_CsTfParamType();
 
 		/**
-		 * The meta object literal for the '<em><b>Sr Rte Send Tf Param Type</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Sr Rte Nonqueued Send Tf Param Type</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RTE__SR_RTE_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteSendTfParamType();
+		EReference RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteNonqueuedSendTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Rte Queued Send Tf Param Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteQueuedSendTfParamType();
 
 		/**
 		 * The meta object literal for the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list feature.
@@ -40083,22 +42698,14 @@ public interface ModulePackage extends EPackage {
 		EAttribute VARIABLE__SYMBOL_NAME = eINSTANCE.getVariable_SymbolName();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveComSendProxyOperationImpl <em>Primitive Com Send Proxy Operation</em>}' class.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveComSendProxyOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveComSendProxyOperation()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
 		 * @generated
 		 */
-		EClass PRIMITIVE_COM_SEND_PROXY_OPERATION = eINSTANCE.getPrimitiveComSendProxyOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Read Value Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PRIMITIVE_COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE = eINSTANCE.getPrimitiveComSendProxyOperation_ReadValueVariable();
+		EClass COM_SEND_PROXY_OPERATION = eINSTANCE.getComSendProxyOperation();
 
 		/**
 		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
@@ -40106,33 +42713,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API = eINSTANCE.getPrimitiveComSendProxyOperation_AccessApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Signal Id Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PRIMITIVE_COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE = eINSTANCE.getPrimitiveComSendProxyOperation_SignalIdVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComplexComSendProxyOperationImpl <em>Complex Com Send Proxy Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComplexComSendProxyOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComplexComSendProxyOperation()
-		 * @generated
-		 */
-		EClass COMPLEX_COM_SEND_PROXY_OPERATION = eINSTANCE.getComplexComSendProxyOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPLEX_COM_SEND_PROXY_OPERATION__ACCESS_API = eINSTANCE.getComplexComSendProxyOperation_AccessApi();
+		EReference COM_SEND_PROXY_OPERATION__ACCESS_API = eINSTANCE.getComSendProxyOperation_AccessApi();
 
 		/**
 		 * The meta object literal for the '<em><b>Function Table Symbol Name</b></em>' attribute feature.
@@ -40140,7 +42721,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMPLEX_COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = eINSTANCE.getComplexComSendProxyOperation_FunctionTableSymbolName();
+		EAttribute COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = eINSTANCE.getComSendProxyOperation_FunctionTableSymbolName();
 
 		/**
 		 * The meta object literal for the '<em><b>Table Index Variable</b></em>' reference feature.
@@ -40148,7 +42729,7 @@ public interface ModulePackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPLEX_COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = eINSTANCE.getComplexComSendProxyOperation_TableIndexVariable();
+		EReference COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = eINSTANCE.getComSendProxyOperation_TableIndexVariable();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -40353,6 +42934,32 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferWriteTrustedFunction_DataVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_SEND_TRUSTED_FUNCTION = eINSTANCE.getRteBufferSendTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferSendTrustedFunction_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferSendTrustedFunction_DataVariable();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.

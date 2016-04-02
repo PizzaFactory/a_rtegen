@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -71,7 +71,7 @@ import org.stringtemplate.v4.ST;
 import com.google.common.io.Resources;
 
 public class OclModelValidator implements IModelValidator {
-	private static final Charset DEFAULT_ENCODING = Charset.forName("EUC-JP");
+	private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
 
 	private static final Pattern IMPORT_STATEMENT_PATTERN = Pattern.compile("^\\s*import\\s*.+$", Pattern.MULTILINE);
 

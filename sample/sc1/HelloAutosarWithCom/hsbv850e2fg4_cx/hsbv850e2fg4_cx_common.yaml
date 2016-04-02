@@ -38,7 +38,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-#  $Id: hsbv850e2fg4_cx_common.yaml 355 2015-02-22 00:47:38Z mtakada $
+#  $Id: hsbv850e2fg4_cx_common.yaml 651 2016-03-31 06:20:22Z mtakada $
 #
 
 Ecuc:
@@ -63,6 +63,7 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: INTCSIG0IR
       OsIsrInterruptPriority: 4
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
 
@@ -71,6 +72,7 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: INTFCN0TRX
       OsIsrInterruptPriority: 3
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
 
@@ -79,6 +81,7 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: INTFCN1REC
       OsIsrInterruptPriority: 4
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
 
@@ -87,5 +90,25 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: INTFCN1TRX
       OsIsrInterruptPriority: 3
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
+
+# CANコントローラ
+  Can:
+    CanConfigSet:
+      CanController1:      
+        CanControllerBaudrateConfig_0:
+          DefinitionRef: CanControllerBaudrateConfig
+          CanControllerBaudRate: 500
+          CanControllerPropSeg: 0
+          CanControllerSeg1: 0
+          CanControllerSeg2: 255
+          CanControllerSyncJumpWidth: 0
+        CanControllerBaudrateConfig_1:
+          DefinitionRef: CanControllerBaudrateConfig
+          CanControllerBaudRate: 250
+          CanControllerPropSeg: 0
+          CanControllerSeg1: 0
+          CanControllerSeg2: 255
+          CanControllerSyncJumpWidth: 0

@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,10 +39,10 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: rteSource.mtl 14676 2015-06-10 05:00:47Z m-umeda $
+ *  $Id: rteSource.mtl 19918 2016-01-08 06:05:46Z hiroki.kitagawa $
  */
 [/comment]
-[comment encoding = EUC-JP /]
+[comment encoding = UTF-8 /]
 [module rteSource('http://nces.is.nagoya-u.ac.jp/a-rte/rte/module')]
 
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::rteApi /]
@@ -55,6 +55,7 @@
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::entityOperation /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::excludeOperation /]
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::irvOperation /]
+[import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::activationOperation /]
 
 [comment]
 ファイル内容定義
@@ -342,6 +343,18 @@ BSWスケジューラ ライフサイクルAPIの定義
 
 [template private genTaskBody(aTaskBody : TaskBody) /]
 
+[template private genTaskBody(aTaskBody : OsBackgroundTaskActivationExecutableTaskBody) ]
+[aTaskBody.symbolName/]
+{
+	while (1) {
+		Rte_InternalTraceTaskLoopStart(); /* MISRA RULE 14.2 VIOLATION : It is safe because the macro is only defined for RTE test codes */
+		[aTaskBody.operation.genContextActivationOperation()/]
+		Rte_InternalTraceTaskLoopEnd(); /* MISRA RULE 14.2 VIOLATION : It is safe because the macro is only defined for RTE test codes */
+	}
+	(void) Rte_Call_Bsw_TerminateTask();
+}
+[/template]
+
 [template private genTaskBody(aTaskBody : OsTaskActivationExecutableTaskBody) ]
 [aTaskBody.symbolName/]
 {
@@ -440,36 +453,44 @@ BSWスケジューラ ライフサイクルAPIの定義
 [aTrustedFunction.returnType.symbolName/]
 [aTrustedFunction.symbolName/]([aTrustedFunction.genFunctionParams()/]) /* MISRA RULE 16.7 VIOLATION : It can't be fixed because the type(TrustedFunctionParameterRefType) is a pointer typedef */
 {
-[if (aTrustedFunction.operation.oclIsKindOf(RteBufferQueuedSendOperation))]
-	Rte_SendTrustedFunctionParamType *p_tfn_prm = (Rte_SendTrustedFunctionParamType *) tfn_prm; /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
-	[aTrustedFunction.operation.genTrustedSendOperation()/]
-[elseif (aTrustedFunction.operation.oclIsKindOf(RteBufferNonqueuedSendOperation))]
-	[if (aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.oclIsKindOf(PrimitiveType) or aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.oclIsKindOf(PointerType))]
+	[if (aTrustedFunction.operation.accessVariable.valueVariable.type.oclIsKindOf(PrimitiveType) or aTrustedFunction.operation.accessVariable.valueVariable.type.oclIsKindOf(PointerType))]
 		[aTrustedFunction.genLocalVariableDeclarations()/]
+		Rte_NonqueuedSendTrustedFunctionParamType *p_tfn_prm;
+	
+		p_tfn_prm = (Rte_NonqueuedSendTrustedFunctionParamType *) tfn_prm; /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
+	
 		[aTrustedFunction.genLocalVariableInitializations()/]
 	
-		[aTrustedFunction.dataVariable.genValueAccess()/] = *(([aTrustedFunction.dataVariable.type.symbolName/] *) tfn_prm); /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
+		[aTrustedFunction.dataVariable.genValueAccess()/] = *(([aTrustedFunction.dataVariable.type.symbolName/] *) p_tfn_prm->tf_data); /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
 	
 		[aTrustedFunction.operation.genSendOperation()/]
 	[else]
+		Rte_NonqueuedSendTrustedFunctionParamType *p_tfn_prm;
+	
+		p_tfn_prm = (Rte_NonqueuedSendTrustedFunctionParamType *) tfn_prm; /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
+	
 		[let aExcludeOperation : ExcludeOperation = aTrustedFunction.operation.excludeOperation]
 			[aExcludeOperation.genExcludeOperationEnter()/]
 		[/let]
-		[if (aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.oclIsKindOf(ArrayType))]
-			Rte_ArrayMemcpy([aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.symbolName/], ([aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.originalTypeSymbolName/] *)tfn_prm, [aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
-		[elseif (aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.oclIsKindOf(StructType))]
-			Rte_StructMemcpy(&[aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.symbolName/], tfn_prm, [aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
-		[elseif (aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.oclIsKindOf(UnionType))]
-			Rte_UnionMemcpy(&[aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.symbolName/], tfn_prm, [aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
+		[if (aTrustedFunction.operation.accessVariable.valueVariable.type.oclIsKindOf(ArrayType))]
+			Rte_ArrayMemcpy([aTrustedFunction.operation.accessVariable.valueVariable.symbolName/], ([aTrustedFunction.operation.accessVariable.valueVariable.type.originalTypeSymbolName/] *)p_tfn_prm->tf_data, [aTrustedFunction.operation.accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
+		[elseif (aTrustedFunction.operation.accessVariable.valueVariable.type.oclIsKindOf(StructType))]
+			Rte_StructMemcpy(&[aTrustedFunction.operation.accessVariable.valueVariable.symbolName/], p_tfn_prm->tf_data, [aTrustedFunction.operation.accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
+		[elseif (aTrustedFunction.operation.accessVariable.valueVariable.type.oclIsKindOf(UnionType))]
+			Rte_UnionMemcpy(&[aTrustedFunction.operation.accessVariable.valueVariable.symbolName/], p_tfn_prm->tf_data, [aTrustedFunction.operation.accessVariable.valueVariable.type.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
 		[/if]
-		[if (not aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.statusVariable.oclIsUndefined())]
-			[aTrustedFunction.operation.oclAsType(RteBufferNonqueuedSendOperation).accessVariable.statusVariable.symbolName/] = [aTrustedFunction.operation.sendStatus.genValueAccess()/];
+		[if (not aTrustedFunction.operation.accessVariable.statusVariable.oclIsUndefined())]
+			[aTrustedFunction.operation.accessVariable.statusVariable.symbolName/] = [aTrustedFunction.operation.sendStatus.genValueAccess()/];
 		[/if]
 		[let aExcludeOperation : ExcludeOperation = aTrustedFunction.operation.excludeOperation]
 			[aExcludeOperation.genExcludeOperationExit()/]
 		[/let]
 	[/if]
-[/if]
+	[if (not aTrustedFunction.operation.filterOperation.oclIsUndefined())]
+		p_tfn_prm->tf_rx_res = [aTrustedFunction.operation.filterOperation.filterResultVariable.genValueAccess()/];
+	[else]
+		p_tfn_prm->tf_rx_res = TRUE;
+	[/if]
 
 	return(E_OK);
 }
@@ -480,9 +501,42 @@ BSWスケジューラ ライフサイクルAPIの定義
 [aTrustedFunction.symbolName/]([aTrustedFunction.genFunctionParams()/]) /* MISRA RULE 16.7 VIOLATION : It can't be fixed because the type(TrustedFunctionParameterRefType) is a pointer typedef */
 {	
 	[aTrustedFunction.genLocalVariableDeclarations()/]
+	Rte_NonqueuedSendTrustedFunctionParamType *p_tfn_prm;
+
+	p_tfn_prm = (Rte_NonqueuedSendTrustedFunctionParamType *) tfn_prm; /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
 	[aTrustedFunction.genLocalVariableInitializations()/]
 
 	[aTrustedFunction.operation.genSendOperation()/]
+	[if (not aTrustedFunction.operation.filterOperation.oclIsUndefined())]
+		p_tfn_prm->tf_rx_res = [aTrustedFunction.operation.filterOperation.filterResultVariable.genValueAccess()/];
+	[else]
+		p_tfn_prm->tf_rx_res = TRUE;
+	[/if]
+
+	return(E_OK);
+}
+[/template]
+
+[template private genTrustedFunction(aTrustedFunction : RteBufferSendTrustedFunction) ]
+[aTrustedFunction.returnType.symbolName/]
+[aTrustedFunction.symbolName/]([aTrustedFunction.genFunctionParams()/]) /* MISRA RULE 16.7 VIOLATION : It can't be fixed because the type(TrustedFunctionParameterRefType) is a pointer typedef */
+{
+	Rte_QueuedSendTrustedFunctionParamType *p_tfn_prm = (Rte_QueuedSendTrustedFunctionParamType *) tfn_prm; /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable(tfn_prm) is passed from RTE codes */
+	[let aExcludeOperation : ExcludeOperation = aTrustedFunction.operation.excludeOperation]
+		[aExcludeOperation.genExcludeOperationEnter()/]
+	[/let]
+	[if (aTrustedFunction.operation.type.oclIsKindOf(ArrayType))]
+		Rte_EnqueueArray([aTrustedFunction.operation.accessVariable.genPointerAccess()/], ([aTrustedFunction.operation.type.symbolName/] *) p_tfn_prm->tf_data, [aTrustedFunction.operation.type.symbolName/], [aTrustedFunction.operation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+	[elseif aTrustedFunction.operation.type.oclIsKindOf(StructType)]
+		Rte_EnqueueStruct([aTrustedFunction.operation.accessVariable.genPointerAccess()/], ([aTrustedFunction.operation.type.symbolName/] *) p_tfn_prm->tf_data, [aTrustedFunction.operation.type.symbolName/], [aTrustedFunction.operation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+	[elseif aTrustedFunction.operation.type.oclIsKindOf(UnionType)]
+		Rte_EnqueueUnion([aTrustedFunction.operation.accessVariable.genPointerAccess()/], ([aTrustedFunction.operation.type.symbolName/] *) p_tfn_prm->tf_data, [aTrustedFunction.operation.type.symbolName/], [aTrustedFunction.operation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
+	[else]
+		Rte_Enqueue([aTrustedFunction.operation.accessVariable.genPointerAccess()/], ([aTrustedFunction.operation.type.symbolName/]) p_tfn_prm->tf_data, [aTrustedFunction.operation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
+	[/if]
+	[let aExcludeOperation : ExcludeOperation = aTrustedFunction.operation.excludeOperation]
+		[aExcludeOperation.genExcludeOperationExit()/]
+	[/let]
 
 	return(E_OK);
 }
@@ -594,11 +648,11 @@ uint8
 [/template]
 
 [comment]
-PROXY GROUP関数の定義
+PROXY関数の定義
 [/comment]
 [template private genProxyGroupFunctions (aRteSource : RteSource) ]
 /*
- * Proxy Group Functions
+ * Proxy Functions
  */
 [for (aGroup : ComProxyFunctionFileContentsGroup | aRteSource.comProxyFunctionGroup)]
 	[aGroup.memoryMapping.genMemoryMappingStart()/]
@@ -617,14 +671,29 @@ PROXY GROUP関数の定義
 void
 [aComProxyFunction.symbolName/](void)
 {
-	Std_ReturnType ercd;
-	[aComProxyFunction.proxyDataTypeName/] *proxy_data = ([aComProxyFunction.proxyDataTypeName/]*)(&[aComProxyFunction.bufferComProxySymbolName/]);  /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
-	ercd = [aComProxyFunction.iocReceiveSymbolName/](proxy_data);
+	[aComProxyFunction.genLocalVariableDeclarations()/]
+	ercd = [aComProxyFunction.iocReceiveSymbolName/]([aComProxyFunction.bufferVariable.genPointerAccess()/]);
 	if ((ercd == IOC_E_OK) || (ercd == IOC_E_LOST_DATA)) {
-		[if (aComProxyFunction.isGroup)]
-			(void)[aComProxyFunction.signalGroupSymbolName/]((&[aComProxyFunction.bufferComMetaComplexDataSymbolName/]), (const uint8*)proxy_data);  /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable is passed from RTE codes */
+		[if (aComProxyFunction.tAckStatus.oclIsUndefined())]
+			[if (aComProxyFunction.isGroup)]
+				(void) [aComProxyFunction.sendSignalFunctionSymbolName/]((&[aComProxyFunction.signalInformationSymbolName/]), (const uint8*)[aComProxyFunction.bufferVariable.genPointerAccess()/]);  /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable is passed from RTE codes */
+			[else]
+				(void)[aComProxyFunction.sendSignalFunctionSymbolName/]([aComProxyFunction.signalInformationSymbolName/], [aComProxyFunction.bufferVariable.genPointerAccess()/]);
+			[/if]
 		[else]
-			(void)[aComProxyFunction.signalGroupSymbolName/]([aComProxyFunction.bufferComMetaComplexDataSymbolName/], proxy_data);
+			[if (aComProxyFunction.isGroup)]
+				ercd = [aComProxyFunction.sendSignalFunctionSymbolName/]((&[aComProxyFunction.signalInformationSymbolName/]), (const uint8*)[aComProxyFunction.bufferVariable.genPointerAccess()/]);  /* MISRA RULE 11.4 VIOLATION : It is safe because the argument variable is passed from RTE codes */
+			[else]
+				ercd = [aComProxyFunction.sendSignalFunctionSymbolName/]([aComProxyFunction.signalInformationSymbolName/], [aComProxyFunction.bufferVariable.genPointerAccess()/]);
+			[/if]
+			if (ercd != E_OK) {
+				if (ercd == COM_SERVICE_NOT_AVAILABLE) {
+					[aComProxyFunction.tAckStatus.statusVariable.symbolName/] = RTE_E_COM_STOPPED;
+				} else {
+					[aComProxyFunction.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+				}
+				[aComProxyFunction.genActivationOperations()/]
+			}
 		[/if]
 	}
 }
@@ -652,7 +721,15 @@ RTE COMコールバックの定義
 
 [template private genComCallback(aComCallback : ComCallback) /]
 
-[template private genComCallback(aComCallback : ComReceiveCallback) ]
+[template private genComCallback(aComCallback : ComRxCallback) ? (aComCallback.operation->isEmpty())]
+[aComCallback.returnType.symbolName/]
+[aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
+{
+	[aComCallback.genActivationOperations()/]
+}
+[/template]
+
+[template private genComCallback(aComCallback : ComRxCallback) ? (not aComCallback.operation->isEmpty())]
 [aComCallback.returnType.symbolName/]
 [aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
 {
@@ -666,10 +743,11 @@ RTE COMコールバックの定義
 	[for (aSendOperation : SendOperation | aComCallback.operation)]
 			[aSendOperation.genSendOperation()/]
 	[/for]
+	[aComCallback.genActivationOperations()/]
 }
 [/template]
 
-[template private genComCallback(aComCallback : ComReceiveTimeoutCallback) ]
+[template private genComCallback(aComCallback : ComRxTOutCallback) ]
 [aComCallback.returnType.symbolName/]
 [aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
 {
@@ -683,10 +761,11 @@ RTE COMコールバックの定義
 	[for (aSendOperation : SendOperation | aComCallback.operation)]
 			[aSendOperation.genSendOperation()/]
 	[/for]
+	[aComCallback.genActivationOperations()/]
 }
 [/template]
 
-[template private genComCallback(aComCallback : ComInvalidateCallback) ]
+[template private genComCallback(aComCallback : ComInvCallback) ]
 [aComCallback.returnType.symbolName/]
 [aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
 {
@@ -694,6 +773,46 @@ RTE COMコールバックの定義
 	[aComCallback.genLocalVariableInitializations()/]
 	[for (aSendOperation : SendOperation | aComCallback.operation)]
 			[aSendOperation.genSendOperation()/]
+	[/for]
+	[aComCallback.genActivationOperations()/]
+}
+[/template]
+
+[template private genComCallback(aComCallback : ComTAckCallback) ]
+[aComCallback.returnType.symbolName/]
+[aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
+{
+	[for (tAckNotifyOperation : TAckNotifyOperation | aComCallback.tAckNotifyOperation)]
+		if([tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] == RTE_E_NO_DATA) {
+			[tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_TRANSMIT_ACK;
+			[tAckNotifyOperation.genActivationOperations()/]
+		}
+	[/for]
+}
+[/template]
+
+[template private genComCallback(aComCallback : ComTErrCallback) ]
+[aComCallback.returnType.symbolName/]
+[aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
+{
+	[for (tAckNotifyOperation : TAckNotifyOperation | aComCallback.tAckNotifyOperation)]
+		if([tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] == RTE_E_NO_DATA) {
+			[tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_COM_STOPPED;
+			[tAckNotifyOperation.genActivationOperations()/]
+		}
+	[/for]
+}
+[/template]
+
+[template private genComCallback(aComCallback : ComTxTOutCallback) ]
+[aComCallback.returnType.symbolName/]
+[aComCallback.symbolName/]([aComCallback.genFunctionParams()/])
+{
+	[for (tAckNotifyOperation : TAckNotifyOperation | aComCallback.tAckNotifyOperation)]
+		if([tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] == RTE_E_NO_DATA) {
+			[tAckNotifyOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_TIMEOUT;
+			[tAckNotifyOperation.genActivationOperations()/]
+		}
 	[/for]
 }
 [/template]
@@ -745,18 +864,7 @@ BSWスケジューラブルエンティティの定義
 {
 	[aBswSchedulableEntity.genLocalVariableDeclarations()/]
 	[aBswSchedulableEntity.genLocalVariableInitializations()/]
-	[for (aProxyOperation : PrimitiveComSendProxyOperation | aBswSchedulableEntity.primitiveOperation)]
-		while (1) {
-			ercd = [aProxyOperation.accessApi.symbolName/]([aProxyOperation.signalIdVariable.genPointerAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
-			if ((ercd == IOC_E_OK) || (ercd == IOC_E_LOST_DATA)) {
-		        (void) [aProxyOperation.accessApi.comSendSignalSymbolName/]([aProxyOperation.signalIdVariable.genValueAccess()/], [aProxyOperation.readValueVariable.genPointerAccess()/]);
-			} else {
-				break;
-			}
-		}
-	[/for]
-
-	[for (aProxyOperation : ComplexComSendProxyOperation | aBswSchedulableEntity.complexOperation)]
+	[for (aProxyOperation : ComSendProxyOperation | aBswSchedulableEntity.operation)]
 		while (1) {
 			ercd = [aProxyOperation.accessApi.symbolName/]([aProxyOperation.tableIndexVariable.genPointerAccess()/]);
 			if ((ercd == IOC_E_OK) || (ercd == IOC_E_LOST_DATA)) {

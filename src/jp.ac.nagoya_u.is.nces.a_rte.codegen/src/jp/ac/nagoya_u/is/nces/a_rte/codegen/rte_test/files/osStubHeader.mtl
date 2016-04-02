@@ -3,7 +3,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -39,10 +39,10 @@
  *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
  *  の責任を負わない．
  * 
- *  $Id: header.mtl 13333 2015-02-24 03:45:52Z tmori $
+ *  $Id: osStubHeader.mtl 19918 2016-01-08 06:05:46Z hiroki.kitagawa $
  */
 [/comment]
-[comment encoding = EUC-JP /]
+[comment encoding = UTF-8 /]
 [module osStubHeader('http://nces.is.nagoya-u.ac.jp/a-rte/rte-test', 'http://nces.is.nagoya-u.ac.jp/a-rte/rte/module')]
 
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::fileUtil /]

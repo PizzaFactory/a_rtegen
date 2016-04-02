@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -57,7 +57,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getShortLabel <em>Short Label</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getSymbol <em>Symbol</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getUpperLimit <em>Upper Limit</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getVt <em>Vt</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getCompuConst <em>Compu Const</em>}</li>
  * </ul>
  * </p>
  *
@@ -171,29 +171,29 @@ public interface CompuScale extends M2Object {
 	void setUpperLimit(Limit value);
 
 	/**
-	 * Returns the value of the '<em><b>Vt</b></em>' attribute.
+	 * Returns the value of the '<em><b>Compu Const</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Vt</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Compu Const</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Vt</em>' attribute.
-	 * @see #setVt(String)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_Vt()
-	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.String"
+	 * @return the value of the '<em>Compu Const</em>' containment reference.
+	 * @see #setCompuConst(CompuConst)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_CompuConst()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getVt();
+	CompuConst getCompuConst();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getVt <em>Vt</em>}' attribute.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale#getCompuConst <em>Compu Const</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Vt</em>' attribute.
-	 * @see #getVt()
+	 * @param value the new value of the '<em>Compu Const</em>' containment reference.
+	 * @see #getCompuConst()
 	 * @generated
 	 */
-	void setVt(String value);
+	void setCompuConst(CompuConst value);
 
 } // CompuScale

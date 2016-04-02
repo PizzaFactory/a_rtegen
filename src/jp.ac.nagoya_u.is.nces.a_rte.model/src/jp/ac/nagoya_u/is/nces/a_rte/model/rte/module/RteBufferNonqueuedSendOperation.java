@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +57,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation#getAccessVariable <em>Access Variable</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation#getFilterOperation <em>Filter Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,5 +117,21 @@ public interface RteBufferNonqueuedSendOperation extends SendOperation {
 	 * @generated
 	 */
 	void setFilterOperation(FilterOperation value);
+
+	/**
+	 * Returns the value of the '<em><b>Activation Flag On Rx Success</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Activation Flag On Rx Success</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Activation Flag On Rx Success</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRteBufferNonqueuedSendOperation_ActivationFlagOnRxSuccess()
+	 * @model
+	 * @generated
+	 */
+	EList<LocalVariable> getActivationFlagOnRxSuccess();
 
 } // RteBufferNonqueuedSendOperation

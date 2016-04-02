@@ -10,7 +10,7 @@ TOPPERS/A-RTEGEN
     Toyohashi Open Platform for Embedded Real-Time Systems
     Automotive Runtime Environment 
 
-Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
 
 上記著作権者は，以下の (1)〜(3)の条件を満たす場合に限り，本ドキュメ
 ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
@@ -38,11 +38,48 @@ Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: version.txt 527 2015-07-10 05:57:18Z mtakada $
+$Id: version.txt 651 2016-03-31 06:20:22Z mtakada $
+--------------------------------------------------------------------
+        A-RTEGEN
+        Release 1.2.2 から 1.3.0 への変更点
+        リリース日 2016-3-31
+
+○変更点のリスト
+
+・S/R連携のイベントと送信ACKの対応
+  - データ送信完了イベント(DataSendCompletedEvent)，データ受信イベント(
+    DataReceivedEvent)，データ受信エラーイベント(DataReceiveErrorEvent)
+    に対応し，S/R連携時にイベントによるランナブル起動ができるようになった．
+    また，送信ACKの状態をRte_Feedbackにより取得できるようになった．
+
+・バックグラウンドイベントの対応
+  - バックグラウンドイベント(BackgroundEvent/BswBackgroundEvent)に対応し，
+    イベントに紐付いたエクスキュータブルを繰り返し起動できるようになった．
+
+・スキーマファイル配置フォルダ指定オプションの追加
+  - スキーマファイル(AUTOSAR_4-0-3_STRICT.xsd)の配置フォルダを
+    "--schema-directory"オプションにて指定できる．未指定の場合は
+    デフォルト位置を使用する．
+
+・BSWスケジューラブルのシグネチャの修正
+  - BSWスケジューラブルのシグニチャが，AUTOSAR仕様に沿わないケースがあった
+    ため，準拠したシグニチャになるよう修正した．
+
+・Rte_Send/Invalidateの返すエラー値が不正なケースがある問題の修正
+  - RTE_DEV_DEFECTを返すケースにRTE_E_LIMITを返すケースがあった点を
+    修正した．
+
+・列挙定数の定義が不正になるケースの修正
+  - 列挙定数の定義が正しく出力されないケースがあった点を修正した．
+
+・文字コードをUFT-8へ変更
+
+・その他細かい修正
+
 ----------------------------------------------------------------------
         A-RTEGEN
         Release 1.2.1 から 1.2.2 への変更点
-        リリース日 2015-07-10
+        リリース日 2015-10-30
 
 ○変更点のリスト
 

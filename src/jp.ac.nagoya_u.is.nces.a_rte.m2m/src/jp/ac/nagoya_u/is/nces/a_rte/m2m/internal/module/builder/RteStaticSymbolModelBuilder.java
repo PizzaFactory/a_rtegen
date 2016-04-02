@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -82,6 +82,8 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RTE_VALUE_BUFFER_IMPLEMENTATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TACK_STATUS_VARIABLE_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.BSWM;
@@ -171,8 +173,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ProxyComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
@@ -198,10 +202,12 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
@@ -312,6 +318,15 @@ public class RteStaticSymbolModelBuilder {
 
 		// 同一シンボルなら利用する
 		try {
+			Type destType = this.context.query.selectSingle(this.context.cache.rte.getDependentType(), hasAttr(TYPE__SYMBOL_NAME, sourceDataType.getShortName()));
+			destType.getSource().add(sourceDataType);
+			return destType;
+		} catch (ModelException e) {
+			// 未作成
+			// do nothing
+		}
+
+		try {
 			Type destType = this.context.query.selectSingle(this.context.cache.rte.getImplementationDataType(), hasAttr(TYPE__SYMBOL_NAME, sourceDataType.getShortName()));
 			destType.getSource().add(sourceDataType);
 			return destType;
@@ -328,7 +343,7 @@ public class RteStaticSymbolModelBuilder {
 			if (sourceDataType.isArrayType()) {
 				destType = createArrayImplementationDataType(sourceDataType);
 			} else if (sourceDataType.isStructType()) {
-				destType = createStructImplementationDataTypeType(sourceDataType);
+				destType = createStructImplementationDataType(sourceDataType);
 			} else if (sourceDataType.isUnionType()) {
 				destType = createUnionImplementationDataType(sourceDataType);
 			} else if (sourceDataType.isPointerType()) {
@@ -343,6 +358,36 @@ public class RteStaticSymbolModelBuilder {
 		} else {
 			this.context.cache.rte.getDependentType().add(destType);
 		}
+		return destType;
+	}
+
+	private Type getOrBuildBuiltinDataType(SwBaseType sourceBaseType) {
+		// 作成済みなら利用する
+		try {
+			return this.context.builtQuery.findDest(TYPE, sourceBaseType);
+		} catch (ModelException e) {
+			// 未作成
+			// do nothing
+		}
+
+		// 同一シンボルなら利用する
+		try {
+			Type destType = this.context.query.selectSingle(this.context.cache.rte.getDependentType(), hasAttr(TYPE__SYMBOL_NAME, sourceBaseType.getNativeDeclaration()));
+			destType.getSource().add(sourceBaseType);
+			return destType;
+		} catch (ModelException e) {
+			// 未作成
+			// do nothing
+		}
+
+		// 未生成なので生成する
+		PrimitiveType destType = ModuleFactory.eINSTANCE.createPrimitiveType();
+		destType.setSingleSource(sourceBaseType);
+		destType.setSymbolName(sourceBaseType.getNativeDeclaration());
+		destType.setSignedness(Types.getSignedness(sourceBaseType));
+
+		// 実装型を生成するかの判別．生成しない場合，依存型として定義
+		this.context.cache.rte.getDependentType().add(destType);
 		return destType;
 	}
 
@@ -422,7 +467,7 @@ public class RteStaticSymbolModelBuilder {
 		return destType;
 	}
 
-	private StructType createStructImplementationDataTypeType(ImplementationDataType sourceDataType) throws ModelException {
+	private StructType createStructImplementationDataType(ImplementationDataType sourceDataType) throws ModelException {
 		StructType destType = ModuleFactory.eINSTANCE.createStructType();
 		destType.setSymbolName(sourceDataType.getShortName());
 		destType.setSingleSource(sourceDataType);
@@ -435,9 +480,9 @@ public class RteStaticSymbolModelBuilder {
 			if (sourceElement.isRedefinitionType()) {
 				// CategoryがTYPE_REFERENCEの場合、再帰的に処理を行う
 				destMemberType = getOrBuildImplementationDataType(sourceElement.getSwDataDefProps().getImplementationDataType());
+				destMember.setType(destMemberType);
 			} else {
-				String nativeName = sourceElement.getSwDataDefProps().getBaseType().getNativeDeclaration();
-				destMemberType = this.context.query.selectSingle(this.context.cache.rte.getDependentType(), hasAttr(TYPE__SYMBOL_NAME, nativeName));
+				destMemberType = getOrBuildBuiltinDataType(sourceElement.getSwDataDefProps().getBaseType());
 			}
 			destMember.setType(destMemberType);
 			destType.getMember().add(destMember);
@@ -459,8 +504,7 @@ public class RteStaticSymbolModelBuilder {
 				// CategoryがTYPE_REFERENCEの場合、再帰的に処理を行う
 				destMemberType = getOrBuildImplementationDataType(sourceElement.getSwDataDefProps().getImplementationDataType());
 			} else {
-				String nativeName = sourceElement.getSwDataDefProps().getBaseType().getNativeDeclaration();
-				destMemberType = this.context.query.selectSingle(this.context.cache.rte.getDependentType(), hasAttr(TYPE__SYMBOL_NAME, nativeName));
+				destMemberType = getOrBuildBuiltinDataType(sourceElement.getSwDataDefProps().getBaseType());
 			}
 			destMember.setType(destMemberType);
 			destType.getMember().add(destMember);
@@ -1042,7 +1086,7 @@ public class RteStaticSymbolModelBuilder {
 	// プロキシ経由COM送信のハンドラ関数テーブルの構築
 	private void buildComProxyFunctionTable() throws ModelException {
 		Partition targetPartition = this.context.cache.masterBswPartition;
-		if (!needToCreateComProxyFunctionTable()) {
+		if (this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION).isEmpty()) {
 			return;
 		}
 
@@ -1066,9 +1110,6 @@ public class RteStaticSymbolModelBuilder {
 
 		for (ComSendProxy sourceComSendProxy : this.context.query.<ComSendProxy> findByKind(COM_SEND_PROXY)) {
 			for (ComSendProxyInteraction sourceComSendProxyInteraction : sourceComSendProxy.getInteraction()) {
-				if (sourceComSendProxyInteraction.getSignalDataType().isPrimitiveType())
-					continue;
-
 				ProxyComSendImplementation sourceSendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceComSendProxyInteraction));
 				InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
 				PVariableDataInstanceInSwc sourceDataInstanceInSwc = (PVariableDataInstanceInSwc) sourceSender.getSource().getPrototype();
@@ -1082,10 +1123,12 @@ public class RteStaticSymbolModelBuilder {
 					destFunctionTableIndexConstants.add(createComProxyFunctionIndexConstant(sourceDataInstanceInSwc,
 							SymbolNames.createComProxyFunctionTableIndexConstantName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal())));
 					addConstantMember(destFunctionTableInitValueConstant, "&" + SymbolNames.createComProxyFunctionName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal()));
-					if (sourceComSendProxy instanceof PeriodicComSendProxy) {
-						buildComProxyBuffer(targetPartition, sourceDataInstanceInSwc, SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal()));
-					} else {
-						buildComProxyBuffer(targetPartition, sourceDataInstanceInSwc, SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal()));
+					if (sourceComSendProxyInteraction.getSignalDataType().isComplexType()) {
+						if (sourceComSendProxy instanceof PeriodicComSendProxy) {
+							buildComProxyBuffer(targetPartition, sourceDataInstanceInSwc, SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal()));
+						} else {
+							buildComProxyBuffer(targetPartition, sourceDataInstanceInSwc, SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal()));
+						}
 					}
 				}
 
@@ -1122,15 +1165,6 @@ public class RteStaticSymbolModelBuilder {
 
 		// テーブルサイズ定数を構築
 		targetPartition.setComProxyFunctionTableSizeConstant(createComProxyFunctionTableSizeConstant(index));
-	}
-
-	private boolean needToCreateComProxyFunctionTable() {
-		for (ComSendProxyInteraction proxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
-			if (proxyInteraction.getSignalDataType().isComplexType()) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	private Constant createComProxyFunctionIndexConstant(VariableDataInstanceInSwc sourceDataInstanceInSwc, String symbolName) {
@@ -1170,21 +1204,39 @@ public class RteStaticSymbolModelBuilder {
 	// シンボル(S/R)(内部実装用)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSrImplSymbols() throws ModelException {
-		buildSrRteSendTrustedFunctionParamTypes();
+		buildSrRteQueuedSendTrustedFunctionParamTypes();
+		buildSrRteNonqueuedSendTrustedFunctionParamTypes();
 		buildSrDataTypeImplConstants();
 		buildSrRteBufferSymbols();
 		buildSrFilterSymbols();
+		buildSrTAckStatusVariableSymbols();
 	}
 
-	private void buildSrRteSendTrustedFunctionParamTypes() {
+	private void buildSrRteQueuedSendTrustedFunctionParamTypes() {
 		Rte targetRte = this.context.cache.rte;
-		this.context.cache.rteSendTfParamType = Optional.absent();
 
-		if (!this.context.query.findByKind(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION).isEmpty()) {
-			RteSendTrustedFunctionParamType destType = ModuleFactory.eINSTANCE.createRteSendTrustedFunctionParamType();
-			destType.setSymbolName(SymbolNames.RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME);
-			targetRte.setSrRteSendTfParamType(destType);
-			this.context.cache.rteSendTfParamType = Optional.of(destType);
+		Optional<TrustedFunctionRteSendImplementation> sourceImplementation = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION).AND(hasOp(SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS, true)));
+		if (sourceImplementation.isPresent()) {
+			RteQueuedSendTrustedFunctionParamType destType = ModuleFactory.eINSTANCE.createRteQueuedSendTrustedFunctionParamType();
+			destType.setSymbolName(SymbolNames.RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME);
+			targetRte.setSrRteQueuedSendTfParamType(destType);
+			this.context.cache.rteQueuedSendTfParamType = Optional.of(destType);
+		} else {
+			this.context.cache.rteQueuedSendTfParamType = Optional.absent();
+		}
+	}
+
+	private void buildSrRteNonqueuedSendTrustedFunctionParamTypes() {
+		Rte targetRte = this.context.cache.rte;
+
+		Optional<TrustedFunctionRteSendImplementation> sourceImplementation = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION).AND(hasOp(SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS, false)));
+		if (sourceImplementation.isPresent()) {
+			RteNonqueuedSendTrustedFunctionParamType destType = ModuleFactory.eINSTANCE.createRteNonqueuedSendTrustedFunctionParamType();
+			destType.setSymbolName(SymbolNames.RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME);
+			targetRte.setSrRteNonqueuedSendTfParamType(destType);
+			this.context.cache.rteNonqueuedSendTfParamType = Optional.of(destType);
+		} else {
+			this.context.cache.rteNonqueuedSendTfParamType = Optional.absent();
 		}
 	}
 
@@ -1417,6 +1469,18 @@ public class RteStaticSymbolModelBuilder {
 			buildSrFilterVariable(targetPartition, sourceFilterBufferImplementation);
 		}
 	}
+	
+	private void buildSrTAckStatusVariableSymbols() throws ModelException {
+		for (TAckStatusVariableImplementation sourceImplementation : this.context.query.<TAckStatusVariableImplementation> findByKind(TACK_STATUS_VARIABLE_IMPLEMENTATION)) {
+			Partition targetPartition = this.context.builtQuery.findDestPartition(sourceImplementation.getOwnerPartition());
+
+			TAckStatus tAckStatus = createSrTAckStatus(sourceImplementation);
+			GlobalVariable statusVariable = createStatusVariable(sourceImplementation);
+
+			targetPartition.getTAckStatus().add(tAckStatus);
+			tAckStatus.setStatusVariable(statusVariable);
+		}
+	}
 
 	private void buildSrFilterConstant(Swc targetSwc, RVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		switch (sourceDataInstanceInSwc.getFilter().getDataFilterType()) {
@@ -1570,6 +1634,20 @@ public class RteStaticSymbolModelBuilder {
 		destFilterVariable.setHasStatic(false);
 		destFilterVariable.setHasConst(false);
 		return destFilterVariable;
+	}
+
+	private TAckStatus createSrTAckStatus(TAckStatusVariableImplementation sourceImplementation) throws ModelException {
+		TAckStatus tAckStatus = ModuleFactory.eINSTANCE.createTAckStatus();
+		tAckStatus.setSingleSource(sourceImplementation);
+		return tAckStatus;
+	}
+
+	private GlobalVariable createStatusVariable(TAckStatusVariableImplementation sourceImplementation) {
+		GlobalVariable destVariable = createGlobalVariable(SymbolNames.RTE_E_TRANSMIT_ACK_CONSTANT_NAME, this.context.cache.stdReturnType, this.context.cache.rteTransimitAckConstant, false);
+		destVariable.setSingleSource(sourceImplementation);
+		destVariable.setSymbolName(SymbolNames.createTAckStatusVariableName(sourceImplementation.getParent().getSource().getPrototype()));
+		destVariable.setMemoryMapping(this.memmapBuilder.buildRteVariableMemoryMapping(Optional.fromNullable(sourceImplementation.getOwnerPartition())));
+		return destVariable;
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
@@ -1993,7 +2071,7 @@ public class RteStaticSymbolModelBuilder {
 		Constant destStartOffsetConstant = ModuleFactory.eINSTANCE.createConstant();
 		destStartOffsetConstant.setSingleSource(sourceEntityStartImplementation);
 		destStartOffsetConstant.setRoleName(RoleNames.EXECUTABLE_START_OFFSET_ROLE_NAME);
-		destStartOffsetConstant.setSymbolName(SymbolNames.createEntityStartOffsetConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent()));
+		destStartOffsetConstant.setSymbolName(SymbolNames.createEntityStartOffsetConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getStartOnEvent()));
 		destStartOffsetConstant.setType(type);
 		destStartOffsetConstant.setValue(String.valueOf(sourceEntityStartImplementation.getStartOffset()));
 		return destStartOffsetConstant;
@@ -2004,7 +2082,7 @@ public class RteStaticSymbolModelBuilder {
 		Constant destCycleOffsetConstant = ModuleFactory.eINSTANCE.createConstant();
 		destCycleOffsetConstant.setSingleSource(sourceEntityStartImplementation);
 		destCycleOffsetConstant.setRoleName(RoleNames.EXECUTABLE_CYCLE_OFFSET_ROLE_NAME);
-		destCycleOffsetConstant.setSymbolName(SymbolNames.createEntityCycleOffsetConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent()));
+		destCycleOffsetConstant.setSymbolName(SymbolNames.createEntityCycleOffsetConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getStartOnEvent()));
 		destCycleOffsetConstant.setType(type);
 		destCycleOffsetConstant.setValue(String.valueOf(sourceEntityStartImplementation.getCycleOffset()));
 		return destCycleOffsetConstant;
@@ -2015,7 +2093,7 @@ public class RteStaticSymbolModelBuilder {
 		Constant destCyclePeriodConstant = ModuleFactory.eINSTANCE.createConstant();
 		destCyclePeriodConstant.setSingleSource(sourceEntityStartImplementation);
 		destCyclePeriodConstant.setRoleName(RoleNames.EXECUTABLE_CYCLE_PERIOD_ROLE_NAME);
-		destCyclePeriodConstant.setSymbolName(SymbolNames.createEntityCyclePeriodConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent()));
+		destCyclePeriodConstant.setSymbolName(SymbolNames.createEntityCyclePeriodConstantName(sourceOsTask, sourceOsEvent, sourceEntityStartInteraction.getStartOnEvent()));
 		destCyclePeriodConstant.setType(type);
 		destCyclePeriodConstant.setValue(String.valueOf(sourceEntityStartImplementation.getCyclePeriod()));
 		return destCyclePeriodConstant;

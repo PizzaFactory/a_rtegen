@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -614,6 +614,42 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__IsTAckEnabled() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRVariableDataInstanceInSwc() {
 		return rVariableDataInstanceInSwcEClass;
 	}
@@ -668,7 +704,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetInvalidationPolicy() {
+	public EOperation getRVariableDataInstanceInSwc__IsInvalidationKeep() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(4);
 	}
 
@@ -677,7 +713,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetInitValue() {
+	public EOperation getRVariableDataInstanceInSwc__IsInvalidationReplace() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(5);
 	}
 
@@ -686,7 +722,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetQueueLength() {
+	public EOperation getRVariableDataInstanceInSwc__GetInvalidationPolicy() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(6);
 	}
 
@@ -695,8 +731,44 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetComSpec() {
+	public EOperation getRVariableDataInstanceInSwc__GetInitValue() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetQueueLength() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetComSpec() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -1108,6 +1180,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY);
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE);
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT);
 
 		rVariableDataInstanceInSwcEClass = createEClass(RVARIABLE_DATA_INSTANCE_IN_SWC);
 		createEReference(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT);
@@ -1115,10 +1191,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_FILTER);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_ALIVE_TIMEOUT_ENABLED);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_ENABLED);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_QUEUE_LENGTH);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT);
 
 		assemblyDataInstanceConnectorEClass = createEClass(ASSEMBLY_DATA_INSTANCE_CONNECTOR);
 		createEReference(assemblyDataInstanceConnectorEClass, ASSEMBLY_DATA_INSTANCE_CONNECTOR__PROVIDER);
@@ -1273,6 +1353,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), ecorePackage.getEBoolean(), "isAccessedByDataSendPoint", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckEnabled(), ecorePackage.getEBoolean(), "isTAckEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), ecorePackage.getEBoolean(), "isTAckTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), theM2Package.getDataSendCompletedEvent(), "getRelatedDataSendCompletedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
@@ -1284,6 +1372,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationKeep(), ecorePackage.getEBoolean(), "isInvalidationKeep", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationReplace(), ecorePackage.getEBoolean(), "isInvalidationReplace", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED);
@@ -1291,6 +1383,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEOperation(getRVariableDataInstanceInSwc__GetQueueLength(), theM2Package.getPositiveInteger(), "getQueueLength", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRVariableDataInstanceInSwc__GetComSpec(), theM2Package.getReceiverComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), theM2Package.getDataReceivedEvent(), "getRelatedDataReceivedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), theM2Package.getDataReceiveErrorEvent(), "getRelatedDataReceiveErrorEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1365,7 +1461,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																												
+		   });																																																						
 	}
 
 	/**
@@ -1479,6 +1575,30 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "body", "let comSpec : m2::SenderComSpec = contextPPort.providedComSpec.oclAsType(m2::SenderComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\tendif"
 		   });		
 		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), 
+		   source, 
+		   new String[] {
+			 "body", "getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint->exists(accessedVariable.autosarVariable = self)"
+		   });		
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsTAckEnabled(), 
+		   source, 
+		   new String[] {
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined()"
+		   });		
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), 
+		   source, 
+		   new String[] {
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined() and getComSpec().transmissionAcknowledge.timeout <> 0"
+		   });		
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataSendCompletedEvent.allInstances()->select(eventSourceData = self)->asOrderedSet()"
+		   });		
+		addAnnotation
 		  (getPVariableDataInstanceInSwc_ContextPPort(), 
 		   source, 
 		   new String[] {
@@ -1509,6 +1629,18 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)"
 		   });			
 		addAnnotation
+		  (getRVariableDataInstanceInSwc__IsInvalidationKeep(), 
+		   source, 
+		   new String[] {
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)"
+		   });			
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__IsInvalidationReplace(), 
+		   source, 
+		   new String[] {
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)"
+		   });			
+		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetInvalidationPolicy(), 
 		   source, 
 		   new String[] {
@@ -1531,6 +1663,18 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		   source, 
 		   new String[] {
 			 "body", "let comSpec : m2::ReceiverComSpec = contextRPort.requiredComSpec.oclAsType(m2::ReceiverComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\t\tendif"
+		   });		
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()"
+		   });		
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()"
 		   });		
 		addAnnotation
 		  (getRVariableDataInstanceInSwc_ContextRPort(), 

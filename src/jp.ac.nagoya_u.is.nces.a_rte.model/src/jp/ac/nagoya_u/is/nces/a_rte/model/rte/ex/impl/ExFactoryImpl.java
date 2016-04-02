@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -123,9 +123,11 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 			case ExPackage.ASSEMBLY_DATA_INSTANCE_CONNECTOR_EX: return (EObject)createAssemblyDataInstanceConnectorEx();
 			case ExPackage.RECEIVER_EX: return (EObject)createReceiverEx();
 			case ExPackage.EXTERNAL_ECU_SENDER_EX: return (EObject)createExternalEcuSenderEx();
+			case ExPackage.EXTERNAL_ECU_RECEIVER_EX: return (EObject)createExternalEcuReceiverEx();
 			case ExPackage.ENTITY_STARTER_EX: return (EObject)createEntityStarterEx();
 			case ExPackage.BSW_SCHEDULABLE_ENTITY_EX: return (EObject)createBswSchedulableEntityEx();
 			case ExPackage.MODE_DECLARATION_GROUP_PROTOTYPE_EX: return (EObject)createModeDeclarationGroupPrototypeEx();
+			case ExPackage.RTE_EVENT_EX: return (EObject)createRteEventEx();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -176,6 +178,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExternalEcuReceiverEx createExternalEcuReceiverEx() {
+		ExternalEcuReceiverExImpl externalEcuReceiverEx = new ExternalEcuReceiverExImpl();
+		return externalEcuReceiverEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EntityStarterEx createEntityStarterEx() {
 		EntityStarterExImpl entityStarterEx = new EntityStarterExImpl();
 		return entityStarterEx;
@@ -199,6 +211,16 @@ public class ExFactoryImpl extends EFactoryImpl implements ExFactory {
 	public ModeDeclarationGroupPrototypeEx createModeDeclarationGroupPrototypeEx() {
 		ModeDeclarationGroupPrototypeExImpl modeDeclarationGroupPrototypeEx = new ModeDeclarationGroupPrototypeExImpl();
 		return modeDeclarationGroupPrototypeEx;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteEventEx createRteEventEx() {
+		RteEventExImpl rteEventEx = new RteEventExImpl();
+		return rteEventEx;
 	}
 
 	/**

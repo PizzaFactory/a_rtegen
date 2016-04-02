@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -297,8 +297,11 @@ public class RteFileModelBuilder {
 	private List<Type> getTypesDefinedInRteTypeHeader(Rte sourceRte) {
 		List<Type> types = Lists.newArrayList();
 		types.addAll(sourceRte.getImplementationDataType());
-		if (sourceRte.getSrRteSendTfParamType() != null) {
-			types.add(sourceRte.getSrRteSendTfParamType());
+		if (sourceRte.getSrRteQueuedSendTfParamType() != null) {
+			types.add(sourceRte.getSrRteQueuedSendTfParamType());
+		}
+		if (sourceRte.getSrRteNonqueuedSendTfParamType() != null) {
+			types.add(sourceRte.getSrRteNonqueuedSendTfParamType());
 		}
 		if (sourceRte.getComSendSignalTfParamType() != null) {
 			types.add(sourceRte.getComSendSignalTfParamType());
@@ -909,6 +912,10 @@ public class RteFileModelBuilder {
 		for (GlobalVariableSet variableSet : globalVariableSets) {
 			globalVariables.removeAll(variableSet.getGlobalVariable());
 		}
+		Optional<GlobalVariable> functionTable = this.context.query.tryFindSingle(isKindOf(GLOBAL_VARIABLE).AND(hasAttr(VARIABLE__SYMBOL_NAME, SymbolNames.createComProxyFunctionTableVariableName())));
+		if (functionTable.isPresent()) {
+			globalVariables.remove(functionTable.get());
+		}
 	}
 	
 	private List<FunctionMacro> getInternalFunctionMacros(Rte sourceRte) {
@@ -1001,14 +1008,14 @@ public class RteFileModelBuilder {
 			if (api instanceof RteEnterApi) {
 				RteEnterApi rteEnterApi = (RteEnterApi) api;
 				// Rte_Enterが実装関数を持つ場合、実装関数定義が必要なAPIグループであると判断
-				if (!rteEnterApi.getIsNoneExclude()) {
+				if (!rteEnterApi.getIsNoneExclude() && !api.getIsInline()) {
 					return true;
 				}
 	
 			} else if (api instanceof RteExitApi) {
 				RteExitApi rteExitApi = (RteExitApi) api;
 				// Rte_Exitが実装関数を持つ場合、実装関数定義が必要なAPIグループであると判断
-				if (!rteExitApi.getIsNoneExclude()) {
+				if (!rteExitApi.getIsNoneExclude() && !api.getIsInline()) {
 					return true; // COVERAGE (コードレビューで問題ないことを確認．isNeededGroup内で実績あり．)
 				}
 	

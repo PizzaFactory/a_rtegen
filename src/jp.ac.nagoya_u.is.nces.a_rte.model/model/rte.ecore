@@ -129,7 +129,7 @@
       </eOperations>
       <eOperations name="getEnumLiteral" lowerBound="1" eType="ecore:EDataType ar4x.ecore#//m2/CIdentifier">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="if not this_.symbol.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.symbol&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else if not this_.vt.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.vt&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else if not this_.shortLabel.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.shortLabel&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif endif endif"/>
+          <details key="body" value="if not this_.symbol.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.symbol&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else if not this_.compuConst.vt.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.compuConst.vt&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else if not this_.shortLabel.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then this_.shortLabel&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif endif endif"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//m2/CompuScale"/>
       </eOperations>
@@ -174,7 +174,7 @@
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;bswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()"/>
-          <details key="pre_" value="this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"/>
+          <details key="pre" value="this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//m2/ExclusiveArea"/>
       </eOperations>
@@ -184,7 +184,7 @@
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)"/>
-          <details key="pre_" value="this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"/>
+          <details key="pre" value="this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//m2/ExclusiveArea"/>
       </eOperations>
@@ -194,7 +194,7 @@
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)"/>
-          <details key="pre_" value="this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"/>
+          <details key="pre" value="this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//m2/ExclusiveArea"/>
       </eOperations>
@@ -518,7 +518,7 @@
           <details key="documentation" value="Write APIを提供するか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="not this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(accessedVariable.autosarVariable = this_)"/>
+          <details key="body" value="not this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//instance/PVariableDataInstanceInSwc"/>
       </eOperations>
@@ -527,7 +527,7 @@
           <details key="documentation" value="Invalidate APIを提供するか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="not this_.isEventSemantics() and this_.isInvalidationEnabled() and&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(accessedVariable.autosarVariable = this_)"/>
+          <details key="body" value="not this_.isEventSemantics() and this_.isInvalidationEnabled() and this_.isAccessedByDataSendPoint()"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//instance/PVariableDataInstanceInSwc"/>
       </eOperations>
@@ -536,7 +536,16 @@
           <details key="documentation" value="Send APIを提供するか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(accessedVariable.autosarVariable = this_)"/>
+          <details key="body" value="this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"/>
+        </eAnnotations>
+        <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//instance/PVariableDataInstanceInSwc"/>
+      </eOperations>
+      <eOperations name="providesFeedbackApi" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="FeedbackApiを提供するか"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="this_.isAccessedByDataSendPoint() and this_.isTAckEnabled()"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//instance/PVariableDataInstanceInSwc"/>
       </eOperations>
@@ -638,25 +647,25 @@
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuSender"/>
       </eOperations>
-      <eOperations name="providesComReceiveCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="providesComRxCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="COM受信コールバックを生成するか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="this_.sendInteraction&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(not implementation.oclIsUndefined())"/>
+          <details key="body" value="this_.sendInteraction->exists(not implementation.oclIsUndefined())&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;or this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty())"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuSender"/>
       </eOperations>
-      <eOperations name="providesComInvalidateCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="providesComInvCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="COM無効化コールバックを生成するかどうか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="this_.sendInteraction&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(isInvalidationEnabled()))"/>
+          <details key="body" value="this_.sendInteraction&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(isInvalidationEnabled()))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;or this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty() and isInvalidationEnabled())"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuSender"/>
       </eOperations>
-      <eOperations name="providesComReceiveTimeoutCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="providesComRxTOutCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="COM受信タイムアウトコールバックを生成するかどうか"/>
         </eAnnotations>
@@ -670,12 +679,32 @@
           <details key="documentation" value="COMコールバックを生成するかどうか"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-          <details key="body" value="providesComReceiveCallback(this_)&#xA;&#x9;&#x9;&#x9;&#x9;   or providesComInvalidateCallback(this_)&#xA;&#x9;&#x9;&#x9;&#x9;   or providesComReceiveTimeoutCallback(this_)"/>
+          <details key="body" value="providesComRxCallback(this_)&#xA;&#x9;&#x9;&#x9;&#x9;   or providesComInvCallback(this_)&#xA;&#x9;&#x9;&#x9;&#x9;   or providesComRxTOutCallback(this_)"/>
         </eAnnotations>
         <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuSender"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableDataInstanceInCompositionEx"
           lowerBound="1" eType="#//ex/VariableDataInstanceInCompositionEx"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalEcuReceiverEx">
+      <eOperations name="providesComTxAndTxErrCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="送信と送信エラーのCOMコールバックを生成するかどうか"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckEnabled())"/>
+        </eAnnotations>
+        <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuReceiver"/>
+      </eOperations>
+      <eOperations name="providesComTxTOutCallback" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="送信タイムアウトのCOMコールバックを生成するかどうか"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckTimeoutEnabled())"/>
+        </eAnnotations>
+        <eParameters name="this_" lowerBound="1" eType="#//interaction/ExternalEcuReceiver"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EntityStarterEx">
       <eOperations name="getTimingTriggeringEntityStartImplementations" ordered="false"
@@ -807,6 +836,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="bswSchedulableEntityEx"
           lowerBound="1" eType="#//ex/BswSchedulableEntityEx"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RteEventEx">
+      <eOperations name="getRelatedEntityStarter" lowerBound="1" eType="#//interaction/EntityStarter">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="let reStartInteraction : interaction::RunnableEntityStartInteraction = interaction::RunnableEntityStartInteraction.allInstances()->any(sourceEvent = this_)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;interaction::EntityStarter.allInstances()->any(startInteraction->includes(reStartInteraction))"/>
+        </eAnnotations>
+        <eParameters name="this_" lowerBound="1" eType="ecore:EClass ar4x.ecore#//m2/RteEvent"/>
+      </eOperations>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="interaction" nsURI="http://nces.is.nagoya-u.ac.jp/a-rte/rte/interaction"
       nsPrefix="interaction">
@@ -848,12 +885,27 @@
           <details key="body" value="self.sendInteraction.receiveInteraction.getExternalEcuReceivers()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;->asOrderedSet()"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="hasSendImplementation" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="sendInteraction->exists(not implementation.oclIsUndefined())"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="sendInteraction" upperBound="-1"
           eType="#//interaction/SendInteraction" eOpposite="#//interaction/SendInteraction/sender"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalEcuSender" eSuperTypes="#//interaction/Sender">
+      <eOperations name="isEventSemantics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="self.source.prototype.isEventSemantics()"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="ecore:EClass ar4x.ecore#//instance/VariableDataInstanceInComposition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatusVariableImplementation"
+          eType="#//interaction/TAckStatusVariableImplementation" containment="true"
+          eOpposite="#//interaction/TAckStatusVariableImplementation/parent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activatesOnSendCompleted"
+          ordered="false" upperBound="-1" eType="#//interaction/EntityStarter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExternalEcuSender" eSuperTypes="#//interaction/Sender">
       <eStructuralFeatures xsi:type="ecore:EReference" name="sourceSignal" lowerBound="1"
@@ -977,8 +1029,17 @@
           <details key="body" value="self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isAliveTimeoutEnabled()"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="isEventSemantics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="self.source.prototype.isEventSemantics()"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="ecore:EClass ar4x.ecore#//instance/VariableDataInstanceInComposition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activatesOnReceived"
+          ordered="false" upperBound="-1" eType="#//interaction/EntityStarter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activatesOnReceiveError"
+          ordered="false" upperBound="-1" eType="#//interaction/EntityStarter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueBufferImplementation" abstract="true"
         eSuperTypes="#//interaction/VariableImplementation">
@@ -996,6 +1057,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SendImplementation" abstract="true"
         eSuperTypes="#//interaction/InteractionReferrable">
+      <eOperations name="isEventSemantics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="self.parent.getInternalEcuSenders()->any(true).isEventSemantics()"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//interaction/SendInteraction" eOpposite="#//interaction/SendInteraction/implementation"/>
     </eClassifiers>
@@ -1011,6 +1077,11 @@
         eSuperTypes="#//interaction/ProxyComSendImplementation"/>
     <eClassifiers xsi:type="ecore:EClass" name="ImmediateProxyComSendImplementation"
         eSuperTypes="#//interaction/ProxyComSendImplementation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TAckStatusVariableImplementation"
+        eSuperTypes="#//interaction/VariableImplementation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
+          eType="#//interaction/InternalEcuSender" eOpposite="#//interaction/InternalEcuSender/tAckStatusVariableImplementation"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FilterBufferImplementation" eSuperTypes="#//interaction/VariableImplementation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//interaction/ReceiveInteraction" eOpposite="#//interaction/ReceiveInteraction/filterBufferImplementation"/>
@@ -1075,8 +1146,8 @@
           <details key="documentation" value="送信要求用IOC通信"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="valueOsIocCommunicationForComplexType"
-          eType="ecore:EClass ar4x.ecore#//ecuc/OsIocCommunication">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="valueOsIocCommunication"
+          lowerBound="1" eType="ecore:EClass ar4x.ecore#//ecuc/OsIocCommunication">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="値伝搬用IOC通信"/>
         </eAnnotations>
@@ -1100,7 +1171,22 @@
           eType="ecore:EClass ar4x.ecore#//ecuc/OsEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Interaction" abstract="true" eSuperTypes="#//interaction/InteractionReferrable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExecutionContext" eSuperTypes="#//interaction/InteractionEnd">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceOsTask" lowerBound="1"
+          eType="ecore:EClass ar4x.ecore#//ecuc/OsTask"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="executionContextImplementation"
+          eType="#//interaction/ExecutionContextImplementation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entityStarter" upperBound="-1"
+          eType="#//interaction/EntityStarter" eOpposite="#//interaction/EntityStarter/executionContext"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExecutionContextImplementation" abstract="true"
+        eSuperTypes="#//interaction/InteractionObject"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InfiniteloopImplementation" eSuperTypes="#//interaction/ExecutionContextImplementation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="OneShootImplementation" eSuperTypes="#//interaction/ExecutionContextImplementation"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EventPoolingImplementation" eSuperTypes="#//interaction/ExecutionContextImplementation"/>
     <eClassifiers xsi:type="ecore:EClass" name="EntityStarter" abstract="true" eSuperTypes="#//interaction/InteractionEnd">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="executionContext" lowerBound="1"
+          eType="#//interaction/ExecutionContext" eOpposite="#//interaction/ExecutionContext/entityStarter"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedConfig" lowerBound="1"
           eType="ecore:EClass ar4x.ecore#//ecuc/RteUsedOsActivation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="startInteraction" upperBound="-1"
@@ -1127,8 +1213,25 @@
           eType="#//interaction/EntityStarter" eOpposite="#//interaction/EntityStarter/startInteraction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" lowerBound="1"
           eType="#//interaction/EntityStartImplementation" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="eventToTaskMapping" lowerBound="1"
-          eType="#//interaction/EventToTaskMapping" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="activationOffset" eType="ecore:EDataType ar4x.ecore#//m2/TimeValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="positionInTask" eType="#//module/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startOnEvent" eType="ecore:EClass ar4x.ecore#//m2/ExecutableEntity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="timingTriggeringEntityStartCondition"
+          eType="#//interaction/TimingTriggeringEntityStartCondition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimingTriggeringEntityStartCondition"
+        eSuperTypes="#//interaction/InteractionObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" lowerBound="1"
+          eType="ecore:EDataType ar4x.ecore#//m2/TimeValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RunnableEntityStartInteraction" eSuperTypes="#//interaction/EntityStartInteraction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceEvent" lowerBound="1"
+          eType="ecore:EClass ar4x.ecore#//m2/RteEvent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BswSchedulableEntityStartInteraction"
+        eSuperTypes="#//interaction/EntityStartInteraction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceEvent" lowerBound="1"
+          eType="ecore:EClass ar4x.ecore#//m2/BswEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EntityStartImplementation" abstract="true"
         eSuperTypes="#//interaction/InteractionObject"/>
@@ -1154,9 +1257,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="startOffset" lowerBound="1"
           eType="ecore:EDataType ar4x.ecore#//m2/Integer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ModeSwitchTriggeringEntityStartImplementation"
-        eSuperTypes="#//interaction/EntityStartImplementation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="RunnableEntityStartInteraction" eSuperTypes="#//interaction/EntityStartInteraction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PlainEntityStartImplementation" eSuperTypes="#//interaction/EntityStartImplementation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="エンティティ開始の素の実装"/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="StartOffsetCounterImplementation"
         eSuperTypes="#//interaction/VariableImplementation">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxCount" lowerBound="1"
@@ -1182,22 +1287,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="generatedOsTrustedFunction"
           upperBound="-1" eType="ecore:EClass ar4x.ecore#//ecuc/OsApplicationTrustedFunction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BswSchedulableEntityStartInteraction"
-        eSuperTypes="#//interaction/EntityStartInteraction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EventToTaskMapping" eSuperTypes="#//interaction/InteractionObject">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="activationOffset" eType="ecore:EDataType ar4x.ecore#//m2/TimeValue"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1"
-          eType="#//interaction/Event" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="positionInTask" eType="#//module/Integer"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//interaction/InteractionObject">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="startOnEvent" eType="ecore:EClass ar4x.ecore#//m2/ExecutableEntity"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sourceBswEvent" eType="ecore:EClass ar4x.ecore#//m2/BswEvent"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TimingEvent" eSuperTypes="#//interaction/Event">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="ecore:EDataType ar4x.ecore#//m2/TimeValue"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ModeSwitchEvent" eSuperTypes="#//interaction/Event"/>
   </eSubpackages>
   <eSubpackages name="module" nsURI="http://nces.is.nagoya-u.ac.jp/a-rte/rte/module"
       nsPrefix="module">
@@ -1267,6 +1356,11 @@
           eType="#//module/Parameter"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="needsCheckArg" lowerBound="1"
           eType="#//module/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SendOperation" abstract="true" eSuperTypes="#//module/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="sendValue" lowerBound="1"
@@ -1284,6 +1378,8 @@
           eType="#//module/RteBufferVariableSet"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filterOperation" eType="#//module/FilterOperation"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlagOnRxSuccess"
+          upperBound="-1" eType="#//module/LocalVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBufferNonqueuedReadOperation" eSuperTypes="#//module/ReadOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessVariable" lowerBound="1"
@@ -1522,8 +1618,10 @@
           eType="#//module/ComSendTrustedFunctionParamType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="csTfParamType" upperBound="-1"
           eType="#//module/CsTrustedFunctionParamType" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="srRteSendTfParamType"
-          eType="#//module/RteSendTrustedFunctionParamType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="srRteNonqueuedSendTfParamType"
+          eType="#//module/RteNonqueuedSendTrustedFunctionParamType" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="srRteQueuedSendTfParamType"
+          eType="#//module/RteQueuedSendTrustedFunctionParamType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="srRteBufferQueueMaxLengthConstant"
           upperBound="-1" eType="#//module/Constant" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="srRteBufferQueueType"
@@ -1623,6 +1721,8 @@
           eType="#//module/PartitionTerminatedApi" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="partitionRestartingApi"
           eType="#//module/PartitionRestartingApi" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" ordered="false"
+          upperBound="-1" eType="#//module/TAckStatus" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Swc" eSuperTypes="#//module/LogicalCompartment">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
@@ -1702,6 +1802,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="InvalidateApi" eSuperTypes="#//module/RteApi">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
           eType="#//module/SendOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IocNonqueuedSendOperation" eSuperTypes="#//module/IocSendOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
@@ -1709,22 +1814,33 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DirectComSendOperation" eSuperTypes="#//module/ComSendOperation"/>
     <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteOperation" eSuperTypes="#//module/SendOperation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tempReturnVariable" eType="#//module/Variable"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteSendOperation" eSuperTypes="#//module/TrustedFunctionRteOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//module/Type"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="srSendTfSymbolName" lowerBound="1"
-          eType="#//module/CIdentifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tempReturnVariable" eType="#//module/Variable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="trustedFunctionParamVariable"
-          lowerBound="1" eType="#//module/Variable"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isGroup" lowerBound="1"
-          eType="#//module/Boolean"/>
+          lowerBound="1" eType="#//module/LocalVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlagOnRxSuccess"
+          upperBound="-1" eType="#//module/LocalVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteBufferWriteSendOperation"
         eSuperTypes="#//module/TrustedFunctionRteOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessTrustedFunction"
           lowerBound="1" eType="#//module/RteBufferWriteTrustedFunction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteBufferSendSendOperation"
+        eSuperTypes="#//module/TrustedFunctionRteOperation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessTrustedFunction"
+          lowerBound="1" eType="#//module/RteBufferSendTrustedFunction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteBufferInvalidateSendOperation"
+        eSuperTypes="#//module/TrustedFunctionRteOperation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="accessTrustedFunction"
+          lowerBound="1" eType="#//module/RteBufferInvalidateTrustedFunction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RteBufferInvalidateTrustedFunction"
+        eSuperTypes="#//module/TrustedFunction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//module/RteBufferNonqueuedSendOperation" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionComSendOperation" eSuperTypes="#//module/ComSendOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
@@ -1767,9 +1883,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="IocReadApi" eSuperTypes="#//module/IocApi"/>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendSignalApi" eSuperTypes="#//module/ComApi"/>
     <eClassifiers xsi:type="ecore:EClass" name="ComReceiveSignalApi" eSuperTypes="#//module/ComApi"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ComReceiveCallback" eSuperTypes="#//module/ComCallback">
+    <eClassifiers xsi:type="ecore:EClass" name="ComRxCallback" eSuperTypes="#//module/ComCallback">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
           eType="#//module/SendOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataVariable" lowerBound="1"
           eType="#//module/Variable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
@@ -1780,30 +1900,56 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
           eType="#//module/ComSendSignalApi"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="tempReturnVariable" eType="#//module/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlagOnTxErr"
+          upperBound="-1" eType="#//module/LocalVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComCallback" abstract="true" eSuperTypes="#//module/Function"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ComReceiveTimeoutCallback" eSuperTypes="#//module/ComCallback">
+    <eClassifiers xsi:type="ecore:EClass" name="ComRxTOutCallback" eSuperTypes="#//module/ComCallback">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
           eType="#//module/SendOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataVariable" lowerBound="1"
           eType="#//module/Variable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
           eType="#//module/ComReceiveSignalApi"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComInvalidateCallback" eSuperTypes="#//module/ComCallback">
+    <eClassifiers xsi:type="ecore:EClass" name="ComInvCallback" eSuperTypes="#//module/ComCallback">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
           eType="#//module/SendOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filterResultVariable"
           eType="#//module/LocalVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendSignalProxyEntity" eSuperTypes="#//module/BswSchedulableEntity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveOperation" upperBound="-1"
-          eType="#//module/PrimitiveComSendProxyOperation" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="complexOperation" upperBound="-1"
-          eType="#//module/ComplexComSendProxyOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+          eType="#//module/ComSendProxyOperation" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendSignalImmediateEntity" eSuperTypes="#//module/ComSendSignalProxyEntity"/>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendSignalPeriodicEntity" eSuperTypes="#//module/ComSendSignalProxyEntity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TAckNotifyOperation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComTxTOutCallback" eSuperTypes="#//module/ComCallback">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckNotifyOperation"
+          upperBound="-1" eType="#//module/TAckNotifyOperation" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComTAckCallback" eSuperTypes="#//module/ComCallback">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckNotifyOperation"
+          upperBound="-1" eType="#//module/TAckNotifyOperation" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ComTErrCallback" eSuperTypes="#//module/ComCallback">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckNotifyOperation"
+          upperBound="-1" eType="#//module/TAckNotifyOperation" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FilterOperation" abstract="true" eSuperTypes="#//module/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="filterResultVariable"
           lowerBound="1" eType="#//module/Variable"/>
@@ -1856,10 +2002,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="PartitionRestartingApi" eSuperTypes="#//module/RteLifecycleApi">
       <eStructuralFeatures xsi:type="ecore:EReference" name="srInterPartitionTimeoutOperation"
           eType="#//module/InterPartitionTimeoutOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PartitionTerminatedApi" eSuperTypes="#//module/RteLifecycleApi">
       <eStructuralFeatures xsi:type="ecore:EReference" name="srInterPartitionTimeoutOperation"
           eType="#//module/InterPartitionTimeoutOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteLifecycleApi" abstract="true" eSuperTypes="#//module/Function"/>
     <eClassifiers xsi:type="ecore:EClass" name="SendApi" eSuperTypes="#//module/RteApi">
@@ -1875,6 +2025,11 @@
           eType="#//module/LocalVariable"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="needsCheckArg" lowerBound="1"
           eType="#//module/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" upperBound="-1"
+          eType="#//module/LocalVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReceiveApi" eSuperTypes="#//module/RteApi">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//module/ReadOperation"
@@ -1917,6 +2072,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="IocSendOperation" eSuperTypes="#//module/SendOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//module/Type"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlagOnRxSuccess"
+          upperBound="-1" eType="#//module/LocalVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IocQueuedSendOperation" eSuperTypes="#//module/IocSendOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
@@ -2018,6 +2175,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNoneExclude" lowerBound="1"
           eType="#//module/Boolean"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OsBackgroundTaskActivationExecutableTaskBody"
+        eSuperTypes="#//module/TaskBody">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//module/OsTaskActivationOperation" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsTaskActivationExecutableTaskBody"
         eSuperTypes="#//module/TaskBody">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
@@ -2058,6 +2220,11 @@
           eType="#//module/GlobalVariable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="cycleCounterVariable"
           eType="#//module/GlobalVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PlainExecutableStartOperation" eSuperTypes="#//module/ExecutableStartOperation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="エクスキュータブル開始の素のオペレーション"/>
+      </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModeSwitchTriggeringExecutableStartOperation"
         eSuperTypes="#//module/ExecutableStartOperation">
@@ -2122,15 +2289,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbolName" lowerBound="1"
           eType="#//module/CIdentifier"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveComSendProxyOperation" eSuperTypes="#//module/Operation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="readValueVariable" lowerBound="1"
-          eType="#//module/Variable"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
-          eType="#//module/IocReceiveGroupApi"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="signalIdVariable" lowerBound="1"
-          eType="#//module/Variable"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComplexComSendProxyOperation" eSuperTypes="#//module/Operation">
+    <eClassifiers xsi:type="ecore:EClass" name="ComSendProxyOperation" eSuperTypes="#//module/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessApi" lowerBound="1"
           eType="#//module/IocReceiveApi"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionTableSymbolName"
@@ -2183,7 +2342,13 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBufferWriteTrustedFunction" eSuperTypes="#//module/TrustedFunction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-          eType="#//module/SendOperation" containment="true"/>
+          eType="#//module/RteBufferNonqueuedSendOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataVariable" lowerBound="1"
+          eType="#//module/LocalVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RteBufferSendTrustedFunction" eSuperTypes="#//module/TrustedFunction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
+          eType="#//module/RteBufferQueuedSendOperation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataVariable" lowerBound="1"
           eType="#//module/LocalVariable"/>
     </eClassifiers>
@@ -2397,7 +2562,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" lowerBound="1"
           eType="#//module/Type"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RteSendTrustedFunctionParamType" eSuperTypes="#//module/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RteNonqueuedSendTrustedFunctionParamType"
+        eSuperTypes="#//module/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RteQueuedSendTrustedFunctionParamType"
+        eSuperTypes="#//module/Type"/>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendTrustedFunctionParamType" eSuperTypes="#//module/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isGroup" lowerBound="1"
           eType="#//module/Boolean"/>
@@ -2406,17 +2574,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="NeverReadOperation" eSuperTypes="#//module/ReadOperation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="initValueConstant" lowerBound="1"
           eType="#//module/Constant"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RteBufferInvalidateTrustedFunction"
-        eSuperTypes="#//module/TrustedFunction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-          eType="#//module/SendOperation" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TrustedFunctionRteBufferInvalidateSendOperation"
-        eSuperTypes="#//module/SendOperation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="accessTrustedFunction"
-          lowerBound="1" eType="#//module/RteBufferInvalidateTrustedFunction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="tempReturnVariable" eType="#//module/Variable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MemoryMapping" abstract="true" eSuperTypes="#//module/ModuleReferrable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" lowerBound="1"
@@ -2553,16 +2710,17 @@
           eType="#//module/Partition" eOpposite="#//module/Partition/comProxyFunction"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="iocReceiveSymbolName"
           lowerBound="1" eType="#//module/CIdentifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signalGroupSymbolName"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sendSignalFunctionSymbolName"
           lowerBound="1" eType="#//module/CIdentifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bufferComProxySymbolName"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bufferVariable" lowerBound="1"
+          eType="#//module/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="signalInformationSymbolName"
           lowerBound="1" eType="#//module/CIdentifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="bufferComMetaComplexDataSymbolName"
-          lowerBound="1" eType="#//module/CIdentifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="proxyDataTypeName" lowerBound="1"
-          eType="#//module/CIdentifier"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isGroup" lowerBound="1"
           eType="#//module/Boolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationOperation"
+          upperBound="-1" eType="#//module/ActivationOperation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSendSignalApiWrapper" eSuperTypes="#//module/ComSignalApiWrapper"/>
     <eClassifiers xsi:type="ecore:EClass" name="ComReceiveSignalApiWrapper" eSuperTypes="#//module/ComSignalApiWrapper"/>
@@ -2741,6 +2899,25 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="sourceType" lowerBound="1"
           eType="#//module/Type"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActivationOperation" eSuperTypes="#//module/Operation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationApi" lowerBound="1"
+          eType="#//module/OsApi"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="activationFlag" eType="#//module/LocalVariable"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskPriority" lowerBound="1"
+          eType="#//module/Integer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OsActivateTaskApi" eSuperTypes="#//module/OsApi">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskId" lowerBound="1"
+          eType="#//module/CIdentifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FeedbackApi" eSuperTypes="#//module/RteApi">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tAckStatus" eType="#//module/TAckStatus"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LogicalBlock" abstract="true" eSuperTypes="#//module/ModuleReferrable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TAckStatus" eSuperTypes="#//module/LogicalBlock">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statusVariable" lowerBound="1"
+          eType="#//module/GlobalVariable" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,9 +46,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderComSpec;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TransmissionAcknowledgementRequest;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -62,6 +64,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderComSpecImpl#getDataElement <em>Data Element</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.SenderComSpecImpl#getTransmissionAcknowledge <em>Transmission Acknowledge</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,6 +80,16 @@ public abstract class SenderComSpecImpl extends PPortComSpecImpl implements Send
 	 * @ordered
 	 */
 	protected VariableDataPrototype dataElement;
+
+	/**
+	 * The cached value of the '{@link #getTransmissionAcknowledge() <em>Transmission Acknowledge</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTransmissionAcknowledge()
+	 * @generated
+	 * @ordered
+	 */
+	protected TransmissionAcknowledgementRequest transmissionAcknowledge;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,12 +153,71 @@ public abstract class SenderComSpecImpl extends PPortComSpecImpl implements Send
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TransmissionAcknowledgementRequest getTransmissionAcknowledge() {
+		return transmissionAcknowledge;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTransmissionAcknowledge(TransmissionAcknowledgementRequest newTransmissionAcknowledge, NotificationChain msgs) {
+		TransmissionAcknowledgementRequest oldTransmissionAcknowledge = transmissionAcknowledge;
+		transmissionAcknowledge = newTransmissionAcknowledge;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE, oldTransmissionAcknowledge, newTransmissionAcknowledge);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTransmissionAcknowledge(TransmissionAcknowledgementRequest newTransmissionAcknowledge) {
+		if (newTransmissionAcknowledge != transmissionAcknowledge) {
+			NotificationChain msgs = null;
+			if (transmissionAcknowledge != null)
+				msgs = ((InternalEObject)transmissionAcknowledge).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE, null, msgs);
+			if (newTransmissionAcknowledge != null)
+				msgs = ((InternalEObject)newTransmissionAcknowledge).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE, null, msgs);
+			msgs = basicSetTransmissionAcknowledge(newTransmissionAcknowledge, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE, newTransmissionAcknowledge, newTransmissionAcknowledge));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE:
+				return basicSetTransmissionAcknowledge(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case M2Package.SENDER_COM_SPEC__DATA_ELEMENT:
 				if (resolve) return getDataElement();
 				return basicGetDataElement();
+			case M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE:
+				return getTransmissionAcknowledge();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -160,6 +232,9 @@ public abstract class SenderComSpecImpl extends PPortComSpecImpl implements Send
 		switch (featureID) {
 			case M2Package.SENDER_COM_SPEC__DATA_ELEMENT:
 				setDataElement((VariableDataPrototype)newValue);
+				return;
+			case M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE:
+				setTransmissionAcknowledge((TransmissionAcknowledgementRequest)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +251,9 @@ public abstract class SenderComSpecImpl extends PPortComSpecImpl implements Send
 			case M2Package.SENDER_COM_SPEC__DATA_ELEMENT:
 				setDataElement((VariableDataPrototype)null);
 				return;
+			case M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE:
+				setTransmissionAcknowledge((TransmissionAcknowledgementRequest)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -190,6 +268,8 @@ public abstract class SenderComSpecImpl extends PPortComSpecImpl implements Send
 		switch (featureID) {
 			case M2Package.SENDER_COM_SPEC__DATA_ELEMENT:
 				return dataElement != null;
+			case M2Package.SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE:
+				return transmissionAcknowledge != null;
 		}
 		return super.eIsSet(featureID);
 	}

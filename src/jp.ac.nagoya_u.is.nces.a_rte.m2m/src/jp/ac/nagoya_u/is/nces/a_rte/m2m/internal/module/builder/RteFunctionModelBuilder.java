@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -68,10 +68,13 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC;
@@ -81,6 +84,8 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.RVARI
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_IMPLEMENTATION__COM_SIGNAL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXECUTION_CONTEXT;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION;
@@ -99,13 +104,16 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.EXECUTABLE_START_OPERATION__START_EXECUTABLE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FEEDBACK_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION__SYMBOL_NAME;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INVALIDATE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IRV_READ_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IRV_WRITE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_MACHINE_INSTANCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENTS_TRIGGERED_BY_MODE__START_MODE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_ID;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_PRIORITY;
@@ -124,6 +132,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SWC__DEPENDENT_RUNNABLE_ENTITY;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TACK_STATUS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VALUE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.WRITE_API;
@@ -185,13 +194,19 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.DirectComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateProxyComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
@@ -202,96 +217,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplemen
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalPeriodicEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreSchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEventsTriggeredByMode;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStopApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmDeinitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmEnterApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmExitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreSchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableMember;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.*;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -383,6 +311,12 @@ public class RteFunctionModelBuilder {
 						// Rte_Sendはインライン化しない
 						destSendApi.setIsInline(false);
 						targetSwc.getRteApi().add(destSendApi);
+					}
+					if (this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)) {
+						FeedbackApi destFeedbackApi = createFeedbackApi(sourceDataInstanceInSwc);
+						// インライン化
+						destFeedbackApi.setIsInline(this.moduleRules.usesInlineFeedbackApi(sourceDataInstanceInSwc));
+						targetSwc.getRteApi().add(destFeedbackApi);
 					}
 				}
 			}
@@ -601,6 +535,15 @@ public class RteFunctionModelBuilder {
 		destApi.getParam().add(destDataParam);
 
 		destApi.setDataParam(destDataParam);
+		return destApi;
+	}
+	
+	private FeedbackApi createFeedbackApi(PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
+		FeedbackApi destApi = ModuleFactory.eINSTANCE.createFeedbackApi();
+		destApi.setSingleSource(sourceDataInstanceInSwc);
+		destApi.setSymbolName(SymbolNames.createFeedbackApiImplName(sourceDataInstanceInSwc));
+		destApi.setApiMappingName(SymbolNames.createFeedbackApiName(sourceDataInstanceInSwc));
+		destApi.setReturnType(this.context.cache.stdReturnType);
 		return destApi;
 	}
 
@@ -1001,7 +944,12 @@ public class RteFunctionModelBuilder {
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 	
 			// Write/Send用信頼関数を構築
-			RteBufferWriteTrustedFunction destWriteTrustedFunction = createRteBufferWriteTrustedFunction(sourceSendImplementation);
+			TrustedFunction destWriteTrustedFunction = null;
+			if (sourceDataInstanceInSwc.isEventSemantics()) {
+				destWriteTrustedFunction = createRteBufferSendTrustedFunction(sourceSendImplementation);
+			} else {
+				destWriteTrustedFunction = createRteBufferWriteTrustedFunction(sourceSendImplementation);
+			}
 			destWriteTrustedFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.of(sourcePartition)));
 			targetPartition.getRteBufferSendTrustedFunction().add(destWriteTrustedFunction);
 	
@@ -1060,13 +1008,35 @@ public class RteFunctionModelBuilder {
 		destTrustedFunction.getLocalVariable().add(destFilterResultVariable);
 	
 		// 送信処理の構築
-		if (sourcePDataInstanceInSwc.isEventSemantics()) {
-			RteBufferQueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferQueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
-			destTrustedFunction.setOperation(destSendOperation);
-		} else {
-			RteBufferNonqueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
-			destTrustedFunction.setOperation(destSendOperation);
-		}
+		RteBufferNonqueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
+		destTrustedFunction.setOperation(destSendOperation);
+	
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destTrustedFunction);
+		return destTrustedFunction;
+	}
+
+	private RteBufferSendTrustedFunction createRteBufferSendTrustedFunction(TrustedFunctionRteSendImplementation sourceSendImplementation) throws ModelException {
+		SendInteraction sourceSendInteraction = sourceSendImplementation.getParent();
+		InternalEcuSender sourceSender = sourceSendInteraction.getInternalEcuSenders().get(0);
+		VariableDataInstanceInSwc sourcePDataInstanceInSwc = sourceSender.getSource().getPrototype();
+	
+		// 信頼関数の構築
+		RteBufferSendTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createRteBufferSendTrustedFunction();
+		destTrustedFunction.setSingleSource(sourceSendImplementation);
+		buildTrustedFunctionSignature(destTrustedFunction);
+		destTrustedFunction.setSymbolName(sourceSendImplementation.getWriteOsTrustedFunction().getOsTrustedFunctionName());
+		destTrustedFunction.setTrustedFunctionIndex(sourceSendImplementation.getWriteOsTrustedFunction().getShortName());
+
+		// 内部構造
+		// ローカル変数の構築
+		LocalVariable destDataVariable = this.localSymbolModelBuilder.createSrDataVariable(sourcePDataInstanceInSwc, SymbolNames.SR_DATA_VAR_NAME);
+		destTrustedFunction.getLocalVariable().add(destDataVariable);
+	
+		destTrustedFunction.setDataVariable(destDataVariable);
+	
+		// 送信処理の構築
+		RteBufferQueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferQueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable);
+		destTrustedFunction.setOperation(destSendOperation);
 	
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(destTrustedFunction);
 		return destTrustedFunction;
@@ -1080,31 +1050,50 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void buildExecutableTaskBodies() throws ModelException {
-		for (OsTask sourceOsTask : this.context.query.<OsTask> findByKind(OS_TASK)) {
+		for (ExecutionContext sourceAndTargetExecutionContext : this.context.query.<ExecutionContext> findByKind(EXECUTION_CONTEXT)) {
+			OsTask sourceOsTask = sourceAndTargetExecutionContext.getSourceOsTask();
 			List<EcucPartition> sourcePartitions = this.context.query.collect(sourceOsTask, OS_TASK__OWNER_APPLICATION, OS_APPLICATION__OS_APP_ECUC_PARTITION);
 			EcucPartition sourcePartition = Iterables.getFirst(sourcePartitions, null);
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 
-			Optional<OsTaskActivateEntityStarter> sourceOsTaskActivateEntityStarter = this.context.query.tryFindSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
-			List<OsEventSetEntityStarter> sourceOsEventSetEntityStarters = this.context.query.find(ref(OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
 
-			// NOTE 1つのタスクが、OSタスク起動とOSイベント設定の両方の起動方式をサポートすることはないため、どちらかが存在すればその方式であると認識する。
-			if (sourceOsTaskActivateEntityStarter.isPresent()) {
-				// タスク起動契機で動作するタスクホディの構築
-				OsTaskActivationExecutableTaskBody destTaskBody = createOsTaskActivationExecutableTaskBody(sourceOsTask, sourceOsTaskActivateEntityStarter.get());
+			if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof InfiniteloopImplementation) {
+				// リアルバックグラウンドOSタスクで動作するタスクホディの構築
+				OsBackgroundTaskActivationExecutableTaskBody destTaskBody = createOsBackgroundTaskActivationExecutableTaskBody(sourceOsTask);
 				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
 				targetPartition.getTaskBody().add(destTaskBody);
-
-			} else if (!sourceOsEventSetEntityStarters.isEmpty()) {
+			} else if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof OneShootImplementation) {
+				// タスク起動契機で動作するタスクホディの構築
+				OsTaskActivationExecutableTaskBody destTaskBody = createOsTaskActivationExecutableTaskBody(sourceOsTask);
+				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
+				targetPartition.getTaskBody().add(destTaskBody);
+			} else if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof EventPoolingImplementation) { // COVERAGE 常にtrue(現状，Infiniteloop/OneShoot/EventPooling以外のパターンが存在しないため)
 				// OSイベント設定契機で動作するタスクボディの構築
-				OsEventSetExecutableTaskBody destTaskBody = createOsEventSetExecutableTaskBody(sourceOsTask, sourceOsEventSetEntityStarters);
+				OsEventSetExecutableTaskBody destTaskBody = createOsEventSetExecutableTaskBody(sourceOsTask);
 				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
 				targetPartition.getTaskBody().add(destTaskBody);
 			}
 		}
 	}
 
-	private OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody(OsTask sourceOsTask, OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter) throws ModelException {
+	private OsBackgroundTaskActivationExecutableTaskBody createOsBackgroundTaskActivationExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter = this.context.query.findSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
+		// シンボル
+		OsBackgroundTaskActivationExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsBackgroundTaskActivationExecutableTaskBody();
+		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
+		destTaskBody.setReturnType(this.context.cache.voidType);
+		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
+
+		// 内部構造
+		// エンティティ起動処理を構築
+		destTaskBody.setOperation(this.entityOperationBuilder.createOsTaskActivationOperation(sourceOsTaskActivateEntityStarter, sourceOsTask));
+		return destTaskBody;
+	}
+
+	private OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter = this.context.query.findSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
 		// シンボル
 		OsTaskActivationExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsTaskActivationExecutableTaskBody();
 		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
@@ -1117,16 +1106,18 @@ public class RteFunctionModelBuilder {
 		return destTaskBody;
 	}
 
-	private OsEventSetExecutableTaskBody createOsEventSetExecutableTaskBody(OsTask sourceOsTask, List<OsEventSetEntityStarter> entityStarters) throws ModelException {
+	private OsEventSetExecutableTaskBody createOsEventSetExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		List<OsEventSetEntityStarter> sourceOsEventSetEntityStarters = this.context.query.find(ref(OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
 		// シンボル
 		OsEventSetExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsEventSetExecutableTaskBody();
 		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
 		destTaskBody.setReturnType(this.context.cache.voidType);
 		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
-		destTaskBody.getOsEventId().addAll(this.context.query.<String> collect(entityStarters, OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_EVENT, ECUC_REFERRABLE__SHORT_NAME));
+		destTaskBody.getOsEventId().addAll(this.context.query.<String> collect(sourceOsEventSetEntityStarters, OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_EVENT, ECUC_REFERRABLE__SHORT_NAME));
 
 		// 内部構造
-		if (entityStarters.size() > 1) {
+		if (sourceOsEventSetEntityStarters.size() > 1) {
 			// EntityStarterが複数ある場合は、識別が必要なため、そのための内部構造を構築
 			destTaskBody.setChecksOsEventId(true);
 	
@@ -1137,7 +1128,7 @@ public class RteFunctionModelBuilder {
 			destTaskBody.setEventVariable(destEventVariable);
 		}
 	
-		destTaskBody.getOperation().addAll(this.entityOperationBuilder.createOsEventSetActivationOperations(entityStarters, sourceOsTask));
+		destTaskBody.getOperation().addAll(this.entityOperationBuilder.createOsEventSetActivationOperations(sourceOsEventSetEntityStarters, sourceOsTask));
 		return destTaskBody;
 	}
 
@@ -1347,12 +1338,9 @@ public class RteFunctionModelBuilder {
 				// 送信側APIの構築
 				for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 					for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-						if (sourceDataInstanceInSwc.getImplementationDataType().isComplexType()) {
-							Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-
-							buildComProxyFunctionsForComSignalGroup(sourceDataInstanceInSwc, type);
-							buildComProxyFunctionsForComSignal(sourceDataInstanceInSwc, type);
-						}
+						Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
+						buildComProxyFunctionsForComSignalGroup(sourceDataInstanceInSwc, type);
+						buildComProxyFunctionsForComSignal(sourceDataInstanceInSwc, type);
 					}
 				}
 			}
@@ -1374,7 +1362,6 @@ public class RteFunctionModelBuilder {
 			List<VariableDataInstanceInComposition> sourceDataInstanceInCompositions = this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
 			for (VariableDataInstanceInComposition sourceDataInComposition : sourceDataInstanceInCompositions) {
 				if (sourceDataInComposition.getPrototype() == sourceDataInstanceInSwc) {
-					// Complexのデータ渡し用
 					buildComProxyFunctionEach(sourceDataInstanceInSwc, sourceComSignalGroup, type, sourceComSignalGroup.transfersImmediately());
 				}
 			}
@@ -1392,34 +1379,64 @@ public class RteFunctionModelBuilder {
 		}
 	}
 
-	private void buildComProxyFunctionEach(PVariableDataInstanceInSwc sourceDataInstanceInSwc, EcucContainer sourceComSignalOrComSignalGroup, Type type, boolean immediate) {
+	private void buildComProxyFunctionEach(PVariableDataInstanceInSwc sourceDataInstanceInSwc, EcucContainer sourceComSignalOrComSignalGroup, Type type, boolean immediate) throws ModelException {
 		Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
 		Partition targetPartition = this.context.cache.masterBswPartition;
 	
 		ComProxyFunction destProxyFunction = ModuleFactory.eINSTANCE.createComProxyFunction();
 		destProxyFunction.setSymbolName(SymbolNames.createComProxyFunctionName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+
+		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
+		destProxyFunction.getLocalVariable().add(destReturnValueVariable);
+		
+		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
+		InternalEcuSender sourceSender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
+		
+		// TAckStatusの設定
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			destProxyFunction.setTAckStatus(tAckStatus.get());
+		}
+		
+		// ActivationOperationの設定
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompletedWithoutActivationFlag(sourceSender);
+		destProxyFunction.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagの設定
+		EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnSendCompleted);
+		destProxyFunction.getLocalVariable().addAll(activationFlags);
+		
+		LocalVariable destProxyDataVariable = null;
+		if (type instanceof PrimitiveType) {
+			destProxyDataVariable = this.localSymbolModelBuilder.createComProxyDataVariable((PrimitiveType) type);
+			destProxyFunction.getLocalVariable().add(destProxyDataVariable);
+		}
+		
+		String proxyBufferVariableName = null;
 		if (immediate) {
 			destProxyFunction.setIocReceiveSymbolName(SymbolNames.createIocReceiveComProxyImmediateApiName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
-			destProxyFunction.setBufferComProxySymbolName(SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+			proxyBufferVariableName = SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
 		} else {
 			destProxyFunction.setIocReceiveSymbolName(SymbolNames.createIocReceiveComProxyPeriodicApiName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
-			destProxyFunction.setBufferComProxySymbolName(SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+			proxyBufferVariableName = SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
 		}
-		if (type instanceof StructType || type instanceof UnionType) {
-			destProxyFunction.setProxyDataTypeName(type.getSymbolName());
+		
+		Optional<GlobalVariable> bufferVariable = this.context.query.tryFindSingle(isKindOf(GLOBAL_VARIABLE).AND(hasAttr(VARIABLE__SYMBOL_NAME, proxyBufferVariableName)));
+		if (bufferVariable.isPresent()) {
+			destProxyFunction.setBufferVariable(bufferVariable.get());
 		} else {
-			destProxyFunction.setProxyDataTypeName(type.getOriginalTypeSymbolName());
+			destProxyFunction.setBufferVariable(destProxyDataVariable);
 		}
 		
 		if (sourceComSignalOrComSignalGroup instanceof ComSignalGroup) {
 			ComSignalGroup sourceComSignalGroup = (ComSignalGroup) sourceComSignalOrComSignalGroup;
-			destProxyFunction.setSignalGroupSymbolName(SymbolNames.createComSendSignalGroupWrapperFunctionAliasName(sourcePartition));
-			destProxyFunction.setBufferComMetaComplexDataSymbolName(SymbolNames.createComMetaVariableName(sourceComSignalGroup));
+			destProxyFunction.setSendSignalFunctionSymbolName(SymbolNames.createComSendSignalGroupWrapperFunctionAliasName(sourcePartition));
+			destProxyFunction.setSignalInformationSymbolName(SymbolNames.createComMetaVariableName(sourceComSignalGroup));
 			destProxyFunction.setIsGroup(true);
 		} else {
-			// 1signal
-			destProxyFunction.setSignalGroupSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
-			destProxyFunction.setBufferComMetaComplexDataSymbolName(SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignalOrComSignalGroup)));
+			// Array(1signal) or Primitive
+			destProxyFunction.setSendSignalFunctionSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
+			destProxyFunction.setSignalInformationSymbolName(SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignalOrComSignalGroup)));
 			destProxyFunction.setIsGroup(false);
 		}
 	
@@ -1472,66 +1489,21 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void buildInternalPartOfComSendSignalProxyEntity(ComSendSignalProxyEntity targetEntity, ComSendProxy sourceComSendProxy) throws ModelException {
-		// プリミティブ型・複合データ型で共通となる内部構造を構築
+		// 内部構造を構築
 		LocalVariable destReturnVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetEntity.getLocalVariable().add(destReturnVariable);
 
-		// プリミティブ型向けの内部構造を構築
-		List<ComSendProxyInteraction> sourcePrimitiveProxyInteractions = getPrimitiveProxyInteractions(sourceComSendProxy);
-		if (!sourcePrimitiveProxyInteractions.isEmpty()) {
-			UnionType destPrimitiveProxyUnionType = this.localSymbolModelBuilder.createPrimitiveComProxyUnionType();
-			targetEntity.getLocalType().add(destPrimitiveProxyUnionType);
+		// プロキシ処理を構築
+		LocalVariable destIndexVariable = this.localSymbolModelBuilder.createComProxyFunctionTableIndexVariable();
+		targetEntity.getLocalVariable().add(destIndexVariable);
 
-			LocalVariable destPrimitiveProxySignalIdVariable = this.localSymbolModelBuilder.createComProxySignalIdVariable();
-			targetEntity.getLocalVariable().add(destPrimitiveProxySignalIdVariable);
-
-			LocalVariable destPrimitiveProxyDataVariable = this.localSymbolModelBuilder.createComProxyUnionDataVariable(destPrimitiveProxyUnionType);
-			targetEntity.getLocalVariable().add(destPrimitiveProxyDataVariable);
-
-			for (ComSendProxyInteraction sourceProxyInteraction : sourcePrimitiveProxyInteractions) {
-				PrimitiveType type = this.context.builtQuery.findDestPrimitiveType(sourceProxyInteraction.getSignalDataType());
-				VariableMember dataVariable = this.context.query.selectSingle(destPrimitiveProxyDataVariable.getMember(),
-						hasAttr(VARIABLE__SYMBOL_NAME, SymbolNames.createComProxyUnionVariableMemberName(type)));
-
-				targetEntity.getPrimitiveOperation().add(
-						this.comProxyOperationModelBuilder.createPrimitiveComSendProxyOperation(sourceProxyInteraction, destPrimitiveProxySignalIdVariable, dataVariable));
-			}
+		// プロキシ処理はパーティション毎で共通となるので、パーティション単位で生成する
+		ListMultimap<EcucPartition, ComSendProxyInteraction> sourceProxyInteractionsGroupByRequesterPartition = this.context.query.groupByKey(sourceComSendProxy.getInteraction(),
+				COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
+		for (EcucPartition sourceRequesterPartition : sourceProxyInteractionsGroupByRequesterPartition.keySet()) {
+			List<ComSendProxyInteraction> sourceProxyInteractionsOfRequesterPartition = sourceProxyInteractionsGroupByRequesterPartition.get(sourceRequesterPartition);
+			targetEntity.getOperation().add(this.comProxyOperationModelBuilder.createComSendProxyOperation(sourceProxyInteractionsOfRequesterPartition, destIndexVariable));
 		}
-
-		// 複合データ型向けのプロキシ処理を構築
-		List<ComSendProxyInteraction> sourceComplexProxyInteractions = getComplexComSendProxyInteractions(sourceComSendProxy);
-		if (!sourceComplexProxyInteractions.isEmpty()) {
-			LocalVariable destIndexVariable = this.localSymbolModelBuilder.createComProxyFunctionTableIndexVariable();
-			targetEntity.getLocalVariable().add(destIndexVariable);
-
-			// 複合データ型用のプロキシ処理はパーティション毎で共通となるので、パーティション単位で生成する
-			ListMultimap<EcucPartition, ComSendProxyInteraction> sourceProxyInteractionsGroupByRequesterPartition = this.context.query.groupByKey(sourceComplexProxyInteractions,
-					COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
-			for (EcucPartition sourceRequesterPartition : sourceProxyInteractionsGroupByRequesterPartition.keySet()) {
-				List<ComSendProxyInteraction> sourceProxyInteractionsOfRequesterPartition = sourceProxyInteractionsGroupByRequesterPartition.get(sourceRequesterPartition);
-				targetEntity.getComplexOperation().add(this.comProxyOperationModelBuilder.createComplexComSendProxyOperation(sourceProxyInteractionsOfRequesterPartition, destIndexVariable));
-			}
-		}
-	}
-
-	private List<ComSendProxyInteraction> getPrimitiveProxyInteractions(ComSendProxy sourceComSendProxy) {
-		List<ComSendProxyInteraction> sourcePrimitiveProxyInteractions = new ArrayList<ComSendProxyInteraction>();
-		for (ComSendProxyInteraction sourceProxyInteraction : sourceComSendProxy.getInteraction()) {
-			if (sourceProxyInteraction.getSignalDataType().isPrimitiveType()) {
-				sourcePrimitiveProxyInteractions.add(sourceProxyInteraction);
-			}
-		}
-		return sourcePrimitiveProxyInteractions;
-	}
-
-	private List<ComSendProxyInteraction> getComplexComSendProxyInteractions(ComSendProxy sourceComSendProxy) {
-		List<ComSendProxyInteraction> sourceComplexProxyInteractions = new ArrayList<ComSendProxyInteraction>();
-		for (ComSendProxyInteraction sourceProxyInteraction : sourceComSendProxy.getInteraction()) {
-			if (sourceProxyInteraction.getSignalDataType().isComplexType()) {
-				sourceComplexProxyInteractions.add(sourceProxyInteraction);
-			}
-		}
-		return sourceComplexProxyInteractions;
 	}
 
 	private ComSendSignalImmediateTaskBody createComSendSignalImmediateTaskBody(OsTask sourceOsTask, ComSendSignalImmediateEntity immediateEntity) {
@@ -1547,151 +1519,303 @@ public class RteFunctionModelBuilder {
 
 	private void buildComCallbacks(Rte targetRte) throws ModelException {
 		for (ExternalEcuSender sourceExternalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER)) {
-				targetRte.getComCallback().add(createComReceiveCallback(sourceExternalEcuSender));
+			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER)) {
+				targetRte.getComCallback().add(createComRxCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER)) {
-				targetRte.getComCallback().add(createComInvalidateCallback(sourceExternalEcuSender));
+			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER)) {
+				targetRte.getComCallback().add(createComInvCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER)) {
+			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComReceiveTimeoutCallback(sourceExternalEcuSender));
+			}
+		}
+		for (ExternalEcuReceiver sourceExternalEcuReciver : this.context.query.<ExternalEcuReceiver> findByKind(EXTERNAL_ECU_RECEIVER)) {
+			if (this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER)) {
+				targetRte.getComCallback().add(createComTAckCallback(sourceExternalEcuReciver));
+				targetRte.getComCallback().add(createComTErrCallback(sourceExternalEcuReciver));
+			}
+			if (this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER)) {
+				targetRte.getComCallback().add(createComTxTOutCallback(sourceExternalEcuReciver));
 			}
 		}
 		for (ComCallback targetComCallback : targetRte.getComCallback()) {
 			targetComCallback.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.<EcucPartition> absent()));
 		}
 	}
-
-	private ComReceiveCallback createComReceiveCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
-		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
-		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
-
-		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
 	
+	private ComCallback createComTAckCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+
 		// 関数シンボルの構築
-		ComReceiveCallback destCallback = ModuleFactory.eINSTANCE.createComReceiveCallback();
-		destCallback.setSymbolName(SymbolNames.createComReceiveCallbackName(sourceComSignalOrComSignalGroup));
+		ComTAckCallback destCallback = ModuleFactory.eINSTANCE.createComTAckCallback();
+		destCallback.setSymbolName(SymbolNames.createComTAckCallback(sourceComSignalOrComSignalGroup));
 		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationの設定
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
 
-		// 内部構造の構築
-		// 処理中で使用するCOMアクセス関数の関連付
-		destCallback.setAccessApi(comReceiveSignalApi);
-
-		// ローカル変数の構築
-		Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
-		if (destDataVariable instanceof LocalVariable) {
-			destCallback.getLocalVariable().add((LocalVariable)destDataVariable);
-		}
-		destCallback.setDataVariable(destDataVariable);
-	
-		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
-		destCallback.getLocalVariable().add(destFilterResultVariable);
-	
-		// 送信処理の構築
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
-					destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, destDataVariable);
-				} else {
-					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender, destDataVariable, destFilterResultVariable);
-				}
-	
-			} else if (sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
-				// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-				// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった
-				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
-				if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
-					destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, destDataVariable, Optional.<LocalVariable> absent());
-				} else {
-					destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, destDataVariable, Optional.<LocalVariable> absent());
-				}
-	
-			} else {
-				continue;
-			}
-	
-			destCallback.getOperation().add(destOperation);
-		}
-	
-		// 使用していないローカル変数を除外
-		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
-	
 		return destCallback;
 	}
 
-	private ComInvalidateCallback createComInvalidateCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
-		// 関数シンボルの構築
-		ComInvalidateCallback destCallback = ModuleFactory.eINSTANCE.createComInvalidateCallback();
-		destCallback.setSymbolName(SymbolNames.createComInvalidateCallbackName(sourceExternalEcuSender.getSourceSignal()));
-		destCallback.setReturnType(this.context.cache.voidType);
+	private ComCallback createComTErrCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 
-		// 内部構造の構築
-		// ローカル変数の構築
-		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
-		destCallback.getLocalVariable().add(destFilterResultVariable);
-	
-		// 送信処理の構築
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComInvalidateCallback(sourceSendInteraction, sourceExternalEcuSender, destFilterResultVariable);
-	
-			} else { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-				assert false; // ここには来ない
-				continue;
-			}
-	
-			destCallback.getOperation().add(destOperation);
-		}
-	
-		// 使用していないローカル変数を除外
-		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
-	
+		// 関数シンボルの構築
+		ComTErrCallback destCallback = ModuleFactory.eINSTANCE.createComTErrCallback();
+		destCallback.setSymbolName(SymbolNames.createComTErrCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationの設定
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
+
 		return destCallback;
 	}
+	
+	private ComCallback createComTxTOutCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 
-	private ComReceiveTimeoutCallback createComReceiveTimeoutCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		// 関数シンボルの構築
+		ComTxTOutCallback destCallback = ModuleFactory.eINSTANCE.createComTxTOutCallback();
+		destCallback.setSymbolName(SymbolNames.createComTxTOutCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationの設定
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
+
+		return destCallback;
+	}
+	
+	private EList<TAckNotifyOperation> createTAckNotifyOperationsForComTxCallback(EList<InternalEcuSender> internalEcuSenders) throws ModelException {
+		EList<TAckNotifyOperation> tAckNotifyOperations = new BasicEList<TAckNotifyOperation>();
+		for (InternalEcuSender sourceSender : internalEcuSenders) {
+			TAckNotifyOperation tAckNotifyOperation = ModuleFactory.eINSTANCE.createTAckNotifyOperation();
+			tAckNotifyOperations.add(tAckNotifyOperation);
+			
+			// ActivationOperationの設定
+			EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompletedWithoutActivationFlag(sourceSender);
+			tAckNotifyOperation.getActivationOperation().addAll(activationOperationOnSendCompleted);
+
+			// TAckStatusの設定
+			Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+			if (tAckStatus.isPresent()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				tAckNotifyOperation.setTAckStatus(tAckStatus.get());
+			}
+		}
+		return tAckNotifyOperations;
+	}
+
+	private ComRxCallback createComRxCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
 		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
 		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
 
-		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
-
 		// 関数シンボルの構築
-		ComReceiveTimeoutCallback destCallback = ModuleFactory.eINSTANCE.createComReceiveTimeoutCallback();
-		destCallback.setSymbolName(SymbolNames.createComReceiveTimeoutCallbackName(sourceComSignalOrComSignalGroup));
+		ComRxCallback destCallback = ModuleFactory.eINSTANCE.createComRxCallback();
+		destCallback.setSymbolName(SymbolNames.createComRxCallbackName(sourceComSignalOrComSignalGroup));
 		destCallback.setReturnType(this.context.cache.voidType);
 
-		// 内部構造の構築
-		// 処理中で使用するCOMアクセス関数の関連付
-		destCallback.setAccessApi(comReceiveSignalApi);
+		if (sourceExternalEcuSender.hasSendImplementation()) {
+			// 内部構造の構築
+			// 処理中で使用するCOMアクセス関数の関連付
+			ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
+			destCallback.setAccessApi(comReceiveSignalApi);
 
-		// ローカル変数の構築
-		Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
-		if (destDataVariable instanceof LocalVariable) {
-			destCallback.getLocalVariable().add((LocalVariable)destDataVariable);
-		}
-		destCallback.setDataVariable(destDataVariable);
-	
-		// 送信処理の構築
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			InternalEcuReceiver sourceSendInteractionReceiver = sourceSendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
-			if (!sourceSendInteractionReceiver.isAliveTimeoutEnabled()) {
-				continue;
+			// ローカル変数の構築
+			Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
+			if (destDataVariable instanceof LocalVariable) {
+				destCallback.getLocalVariable().add((LocalVariable) destDataVariable);
 			}
-	
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(sourceSendInteraction, destDataVariable, this.context.cache.rteErrorMaxAgeExceededConstant);
-	
-			} else { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-				assert false; // ここには来ない
-				continue;
-			}
+			destCallback.setDataVariable(destDataVariable);
 
-			destCallback.getOperation().add(destOperation);
+			LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
+			destCallback.getLocalVariable().add(destFilterResultVariable);
+
+			// 送信処理の構築
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				SendOperation destOperation;
+				
+				// ActivationOperationの設定(DataReceived)
+				EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceivedForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperationOnReceived);
+				
+				// ActivationFlagの設定
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnReceived);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+				
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
+					if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
+						destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, destDataVariable);
+					} else {
+						destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender, destDataVariable,
+								destFilterResultVariable, activationOperationOnReceived);
+					}
+
+				} else {
+					continue;
+				}
+
+				destCallback.getOperation().add(destOperation);
+			}
+		} else {
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				// ActivationOperationの設定(DataReceived)
+				EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceivedForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperationOnReceived);
+				
+				// ActivationFlagの設定
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnReceived);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+			}
 		}
+
+		// 使用していないローカル変数を除外
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
+
 		return destCallback;
+	}
+
+	private ComInvCallback createComInvCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		// 関数シンボルの構築
+		ComInvCallback destCallback = ModuleFactory.eINSTANCE.createComInvCallback();
+		destCallback.setSymbolName(SymbolNames.createComInvCallbackName(sourceExternalEcuSender.getSourceSignal()));
+		destCallback.setReturnType(this.context.cache.voidType);
+
+		if (sourceExternalEcuSender.hasSendImplementation()) {
+			// 内部構造の構築
+			// ローカル変数の構築
+			LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
+			destCallback.getLocalVariable().add(destFilterResultVariable);
+
+			// 送信処理の構築
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				SendOperation destOperation;
+				
+				// ActivationOperationの設定(DataReceived or DataReceivedErr)
+				EList<ActivationOperation> activationOperations = createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperations);
+				
+				// ActivationFlagの設定
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperations);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+				
+				
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
+					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComInvalidateCallback(sourceSendInteraction, sourceExternalEcuSender, destFilterResultVariable, activationOperations);
+
+				} else { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+					assert false; // ここには来ない
+					continue;
+				}
+				destCallback.getOperation().add(destOperation);
+			}
+		} else {
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				// ActivationOperationの設定(DataReceived or DataReceivedErr)
+				EList<ActivationOperation> activationOperations = createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperations);
+				
+				// ActivationFlagの設定
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperations);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+			}
+		}
+
+		// 使用していないローカル変数を除外
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
+		
+		return destCallback;
+	}
+	
+	public EList<EntityStarter> collectRelatedEntityStarterForInvalidate(SendInteraction sourceSendInteraction) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) {
+			return new BasicEList<EntityStarter>(); // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+		}
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		if (sourceRDataInstanceInSwc.isInvalidationKeep()) {
+			return sourceReceiver.getActivatesOnReceiveError();
+		}
+		if (sourceRDataInstanceInSwc.isInvalidationReplace()) {
+			return sourceReceiver.getActivatesOnReceived();
+		}
+		
+		return new BasicEList<EntityStarter>();// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+	}
+
+	private ComRxTOutCallback createComReceiveTimeoutCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
+		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
+
+		// 関数シンボルの構築
+		ComRxTOutCallback destCallback = ModuleFactory.eINSTANCE.createComRxTOutCallback();
+		destCallback.setSymbolName(SymbolNames.createComRxTOutCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+
+		if (sourceExternalEcuSender.hasSendImplementation()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+			// 内部構造の構築
+			// 処理中で使用するCOMアクセス関数の関連付
+			ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
+			destCallback.setAccessApi(comReceiveSignalApi);
+
+			// ローカル変数の構築
+			Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
+			if (destDataVariable instanceof LocalVariable) {
+				destCallback.getLocalVariable().add((LocalVariable) destDataVariable);
+			}
+			destCallback.setDataVariable(destDataVariable);
+
+			// 送信処理の構築
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				InternalEcuReceiver sourceSendInteractionReceiver = sourceSendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
+				// ActivationOperationの設定(DataReceiveError)
+				for (EntityStarter entityStarter : sourceSendInteractionReceiver.getActivatesOnReceiveError()) {
+					destCallback.getActivationOperation().add(createActivationOperation(entityStarter));
+				}
+
+				if (!sourceSendInteractionReceiver.isAliveTimeoutEnabled()) {
+					continue;
+				}
+
+				SendOperation destOperation;
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
+					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(sourceSendInteraction, destDataVariable, this.context.cache.rteErrorMaxAgeExceededConstant);
+				} else { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+					assert false; // ここには来ない
+					continue;
+				}
+
+				destCallback.getOperation().add(destOperation);
+			}
+		}
+		
+		return destCallback;
+	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : collectRelatedEntityStarterForInvalidate(sourceSendInteraction)) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter() && sourceRDataInstanceInSwc.isInvalidationReplace()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
 	}
 
 	private Variable findOrCreateComCallbackDataVariable(InternalEcuReceiver sourceFirstReceiver, EcucContainer sourceComSignalOrComSignalGroup) throws ModelException {
@@ -2036,6 +2160,9 @@ public class RteFunctionModelBuilder {
 			for (SendApi targetApi : this.context.query.<RteApi, SendApi> selectByKind(targetSwc.getRteApi(), SEND_API)) {
 				buildSendApiInternal(targetApi, (PVariableDataInstanceInSwc) targetApi.getSingleSource());
 			}
+			for (FeedbackApi targetApi : this.context.query.<RteApi, FeedbackApi> selectByKind(targetSwc.getRteApi(), FEEDBACK_API)) {
+				buildFeedbackApiInternal(targetApi, (PVariableDataInstanceInSwc) targetApi.getSingleSource());
+			}
 			for (ReadApi targetApi : this.context.query.<RteApi, ReadApi> selectByKind(targetSwc.getRteApi(), READ_API)) {
 				buildReadApiInternal(targetApi, (RVariableDataInstanceInSwc) targetApi.getSingleSource());
 			}
@@ -2106,33 +2233,67 @@ public class RteFunctionModelBuilder {
 		
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
-	
+
+		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteNonqueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteNonqueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+
+		// ActivationOperationの設定(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagの設定
+		EList<LocalVariable> activationFlagsForSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsForSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsForSendCompleted);
+		
+		// TAckStatusの設定
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
 		// 送信処理の構築
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationの設定(DataReceived)
+			EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceived(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationOnReceived);
+			
+			// ActivationFlagの設定
+			EList<LocalVariable> activationFlagsForDataReceived = getActivationFlags(activationOperationOnReceived);
+			targetApi.getLocalVariable().addAll(activationFlagsForDataReceived);
+			targetApi.getActivationFlag().addAll(activationFlagsForDataReceived);
+			
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteApi(targetApi, sourceSendInteraction, dataParam, destFilterResultVariable);
-	
+				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteApi(targetApi, sourceSendInteraction, dataParam, destFilterResultVariable,
+						activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
 	
+				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferWriteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferWriteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, destTfParamVariableForRte, type, activationOperationOnReceived);
 			} else if (sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
 				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable));
-	
+				destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable), activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 	
@@ -2145,13 +2306,15 @@ public class RteFunctionModelBuilder {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
@@ -2159,15 +2322,17 @@ public class RteFunctionModelBuilder {
 	
 				setInitReturnValueVariable(destReturnValueVariable);
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) {
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else {
 				continue;
 			}
@@ -2175,7 +2340,7 @@ public class RteFunctionModelBuilder {
 			destOperation.setIsWriteApi(true);
 			targetApi.getOperation().add(destOperation);
 		}
-	
+
 		// 使用していないローカル変数を除外
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
@@ -2186,10 +2351,87 @@ public class RteFunctionModelBuilder {
 		}
 
 		// 引数のメモリチェックが必要かを設定
-		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType()));
+		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType(), sourceDataInstanceInSwc.isTAckEnabled()));
 	}
 
-	private boolean needsCheckArg(EList<SendOperation> sendOperations, Type type) {
+	private EList<LocalVariable> getActivationFlags(EList<ActivationOperation> activationOperationOnSendCompleted) {
+		EList<LocalVariable> activationFlags = new BasicEList<LocalVariable>();
+		for (ActivationOperation activationOperation : activationOperationOnSendCompleted) {
+			if (activationOperation.getActivationFlag() != null) {
+				activationFlags.add(activationOperation.getActivationFlag());
+			}
+		}
+		return activationFlags;
+	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnSendCompleted(InternalEcuSender sourceSender) throws ModelException {
+		EList<ActivationOperation> activationOperationOnSendCompleted = new BasicEList<ActivationOperation>();
+		for (EntityStarter entityStarter : sourceSender.getActivatesOnSendCompleted()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (!sourceSender.getExternalEcuReceivers().isEmpty()) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperationOnSendCompleted.add(activationOperation);
+		}
+		return activationOperationOnSendCompleted;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnSendCompletedWithoutActivationFlag(InternalEcuSender sourceSender) throws ModelException {
+		EList<ActivationOperation> activationOperationOnSendCompleted = new BasicEList<ActivationOperation>();
+		for (EntityStarter entityStarter : sourceSender.getActivatesOnSendCompleted()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			activationOperationOnSendCompleted.add(activationOperation);
+		}
+		return activationOperationOnSendCompleted;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnReceived(SendInteraction sourceSendInteraction) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		for (EntityStarter entityStarter : sourceReceiver.getActivatesOnReceived()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceReceiver.isFilterEnabled() || sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation
+					|| sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnReceivedForComReceiveCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : sourceReceiver.getActivatesOnReceived()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+
+	private ActivationOperation createActivationOperation(EntityStarter entityStarter) throws ModelException {
+		ActivationOperation activationOperation = ModuleFactory.eINSTANCE.createActivationOperation();
+		activationOperation.setActivationApi((OsApi) this.context.builtQuery.findDest(OS_API, entityStarter));
+		OsTask sourceTask = entityStarter.getExecutionContext().getSourceOsTask();
+		activationOperation.setOsTaskPriority(sourceTask.getOsTaskPriority());
+		return activationOperation;
+	}
+
+	private boolean needsCheckArg(EList<SendOperation> sendOperations, Type type, boolean hasTAckStatus) {
 		if (type instanceof PrimitiveType) {
 			return false;
 		}
@@ -2197,9 +2439,11 @@ public class RteFunctionModelBuilder {
 		for (SendOperation sendOperation : sendOperations) {
 			if (sendOperation instanceof TrustedFunctionRteOperation) {
 				return true;
-			} else if (sendOperation instanceof TrustedFunctionComSendOperation && !(type instanceof PointerType)) { // COVERAGE nrte_sws_0287により、TrustedFunctionComSendOperation時にPointerTypeが来ることはない
+			} else if (sendOperation instanceof TrustedFunctionComSendOperation) {
 				return true;
-			} else if (sendOperation instanceof IocSendOperation && type instanceof PointerType) {
+			} else if (sendOperation instanceof IocSendOperation && (type instanceof PointerType || hasTAckStatus)) {
+				return true;
+			} else if (sendOperation instanceof ProxyComSendOperation && hasTAckStatus) {
 				return true;
 			}
 		}
@@ -2239,23 +2483,57 @@ public class RteFunctionModelBuilder {
 	
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
-	
+
+		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteNonqueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteNonqueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+
+		// ActivationOperationの設定(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagの設定
+		EList<LocalVariable> activationFlagsOnSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsOnSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsOnSendCompleted);
+
+		// TAckStatusの設定
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
 		// 送信処理の構築
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationの設定(DataReceived or DataReceivedErr)
+			EList<ActivationOperation> activationOperationsOnReceivedOrReceiveError = createActivationOperationsOnReceivedOrReceiveErrorForInvalidateApi(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationsOnReceivedOrReceiveError);
+			
+			// ActivationFlagの設定
+			EList<LocalVariable> activationFlagsOnReceivedOrReceiveError = getActivationFlags(activationOperationsOnReceivedOrReceiveError);
+			targetApi.getLocalVariable().addAll(activationFlagsOnReceivedOrReceiveError);
+			targetApi.getActivationFlag().addAll(activationFlagsOnReceivedOrReceiveError);
+
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForInvalidateApi(targetApi, sourceSendInteraction, invalidValueConstant, destFilterResultVariable);
-	
+				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForInvalidateApi(targetApi, sourceSendInteraction, invalidValueConstant, destFilterResultVariable,
+						activationOperationsOnReceivedOrReceiveError);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferInvalidateSendOperation(sourceSendInteraction, sourceTrustedFunctionRteSendImplementation, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferInvalidateSendOperation(sourceSendInteraction, sourceTrustedFunctionRteSendImplementation,
+						destReturnValueVariable, destTempReturnValueVariable, destTfParamVariableForRte, activationOperationsOnReceivedOrReceiveError);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
@@ -2264,26 +2542,30 @@ public class RteFunctionModelBuilder {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
 					// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない) 無効化は複合データ型未サポート(nrte_sws_0291)
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
 				ImmediateProxyComSendImplementation sourceImmediateProxyComSendImplementation = (ImmediateProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, invalidValueConstant, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, invalidValueConstant, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, invalidValueConstant, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, invalidValueConstant, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 				assert false; // ここには来ない
 				continue;
@@ -2291,7 +2573,7 @@ public class RteFunctionModelBuilder {
 	
 			targetApi.getOperation().add(destOperation);
 		}
-	
+
 		// 使用していないローカル変数を除外
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
@@ -2301,7 +2583,28 @@ public class RteFunctionModelBuilder {
 			targetApi.setReturnValue(this.context.cache.rteErrorOkConstant);
 		}
 	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnReceivedOrReceiveErrorForInvalidateApi(SendInteraction sourceSendInteraction) throws ModelException {
+		
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (!sourceSendInteraction.getExternalEcuSenders().isEmpty() || sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) {
+			return new BasicEList<ActivationOperation>();
+		}
 
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : collectRelatedEntityStarterForInvalidate(sourceSendInteraction)) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if ((sourceRDataInstanceInSwc.isFilterEnabled() && sourceRDataInstanceInSwc.isInvalidationReplace()) ||
+					(sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation || sourceSendInteraction.getImplementation() instanceof IocSendImplementation)) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+	
 	private void buildReadApiInternal(ReadApi targetApi, RVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		Parameter dataParam = targetApi.getDataParam();
 	
@@ -2382,6 +2685,28 @@ public class RteFunctionModelBuilder {
 		targetApi.setOperation(this.srOperationBuilder.createNeverReadOperation(targetApi, sourceDataInstanceInSwc, dataParam));
 	}
 
+	private void buildFeedbackApiInternal(FeedbackApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
+		targetApi.setIsConnected(false);
+
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE// (常用ケースではないため，コードレビューで問題ないことを確認)
+			return;
+		}
+
+		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
+		InternalEcuSender sourceSender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
+		// 接続状態の設定
+		targetApi.setIsConnected(!sourceSender.getSendInteraction().isEmpty());
+
+		// TAckStatusの設定
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+			if (targetApi.getIsInline()) {
+				targetApi.getInlineGlobalVariable().add(tAckStatus.get().getStatusVariable());
+			}
+		}
+	}
+	
 	private void buildSendApiInternal(SendApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 	
@@ -2407,12 +2732,42 @@ public class RteFunctionModelBuilder {
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
 	
-		// 送信処理の構築
 		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteQueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteQueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+		
+		// ActivationOperationの設定(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagの設定
+		EList<LocalVariable> activationFlagsOnSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsOnSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsOnSendCompleted);
+
+		// TAckStatusの設定
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
+		// 送信処理の構築
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationの設定(DataReceived)
+			EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceived(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationOnReceived);
+			
+			// ActivationFlagの設定
+			EList<LocalVariable> activationFlagsOnReceived = getActivationFlags(activationOperationOnReceived);
+			targetApi.getLocalVariable().addAll(activationFlagsOnReceived);
+			targetApi.getActivationFlag().addAll(activationFlagsOnReceived);
+			
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
 				setInitReturnValueVariable(destReturnValueVariable);
 				destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, dataParam, Optional.of(destReturnValueVariable));
@@ -2421,25 +2776,24 @@ public class RteFunctionModelBuilder {
 				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
 				
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable), Optional.of(destTempReturnValueVariable));
-	
+				destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable),
+						Optional.of(destTempReturnValueVariable), activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
 				
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-				
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				if (destTfParamVariableForRte == null) { // COVERAGE (コードレビューで問題ないことを確認)
-					destTfParamVariableForRte = this.localSymbolModelBuilder.createRteSendTrustedFunctionParamVariable();
-					targetApi.getLocalVariable().add(destTfParamVariableForRte);
-				}
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForRte, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferSendSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, destTfParamVariableForRte, type, activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 				
@@ -2452,13 +2806,15 @@ public class RteFunctionModelBuilder {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
@@ -2466,22 +2822,24 @@ public class RteFunctionModelBuilder {
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else {
 				continue;
 			}
 	
 			targetApi.getOperation().add(destOperation);
 		}
-	
+
 		// 使用していないローカル変数を除外
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
@@ -2492,9 +2850,9 @@ public class RteFunctionModelBuilder {
 		}
 
 		// 引数のメモリチェックが必要かを設定
-		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType()));
+		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType(), sourceDataInstanceInSwc.isTAckEnabled()));
 	}
-
+	
 	private void buildReceiveApiInternal(ReceiveApi targetApi, RVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 	

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,6 +50,7 @@ import java.io.File;
 import java.io.IOException;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
+import jp.ac.nagoya_u.is.nces.a_rte.app.AppResources;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodegenException;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.RteCodeGenerator;
@@ -126,8 +127,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		this.generatorInitOptions = generatorInitOptions;
 		try {
 			this.loader = AutosarModelLoader.forGeneratePhase();
-			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
-
+			
 			this.rteValidatorM2 = ModelValidator.forRteGeneratePhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteGeneratePhaseInstance();
 			this.bswmValidatorM2 = ModelValidator.forBswmGeneratePhaseM2();
@@ -182,6 +182,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 				ModelEnvironment.initResource(eGenSourceResource);
 
 				// AUTOSAR M2モデルの読み込み
+				this.loader.setSchemaFile(AppResources.getSchemaFile(options.schemaDirectory));
 				this.loader.loadM2(eGenSourceResource, options.inputFiles);
 
 				ModelQuery query = new ModelQuery(eGenSourceResource);

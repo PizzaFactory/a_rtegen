@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -343,6 +343,24 @@ public interface ModuleFactory extends EFactory {
 	RteBufferQueueType createRteBufferQueueType();
 
 	/**
+	 * Returns a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	RteNonqueuedSendTrustedFunctionParamType createRteNonqueuedSendTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	RteQueuedSendTrustedFunctionParamType createRteQueuedSendTrustedFunctionParamType();
+
+	/**
 	 * Returns a new object of class '<em>Mode Queue Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,15 +368,6 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ModeQueueType createModeQueueType();
-
-	/**
-	 * Returns a new object of class '<em>Rte Send Trusted Function Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Send Trusted Function Param Type</em>'.
-	 * @generated
-	 */
-	RteSendTrustedFunctionParamType createRteSendTrustedFunctionParamType();
 
 	/**
 	 * Returns a new object of class '<em>Com Send Trusted Function Param Type</em>'.
@@ -757,6 +766,42 @@ public interface ModuleFactory extends EFactory {
 	RedefinitionPointerType createRedefinitionPointerType();
 
 	/**
+	 * Returns a new object of class '<em>Activation Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Activation Operation</em>'.
+	 * @generated
+	 */
+	ActivationOperation createActivationOperation();
+
+	/**
+	 * Returns a new object of class '<em>Os Activate Task Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Activate Task Api</em>'.
+	 * @generated
+	 */
+	OsActivateTaskApi createOsActivateTaskApi();
+
+	/**
+	 * Returns a new object of class '<em>Feedback Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feedback Api</em>'.
+	 * @generated
+	 */
+	FeedbackApi createFeedbackApi();
+
+	/**
+	 * Returns a new object of class '<em>TAck Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TAck Status</em>'.
+	 * @generated
+	 */
+	TAckStatus createTAckStatus();
+
+	/**
 	 * Returns a new object of class '<em>Local Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -910,13 +955,13 @@ public interface ModuleFactory extends EFactory {
 	TrustedFunctionRteOperation createTrustedFunctionRteOperation();
 
 	/**
-	 * Returns a new object of class '<em>Trusted Function Rte Send Operation</em>'.
+	 * Returns a new object of class '<em>Trusted Function Rte Buffer Send Send Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Trusted Function Rte Send Operation</em>'.
+	 * @return a new object of class '<em>Trusted Function Rte Buffer Send Send Operation</em>'.
 	 * @generated
 	 */
-	TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation();
+	TrustedFunctionRteBufferSendSendOperation createTrustedFunctionRteBufferSendSendOperation();
 
 	/**
 	 * Returns a new object of class '<em>Trusted Function Com Send Operation</em>'.
@@ -1009,31 +1054,31 @@ public interface ModuleFactory extends EFactory {
 	ComReceiveSignalApi createComReceiveSignalApi();
 
 	/**
-	 * Returns a new object of class '<em>Com Receive Callback</em>'.
+	 * Returns a new object of class '<em>Com Rx Callback</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Receive Callback</em>'.
+	 * @return a new object of class '<em>Com Rx Callback</em>'.
 	 * @generated
 	 */
-	ComReceiveCallback createComReceiveCallback();
+	ComRxCallback createComRxCallback();
 
 	/**
-	 * Returns a new object of class '<em>Com Receive Timeout Callback</em>'.
+	 * Returns a new object of class '<em>Com Rx TOut Callback</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Receive Timeout Callback</em>'.
+	 * @return a new object of class '<em>Com Rx TOut Callback</em>'.
 	 * @generated
 	 */
-	ComReceiveTimeoutCallback createComReceiveTimeoutCallback();
+	ComRxTOutCallback createComRxTOutCallback();
 
 	/**
-	 * Returns a new object of class '<em>Com Invalidate Callback</em>'.
+	 * Returns a new object of class '<em>Com Inv Callback</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Invalidate Callback</em>'.
+	 * @return a new object of class '<em>Com Inv Callback</em>'.
 	 * @generated
 	 */
-	ComInvalidateCallback createComInvalidateCallback();
+	ComInvCallback createComInvCallback();
 
 	/**
 	 * Returns a new object of class '<em>Com Send Signal Proxy Entity</em>'.
@@ -1061,6 +1106,42 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ComSendSignalPeriodicEntity createComSendSignalPeriodicEntity();
+
+	/**
+	 * Returns a new object of class '<em>TAck Notify Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TAck Notify Operation</em>'.
+	 * @generated
+	 */
+	TAckNotifyOperation createTAckNotifyOperation();
+
+	/**
+	 * Returns a new object of class '<em>Com Tx TOut Callback</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Tx TOut Callback</em>'.
+	 * @generated
+	 */
+	ComTxTOutCallback createComTxTOutCallback();
+
+	/**
+	 * Returns a new object of class '<em>Com TAck Callback</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com TAck Callback</em>'.
+	 * @generated
+	 */
+	ComTAckCallback createComTAckCallback();
+
+	/**
+	 * Returns a new object of class '<em>Com TErr Callback</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com TErr Callback</em>'.
+	 * @generated
+	 */
+	ComTErrCallback createComTErrCallback();
 
 	/**
 	 * Returns a new object of class '<em>Masked New Differs Masked Old Filter Operation</em>'.
@@ -1387,6 +1468,15 @@ public interface ModuleFactory extends EFactory {
 	RteExitApi createRteExitApi();
 
 	/**
+	 * Returns a new object of class '<em>Os Background Task Activation Executable Task Body</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Background Task Activation Executable Task Body</em>'.
+	 * @generated
+	 */
+	OsBackgroundTaskActivationExecutableTaskBody createOsBackgroundTaskActivationExecutableTaskBody();
+
+	/**
 	 * Returns a new object of class '<em>Os Task Activation Executable Task Body</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1430,6 +1520,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation();
+
+	/**
+	 * Returns a new object of class '<em>Plain Executable Start Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Plain Executable Start Operation</em>'.
+	 * @generated
+	 */
+	PlainExecutableStartOperation createPlainExecutableStartOperation();
 
 	/**
 	 * Returns a new object of class '<em>Mode Switch Triggering Executable Start Operation</em>'.
@@ -1504,22 +1603,13 @@ public interface ModuleFactory extends EFactory {
 	ComSendSignalImmediateTaskBody createComSendSignalImmediateTaskBody();
 
 	/**
-	 * Returns a new object of class '<em>Primitive Com Send Proxy Operation</em>'.
+	 * Returns a new object of class '<em>Com Send Proxy Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Com Send Proxy Operation</em>'.
+	 * @return a new object of class '<em>Com Send Proxy Operation</em>'.
 	 * @generated
 	 */
-	PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation();
-
-	/**
-	 * Returns a new object of class '<em>Complex Com Send Proxy Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complex Com Send Proxy Operation</em>'.
-	 * @generated
-	 */
-	ComplexComSendProxyOperation createComplexComSendProxyOperation();
+	ComSendProxyOperation createComSendProxyOperation();
 
 	/**
 	 * Returns a new object of class '<em>Ioc Receive Group Api</em>'.
@@ -1601,6 +1691,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	RteBufferWriteTrustedFunction createRteBufferWriteTrustedFunction();
+
+	/**
+	 * Returns a new object of class '<em>Rte Buffer Send Trusted Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Buffer Send Trusted Function</em>'.
+	 * @generated
+	 */
+	RteBufferSendTrustedFunction createRteBufferSendTrustedFunction();
 
 	/**
 	 * Returns a new object of class '<em>Cs Trusted Function</em>'.

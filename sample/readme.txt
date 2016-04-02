@@ -8,17 +8,19 @@
 TOPPERS/A-RTEGEN
     Automotive Runtime Environment Generator
 
-Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+Copyright (C) 2013-2016 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
-Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
-Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
-Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by eSOL Co.,Ltd., JAPAN
+Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
-Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
-Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
-Copyright (C) 2013-2015 by Witz Corporation
+Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+Copyright (C) 2015-2016 by SUZUKI MOTOR CORPORATION
+Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+Copyright (C) 2013-2016 by Witz Corporation
 
 上記著作権者は，以下の (1)〜(3)の条件を満たす場合に限り，本ドキュメ
 ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
@@ -46,7 +48,7 @@ Copyright (C) 2013-2015 by Witz Corporation
 により直接的または間接的に生じたいかなる損害に関しても，その責任を負
 わない．
 
-$Id: readme.txt 427 2015-03-23 12:38:40Z mtakada $
+$Id: readme.txt 651 2016-03-31 06:20:22Z mtakada $
 ----------------------------------------------------------------------
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -84,22 +86,23 @@ TOPPERS/ATK2，TOPPERS/A-COMSTACKを入手し，以下のように同一フォ�
 配置する．複数ECUを使用したサンプルアプリケーションを使用しない場合は，
 A-COMSTACKは不要である．
 
-┣ a-comstack                 ：A-COMSTACK (a-comstack-1.0.1.tar.gz)
-┣ a-rtegen                   ：A-RTEGEN (a-rtegen-1.0.1.tar.gz)
-┃ ┣ bin                     ：RTEジェネレータ
-┃ ┗ sample                  ：サンプルアプリケーション
-┃     ┣ general             ：共通コード
+┣ a-comstack               ：A-COMSTACK (a-comstack-1.3.0.tar.gz)
+┣ a-wdgstack               ：A-WDGSTACK (a-wdgstack-1.1.1.tar.gz)
+┣ a-rtegen                 ：A-RTEGEN (a-rtegen-1.3.0.tar.gz)
+┃ ┣ bin                    ：RTEジェネレータ
+┃ ┗ sample                 ：サンプルアプリケーション
+┃     ┣ general            ：共通コード
 ┃     ┃  ┣ EcuM            ：ECUステートマネージャコード
 ┃     ┃  ┗ HelloAutosar    ：HelloAutosar用共通ファイル
 ┃     ┃      ┗ performance ：性能評価用プログラム
-┃     ┣ sc1                 ：ATK2-SC1用サンプルアプリケーション
-┃     ┣ sc1-mc              ：ATK2-SC1-MC用サンプルアプリケーション
-┃     ┣ sc3                 ：ATK2-SC3用サンプルアプリケーション
-┃     ┗ sc3-mc              ：ATK2-SC3-MC用サンプルアプリケーション
-┣ atk2-sc1                   ：ATK2-SC1 (atk2-sc1-1.3.1.tar.gz)
-┣ atk2-sc1-mc                ：ATK2-SC1-MC (atk2-sc1-mc-1.2.1.tar.gz)
-┣ atk2-sc3                   ：ATK2-SC3 (atk2-sc3-1.3.1.tar.gz)
-┗ atk2-sc3-mc                ：ATK2-SC3-MC (atk2-sc3-mc-1.2.1.tar.gz)
+┃     ┣ sc1                ：ATK2-SC1用サンプルアプリケーション
+┃     ┣ sc1-mc             ：ATK2-SC1-MC用サンプルアプリケーション
+┃     ┣ sc3                ：ATK2-SC3用サンプルアプリケーション
+┃     ┗ sc3-mc             ：ATK2-SC3-MC用サンプルアプリケーション
+┣ atk2-sc1                 ：ATK2-SC1 (atk2-sc1-1.4.0.tar.gz)
+┣ atk2-sc1-mc              ：ATK2-SC1-MC (atk2-sc1-mc-1.4.0.tar.gz)
+┣ atk2-sc3                 ：ATK2-SC3 (atk2-sc3-1.4.0.tar.gz)
+┗ atk2-sc3-mc              ：ATK2-SC3-MC (atk2-sc3-mc-1.4.0.tar.gz)
 
 各サンプルアプリケーションフォルダ内に，サンプル毎にフォルダがあり，そ
 れぞれのフォルダにconfigure.shがあるので，サンプルの詳細は，

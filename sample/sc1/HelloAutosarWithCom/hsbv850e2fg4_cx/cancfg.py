@@ -5,19 +5,19 @@
 #      Toyohashi Open Platform for Embedded Real-Time Systems
 #      Automotive Kernel Version 2
 #
-#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2016 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
-#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
-#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
-#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2015 by Witz Corporation
+#  Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2016 by Witz Corporation
 #
-#  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+#  上記著作権者は，以下の(1)～(4)の条件を満たす場合に限り，本ソフトウェ
 #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
 #  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
 #  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
@@ -51,7 +51,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-# $Id: cancfg.py 427 2015-03-23 12:38:40Z mtakada $
+# $Id: cancfg.py 620 2016-03-14 15:51:56Z mtakada $
 #
 
 import os.path

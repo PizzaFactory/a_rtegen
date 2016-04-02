@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -51,7 +51,6 @@ import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.ConfigValues;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.Variables;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocDataProperties;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
@@ -69,6 +68,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TextValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
@@ -76,6 +76,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
@@ -286,10 +288,17 @@ public class LocalSymbolModelBuilder {
 		return destFilterResultVariable;
 	}
 
-	public LocalVariable createRteSendTrustedFunctionParamVariable() {
+	public LocalVariable createRteQueuedSendTrustedFunctionParamVariable() {
 		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		destTfParamVariable.setType(this.context.cache.rteSendTfParamType.get());
-		destTfParamVariable.setSymbolName(SymbolNames.RTE_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		destTfParamVariable.setType(this.context.cache.rteQueuedSendTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.RTE_QUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		return destTfParamVariable;
+	}
+
+	public LocalVariable createRteNonqueuedSendTrustedFunctionParamVariable() {
+		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destTfParamVariable.setType(this.context.cache.rteNonqueuedSendTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.RTE_NONQUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME);
 		return destTfParamVariable;
 	}
 
@@ -328,24 +337,26 @@ public class LocalSymbolModelBuilder {
 		return destVariable;
 	}
 
-	public LocalVariable createComProxyUnionDataVariable(UnionType proxyUnionType) {
-		return Variables.createUnionTypeLocalVariable(proxyUnionType, SymbolNames.COM_PROXY_UNION_DATA_VAR_NAME);
+	public LocalVariable createComProxyDataVariable(PrimitiveType proxyDataType) {
+		LocalVariable destVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destVariable.setType(proxyDataType);
+		destVariable.setSymbolName(SymbolNames.COM_PROXY_DATA_VAR_NAME);
+		return destVariable;
 	}
-
-	public UnionType createPrimitiveComProxyUnionType() {
-		UnionType destProxyUnionType = ModuleFactory.eINSTANCE.createUnionType();
-		destProxyUnionType.setIsAnonymous(true);
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint8Type));
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint16Type));
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint32Type));
-		return destProxyUnionType;
-	}
-
-	private UnionMember createComProxyUnionMember(PrimitiveType type) {
-		UnionMember destUnionMember = ModuleFactory.eINSTANCE.createUnionMember();
-		destUnionMember.setMemberName(SymbolNames.createComProxyUnionVariableMemberName(type));
-		destUnionMember.setType(type);
-		return destUnionMember;
+	
+	public LocalVariable createActivationFlagVariable(ActivationOperation activationOperation) {
+		LocalVariable activationFlag = ModuleFactory.eINSTANCE.createLocalVariable();
+		if (activationOperation.getActivationApi() instanceof OsActivateTaskApi) {
+			OsActivateTaskApi activatteTaskApi = (OsActivateTaskApi)activationOperation.getActivationApi();
+			activationFlag.setSymbolName(SymbolNames.createActivationFlagName(activatteTaskApi));
+		}
+		else if (activationOperation.getActivationApi() instanceof OsSetEventApi) {
+			OsSetEventApi setEventApi = (OsSetEventApi)activationOperation.getActivationApi();
+			activationFlag.setSymbolName(SymbolNames.createActivationFlagName(setEventApi));
+		}
+		activationFlag.setType(this.context.cache.booleanType);
+		activationFlag.setInitValueConstant(this.context.cache.booleanFalse);
+		return activationFlag;
 	}
 
 	public void removeUnusedLocalVariables(Function targetFunction) {

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -134,8 +134,10 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.IOC_NONQUEUED_SEND_OPERATION: return (EObject)createIocNonqueuedSendOperation();
 			case ModulePackage.DIRECT_COM_SEND_OPERATION: return (EObject)createDirectComSendOperation();
 			case ModulePackage.TRUSTED_FUNCTION_RTE_OPERATION: return (EObject)createTrustedFunctionRteOperation();
-			case ModulePackage.TRUSTED_FUNCTION_RTE_SEND_OPERATION: return (EObject)createTrustedFunctionRteSendOperation();
 			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferWriteSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferSendSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferInvalidateSendOperation();
+			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION: return (EObject)createRteBufferInvalidateTrustedFunction();
 			case ModulePackage.TRUSTED_FUNCTION_COM_SEND_OPERATION: return (EObject)createTrustedFunctionComSendOperation();
 			case ModulePackage.IMMEDIATE_PROXY_COM_SEND_OPERATION: return (EObject)createImmediateProxyComSendOperation();
 			case ModulePackage.PERIODIC_PROXY_COM_SEND_OPERATION: return (EObject)createPeriodicProxyComSendOperation();
@@ -146,12 +148,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.IOC_READ_API: return (EObject)createIocReadApi();
 			case ModulePackage.COM_SEND_SIGNAL_API: return (EObject)createComSendSignalApi();
 			case ModulePackage.COM_RECEIVE_SIGNAL_API: return (EObject)createComReceiveSignalApi();
-			case ModulePackage.COM_RECEIVE_CALLBACK: return (EObject)createComReceiveCallback();
-			case ModulePackage.COM_RECEIVE_TIMEOUT_CALLBACK: return (EObject)createComReceiveTimeoutCallback();
-			case ModulePackage.COM_INVALIDATE_CALLBACK: return (EObject)createComInvalidateCallback();
+			case ModulePackage.COM_RX_CALLBACK: return (EObject)createComRxCallback();
+			case ModulePackage.COM_RX_TOUT_CALLBACK: return (EObject)createComRxTOutCallback();
+			case ModulePackage.COM_INV_CALLBACK: return (EObject)createComInvCallback();
 			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY: return (EObject)createComSendSignalProxyEntity();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_ENTITY: return (EObject)createComSendSignalImmediateEntity();
 			case ModulePackage.COM_SEND_SIGNAL_PERIODIC_ENTITY: return (EObject)createComSendSignalPeriodicEntity();
+			case ModulePackage.TACK_NOTIFY_OPERATION: return (EObject)createTAckNotifyOperation();
+			case ModulePackage.COM_TX_TOUT_CALLBACK: return (EObject)createComTxTOutCallback();
+			case ModulePackage.COM_TACK_CALLBACK: return (EObject)createComTAckCallback();
+			case ModulePackage.COM_TERR_CALLBACK: return (EObject)createComTErrCallback();
 			case ModulePackage.MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION: return (EObject)createMaskedNewDiffersMaskedOldFilterOperation();
 			case ModulePackage.MASKED_NEW_DIFFERS_XFILTER_OPERATION: return (EObject)createMaskedNewDiffersXFilterOperation();
 			case ModulePackage.NEW_IS_WITHIN_FILTER_OPERATION: return (EObject)createNewIsWithinFilterOperation();
@@ -186,11 +192,13 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.CONSTANT_MEMBER: return (EObject)createConstantMember();
 			case ModulePackage.RTE_ENTER_API: return (EObject)createRteEnterApi();
 			case ModulePackage.RTE_EXIT_API: return (EObject)createRteExitApi();
+			case ModulePackage.OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY: return (EObject)createOsBackgroundTaskActivationExecutableTaskBody();
 			case ModulePackage.OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY: return (EObject)createOsTaskActivationExecutableTaskBody();
 			case ModulePackage.OS_EVENT_SET_EXECUTABLE_TASK_BODY: return (EObject)createOsEventSetExecutableTaskBody();
 			case ModulePackage.OS_TASK_ACTIVATION_OPERATION: return (EObject)createOsTaskActivationOperation();
 			case ModulePackage.OS_EVENT_SET_ACTIVATION_OPERATION: return (EObject)createOsEventSetActivationOperation();
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createTimingTriggeringExecutableStartOperation();
+			case ModulePackage.PLAIN_EXECUTABLE_START_OPERATION: return (EObject)createPlainExecutableStartOperation();
 			case ModulePackage.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createModeSwitchTriggeringExecutableStartOperation();
 			case ModulePackage.CYCLE_COUNTUP_OPERATION: return (EObject)createCycleCountupOperation();
 			case ModulePackage.START_OFFSET_COUNTUP_OPERATION: return (EObject)createStartOffsetCountupOperation();
@@ -198,8 +206,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.COM_SEND_SIGNAL_TRUSTED_FUNCTION: return (EObject)createComSendSignalTrustedFunction();
 			case ModulePackage.OS_SET_EVENT_API: return (EObject)createOsSetEventApi();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY: return (EObject)createComSendSignalImmediateTaskBody();
-			case ModulePackage.PRIMITIVE_COM_SEND_PROXY_OPERATION: return (EObject)createPrimitiveComSendProxyOperation();
-			case ModulePackage.COMPLEX_COM_SEND_PROXY_OPERATION: return (EObject)createComplexComSendProxyOperation();
+			case ModulePackage.COM_SEND_PROXY_OPERATION: return (EObject)createComSendProxyOperation();
 			case ModulePackage.IOC_RECEIVE_GROUP_API: return (EObject)createIocReceiveGroupApi();
 			case ModulePackage.MODULE_ROOT: return (EObject)createModuleRoot();
 			case ModulePackage.INTER_PARTITION_TIMEOUT_OPERATION: return (EObject)createInterPartitionTimeoutOperation();
@@ -209,6 +216,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.OS_GET_SPINLOCK_API: return (EObject)createOsGetSpinlockApi();
 			case ModulePackage.MULTICORE_RTE_START_API: return (EObject)createMulticoreRteStartApi();
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION: return (EObject)createRteBufferWriteTrustedFunction();
+			case ModulePackage.RTE_BUFFER_SEND_TRUSTED_FUNCTION: return (EObject)createRteBufferSendTrustedFunction();
 			case ModulePackage.CS_TRUSTED_FUNCTION: return (EObject)createCsTrustedFunction();
 			case ModulePackage.CS_TF_CALLED_RUNNABLE: return (EObject)createCsTfCalledRunnable();
 			case ModulePackage.SERVER_RUNNABLE_START_OPERATION: return (EObject)createServerRunnableStartOperation();
@@ -238,12 +246,11 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.RTE_UTILITY_HEADER: return (EObject)createRteUtilityHeader();
 			case ModulePackage.BLACKBOX_HEADER: return (EObject)createBlackboxHeader();
 			case ModulePackage.RTE_BUFFER_QUEUE_TYPE: return (EObject)createRteBufferQueueType();
-			case ModulePackage.RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteSendTrustedFunctionParamType();
+			case ModulePackage.RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteNonqueuedSendTrustedFunctionParamType();
+			case ModulePackage.RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteQueuedSendTrustedFunctionParamType();
 			case ModulePackage.COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createComSendTrustedFunctionParamType();
 			case ModulePackage.CS_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createCsTrustedFunctionParamType();
 			case ModulePackage.NEVER_READ_OPERATION: return (EObject)createNeverReadOperation();
-			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION: return (EObject)createRteBufferInvalidateTrustedFunction();
-			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferInvalidateSendOperation();
 			case ModulePackage.SWC_MEMORY_MAPPING: return (EObject)createSwcMemoryMapping();
 			case ModulePackage.BSW_MEMORY_MAPPING: return (EObject)createBswMemoryMapping();
 			case ModulePackage.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP: return (EObject)createGlobalVariableFileContentsGroup();
@@ -282,6 +289,10 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL: return (EObject)createSchmCoreInitApiImpl();
 			case ModulePackage.POINTER_TYPE: return (EObject)createPointerType();
 			case ModulePackage.REDEFINITION_POINTER_TYPE: return (EObject)createRedefinitionPointerType();
+			case ModulePackage.ACTIVATION_OPERATION: return (EObject)createActivationOperation();
+			case ModulePackage.OS_ACTIVATE_TASK_API: return (EObject)createOsActivateTaskApi();
+			case ModulePackage.FEEDBACK_API: return (EObject)createFeedbackApi();
+			case ModulePackage.TACK_STATUS: return (EObject)createTAckStatus();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -664,9 +675,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeQueueType createModeQueueType() {
-		ModeQueueTypeImpl modeQueueType = new ModeQueueTypeImpl();
-		return modeQueueType;
+	public RteNonqueuedSendTrustedFunctionParamType createRteNonqueuedSendTrustedFunctionParamType() {
+		RteNonqueuedSendTrustedFunctionParamTypeImpl rteNonqueuedSendTrustedFunctionParamType = new RteNonqueuedSendTrustedFunctionParamTypeImpl();
+		return rteNonqueuedSendTrustedFunctionParamType;
 	}
 
 	/**
@@ -674,9 +685,19 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteSendTrustedFunctionParamType createRteSendTrustedFunctionParamType() {
-		RteSendTrustedFunctionParamTypeImpl rteSendTrustedFunctionParamType = new RteSendTrustedFunctionParamTypeImpl();
-		return rteSendTrustedFunctionParamType;
+	public RteQueuedSendTrustedFunctionParamType createRteQueuedSendTrustedFunctionParamType() {
+		RteQueuedSendTrustedFunctionParamTypeImpl rteQueuedSendTrustedFunctionParamType = new RteQueuedSendTrustedFunctionParamTypeImpl();
+		return rteQueuedSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeQueueType createModeQueueType() {
+		ModeQueueTypeImpl modeQueueType = new ModeQueueTypeImpl();
+		return modeQueueType;
 	}
 
 	/**
@@ -1124,6 +1145,46 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ActivationOperation createActivationOperation() {
+		ActivationOperationImpl activationOperation = new ActivationOperationImpl();
+		return activationOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsActivateTaskApi createOsActivateTaskApi() {
+		OsActivateTaskApiImpl osActivateTaskApi = new OsActivateTaskApiImpl();
+		return osActivateTaskApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeedbackApi createFeedbackApi() {
+		FeedbackApiImpl feedbackApi = new FeedbackApiImpl();
+		return feedbackApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckStatus createTAckStatus() {
+		TAckStatusImpl tAckStatus = new TAckStatusImpl();
+		return tAckStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LocalVariable createLocalVariable() {
 		LocalVariableImpl localVariable = new LocalVariableImpl();
 		return localVariable;
@@ -1294,9 +1355,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation() {
-		TrustedFunctionRteSendOperationImpl trustedFunctionRteSendOperation = new TrustedFunctionRteSendOperationImpl();
-		return trustedFunctionRteSendOperation;
+	public TrustedFunctionRteBufferSendSendOperation createTrustedFunctionRteBufferSendSendOperation() {
+		TrustedFunctionRteBufferSendSendOperationImpl trustedFunctionRteBufferSendSendOperation = new TrustedFunctionRteBufferSendSendOperationImpl();
+		return trustedFunctionRteBufferSendSendOperation;
 	}
 
 	/**
@@ -1404,9 +1465,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComReceiveCallback createComReceiveCallback() {
-		ComReceiveCallbackImpl comReceiveCallback = new ComReceiveCallbackImpl();
-		return comReceiveCallback;
+	public ComRxCallback createComRxCallback() {
+		ComRxCallbackImpl comRxCallback = new ComRxCallbackImpl();
+		return comRxCallback;
 	}
 
 	/**
@@ -1414,9 +1475,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComReceiveTimeoutCallback createComReceiveTimeoutCallback() {
-		ComReceiveTimeoutCallbackImpl comReceiveTimeoutCallback = new ComReceiveTimeoutCallbackImpl();
-		return comReceiveTimeoutCallback;
+	public ComRxTOutCallback createComRxTOutCallback() {
+		ComRxTOutCallbackImpl comRxTOutCallback = new ComRxTOutCallbackImpl();
+		return comRxTOutCallback;
 	}
 
 	/**
@@ -1424,9 +1485,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComInvalidateCallback createComInvalidateCallback() {
-		ComInvalidateCallbackImpl comInvalidateCallback = new ComInvalidateCallbackImpl();
-		return comInvalidateCallback;
+	public ComInvCallback createComInvCallback() {
+		ComInvCallbackImpl comInvCallback = new ComInvCallbackImpl();
+		return comInvCallback;
 	}
 
 	/**
@@ -1457,6 +1518,46 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ComSendSignalPeriodicEntity createComSendSignalPeriodicEntity() {
 		ComSendSignalPeriodicEntityImpl comSendSignalPeriodicEntity = new ComSendSignalPeriodicEntityImpl();
 		return comSendSignalPeriodicEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckNotifyOperation createTAckNotifyOperation() {
+		TAckNotifyOperationImpl tAckNotifyOperation = new TAckNotifyOperationImpl();
+		return tAckNotifyOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTxTOutCallback createComTxTOutCallback() {
+		ComTxTOutCallbackImpl comTxTOutCallback = new ComTxTOutCallbackImpl();
+		return comTxTOutCallback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTAckCallback createComTAckCallback() {
+		ComTAckCallbackImpl comTAckCallback = new ComTAckCallbackImpl();
+		return comTAckCallback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTErrCallback createComTErrCallback() {
+		ComTErrCallbackImpl comTErrCallback = new ComTErrCallbackImpl();
+		return comTErrCallback;
 	}
 
 	/**
@@ -1824,6 +1925,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OsBackgroundTaskActivationExecutableTaskBody createOsBackgroundTaskActivationExecutableTaskBody() {
+		OsBackgroundTaskActivationExecutableTaskBodyImpl osBackgroundTaskActivationExecutableTaskBody = new OsBackgroundTaskActivationExecutableTaskBodyImpl();
+		return osBackgroundTaskActivationExecutableTaskBody;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody() {
 		OsTaskActivationExecutableTaskBodyImpl osTaskActivationExecutableTaskBody = new OsTaskActivationExecutableTaskBodyImpl();
 		return osTaskActivationExecutableTaskBody;
@@ -1867,6 +1978,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation() {
 		TimingTriggeringExecutableStartOperationImpl timingTriggeringExecutableStartOperation = new TimingTriggeringExecutableStartOperationImpl();
 		return timingTriggeringExecutableStartOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PlainExecutableStartOperation createPlainExecutableStartOperation() {
+		PlainExecutableStartOperationImpl plainExecutableStartOperation = new PlainExecutableStartOperationImpl();
+		return plainExecutableStartOperation;
 	}
 
 	/**
@@ -1954,19 +2075,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation() {
-		PrimitiveComSendProxyOperationImpl primitiveComSendProxyOperation = new PrimitiveComSendProxyOperationImpl();
-		return primitiveComSendProxyOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComplexComSendProxyOperation createComplexComSendProxyOperation() {
-		ComplexComSendProxyOperationImpl complexComSendProxyOperation = new ComplexComSendProxyOperationImpl();
-		return complexComSendProxyOperation;
+	public ComSendProxyOperation createComSendProxyOperation() {
+		ComSendProxyOperationImpl comSendProxyOperation = new ComSendProxyOperationImpl();
+		return comSendProxyOperation;
 	}
 
 	/**
@@ -2057,6 +2168,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public RteBufferWriteTrustedFunction createRteBufferWriteTrustedFunction() {
 		RteBufferWriteTrustedFunctionImpl rteBufferWriteTrustedFunction = new RteBufferWriteTrustedFunctionImpl();
 		return rteBufferWriteTrustedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBufferSendTrustedFunction createRteBufferSendTrustedFunction() {
+		RteBufferSendTrustedFunctionImpl rteBufferSendTrustedFunction = new RteBufferSendTrustedFunctionImpl();
+		return rteBufferSendTrustedFunction;
 	}
 
 	/**

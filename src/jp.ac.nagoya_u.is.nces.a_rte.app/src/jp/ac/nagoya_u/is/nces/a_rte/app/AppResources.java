@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -51,9 +51,14 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	private static final String RTE_GENERATOR_HOME_ENV_NAME = "A_RTE_HOME";
 
 	/**
-	 * AUTOSARスキーマファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
+	 * ロードするAUTOSARスキーマファイルのディレクトリ(RTEジェネレータのホームディレクトリからの相対パス)
 	 */
-	public static final String SCHEMA_FILE_RELATIVE_PATH = "schema/AUTOSAR_4-0-3_STRICT.xsd";
+	public static final String SCHEMA_DIRECTORY_PATH = "schema/";
+	
+	/**
+	 * ロードするAUTOSARスキーマファイルのファイル名
+	 */
+	public static final String SCHEMA_FILE_NAME = "AUTOSAR_4-0-3_STRICT.xsd";
 	
 	/**
 	 * RTE内部型を保持するAUTOSAR XMLファイルのパス(RTEジェネレータのホームディレクトリからの相対パス)
@@ -87,8 +92,15 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	/**
 	 * @return AUTOSARスキーマファイル
 	 */
-	public static File getDefaultSchemaFile() {
-		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
+	public static String getDefaultSchemaDirectory() {
+		return getRteGeneratorHome() + SCHEMA_DIRECTORY_PATH;
+	}
+
+	/**
+	 * @return AUTOSARスキーマファイル
+	 */
+	public static File getSchemaFile(String directory) {
+		return new File(directory, SCHEMA_FILE_NAME);
 	}
 
 	/**

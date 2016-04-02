@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -1315,13 +1315,22 @@ public interface ExPackage extends EPackage {
 	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC = 2;
 
 	/**
+	 * The operation id for the '<em>Provides Feedback Api</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC = 3;
+
+	/**
 	 * The number of operations of the '<em>PVariable Data Instance In Swc Ex</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX_OPERATION_COUNT = 3;
+	int PVARIABLE_DATA_INSTANCE_IN_SWC_EX_OPERATION_COUNT = 4;
 
 	/**
 	 * The number of structural features of the '<em>RVariable Data Instance In Swc Ex</em>' class.
@@ -1513,31 +1522,31 @@ public interface ExPackage extends EPackage {
 	int EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER = 2;
 
 	/**
-	 * The operation id for the '<em>Provides Com Receive Callback</em>' operation.
+	 * The operation id for the '<em>Provides Com Rx Callback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER = 3;
+	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER = 3;
 
 	/**
-	 * The operation id for the '<em>Provides Com Invalidate Callback</em>' operation.
+	 * The operation id for the '<em>Provides Com Inv Callback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER = 4;
+	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER = 4;
 
 	/**
-	 * The operation id for the '<em>Provides Com Receive Timeout Callback</em>' operation.
+	 * The operation id for the '<em>Provides Com Rx TOut Callback</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER = 5;
+	int EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER = 5;
 
 	/**
 	 * The operation id for the '<em>Provides Com Callback</em>' operation.
@@ -1559,6 +1568,52 @@ public interface ExPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExternalEcuReceiverExImpl <em>External Ecu Receiver Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExternalEcuReceiverExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getExternalEcuReceiverEx()
+	 * @generated
+	 */
+	int EXTERNAL_ECU_RECEIVER_EX = 25;
+
+	/**
+	 * The number of structural features of the '<em>External Ecu Receiver Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_RECEIVER_EX_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Provides Com Tx And Tx Err Callback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER = 0;
+
+	/**
+	 * The operation id for the '<em>Provides Com Tx TOut Callback</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER = 1;
+
+	/**
+	 * The number of operations of the '<em>External Ecu Receiver Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_RECEIVER_EX_OPERATION_COUNT = 2;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.EntityStarterExImpl <em>Entity Starter Ex</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1566,7 +1621,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getEntityStarterEx()
 	 * @generated
 	 */
-	int ENTITY_STARTER_EX = 25;
+	int ENTITY_STARTER_EX = 26;
 
 	/**
 	 * The number of structural features of the '<em>Entity Starter Ex</em>' class.
@@ -1604,7 +1659,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getBswSchedulableEntityEx()
 	 * @generated
 	 */
-	int BSW_SCHEDULABLE_ENTITY_EX = 26;
+	int BSW_SCHEDULABLE_ENTITY_EX = 27;
 
 	/**
 	 * The feature id for the '<em><b>Mode Declaration Group Prototype Ex</b></em>' reference.
@@ -1687,7 +1742,7 @@ public interface ExPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getModeDeclarationGroupPrototypeEx()
 	 * @generated
 	 */
-	int MODE_DECLARATION_GROUP_PROTOTYPE_EX = 27;
+	int MODE_DECLARATION_GROUP_PROTOTYPE_EX = 28;
 
 	/**
 	 * The feature id for the '<em><b>Bsw Schedulable Entity Ex</b></em>' reference.
@@ -1778,6 +1833,44 @@ public interface ExPackage extends EPackage {
 	 * @ordered
 	 */
 	int MODE_DECLARATION_GROUP_PROTOTYPE_EX_OPERATION_COUNT = 7;
+
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.RteEventExImpl <em>Rte Event Ex</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.RteEventExImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getRteEventEx()
+	 * @generated
+	 */
+	int RTE_EVENT_EX = 29;
+
+	/**
+	 * The number of structural features of the '<em>Rte Event Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_EVENT_EX_FEATURE_COUNT = 0;
+
+	/**
+	 * The operation id for the '<em>Get Related Entity Starter</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT = 0;
+
+	/**
+	 * The number of operations of the '<em>Rte Event Ex</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_EVENT_EX_OPERATION_COUNT = 1;
 
 
 	/**
@@ -1902,34 +1995,34 @@ public interface ExPackage extends EPackage {
 	EOperation getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender();
 
 	/**
-	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComReceiveCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Receive Callback</em>}' operation.
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComRxCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Rx Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Provides Com Receive Callback</em>' operation.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComReceiveCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @return the meta object for the '<em>Provides Com Rx Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComRxCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 */
-	EOperation getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender();
+	EOperation getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender();
 
 	/**
-	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComInvalidateCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Invalidate Callback</em>}' operation.
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComInvCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Inv Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Provides Com Invalidate Callback</em>' operation.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComInvalidateCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @return the meta object for the '<em>Provides Com Inv Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComInvCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 */
-	EOperation getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender();
+	EOperation getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender();
 
 	/**
-	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComReceiveTimeoutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Receive Timeout Callback</em>}' operation.
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComRxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Rx TOut Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Provides Com Receive Timeout Callback</em>' operation.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComReceiveTimeoutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @return the meta object for the '<em>Provides Com Rx TOut Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComRxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 */
-	EOperation getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender();
+	EOperation getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender();
 
 	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx#providesComCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Callback</em>}' operation.
@@ -1940,6 +2033,36 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx <em>External Ecu Receiver Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>External Ecu Receiver Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx
+	 * @generated
+	 */
+	EClass getExternalEcuReceiverEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx#providesComTxAndTxErrCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver) <em>Provides Com Tx And Tx Err Callback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Provides Com Tx And Tx Err Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx#providesComTxAndTxErrCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver)
+	 * @generated
+	 */
+	EOperation getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx#providesComTxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver) <em>Provides Com Tx TOut Callback</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Provides Com Tx TOut Callback</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx#providesComTxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver)
+	 * @generated
+	 */
+	EOperation getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EntityStarterEx <em>Entity Starter Ex</em>}'.
@@ -2122,6 +2245,26 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx <em>Rte Event Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Event Ex</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx
+	 * @generated
+	 */
+	EClass getRteEventEx();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx#getRelatedEntityStarter(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RteEvent) <em>Get Related Entity Starter</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Entity Starter</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx#getRelatedEntityStarter(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RteEvent)
+	 * @generated
+	 */
+	EOperation getRteEventEx__GetRelatedEntityStarter__RteEvent();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.AssemblyDataInstanceConnectorEx <em>Assembly Data Instance Connector Ex</em>}'.
@@ -2557,6 +2700,16 @@ public interface ExPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.PVariableDataInstanceInSwcEx#providesFeedbackApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc) <em>Provides Feedback Api</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Provides Feedback Api</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.PVariableDataInstanceInSwcEx#providesFeedbackApi(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc)
+	 * @generated
+	 */
+	EOperation getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ROperationInstanceInSwcEx <em>ROperation Instance In Swc Ex</em>}'.
@@ -3188,28 +3341,28 @@ public interface ExPackage extends EPackage {
 		EOperation EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender();
 
 		/**
-		 * The meta object literal for the '<em><b>Provides Com Receive Callback</b></em>' operation.
+		 * The meta object literal for the '<em><b>Provides Com Rx Callback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender();
+		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender();
 
 		/**
-		 * The meta object literal for the '<em><b>Provides Com Invalidate Callback</b></em>' operation.
+		 * The meta object literal for the '<em><b>Provides Com Inv Callback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender();
+		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender();
 
 		/**
-		 * The meta object literal for the '<em><b>Provides Com Receive Timeout Callback</b></em>' operation.
+		 * The meta object literal for the '<em><b>Provides Com Rx TOut Callback</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender();
+		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender();
 
 		/**
 		 * The meta object literal for the '<em><b>Provides Com Callback</b></em>' operation.
@@ -3218,6 +3371,32 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER = eINSTANCE.getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExternalEcuReceiverExImpl <em>External Ecu Receiver Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExternalEcuReceiverExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getExternalEcuReceiverEx()
+		 * @generated
+		 */
+		EClass EXTERNAL_ECU_RECEIVER_EX = eINSTANCE.getExternalEcuReceiverEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides Com Tx And Tx Err Callback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER = eINSTANCE.getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides Com Tx TOut Callback</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER = eINSTANCE.getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.EntityStarterExImpl <em>Entity Starter Ex</em>}' class.
@@ -3368,6 +3547,24 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_CONNECTED_PROVIDED_MODE_PROTOTYPES__MODEDECLARATIONGROUPPROTOTYPE = eINSTANCE.getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.RteEventExImpl <em>Rte Event Ex</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.RteEventExImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl#getRteEventEx()
+		 * @generated
+		 */
+		EClass RTE_EVENT_EX = eINSTANCE.getRteEventEx();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Entity Starter</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT = eINSTANCE.getRteEventEx__GetRelatedEntityStarter__RteEvent();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.AssemblyDataInstanceConnectorExImpl <em>Assembly Data Instance Connector Ex</em>}' class.
@@ -3726,6 +3923,14 @@ public interface ExPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC = eINSTANCE.getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc();
+
+		/**
+		 * The meta object literal for the '<em><b>Provides Feedback Api</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC = eINSTANCE.getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ROperationInstanceInSwcExImpl <em>ROperation Instance In Swc Ex</em>}' class.

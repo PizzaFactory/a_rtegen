@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -181,13 +181,13 @@ public interface M2Factory extends EFactory {
 	AutosarVariableRef createAutosarVariableRef();
 
 	/**
-	 * Returns a new object of class '<em>Variable In Atomic Swc Instance Ref</em>'.
+	 * Returns a new object of class '<em>Variable In Atomic Swc Type Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable In Atomic Swc Instance Ref</em>'.
+	 * @return a new object of class '<em>Variable In Atomic Swc Type Instance Ref</em>'.
 	 * @generated
 	 */
-	VariableInAtomicSwcInstanceRef createVariableInAtomicSwcInstanceRef();
+	VariableInAtomicSwcTypeInstanceRef createVariableInAtomicSwcTypeInstanceRef();
 
 	/**
 	 * Returns a new object of class '<em>Timing Event</em>'.
@@ -197,6 +197,51 @@ public interface M2Factory extends EFactory {
 	 * @generated
 	 */
 	TimingEvent createTimingEvent();
+
+	/**
+	 * Returns a new object of class '<em>Background Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Background Event</em>'.
+	 * @generated
+	 */
+	BackgroundEvent createBackgroundEvent();
+
+	/**
+	 * Returns a new object of class '<em>Data Send Completed Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Send Completed Event</em>'.
+	 * @generated
+	 */
+	DataSendCompletedEvent createDataSendCompletedEvent();
+
+	/**
+	 * Returns a new object of class '<em>Data Received Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Received Event</em>'.
+	 * @generated
+	 */
+	DataReceivedEvent createDataReceivedEvent();
+
+	/**
+	 * Returns a new object of class '<em>Data Receive Error Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Receive Error Event</em>'.
+	 * @generated
+	 */
+	DataReceiveErrorEvent createDataReceiveErrorEvent();
+
+	/**
+	 * Returns a new object of class '<em>RVariable In Atomic Swc Instance Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>RVariable In Atomic Swc Instance Ref</em>'.
+	 * @generated
+	 */
+	RVariableInAtomicSwcInstanceRef createRVariableInAtomicSwcInstanceRef();
 
 	/**
 	 * Returns a new object of class '<em>Ecuc Module Configuration Values</em>'.
@@ -253,6 +298,15 @@ public interface M2Factory extends EFactory {
 	EcucInstanceReferenceValue createEcucInstanceReferenceValue();
 
 	/**
+	 * Returns a new object of class '<em>Transmission Acknowledgement Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Transmission Acknowledgement Request</em>'.
+	 * @generated
+	 */
+	TransmissionAcknowledgementRequest createTransmissionAcknowledgementRequest();
+
+	/**
 	 * Returns a new object of class '<em>Nonqueued Sender Com Spec</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +314,15 @@ public interface M2Factory extends EFactory {
 	 * @generated
 	 */
 	NonqueuedSenderComSpec createNonqueuedSenderComSpec();
+
+	/**
+	 * Returns a new object of class '<em>Queued Sender Com Spec</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Queued Sender Com Spec</em>'.
+	 * @generated
+	 */
+	QueuedSenderComSpec createQueuedSenderComSpec();
 
 	/**
 	 * Returns a new object of class '<em>Nonqueued Receiver Com Spec</em>'.
@@ -793,6 +856,15 @@ public interface M2Factory extends EFactory {
 	CompuScale createCompuScale();
 
 	/**
+	 * Returns a new object of class '<em>Compu Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Compu Const</em>'.
+	 * @generated
+	 */
+	CompuConst createCompuConst();
+
+	/**
 	 * Returns a new object of class '<em>Any Instance Ref</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -971,6 +1043,15 @@ public interface M2Factory extends EFactory {
 	 * @generated
 	 */
 	BswTimingEvent createBswTimingEvent();
+
+	/**
+	 * Returns a new object of class '<em>Bsw Background Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Background Event</em>'.
+	 * @generated
+	 */
+	BswBackgroundEvent createBswBackgroundEvent();
 
 	/**
 	 * Returns a new object of class '<em>Bsw Called Entity</em>'.

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -58,6 +58,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.impl.ExPackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.impl.RtePackageImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BlackboxHeader;
@@ -72,16 +73,15 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallbackFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunctionParamType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReadOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity;
@@ -102,6 +102,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntityFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
@@ -139,6 +140,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalBlock;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalCompartment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Macro;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MaskedNewDiffersMaskedOldFilterOperation;
@@ -166,7 +168,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NewIsWithinFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OneEveryNFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Operation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsGetSpinlockApi;
@@ -187,6 +191,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PeriodicProxyComSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
@@ -217,6 +222,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCallbackHeader;
@@ -232,7 +238,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApiFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSource;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStopApi;
@@ -256,6 +263,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapperFileContentsGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SignednessEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreSchmInitApi;
@@ -266,6 +276,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMappingHeader;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBodyFileContentsGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation;
@@ -275,7 +287,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionFileContents
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionMember;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
@@ -599,7 +611,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass trustedFunctionRteSendOperationEClass = null;
+	private EClass trustedFunctionRteBufferSendSendOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -683,7 +695,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass comReceiveCallbackEClass = null;
+	private EClass comRxCallbackEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -704,14 +716,14 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass comReceiveTimeoutCallbackEClass = null;
+	private EClass comRxTOutCallbackEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass comInvalidateCallbackEClass = null;
+	private EClass comInvCallbackEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -733,6 +745,34 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass comSendSignalPeriodicEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tAckNotifyOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comTxTOutCallbackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comTAckCallbackEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass comTErrCallbackEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1026,6 +1066,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass osBackgroundTaskActivationExecutableTaskBodyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass osTaskActivationExecutableTaskBodyEClass = null;
 
 	/**
@@ -1062,6 +1109,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass timingTriggeringExecutableStartOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass plainExecutableStartOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1173,14 +1227,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass primitiveComSendProxyOperationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass complexComSendProxyOperationEClass = null;
+	private EClass comSendProxyOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1251,6 +1298,13 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	private EClass rteBufferWriteTrustedFunctionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteBufferSendTrustedFunctionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1481,14 +1535,21 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeQueueTypeEClass = null;
+	private EClass rteNonqueuedSendTrustedFunctionParamTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass rteSendTrustedFunctionParamTypeEClass = null;
+	private EClass rteQueuedSendTrustedFunctionParamTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modeQueueTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1845,6 +1906,41 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass activationOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass osActivateTaskApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass feedbackApiEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass logicalBlockEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tAckStatusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum parameterPassTypeEnumEEnum = null;
 
 	/**
@@ -2091,6 +2187,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getWriteApi_ActivationOperation() {
+		return (EReference)writeApiEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWriteApi_ActivationFlag() {
+		return (EReference)writeApiEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getWriteApi_TAckStatus() {
+		return (EReference)writeApiEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSendOperation() {
 		return sendOperationEClass;
 	}
@@ -2165,6 +2288,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getRteBufferNonqueuedSendOperation_FilterOperation() {
 		return (EReference)rteBufferNonqueuedSendOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferNonqueuedSendOperation_ActivationFlagOnRxSuccess() {
+		return (EReference)rteBufferNonqueuedSendOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3324,6 +3456,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPartition_TAckStatus() {
+		return (EReference)partitionEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getPartition_TaskBody() {
 		return (EReference)partitionEClass.getEStructuralFeatures().get(26);
 	}
@@ -3855,6 +3996,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInvalidateApi_ActivationOperation() {
+		return (EReference)invalidateApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInvalidateApi_ActivationFlag() {
+		return (EReference)invalidateApiEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInvalidateApi_TAckStatus() {
+		return (EReference)invalidateApiEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIocNonqueuedSendOperation() {
 		return iocNonqueuedSendOperationEClass;
 	}
@@ -3891,7 +4059,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionRteOperation_TempReturnVariable() {
+	public EReference getTrustedFunctionRteOperation_Type() {
 		return (EReference)trustedFunctionRteOperationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3900,8 +4068,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTrustedFunctionRteSendOperation() {
-		return trustedFunctionRteSendOperationEClass;
+	public EReference getTrustedFunctionRteOperation_TempReturnVariable() {
+		return (EReference)trustedFunctionRteOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3909,8 +4077,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionRteSendOperation_Type() {
-		return (EReference)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(0);
+	public EReference getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess() {
+		return (EReference)trustedFunctionRteOperationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -3918,8 +4086,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrustedFunctionRteSendOperation_SrSendTfSymbolName() {
-		return (EAttribute)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(1);
+	public EReference getTrustedFunctionRteOperation_TrustedFunctionParamVariable() {
+		return (EReference)trustedFunctionRteOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3927,8 +4095,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable() {
-		return (EReference)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(2);
+	public EClass getTrustedFunctionRteBufferSendSendOperation() {
+		return trustedFunctionRteBufferSendSendOperationEClass;
 	}
 
 	/**
@@ -3936,8 +4104,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTrustedFunctionRteSendOperation_IsGroup() {
-		return (EAttribute)trustedFunctionRteSendOperationEClass.getEStructuralFeatures().get(3);
+	public EReference getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction() {
+		return (EReference)trustedFunctionRteBufferSendSendOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4170,8 +4338,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComReceiveCallback() {
-		return comReceiveCallbackEClass;
+	public EClass getComRxCallback() {
+		return comRxCallbackEClass;
 	}
 
 	/**
@@ -4179,8 +4347,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveCallback_Operation() {
-		return (EReference)comReceiveCallbackEClass.getEStructuralFeatures().get(0);
+	public EReference getComRxCallback_Operation() {
+		return (EReference)comRxCallbackEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4188,8 +4356,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveCallback_DataVariable() {
-		return (EReference)comReceiveCallbackEClass.getEStructuralFeatures().get(1);
+	public EReference getComRxCallback_ActivationOperation() {
+		return (EReference)comRxCallbackEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4197,8 +4365,26 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveCallback_AccessApi() {
-		return (EReference)comReceiveCallbackEClass.getEStructuralFeatures().get(2);
+	public EReference getComRxCallback_ActivationFlag() {
+		return (EReference)comRxCallbackEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComRxCallback_DataVariable() {
+		return (EReference)comRxCallbackEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComRxCallback_AccessApi() {
+		return (EReference)comRxCallbackEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4233,6 +4419,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getComSendOperation_TAckStatus() {
+		return (EReference)comSendOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComSendOperation_ActivationFlagOnTxErr() {
+		return (EReference)comSendOperationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getComCallback() {
 		return comCallbackEClass;
 	}
@@ -4242,8 +4446,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComReceiveTimeoutCallback() {
-		return comReceiveTimeoutCallbackEClass;
+	public EClass getComRxTOutCallback() {
+		return comRxTOutCallbackEClass;
 	}
 
 	/**
@@ -4251,8 +4455,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveTimeoutCallback_Operation() {
-		return (EReference)comReceiveTimeoutCallbackEClass.getEStructuralFeatures().get(0);
+	public EReference getComRxTOutCallback_Operation() {
+		return (EReference)comRxTOutCallbackEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4260,8 +4464,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveTimeoutCallback_DataVariable() {
-		return (EReference)comReceiveTimeoutCallbackEClass.getEStructuralFeatures().get(1);
+	public EReference getComRxTOutCallback_ActivationOperation() {
+		return (EReference)comRxTOutCallbackEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4269,8 +4473,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComReceiveTimeoutCallback_AccessApi() {
-		return (EReference)comReceiveTimeoutCallbackEClass.getEStructuralFeatures().get(2);
+	public EReference getComRxTOutCallback_ActivationFlag() {
+		return (EReference)comRxTOutCallbackEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -4278,8 +4482,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComInvalidateCallback() {
-		return comInvalidateCallbackEClass;
+	public EReference getComRxTOutCallback_DataVariable() {
+		return (EReference)comRxTOutCallbackEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4287,8 +4491,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComInvalidateCallback_Operation() {
-		return (EReference)comInvalidateCallbackEClass.getEStructuralFeatures().get(0);
+	public EReference getComRxTOutCallback_AccessApi() {
+		return (EReference)comRxTOutCallbackEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -4296,8 +4500,44 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComInvalidateCallback_FilterResultVariable() {
-		return (EReference)comInvalidateCallbackEClass.getEStructuralFeatures().get(1);
+	public EClass getComInvCallback() {
+		return comInvCallbackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComInvCallback_Operation() {
+		return (EReference)comInvCallbackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComInvCallback_ActivationOperation() {
+		return (EReference)comInvCallbackEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComInvCallback_ActivationFlag() {
+		return (EReference)comInvCallbackEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComInvCallback_FilterResultVariable() {
+		return (EReference)comInvCallbackEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -4314,17 +4554,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendSignalProxyEntity_PrimitiveOperation() {
+	public EReference getComSendSignalProxyEntity_Operation() {
 		return (EReference)comSendSignalProxyEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComSendSignalProxyEntity_ComplexOperation() {
-		return (EReference)comSendSignalProxyEntityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4343,6 +4574,87 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EClass getComSendSignalPeriodicEntity() {
 		return comSendSignalPeriodicEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTAckNotifyOperation() {
+		return tAckNotifyOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTAckNotifyOperation_ActivationOperation() {
+		return (EReference)tAckNotifyOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTAckNotifyOperation_TAckStatus() {
+		return (EReference)tAckNotifyOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComTxTOutCallback() {
+		return comTxTOutCallbackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComTxTOutCallback_TAckNotifyOperation() {
+		return (EReference)comTxTOutCallbackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComTAckCallback() {
+		return comTAckCallbackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComTAckCallback_TAckNotifyOperation() {
+		return (EReference)comTAckCallbackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComTErrCallback() {
+		return comTErrCallbackEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComTErrCallback_TAckNotifyOperation() {
+		return (EReference)comTErrCallbackEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -4611,6 +4923,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPartitionRestartingApi_ActivationOperation() {
+		return (EReference)partitionRestartingApiEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPartitionTerminatedApi() {
 		return partitionTerminatedApiEClass;
 	}
@@ -4622,6 +4943,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getPartitionTerminatedApi_SrInterPartitionTimeoutOperation() {
 		return (EReference)partitionTerminatedApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPartitionTerminatedApi_ActivationOperation() {
+		return (EReference)partitionTerminatedApiEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -4694,6 +5024,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EAttribute getSendApi_NeedsCheckArg() {
 		return (EAttribute)sendApiEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSendApi_ActivationOperation() {
+		return (EReference)sendApiEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSendApi_ActivationFlag() {
+		return (EReference)sendApiEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSendApi_TAckStatus() {
+		return (EReference)sendApiEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -4874,6 +5231,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getIocSendOperation_Type() {
 		return (EReference)iocSendOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIocSendOperation_ActivationFlagOnRxSuccess() {
+		return (EReference)iocSendOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -5376,6 +5742,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOsBackgroundTaskActivationExecutableTaskBody() {
+		return osBackgroundTaskActivationExecutableTaskBodyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOsBackgroundTaskActivationExecutableTaskBody_Operation() {
+		return (EReference)osBackgroundTaskActivationExecutableTaskBodyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getOsTaskActivationExecutableTaskBody() {
 		return osTaskActivationExecutableTaskBodyEClass;
 	}
@@ -5556,6 +5940,15 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPlainExecutableStartOperation() {
+		return plainExecutableStartOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModeSwitchTriggeringExecutableStartOperation() {
 		return modeSwitchTriggeringExecutableStartOperationEClass;
 	}
@@ -5719,7 +6112,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComCallback() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(23);
+		return (EReference)rteEClass.getEStructuralFeatures().get(24);
 	}
 
 	/**
@@ -5728,15 +6121,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalPeriodicEntity() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(20);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRte_ComSendSignalImmediateEntity() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -5745,8 +6129,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRte_ComSendSignalImmediateEntity() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getRte_ComSendSignalTrustedFunction() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(19);
+		return (EReference)rteEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -5764,7 +6157,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ImmediateConstant() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(18);
+		return (EReference)rteEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -5773,7 +6166,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_SrRteBufferQueueMaxLengthConstant() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(16);
+		return (EReference)rteEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -5827,7 +6220,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_RteStartApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(24);
+		return (EReference)rteEClass.getEStructuralFeatures().get(25);
 	}
 
 	/**
@@ -5845,7 +6238,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_ComSendSignalImmediateTaskBody() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(22);
+		return (EReference)rteEClass.getEStructuralFeatures().get(23);
 	}
 
 	/**
@@ -5854,7 +6247,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_RteStopApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(25);
+		return (EReference)rteEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -5898,7 +6291,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRte_SrRteSendTfParamType() {
+	public EReference getRte_SrRteNonqueuedSendTfParamType() {
 		return (EReference)rteEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -5907,8 +6300,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRte_SrRteQueuedSendTfParamType() {
+		return (EReference)rteEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getRte_SrRteBufferQueueType() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(17);
+		return (EReference)rteEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -5944,7 +6346,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_SchmInitApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(26);
+		return (EReference)rteEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -5953,7 +6355,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * @generated
 	 */
 	public EReference getRte_SchmDeinitApi() {
-		return (EReference)rteEClass.getEStructuralFeatures().get(27);
+		return (EReference)rteEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -6114,8 +6516,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPrimitiveComSendProxyOperation() {
-		return primitiveComSendProxyOperationEClass;
+	public EClass getComSendProxyOperation() {
+		return comSendProxyOperationEClass;
 	}
 
 	/**
@@ -6123,8 +6525,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPrimitiveComSendProxyOperation_ReadValueVariable() {
-		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(0);
+	public EReference getComSendProxyOperation_AccessApi() {
+		return (EReference)comSendProxyOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -6132,8 +6534,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPrimitiveComSendProxyOperation_AccessApi() {
-		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(1);
+	public EAttribute getComSendProxyOperation_FunctionTableSymbolName() {
+		return (EAttribute)comSendProxyOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -6141,44 +6543,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPrimitiveComSendProxyOperation_SignalIdVariable() {
-		return (EReference)primitiveComSendProxyOperationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getComplexComSendProxyOperation() {
-		return complexComSendProxyOperationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComplexComSendProxyOperation_AccessApi() {
-		return (EReference)complexComSendProxyOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComplexComSendProxyOperation_FunctionTableSymbolName() {
-		return (EAttribute)complexComSendProxyOperationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComplexComSendProxyOperation_TableIndexVariable() {
-		return (EReference)complexComSendProxyOperationEClass.getEStructuralFeatures().get(2);
+	public EReference getComSendProxyOperation_TableIndexVariable() {
+		return (EReference)comSendProxyOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -6368,6 +6734,33 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getRteBufferWriteTrustedFunction_DataVariable() {
 		return (EReference)rteBufferWriteTrustedFunctionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteBufferSendTrustedFunction() {
+		return rteBufferSendTrustedFunctionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferSendTrustedFunction_Operation() {
+		return (EReference)rteBufferSendTrustedFunctionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRteBufferSendTrustedFunction_DataVariable() {
+		return (EReference)rteBufferSendTrustedFunctionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7167,6 +7560,24 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRteNonqueuedSendTrustedFunctionParamType() {
+		return rteNonqueuedSendTrustedFunctionParamTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteQueuedSendTrustedFunctionParamType() {
+		return rteQueuedSendTrustedFunctionParamTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getModeQueueType() {
 		return modeQueueTypeEClass;
 	}
@@ -7187,15 +7598,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getModeQueueType_ElementType() {
 		return (EReference)modeQueueTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRteSendTrustedFunctionParamType() {
-		return rteSendTrustedFunctionParamTypeEClass;
 	}
 
 	/**
@@ -7277,15 +7679,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 */
 	public EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction() {
 		return (EReference)trustedFunctionRteBufferInvalidateSendOperationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable() {
-		return (EReference)trustedFunctionRteBufferInvalidateSendOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7716,7 +8109,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComProxyFunction_SignalGroupSymbolName() {
+	public EAttribute getComProxyFunction_SendSignalFunctionSymbolName() {
 		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -7725,8 +8118,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComProxyFunction_BufferComProxySymbolName() {
-		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(3);
+	public EReference getComProxyFunction_BufferVariable() {
+		return (EReference)comProxyFunctionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -7734,7 +8127,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComProxyFunction_BufferComMetaComplexDataSymbolName() {
+	public EAttribute getComProxyFunction_SignalInformationSymbolName() {
 		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -7743,7 +8136,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComProxyFunction_ProxyDataTypeName() {
+	public EAttribute getComProxyFunction_IsGroup() {
 		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -7752,8 +8145,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getComProxyFunction_IsGroup() {
-		return (EAttribute)comProxyFunctionEClass.getEStructuralFeatures().get(6);
+	public EReference getComProxyFunction_ActivationOperation() {
+		return (EReference)comProxyFunctionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComProxyFunction_TAckStatus() {
+		return (EReference)comProxyFunctionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -8409,6 +8811,105 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getActivationOperation() {
+		return activationOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActivationOperation_ActivationApi() {
+		return (EReference)activationOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getActivationOperation_ActivationFlag() {
+		return (EReference)activationOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getActivationOperation_OsTaskPriority() {
+		return (EAttribute)activationOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOsActivateTaskApi() {
+		return osActivateTaskApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOsActivateTaskApi_OsTaskId() {
+		return (EAttribute)osActivateTaskApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFeedbackApi() {
+		return feedbackApiEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFeedbackApi_TAckStatus() {
+		return (EReference)feedbackApiEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLogicalBlock() {
+		return logicalBlockEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTAckStatus() {
+		return tAckStatusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTAckStatus_StatusVariable() {
+		return (EReference)tAckStatusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getParameterPassTypeEnum() {
 		return parameterPassTypeEnumEEnum;
 	}
@@ -8547,6 +9048,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(writeApiEClass, WRITE_API__OPERATION);
 		createEReference(writeApiEClass, WRITE_API__DATA_PARAM);
 		createEAttribute(writeApiEClass, WRITE_API__NEEDS_CHECK_ARG);
+		createEReference(writeApiEClass, WRITE_API__ACTIVATION_OPERATION);
+		createEReference(writeApiEClass, WRITE_API__ACTIVATION_FLAG);
+		createEReference(writeApiEClass, WRITE_API__TACK_STATUS);
 
 		sendOperationEClass = createEClass(SEND_OPERATION);
 		createEReference(sendOperationEClass, SEND_OPERATION__SEND_VALUE);
@@ -8558,6 +9062,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteBufferNonqueuedSendOperationEClass = createEClass(RTE_BUFFER_NONQUEUED_SEND_OPERATION);
 		createEReference(rteBufferNonqueuedSendOperationEClass, RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACCESS_VARIABLE);
 		createEReference(rteBufferNonqueuedSendOperationEClass, RTE_BUFFER_NONQUEUED_SEND_OPERATION__FILTER_OPERATION);
+		createEReference(rteBufferNonqueuedSendOperationEClass, RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS);
 
 		rteBufferNonqueuedReadOperationEClass = createEClass(RTE_BUFFER_NONQUEUED_READ_OPERATION);
 		createEReference(rteBufferNonqueuedReadOperationEClass, RTE_BUFFER_NONQUEUED_READ_OPERATION__ACCESS_VARIABLE);
@@ -8701,7 +9206,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE);
 		createEReference(rteEClass, RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE);
 		createEReference(rteEClass, RTE__CS_TF_PARAM_TYPE);
-		createEReference(rteEClass, RTE__SR_RTE_SEND_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE);
+		createEReference(rteEClass, RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE);
 		createEReference(rteEClass, RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT);
 		createEReference(rteEClass, RTE__SR_RTE_BUFFER_QUEUE_TYPE);
 		createEReference(rteEClass, RTE__IMMEDIATE_CONSTANT);
@@ -8753,6 +9259,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(partitionEClass, PARTITION__RESTART_PARTITION_API);
 		createEReference(partitionEClass, PARTITION__PARTITION_TERMINATED_API);
 		createEReference(partitionEClass, PARTITION__PARTITION_RESTARTING_API);
+		createEReference(partitionEClass, PARTITION__TACK_STATUS);
 
 		swcEClass = createEClass(SWC);
 		createEReference(swcEClass, SWC__PARENT);
@@ -8798,6 +9305,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		invalidateApiEClass = createEClass(INVALIDATE_API);
 		createEReference(invalidateApiEClass, INVALIDATE_API__OPERATION);
+		createEReference(invalidateApiEClass, INVALIDATE_API__ACTIVATION_OPERATION);
+		createEReference(invalidateApiEClass, INVALIDATE_API__ACTIVATION_FLAG);
+		createEReference(invalidateApiEClass, INVALIDATE_API__TACK_STATUS);
 
 		iocNonqueuedSendOperationEClass = createEClass(IOC_NONQUEUED_SEND_OPERATION);
 		createEReference(iocNonqueuedSendOperationEClass, IOC_NONQUEUED_SEND_OPERATION__ACCESS_API);
@@ -8805,16 +9315,22 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		directComSendOperationEClass = createEClass(DIRECT_COM_SEND_OPERATION);
 
 		trustedFunctionRteOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_OPERATION);
+		createEReference(trustedFunctionRteOperationEClass, TRUSTED_FUNCTION_RTE_OPERATION__TYPE);
 		createEReference(trustedFunctionRteOperationEClass, TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE);
-
-		trustedFunctionRteSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_SEND_OPERATION);
-		createEReference(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__TYPE);
-		createEAttribute(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__SR_SEND_TF_SYMBOL_NAME);
-		createEReference(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE);
-		createEAttribute(trustedFunctionRteSendOperationEClass, TRUSTED_FUNCTION_RTE_SEND_OPERATION__IS_GROUP);
+		createEReference(trustedFunctionRteOperationEClass, TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE);
+		createEReference(trustedFunctionRteOperationEClass, TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS);
 
 		trustedFunctionRteBufferWriteSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION);
 		createEReference(trustedFunctionRteBufferWriteSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+
+		trustedFunctionRteBufferSendSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION);
+		createEReference(trustedFunctionRteBufferSendSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+
+		trustedFunctionRteBufferInvalidateSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION);
+		createEReference(trustedFunctionRteBufferInvalidateSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
+
+		rteBufferInvalidateTrustedFunctionEClass = createEClass(RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION);
+		createEReference(rteBufferInvalidateTrustedFunctionEClass, RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION);
 
 		trustedFunctionComSendOperationEClass = createEClass(TRUSTED_FUNCTION_COM_SEND_OPERATION);
 		createEReference(trustedFunctionComSendOperationEClass, TRUSTED_FUNCTION_COM_SEND_OPERATION__TYPE);
@@ -8849,33 +9365,53 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		comReceiveSignalApiEClass = createEClass(COM_RECEIVE_SIGNAL_API);
 
-		comReceiveCallbackEClass = createEClass(COM_RECEIVE_CALLBACK);
-		createEReference(comReceiveCallbackEClass, COM_RECEIVE_CALLBACK__OPERATION);
-		createEReference(comReceiveCallbackEClass, COM_RECEIVE_CALLBACK__DATA_VARIABLE);
-		createEReference(comReceiveCallbackEClass, COM_RECEIVE_CALLBACK__ACCESS_API);
+		comRxCallbackEClass = createEClass(COM_RX_CALLBACK);
+		createEReference(comRxCallbackEClass, COM_RX_CALLBACK__OPERATION);
+		createEReference(comRxCallbackEClass, COM_RX_CALLBACK__ACTIVATION_OPERATION);
+		createEReference(comRxCallbackEClass, COM_RX_CALLBACK__ACTIVATION_FLAG);
+		createEReference(comRxCallbackEClass, COM_RX_CALLBACK__DATA_VARIABLE);
+		createEReference(comRxCallbackEClass, COM_RX_CALLBACK__ACCESS_API);
 
 		comSendOperationEClass = createEClass(COM_SEND_OPERATION);
 		createEReference(comSendOperationEClass, COM_SEND_OPERATION__ACCESS_API);
 		createEReference(comSendOperationEClass, COM_SEND_OPERATION__TEMP_RETURN_VARIABLE);
+		createEReference(comSendOperationEClass, COM_SEND_OPERATION__TACK_STATUS);
+		createEReference(comSendOperationEClass, COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR);
 
 		comCallbackEClass = createEClass(COM_CALLBACK);
 
-		comReceiveTimeoutCallbackEClass = createEClass(COM_RECEIVE_TIMEOUT_CALLBACK);
-		createEReference(comReceiveTimeoutCallbackEClass, COM_RECEIVE_TIMEOUT_CALLBACK__OPERATION);
-		createEReference(comReceiveTimeoutCallbackEClass, COM_RECEIVE_TIMEOUT_CALLBACK__DATA_VARIABLE);
-		createEReference(comReceiveTimeoutCallbackEClass, COM_RECEIVE_TIMEOUT_CALLBACK__ACCESS_API);
+		comRxTOutCallbackEClass = createEClass(COM_RX_TOUT_CALLBACK);
+		createEReference(comRxTOutCallbackEClass, COM_RX_TOUT_CALLBACK__OPERATION);
+		createEReference(comRxTOutCallbackEClass, COM_RX_TOUT_CALLBACK__ACTIVATION_OPERATION);
+		createEReference(comRxTOutCallbackEClass, COM_RX_TOUT_CALLBACK__ACTIVATION_FLAG);
+		createEReference(comRxTOutCallbackEClass, COM_RX_TOUT_CALLBACK__DATA_VARIABLE);
+		createEReference(comRxTOutCallbackEClass, COM_RX_TOUT_CALLBACK__ACCESS_API);
 
-		comInvalidateCallbackEClass = createEClass(COM_INVALIDATE_CALLBACK);
-		createEReference(comInvalidateCallbackEClass, COM_INVALIDATE_CALLBACK__OPERATION);
-		createEReference(comInvalidateCallbackEClass, COM_INVALIDATE_CALLBACK__FILTER_RESULT_VARIABLE);
+		comInvCallbackEClass = createEClass(COM_INV_CALLBACK);
+		createEReference(comInvCallbackEClass, COM_INV_CALLBACK__OPERATION);
+		createEReference(comInvCallbackEClass, COM_INV_CALLBACK__ACTIVATION_OPERATION);
+		createEReference(comInvCallbackEClass, COM_INV_CALLBACK__ACTIVATION_FLAG);
+		createEReference(comInvCallbackEClass, COM_INV_CALLBACK__FILTER_RESULT_VARIABLE);
 
 		comSendSignalProxyEntityEClass = createEClass(COM_SEND_SIGNAL_PROXY_ENTITY);
-		createEReference(comSendSignalProxyEntityEClass, COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION);
-		createEReference(comSendSignalProxyEntityEClass, COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION);
+		createEReference(comSendSignalProxyEntityEClass, COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION);
 
 		comSendSignalImmediateEntityEClass = createEClass(COM_SEND_SIGNAL_IMMEDIATE_ENTITY);
 
 		comSendSignalPeriodicEntityEClass = createEClass(COM_SEND_SIGNAL_PERIODIC_ENTITY);
+
+		tAckNotifyOperationEClass = createEClass(TACK_NOTIFY_OPERATION);
+		createEReference(tAckNotifyOperationEClass, TACK_NOTIFY_OPERATION__ACTIVATION_OPERATION);
+		createEReference(tAckNotifyOperationEClass, TACK_NOTIFY_OPERATION__TACK_STATUS);
+
+		comTxTOutCallbackEClass = createEClass(COM_TX_TOUT_CALLBACK);
+		createEReference(comTxTOutCallbackEClass, COM_TX_TOUT_CALLBACK__TACK_NOTIFY_OPERATION);
+
+		comTAckCallbackEClass = createEClass(COM_TACK_CALLBACK);
+		createEReference(comTAckCallbackEClass, COM_TACK_CALLBACK__TACK_NOTIFY_OPERATION);
+
+		comTErrCallbackEClass = createEClass(COM_TERR_CALLBACK);
+		createEReference(comTErrCallbackEClass, COM_TERR_CALLBACK__TACK_NOTIFY_OPERATION);
 
 		filterOperationEClass = createEClass(FILTER_OPERATION);
 		createEReference(filterOperationEClass, FILTER_OPERATION__FILTER_RESULT_VARIABLE);
@@ -8916,9 +9452,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		partitionRestartingApiEClass = createEClass(PARTITION_RESTARTING_API);
 		createEReference(partitionRestartingApiEClass, PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION);
+		createEReference(partitionRestartingApiEClass, PARTITION_RESTARTING_API__ACTIVATION_OPERATION);
 
 		partitionTerminatedApiEClass = createEClass(PARTITION_TERMINATED_API);
 		createEReference(partitionTerminatedApiEClass, PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION);
+		createEReference(partitionTerminatedApiEClass, PARTITION_TERMINATED_API__ACTIVATION_OPERATION);
 
 		rteLifecycleApiEClass = createEClass(RTE_LIFECYCLE_API);
 
@@ -8929,6 +9467,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(sendApiEClass, SEND_API__TRUSTED_FUNCTION_PARAM_VARIABLE);
 		createEReference(sendApiEClass, SEND_API__FILTER_RESULT_VARIABLE);
 		createEAttribute(sendApiEClass, SEND_API__NEEDS_CHECK_ARG);
+		createEReference(sendApiEClass, SEND_API__ACTIVATION_OPERATION);
+		createEReference(sendApiEClass, SEND_API__ACTIVATION_FLAG);
+		createEReference(sendApiEClass, SEND_API__TACK_STATUS);
 
 		receiveApiEClass = createEClass(RECEIVE_API);
 		createEReference(receiveApiEClass, RECEIVE_API__OPERATION);
@@ -8957,6 +9498,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		iocSendOperationEClass = createEClass(IOC_SEND_OPERATION);
 		createEReference(iocSendOperationEClass, IOC_SEND_OPERATION__TYPE);
+		createEReference(iocSendOperationEClass, IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS);
 
 		iocQueuedSendOperationEClass = createEClass(IOC_QUEUED_SEND_OPERATION);
 		createEReference(iocQueuedSendOperationEClass, IOC_QUEUED_SEND_OPERATION__ACCESS_API);
@@ -9022,6 +9564,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteExitApiEClass, RTE_EXIT_API__OPERATION);
 		createEAttribute(rteExitApiEClass, RTE_EXIT_API__IS_NONE_EXCLUDE);
 
+		osBackgroundTaskActivationExecutableTaskBodyEClass = createEClass(OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY);
+		createEReference(osBackgroundTaskActivationExecutableTaskBodyEClass, OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION);
+
 		osTaskActivationExecutableTaskBodyEClass = createEClass(OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY);
 		createEReference(osTaskActivationExecutableTaskBodyEClass, OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION);
 
@@ -9047,6 +9592,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(timingTriggeringExecutableStartOperationEClass, TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_CONSTANT);
 		createEReference(timingTriggeringExecutableStartOperationEClass, TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_COUNTER_VARIABLE);
 		createEReference(timingTriggeringExecutableStartOperationEClass, TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE);
+
+		plainExecutableStartOperationEClass = createEClass(PLAIN_EXECUTABLE_START_OPERATION);
 
 		modeSwitchTriggeringExecutableStartOperationEClass = createEClass(MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION);
 		createEReference(modeSwitchTriggeringExecutableStartOperationEClass, MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE);
@@ -9095,15 +9642,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(variableEClass, VARIABLE__MEMBER);
 		createEAttribute(variableEClass, VARIABLE__SYMBOL_NAME);
 
-		primitiveComSendProxyOperationEClass = createEClass(PRIMITIVE_COM_SEND_PROXY_OPERATION);
-		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__READ_VALUE_VARIABLE);
-		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API);
-		createEReference(primitiveComSendProxyOperationEClass, PRIMITIVE_COM_SEND_PROXY_OPERATION__SIGNAL_ID_VARIABLE);
-
-		complexComSendProxyOperationEClass = createEClass(COMPLEX_COM_SEND_PROXY_OPERATION);
-		createEReference(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__ACCESS_API);
-		createEAttribute(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME);
-		createEReference(complexComSendProxyOperationEClass, COMPLEX_COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE);
+		comSendProxyOperationEClass = createEClass(COM_SEND_PROXY_OPERATION);
+		createEReference(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__ACCESS_API);
+		createEAttribute(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME);
+		createEReference(comSendProxyOperationEClass, COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE);
 
 		iocReceiveGroupApiEClass = createEClass(IOC_RECEIVE_GROUP_API);
 		createEAttribute(iocReceiveGroupApiEClass, IOC_RECEIVE_GROUP_API__COM_SEND_SIGNAL_SYMBOL_NAME);
@@ -9135,6 +9677,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteBufferWriteTrustedFunctionEClass = createEClass(RTE_BUFFER_WRITE_TRUSTED_FUNCTION);
 		createEReference(rteBufferWriteTrustedFunctionEClass, RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION);
 		createEReference(rteBufferWriteTrustedFunctionEClass, RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE);
+
+		rteBufferSendTrustedFunctionEClass = createEClass(RTE_BUFFER_SEND_TRUSTED_FUNCTION);
+		createEReference(rteBufferSendTrustedFunctionEClass, RTE_BUFFER_SEND_TRUSTED_FUNCTION__OPERATION);
+		createEReference(rteBufferSendTrustedFunctionEClass, RTE_BUFFER_SEND_TRUSTED_FUNCTION__DATA_VARIABLE);
 
 		csTrustedFunctionEClass = createEClass(CS_TRUSTED_FUNCTION);
 		createEReference(csTrustedFunctionEClass, CS_TRUSTED_FUNCTION__DATA_VARIABLE);
@@ -9263,7 +9809,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(rteBufferQueueTypeEClass, RTE_BUFFER_QUEUE_TYPE__MAX_LENGTH_CONSTANT);
 		createEReference(rteBufferQueueTypeEClass, RTE_BUFFER_QUEUE_TYPE__ELEMENT_TYPE);
 
-		rteSendTrustedFunctionParamTypeEClass = createEClass(RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
+		rteNonqueuedSendTrustedFunctionParamTypeEClass = createEClass(RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
+
+		rteQueuedSendTrustedFunctionParamTypeEClass = createEClass(RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
 
 		comSendTrustedFunctionParamTypeEClass = createEClass(COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE);
 		createEAttribute(comSendTrustedFunctionParamTypeEClass, COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE__IS_GROUP);
@@ -9272,13 +9820,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		neverReadOperationEClass = createEClass(NEVER_READ_OPERATION);
 		createEReference(neverReadOperationEClass, NEVER_READ_OPERATION__INIT_VALUE_CONSTANT);
-
-		rteBufferInvalidateTrustedFunctionEClass = createEClass(RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION);
-		createEReference(rteBufferInvalidateTrustedFunctionEClass, RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION);
-
-		trustedFunctionRteBufferInvalidateSendOperationEClass = createEClass(TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION);
-		createEReference(trustedFunctionRteBufferInvalidateSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION);
-		createEReference(trustedFunctionRteBufferInvalidateSendOperationEClass, TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE);
 
 		memoryMappingEClass = createEClass(MEMORY_MAPPING);
 		createEAttribute(memoryMappingEClass, MEMORY_MAPPING__PREFIX);
@@ -9345,11 +9886,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		comProxyFunctionEClass = createEClass(COM_PROXY_FUNCTION);
 		createEReference(comProxyFunctionEClass, COM_PROXY_FUNCTION__PARENT);
 		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__IOC_RECEIVE_SYMBOL_NAME);
-		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME);
-		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__BUFFER_COM_PROXY_SYMBOL_NAME);
-		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__BUFFER_COM_META_COMPLEX_DATA_SYMBOL_NAME);
-		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__PROXY_DATA_TYPE_NAME);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__SEND_SIGNAL_FUNCTION_SYMBOL_NAME);
+		createEReference(comProxyFunctionEClass, COM_PROXY_FUNCTION__BUFFER_VARIABLE);
+		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__SIGNAL_INFORMATION_SYMBOL_NAME);
 		createEAttribute(comProxyFunctionEClass, COM_PROXY_FUNCTION__IS_GROUP);
+		createEReference(comProxyFunctionEClass, COM_PROXY_FUNCTION__ACTIVATION_OPERATION);
+		createEReference(comProxyFunctionEClass, COM_PROXY_FUNCTION__TACK_STATUS);
 
 		comSendSignalApiWrapperEClass = createEClass(COM_SEND_SIGNAL_API_WRAPPER);
 
@@ -9446,6 +9988,22 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		createEReference(redefinitionTypeEClass, REDEFINITION_TYPE__SOURCE_TYPE);
 		createEOperation(redefinitionTypeEClass, REDEFINITION_TYPE___GET_LEAF_TYPE);
 
+		activationOperationEClass = createEClass(ACTIVATION_OPERATION);
+		createEReference(activationOperationEClass, ACTIVATION_OPERATION__ACTIVATION_API);
+		createEReference(activationOperationEClass, ACTIVATION_OPERATION__ACTIVATION_FLAG);
+		createEAttribute(activationOperationEClass, ACTIVATION_OPERATION__OS_TASK_PRIORITY);
+
+		osActivateTaskApiEClass = createEClass(OS_ACTIVATE_TASK_API);
+		createEAttribute(osActivateTaskApiEClass, OS_ACTIVATE_TASK_API__OS_TASK_ID);
+
+		feedbackApiEClass = createEClass(FEEDBACK_API);
+		createEReference(feedbackApiEClass, FEEDBACK_API__TACK_STATUS);
+
+		logicalBlockEClass = createEClass(LOGICAL_BLOCK);
+
+		tAckStatusEClass = createEClass(TACK_STATUS);
+		createEReference(tAckStatusEClass, TACK_STATUS__STATUS_VARIABLE);
+
 		// Create enums
 		parameterPassTypeEnumEEnum = createEEnum(PARAMETER_PASS_TYPE_ENUM);
 		parameterDirectionEnumEEnum = createEEnum(PARAMETER_DIRECTION_ENUM);
@@ -9535,8 +10093,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		iocNonqueuedSendOperationEClass.getESuperTypes().add(this.getIocSendOperation());
 		directComSendOperationEClass.getESuperTypes().add(this.getComSendOperation());
 		trustedFunctionRteOperationEClass.getESuperTypes().add(this.getSendOperation());
-		trustedFunctionRteSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
 		trustedFunctionRteBufferWriteSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
+		trustedFunctionRteBufferSendSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
+		trustedFunctionRteBufferInvalidateSendOperationEClass.getESuperTypes().add(this.getTrustedFunctionRteOperation());
+		rteBufferInvalidateTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
 		trustedFunctionComSendOperationEClass.getESuperTypes().add(this.getComSendOperation());
 		immediateProxyComSendOperationEClass.getESuperTypes().add(this.getProxyComSendOperation());
 		periodicProxyComSendOperationEClass.getESuperTypes().add(this.getProxyComSendOperation());
@@ -9547,14 +10107,17 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		iocReadApiEClass.getESuperTypes().add(this.getIocApi());
 		comSendSignalApiEClass.getESuperTypes().add(this.getComApi());
 		comReceiveSignalApiEClass.getESuperTypes().add(this.getComApi());
-		comReceiveCallbackEClass.getESuperTypes().add(this.getComCallback());
+		comRxCallbackEClass.getESuperTypes().add(this.getComCallback());
 		comSendOperationEClass.getESuperTypes().add(this.getSendOperation());
 		comCallbackEClass.getESuperTypes().add(this.getFunction());
-		comReceiveTimeoutCallbackEClass.getESuperTypes().add(this.getComCallback());
-		comInvalidateCallbackEClass.getESuperTypes().add(this.getComCallback());
+		comRxTOutCallbackEClass.getESuperTypes().add(this.getComCallback());
+		comInvCallbackEClass.getESuperTypes().add(this.getComCallback());
 		comSendSignalProxyEntityEClass.getESuperTypes().add(this.getBswSchedulableEntity());
 		comSendSignalImmediateEntityEClass.getESuperTypes().add(this.getComSendSignalProxyEntity());
 		comSendSignalPeriodicEntityEClass.getESuperTypes().add(this.getComSendSignalProxyEntity());
+		comTxTOutCallbackEClass.getESuperTypes().add(this.getComCallback());
+		comTAckCallbackEClass.getESuperTypes().add(this.getComCallback());
+		comTErrCallbackEClass.getESuperTypes().add(this.getComCallback());
 		filterOperationEClass.getESuperTypes().add(this.getOperation());
 		maskedNewDiffersMaskedOldFilterOperationEClass.getESuperTypes().add(this.getFilterOperation());
 		maskedNewDiffersXFilterOperationEClass.getESuperTypes().add(this.getFilterOperation());
@@ -9593,12 +10156,14 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		constantMemberEClass.getESuperTypes().add(this.getConstant());
 		rteEnterApiEClass.getESuperTypes().add(this.getRteApi());
 		rteExitApiEClass.getESuperTypes().add(this.getRteApi());
+		osBackgroundTaskActivationExecutableTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
 		osTaskActivationExecutableTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
 		osEventSetExecutableTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
 		osTaskActivationOperationEClass.getESuperTypes().add(this.getContextActivationOperation());
 		osEventSetActivationOperationEClass.getESuperTypes().add(this.getContextActivationOperation());
 		contextActivationOperationEClass.getESuperTypes().add(this.getOperation());
 		timingTriggeringExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
+		plainExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
 		modeSwitchTriggeringExecutableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
 		cycleCountupOperationEClass.getESuperTypes().add(this.getOperation());
 		startOffsetCountupOperationEClass.getESuperTypes().add(this.getOperation());
@@ -9613,8 +10178,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		osApiEClass.getESuperTypes().add(this.getFunction());
 		comSendSignalImmediateTaskBodyEClass.getESuperTypes().add(this.getTaskBody());
 		variableEClass.getESuperTypes().add(this.getValue());
-		primitiveComSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
-		complexComSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
+		comSendProxyOperationEClass.getESuperTypes().add(this.getOperation());
 		iocReceiveGroupApiEClass.getESuperTypes().add(this.getIocReceiveApi());
 		initializeOperationEClass.getESuperTypes().add(this.getOperation());
 		variableInitializeOperationEClass.getESuperTypes().add(this.getInitializeOperation());
@@ -9624,6 +10188,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		multicoreRteStartApiEClass.getESuperTypes().add(this.getRteLifecycleApi());
 		multicoreRteStartApiEClass.getESuperTypes().add(this.getRteStartApi());
 		rteBufferWriteTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
+		rteBufferSendTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
 		csTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
 		csTfCalledRunnableEClass.getESuperTypes().add(this.getModuleObject());
 		serverRunnableStartOperationEClass.getESuperTypes().add(this.getExecutableStartOperation());
@@ -9661,12 +10226,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		rteUtilityHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		blackboxHeaderEClass.getESuperTypes().add(this.getHeaderFile());
 		rteBufferQueueTypeEClass.getESuperTypes().add(this.getType());
-		rteSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
+		rteNonqueuedSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
+		rteQueuedSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
 		comSendTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
 		csTrustedFunctionParamTypeEClass.getESuperTypes().add(this.getType());
 		neverReadOperationEClass.getESuperTypes().add(this.getReadOperation());
-		rteBufferInvalidateTrustedFunctionEClass.getESuperTypes().add(this.getTrustedFunction());
-		trustedFunctionRteBufferInvalidateSendOperationEClass.getESuperTypes().add(this.getSendOperation());
 		memoryMappingEClass.getESuperTypes().add(this.getModuleReferrable());
 		swcMemoryMappingEClass.getESuperTypes().add(this.getMemoryMapping());
 		bswMemoryMappingEClass.getESuperTypes().add(this.getMemoryMapping());
@@ -9712,6 +10276,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		redefinitionPointerTypeEClass.getESuperTypes().add(this.getPointerType());
 		redefinitionPointerTypeEClass.getESuperTypes().add(this.getRedefinitionType());
 		redefinitionTypeEClass.getESuperTypes().add(this.getType());
+		activationOperationEClass.getESuperTypes().add(this.getOperation());
+		osActivateTaskApiEClass.getESuperTypes().add(this.getOsApi());
+		feedbackApiEClass.getESuperTypes().add(this.getRteApi());
+		logicalBlockEClass.getESuperTypes().add(this.getModuleReferrable());
+		tAckStatusEClass.getESuperTypes().add(this.getLogicalBlock());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(moduleObjectEClass, ModuleObject.class, "ModuleObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -9748,6 +10317,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getWriteApi_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWriteApi_DataParam(), this.getParameter(), null, "dataParam", null, 1, 1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWriteApi_NeedsCheckArg(), this.getBoolean(), "needsCheckArg", null, 1, 1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWriteApi_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWriteApi_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWriteApi_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, WriteApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sendOperationEClass, SendOperation.class, "SendOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSendOperation_SendValue(), this.getValue(), null, "sendValue", null, 1, 1, SendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9759,6 +10331,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(rteBufferNonqueuedSendOperationEClass, RteBufferNonqueuedSendOperation.class, "RteBufferNonqueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferNonqueuedSendOperation_AccessVariable(), this.getRteBufferVariableSet(), null, "accessVariable", null, 1, 1, RteBufferNonqueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferNonqueuedSendOperation_FilterOperation(), this.getFilterOperation(), null, "filterOperation", null, 0, 1, RteBufferNonqueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferNonqueuedSendOperation_ActivationFlagOnRxSuccess(), this.getLocalVariable(), null, "activationFlagOnRxSuccess", null, 0, -1, RteBufferNonqueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferNonqueuedReadOperationEClass, RteBufferNonqueuedReadOperation.class, "RteBufferNonqueuedReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRteBufferNonqueuedReadOperation_AccessVariable(), this.getRteBufferVariableSet(), null, "accessVariable", null, 1, 1, RteBufferNonqueuedReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9902,7 +10475,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getRte_ComSendSignalTfParamType(), this.getComSendTrustedFunctionParamType(), null, "comSendSignalTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRte_ComSendSignalGroupTfParamType(), this.getComSendTrustedFunctionParamType(), null, "comSendSignalGroupTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRte_CsTfParamType(), this.getCsTrustedFunctionParamType(), null, "csTfParamType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRte_SrRteSendTfParamType(), this.getRteSendTrustedFunctionParamType(), null, "srRteSendTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SrRteNonqueuedSendTfParamType(), this.getRteNonqueuedSendTrustedFunctionParamType(), null, "srRteNonqueuedSendTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRte_SrRteQueuedSendTfParamType(), this.getRteQueuedSendTrustedFunctionParamType(), null, "srRteQueuedSendTfParamType", null, 0, 1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRte_SrRteBufferQueueMaxLengthConstant(), this.getConstant(), null, "srRteBufferQueueMaxLengthConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRte_SrRteBufferQueueType(), this.getRteBufferQueueType(), null, "srRteBufferQueueType", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRte_ImmediateConstant(), this.getConstant(), null, "immediateConstant", null, 0, -1, Rte.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9954,6 +10528,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getPartition_RestartPartitionApi(), this.getRestartPartitionApi(), null, "restartPartitionApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_PartitionTerminatedApi(), this.getPartitionTerminatedApi(), null, "partitionTerminatedApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPartition_PartitionRestartingApi(), this.getPartitionRestartingApi(), null, "partitionRestartingApi", null, 0, 1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartition_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, -1, Partition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(swcEClass, Swc.class, "Swc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwc_Parent(), this.getPartition(), this.getPartition_Swc(), "parent", null, 1, 1, Swc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -9999,6 +10574,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(invalidateApiEClass, InvalidateApi.class, "InvalidateApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInvalidateApi_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, InvalidateApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInvalidateApi_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, InvalidateApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInvalidateApi_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, InvalidateApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInvalidateApi_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, InvalidateApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocNonqueuedSendOperationEClass, IocNonqueuedSendOperation.class, "IocNonqueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocNonqueuedSendOperation_AccessApi(), this.getIocWriteApi(), null, "accessApi", null, 1, 1, IocNonqueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10006,16 +10584,22 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(directComSendOperationEClass, DirectComSendOperation.class, "DirectComSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(trustedFunctionRteOperationEClass, TrustedFunctionRteOperation.class, "TrustedFunctionRteOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteOperation_Type(), this.getType(), null, "type", null, 1, 1, TrustedFunctionRteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrustedFunctionRteOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, TrustedFunctionRteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(trustedFunctionRteSendOperationEClass, TrustedFunctionRteSendOperation.class, "TrustedFunctionRteSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrustedFunctionRteSendOperation_Type(), this.getType(), null, "type", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTrustedFunctionRteSendOperation_SrSendTfSymbolName(), this.getCIdentifier(), "srSendTfSymbolName", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrustedFunctionRteSendOperation_TrustedFunctionParamVariable(), this.getVariable(), null, "trustedFunctionParamVariable", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTrustedFunctionRteSendOperation_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, TrustedFunctionRteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrustedFunctionRteOperation_TrustedFunctionParamVariable(), this.getLocalVariable(), null, "trustedFunctionParamVariable", null, 1, 1, TrustedFunctionRteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess(), this.getLocalVariable(), null, "activationFlagOnRxSuccess", null, 0, -1, TrustedFunctionRteOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trustedFunctionRteBufferWriteSendOperationEClass, TrustedFunctionRteBufferWriteSendOperation.class, "TrustedFunctionRteBufferWriteSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction(), this.getRteBufferWriteTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferWriteSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(trustedFunctionRteBufferSendSendOperationEClass, TrustedFunctionRteBufferSendSendOperation.class, "TrustedFunctionRteBufferSendSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction(), this.getRteBufferSendTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferSendSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(trustedFunctionRteBufferInvalidateSendOperationEClass, TrustedFunctionRteBufferInvalidateSendOperation.class, "TrustedFunctionRteBufferInvalidateSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction(), this.getRteBufferInvalidateTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferInvalidateSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rteBufferInvalidateTrustedFunctionEClass, RteBufferInvalidateTrustedFunction.class, "RteBufferInvalidateTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteBufferInvalidateTrustedFunction_Operation(), this.getRteBufferNonqueuedSendOperation(), null, "operation", null, 1, 1, RteBufferInvalidateTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trustedFunctionComSendOperationEClass, TrustedFunctionComSendOperation.class, "TrustedFunctionComSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTrustedFunctionComSendOperation_Type(), this.getType(), null, "type", null, 1, 1, TrustedFunctionComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10050,33 +10634,53 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(comReceiveSignalApiEClass, ComReceiveSignalApi.class, "ComReceiveSignalApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(comReceiveCallbackEClass, ComReceiveCallback.class, "ComReceiveCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComReceiveCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComReceiveCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comRxCallbackEClass, ComRxCallback.class, "ComRxCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComRxCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComRxCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxCallback_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, ComRxCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxCallback_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, ComRxCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComRxCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComRxCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendOperationEClass, ComSendOperation.class, "ComSendOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComSendOperation_AccessApi(), this.getComSendSignalApi(), null, "accessApi", null, 1, 1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getComSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendOperation_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendOperation_ActivationFlagOnTxErr(), this.getLocalVariable(), null, "activationFlagOnTxErr", null, 0, -1, ComSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comCallbackEClass, ComCallback.class, "ComCallback", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(comReceiveTimeoutCallbackEClass, ComReceiveTimeoutCallback.class, "ComReceiveTimeoutCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComReceiveTimeoutCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveTimeoutCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComReceiveTimeoutCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComReceiveTimeoutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comRxTOutCallbackEClass, ComRxTOutCallback.class, "ComRxTOutCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComRxTOutCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComRxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxTOutCallback_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, ComRxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxTOutCallback_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, ComRxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxTOutCallback_DataVariable(), this.getVariable(), null, "dataVariable", null, 1, 1, ComRxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComRxTOutCallback_AccessApi(), this.getComReceiveSignalApi(), null, "accessApi", null, 1, 1, ComRxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(comInvalidateCallbackEClass, ComInvalidateCallback.class, "ComInvalidateCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComInvalidateCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComInvalidateCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComInvalidateCallback_FilterResultVariable(), this.getLocalVariable(), null, "filterResultVariable", null, 0, 1, ComInvalidateCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comInvCallbackEClass, ComInvCallback.class, "ComInvCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComInvCallback_Operation(), this.getSendOperation(), null, "operation", null, 0, -1, ComInvCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComInvCallback_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, ComInvCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComInvCallback_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, ComInvCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComInvCallback_FilterResultVariable(), this.getLocalVariable(), null, "filterResultVariable", null, 0, 1, ComInvCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendSignalProxyEntityEClass, ComSendSignalProxyEntity.class, "ComSendSignalProxyEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComSendSignalProxyEntity_PrimitiveOperation(), this.getPrimitiveComSendProxyOperation(), null, "primitiveOperation", null, 0, -1, ComSendSignalProxyEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComSendSignalProxyEntity_ComplexOperation(), this.getComplexComSendProxyOperation(), null, "complexOperation", null, 0, -1, ComSendSignalProxyEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendSignalProxyEntity_Operation(), this.getComSendProxyOperation(), null, "operation", null, 0, -1, ComSendSignalProxyEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendSignalImmediateEntityEClass, ComSendSignalImmediateEntity.class, "ComSendSignalImmediateEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(comSendSignalPeriodicEntityEClass, ComSendSignalPeriodicEntity.class, "ComSendSignalPeriodicEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tAckNotifyOperationEClass, TAckNotifyOperation.class, "TAckNotifyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTAckNotifyOperation_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, TAckNotifyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTAckNotifyOperation_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, TAckNotifyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comTxTOutCallbackEClass, ComTxTOutCallback.class, "ComTxTOutCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComTxTOutCallback_TAckNotifyOperation(), this.getTAckNotifyOperation(), null, "tAckNotifyOperation", null, 0, -1, ComTxTOutCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comTAckCallbackEClass, ComTAckCallback.class, "ComTAckCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComTAckCallback_TAckNotifyOperation(), this.getTAckNotifyOperation(), null, "tAckNotifyOperation", null, 0, -1, ComTAckCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(comTErrCallbackEClass, ComTErrCallback.class, "ComTErrCallback", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComTErrCallback_TAckNotifyOperation(), this.getTAckNotifyOperation(), null, "tAckNotifyOperation", null, 0, -1, ComTErrCallback.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterOperationEClass, FilterOperation.class, "FilterOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFilterOperation_FilterResultVariable(), this.getVariable(), null, "filterResultVariable", null, 1, 1, FilterOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10117,9 +10721,11 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(partitionRestartingApiEClass, PartitionRestartingApi.class, "PartitionRestartingApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPartitionRestartingApi_SrInterPartitionTimeoutOperation(), this.getInterPartitionTimeoutOperation(), null, "srInterPartitionTimeoutOperation", null, 0, 1, PartitionRestartingApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartitionRestartingApi_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, PartitionRestartingApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(partitionTerminatedApiEClass, PartitionTerminatedApi.class, "PartitionTerminatedApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPartitionTerminatedApi_SrInterPartitionTimeoutOperation(), this.getInterPartitionTimeoutOperation(), null, "srInterPartitionTimeoutOperation", null, 0, 1, PartitionTerminatedApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPartitionTerminatedApi_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, PartitionTerminatedApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteLifecycleApiEClass, RteLifecycleApi.class, "RteLifecycleApi", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -10130,6 +10736,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getSendApi_TrustedFunctionParamVariable(), this.getLocalVariable(), null, "trustedFunctionParamVariable", null, 0, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendApi_FilterResultVariable(), this.getLocalVariable(), null, "filterResultVariable", null, 0, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSendApi_NeedsCheckArg(), this.getBoolean(), "needsCheckArg", null, 1, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSendApi_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSendApi_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, -1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSendApi_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, SendApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(receiveApiEClass, ReceiveApi.class, "ReceiveApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReceiveApi_Operation(), this.getReadOperation(), null, "operation", null, 0, 1, ReceiveApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10158,6 +10767,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(iocSendOperationEClass, IocSendOperation.class, "IocSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocSendOperation_Type(), this.getType(), null, "type", null, 1, 1, IocSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIocSendOperation_ActivationFlagOnRxSuccess(), this.getLocalVariable(), null, "activationFlagOnRxSuccess", null, 0, -1, IocSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocQueuedSendOperationEClass, IocQueuedSendOperation.class, "IocQueuedSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIocQueuedSendOperation_AccessApi(), this.getIocSendApi(), null, "accessApi", null, 1, 1, IocQueuedSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10223,6 +10833,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getRteExitApi_Operation(), this.getExcludeOperation(), null, "operation", null, 1, 1, RteExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRteExitApi_IsNoneExclude(), this.getBoolean(), "isNoneExclude", null, 1, 1, RteExitApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(osBackgroundTaskActivationExecutableTaskBodyEClass, OsBackgroundTaskActivationExecutableTaskBody.class, "OsBackgroundTaskActivationExecutableTaskBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOsBackgroundTaskActivationExecutableTaskBody_Operation(), this.getOsTaskActivationOperation(), null, "operation", null, 1, 1, OsBackgroundTaskActivationExecutableTaskBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(osTaskActivationExecutableTaskBodyEClass, OsTaskActivationExecutableTaskBody.class, "OsTaskActivationExecutableTaskBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOsTaskActivationExecutableTaskBody_Operation(), this.getOsTaskActivationOperation(), null, "operation", null, 1, 1, OsTaskActivationExecutableTaskBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -10248,6 +10861,8 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getTimingTriggeringExecutableStartOperation_StartOffsetConstant(), this.getConstant(), null, "startOffsetConstant", null, 0, 1, TimingTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable(), this.getGlobalVariable(), null, "startOffsetCounterVariable", null, 0, 1, TimingTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTimingTriggeringExecutableStartOperation_CycleCounterVariable(), this.getGlobalVariable(), null, "cycleCounterVariable", null, 0, 1, TimingTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(plainExecutableStartOperationEClass, PlainExecutableStartOperation.class, "PlainExecutableStartOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(modeSwitchTriggeringExecutableStartOperationEClass, ModeSwitchTriggeringExecutableStartOperation.class, "ModeSwitchTriggeringExecutableStartOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModeSwitchTriggeringExecutableStartOperation_StartMode(), this.getConstant(), null, "startMode", null, 0, -1, ModeSwitchTriggeringExecutableStartOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10296,15 +10911,10 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getVariable_Member(), this.getVariableMember(), this.getVariableMember_Parent(), "member", null, 0, -1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVariable_SymbolName(), this.getCIdentifier(), "symbolName", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(primitiveComSendProxyOperationEClass, PrimitiveComSendProxyOperation.class, "PrimitiveComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPrimitiveComSendProxyOperation_ReadValueVariable(), this.getVariable(), null, "readValueVariable", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPrimitiveComSendProxyOperation_AccessApi(), this.getIocReceiveGroupApi(), null, "accessApi", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPrimitiveComSendProxyOperation_SignalIdVariable(), this.getVariable(), null, "signalIdVariable", null, 1, 1, PrimitiveComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(complexComSendProxyOperationEClass, ComplexComSendProxyOperation.class, "ComplexComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComplexComSendProxyOperation_AccessApi(), this.getIocReceiveApi(), null, "accessApi", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComplexComSendProxyOperation_FunctionTableSymbolName(), this.getCIdentifier(), "functionTableSymbolName", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComplexComSendProxyOperation_TableIndexVariable(), this.getVariable(), null, "tableIndexVariable", null, 1, 1, ComplexComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(comSendProxyOperationEClass, ComSendProxyOperation.class, "ComSendProxyOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComSendProxyOperation_AccessApi(), this.getIocReceiveApi(), null, "accessApi", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComSendProxyOperation_FunctionTableSymbolName(), this.getCIdentifier(), "functionTableSymbolName", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComSendProxyOperation_TableIndexVariable(), this.getVariable(), null, "tableIndexVariable", null, 1, 1, ComSendProxyOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iocReceiveGroupApiEClass, IocReceiveGroupApi.class, "IocReceiveGroupApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIocReceiveGroupApi_ComSendSignalSymbolName(), this.getCIdentifier(), "comSendSignalSymbolName", null, 1, 1, IocReceiveGroupApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10334,8 +10944,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getMulticoreRteStartApi_CoreStartApiImpl(), this.getRteCoreStartApiImpl(), null, "coreStartApiImpl", null, 0, -1, MulticoreRteStartApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteBufferWriteTrustedFunctionEClass, RteBufferWriteTrustedFunction.class, "RteBufferWriteTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBufferWriteTrustedFunction_Operation(), this.getSendOperation(), null, "operation", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferWriteTrustedFunction_Operation(), this.getRteBufferNonqueuedSendOperation(), null, "operation", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferWriteTrustedFunction_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, RteBufferWriteTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rteBufferSendTrustedFunctionEClass, RteBufferSendTrustedFunction.class, "RteBufferSendTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRteBufferSendTrustedFunction_Operation(), this.getRteBufferQueuedSendOperation(), null, "operation", null, 1, 1, RteBufferSendTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRteBufferSendTrustedFunction_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, RteBufferSendTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(csTrustedFunctionEClass, CsTrustedFunction.class, "CsTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCsTrustedFunction_DataVariable(), this.getLocalVariable(), null, "dataVariable", null, 1, 1, CsTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10464,7 +11078,9 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEReference(getRteBufferQueueType_MaxLengthConstant(), this.getConstant(), null, "maxLengthConstant", null, 1, 1, RteBufferQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRteBufferQueueType_ElementType(), this.getType(), null, "elementType", null, 1, 1, RteBufferQueueType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(rteSendTrustedFunctionParamTypeEClass, RteSendTrustedFunctionParamType.class, "RteSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteNonqueuedSendTrustedFunctionParamTypeEClass, RteNonqueuedSendTrustedFunctionParamType.class, "RteNonqueuedSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(rteQueuedSendTrustedFunctionParamTypeEClass, RteQueuedSendTrustedFunctionParamType.class, "RteQueuedSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(comSendTrustedFunctionParamTypeEClass, ComSendTrustedFunctionParamType.class, "ComSendTrustedFunctionParamType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComSendTrustedFunctionParamType_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, ComSendTrustedFunctionParamType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10473,13 +11089,6 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEClass(neverReadOperationEClass, NeverReadOperation.class, "NeverReadOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNeverReadOperation_InitValueConstant(), this.getConstant(), null, "initValueConstant", null, 1, 1, NeverReadOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(rteBufferInvalidateTrustedFunctionEClass, RteBufferInvalidateTrustedFunction.class, "RteBufferInvalidateTrustedFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRteBufferInvalidateTrustedFunction_Operation(), this.getSendOperation(), null, "operation", null, 1, 1, RteBufferInvalidateTrustedFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(trustedFunctionRteBufferInvalidateSendOperationEClass, TrustedFunctionRteBufferInvalidateSendOperation.class, "TrustedFunctionRteBufferInvalidateSendOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction(), this.getRteBufferInvalidateTrustedFunction(), null, "accessTrustedFunction", null, 1, 1, TrustedFunctionRteBufferInvalidateSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTrustedFunctionRteBufferInvalidateSendOperation_TempReturnVariable(), this.getVariable(), null, "tempReturnVariable", null, 0, 1, TrustedFunctionRteBufferInvalidateSendOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memoryMappingEClass, MemoryMapping.class, "MemoryMapping", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMemoryMapping_Prefix(), this.getCIdentifier(), "prefix", null, 1, 1, MemoryMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -10546,11 +11155,12 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		initEClass(comProxyFunctionEClass, ComProxyFunction.class, "ComProxyFunction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComProxyFunction_Parent(), this.getPartition(), this.getPartition_ComProxyFunction(), "parent", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComProxyFunction_IocReceiveSymbolName(), this.getCIdentifier(), "iocReceiveSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComProxyFunction_SignalGroupSymbolName(), this.getCIdentifier(), "signalGroupSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComProxyFunction_BufferComProxySymbolName(), this.getCIdentifier(), "bufferComProxySymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComProxyFunction_BufferComMetaComplexDataSymbolName(), this.getCIdentifier(), "bufferComMetaComplexDataSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComProxyFunction_ProxyDataTypeName(), this.getCIdentifier(), "proxyDataTypeName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_SendSignalFunctionSymbolName(), this.getCIdentifier(), "sendSignalFunctionSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComProxyFunction_BufferVariable(), this.getVariable(), null, "bufferVariable", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComProxyFunction_SignalInformationSymbolName(), this.getCIdentifier(), "signalInformationSymbolName", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComProxyFunction_IsGroup(), this.getBoolean(), "isGroup", null, 1, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComProxyFunction_ActivationOperation(), this.getActivationOperation(), null, "activationOperation", null, 0, -1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComProxyFunction_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, ComProxyFunction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comSendSignalApiWrapperEClass, ComSendSignalApiWrapper.class, "ComSendSignalApiWrapper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -10650,6 +11260,22 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 
 		initEOperation(getRedefinitionType__GetLeafType(), this.getType(), "getLeafType", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		initEClass(activationOperationEClass, ActivationOperation.class, "ActivationOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getActivationOperation_ActivationApi(), this.getOsApi(), null, "activationApi", null, 1, 1, ActivationOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getActivationOperation_ActivationFlag(), this.getLocalVariable(), null, "activationFlag", null, 0, 1, ActivationOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getActivationOperation_OsTaskPriority(), this.getInteger(), "osTaskPriority", null, 1, 1, ActivationOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(osActivateTaskApiEClass, OsActivateTaskApi.class, "OsActivateTaskApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOsActivateTaskApi_OsTaskId(), this.getCIdentifier(), "osTaskId", null, 1, 1, OsActivateTaskApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(feedbackApiEClass, FeedbackApi.class, "FeedbackApi", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFeedbackApi_TAckStatus(), this.getTAckStatus(), null, "tAckStatus", null, 0, 1, FeedbackApi.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(logicalBlockEClass, LogicalBlock.class, "LogicalBlock", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(tAckStatusEClass, TAckStatus.class, "TAckStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTAckStatus_StatusVariable(), this.getGlobalVariable(), null, "statusVariable", null, 1, 1, TAckStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(parameterPassTypeEnumEEnum, ParameterPassTypeEnum.class, "ParameterPassTypeEnum");
 		addEEnumLiteral(parameterPassTypeEnumEEnum, ParameterPassTypeEnum.VALUE);
@@ -10698,7 +11324,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																														
+		   });																															
 	}
 
 	/**
@@ -10714,7 +11340,7 @@ public class ModulePackageImpl extends EPackageImpl implements ModulePackage {
 		   source, 
 		   new String[] {
 			 "derivation", "self.type.oclAsType(RteBufferQueueType)"
-		   });						
+		   });							
 		addAnnotation
 		  (getServerRunnableStartOperation_StartServerRunnable(), 
 		   source, 

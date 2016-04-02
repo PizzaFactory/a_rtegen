@@ -103,6 +103,13 @@ public class ModuleRules {
 		return true;
 	}
 
+	public boolean usesInlineFeedbackApi(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		if (!canUseInlineApi()) {
+			return false;
+		}
+		return isEnableTakeAddressFalse(dataInstanceInSwc.getContextPort());
+	}
+
 	public boolean usesInlineCsApi(EcucPartition clientEcucPartition, EcucPartition serverPartition, ROperationInstanceInSwc rOperationInstanceInSwc) {
 		if (clientEcucPartition == null && serverPartition == null) {
 			return true;

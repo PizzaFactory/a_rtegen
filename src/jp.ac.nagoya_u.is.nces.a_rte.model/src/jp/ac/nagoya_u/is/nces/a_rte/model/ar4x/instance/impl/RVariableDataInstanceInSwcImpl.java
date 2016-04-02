@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -49,6 +49,8 @@ import java.lang.reflect.InvocationTargetException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InvalidationPolicy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ReceiverComSpec;
@@ -209,6 +211,54 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isInvalidationKeep() <em>Is Invalidation Keep</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvalidationKeep()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_INVALIDATION_KEEP__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvalidationKeep() {
+		try {
+			return (Boolean)IS_INVALIDATION_KEEP__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isInvalidationReplace() <em>Is Invalidation Replace</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvalidationReplace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_INVALIDATION_REPLACE__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvalidationReplace() {
+		try {
+			return (Boolean)IS_INVALIDATION_REPLACE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * The cached invocation delegate for the '{@link #getInvalidationPolicy() <em>Get Invalidation Policy</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,6 +355,56 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #getRelatedDataReceivedEvent() <em>Get Related Data Received Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedDataReceivedEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_RELATED_DATA_RECEIVED_EVENT__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<DataReceivedEvent> getRelatedDataReceivedEvent() {
+		try {
+			return (EList<DataReceivedEvent>)GET_RELATED_DATA_RECEIVED_EVENT__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getRelatedDataReceiveErrorEvent() <em>Get Related Data Receive Error Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedDataReceiveErrorEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_RELATED_DATA_RECEIVE_ERROR_EVENT__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<DataReceiveErrorEvent> getRelatedDataReceiveErrorEvent() {
+		try {
+			return (EList<DataReceiveErrorEvent>)GET_RELATED_DATA_RECEIVE_ERROR_EVENT__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -348,6 +448,10 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 				return isAliveTimeoutEnabled();
 			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_ENABLED:
 				return isInvalidationEnabled();
+			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP:
+				return isInvalidationKeep();
+			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE:
+				return isInvalidationReplace();
 			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY:
 				return getInvalidationPolicy();
 			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE:
@@ -356,6 +460,10 @@ public class RVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 				return getQueueLength();
 			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC:
 				return getComSpec();
+			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT:
+				return getRelatedDataReceivedEvent();
+			case InstancePackage.RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT:
+				return getRelatedDataReceiveErrorEvent();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

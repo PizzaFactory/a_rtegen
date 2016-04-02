@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -55,6 +55,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getOperation <em>Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationOperation <em>Activation Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getActivationFlag <em>Activation Flag</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getTAckStatus <em>TAck Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -78,5 +81,63 @@ public interface InvalidateApi extends RteApi {
 	 * @generated
 	 */
 	EList<SendOperation> getOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Activation Operation</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Activation Operation</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Activation Operation</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getInvalidateApi_ActivationOperation()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ActivationOperation> getActivationOperation();
+
+	/**
+	 * Returns the value of the '<em><b>Activation Flag</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Activation Flag</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Activation Flag</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getInvalidateApi_ActivationFlag()
+	 * @model
+	 * @generated
+	 */
+	EList<LocalVariable> getActivationFlag();
+
+	/**
+	 * Returns the value of the '<em><b>TAck Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>TAck Status</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>TAck Status</em>' reference.
+	 * @see #setTAckStatus(TAckStatus)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getInvalidateApi_TAckStatus()
+	 * @model
+	 * @generated
+	 */
+	TAckStatus getTAckStatus();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi#getTAckStatus <em>TAck Status</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>TAck Status</em>' reference.
+	 * @see #getTAckStatus()
+	 * @generated
+	 */
+	void setTAckStatus(TAckStatus value);
 
 } // InvalidateApi

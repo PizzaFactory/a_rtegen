@@ -38,7 +38,7 @@
 #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
 #  の責任を負わない．
 #
-#  $Id: fl850f1l_ccrh_common.yaml 255 2014-12-24 02:53:48Z shigihara $
+#  $Id: fl850f1l_ccrh_common.yaml 651 2016-03-31 06:20:22Z mtakada $
 #
 
 Ecuc:
@@ -60,6 +60,7 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: 17
       OsIsrInterruptPriority: 3
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
 
@@ -68,5 +69,25 @@ Ecuc:
       OsIsrCategory: CATEGORY_2
       OsIsrInterruptNumber: 18
       OsIsrInterruptPriority: 3
+      OsIsrInterruptSource: ENABLE
       OsIsrResourceRef:
         - /Ecuc/Os/COMSTACK_RESOURCE
+
+# CANコントローラ
+  Can:
+    CanConfigSet:
+      CanController1:      
+        CanControllerBaudrateConfig_0:
+          DefinitionRef: CanControllerBaudrateConfig
+          CanControllerBaudRate: 500
+          CanControllerPropSeg: 0
+          CanControllerSeg1: 0
+          CanControllerSeg2: 255
+          CanControllerSyncJumpWidth: 0
+        CanControllerBaudrateConfig_1:
+          DefinitionRef: CanControllerBaudrateConfig
+          CanControllerBaudRate: 250
+          CanControllerPropSeg: 0
+          CanControllerSeg1: 0
+          CanControllerSeg2: 255
+          CanControllerSyncJumpWidth: 0

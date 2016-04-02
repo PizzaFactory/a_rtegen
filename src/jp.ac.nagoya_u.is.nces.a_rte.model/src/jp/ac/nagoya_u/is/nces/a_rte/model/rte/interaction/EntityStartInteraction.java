@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,9 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
+import java.math.BigDecimal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -55,7 +58,10 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getStarter <em>Starter</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getImplementation <em>Implementation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getEventToTaskMapping <em>Event To Task Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getActivationOffset <em>Activation Offset</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getPositionInTask <em>Position In Task</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getTimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,29 +125,107 @@ public interface EntityStartInteraction extends Interaction {
 	void setImplementation(EntityStartImplementation value);
 
 	/**
-	 * Returns the value of the '<em><b>Event To Task Mapping</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Activation Offset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Event To Task Mapping</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Activation Offset</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event To Task Mapping</em>' containment reference.
-	 * @see #setEventToTaskMapping(EventToTaskMapping)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStartInteraction_EventToTaskMapping()
-	 * @model containment="true" required="true"
+	 * @return the value of the '<em>Activation Offset</em>' attribute.
+	 * @see #setActivationOffset(BigDecimal)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStartInteraction_ActivationOffset()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue"
 	 * @generated
 	 */
-	EventToTaskMapping getEventToTaskMapping();
+	BigDecimal getActivationOffset();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getEventToTaskMapping <em>Event To Task Mapping</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getActivationOffset <em>Activation Offset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Event To Task Mapping</em>' containment reference.
-	 * @see #getEventToTaskMapping()
+	 * @param value the new value of the '<em>Activation Offset</em>' attribute.
+	 * @see #getActivationOffset()
 	 * @generated
 	 */
-	void setEventToTaskMapping(EventToTaskMapping value);
+	void setActivationOffset(BigDecimal value);
+
+	/**
+	 * Returns the value of the '<em><b>Position In Task</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Position In Task</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Position In Task</em>' attribute.
+	 * @see #setPositionInTask(Integer)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStartInteraction_PositionInTask()
+	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Integer"
+	 * @generated
+	 */
+	Integer getPositionInTask();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getPositionInTask <em>Position In Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Position In Task</em>' attribute.
+	 * @see #getPositionInTask()
+	 * @generated
+	 */
+	void setPositionInTask(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Start On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start On Event</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start On Event</em>' reference.
+	 * @see #setStartOnEvent(ExecutableEntity)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStartInteraction_StartOnEvent()
+	 * @model
+	 * @generated
+	 */
+	ExecutableEntity getStartOnEvent();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getStartOnEvent <em>Start On Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start On Event</em>' reference.
+	 * @see #getStartOnEvent()
+	 * @generated
+	 */
+	void setStartOnEvent(ExecutableEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Timing Triggering Entity Start Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Timing Triggering Entity Start Condition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Timing Triggering Entity Start Condition</em>' containment reference.
+	 * @see #setTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStartInteraction_TimingTriggeringEntityStartCondition()
+	 * @model containment="true"
+	 * @generated
+	 */
+	TimingTriggeringEntityStartCondition getTimingTriggeringEntityStartCondition();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getTimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Timing Triggering Entity Start Condition</em>' containment reference.
+	 * @see #getTimingTriggeringEntityStartCondition()
+	 * @generated
+	 */
+	void setTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition value);
 
 } // EntityStartInteraction

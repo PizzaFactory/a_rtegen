@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -50,6 +50,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteUsedOsActivation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.CycleCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 
@@ -70,6 +71,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl#getExecutionContext <em>Execution Context</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl#getExpectedConfig <em>Expected Config</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl#getStartInteraction <em>Start Interaction</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl#getStartOffsetCounterImplementation <em>Start Offset Counter Implementation</em>}</li>
@@ -80,6 +82,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class EntityStarterImpl extends InteractionEndImpl implements EntityStarter {
+	/**
+	 * The cached value of the '{@link #getExecutionContext() <em>Execution Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExecutionContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExecutionContext executionContext;
+
 	/**
 	 * The cached value of the '{@link #getExpectedConfig() <em>Expected Config</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -137,6 +149,66 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	protected EClass eStaticClass() {
 		return InteractionPackage.Literals.ENTITY_STARTER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionContext getExecutionContext() {
+		if (executionContext != null && ((EObject)executionContext).eIsProxy()) {
+			InternalEObject oldExecutionContext = (InternalEObject)executionContext;
+			executionContext = (ExecutionContext)eResolveProxy(oldExecutionContext);
+			if (executionContext != oldExecutionContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT, oldExecutionContext, executionContext));
+			}
+		}
+		return executionContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionContext basicGetExecutionContext() {
+		return executionContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetExecutionContext(ExecutionContext newExecutionContext, NotificationChain msgs) {
+		ExecutionContext oldExecutionContext = executionContext;
+		executionContext = newExecutionContext;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT, oldExecutionContext, newExecutionContext);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExecutionContext(ExecutionContext newExecutionContext) {
+		if (newExecutionContext != executionContext) {
+			NotificationChain msgs = null;
+			if (executionContext != null)
+				msgs = ((InternalEObject)executionContext).eInverseRemove(this, InteractionPackage.EXECUTION_CONTEXT__ENTITY_STARTER, ExecutionContext.class, msgs);
+			if (newExecutionContext != null)
+				msgs = ((InternalEObject)newExecutionContext).eInverseAdd(this, InteractionPackage.EXECUTION_CONTEXT__ENTITY_STARTER, ExecutionContext.class, msgs);
+			msgs = basicSetExecutionContext(newExecutionContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT, newExecutionContext, newExecutionContext));
 	}
 
 	/**
@@ -284,6 +356,10 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				if (executionContext != null)
+					msgs = ((InternalEObject)executionContext).eInverseRemove(this, InteractionPackage.EXECUTION_CONTEXT__ENTITY_STARTER, ExecutionContext.class, msgs);
+				return basicSetExecutionContext((ExecutionContext)otherEnd, msgs);
 			case InteractionPackage.ENTITY_STARTER__START_INTERACTION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStartInteraction()).basicAdd(otherEnd, msgs);
 			case InteractionPackage.ENTITY_STARTER__START_OFFSET_COUNTER_IMPLEMENTATION:
@@ -306,6 +382,8 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				return basicSetExecutionContext(null, msgs);
 			case InteractionPackage.ENTITY_STARTER__START_INTERACTION:
 				return ((InternalEList<?>)getStartInteraction()).basicRemove(otherEnd, msgs);
 			case InteractionPackage.ENTITY_STARTER__START_OFFSET_COUNTER_IMPLEMENTATION:
@@ -324,6 +402,9 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				if (resolve) return getExecutionContext();
+				return basicGetExecutionContext();
 			case InteractionPackage.ENTITY_STARTER__EXPECTED_CONFIG:
 				if (resolve) return getExpectedConfig();
 				return basicGetExpectedConfig();
@@ -346,6 +427,9 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				setExecutionContext((ExecutionContext)newValue);
+				return;
 			case InteractionPackage.ENTITY_STARTER__EXPECTED_CONFIG:
 				setExpectedConfig((RteUsedOsActivation)newValue);
 				return;
@@ -371,6 +455,9 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				setExecutionContext((ExecutionContext)null);
+				return;
 			case InteractionPackage.ENTITY_STARTER__EXPECTED_CONFIG:
 				setExpectedConfig((RteUsedOsActivation)null);
 				return;
@@ -395,6 +482,8 @@ public abstract class EntityStarterImpl extends InteractionEndImpl implements En
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case InteractionPackage.ENTITY_STARTER__EXECUTION_CONTEXT:
+				return executionContext != null;
 			case InteractionPackage.ENTITY_STARTER__EXPECTED_CONFIG:
 				return expectedConfig != null;
 			case InteractionPackage.ENTITY_STARTER__START_INTERACTION:

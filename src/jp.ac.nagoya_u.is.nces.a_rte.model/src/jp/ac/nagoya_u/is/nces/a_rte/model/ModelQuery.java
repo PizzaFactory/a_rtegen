@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -382,6 +382,7 @@ public class ModelQuery {
 	 * @return 指定された{@link EStructuralFeature}の値が一意になるような部分集合
 	 */
 	public <T extends EObject> List<T> uniqueByKeys(Collection<T> eObjects, final EStructuralFeature... keyFeatures) {
+		// COVERAGE 常に未達(未使用だが，ユーティリティであるため問題ない)
 		ListMultimap<List<Object>, T> keys2Objects = groupByKeys(eObjects, keyFeatures);
 
 		List<T> uniqueObjects = Lists.newArrayList();
@@ -409,6 +410,7 @@ public class ModelQuery {
 	}
 
 	private <T extends EObject> ListMultimap<List<Object>, T> groupByKeys(Collection<T> eObjects, final EStructuralFeature... keyFeatures) {
+		// COVERAGE 常に未達(未使用だが，ユーティリティであるため問題ない)
 		return Multimaps.index(eObjects, new Function<T, List<Object>>() {
 			@Override
 			public List<Object> apply(T input) {

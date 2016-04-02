@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -63,6 +63,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
 import org.eclipse.emf.common.notify.Notification;
@@ -114,6 +115,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getRestartPartitionApi <em>Restart Partition Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getPartitionTerminatedApi <em>Partition Terminated Api</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getPartitionRestartingApi <em>Partition Restarting Api</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl#getTAckStatus <em>TAck Status</em>}</li>
  * </ul>
  * </p>
  *
@@ -421,6 +423,16 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 	protected PartitionRestartingApi partitionRestartingApi;
 
 	/**
+	 * The cached value of the '{@link #getTAckStatus() <em>TAck Status</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTAckStatus()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TAckStatus> tAckStatus;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -640,6 +652,18 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__PARTITION_RESTARTING_API, newPartitionRestartingApi, newPartitionRestartingApi));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TAckStatus> getTAckStatus() {
+		if (tAckStatus == null) {
+			tAckStatus = new EObjectContainmentEList<TAckStatus>(TAckStatus.class, this, ModulePackage.PARTITION__TACK_STATUS);
+		}
+		return tAckStatus;
 	}
 
 	/**
@@ -1114,6 +1138,8 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return basicSetPartitionTerminatedApi(null, msgs);
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
 				return basicSetPartitionRestartingApi(null, msgs);
+			case ModulePackage.PARTITION__TACK_STATUS:
+				return ((InternalEList<?>)getTAckStatus()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1200,6 +1226,8 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return getPartitionTerminatedApi();
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
 				return getPartitionRestartingApi();
+			case ModulePackage.PARTITION__TACK_STATUS:
+				return getTAckStatus();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1325,6 +1353,10 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
 				setPartitionRestartingApi((PartitionRestartingApi)newValue);
 				return;
+			case ModulePackage.PARTITION__TACK_STATUS:
+				getTAckStatus().clear();
+				getTAckStatus().addAll((Collection<? extends TAckStatus>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1427,6 +1459,9 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
 				setPartitionRestartingApi((PartitionRestartingApi)null);
 				return;
+			case ModulePackage.PARTITION__TACK_STATUS:
+				getTAckStatus().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1499,6 +1534,8 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 				return partitionTerminatedApi != null;
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
 				return partitionRestartingApi != null;
+			case ModulePackage.PARTITION__TACK_STATUS:
+				return tAckStatus != null && !tAckStatus.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

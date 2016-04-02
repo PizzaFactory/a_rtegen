@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,17 +44,21 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +68,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +84,16 @@ public class IocSendOperationImpl extends SendOperationImpl implements IocSendOp
 	 * @ordered
 	 */
 	protected Type type;
+
+	/**
+	 * The cached value of the '{@link #getActivationFlagOnRxSuccess() <em>Activation Flag On Rx Success</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivationFlagOnRxSuccess()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<LocalVariable> activationFlagOnRxSuccess;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -142,12 +157,26 @@ public class IocSendOperationImpl extends SendOperationImpl implements IocSendOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<LocalVariable> getActivationFlagOnRxSuccess() {
+		if (activationFlagOnRxSuccess == null) {
+			activationFlagOnRxSuccess = new EObjectResolvingEList<LocalVariable>(LocalVariable.class, this, ModulePackage.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS);
+		}
+		return activationFlagOnRxSuccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ModulePackage.IOC_SEND_OPERATION__TYPE:
 				if (resolve) return getType();
 				return basicGetType();
+			case ModulePackage.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS:
+				return getActivationFlagOnRxSuccess();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,11 +186,16 @@ public class IocSendOperationImpl extends SendOperationImpl implements IocSendOp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModulePackage.IOC_SEND_OPERATION__TYPE:
 				setType((Type)newValue);
+				return;
+			case ModulePackage.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS:
+				getActivationFlagOnRxSuccess().clear();
+				getActivationFlagOnRxSuccess().addAll((Collection<? extends LocalVariable>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -178,6 +212,9 @@ public class IocSendOperationImpl extends SendOperationImpl implements IocSendOp
 			case ModulePackage.IOC_SEND_OPERATION__TYPE:
 				setType((Type)null);
 				return;
+			case ModulePackage.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS:
+				getActivationFlagOnRxSuccess().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +229,8 @@ public class IocSendOperationImpl extends SendOperationImpl implements IocSendOp
 		switch (featureID) {
 			case ModulePackage.IOC_SEND_OPERATION__TYPE:
 				return type != null;
+			case ModulePackage.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS:
+				return activationFlagOnRxSuccess != null && !activationFlagOnRxSuccess.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

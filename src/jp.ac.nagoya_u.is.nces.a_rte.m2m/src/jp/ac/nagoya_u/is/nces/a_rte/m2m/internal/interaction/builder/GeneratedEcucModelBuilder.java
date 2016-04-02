@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -63,7 +63,6 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IOC_VALUE_BUFFER_IMPLEMENTATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION;
@@ -100,7 +99,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInS
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArrayValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
@@ -267,64 +265,42 @@ public class GeneratedEcucModelBuilder {
 	}
 
 	private void buildComSendProxyOsIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceAndTargetProxyInteraction) throws ModelException {
-		if (sourceAndTargetProxyInteraction.getSignalDataType().isPrimitiveType()) {
-			// プリミティブ型の場合
-			// 要求・値伝搬用のIOC通信を構築
-			OsIocCommunication destOsIocCommunication;
+		// 要求伝搬用のIOC通信を構築
+		OsIocCommunication destRequestOsIocCommunication;
 
-			String osIocCommunicationName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createPeriodicComProxyRequestOsIocCommunicationNameForPrimitiveType(sourceAndTargetProxyInteraction)
-					: Identifiers.createImmediateComProxyRequestOsIocCommunicationNameForPrimitiveType(sourceAndTargetProxyInteraction);
-			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, osIocCommunicationName);
-			if (inputOsIocCommunication.isPresent()) {
-				destOsIocCommunication = inputOsIocCommunication.get();
-			} else {
-				destOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, osIocCommunicationName);
-				destOsIocCommunication.setOsIocBufferLength(getComSendProxyRequestIocDefaultBufferLength(sourceAndTargetProxyInteraction));
-				destOsIocCommunication.getOsIocDataProperties().add(createComSendProxySignalIdDataProperties());
-				destOsIocCommunication.getOsIocDataProperties().add(createComSendProxySignalDataDataProperties(sourceAndTargetProxyInteraction, 1));
-			}
-			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destOsIocCommunication);
-
+		String requestOsIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+				? Identifiers.createPeriodicComProxyRequestOsIocCommunicationName(sourceAndTargetProxyInteraction)
+				: Identifiers.createImmediateComProxyRequestOsIocCommunicationName(sourceAndTargetProxyInteraction);
+		Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, requestOsIocComName);
+		if (inputOsIocCommunication.isPresent()) {
+			destRequestOsIocCommunication = inputOsIocCommunication.get();
 		} else {
-			// 複合データ型の場合
-			// 要求伝搬用のIOC通信を構築
-			OsIocCommunication destRequestOsIocCommunication;
-
-			String requestOsIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createPeriodicComProxyRequestOsIocCommunicationNameForComplexType(sourceAndTargetProxyInteraction)
-					: Identifiers.createImmediateComProxyRequestOsIocCommunicationNameForComplexType(sourceAndTargetProxyInteraction);
-			Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, requestOsIocComName);
-			if (inputOsIocCommunication.isPresent()) {
-				destRequestOsIocCommunication = inputOsIocCommunication.get();
-			} else {
-				destRequestOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, requestOsIocComName);
-				destRequestOsIocCommunication.setOsIocBufferLength(getComSendProxyValueIocDefaultBufferLength(sourceAndTargetProxyInteraction));
-				destRequestOsIocCommunication.getOsIocDataProperties().add(createComSendProxyFunctionTableIndexDataProperties());
-			}
-			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destRequestOsIocCommunication);
-
-			// 値伝搬用のIOC通信を構築
-			ProxyComSendImplementation sourceSendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceAndTargetProxyInteraction));
-			InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
-			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
-
-			EcucReferrable sourceComSignalOrComSignalGroup = sourceSendImplementation.getComSignal() != null ? sourceSendImplementation.getComSignal() : sourceSendImplementation.getComSignalGroup();
-			String valueIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
-					? Identifiers.createPeriodicComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup)
-					: Identifiers.createImmediateComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
-			
-			OsIocCommunication destValueIocComForComplexType;
-			Optional<OsIocCommunication> inputOsIocForComplex = tryFindOsConfig(OS_IOC_COMMUNICATION, valueIocComName);
-			if (inputOsIocForComplex.isPresent()) {
-				destValueIocComForComplexType = inputOsIocForComplex.get();
-			} else {
-				destValueIocComForComplexType = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, valueIocComName);
-				destValueIocComForComplexType.setOsIocBufferLength(1);
-				destValueIocComForComplexType.getOsIocDataProperties().add(createComSendProxySignalDataDataProperties(sourceAndTargetProxyInteraction));
-			}
-			sourceAndTargetProxyInteraction.setValueOsIocCommunicationForComplexType(destValueIocComForComplexType);
+			destRequestOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, requestOsIocComName);
+			destRequestOsIocCommunication.setOsIocBufferLength(getComSendProxyValueIocDefaultBufferLength(sourceAndTargetProxyInteraction));
+			destRequestOsIocCommunication.getOsIocDataProperties().add(createComSendProxyFunctionTableIndexDataProperties());
 		}
+		sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destRequestOsIocCommunication);
+
+		// 値伝搬用のIOC通信を構築
+		ProxyComSendImplementation sourceSendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceAndTargetProxyInteraction));
+		InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
+		VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
+
+		EcucReferrable sourceComSignalOrComSignalGroup = sourceSendImplementation.getComSignal() != null ? sourceSendImplementation.getComSignal() : sourceSendImplementation.getComSignalGroup();
+		String valueIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
+				? Identifiers.createPeriodicComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup)
+				: Identifiers.createImmediateComProxyValueOsIocCommunicationName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
+		
+		OsIocCommunication destValueOsIocCommunication;
+		Optional<OsIocCommunication> inputOsIocCommunicationForValue = tryFindOsConfig(OS_IOC_COMMUNICATION, valueIocComName);
+		if (inputOsIocCommunicationForValue.isPresent()) {
+			destValueOsIocCommunication = inputOsIocCommunicationForValue.get();
+		} else {
+			destValueOsIocCommunication = createComSendProxyIocCommunication(targetOsIoc, sourceAndTargetProxyInteraction, valueIocComName);
+			destValueOsIocCommunication.setOsIocBufferLength(1); // 値伝搬用のキューはsourceDataInstanceInSwcとシグナルで使い分けるため、サイズは1で良い
+			destValueOsIocCommunication.getOsIocDataProperties().add(createComSendProxySignalDataDataProperties(sourceAndTargetProxyInteraction));
+		}
+		sourceAndTargetProxyInteraction.setValueOsIocCommunication(destValueOsIocCommunication);
 	}
 
 	private OsIocCommunication createComSendProxyIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceProxyInteraction, String osIocCommunicationName) {
@@ -357,22 +333,6 @@ public class GeneratedEcucModelBuilder {
 		return destOsIocReceiverProperties;
 	}
 
-	private OsIocDataProperties createComSendProxySignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction, int index) {
-		OsIocDataProperties destSignalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		destSignalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
-		destSignalDataDataProperties.setOsIocDataType(sourceProxyInteraction.getSignalDataType());
-		destSignalDataDataProperties.setOsIocDataPropertyIndex(index);
-		return destSignalDataDataProperties;
-	}
-
-	private OsIocDataProperties createComSendProxySignalIdDataProperties() {
-		OsIocDataProperties destSignalIdDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
-		destSignalIdDataProperties.setShortName(Identifiers.COM_PROXY_SIGNAL_ID_DATA_NAME);
-		destSignalIdDataProperties.setOsIocDataType(this.context.cache.sourceComSignalIdType);
-		destSignalIdDataProperties.setOsIocDataPropertyIndex(0);
-		return destSignalIdDataProperties;
-	}
-
 	private OsIocDataProperties createComSendProxySignalDataDataProperties(ComSendProxyInteraction sourceProxyInteraction) {
 		OsIocDataProperties destSignalDataDataProperties = EcucFactory.eINSTANCE.createOsIocDataProperties();
 		destSignalDataDataProperties.setShortName(Identifiers.COM_PROXY_DATA_DATA_NAME);
@@ -387,20 +347,13 @@ public class GeneratedEcucModelBuilder {
 		return destFunctionTableIndexDataProperties;
 	}
 
-	private int getComSendProxyRequestIocDefaultBufferLength(ComSendProxyInteraction sourceProxyInteraction) {
-		return this.context.query.find(isKindOf(PROXY_COM_SEND_IMPLEMENTATION).AND(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceProxyInteraction))).size();
-	}
-
 	private int getComSendProxyValueIocDefaultBufferLength(ComSendProxyInteraction sourceProxyInteraction) {
 		int count = 0; // 自身を必ず足しこむため、0からスタートする
 		for (ComSendProxyInteraction sourceAnotherProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
 			if (sourceAnotherProxyInteraction.getRequesterPartition() == sourceProxyInteraction.getRequesterPartition()) {
 				if ((sourceAnotherProxyInteraction.getProxy() instanceof PeriodicComSendProxy && sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
 					|| (sourceAnotherProxyInteraction.getProxy() instanceof ImmediateComSendProxy && sourceProxyInteraction.getProxy() instanceof ImmediateComSendProxy)) {
-					ImplementationDataType sourceLeafType = sourceAnotherProxyInteraction.getSignalDataType().getLeafImplementationDataType();
-					if (!sourceLeafType.isPrimitiveType()) {
-						count++;
-					}
+					count++;
 				}
 			}
 		}

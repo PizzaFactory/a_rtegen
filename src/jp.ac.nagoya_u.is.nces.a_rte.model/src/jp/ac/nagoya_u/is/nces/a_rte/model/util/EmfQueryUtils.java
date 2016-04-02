@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -76,7 +76,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成�
 	 * @throws ModelException オブジェクトが見つからない場合
 	 */
 	public static <T extends EObject> T findSingle(EObject eObject, EObjectCondition eCondition) throws ModelException {
-		return getSingleObject(find(Collections.singletonList(eObject), eCondition)); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+		return getSingleObject(findSingle(Collections.singletonList(eObject), eCondition)); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成�
 	 * @throws ModelException オブジェクトが見つからない場合
 	 */
 	public static <T extends EObject> T findSingle(Resource eResource, EObjectCondition eCondition) throws ModelException {
-		return getSingleObject(find(eResource, eCondition));
+		return getSingleObject(findSingle(eResource.getContents(), eCondition));
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成�
 	 * @return 見つかったオブジェクト．
 	 */
 	public static <T extends EObject> Optional<T> tryFindSingle(EObject eObject, EObjectCondition eCondition) {
-		return tryGetSingleObject(find(eObject, eCondition));
+		return tryGetSingleObject(findSingle(Collections.singletonList(eObject), eCondition));
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成�
 	 * @return 見つかったオブジェクト．
 	 */
 	public static <T extends EObject> Optional<T> tryFindSingle(Resource eResource, EObjectCondition eCondition) {
-		return tryGetSingleObject(find(eResource, eCondition));
+		return tryGetSingleObject(findSingle(eResource.getContents(), eCondition));
 	}
 
 	/**
@@ -140,6 +140,11 @@ public class EmfQueryUtils { // COVERAGE 常に未達(インスタンス生成�
 
 	private static <T extends EObject> List<T> find(List<EObject> eObjects, EObjectCondition eCondition) {
 		IQueryResult result = new SELECT(new FROM(eObjects), new WHERE(eCondition)).execute();
+		return convertToList(result);
+	}
+
+	private static <T extends EObject> List<T> findSingle(List<EObject> eObjects, EObjectCondition eCondition) {		
+		IQueryResult result = new SELECT(1, new FROM(eObjects), new WHERE(eCondition)).execute();
 		return convertToList(result);
 	}
 

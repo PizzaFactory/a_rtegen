@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,19 +45,13 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
-
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
-
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -68,8 +62,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl#getPrimitiveOperation <em>Primitive Operation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl#getComplexOperation <em>Complex Operation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl#getOperation <em>Operation</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,24 +70,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl implements ComSendSignalProxyEntity {
 	/**
-	 * The cached value of the '{@link #getPrimitiveOperation() <em>Primitive Operation</em>}' containment reference list.
+	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrimitiveOperation()
+	 * @see #getOperation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PrimitiveComSendProxyOperation> primitiveOperation;
-
-	/**
-	 * The cached value of the '{@link #getComplexOperation() <em>Complex Operation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getComplexOperation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ComplexComSendProxyOperation> complexOperation;
+	protected EList<ComSendProxyOperation> operation;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -120,23 +103,11 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<PrimitiveComSendProxyOperation> getPrimitiveOperation() {
-		if (primitiveOperation == null) {
-			primitiveOperation = new EObjectContainmentEList<PrimitiveComSendProxyOperation>(PrimitiveComSendProxyOperation.class, this, ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION);
+	public EList<ComSendProxyOperation> getOperation() {
+		if (operation == null) {
+			operation = new EObjectContainmentEList<ComSendProxyOperation>(ComSendProxyOperation.class, this, ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION);
 		}
-		return primitiveOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ComplexComSendProxyOperation> getComplexOperation() {
-		if (complexOperation == null) {
-			complexOperation = new EObjectContainmentEList<ComplexComSendProxyOperation>(ComplexComSendProxyOperation.class, this, ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION);
-		}
-		return complexOperation;
+		return operation;
 	}
 
 	/**
@@ -147,10 +118,8 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-				return ((InternalEList<?>)getPrimitiveOperation()).basicRemove(otherEnd, msgs);
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
-				return ((InternalEList<?>)getComplexOperation()).basicRemove(otherEnd, msgs);
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
+				return ((InternalEList<?>)getOperation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -163,10 +132,8 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-				return getPrimitiveOperation();
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
-				return getComplexOperation();
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
+				return getOperation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,13 +147,9 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-				getPrimitiveOperation().clear();
-				getPrimitiveOperation().addAll((Collection<? extends PrimitiveComSendProxyOperation>)newValue);
-				return;
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
-				getComplexOperation().clear();
-				getComplexOperation().addAll((Collection<? extends ComplexComSendProxyOperation>)newValue);
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
+				getOperation().clear();
+				getOperation().addAll((Collection<? extends ComSendProxyOperation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,11 +163,8 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-				getPrimitiveOperation().clear();
-				return;
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
-				getComplexOperation().clear();
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
+				getOperation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -218,10 +178,8 @@ public class ComSendSignalProxyEntityImpl extends BswSchedulableEntityImpl imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-				return primitiveOperation != null && !primitiveOperation.isEmpty();
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
-				return complexOperation != null && !complexOperation.isEmpty();
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
+				return operation != null && !operation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
