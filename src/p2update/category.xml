@@ -3,10 +3,10 @@
    <description name="A-RTE tuned by PizzaFactory" url="http://pizzafactory.github.io/a_rte/update/">
       A-RTE tuned by PizzaFactory
    </description>
-   <feature url="features/jp.pizzafactory.a_rte_1.2.2.qualifier.jar" id="jp.pizzafactory.a_rte" version="1.2.2.qualifier">
+   <feature url="features/jp.pizzafactory.a_rte_1.3.0.qualifier.jar" id="jp.pizzafactory.a_rte" version="1.3.0.qualifier">
       <category name="A-RTE for PizzaFactory"/>
    </feature>
-   <feature url="features/jp.pizzafactory.a_rte.source_1.2.2.qualifier.jar" id="jp.pizzafactory.a_rte.source" version="1.2.2.qualifier">
+   <feature url="features/jp.pizzafactory.a_rte.source_1.3.0.qualifier.jar" id="jp.pizzafactory.a_rte.source" version="1.3.0.qualifier">
       <category name="A-RTE for PizzaFactory"/>
    </feature>
    <category-def name="A-RTE for PizzaFactory" label="A-RTE for PizzaFactory"/>
