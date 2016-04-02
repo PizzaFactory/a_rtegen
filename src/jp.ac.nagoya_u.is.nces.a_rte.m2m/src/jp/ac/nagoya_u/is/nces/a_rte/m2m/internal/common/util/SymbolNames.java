@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -73,7 +73,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 
 import com.google.common.base.Optional;
 
@@ -116,7 +117,8 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	public static final String OS_TRUSTED_FUNCTION_INDEX_TYPE_NAME = "TrustedFunctionIndexType";
 	public static final String OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME = "TrustedFunctionParameterRefType";
 	public static final String COM_SIGNAL_ID_TYPE_NAME = "Com_SignalIdType";
-	public static final String RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_SendTrustedFunctionParamType";
+	public static final String RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_NonqueuedSendTrustedFunctionParamType";
+	public static final String RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_QueuedSendTrustedFunctionParamType";
 	public static final String COM_META_DATA_TYPE_MEMBER_OFFSET_TYPE_NAME = "Rte_BufferTypeOffset";
 	public static final String COM_META_DATA_TYPE_NAME = "Rte_ComMetaComplexDataType";
 	public static final String COM_SEND_SIGNAL_TF_PARAM_TYPE_NAME = "Rte_ComSendTrustedFunctionParamType";
@@ -127,7 +129,9 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	public static final String RTE_E_OK_CONSTANT_NAME = "RTE_E_OK";
 	public static final String RTE_E_INVALID_CONSTANT_NAME = "RTE_E_INVALID";
 	public static final String RTE_E_MAX_AGE_EXCEEDED_CONSTANT_NAME = "RTE_E_MAX_AGE_EXCEEDED";
+	public static final String RTE_E_TRANSMIT_ACK_CONSTANT_NAME = "RTE_E_TRANSMIT_ACK";
 	public static final String COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT_NAME = "RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE";
+	public static final String BOOLEAN_FALSE_NAME = "FALSE";
 
 	// グローバル変数のシンボル名
 	// 現在なし。
@@ -135,6 +139,7 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	// 関数のシンボル名
 	private static final String CALL_BSW_FUNCTION_NAME_PREFIX = "Rte_Call_Bsw_";
 	private static final String OS_TASK_MACRO_NAME = "TASK";
+	public static final String OS_ACTIVATE_TASK_API_NAME = "Rte_Call_Bsw_ActivateTask";
 	public static final String OS_SET_EVENT_API_NAME = "Rte_Call_Bsw_SetEvent";
 	public static final String CALL_BSW_COM_SEND_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_SendSignal";
 	public static final String CALL_BSW_COM_RECEIVE_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_ReceiveSignal";
@@ -173,11 +178,12 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	public static final String SR_DATA_VAR_NAME = "data";
 	public static final String SR_INVALID_VALUE_VAR_NAME = "inv_val";
 	public static final String SR_FILTER_RESULT_VAR_NAME = "flt_res";
-	public static final String RTE_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
-	public static final String COM_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
+	public static final String RTE_NONQUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_nq_prm";
+	public static final String RTE_QUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_q_prm";
+	public static final String COM_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_c_prm";
 	public static final String COM_GROUP_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_g_prm";
 	public static final String COM_PROXY_SIGNAL_ID_VAR_NAME = "sig_id";
-	public static final String COM_PROXY_UNION_DATA_VAR_NAME = "proxy_data";
+	public static final String COM_PROXY_DATA_VAR_NAME = "proxy_data";
 	public static final String COM_PROXY_FUNCTION_TABLE_INDEX_VAR_NAME = "inx";
 	public static final String MODE_VAR_NAME = "mode";
 	public static final String ENTITY_EVENT_VAR_NAME = "evt";
@@ -318,6 +324,14 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	public static String createSendApiImplName(PVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Send" + Identifiers.getImplExtension(dataInstanceInSwc);
 	}
+	
+	public static String createFeedbackApiName(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "Feedback" + Identifiers.getApiExtension(dataInstanceInSwc);
+	}
+
+	public static String createFeedbackApiImplName(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "Feedback" + Identifiers.getImplExtension(dataInstanceInSwc);
+	}
 
 	public static String createReadApiName(RVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Read" + Identifiers.getApiExtension(dataInstanceInSwc);
@@ -441,16 +455,28 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 		return RTE_SYMBOL_NAME_PREFIX + "PartitionTerminated" + Identifiers.getExtension(sourcePartition);
 	}
 
-	public static String createComReceiveCallbackName(EcucContainer comSignalOrComSignalGroup) {
+	public static String createComRxCallbackName(EcucContainer comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbk_" + comSignalOrComSignalGroup.getShortName();
 	}
 
-	public static String createComReceiveTimeoutCallbackName(EcucContainer comSignalOrComSignalGroup) {
+	public static String createComRxTOutCallback(EcucContainer comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbkRxTOut_" + comSignalOrComSignalGroup.getShortName();
 	}
 
-	public static String createComInvalidateCallbackName(ComSignal comSignalOrComSignalGroup) {
+	public static String createComInvCallbackName(ComSignal comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbkInv_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTAckCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTAck_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTErrCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTErr_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTxTOutCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTxTOut_" + comSignalOrComSignalGroup.getShortName();
 	}
 
 	public static String createIocInitValueConstantName(OsIocCommunication osIocCommunication) {
@@ -465,10 +491,6 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocSend_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
-	public static String createIocSendGroupApiName(OsIocSenderProperties osIocSenderProperties) {
-		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocSendGroup_" + osIocSenderProperties.getParent().getShortName();
-	}
-
 	public static String createIocReadApiName(OsIocCommunication osIocCommunication) {
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocRead_" + osIocCommunication.getShortName();
 	}
@@ -481,10 +503,6 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocEmptyQueue_" + osIocCommunication.getShortName();
 	}
 
-	public static String createIocReceiveGroupApiName(OsIocCommunication osIocCommunication) {
-		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocReceiveGroup_" + osIocCommunication.getShortName();
-	}
-
 	private static String getSenderIdSuffix(OsIocSenderProperties osIocSenderProperties) {
 		return osIocSenderProperties.getOsIocSenderId() == null ? "" : "_" + String.valueOf(osIocSenderProperties.getOsIocSenderId());
 	}
@@ -494,6 +512,9 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	}
 
 	public static String createBswSchedulableEntityName(BswModuleDescription sourceBswModuleDescription, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity sourceBswModuleEntity) {
+		if(sourceBswModuleEntity.getImplementedEntry().getShortName().startsWith(Identifiers.getBswSchedulerNamePrefix(sourceBswModuleDescription))){
+			return sourceBswModuleEntity.getImplementedEntry().getShortName();
+		}
 		return Identifiers.getBswSchedulerNamePrefix(sourceBswModuleDescription) + "_" + sourceBswModuleEntity.getImplementedEntry().getShortName();
 	}
 
@@ -525,10 +546,6 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 		return RTE_CONSTANT_NAME_PREFIX + "ENTITY_START_OFFSET" + Identifiers.getImplExtension(osTask, osEvent, executableEntity);
 	}
 
-	public static String createComProxyUnionVariableMemberName(PrimitiveType type) {
-		return "data_" + type.getSymbolName();
-	}
-
 	public static String createSrRteBufferWriteTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.createSrRteBufferWriteTrustedFunctionName(pDataInstanceInComposition, rDataInstanceInComposition);
 	}
@@ -554,6 +571,18 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 	public static String createVariableMemorySectionName(Optional<EcucPartition> sourcePartition) {
 		return sourcePartition.isPresent() ? Identifiers.SECTION_TYPE_VAR + "_" + sourcePartition.get().getShortName() + "_" + ConfigValues.DEFAULT_SECTION_INITIALIZATION_POLICY
 				: Identifiers.SECTION_TYPE_VAR + "_" + ConfigValues.DEFAULT_SECTION_INITIALIZATION_POLICY;
+	}
+	
+	public static String createTAckStatusVariableName(VariableDataInstanceInSwc variableDataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "TAckStatus" + Identifiers.getImplExtension(variableDataInstanceInSwc);
+	}
+	
+	public static String createActivationFlagName(OsActivateTaskApi activatteTaskApi) {
+		return "actflg_" + activatteTaskApi.getOsTaskId();
+	}
+	
+	public static String createActivationFlagName(OsSetEventApi setEventApi) {
+		return "actflg_" + setEventApi.getOsTaskId() + "_" + setEventApi.getOsEventId();
 	}
 
 	public static String createFunctionMemorySectionName(Optional<EcucPartition> sourcePartition) {
@@ -696,10 +725,6 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 		return IOC_SYMBOL_NAME_PREFIX + "Send_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
-	public static String createIocSendGroupApiMappingName(OsIocSenderProperties osIocSenderProperties) {
-		return IOC_SYMBOL_NAME_PREFIX + "SendGroup_" + osIocSenderProperties.getParent().getShortName();
-	}
-
 	public static String createIocReadApiMappingName(OsIocCommunication osIocCommunication) {
 		return IOC_SYMBOL_NAME_PREFIX + "Read_" + osIocCommunication.getShortName();
 	}
@@ -710,10 +735,6 @@ public class SymbolNames { // COVERAGE 常に未達(インスタンス生成が�
 
 	public static String createIocEmptyQueueApiMappingName(OsIocCommunication osIocCommunication) {
 		return IOC_SYMBOL_NAME_PREFIX + "EmptyQueue_" + osIocCommunication.getShortName();
-	}
-
-	public static String createIocReceiveGroupApiMappingName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "ReceiveGroup_" + osIocCommunication.getShortName();
 	}
 
 	public static String createComSignalSymbolicName(Optional<? extends EcucContainer> comSignalOrComSignalGroup) {

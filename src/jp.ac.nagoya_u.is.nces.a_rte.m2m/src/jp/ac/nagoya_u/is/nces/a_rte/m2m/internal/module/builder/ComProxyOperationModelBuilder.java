@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,20 +43,16 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_API;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_GROUP_API;
 
 import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableMember;
 
 
 public class ComProxyOperationModelBuilder {
@@ -67,25 +63,11 @@ public class ComProxyOperationModelBuilder {
 		this.context = context;
 	}
 
-	// Primitive用
-	public PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation(ComSendProxyInteraction sourceProxyInteraction, LocalVariable signalIdVariable, VariableMember dataVariable) throws ModelException {
-		IocReceiveGroupApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_GROUP_API, sourceProxyInteraction.getRequestOsIocCommunication());
-		accessApi.setComSendSignalSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
-
-		PrimitiveComSendProxyOperation destOperation = ModuleFactory.eINSTANCE.createPrimitiveComSendProxyOperation();
-		destOperation.setSingleSource(sourceProxyInteraction);
-		destOperation.setAccessApi(accessApi);
-		destOperation.setSignalIdVariable(signalIdVariable);
-		destOperation.setReadValueVariable(dataVariable);
-		return destOperation;
-	}
-	
-	// 複合型用
-	public ComplexComSendProxyOperation createComplexComSendProxyOperation(List<ComSendProxyInteraction> sourceProxyInteractions, LocalVariable indexVariable) throws ModelException {
+	public ComSendProxyOperation createComSendProxyOperation(List<ComSendProxyInteraction> sourceProxyInteractions, LocalVariable indexVariable) throws ModelException {
 		// NOTE 要求伝搬用のIOC通信はパーティション毎に共通のため、代表のComSendProxyInteractionのものを使用する
 		IocReceiveApi accessApi = this.context.builtQuery.findDest(IOC_RECEIVE_API, sourceProxyInteractions.get(0).getRequestOsIocCommunication());
 		
-		ComplexComSendProxyOperation destOperation = ModuleFactory.eINSTANCE.createComplexComSendProxyOperation();
+		ComSendProxyOperation destOperation = ModuleFactory.eINSTANCE.createComSendProxyOperation();
 		destOperation.getSource().addAll(sourceProxyInteractions);
 		destOperation.setAccessApi(accessApi);
 		destOperation.setFunctionTableSymbolName(SymbolNames.COM_PROXY_FUNCTION_TABLE_NAME);

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -52,12 +52,12 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_READ_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_RECEIVE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_SEND_API;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_SEND_GROUP_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_WRITE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_SET_EVENT_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_QUEUED_VARIABLE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_SEND_TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_VARIABLE_SET;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.util.EObjectConditions.hasOp;
@@ -91,6 +91,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ValueBufferImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendOperation;
@@ -122,7 +123,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OneEveryNFilterOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PeriodicProxyComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadOperation;
@@ -133,18 +133,21 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOpera
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import com.google.common.base.Optional;
@@ -249,7 +252,7 @@ public class SenderReceiverOperationModelBuilder {
 	}
 
 	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForWriteApi(WriteApi sourceAndTargetApi, SendInteraction sourceSendInteraction, Parameter dataParam,
-			LocalVariable filterResultVariable) throws ModelException {
+			LocalVariable filterResultVariable, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
 		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
 		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
@@ -259,13 +262,18 @@ public class SenderReceiverOperationModelBuilder {
 		if (sourceRDataInstanceInSwc.isFilterEnabled()) {
 			destRteNonqueuedSendOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
 		}
-
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) {
+				destRteNonqueuedSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
+		
 		buildExcludeOperation(destRteNonqueuedSendOperation, sourceSendInteraction);
 		return destRteNonqueuedSendOperation;
 	}
 
 	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForInvalidateApi(InvalidateApi sourceAndTargetApi, SendInteraction sourceSendInteraction,
-			Constant invalidValueConstant, LocalVariable filterResultVariable) throws ModelException {
+			Constant invalidValueConstant, LocalVariable filterResultVariable, EList<ActivationOperation> activationOperations) throws ModelException {
 		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
 		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
@@ -296,13 +304,18 @@ public class SenderReceiverOperationModelBuilder {
 			break;
 		}
 		}
+		for (ActivationOperation activationOperation : activationOperations) {
+			if (activationOperation.getActivationFlag() != null) {
+				destOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 
 		buildExcludeOperation(destOperation, sourceSendInteraction);
 		return destOperation;
 	}
 
 	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComReceiveCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender,
-			Variable dataVariable, LocalVariable filterResultVariable) throws ModelException {
+			Variable dataVariable, LocalVariable filterResultVariable, EList<ActivationOperation> activationOperations) throws ModelException {
 		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
 		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
@@ -311,13 +324,18 @@ public class SenderReceiverOperationModelBuilder {
 		if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
 			destOperation.setFilterOperation(createFilterOperation(sourceReceiveInteraction, filterResultVariable));
 		}
+		for (ActivationOperation activationOperation : activationOperations) {
+			if (activationOperation.getActivationFlag() != null) {
+				destOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 
 		buildExcludeOperation(destOperation, sourceSendInteraction);
 		return destOperation;
 	}
 
 	public RteBufferNonqueuedSendOperation createRteBufferNonqueuedSendOperationForComInvalidateCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender,
-			LocalVariable filterResultVariable) throws ModelException {
+			LocalVariable filterResultVariable, EList<ActivationOperation> activationOperations) throws ModelException {
 		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
 		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
@@ -352,7 +370,11 @@ public class SenderReceiverOperationModelBuilder {
 			break;
 		}
 		}
-
+		for (ActivationOperation activationOperation : activationOperations) {
+			if (activationOperation.getActivationFlag() != null) {
+				destOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 		buildExcludeOperation(destOperation, sourceSendInteraction);
 		return destOperation;
 	}
@@ -460,20 +482,27 @@ public class SenderReceiverOperationModelBuilder {
 	}
 
 	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation, Variable dataVariable,
-			Variable returnValueVariable, Variable tempReturnValueVariable) throws ModelException {
+			Variable returnValueVariable, Variable tempReturnValueVariable, LocalVariable trustedFunctionParamVariable, Type type, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
 		RteBufferWriteTrustedFunction trustedFunction = this.context.builtQuery.findDest(RTE_BUFFER_WRITE_TRUSTED_FUNCTION, sourceSendImplementation);
 
 		TrustedFunctionRteBufferWriteSendOperation destSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation();
 		destSendOperation.setSingleSource(sourceSendImplementation.getParent());
+		destSendOperation.setType(type);
 		destSendOperation.setAccessTrustedFunction(trustedFunction);
 		destSendOperation.setSendValue(dataVariable);
 		destSendOperation.setReturnVariable(returnValueVariable);
 		destSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		destSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+					destSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 		return destSendOperation;
 	}
 
 	public TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation(SendInteraction sourceSendInteraction,
-			TrustedFunctionRteSendImplementation sourceSendImplementation, Variable returnValueVariable, Variable tempReturnValueVariable) throws ModelException {
+			TrustedFunctionRteSendImplementation sourceSendImplementation, Variable returnValueVariable, Variable tempReturnValueVariable, LocalVariable trustedFunctionParamVariable, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
 		RteBufferInvalidateTrustedFunction trustedFunction = this.context.builtQuery.findDest(RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION, sourceSendImplementation);
 
 		TrustedFunctionRteBufferInvalidateSendOperation destSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation();
@@ -481,6 +510,32 @@ public class SenderReceiverOperationModelBuilder {
 		destSendOperation.setAccessTrustedFunction(trustedFunction);
 		destSendOperation.setReturnVariable(returnValueVariable);
 		destSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		destSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
+		return destSendOperation;
+	}
+
+	public TrustedFunctionRteBufferSendSendOperation createTrustedFunctionRteBufferSendSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation, Variable dataVariable,
+			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, LocalVariable trustedFunctionParamVariable, Type type, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
+		RteBufferSendTrustedFunction trustedFunction = this.context.builtQuery.findDest(RTE_BUFFER_SEND_TRUSTED_FUNCTION, sourceSendImplementation);
+
+		TrustedFunctionRteBufferSendSendOperation destSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferSendSendOperation();
+		destSendOperation.setSingleSource(sourceSendImplementation.getParent());
+		destSendOperation.setAccessTrustedFunction(trustedFunction);
+		destSendOperation.setSendValue(dataVariable);
+		destSendOperation.setReturnVariable(returnValueVariable);
+		destSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		destSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
+		destSendOperation.setType(type);
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 		return destSendOperation;
 	}
 
@@ -506,12 +561,12 @@ public class SenderReceiverOperationModelBuilder {
 		return destSendOperation;
 	}
 
-	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperationForWriteTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable dataVariable, LocalVariable filterResultVariable)
+	public RteBufferQueuedSendOperation createRteBufferQueuedSendOperationForWriteTrustedFunction(SendInteraction sourceSendInteraction, LocalVariable dataVariable)
 			throws ModelException {
 		return createRteBufferQueuedSendOperation(sourceSendInteraction, dataVariable, Optional.<LocalVariable> absent());
 	}
 
-	public IocNonqueuedSendOperation createIocNonqueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable)
+	public IocNonqueuedSendOperation createIocNonqueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable, EList<ActivationOperation> activationOperationOnReceived)
 			throws ModelException {
 		IocWriteApi iocWriteApi = this.context.builtQuery.findDest(IOC_WRITE_API, sourceSendImplementation.getOsIocSenderProperties());
 
@@ -520,20 +575,25 @@ public class SenderReceiverOperationModelBuilder {
 		destSendOperation.setAccessApi(iocWriteApi);
 		destSendOperation.setSendValue(dataVariable);
 		destSendOperation.setType(dataVariable.getType());
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+					destSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 		if (returnValueVariable.isPresent()) { // COVERAGE 常にtrue(不具合混入時のみfalseになるコードなので，未カバレッジで問題ない)
 			destSendOperation.setReturnVariable(returnValueVariable.get());
 		}
 		return destSendOperation;
 	}
 
-	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable) throws ModelException {
+	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
 		// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 		// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった関係上,当メソッドは使用されない.
-		return createIocQueuedSendOperation(sourceSendImplementation, dataVariable, returnValueVariable, Optional.<Variable> absent());
+		return createIocQueuedSendOperation(sourceSendImplementation, dataVariable, returnValueVariable, Optional.<Variable> absent(), activationOperationOnReceived);
 	}
 
 	public SendOperation createIocQueuedSendOperation(IocSendImplementation sourceSendImplementation, Variable dataVariable, Optional<LocalVariable> returnValueVariable,
-			Optional<? extends Variable> tempReturnValueVariable) throws ModelException {
+			Optional<? extends Variable> tempReturnValueVariable, EList<ActivationOperation> activationOperationOnReceived) throws ModelException {
 		IocSendApi iocSendApi = this.context.builtQuery.findDest(IOC_SEND_API, sourceSendImplementation.getOsIocSenderProperties());
 
 		IocQueuedSendOperation destSendOperation = ModuleFactory.eINSTANCE.createIocQueuedSendOperation();
@@ -547,32 +607,26 @@ public class SenderReceiverOperationModelBuilder {
 		if (tempReturnValueVariable.isPresent()) { // COVERAGE 常にtrue(不具合混入時のみfalseになるコードなので，未カバレッジで問題ない)
 			destSendOperation.setTempReturnVariable(tempReturnValueVariable.get());
 		}
+		for (ActivationOperation activationOperation : activationOperationOnReceived) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				destSendOperation.getActivationFlagOnRxSuccess().add(activationOperation.getActivationFlag());
+			}
+		}
 		return destSendOperation;
 	}
 
 	public DirectComSendOperation createDirectComSendOperation(DirectComSendImplementation sourceSendImplementation, Variable dataVariable, LocalVariable returnValueVariable,
-			LocalVariable tempReturnValueVariable) throws ModelException {
+			LocalVariable tempReturnValueVariable, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		DirectComSendOperation destDirectComSendOperation = ModuleFactory.eINSTANCE.createDirectComSendOperation();
-		buildComSendOperation(destDirectComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable);
+		buildComSendOperation(destDirectComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable, tAckStatus,activationOperationOnSendCompleted);
+		
 		return destDirectComSendOperation;
 	}
 
-	public TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation(TrustedFunctionRteSendImplementation sourceSendImplementation, Variable dataVariable,
-			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable, LocalVariable tempReturnValueVariable, Type type) {
-		TrustedFunctionRteSendOperation destTrustedFunctionRteSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionRteSendOperation();
-		destTrustedFunctionRteSendOperation.setSendValue(dataVariable);
-		destTrustedFunctionRteSendOperation.setReturnVariable(returnValueVariable);
-		destTrustedFunctionRteSendOperation.setTempReturnVariable(tempReturnValueVariable);
-		destTrustedFunctionRteSendOperation.setTrustedFunctionParamVariable(trustedFunctionParamVariable);
-		destTrustedFunctionRteSendOperation.setType(type);
-		destTrustedFunctionRteSendOperation.setSrSendTfSymbolName(sourceSendImplementation.getWriteOsTrustedFunction().getShortName());
-		return destTrustedFunctionRteSendOperation;
-	}
-
 	public TrustedFunctionComSendOperation createTrustedFunctionComSendOperation(TrustedFunctionComSendImplementation sourceSendImplementation, Variable dataVariable,
-			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable, LocalVariable tempReturnValueVariable, Type type) throws ModelException {
+			LocalVariable returnValueVariable, LocalVariable trustedFunctionParamVariable, LocalVariable tempReturnValueVariable, Type type, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		TrustedFunctionComSendOperation destTrustedFunctionComSendOperation = ModuleFactory.eINSTANCE.createTrustedFunctionComSendOperation();
-		buildComSendOperation(destTrustedFunctionComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable);
+		buildComSendOperation(destTrustedFunctionComSendOperation, sourceSendImplementation, dataVariable, returnValueVariable, tempReturnValueVariable, tAckStatus, activationOperationOnSendCompleted);
 		if (sourceSendImplementation.getComSignal() != null) {
 			destTrustedFunctionComSendOperation.setAccessTrustedFunction(this.context.cache.comSendSignalTf.get());
 		} else {
@@ -585,15 +639,11 @@ public class SenderReceiverOperationModelBuilder {
 	}
 
 	public ImmediateProxyComSendOperation createImmediateProxyComSendOperation(ImmediateProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
-			LocalVariable tempReturnValueVariable, Type type) throws ModelException {
+			LocalVariable tempReturnValueVariable, Type type, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		OsSetEventApi activationApi = this.context.builtQuery.findDest(OS_SET_EVENT_API, sourceSendImplementation.getProxyInteraction().getProxy());
 
 		ImmediateProxyComSendOperation destImmediateProxyComSendOperation = ModuleFactory.eINSTANCE.createImmediateProxyComSendOperation();
-		if (type instanceof PrimitiveType) {
-			buildCommonPartOfProxyComSendOperation(destImmediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_GROUP_API);
-		} else {
-			buildProxyComSendOperationWithComplexType(destImmediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API);
-		}
+		buildProxyComSendOperation(destImmediateProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API, tAckStatus, activationOperationOnSendCompleted);
 		destImmediateProxyComSendOperation.setActivationApi(activationApi);
 		destImmediateProxyComSendOperation.setType(type);
 
@@ -601,44 +651,33 @@ public class SenderReceiverOperationModelBuilder {
 	}
 
 	public PeriodicProxyComSendOperation createPeriodicProxyComSendOperation(PeriodicProxyComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
-			LocalVariable tempReturnValueVariable, Type type) throws ModelException {
+			LocalVariable tempReturnValueVariable, Type type, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		PeriodicProxyComSendOperation destPeriodicProxyComSendOperation = ModuleFactory.eINSTANCE.createPeriodicProxyComSendOperation();
-		if (type instanceof PrimitiveType) {
-			buildCommonPartOfProxyComSendOperation(destPeriodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_GROUP_API);
-		} else {
-			buildProxyComSendOperationWithComplexType(destPeriodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API);
-		}
-		destPeriodicProxyComSendOperation.setType(type);
+		buildProxyComSendOperation(destPeriodicProxyComSendOperation, sourceSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, IOC_SEND_API, tAckStatus, activationOperationOnSendCompleted);
 
 		return destPeriodicProxyComSendOperation;
 	}
 
-	private void buildProxyComSendOperationWithComplexType(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation sourceProxyComSendImplementation, Value dataValue,
-			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, EClass eProxyIocApiClass) throws ModelException {
+	private void buildProxyComSendOperation(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation sourceProxyComSendImplementation, Value dataValue,
+			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, EClass eProxyIocApiClass, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		InternalEcuSender sourceSender = sourceProxyComSendImplementation.getParent().getInternalEcuSenders().get(0);
 		VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
 		EcucContainer sourceComSignalOrComSignalGroup = sourceProxyComSendImplementation.getComSignal() != null ? sourceProxyComSendImplementation.getComSignal() : sourceProxyComSendImplementation
 				.getComSignalGroup();
 
-		IocSendApi valueProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getValueOsIocCommunicationForComplexType()
+		IocSendApi requestProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getRequestOsIocCommunication()
 				.getOsIocSenderProperties().get(0));
+		buildComSendOperation(targetProxyComSendOperation, sourceProxyComSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, tAckStatus, activationOperationOnSendCompleted);
+		targetProxyComSendOperation.setRequestProxyIocApi(requestProxyIocApi);
 
-		buildCommonPartOfProxyComSendOperation(targetProxyComSendOperation, sourceProxyComSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable, eProxyIocApiClass);
+		IocSendApi valueProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getValueOsIocCommunication()
+				.getOsIocSenderProperties().get(0));
 		targetProxyComSendOperation.setValueProxyIocApi(valueProxyIocApi);
 		targetProxyComSendOperation.setProxyFunctionIndexConstantName(SymbolNames.createComProxyFunctionTableIndexConstantName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
 	}
 
-	private void buildCommonPartOfProxyComSendOperation(ProxyComSendOperation targetProxyComSendOperation, ProxyComSendImplementation sourceProxyComSendImplementation, Value dataValue,
-			LocalVariable returnValueVariable, LocalVariable tempReturnValueVariable, EClass eProxyIocApiClass) throws ModelException {
-		IocSendApi requestProxyIocApi = this.context.builtQuery.findDest(eProxyIocApiClass, sourceProxyComSendImplementation.getProxyInteraction().getRequestOsIocCommunication()
-				.getOsIocSenderProperties().get(0));
-
-		buildComSendOperation(targetProxyComSendOperation, sourceProxyComSendImplementation, dataValue, returnValueVariable, tempReturnValueVariable);
-		targetProxyComSendOperation.setRequestProxyIocApi(requestProxyIocApi);
-	}
-
 	private void buildComSendOperation(ComSendOperation targetComSendOperation, ComSendImplementation sourceSendImplementation, Value dataValue, LocalVariable returnValueVariable,
-			LocalVariable tempReturnValueVariable) throws ModelException {
+			LocalVariable tempReturnValueVariable, TAckStatus tAckStatus, EList<ActivationOperation> activationOperationOnSendCompleted) throws ModelException {
 		EcucContainer sourceComSignalOrComSignalGroup = sourceSendImplementation.getComSignal() != null ? sourceSendImplementation.getComSignal() : sourceSendImplementation.getComSignalGroup();
 
 		ComSendSignalApi comSendSignalApi = this.context.builtQuery.findDest(COM_SEND_SIGNAL_API, sourceComSignalOrComSignalGroup);
@@ -649,6 +688,15 @@ public class SenderReceiverOperationModelBuilder {
 
 		targetComSendOperation.setReturnVariable(returnValueVariable);
 		targetComSendOperation.setTempReturnVariable(tempReturnValueVariable);
+		if (tAckStatus != null) {
+			targetComSendOperation.setTAckStatus(tAckStatus);
+		}
+
+		for (ActivationOperation activationOperation : activationOperationOnSendCompleted) {
+			if (activationOperation.getActivationFlag() != null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
+				targetComSendOperation.getActivationFlagOnTxErr().add(activationOperation.getActivationFlag());
+			}
+		}
 	}
 
 	public FilterOperation createFilterOperation(ReceiveInteraction sourceReceiveInteraction, Variable filterResultVariable) throws ModelException {

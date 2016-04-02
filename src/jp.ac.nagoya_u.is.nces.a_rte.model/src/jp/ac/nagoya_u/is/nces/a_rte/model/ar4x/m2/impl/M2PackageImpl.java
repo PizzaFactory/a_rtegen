@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -382,7 +382,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass variableInAtomicSwcInstanceRefEClass = null;
+	private EClass variableInAtomicSwcTypeInstanceRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -397,6 +397,41 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	private EClass timingEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass backgroundEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSendCompletedEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataReceivedEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataReceiveErrorEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rVariableInAtomicSwcInstanceRefEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -487,7 +522,21 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass transmissionAcknowledgementRequestEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass nonqueuedSenderComSpecEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass queuedSenderComSpecEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -977,6 +1026,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass compuConstEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass anyInstanceRefEClass = null;
 
 	/**
@@ -1146,6 +1202,13 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * @generated
 	 */
 	private EClass bswTimingEventEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bswBackgroundEventEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2254,8 +2317,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getVariableInAtomicSwcInstanceRef() {
-		return variableInAtomicSwcInstanceRefEClass;
+	public EClass getVariableInAtomicSwcTypeInstanceRef() {
+		return variableInAtomicSwcTypeInstanceRefEClass;
 	}
 
 	/**
@@ -2263,8 +2326,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableInAtomicSwcInstanceRef_PortPrototype() {
-		return (EReference)variableInAtomicSwcInstanceRefEClass.getEStructuralFeatures().get(0);
+	public EReference getVariableInAtomicSwcTypeInstanceRef_PortPrototype() {
+		return (EReference)variableInAtomicSwcTypeInstanceRefEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2272,8 +2335,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariableInAtomicSwcInstanceRef_TargetDataPrototype() {
-		return (EReference)variableInAtomicSwcInstanceRefEClass.getEStructuralFeatures().get(1);
+	public EReference getVariableInAtomicSwcTypeInstanceRef_TargetDataPrototype() {
+		return (EReference)variableInAtomicSwcTypeInstanceRefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2319,6 +2382,123 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EAttribute getTimingEvent_Period() {
 		return (EAttribute)timingEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBackgroundEvent() {
+		return backgroundEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataSendCompletedEvent() {
+		return dataSendCompletedEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataSendCompletedEvent_EventSource() {
+		return (EReference)dataSendCompletedEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataSendCompletedEvent_EventSourceData() {
+		return (EReference)dataSendCompletedEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataReceivedEvent() {
+		return dataReceivedEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReceivedEvent_DataIref() {
+		return (EReference)dataReceivedEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReceivedEvent_Data() {
+		return (EReference)dataReceivedEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataReceiveErrorEvent() {
+		return dataReceiveErrorEventEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReceiveErrorEvent_DataIref() {
+		return (EReference)dataReceiveErrorEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataReceiveErrorEvent_Data() {
+		return (EReference)dataReceiveErrorEventEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRVariableInAtomicSwcInstanceRef() {
+		return rVariableInAtomicSwcInstanceRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRVariableInAtomicSwcInstanceRef_ContextRPort() {
+		return (EReference)rVariableInAtomicSwcInstanceRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRVariableInAtomicSwcInstanceRef_TargetDataElement() {
+		return (EReference)rVariableInAtomicSwcInstanceRefEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2587,6 +2767,33 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSenderComSpec_TransmissionAcknowledge() {
+		return (EReference)senderComSpecEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTransmissionAcknowledgementRequest() {
+		return transmissionAcknowledgementRequestEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTransmissionAcknowledgementRequest_Timeout() {
+		return (EAttribute)transmissionAcknowledgementRequestEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNonqueuedSenderComSpec() {
 		return nonqueuedSenderComSpecEClass;
 	}
@@ -2598,6 +2805,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EReference getNonqueuedSenderComSpec_InitValue() {
 		return (EReference)nonqueuedSenderComSpecEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQueuedSenderComSpec() {
+		return queuedSenderComSpecEClass;
 	}
 
 	/**
@@ -3829,6 +4045,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getInvalidationPolicy__IsInvalidationKeep() {
+		return invalidationPolicyEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInvalidationPolicy__IsInvalidationReplace() {
+		return invalidationPolicyEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPortApiOption() {
 		return portApiOptionEClass;
 	}
@@ -4522,8 +4756,26 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCompuScale_Vt() {
-		return (EAttribute)compuScaleEClass.getEStructuralFeatures().get(4);
+	public EReference getCompuScale_CompuConst() {
+		return (EReference)compuScaleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCompuConst() {
+		return compuConstEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCompuConst_Vt() {
+		return (EAttribute)compuConstEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -5163,6 +5415,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	 */
 	public EAttribute getBswTimingEvent_Period() {
 		return (EAttribute)bswTimingEventEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBswBackgroundEvent() {
+		return bswBackgroundEventEClass;
 	}
 
 	/**
@@ -5836,9 +6097,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(autosarVariableRefEClass, AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE);
 		createEReference(autosarVariableRefEClass, AUTOSAR_VARIABLE_REF__LOCAL_VARIABLE);
 
-		variableInAtomicSwcInstanceRefEClass = createEClass(VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF);
-		createEReference(variableInAtomicSwcInstanceRefEClass, VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__PORT_PROTOTYPE);
-		createEReference(variableInAtomicSwcInstanceRefEClass, VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__TARGET_DATA_PROTOTYPE);
+		variableInAtomicSwcTypeInstanceRefEClass = createEClass(VARIABLE_IN_ATOMIC_SWC_TYPE_INSTANCE_REF);
+		createEReference(variableInAtomicSwcTypeInstanceRefEClass, VARIABLE_IN_ATOMIC_SWC_TYPE_INSTANCE_REF__PORT_PROTOTYPE);
+		createEReference(variableInAtomicSwcTypeInstanceRefEClass, VARIABLE_IN_ATOMIC_SWC_TYPE_INSTANCE_REF__TARGET_DATA_PROTOTYPE);
 
 		rteEventEClass = createEClass(RTE_EVENT);
 		createEReference(rteEventEClass, RTE_EVENT__START_ON_EVENT);
@@ -5846,6 +6107,24 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		timingEventEClass = createEClass(TIMING_EVENT);
 		createEAttribute(timingEventEClass, TIMING_EVENT__PERIOD);
+
+		backgroundEventEClass = createEClass(BACKGROUND_EVENT);
+
+		dataSendCompletedEventEClass = createEClass(DATA_SEND_COMPLETED_EVENT);
+		createEReference(dataSendCompletedEventEClass, DATA_SEND_COMPLETED_EVENT__EVENT_SOURCE);
+		createEReference(dataSendCompletedEventEClass, DATA_SEND_COMPLETED_EVENT__EVENT_SOURCE_DATA);
+
+		dataReceivedEventEClass = createEClass(DATA_RECEIVED_EVENT);
+		createEReference(dataReceivedEventEClass, DATA_RECEIVED_EVENT__DATA_IREF);
+		createEReference(dataReceivedEventEClass, DATA_RECEIVED_EVENT__DATA);
+
+		dataReceiveErrorEventEClass = createEClass(DATA_RECEIVE_ERROR_EVENT);
+		createEReference(dataReceiveErrorEventEClass, DATA_RECEIVE_ERROR_EVENT__DATA_IREF);
+		createEReference(dataReceiveErrorEventEClass, DATA_RECEIVE_ERROR_EVENT__DATA);
+
+		rVariableInAtomicSwcInstanceRefEClass = createEClass(RVARIABLE_IN_ATOMIC_SWC_INSTANCE_REF);
+		createEReference(rVariableInAtomicSwcInstanceRefEClass, RVARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__CONTEXT_RPORT);
+		createEReference(rVariableInAtomicSwcInstanceRefEClass, RVARIABLE_IN_ATOMIC_SWC_INSTANCE_REF__TARGET_DATA_ELEMENT);
 
 		ecucModuleConfigurationValuesEClass = createEClass(ECUC_MODULE_CONFIGURATION_VALUES);
 		createEAttribute(ecucModuleConfigurationValuesEClass, ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF);
@@ -5887,9 +6166,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		senderComSpecEClass = createEClass(SENDER_COM_SPEC);
 		createEReference(senderComSpecEClass, SENDER_COM_SPEC__DATA_ELEMENT);
+		createEReference(senderComSpecEClass, SENDER_COM_SPEC__TRANSMISSION_ACKNOWLEDGE);
+
+		transmissionAcknowledgementRequestEClass = createEClass(TRANSMISSION_ACKNOWLEDGEMENT_REQUEST);
+		createEAttribute(transmissionAcknowledgementRequestEClass, TRANSMISSION_ACKNOWLEDGEMENT_REQUEST__TIMEOUT);
 
 		nonqueuedSenderComSpecEClass = createEClass(NONQUEUED_SENDER_COM_SPEC);
 		createEReference(nonqueuedSenderComSpecEClass, NONQUEUED_SENDER_COM_SPEC__INIT_VALUE);
+
+		queuedSenderComSpecEClass = createEClass(QUEUED_SENDER_COM_SPEC);
 
 		nonqueuedReceiverComSpecEClass = createEClass(NONQUEUED_RECEIVER_COM_SPEC);
 		createEAttribute(nonqueuedReceiverComSpecEClass, NONQUEUED_RECEIVER_COM_SPEC__ALIVE_TIMEOUT);
@@ -6077,6 +6362,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEReference(invalidationPolicyEClass, INVALIDATION_POLICY__DATA_ELEMENT);
 		createEAttribute(invalidationPolicyEClass, INVALIDATION_POLICY__HANDLE_INVALID);
 		createEOperation(invalidationPolicyEClass, INVALIDATION_POLICY___IS_INVALIDATION_ENABLED);
+		createEOperation(invalidationPolicyEClass, INVALIDATION_POLICY___IS_INVALIDATION_KEEP);
+		createEOperation(invalidationPolicyEClass, INVALIDATION_POLICY___IS_INVALIDATION_REPLACE);
 
 		portApiOptionEClass = createEClass(PORT_API_OPTION);
 		createEReference(portApiOptionEClass, PORT_API_OPTION__PORT_ARG_VALUE);
@@ -6179,7 +6466,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		createEAttribute(compuScaleEClass, COMPU_SCALE__SHORT_LABEL);
 		createEAttribute(compuScaleEClass, COMPU_SCALE__SYMBOL);
 		createEReference(compuScaleEClass, COMPU_SCALE__UPPER_LIMIT);
-		createEAttribute(compuScaleEClass, COMPU_SCALE__VT);
+		createEReference(compuScaleEClass, COMPU_SCALE__COMPU_CONST);
+
+		compuConstEClass = createEClass(COMPU_CONST);
+		createEAttribute(compuConstEClass, COMPU_CONST__VT);
 
 		anyInstanceRefEClass = createEClass(ANY_INSTANCE_REF);
 		createEReference(anyInstanceRefEClass, ANY_INSTANCE_REF__CONTEXT_ELEMENT);
@@ -6275,6 +6565,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		bswTimingEventEClass = createEClass(BSW_TIMING_EVENT);
 		createEAttribute(bswTimingEventEClass, BSW_TIMING_EVENT__PERIOD);
+
+		bswBackgroundEventEClass = createEClass(BSW_BACKGROUND_EVENT);
 
 		bswCalledEntityEClass = createEClass(BSW_CALLED_ENTITY);
 
@@ -6399,10 +6691,16 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		runnableEntityEClass.getESuperTypes().add(this.getExecutableEntity());
 		variableAccessEClass.getESuperTypes().add(this.getIdentifiable());
 		autosarVariableRefEClass.getESuperTypes().add(this.getM2Object());
-		variableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getM2Object());
-		variableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
+		variableInAtomicSwcTypeInstanceRefEClass.getESuperTypes().add(this.getM2Object());
+		variableInAtomicSwcTypeInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		rteEventEClass.getESuperTypes().add(this.getIdentifiable());
 		timingEventEClass.getESuperTypes().add(this.getRteEvent());
+		backgroundEventEClass.getESuperTypes().add(this.getRteEvent());
+		dataSendCompletedEventEClass.getESuperTypes().add(this.getRteEvent());
+		dataReceivedEventEClass.getESuperTypes().add(this.getRteEvent());
+		dataReceiveErrorEventEClass.getESuperTypes().add(this.getRteEvent());
+		rVariableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getM2Object());
+		rVariableInAtomicSwcInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		ecucModuleConfigurationValuesEClass.getESuperTypes().add(this.getArElement());
 		ecucContainerValueEClass.getESuperTypes().add(this.getIdentifiable());
 		ecucParameterValueEClass.getESuperTypes().add(this.getM2Object());
@@ -6415,7 +6713,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		pPortComSpecEClass.getESuperTypes().add(this.getM2Object());
 		receiverComSpecEClass.getESuperTypes().add(this.getRPortComSpec());
 		senderComSpecEClass.getESuperTypes().add(this.getPPortComSpec());
+		transmissionAcknowledgementRequestEClass.getESuperTypes().add(this.getM2Object());
 		nonqueuedSenderComSpecEClass.getESuperTypes().add(this.getSenderComSpec());
+		queuedSenderComSpecEClass.getESuperTypes().add(this.getSenderComSpec());
 		nonqueuedReceiverComSpecEClass.getESuperTypes().add(this.getReceiverComSpec());
 		portInterfaceEClass.getESuperTypes().add(this.getArElement());
 		compositionSwComponentTypeEClass.getESuperTypes().add(this.getSwComponentType());
@@ -6489,6 +6789,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		compuEClass.getESuperTypes().add(this.getM2Object());
 		limitEClass.getESuperTypes().add(this.getM2Object());
 		compuScaleEClass.getESuperTypes().add(this.getM2Object());
+		compuConstEClass.getESuperTypes().add(this.getM2Object());
 		anyInstanceRefEClass.getESuperTypes().add(this.getM2Object());
 		anyInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		ecuAbstractionSwComponentTypeEClass.getESuperTypes().add(this.getAtomicSwComponentType());
@@ -6517,6 +6818,7 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		modeInBswModuleDescriptionInstanceRefEClass.getESuperTypes().add(this.getM2Object());
 		modeInBswModuleDescriptionInstanceRefEClass.getESuperTypes().add(this.getIInstanceRef());
 		bswTimingEventEClass.getESuperTypes().add(this.getBswEvent());
+		bswBackgroundEventEClass.getESuperTypes().add(this.getBswEvent());
 		bswCalledEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
 		bswInterruptEntityEClass.getESuperTypes().add(this.getBswModuleEntity());
 		systemSignalGroupEClass.getESuperTypes().add(this.getArElement());
@@ -6651,14 +6953,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(variableAccessEClass, VariableAccess.class, "VariableAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getVariableAccess_AccessedVariable(), this.getAutosarVariableRef(), null, "accessedVariable", null, 1, 1, VariableAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(autosarVariableRefEClass, AutosarVariableRef.class, "AutosarVariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getAutosarVariableRef_AutosarVariableIref(), this.getVariableInAtomicSwcInstanceRef(), null, "autosarVariableIref", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getAutosarVariableRef_AutosarVariable(), theInstancePackage.getVariableDataInstanceInSwc(), null, "autosarVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getAutosarVariableRef_LocalVariable(), this.getVariableDataPrototype(), null, "localVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(autosarVariableRefEClass, AutosarVariableRef.class, "AutosarVariableRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAutosarVariableRef_AutosarVariableIref(), this.getVariableInAtomicSwcTypeInstanceRef(), null, "autosarVariableIref", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarVariableRef_AutosarVariable(), theInstancePackage.getVariableDataInstanceInSwc(), null, "autosarVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAutosarVariableRef_LocalVariable(), this.getVariableDataPrototype(), null, "localVariable", null, 0, 1, AutosarVariableRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(variableInAtomicSwcInstanceRefEClass, VariableInAtomicSwcInstanceRef.class, "VariableInAtomicSwcInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getVariableInAtomicSwcInstanceRef_PortPrototype(), this.getPortPrototype(), null, "portPrototype", null, 1, 1, VariableInAtomicSwcInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getVariableInAtomicSwcInstanceRef_TargetDataPrototype(), this.getVariableDataPrototype(), null, "targetDataPrototype", null, 1, 1, VariableInAtomicSwcInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(variableInAtomicSwcTypeInstanceRefEClass, VariableInAtomicSwcTypeInstanceRef.class, "VariableInAtomicSwcTypeInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableInAtomicSwcTypeInstanceRef_PortPrototype(), this.getPortPrototype(), null, "portPrototype", null, 1, 1, VariableInAtomicSwcTypeInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getVariableInAtomicSwcTypeInstanceRef_TargetDataPrototype(), this.getVariableDataPrototype(), null, "targetDataPrototype", null, 1, 1, VariableInAtomicSwcTypeInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rteEventEClass, RteEvent.class, "RteEvent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getRteEvent_StartOnEvent(), this.getRunnableEntity(), this.getRunnableEntity_Event(), "startOnEvent", null, 0, 1, RteEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -6667,11 +6969,29 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getTimingEvent_Period(), this.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(ecucModuleConfigurationValuesEClass, EcucModuleConfigurationValues.class, "EcucModuleConfigurationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getEcucModuleConfigurationValues_DefinitionRef(), this.getRef(), "definitionRef", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getEcucModuleConfigurationValues_EcucDefEdition(), this.getRevisionLabelString(), "ecucDefEdition", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getEcucModuleConfigurationValues_ImplementationConfigVariant(), this.getEcucConfigurationVariantEnum(), "implementationConfigVariant", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getEcucModuleConfigurationValues_Container(), this.getEcucContainerValue(), null, "container", null, 1, -1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(backgroundEventEClass, BackgroundEvent.class, "BackgroundEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataSendCompletedEventEClass, DataSendCompletedEvent.class, "DataSendCompletedEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSendCompletedEvent_EventSource(), this.getVariableAccess(), null, "eventSource", null, 1, 1, DataSendCompletedEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSendCompletedEvent_EventSourceData(), theInstancePackage.getVariableDataInstanceInSwc(), null, "eventSourceData", null, 1, 1, DataSendCompletedEvent.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataReceivedEventEClass, DataReceivedEvent.class, "DataReceivedEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataReceivedEvent_DataIref(), this.getRVariableInAtomicSwcInstanceRef(), null, "dataIref", null, 1, 1, DataReceivedEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataReceivedEvent_Data(), theInstancePackage.getVariableDataInstanceInSwc(), null, "data", null, 1, 1, DataReceivedEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataReceiveErrorEventEClass, DataReceiveErrorEvent.class, "DataReceiveErrorEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataReceiveErrorEvent_DataIref(), this.getRVariableInAtomicSwcInstanceRef(), null, "dataIref", null, 1, 1, DataReceiveErrorEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataReceiveErrorEvent_Data(), theInstancePackage.getVariableDataInstanceInSwc(), null, "data", null, 1, 1, DataReceiveErrorEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rVariableInAtomicSwcInstanceRefEClass, RVariableInAtomicSwcInstanceRef.class, "RVariableInAtomicSwcInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRVariableInAtomicSwcInstanceRef_ContextRPort(), this.getPortPrototype(), null, "contextRPort", null, 1, 1, RVariableInAtomicSwcInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRVariableInAtomicSwcInstanceRef_TargetDataElement(), this.getVariableDataPrototype(), null, "targetDataElement", null, 1, 1, RVariableInAtomicSwcInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ecucModuleConfigurationValuesEClass, EcucModuleConfigurationValues.class, "EcucModuleConfigurationValues", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEcucModuleConfigurationValues_DefinitionRef(), this.getRef(), "definitionRef", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEcucModuleConfigurationValues_EcucDefEdition(), this.getRevisionLabelString(), "ecucDefEdition", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEcucModuleConfigurationValues_ImplementationConfigVariant(), this.getEcucConfigurationVariantEnum(), "implementationConfigVariant", null, 1, 1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEcucModuleConfigurationValues_Container(), this.getEcucContainerValue(), null, "container", null, 1, -1, EcucModuleConfigurationValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ecucContainerValueEClass, EcucContainerValue.class, "EcucContainerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getEcucContainerValue_DefinitionRef(), this.getRef(), "definitionRef", null, 1, 1, EcucContainerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -6705,16 +7025,22 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(receiverComSpecEClass, ReceiverComSpec.class, "ReceiverComSpec", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getReceiverComSpec_DataElement(), this.getVariableDataPrototype(), null, "dataElement", null, 1, 1, ReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(senderComSpecEClass, SenderComSpec.class, "SenderComSpec", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSenderComSpec_DataElement(), this.getVariableDataPrototype(), null, "dataElement", null, 1, 1, SenderComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(senderComSpecEClass, SenderComSpec.class, "SenderComSpec", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSenderComSpec_DataElement(), this.getVariableDataPrototype(), null, "dataElement", null, 1, 1, SenderComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSenderComSpec_TransmissionAcknowledge(), this.getTransmissionAcknowledgementRequest(), null, "transmissionAcknowledge", null, 0, 1, SenderComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(transmissionAcknowledgementRequestEClass, TransmissionAcknowledgementRequest.class, "TransmissionAcknowledgementRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTransmissionAcknowledgementRequest_Timeout(), this.getTimeValue(), "timeout", null, 1, 1, TransmissionAcknowledgementRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nonqueuedSenderComSpecEClass, NonqueuedSenderComSpec.class, "NonqueuedSenderComSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getNonqueuedSenderComSpec_InitValue(), this.getValueSpecification(), null, "initValue", null, 1, 1, NonqueuedSenderComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(nonqueuedReceiverComSpecEClass, NonqueuedReceiverComSpec.class, "NonqueuedReceiverComSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getNonqueuedReceiverComSpec_AliveTimeout(), this.getTimeValue(), "aliveTimeout", null, 1, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getNonqueuedReceiverComSpec_InitValue(), this.getValueSpecification(), null, "initValue", null, 1, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getNonqueuedReceiverComSpec_Filter(), this.getDataFilter(), null, "filter", null, 0, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(queuedSenderComSpecEClass, QueuedSenderComSpec.class, "QueuedSenderComSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(nonqueuedReceiverComSpecEClass, NonqueuedReceiverComSpec.class, "NonqueuedReceiverComSpec", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNonqueuedReceiverComSpec_AliveTimeout(), this.getTimeValue(), "aliveTimeout", null, 1, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNonqueuedReceiverComSpec_InitValue(), this.getValueSpecification(), null, "initValue", null, 1, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNonqueuedReceiverComSpec_Filter(), this.getDataFilter(), null, "filter", null, 0, 1, NonqueuedReceiverComSpec.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portInterfaceEClass, PortInterface.class, "PortInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
@@ -6918,10 +7244,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 
 		initEOperation(getInvalidationPolicy__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(portApiOptionEClass, PortApiOption.class, "PortApiOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getPortApiOption_PortArgValue(), this.getPortDefinedArgumentValue(), this.getPortDefinedArgumentValue_Parent(), "portArgValue", null, 0, -1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getPortApiOption_Port(), this.getPortPrototype(), this.getPortPrototype_PortApiOption(), "port", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getPortApiOption_EnableTakeAddress(), this.getBoolean(), "enableTakeAddress", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEOperation(getInvalidationPolicy__IsInvalidationKeep(), ecorePackage.getEBoolean(), "isInvalidationKeep", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getInvalidationPolicy__IsInvalidationReplace(), ecorePackage.getEBoolean(), "isInvalidationReplace", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(portApiOptionEClass, PortApiOption.class, "PortApiOption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPortApiOption_PortArgValue(), this.getPortDefinedArgumentValue(), this.getPortDefinedArgumentValue_Parent(), "portArgValue", null, 0, -1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPortApiOption_Port(), this.getPortPrototype(), this.getPortPrototype_PortApiOption(), "port", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPortApiOption_EnableTakeAddress(), this.getBoolean(), "enableTakeAddress", null, 1, 1, PortApiOption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(portDefinedArgumentValueEClass, PortDefinedArgumentValue.class, "PortDefinedArgumentValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getPortDefinedArgumentValue_Value(), this.getValueSpecification(), null, "value", null, 1, 1, PortDefinedArgumentValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -7016,12 +7346,15 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getLimit_Value(), this.getVerbatimString(), "value", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(compuScaleEClass, CompuScale.class, "CompuScale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getCompuScale_LowerLimit(), this.getLimit(), null, "lowerLimit", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getCompuScale_ShortLabel(), this.getIdentifier(), "shortLabel", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getCompuScale_Symbol(), this.getCIdentifier(), "symbol", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getCompuScale_UpperLimit(), this.getLimit(), null, "upperLimit", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getCompuScale_Vt(), this.getString(), "vt", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(compuScaleEClass, CompuScale.class, "CompuScale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCompuScale_LowerLimit(), this.getLimit(), null, "lowerLimit", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompuScale_ShortLabel(), this.getIdentifier(), "shortLabel", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompuScale_Symbol(), this.getCIdentifier(), "symbol", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompuScale_UpperLimit(), this.getLimit(), null, "upperLimit", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompuScale_CompuConst(), this.getCompuConst(), null, "compuConst", null, 0, 1, CompuScale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compuConstEClass, CompuConst.class, "CompuConst", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompuConst_Vt(), this.getVerbatimString(), "vt", null, 0, 1, CompuConst.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(anyInstanceRefEClass, AnyInstanceRef.class, "AnyInstanceRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getAnyInstanceRef_ContextElement(), this.getIdentifiable(), null, "contextElement", null, 0, -1, AnyInstanceRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -7120,7 +7453,9 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		initEClass(bswTimingEventEClass, BswTimingEvent.class, "BswTimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getBswTimingEvent_Period(), this.getTimeValue(), "period", null, 0, 1, BswTimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(bswCalledEntityEClass, BswCalledEntity.class, "BswCalledEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(bswBackgroundEventEClass, BswBackgroundEvent.class, "BswBackgroundEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bswCalledEntityEClass, BswCalledEntity.class, "BswCalledEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(bswInterruptEntityEClass, BswInterruptEntity.class, "BswInterruptEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getBswInterruptEntity_InterruptSource(), this.getString(), "interruptSource", null, 1, 1, BswInterruptEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -7265,10 +7600,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
-		   });
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+		   });																																																																																									
 	}
 
 	/**
@@ -7289,8 +7624,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (getPPortPrototype_ProvidedInterface(), 
 		   source, 
 		   new String[] {
-			 "isOfType", "true" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "isOfType", "true"
+		   });													
 		addAnnotation
 		  (getSwComponentPrototype_Type(), 
 		   source, 
@@ -7307,8 +7642,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (getDataPrototype_Type(), 
 		   source, 
 		   new String[] {
-			 "isOfType", "true" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "isOfType", "true"
+		   });													
 		addAnnotation
 		  (getPortDefinedArgumentValue_ValueType(), 
 		   source, 
@@ -7431,8 +7766,14 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (getSwcInternalBehavior__GetImplementationDataTypes__ApplicationDataType(), 
 		   source, 
 		   new String[] {
-			 "body", "self.dataTypeMapping.dataTypeMap->select(m | m.applicationDataType = applicationDataType).implementationDataType->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "self.dataTypeMapping.dataTypeMap->select(m | m.applicationDataType = applicationDataType).implementationDataType->asOrderedSet()"
+		   });		
+		addAnnotation
+		  (getDataSendCompletedEvent_EventSourceData(), 
+		   source, 
+		   new String[] {
+			 "derivation", "eventSource.accessedVariable.autosarVariable"
+		   });			
 		addAnnotation
 		  (getAutosarDataType__GetSwImplPolicy(), 
 		   source, 
@@ -7593,8 +7934,20 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (getInvalidationPolicy__IsInvalidationEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "not handleInvalid.oclIsUndefined() and (handleInvalid = m2::HandleInvalidEnum::keep or handleInvalid =\n\t\t\t\t\tm2::HandleInvalidEnum::replace)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "not handleInvalid.oclIsUndefined() and (handleInvalid = m2::HandleInvalidEnum::keep or handleInvalid =\n\t\t\t\t\tm2::HandleInvalidEnum::replace)"
+		   });		
+		addAnnotation
+		  (getInvalidationPolicy__IsInvalidationKeep(), 
+		   source, 
+		   new String[] {
+			 "body", "not handleInvalid.oclIsUndefined() and handleInvalid = m2::HandleInvalidEnum::keep"
+		   });		
+		addAnnotation
+		  (getInvalidationPolicy__IsInvalidationReplace(), 
+		   source, 
+		   new String[] {
+			 "body", "not handleInvalid.oclIsUndefined() and handleInvalid = m2::HandleInvalidEnum::replace"
+		   });						
 		addAnnotation
 		  (getDataConstr__GetLowerLimitValue(), 
 		   source, 
@@ -7633,8 +7986,8 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		  (getAtomicSwComponentType_InternalBehavior(), 
 		   source, 
 		   new String[] {
-			 "xml.roleWrapperElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "xml.roleWrapperElement", "true"
+		   });																																																														
 		addAnnotation
 		  (getSystem_RootSoftwareComposition(), 
 		   source, 

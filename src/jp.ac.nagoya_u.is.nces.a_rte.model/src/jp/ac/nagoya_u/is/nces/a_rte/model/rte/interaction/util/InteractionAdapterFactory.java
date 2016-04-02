@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -186,6 +186,10 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createImmediateProxyComSendImplementationAdapter();
 			}
 			@Override
+			public Adapter caseTAckStatusVariableImplementation(TAckStatusVariableImplementation object) {
+				return createTAckStatusVariableImplementationAdapter();
+			}
+			@Override
 			public Adapter caseFilterBufferImplementation(FilterBufferImplementation object) {
 				return createFilterBufferImplementationAdapter();
 			}
@@ -242,6 +246,26 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createInteractionAdapter();
 			}
 			@Override
+			public Adapter caseExecutionContext(ExecutionContext object) {
+				return createExecutionContextAdapter();
+			}
+			@Override
+			public Adapter caseExecutionContextImplementation(ExecutionContextImplementation object) {
+				return createExecutionContextImplementationAdapter();
+			}
+			@Override
+			public Adapter caseInfiniteloopImplementation(InfiniteloopImplementation object) {
+				return createInfiniteloopImplementationAdapter();
+			}
+			@Override
+			public Adapter caseOneShootImplementation(OneShootImplementation object) {
+				return createOneShootImplementationAdapter();
+			}
+			@Override
+			public Adapter caseEventPoolingImplementation(EventPoolingImplementation object) {
+				return createEventPoolingImplementationAdapter();
+			}
+			@Override
 			public Adapter caseEntityStarter(EntityStarter object) {
 				return createEntityStarterAdapter();
 			}
@@ -258,6 +282,18 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createEntityStartInteractionAdapter();
 			}
 			@Override
+			public Adapter caseTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition object) {
+				return createTimingTriggeringEntityStartConditionAdapter();
+			}
+			@Override
+			public Adapter caseRunnableEntityStartInteraction(RunnableEntityStartInteraction object) {
+				return createRunnableEntityStartInteractionAdapter();
+			}
+			@Override
+			public Adapter caseBswSchedulableEntityStartInteraction(BswSchedulableEntityStartInteraction object) {
+				return createBswSchedulableEntityStartInteractionAdapter();
+			}
+			@Override
 			public Adapter caseEntityStartImplementation(EntityStartImplementation object) {
 				return createEntityStartImplementationAdapter();
 			}
@@ -266,12 +302,8 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 				return createTimingTriggeringEntityStartImplementationAdapter();
 			}
 			@Override
-			public Adapter caseModeSwitchTriggeringEntityStartImplementation(ModeSwitchTriggeringEntityStartImplementation object) {
-				return createModeSwitchTriggeringEntityStartImplementationAdapter();
-			}
-			@Override
-			public Adapter caseRunnableEntityStartInteraction(RunnableEntityStartInteraction object) {
-				return createRunnableEntityStartInteractionAdapter();
+			public Adapter casePlainEntityStartImplementation(PlainEntityStartImplementation object) {
+				return createPlainEntityStartImplementationAdapter();
 			}
 			@Override
 			public Adapter caseStartOffsetCounterImplementation(StartOffsetCounterImplementation object) {
@@ -284,26 +316,6 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseGeneratedEcuConfiguration(GeneratedEcuConfiguration object) {
 				return createGeneratedEcuConfigurationAdapter();
-			}
-			@Override
-			public Adapter caseBswSchedulableEntityStartInteraction(BswSchedulableEntityStartInteraction object) {
-				return createBswSchedulableEntityStartInteractionAdapter();
-			}
-			@Override
-			public Adapter caseEventToTaskMapping(EventToTaskMapping object) {
-				return createEventToTaskMappingAdapter();
-			}
-			@Override
-			public Adapter caseEvent(Event object) {
-				return createEventAdapter();
-			}
-			@Override
-			public Adapter caseTimingEvent(TimingEvent object) {
-				return createTimingEventAdapter();
-			}
-			@Override
-			public Adapter caseModeSwitchEvent(ModeSwitchEvent object) {
-				return createModeSwitchEventAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -592,6 +604,20 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation <em>TAck Status Variable Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation
+	 * @generated
+	 */
+	public Adapter createTAckStatusVariableImplementationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementation <em>Filter Buffer Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -788,6 +814,76 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext <em>Execution Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext
+	 * @generated
+	 */
+	public Adapter createExecutionContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContextImplementation <em>Execution Context Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContextImplementation
+	 * @generated
+	 */
+	public Adapter createExecutionContextImplementationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation <em>Infiniteloop Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation
+	 * @generated
+	 */
+	public Adapter createInfiniteloopImplementationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation <em>One Shoot Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation
+	 * @generated
+	 */
+	public Adapter createOneShootImplementationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation <em>Event Pooling Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation
+	 * @generated
+	 */
+	public Adapter createEventPoolingImplementationAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter <em>Entity Starter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -844,6 +940,20 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition
+	 * @generated
+	 */
+	public Adapter createTimingTriggeringEntityStartConditionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartImplementation <em>Entity Start Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -872,16 +982,16 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation <em>Mode Switch Triggering Entity Start Implementation</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation <em>Plain Entity Start Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation
 	 * @generated
 	 */
-	public Adapter createModeSwitchTriggeringEntityStartImplementationAdapter() {
+	public Adapter createPlainEntityStartImplementationAdapter() {
 		return null;
 	}
 
@@ -952,62 +1062,6 @@ public class InteractionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBswSchedulableEntityStartInteractionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping <em>Event To Task Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping
-	 * @generated
-	 */
-	public Adapter createEventToTaskMappingAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event
-	 * @generated
-	 */
-	public Adapter createEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent <em>Timing Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent
-	 * @generated
-	 */
-	public Adapter createTimingEventAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent <em>Mode Switch Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent
-	 * @generated
-	 */
-	public Adapter createModeSwitchEventAdapter() {
 		return null;
 	}
 

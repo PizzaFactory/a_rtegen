@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -208,6 +208,54 @@ public class InvalidationPolicyImpl extends M2ObjectImpl implements Invalidation
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isInvalidationKeep() <em>Is Invalidation Keep</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvalidationKeep()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_INVALIDATION_KEEP__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.INVALIDATION_POLICY___IS_INVALIDATION_KEEP).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvalidationKeep() {
+		try {
+			return (Boolean)IS_INVALIDATION_KEEP__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isInvalidationReplace() <em>Is Invalidation Replace</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInvalidationReplace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_INVALIDATION_REPLACE__EINVOCATION_DELEGATE = ((EOperation.Internal)M2Package.Literals.INVALIDATION_POLICY___IS_INVALIDATION_REPLACE).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isInvalidationReplace() {
+		try {
+			return (Boolean)IS_INVALIDATION_REPLACE__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -286,6 +334,10 @@ public class InvalidationPolicyImpl extends M2ObjectImpl implements Invalidation
 		switch (operationID) {
 			case M2Package.INVALIDATION_POLICY___IS_INVALIDATION_ENABLED:
 				return isInvalidationEnabled();
+			case M2Package.INVALIDATION_POLICY___IS_INVALIDATION_KEEP:
+				return isInvalidationKeep();
+			case M2Package.INVALIDATION_POLICY___IS_INVALIDATION_REPLACE:
+				return isInvalidationReplace();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

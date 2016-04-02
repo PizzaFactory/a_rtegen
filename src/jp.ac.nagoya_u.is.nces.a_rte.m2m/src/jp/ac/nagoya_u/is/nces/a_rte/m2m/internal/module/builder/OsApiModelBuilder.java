@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -42,11 +42,16 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_STARTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.Identifiers;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateComSendProxy;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 
@@ -68,6 +73,13 @@ public class OsApiModelBuilder {
 		if (sourceComSendProxy.isPresent()) {
 			buildComSendSignalImmediateSetEventApi(this.context.cache.rte, sourceComSendProxy.get());
 		}
+		for (EntityStarter entityStarter : this.context.query.<EntityStarter> findByKind((ENTITY_STARTER))){
+			if (entityStarter instanceof OsTaskActivateEntityStarter) {
+				buildOsTaskActivateApi(this.context.cache.rte, (OsTaskActivateEntityStarter) entityStarter);
+			} else if (entityStarter instanceof OsEventSetEntityStarter) { // COVERAGE 常にtrue(サブクラスは2つのため）
+				buildOsSetEventActivateApi(this.context.cache.rte, (OsEventSetEntityStarter) entityStarter);
+			}
+		}
 	}
 
 	private void buildComSendSignalImmediateSetEventApi(Rte targetRte, ImmediateComSendProxy sourceComSendProxy) {
@@ -77,5 +89,22 @@ public class OsApiModelBuilder {
 		destOsSetEventApi.setOsTaskId(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
 		destOsSetEventApi.setOsEventId(sourceComSendProxy.getOsEvent().getShortName());
 		targetRte.getDependentOsApi().add(destOsSetEventApi);
+	}
+	
+	private void buildOsTaskActivateApi(Rte targetRte, OsTaskActivateEntityStarter entityStarter) {
+		OsActivateTaskApi destOsApi = ModuleFactory.eINSTANCE.createOsActivateTaskApi();
+		destOsApi.setSingleSource(entityStarter);
+		destOsApi.setSymbolName(SymbolNames.OS_ACTIVATE_TASK_API_NAME);
+		destOsApi.setOsTaskId(entityStarter.getSourceOsTask().getShortName());
+		targetRte.getDependentOsApi().add(destOsApi);
+	}
+	
+	private void buildOsSetEventActivateApi(Rte targetRte, OsEventSetEntityStarter entityStarter) {
+		OsSetEventApi destOsApi = ModuleFactory.eINSTANCE.createOsSetEventApi();
+		destOsApi.setSingleSource(entityStarter);
+		destOsApi.setSymbolName(SymbolNames.OS_SET_EVENT_API_NAME);
+		destOsApi.setOsTaskId(entityStarter.getSourceOsTask().getShortName());
+		destOsApi.setOsEventId(entityStarter.getSourceOsEvent().getShortName());
+		targetRte.getDependentOsApi().add(destOsApi);
 	}
 }

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -101,7 +101,7 @@ public interface ExclusiveAreaEx extends ExtendedEObject {
 	 * NOTE 現状、BSWMのみにターゲットを絞ってEcucPartitionを検索しているため、SW-CのExclusiveAreaにアクセスするパーティションは取得できないことに注意。
 	 * <!-- end-model-doc -->
 	 * @model ordered="false" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()' pre_='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()' pre='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
 	 * @generated
 	 */
 	EList<EcucPartition> getUsingPartitionsOfBswExclusiveArea(ExclusiveArea this_);
@@ -113,7 +113,7 @@ public interface ExclusiveAreaEx extends ExtendedEObject {
 	 * Rte_Enter/Exit APIを生成するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)' pre_='this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)' pre='this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)'"
 	 * @generated
 	 */
 	boolean providesRteEnterExitApi(ExclusiveArea this_);
@@ -125,7 +125,7 @@ public interface ExclusiveAreaEx extends ExtendedEObject {
 	 * SchM_Enter/Exit APIを生成するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)' pre_='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)' pre='this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)'"
 	 * @generated
 	 */
 	boolean providesSchmEnterExitApi(ExclusiveArea this_);

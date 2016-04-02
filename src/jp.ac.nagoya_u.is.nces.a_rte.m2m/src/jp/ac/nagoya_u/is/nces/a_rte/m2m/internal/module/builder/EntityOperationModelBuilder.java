@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,8 +45,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_STARTER__START_INTERACTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_START_INTERACTION__POSITION_IN_TASK;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.BSWM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
@@ -71,13 +70,13 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.CycleCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
@@ -94,6 +93,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecuta
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation;
@@ -171,7 +171,7 @@ public class EntityOperationModelBuilder {
 	}
 
 	private List<EntityStartInteraction> sortedCopyOfEntityStartInteractions(List<EntityStartInteraction> sourceEntityStartInteractions) {
-		return Ordering.natural().onResultOf(this.context.query.<Integer> features2Function(ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, EVENT_TO_TASK_MAPPING__POSITION_IN_TASK)).sortedCopy(sourceEntityStartInteractions);
+		return Ordering.natural().onResultOf(this.context.query.<Integer> features2Function(ENTITY_START_INTERACTION__POSITION_IN_TASK)).sortedCopy(sourceEntityStartInteractions);
 	}
 
 	private OsEventSetActivationOperation createOsEventSetActivationOperation(OsEventSetEntityStarter sourceEntityStarter, EntityStartInteraction sourceStartInteraction, OsTask sourceOsTask)
@@ -189,32 +189,29 @@ public class EntityOperationModelBuilder {
 		if (!isEnabledEntityStartInteraction(sourceStartInteraction)) {
 			return;
 		}
-		if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) { // COVERAGE 常にtrue(現状，ImplementationはTimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementationのみのため)
+		if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) {
 			TimingTriggeringEntityStartImplementation sourceTimingTriggeringEntityStartImplementation = (TimingTriggeringEntityStartImplementation) sourceStartInteraction.getImplementation();
 			targetContextActivationOperation.getExecutableStartOperation().add(createTimingTriggeringExecutableStartOperation(sourceStartInteraction, sourceTimingTriggeringEntityStartImplementation));
 
-		} else if (sourceStartInteraction.getImplementation() instanceof ModeSwitchTriggeringEntityStartImplementation) { // COVERAGE 常にtrue(現状，ImplementationはTimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementationのみのため)
-			ModeSwitchTriggeringEntityStartImplementation sourceModeSwitchImplementation = (ModeSwitchTriggeringEntityStartImplementation) sourceStartInteraction.getImplementation();
-			targetContextActivationOperation.getExecutableStartOperation().add(createModeSwitchTriggeringExecutableStartOperation(sourceStartInteraction, sourceModeSwitchImplementation));
+		} else if (sourceStartInteraction.getImplementation() instanceof PlainEntityStartImplementation) { // COVERAGE 常にtrue(現状，ImplementationはTimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementationのみのため)
+			PlainEntityStartImplementation plainImplementation = (PlainEntityStartImplementation) sourceStartInteraction.getImplementation();
+			targetContextActivationOperation.getExecutableStartOperation().add(createPlainExecutableStartOperation(sourceStartInteraction, plainImplementation));
 		}
 	}
 
 	private boolean isEnabledEntityStartInteraction(EntityStartInteraction sourceStartInteraction) {
-		if (sourceStartInteraction.getEventToTaskMapping().getEvent().getSourceBswEvent() == null) {
-			// RTEイベントの場合
-			return true; // 常に有効
-		} else {
-			// BSWイベントの場合
-			return this.moduleRules.isEnabledBswEvent(sourceStartInteraction.getEventToTaskMapping().getEvent().getSourceBswEvent());
+		if (sourceStartInteraction instanceof BswSchedulableEntityStartInteraction) {
+			return this.moduleRules.isEnabledBswEvent(((BswSchedulableEntityStartInteraction)sourceStartInteraction).getSourceEvent());
 		}
+		return true; // RTEでは，モードが未サポートのため常に有効
 	}
 
 	private TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
 			TimingTriggeringEntityStartImplementation sourceStartImplementation) throws ModelException {
 
 		TimingTriggeringExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createTimingTriggeringExecutableStartOperation();
-		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent());
-		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent());
+		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getStartOnEvent());
+		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction);
 
 		if (sourceStartImplementation.requiresCycleAdjust()) {
 			destOperation.setCycleCounterVariable(this.context.builtQuery.<GlobalVariable> findDest(GLOBAL_VARIABLE, sourceStartInteraction.getStarter().getCycleCounterImplementation()));
@@ -229,12 +226,12 @@ public class EntityOperationModelBuilder {
 		return destOperation;
 	}
 
-	private ModeSwitchTriggeringExecutableStartOperation createModeSwitchTriggeringExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
-			ModeSwitchTriggeringEntityStartImplementation sourceModeSwitchImplementation) throws ModelException {
+	private PlainExecutableStartOperation createPlainExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
+			PlainEntityStartImplementation sourcePlainImplementation) throws ModelException {
 
-		ModeSwitchTriggeringExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createModeSwitchTriggeringExecutableStartOperation();
-		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent());
-		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent());
+		PlainExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createPlainExecutableStartOperation();
+		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getStartOnEvent());
+		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction);
 		return destOperation;
 	}
 
@@ -257,12 +254,11 @@ public class EntityOperationModelBuilder {
 		return Optional.absent();
 	}
 	
-	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, Event sourceEvent) throws ModelException {
-		BswEvent sourceBswEvent = sourceEvent.getSourceBswEvent();
-		if (sourceBswEvent == null) {
-			return;
+	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, EntityStartInteraction sourceStartInteraction) throws ModelException {
+		// RTEでは，モードが未サポート
+		if (sourceStartInteraction instanceof BswSchedulableEntityStartInteraction) {
+			buildDisabledInModePartOfExecutableStartOperation(targetOperation, ((BswSchedulableEntityStartInteraction)sourceStartInteraction).getSourceEvent());
 		}
-		buildDisabledInModePartOfExecutableStartOperation(targetOperation, sourceBswEvent);
 	}
 
 	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, BswEvent sourceBswEvent) throws ModelException {

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,10 +45,13 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InvalidationPolicy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RPortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ReceiverComSpec;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
+import org.eclipse.emf.common.util.EList;
 
 
 /**
@@ -128,6 +131,30 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * 無効化ポリシーがKeepかどうか
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)'"
+	 * @generated
+	 */
+	boolean isInvalidationKeep();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * 無効化ポリシーがReplaceかどうか
+	 * <!-- end-model-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)'"
+	 * @generated
+	 */
+	boolean isInvalidationReplace();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * 無効値処理方法の取得
 	 * <!-- end-model-doc -->
 	 * @model kind="operation" required="true"
@@ -165,5 +192,23 @@ public interface RVariableDataInstanceInSwc extends VariableDataInstanceInSwc {
 	 * @generated
 	 */
 	ReceiverComSpec getComSpec();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" ordered="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()'"
+	 * @generated
+	 */
+	EList<DataReceivedEvent> getRelatedDataReceivedEvent();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" ordered="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()'"
+	 * @generated
+	 */
+	EList<DataReceiveErrorEvent> getRelatedDataReceiveErrorEvent();
 
 } // RVariableDataInstanceInSwc

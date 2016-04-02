@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -213,23 +213,22 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	}
 
 	/**
-	 * The cached invocation delegate for the '{@link #providesComReceiveCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Receive Callback</em>}' operation.
+	 * The cached invocation delegate for the '{@link #providesComRxCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Rx Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #providesComReceiveCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @see #providesComRxCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_RECEIVE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
-
+	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_RX_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean providesComReceiveCallback(ExternalEcuSender this_) {
+	public boolean providesComRxCallback(ExternalEcuSender this_) {
 		try {
-			return (Boolean)PROVIDES_COM_RECEIVE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+			return (Boolean)PROVIDES_COM_RX_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
 		catch (InvocationTargetException ite) {
 			throw new WrappedException(ite);
@@ -237,23 +236,22 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	}
 
 	/**
-	 * The cached invocation delegate for the '{@link #providesComInvalidateCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Invalidate Callback</em>}' operation.
+	 * The cached invocation delegate for the '{@link #providesComInvCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Inv Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #providesComInvalidateCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @see #providesComInvCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_INVALIDATE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
-
+	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_INV_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean providesComInvalidateCallback(ExternalEcuSender this_) {
+	public boolean providesComInvCallback(ExternalEcuSender this_) {
 		try {
-			return (Boolean)PROVIDES_COM_INVALIDATE_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+			return (Boolean)PROVIDES_COM_INV_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
 		catch (InvocationTargetException ite) {
 			throw new WrappedException(ite);
@@ -261,23 +259,22 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 	}
 
 	/**
-	 * The cached invocation delegate for the '{@link #providesComReceiveTimeoutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Receive Timeout Callback</em>}' operation.
+	 * The cached invocation delegate for the '{@link #providesComRxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender) <em>Provides Com Rx TOut Callback</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #providesComReceiveTimeoutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
+	 * @see #providesComRxTOutCallback(jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
-
+	protected static final EOperation.Internal.InvocationDelegate PROVIDES_COM_RX_TOUT_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE = ((EOperation.Internal)ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER).getInvocationDelegate();
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_) {
+	public boolean providesComRxTOutCallback(ExternalEcuSender this_) {
 		try {
-			return (Boolean)PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
+			return (Boolean)PROVIDES_COM_RX_TOUT_CALLBACK_EXTERNAL_ECU_SENDER__EINVOCATION_DELEGATE.dynamicInvoke(this, new BasicEList.UnmodifiableEList<Object>(1, new Object[]{this_}));
 		}
 		catch (InvocationTargetException ite) {
 			throw new WrappedException(ite);
@@ -380,12 +377,12 @@ public class ExternalEcuSenderExImpl extends ExtendedEObjectImpl implements Exte
 				return requiresRteInvalidation((ExternalEcuSender)arguments.get(0));
 			case ExPackage.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER:
 				return requiresRteInitialization((ExternalEcuSender)arguments.get(0));
-			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER:
-				return providesComReceiveCallback((ExternalEcuSender)arguments.get(0));
-			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER:
-				return providesComInvalidateCallback((ExternalEcuSender)arguments.get(0));
-			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER:
-				return providesComReceiveTimeoutCallback((ExternalEcuSender)arguments.get(0));
+			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER:
+				return providesComRxCallback((ExternalEcuSender)arguments.get(0));
+			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER:
+				return providesComInvCallback((ExternalEcuSender)arguments.get(0));
+			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER:
+				return providesComRxTOutCallback((ExternalEcuSender)arguments.get(0));
 			case ExPackage.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER:
 				return providesComCallback((ExternalEcuSender)arguments.get(0));
 		}

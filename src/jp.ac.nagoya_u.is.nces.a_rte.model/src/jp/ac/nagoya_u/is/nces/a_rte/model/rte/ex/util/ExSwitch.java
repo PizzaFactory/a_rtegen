@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -258,6 +258,12 @@ public class ExSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ExPackage.EXTERNAL_ECU_RECEIVER_EX: {
+				ExternalEcuReceiverEx externalEcuReceiverEx = (ExternalEcuReceiverEx)theEObject;
+				T result = caseExternalEcuReceiverEx(externalEcuReceiverEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ExPackage.ENTITY_STARTER_EX: {
 				EntityStarterEx entityStarterEx = (EntityStarterEx)theEObject;
 				T result = caseEntityStarterEx(entityStarterEx);
@@ -273,6 +279,12 @@ public class ExSwitch<T> extends Switch<T> {
 			case ExPackage.MODE_DECLARATION_GROUP_PROTOTYPE_EX: {
 				ModeDeclarationGroupPrototypeEx modeDeclarationGroupPrototypeEx = (ModeDeclarationGroupPrototypeEx)theEObject;
 				T result = caseModeDeclarationGroupPrototypeEx(modeDeclarationGroupPrototypeEx);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ExPackage.RTE_EVENT_EX: {
+				RteEventEx rteEventEx = (RteEventEx)theEObject;
+				T result = caseRteEventEx(rteEventEx);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -341,6 +353,21 @@ public class ExSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>External Ecu Receiver Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>External Ecu Receiver Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalEcuReceiverEx(ExternalEcuReceiverEx object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Entity Starter Ex</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -382,6 +409,21 @@ public class ExSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseModeDeclarationGroupPrototypeEx(ModeDeclarationGroupPrototypeEx object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rte Event Ex</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rte Event Ex</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRteEventEx(RteEventEx object) {
 		return null;
 	}
 

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -67,6 +67,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EntityStarterEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExclusiveAreaEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuSenderEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ImplementationDataTypeEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ModeDeclarationGroupPrototypeEx;
@@ -77,6 +78,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.PVariableDataInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ROperationInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RVariableDataInstanceInSwcEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ReceiverEx;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalGroupMappingEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.SenderReceiverToSignalMappingEx;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ValueSpecificationEx;
@@ -135,6 +137,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass externalEcuReceiverExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass entityStarterExEClass = null;
 
 	/**
@@ -150,6 +159,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * @generated
 	 */
 	private EClass modeDeclarationGroupPrototypeExEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rteEventExEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -495,7 +511,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender() {
+	public EOperation getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender() {
 		return externalEcuSenderExEClass.getEOperations().get(3);
 	}
 
@@ -504,7 +520,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender() {
+	public EOperation getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender() {
 		return externalEcuSenderExEClass.getEOperations().get(4);
 	}
 
@@ -513,7 +529,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender() {
+	public EOperation getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender() {
 		return externalEcuSenderExEClass.getEOperations().get(5);
 	}
 
@@ -524,6 +540,33 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender() {
 		return externalEcuSenderExEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExternalEcuReceiverEx() {
+		return externalEcuReceiverExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver() {
+		return externalEcuReceiverExEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver() {
+		return externalEcuReceiverExEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -686,6 +729,24 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype() {
 		return modeDeclarationGroupPrototypeExEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRteEventEx() {
+		return rteEventExEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRteEventEx__GetRelatedEntityStarter__RteEvent() {
+		return rteEventExEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -1073,6 +1134,15 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 	 */
 	public EOperation getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc() {
 		return pVariableDataInstanceInSwcExEClass.getEOperations().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc() {
+		return pVariableDataInstanceInSwcExEClass.getEOperations().get(3);
 	}
 
 	/**
@@ -1660,6 +1730,7 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(pVariableDataInstanceInSwcExEClass, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC);
 		createEOperation(pVariableDataInstanceInSwcExEClass, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC);
 		createEOperation(pVariableDataInstanceInSwcExEClass, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC);
+		createEOperation(pVariableDataInstanceInSwcExEClass, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC);
 
 		rVariableDataInstanceInSwcExEClass = createEClass(RVARIABLE_DATA_INSTANCE_IN_SWC_EX);
 		createEOperation(rVariableDataInstanceInSwcExEClass, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_VARIABLE__RVARIABLEDATAINSTANCEINSWC);
@@ -1682,10 +1753,14 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_FILTER__EXTERNALECUSENDER);
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INVALIDATION__EXTERNALECUSENDER);
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER);
-		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER);
-		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER);
-		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER);
+		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER);
+		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER);
+		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER);
 		createEOperation(externalEcuSenderExEClass, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_CALLBACK__EXTERNALECUSENDER);
+
+		externalEcuReceiverExEClass = createEClass(EXTERNAL_ECU_RECEIVER_EX);
+		createEOperation(externalEcuReceiverExEClass, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER);
+		createEOperation(externalEcuReceiverExEClass, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER);
 
 		entityStarterExEClass = createEClass(ENTITY_STARTER_EX);
 		createEOperation(entityStarterExEClass, ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER);
@@ -1707,6 +1782,9 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_MODE_USER_BSW_SCHEDULABLE_ENTITIES__MODEDECLARATIONGROUPPROTOTYPE);
 		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_PARENT_BSW_MODULE_DESCRIPTION__MODEDECLARATIONGROUPPROTOTYPE);
 		createEOperation(modeDeclarationGroupPrototypeExEClass, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_CONNECTED_PROVIDED_MODE_PROTOTYPES__MODEDECLARATIONGROUPPROTOTYPE);
+
+		rteEventExEClass = createEClass(RTE_EVENT_EX);
+		createEOperation(rteEventExEClass, RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT);
 	}
 
 	/**
@@ -1988,7 +2066,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesFeedbackApi", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -2030,19 +2111,27 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvalidateCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComReceiveTimeoutCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(externalEcuReceiverExEClass, ExternalEcuReceiverEx.class, "ExternalEcuReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxAndTxErrCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = initEOperation(getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), theInteractionPackage.getTimingTriggeringEntityStartImplementation(), "getTimingTriggeringEntityStartImplementations", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getEntityStarter(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -2089,6 +2178,11 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), theM2Package.getModeDeclarationGroupPrototype(), "getConnectedProvidedModePrototypes", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
+		initEClass(rteEventExEClass, RteEventEx.class, "RteEventEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getRteEventEx__GetRelatedEntityStarter__RteEvent(), theInteractionPackage.getEntityStarter(), "getRelatedEntityStarter", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theM2Package.getRteEvent(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		// Create annotations
 		// stereotypes
 		createStereotypesAnnotations();
@@ -2110,8 +2204,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "extension", "true" //$NON-NLS-1$ //$NON-NLS-2$
-		   });
+			 "extension", "true"
+		   });																																																																																																																																																					
 	}
 
 	/**
@@ -2126,10 +2220,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
-		   });
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
+		   });																																																																																																																																																				
 	}
 
 	/**
@@ -2216,8 +2310,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getCompuScaleEx__GetEnumLiteral__CompuScale(), 
 		   source, 
 		   new String[] {
-			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.compuConst.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuConst.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif"
+		   });		
 		addAnnotation
 		  (getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), 
 		   source, 
@@ -2246,23 +2340,23 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
+		   });			
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)",
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"
+		   });			
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
-			 "pre_", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)",
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
+		   });			
 		addAnnotation
 		  (getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), 
 		   source, 
@@ -2477,20 +2571,26 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "not this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"
+		   });			
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and this_.isAccessedByDataSendPoint()"
+		   });			
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"
+		   });			
+		addAnnotation
+		  (getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc(), 
+		   source, 
+		   new String[] {
+			 "body", "this_.isAccessedByDataSendPoint() and this_.isTAckEnabled()"
+		   });			
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), 
 		   source, 
@@ -2552,19 +2652,19 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 			 "body", "this_.hasMultipleInternalEcuReceivers()\n\t\t\t\t\tand this_.getInternalEcuReceivers()->exists(r1, r2 | not variableDataInstanceInCompositionEx.equalsInitValue(r1.source, r2.source))" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
-		  (getExternalEcuSenderEx__ProvidesComReceiveCallback__ExternalEcuSender(), 
+		  (getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined())" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "this_.sendInteraction->exists(not implementation.oclIsUndefined())\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty())"
+		   });			
 		addAnnotation
-		  (getExternalEcuSenderEx__ProvidesComInvalidateCallback__ExternalEcuSender(), 
+		  (getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty() and isInvalidationEnabled())"
+		   });			
 		addAnnotation
-		  (getExternalEcuSenderEx__ProvidesComReceiveTimeoutCallback__ExternalEcuSender(), 
+		  (getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
 			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))" //$NON-NLS-1$ //$NON-NLS-2$
@@ -2573,8 +2673,20 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)" //$NON-NLS-1$ //$NON-NLS-2$
-		   });	
+			 "body", "providesComRxCallback(this_)\n\t\t\t\t   or providesComInvCallback(this_)\n\t\t\t\t   or providesComRxTOutCallback(this_)"
+		   });			
+		addAnnotation
+		  (getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver(), 
+		   source, 
+		   new String[] {
+			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckEnabled())"
+		   });			
+		addAnnotation
+		  (getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver(), 
+		   source, 
+		   new String[] {
+			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckTimeoutEnabled())"
+		   });		
 		addAnnotation
 		  (getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), 
 		   source, 
@@ -2645,7 +2757,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()" //$NON-NLS-1$ //$NON-NLS-2$
+			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()"
+		   });		
+		addAnnotation
+		  (getRteEventEx__GetRelatedEntityStarter__RteEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "let reStartInteraction : interaction::RunnableEntityStartInteraction = interaction::RunnableEntityStartInteraction.allInstances()->any(sourceEvent = this_)\n\t\t\t\t\tin\n\t\t\t\t\tinteraction::EntityStarter.allInstances()->any(startInteraction->includes(reStartInteraction))"
 		   });
 	}
 

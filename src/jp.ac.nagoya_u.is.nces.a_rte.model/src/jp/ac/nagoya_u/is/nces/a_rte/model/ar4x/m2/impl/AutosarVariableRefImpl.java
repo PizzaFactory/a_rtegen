@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,7 +48,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSw
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AutosarVariableRef;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcTypeInstanceRef;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -81,7 +81,7 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * @generated
 	 * @ordered
 	 */
-	protected VariableInAtomicSwcInstanceRef autosarVariableIref;
+	protected VariableInAtomicSwcTypeInstanceRef autosarVariableIref;
 
 	/**
 	 * The cached value of the '{@link #getAutosarVariable() <em>Autosar Variable</em>}' reference.
@@ -127,7 +127,7 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableInAtomicSwcInstanceRef getAutosarVariableIref() {
+	public VariableInAtomicSwcTypeInstanceRef getAutosarVariableIref() {
 		return autosarVariableIref;
 	}
 
@@ -136,8 +136,8 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAutosarVariableIref(VariableInAtomicSwcInstanceRef newAutosarVariableIref, NotificationChain msgs) {
-		VariableInAtomicSwcInstanceRef oldAutosarVariableIref = autosarVariableIref;
+	public NotificationChain basicSetAutosarVariableIref(VariableInAtomicSwcTypeInstanceRef newAutosarVariableIref, NotificationChain msgs) {
+		VariableInAtomicSwcTypeInstanceRef oldAutosarVariableIref = autosarVariableIref;
 		autosarVariableIref = newAutosarVariableIref;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE_IREF, oldAutosarVariableIref, newAutosarVariableIref);
@@ -151,7 +151,7 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAutosarVariableIref(VariableInAtomicSwcInstanceRef newAutosarVariableIref) {
+	public void setAutosarVariableIref(VariableInAtomicSwcTypeInstanceRef newAutosarVariableIref) {
 		if (newAutosarVariableIref != autosarVariableIref) {
 			NotificationChain msgs = null;
 			if (autosarVariableIref != null)
@@ -284,7 +284,7 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE_IREF:
-				setAutosarVariableIref((VariableInAtomicSwcInstanceRef)newValue);
+				setAutosarVariableIref((VariableInAtomicSwcTypeInstanceRef)newValue);
 				return;
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				setAutosarVariable((VariableDataInstanceInSwc)newValue);
@@ -305,7 +305,7 @@ public class AutosarVariableRefImpl extends M2ObjectImpl implements AutosarVaria
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE_IREF:
-				setAutosarVariableIref((VariableInAtomicSwcInstanceRef)null);
+				setAutosarVariableIref((VariableInAtomicSwcTypeInstanceRef)null);
 				return;
 			case M2Package.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE:
 				setAutosarVariable((VariableDataInstanceInSwc)null);

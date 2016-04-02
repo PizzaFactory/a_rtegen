@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
@@ -46,6 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 import java.io.PrintStream;
 import java.util.List;
 
+import jp.ac.nagoya_u.is.nces.a_rte.app.AppResources;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 
@@ -156,6 +157,12 @@ public class GeneratorOptions {
 	 */
 	@Argument(usage = "Input files(AUTOSAR XMLs)", metaVar = "<file1> [<file2> [<file3>] ...]", required = true)
 	public List<String> inputFiles = Lists.newArrayList();
+	
+	/**
+	 * AUTOSARスキーマファイルのディレクトリのパス
+	 */
+	@Option(name = "--schema-directory", usage = "Specify the schema directory for AUTOSAR scheme file", metaVar = "<directory>")
+	public String schemaDirectory = AppResources.getDefaultSchemaDirectory();
 
 	public GeneratorOptions(IProject project) {
 		this.project = project;

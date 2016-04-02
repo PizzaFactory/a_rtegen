@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -79,6 +79,10 @@ public class InteractionModelBuildDirector implements IInteractionModelBuildDire
 			context.eResource.getContents().add(interactionRoot);
 			context.cache.interactionRoot = interactionRoot;
 
+			// エンティティの連携内容・連携実現方式モデルを構築
+			EntityInteractionModelBuilder entityInteractionBuilder = new EntityInteractionModelBuilder(context);
+			entityInteractionBuilder.build();
+
 			// S/Rの連携内容モデルを構築
 			SenderReceiverInteractionModelBuilder srInteractionBuilder = new SenderReceiverInteractionModelBuilder(context);
 			srInteractionBuilder.build();
@@ -89,10 +93,6 @@ public class InteractionModelBuildDirector implements IInteractionModelBuildDire
 
 			ComSendProxyModelBuilder comSendProxyBuilder = new ComSendProxyModelBuilder(context);
 			comSendProxyBuilder.build();
-
-			// エンティティの連携内容・連携実現方式モデルを構築
-			EntityInteractionModelBuilder entityInteractionBuilder = new EntityInteractionModelBuilder(context);
-			entityInteractionBuilder.build();
 
 			// 不足しているECUCモデルを生成
 			GeneratedEcucModelBuilder generatedEcucBuilder = new GeneratedEcucModelBuilder(context);

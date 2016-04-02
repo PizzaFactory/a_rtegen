@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -135,10 +135,10 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * COM受信コールバックを生成するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined())'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction->exists(not implementation.oclIsUndefined())\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty())'"
 	 * @generated
 	 */
-	boolean providesComReceiveCallback(ExternalEcuSender this_);
+	boolean providesComRxCallback(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,10 +147,10 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * COM無効化コールバックを生成するかどうか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty() and isInvalidationEnabled())'"
 	 * @generated
 	 */
-	boolean providesComInvalidateCallback(ExternalEcuSender this_);
+	boolean providesComInvCallback(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -162,7 +162,7 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isAliveTimeoutEnabled()))'"
 	 * @generated
 	 */
-	boolean providesComReceiveTimeoutCallback(ExternalEcuSender this_);
+	boolean providesComRxTOutCallback(ExternalEcuSender this_);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,7 +171,7 @@ public interface ExternalEcuSenderEx extends ExtendedEObject {
 	 * COMコールバックを生成するかどうか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='providesComReceiveCallback(this_)\n\t\t\t\t   or providesComInvalidateCallback(this_)\n\t\t\t\t   or providesComReceiveTimeoutCallback(this_)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='providesComRxCallback(this_)\n\t\t\t\t   or providesComInvCallback(this_)\n\t\t\t\t   or providesComRxTOutCallback(this_)'"
 	 * @generated
 	 */
 	boolean providesComCallback(ExternalEcuSender this_);

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,6 +54,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.COM_S
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_FILTER__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INITIALIZATION__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___REQUIRES_RTE_INVALIDATION__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_PARTITION__VARIABLEDATAINSTANCEINCOMPOSITION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER__SOURCE_SIGNAL_GROUP;
@@ -74,7 +75,14 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.AssemblyDataInstanceConnector;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RteEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
@@ -84,6 +92,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import com.google.common.base.Optional;
@@ -124,6 +133,15 @@ public class SenderReceiverInteractionModelBuilder {
 		InternalEcuSender destSender = InteractionFactory.eINSTANCE.createInternalEcuSender();
 		destSender.setOwnerPartition(ownerPartition);
 		destSender.setSource(sourceDataInstanceInComposition);
+		if (((PVariableDataInstanceInSwc)sourceDataInstanceInComposition.getPrototype()).isTAckEnabled()) {
+			EList<DataSendCompletedEvent> rteEvents = ((PVariableDataInstanceInSwc)sourceDataInstanceInComposition.getPrototype()).getRelatedDataSendCompletedEvent();
+			for (RteEvent rteEvent : rteEvents) {
+				EntityStarter entityStarter = (EntityStarter) this.context.query.get(rteEvent, RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT);
+				if (! destSender.getActivatesOnSendCompleted().contains(entityStarter)) {
+					destSender.getActivatesOnSendCompleted().add(entityStarter);
+				}
+			}
+		}
 		return destSender;
 	}
 
@@ -133,6 +151,21 @@ public class SenderReceiverInteractionModelBuilder {
 		InternalEcuReceiver destReceiver = InteractionFactory.eINSTANCE.createInternalEcuReceiver();
 		destReceiver.setOwnerPartition(ownerPartition);
 		destReceiver.setSource(sourceDataInstanceInComposition);
+		
+		EList<DataReceivedEvent> drEvents = ((RVariableDataInstanceInSwc)sourceDataInstanceInComposition.getPrototype()).getRelatedDataReceivedEvent();
+		for (RteEvent rteEvent : drEvents) {
+			EntityStarter entityStarter = (EntityStarter) this.context.query.get(rteEvent, RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT);
+			if (! destReceiver.getActivatesOnReceived().contains(entityStarter)) {
+				destReceiver.getActivatesOnReceived().add(entityStarter);
+			}
+		}
+		EList<DataReceiveErrorEvent> dreEvents = ((RVariableDataInstanceInSwc)sourceDataInstanceInComposition.getPrototype()).getRelatedDataReceiveErrorEvent();
+		for (RteEvent rteEvent : dreEvents) {
+			EntityStarter entityStarter = (EntityStarter) this.context.query.get(rteEvent, RTE_EVENT_EX___GET_RELATED_ENTITY_STARTER__RTEEVENT);
+			if (! destReceiver.getActivatesOnReceiveError().contains(entityStarter)) {
+				destReceiver.getActivatesOnReceiveError().add(entityStarter);
+			}
+		}
 		return destReceiver;
 	}
 

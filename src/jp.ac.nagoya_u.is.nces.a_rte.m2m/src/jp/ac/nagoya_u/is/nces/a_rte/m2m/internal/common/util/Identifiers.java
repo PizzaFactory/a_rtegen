@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -105,20 +105,12 @@ public class Identifiers { // COVERAGE 常に未達(インスタンス生成が�
 		return RTE_ID_PREFIX + "Sr" + getImplExtension(dataInstanceInSwc);
 	}
 
-	public static String createPeriodicComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
+	public static String createPeriodicComProxyRequestOsIocCommunicationName(ComSendProxyInteraction proxyInteraction) {
+		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName();
 	}
 
-	public static String createImmediateComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
-	}
-	
-	public static String createPeriodicComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
-	}
-
-	public static String createImmediateComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
+	public static String createImmediateComProxyRequestOsIocCommunicationName(ComSendProxyInteraction proxyInteraction) {
+		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName();
 	}
 
 	public static String createPeriodicComProxyValueOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable comSignalOrComSignalGroup) {

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -54,7 +54,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType;
 
 import com.google.common.base.Optional;
 
@@ -99,9 +100,12 @@ public class ModuleModelBuildCache {
 	public Constant rteErrorOkConstant;
 	public Constant rteErrorInvalidConstant;
 	public Constant rteErrorMaxAgeExceededConstant;
+	public Constant rteTransimitAckConstant;
+	public Constant booleanFalse;
 	
 	// 内部実装用の定義型
-	public Optional<RteSendTrustedFunctionParamType> rteSendTfParamType;
+	public Optional<RteQueuedSendTrustedFunctionParamType> rteQueuedSendTfParamType;
+	public Optional<RteNonqueuedSendTrustedFunctionParamType> rteNonqueuedSendTfParamType;
 	public Optional<ComSendTrustedFunctionParamType> comSendSignalTfParamType;
 	public Optional<ComSendTrustedFunctionParamType> comSendSignalGroupTfParamType;
 

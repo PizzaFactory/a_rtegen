@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -233,15 +233,22 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.RUNNABLE_ENTITY: return (EObject)createRunnableEntity();
 			case M2Package.VARIABLE_ACCESS: return (EObject)createVariableAccess();
 			case M2Package.AUTOSAR_VARIABLE_REF: return (EObject)createAutosarVariableRef();
-			case M2Package.VARIABLE_IN_ATOMIC_SWC_INSTANCE_REF: return (EObject)createVariableInAtomicSwcInstanceRef();
+			case M2Package.VARIABLE_IN_ATOMIC_SWC_TYPE_INSTANCE_REF: return (EObject)createVariableInAtomicSwcTypeInstanceRef();
 			case M2Package.TIMING_EVENT: return (EObject)createTimingEvent();
+			case M2Package.BACKGROUND_EVENT: return (EObject)createBackgroundEvent();
+			case M2Package.DATA_SEND_COMPLETED_EVENT: return (EObject)createDataSendCompletedEvent();
+			case M2Package.DATA_RECEIVED_EVENT: return (EObject)createDataReceivedEvent();
+			case M2Package.DATA_RECEIVE_ERROR_EVENT: return (EObject)createDataReceiveErrorEvent();
+			case M2Package.RVARIABLE_IN_ATOMIC_SWC_INSTANCE_REF: return (EObject)createRVariableInAtomicSwcInstanceRef();
 			case M2Package.ECUC_MODULE_CONFIGURATION_VALUES: return (EObject)createEcucModuleConfigurationValues();
 			case M2Package.ECUC_CONTAINER_VALUE: return (EObject)createEcucContainerValue();
 			case M2Package.ECUC_NUMERICAL_PARAM_VALUE: return (EObject)createEcucNumericalParamValue();
 			case M2Package.ECUC_TEXTUAL_PARAM_VALUE: return (EObject)createEcucTextualParamValue();
 			case M2Package.ECUC_REFERENCE_VALUE: return (EObject)createEcucReferenceValue();
 			case M2Package.ECUC_INSTANCE_REFERENCE_VALUE: return (EObject)createEcucInstanceReferenceValue();
+			case M2Package.TRANSMISSION_ACKNOWLEDGEMENT_REQUEST: return (EObject)createTransmissionAcknowledgementRequest();
 			case M2Package.NONQUEUED_SENDER_COM_SPEC: return (EObject)createNonqueuedSenderComSpec();
+			case M2Package.QUEUED_SENDER_COM_SPEC: return (EObject)createQueuedSenderComSpec();
 			case M2Package.NONQUEUED_RECEIVER_COM_SPEC: return (EObject)createNonqueuedReceiverComSpec();
 			case M2Package.PORT_INTERFACE: return (EObject)createPortInterface();
 			case M2Package.COMPOSITION_SW_COMPONENT_TYPE: return (EObject)createCompositionSwComponentType();
@@ -302,6 +309,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.COMPU: return (EObject)createCompu();
 			case M2Package.LIMIT: return (EObject)createLimit();
 			case M2Package.COMPU_SCALE: return (EObject)createCompuScale();
+			case M2Package.COMPU_CONST: return (EObject)createCompuConst();
 			case M2Package.ANY_INSTANCE_REF: return (EObject)createAnyInstanceRef();
 			case M2Package.ECU_ABSTRACTION_SW_COMPONENT_TYPE: return (EObject)createEcuAbstractionSwComponentType();
 			case M2Package.NV_BLOCK_SW_COMPONENT_TYPE: return (EObject)createNvBlockSwComponentType();
@@ -322,6 +330,7 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 			case M2Package.BSW_MODE_SWITCH_EVENT: return (EObject)createBswModeSwitchEvent();
 			case M2Package.MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF: return (EObject)createModeInBswModuleDescriptionInstanceRef();
 			case M2Package.BSW_TIMING_EVENT: return (EObject)createBswTimingEvent();
+			case M2Package.BSW_BACKGROUND_EVENT: return (EObject)createBswBackgroundEvent();
 			case M2Package.BSW_CALLED_ENTITY: return (EObject)createBswCalledEntity();
 			case M2Package.BSW_INTERRUPT_ENTITY: return (EObject)createBswInterruptEntity();
 			case M2Package.SYSTEM_SIGNAL_GROUP: return (EObject)createSystemSignalGroup();
@@ -610,9 +619,9 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableInAtomicSwcInstanceRef createVariableInAtomicSwcInstanceRef() {
-		VariableInAtomicSwcInstanceRefImpl variableInAtomicSwcInstanceRef = new VariableInAtomicSwcInstanceRefImpl();
-		return variableInAtomicSwcInstanceRef;
+	public VariableInAtomicSwcTypeInstanceRef createVariableInAtomicSwcTypeInstanceRef() {
+		VariableInAtomicSwcTypeInstanceRefImpl variableInAtomicSwcTypeInstanceRef = new VariableInAtomicSwcTypeInstanceRefImpl();
+		return variableInAtomicSwcTypeInstanceRef;
 	}
 
 	/**
@@ -623,6 +632,56 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	public TimingEvent createTimingEvent() {
 		TimingEventImpl timingEvent = new TimingEventImpl();
 		return timingEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BackgroundEvent createBackgroundEvent() {
+		BackgroundEventImpl backgroundEvent = new BackgroundEventImpl();
+		return backgroundEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataSendCompletedEvent createDataSendCompletedEvent() {
+		DataSendCompletedEventImpl dataSendCompletedEvent = new DataSendCompletedEventImpl();
+		return dataSendCompletedEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataReceivedEvent createDataReceivedEvent() {
+		DataReceivedEventImpl dataReceivedEvent = new DataReceivedEventImpl();
+		return dataReceivedEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataReceiveErrorEvent createDataReceiveErrorEvent() {
+		DataReceiveErrorEventImpl dataReceiveErrorEvent = new DataReceiveErrorEventImpl();
+		return dataReceiveErrorEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RVariableInAtomicSwcInstanceRef createRVariableInAtomicSwcInstanceRef() {
+		RVariableInAtomicSwcInstanceRefImpl rVariableInAtomicSwcInstanceRef = new RVariableInAtomicSwcInstanceRefImpl();
+		return rVariableInAtomicSwcInstanceRef;
 	}
 
 	/**
@@ -690,9 +749,29 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TransmissionAcknowledgementRequest createTransmissionAcknowledgementRequest() {
+		TransmissionAcknowledgementRequestImpl transmissionAcknowledgementRequest = new TransmissionAcknowledgementRequestImpl();
+		return transmissionAcknowledgementRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NonqueuedSenderComSpec createNonqueuedSenderComSpec() {
 		NonqueuedSenderComSpecImpl nonqueuedSenderComSpec = new NonqueuedSenderComSpecImpl();
 		return nonqueuedSenderComSpec;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueuedSenderComSpec createQueuedSenderComSpec() {
+		QueuedSenderComSpecImpl queuedSenderComSpec = new QueuedSenderComSpecImpl();
+		return queuedSenderComSpec;
 	}
 
 	/**
@@ -1290,6 +1369,16 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CompuConst createCompuConst() {
+		CompuConstImpl compuConst = new CompuConstImpl();
+		return compuConst;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public AnyInstanceRef createAnyInstanceRef() {
 		AnyInstanceRefImpl anyInstanceRef = new AnyInstanceRefImpl();
 		return anyInstanceRef;
@@ -1483,6 +1572,16 @@ public class M2FactoryImpl extends EFactoryImpl implements M2Factory {
 	public BswTimingEvent createBswTimingEvent() {
 		BswTimingEventImpl bswTimingEvent = new BswTimingEventImpl();
 		return bswTimingEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswBackgroundEvent createBswBackgroundEvent() {
+		BswBackgroundEventImpl bswBackgroundEvent = new BswBackgroundEventImpl();
+		return bswBackgroundEvent;
 	}
 
 	/**

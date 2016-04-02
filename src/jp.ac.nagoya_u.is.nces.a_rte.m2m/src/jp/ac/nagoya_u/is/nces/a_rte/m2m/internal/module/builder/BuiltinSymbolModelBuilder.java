@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -118,8 +118,14 @@ public class BuiltinSymbolModelBuilder {
 
 		this.context.cache.rteErrorMaxAgeExceededConstant = createBuiltinConstant(SymbolNames.RTE_E_MAX_AGE_EXCEEDED_CONSTANT_NAME);
 		targetRte.getDependentConstant().add(this.context.cache.rteErrorMaxAgeExceededConstant);
-	}
 
+		this.context.cache.rteTransimitAckConstant = createBuiltinConstant(SymbolNames.RTE_E_TRANSMIT_ACK_CONSTANT_NAME);
+		targetRte.getDependentConstant().add(this.context.cache.rteTransimitAckConstant);
+
+		this.context.cache.booleanFalse = createBuiltinConstant(SymbolNames.BOOLEAN_FALSE_NAME);
+		targetRte.getDependentConstant().add(this.context.cache.booleanFalse);
+	}
+	
 	private Constant createBuiltinConstant(String symbolName) {
 		Constant constant = ModuleFactory.eINSTANCE.createConstant();
 		constant.setSymbolName(symbolName);

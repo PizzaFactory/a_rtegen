@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -66,7 +66,7 @@ public interface PVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * Write APIを提供するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics() and this_.isAccessedByDataSendPoint()'"
 	 * @generated
 	 */
 	boolean providesWriteApi(PVariableDataInstanceInSwc this_);
@@ -78,7 +78,7 @@ public interface PVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * Invalidate APIを提供するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics() and this_.isInvalidationEnabled() and\n\t\t\t\t\tthis_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not this_.isEventSemantics() and this_.isInvalidationEnabled() and this_.isAccessedByDataSendPoint()'"
 	 * @generated
 	 */
 	boolean providesInvalidateApi(PVariableDataInstanceInSwc this_);
@@ -90,9 +90,21 @@ public interface PVariableDataInstanceInSwcEx extends ExtendedEObject {
 	 * Send APIを提供するか
 	 * <!-- end-model-doc -->
 	 * @model required="true" this_Required="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.isEventSemantics() and this_.getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint\n\t\t\t\t\t->exists(accessedVariable.autosarVariable = this_)'"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.isEventSemantics() and this_.isAccessedByDataSendPoint()'"
 	 * @generated
 	 */
 	boolean providesSendApi(PVariableDataInstanceInSwc this_);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * FeedbackApiを提供するか
+	 * <!-- end-model-doc -->
+	 * @model required="true" this_Required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='this_.isAccessedByDataSendPoint() and this_.isTAckEnabled()'"
+	 * @generated
+	 */
+	boolean providesFeedbackApi(PVariableDataInstanceInSwc this_);
 
 } // PVariableDataInstanceInSwcEx

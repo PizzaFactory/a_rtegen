@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -59,7 +59,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ImplementationDataType;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getRequesterPartition <em>Requester Partition</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getSignalDataType <em>Signal Data Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getRequestOsIocCommunication <em>Request Os Ioc Communication</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType <em>Value Os Ioc Communication For Complex Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunication <em>Value Os Ioc Communication</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getProxy <em>Proxy</em>}</li>
  * </ul>
  * </p>
@@ -151,29 +151,29 @@ public interface ComSendProxyInteraction extends Interaction {
 	void setRequestOsIocCommunication(OsIocCommunication value);
 
 	/**
-	 * Returns the value of the '<em><b>Value Os Ioc Communication For Complex Type</b></em>' reference.
+	 * Returns the value of the '<em><b>Value Os Ioc Communication</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * 値伝搬用IOC通信
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Value Os Ioc Communication For Complex Type</em>' reference.
-	 * @see #setValueOsIocCommunicationForComplexType(OsIocCommunication)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getComSendProxyInteraction_ValueOsIocCommunicationForComplexType()
-	 * @model
+	 * @return the value of the '<em>Value Os Ioc Communication</em>' reference.
+	 * @see #setValueOsIocCommunication(OsIocCommunication)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getComSendProxyInteraction_ValueOsIocCommunication()
+	 * @model required="true"
 	 * @generated
 	 */
-	OsIocCommunication getValueOsIocCommunicationForComplexType();
+	OsIocCommunication getValueOsIocCommunication();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType <em>Value Os Ioc Communication For Complex Type</em>}' reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunication <em>Value Os Ioc Communication</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Value Os Ioc Communication For Complex Type</em>' reference.
-	 * @see #getValueOsIocCommunicationForComplexType()
+	 * @param value the new value of the '<em>Value Os Ioc Communication</em>' reference.
+	 * @see #getValueOsIocCommunication()
 	 * @generated
 	 */
-	void setValueOsIocCommunicationForComplexType(OsIocCommunication value);
+	void setValueOsIocCommunication(OsIocCommunication value);
 
 	/**
 	 * Returns the value of the '<em><b>Proxy</b></em>' reference.

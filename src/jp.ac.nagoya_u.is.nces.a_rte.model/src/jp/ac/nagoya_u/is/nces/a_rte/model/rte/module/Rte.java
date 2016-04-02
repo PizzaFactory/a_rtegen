@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -69,7 +69,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType <em>Cs Tf Param Type</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType <em>Sr Rte Nonqueued Send Tf Param Type</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType <em>Sr Rte Queued Send Tf Param Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant <em>Sr Rte Buffer Queue Max Length Constant</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant <em>Immediate Constant</em>}</li>
@@ -497,30 +498,56 @@ public interface Rte extends LogicalCompartment {
 	EList<CsTrustedFunctionParamType> getCsTfParamType();
 
 	/**
-	 * Returns the value of the '<em><b>Sr Rte Send Tf Param Type</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sr Rte Nonqueued Send Tf Param Type</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Sr Rte Send Tf Param Type</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Sr Rte Nonqueued Send Tf Param Type</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sr Rte Send Tf Param Type</em>' containment reference.
-	 * @see #setSrRteSendTfParamType(RteSendTrustedFunctionParamType)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteSendTfParamType()
+	 * @return the value of the '<em>Sr Rte Nonqueued Send Tf Param Type</em>' containment reference.
+	 * @see #setSrRteNonqueuedSendTfParamType(RteNonqueuedSendTrustedFunctionParamType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteNonqueuedSendTfParamType()
 	 * @model containment="true"
 	 * @generated
 	 */
-	RteSendTrustedFunctionParamType getSrRteSendTfParamType();
+	RteNonqueuedSendTrustedFunctionParamType getSrRteNonqueuedSendTfParamType();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteSendTfParamType <em>Sr Rte Send Tf Param Type</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType <em>Sr Rte Nonqueued Send Tf Param Type</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sr Rte Send Tf Param Type</em>' containment reference.
-	 * @see #getSrRteSendTfParamType()
+	 * @param value the new value of the '<em>Sr Rte Nonqueued Send Tf Param Type</em>' containment reference.
+	 * @see #getSrRteNonqueuedSendTfParamType()
 	 * @generated
 	 */
-	void setSrRteSendTfParamType(RteSendTrustedFunctionParamType value);
+	void setSrRteNonqueuedSendTfParamType(RteNonqueuedSendTrustedFunctionParamType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sr Rte Queued Send Tf Param Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Queued Send Tf Param Type</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Queued Send Tf Param Type</em>' containment reference.
+	 * @see #setSrRteQueuedSendTfParamType(RteQueuedSendTrustedFunctionParamType)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteQueuedSendTfParamType()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RteQueuedSendTrustedFunctionParamType getSrRteQueuedSendTfParamType();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType <em>Sr Rte Queued Send Tf Param Type</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sr Rte Queued Send Tf Param Type</em>' containment reference.
+	 * @see #getSrRteQueuedSendTfParamType()
+	 * @generated
+	 */
+	void setSrRteQueuedSendTfParamType(RteQueuedSendTrustedFunctionParamType value);
 
 	/**
 	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list.

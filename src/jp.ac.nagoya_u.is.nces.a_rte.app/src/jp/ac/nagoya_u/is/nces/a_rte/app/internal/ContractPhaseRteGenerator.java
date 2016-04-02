@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *  Copyright (C) 2016 by Monami-ya LLC, Japan.
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
@@ -46,6 +46,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.app.internal;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_IMPLEMENTATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE;
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
+import jp.ac.nagoya_u.is.nces.a_rte.app.AppResources;
 import jp.ac.nagoya_u.is.nces.a_rte.app.GeneratorInitOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodeFormatter;
 import jp.ac.nagoya_u.is.nces.a_rte.codegen.CodegenException;
@@ -99,8 +100,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	public ContractPhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		try {
 			this.loader = AutosarModelLoader.forContractPhase();
-			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
-
+			
 			this.rteValidatorM2 = ModelValidator.forRteContractPhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteContractPhaseInstance();
 			this.bswmValidatorM2 = ModelValidator.forBswmContractPhaseM2();

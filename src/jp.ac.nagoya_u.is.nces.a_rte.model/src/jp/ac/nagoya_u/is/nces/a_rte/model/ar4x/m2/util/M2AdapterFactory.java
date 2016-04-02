@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -333,8 +333,8 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createAutosarVariableRefAdapter();
 			}
 			@Override
-			public Adapter caseVariableInAtomicSwcInstanceRef(VariableInAtomicSwcInstanceRef object) {
-				return createVariableInAtomicSwcInstanceRefAdapter();
+			public Adapter caseVariableInAtomicSwcTypeInstanceRef(VariableInAtomicSwcTypeInstanceRef object) {
+				return createVariableInAtomicSwcTypeInstanceRefAdapter();
 			}
 			@Override
 			public Adapter caseRteEvent(RteEvent object) {
@@ -343,6 +343,26 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTimingEvent(TimingEvent object) {
 				return createTimingEventAdapter();
+			}
+			@Override
+			public Adapter caseBackgroundEvent(BackgroundEvent object) {
+				return createBackgroundEventAdapter();
+			}
+			@Override
+			public Adapter caseDataSendCompletedEvent(DataSendCompletedEvent object) {
+				return createDataSendCompletedEventAdapter();
+			}
+			@Override
+			public Adapter caseDataReceivedEvent(DataReceivedEvent object) {
+				return createDataReceivedEventAdapter();
+			}
+			@Override
+			public Adapter caseDataReceiveErrorEvent(DataReceiveErrorEvent object) {
+				return createDataReceiveErrorEventAdapter();
+			}
+			@Override
+			public Adapter caseRVariableInAtomicSwcInstanceRef(RVariableInAtomicSwcInstanceRef object) {
+				return createRVariableInAtomicSwcInstanceRefAdapter();
 			}
 			@Override
 			public Adapter caseEcucModuleConfigurationValues(EcucModuleConfigurationValues object) {
@@ -393,8 +413,16 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createSenderComSpecAdapter();
 			}
 			@Override
+			public Adapter caseTransmissionAcknowledgementRequest(TransmissionAcknowledgementRequest object) {
+				return createTransmissionAcknowledgementRequestAdapter();
+			}
+			@Override
 			public Adapter caseNonqueuedSenderComSpec(NonqueuedSenderComSpec object) {
 				return createNonqueuedSenderComSpecAdapter();
+			}
+			@Override
+			public Adapter caseQueuedSenderComSpec(QueuedSenderComSpec object) {
+				return createQueuedSenderComSpecAdapter();
 			}
 			@Override
 			public Adapter caseNonqueuedReceiverComSpec(NonqueuedReceiverComSpec object) {
@@ -677,6 +705,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 				return createCompuScaleAdapter();
 			}
 			@Override
+			public Adapter caseCompuConst(CompuConst object) {
+				return createCompuConstAdapter();
+			}
+			@Override
 			public Adapter caseAnyInstanceRef(AnyInstanceRef object) {
 				return createAnyInstanceRefAdapter();
 			}
@@ -775,6 +807,10 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBswTimingEvent(BswTimingEvent object) {
 				return createBswTimingEventAdapter();
+			}
+			@Override
+			public Adapter caseBswBackgroundEvent(BswBackgroundEvent object) {
+				return createBswBackgroundEventAdapter();
 			}
 			@Override
 			public Adapter caseBswCalledEntity(BswCalledEntity object) {
@@ -1135,16 +1171,16 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef <em>Variable In Atomic Swc Instance Ref</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcTypeInstanceRef <em>Variable In Atomic Swc Type Instance Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcTypeInstanceRef
 	 * @generated
 	 */
-	public Adapter createVariableInAtomicSwcInstanceRefAdapter() {
+	public Adapter createVariableInAtomicSwcTypeInstanceRefAdapter() {
 		return null;
 	}
 
@@ -1173,6 +1209,76 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BackgroundEvent <em>Background Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BackgroundEvent
+	 * @generated
+	 */
+	public Adapter createBackgroundEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent <em>Data Send Completed Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent
+	 * @generated
+	 */
+	public Adapter createDataSendCompletedEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent <em>Data Received Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent
+	 * @generated
+	 */
+	public Adapter createDataReceivedEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent <em>Data Receive Error Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent
+	 * @generated
+	 */
+	public Adapter createDataReceiveErrorEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RVariableInAtomicSwcInstanceRef <em>RVariable In Atomic Swc Instance Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RVariableInAtomicSwcInstanceRef
+	 * @generated
+	 */
+	public Adapter createRVariableInAtomicSwcInstanceRefAdapter() {
 		return null;
 	}
 
@@ -1345,6 +1451,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TransmissionAcknowledgementRequest <em>Transmission Acknowledgement Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TransmissionAcknowledgementRequest
+	 * @generated
+	 */
+	public Adapter createTransmissionAcknowledgementRequestAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedSenderComSpec <em>Nonqueued Sender Com Spec</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1355,6 +1475,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNonqueuedSenderComSpecAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.QueuedSenderComSpec <em>Queued Sender Com Spec</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.QueuedSenderComSpec
+	 * @generated
+	 */
+	public Adapter createQueuedSenderComSpecAdapter() {
 		return null;
 	}
 
@@ -2325,6 +2459,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuConst <em>Compu Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuConst
+	 * @generated
+	 */
+	public Adapter createCompuConstAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AnyInstanceRef <em>Any Instance Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2671,6 +2819,20 @@ public class M2AdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBswTimingEventAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswBackgroundEvent <em>Bsw Background Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswBackgroundEvent
+	 * @generated
+	 */
+	public Adapter createBswBackgroundEventAdapter() {
 		return null;
 	}
 

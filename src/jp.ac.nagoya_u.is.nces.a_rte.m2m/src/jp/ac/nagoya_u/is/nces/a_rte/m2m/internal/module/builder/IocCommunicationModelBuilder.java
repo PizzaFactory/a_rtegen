@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -74,12 +74,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocNonqueuedCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReadApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocWriteApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
@@ -275,35 +272,8 @@ public class IocCommunicationModelBuilder {
 
 	private void buildComProxyIocCommunications(Rte targetRte) throws ModelException {
 		for (ComSendProxyInteraction sourceProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
-			if (sourceProxyInteraction.getSignalDataType().isPrimitiveType()) {
-				buildComProxyIocCommunicationForPrimitiveType(targetRte, sourceProxyInteraction);
-			} else {
-				buildComProxyIocCommunicationForComplexType(targetRte, sourceProxyInteraction);
-			}
+			buildComProxyIocCommunicationForComplexType(targetRte, sourceProxyInteraction);
 		}
-	}
-
-	private void buildComProxyIocCommunicationForPrimitiveType(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
-		// NOTE グループ通信では送信プロパティは必ず1つ
-		OsIocSenderProperties sourceOsIocSenderProperties = sourceProxyInteraction.getRequestOsIocCommunication().getOsIocSenderProperties().get(0);
-
-		IocQueuedGroupCommunication destIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedGroupCommunication();
-
-		IocReceiveGroupApi destIocReceiveApi = ModuleFactory.eINSTANCE.createIocReceiveGroupApi();
-		destIocReceiveApi.setSingleSource(sourceProxyInteraction.getRequestOsIocCommunication());
-		destIocReceiveApi.setSymbolName(SymbolNames.createIocReceiveGroupApiName(sourceProxyInteraction.getRequestOsIocCommunication()));
-		destIocReceiveApi.setMappingName(SymbolNames.createIocReceiveGroupApiMappingName(sourceProxyInteraction.getRequestOsIocCommunication()));
-		buildReceiverIocApiSignature(destIocReceiveApi, sourceProxyInteraction.getRequestOsIocCommunication());
-		destIocCommunication.setReceiveApi(destIocReceiveApi);
-
-		IocSendGroupApi destIocSendApi = ModuleFactory.eINSTANCE.createIocSendGroupApi();
-		destIocSendApi.setSingleSource(sourceOsIocSenderProperties);
-		destIocSendApi.setSymbolName(SymbolNames.createIocSendGroupApiName(sourceOsIocSenderProperties));
-		destIocSendApi.setMappingName(SymbolNames.createIocSendGroupApiMappingName(sourceOsIocSenderProperties));
-		buildSenderIocApiSignature(destIocSendApi, sourceProxyInteraction.getRequestOsIocCommunication());
-		destIocCommunication.setSendApi(destIocSendApi);
-
-		targetRte.getDependentIocCommunication().add(destIocCommunication);
 	}
 
 	private void buildComProxyIocCommunicationForComplexType(Rte targetRte, ComSendProxyInteraction sourceProxyInteraction) throws ModelException {
@@ -316,7 +286,7 @@ public class IocCommunicationModelBuilder {
 		targetRte.getDependentIocCommunication().add(destRequestIocCommunication);
 
 		// 値やり取り用
-		OsIocCommunication sourceValueOsIocCommunication = sourceProxyInteraction.getValueOsIocCommunicationForComplexType();
+		OsIocCommunication sourceValueOsIocCommunication = sourceProxyInteraction.getValueOsIocCommunication();
 
 		IocQueuedCommunication destValueIocCommunication = ModuleFactory.eINSTANCE.createIocQueuedCommunication();
 		destValueIocCommunication.setReceiveApi(createIocReceiveApi(sourceValueOsIocCommunication));
@@ -334,7 +304,7 @@ public class IocCommunicationModelBuilder {
 	}
 
 	private IocSendApi createIocSendApi(OsIocCommunication sourceOsIocCommunication) throws ModelException {
-		// NOTE Complex用では送信プロパティは必ず1つ
+		// 送信プロパティは必ず1つ
 		OsIocSenderProperties sourceOsIocSenderProperties = sourceOsIocCommunication.getOsIocSenderProperties().get(0);
 
 		IocSendApi destIocSendApi = ModuleFactory.eINSTANCE.createIocSendApi();

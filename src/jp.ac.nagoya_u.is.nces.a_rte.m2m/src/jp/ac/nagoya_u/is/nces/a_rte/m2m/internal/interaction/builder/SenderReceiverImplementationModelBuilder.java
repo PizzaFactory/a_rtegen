@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -43,6 +43,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.interaction.builder;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_VARIABLE__RVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER__REQUIRES_RTE_FILTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERNAL_ECU_RECEIVER;
@@ -54,6 +55,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSwc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilterTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.DirectComSendImplementation;
@@ -63,6 +65,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementa
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateProxyComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicProxyComSendImplementation;
@@ -72,6 +75,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
 
@@ -137,11 +141,35 @@ public class SenderReceiverImplementationModelBuilder {
 	}
 
 	private void buildSendImplementations() throws ModelException {
-		// SendInteractionのImplementationを設定
 		for (Sender sourceSender : this.context.query.<Sender> findByKind(SENDER)) {
+			// TAckStatusVariableImplementationを設定
+			if (sourceSender instanceof InternalEcuSender) {
+				buildTAckStatusVariableImplementation((InternalEcuSender) sourceSender);
+			}
+
+			// SendInteractionのImplementationを設定
 			for (SendInteraction sourceAndTargetSendInteraction : sourceSender.getSendInteraction()) {
 				buildSendImplementation(sourceAndTargetSendInteraction, sourceSender);
 			}
+		}
+	}
+
+	private void buildTAckStatusVariableImplementation(InternalEcuSender sourceSender) throws ModelException {
+		// 1:0連携であれば，TAｃｋStatusは作成不要(常にRTE_E_UNCONNECTEDを返すため)
+		if (sourceSender.getSendInteraction().isEmpty()) {
+			return;
+		}
+		// ECU内連携のみであれば，TAｃｋStatusは作成不要(常にRTE_E_TRANSMIT_ACKを返すため)
+		if (sourceSender.getExternalEcuReceivers().isEmpty()) {
+			return;
+		}
+
+		VariableDataInstanceInSwc variableDataInstanceInSwc = sourceSender.getSource().getPrototype();
+		// FeedbackApiの提供有無をチェック(variableDataInstanceInSwcEx_...)
+		if(this.context.query.get(variableDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)){
+			TAckStatusVariableImplementation destTAckStatusVariableImplementation = InteractionFactory.eINSTANCE.createTAckStatusVariableImplementation();
+			destTAckStatusVariableImplementation.setOwnerPartition(sourceSender.getOwnerPartition());
+			sourceSender.setTAckStatusVariableImplementation(destTAckStatusVariableImplementation);
 		}
 	}
 
@@ -178,7 +206,7 @@ public class SenderReceiverImplementationModelBuilder {
 				destDirectComSendImplementation.setComSignal(sourceComSignal);
 				destDirectComSendImplementation.setComSignalGroup(sourceComSignalGroup);
 				sourceAndTargetSendInteraction.setImplementation(destDirectComSendImplementation);
-			} else if ((boolean) this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
+			} else if (this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
 				// マスタコア
 				if (sourceSender.getOwnerPartition().isTrusted()) {
 					// 信頼パーティションの場合，直接COM送信

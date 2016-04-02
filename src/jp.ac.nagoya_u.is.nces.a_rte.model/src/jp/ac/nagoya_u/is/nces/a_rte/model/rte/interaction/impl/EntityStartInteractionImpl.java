@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,19 +44,18 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
+import java.math.BigDecimal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -68,7 +67,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getStarter <em>Starter</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getImplementation <em>Implementation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getEventToTaskMapping <em>Event To Task Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getActivationOffset <em>Activation Offset</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getPositionInTask <em>Position In Task</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getTimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,14 +98,64 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	protected EntityStartImplementation implementation;
 
 	/**
-	 * The cached value of the '{@link #getEventToTaskMapping() <em>Event To Task Mapping</em>}' containment reference.
+	 * The default value of the '{@link #getActivationOffset() <em>Activation Offset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventToTaskMapping()
+	 * @see #getActivationOffset()
 	 * @generated
 	 * @ordered
 	 */
-	protected EventToTaskMapping eventToTaskMapping;
+	protected static final BigDecimal ACTIVATION_OFFSET_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getActivationOffset() <em>Activation Offset</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivationOffset()
+	 * @generated
+	 * @ordered
+	 */
+	protected BigDecimal activationOffset = ACTIVATION_OFFSET_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPositionInTask() <em>Position In Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPositionInTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer POSITION_IN_TASK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPositionInTask() <em>Position In Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPositionInTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer positionInTask = POSITION_IN_TASK_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getStartOnEvent() <em>Start On Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartOnEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExecutableEntity startOnEvent;
+
+	/**
+	 * The cached value of the '{@link #getTimingTriggeringEntityStartCondition() <em>Timing Triggering Entity Start Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingTriggeringEntityStartCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TimingTriggeringEntityStartCondition timingTriggeringEntityStartCondition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,8 +284,8 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventToTaskMapping getEventToTaskMapping() {
-		return eventToTaskMapping;
+	public BigDecimal getActivationOffset() {
+		return activationOffset;
 	}
 
 	/**
@@ -241,11 +293,91 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventToTaskMapping(EventToTaskMapping newEventToTaskMapping, NotificationChain msgs) {
-		EventToTaskMapping oldEventToTaskMapping = eventToTaskMapping;
-		eventToTaskMapping = newEventToTaskMapping;
+	public void setActivationOffset(BigDecimal newActivationOffset) {
+		BigDecimal oldActivationOffset = activationOffset;
+		activationOffset = newActivationOffset;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET, oldActivationOffset, activationOffset));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getPositionInTask() {
+		return positionInTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPositionInTask(Integer newPositionInTask) {
+		Integer oldPositionInTask = positionInTask;
+		positionInTask = newPositionInTask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK, oldPositionInTask, positionInTask));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutableEntity getStartOnEvent() {
+		if (startOnEvent != null && ((EObject)startOnEvent).eIsProxy()) {
+			InternalEObject oldStartOnEvent = (InternalEObject)startOnEvent;
+			startOnEvent = (ExecutableEntity)eResolveProxy(oldStartOnEvent);
+			if (startOnEvent != oldStartOnEvent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT, oldStartOnEvent, startOnEvent));
+			}
+		}
+		return startOnEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutableEntity basicGetStartOnEvent() {
+		return startOnEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartOnEvent(ExecutableEntity newStartOnEvent) {
+		ExecutableEntity oldStartOnEvent = startOnEvent;
+		startOnEvent = newStartOnEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT, oldStartOnEvent, startOnEvent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimingTriggeringEntityStartCondition getTimingTriggeringEntityStartCondition() {
+		return timingTriggeringEntityStartCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition newTimingTriggeringEntityStartCondition, NotificationChain msgs) {
+		TimingTriggeringEntityStartCondition oldTimingTriggeringEntityStartCondition = timingTriggeringEntityStartCondition;
+		timingTriggeringEntityStartCondition = newTimingTriggeringEntityStartCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, oldEventToTaskMapping, newEventToTaskMapping);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, oldTimingTriggeringEntityStartCondition, newTimingTriggeringEntityStartCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,18 +388,18 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventToTaskMapping(EventToTaskMapping newEventToTaskMapping) {
-		if (newEventToTaskMapping != eventToTaskMapping) {
+	public void setTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition newTimingTriggeringEntityStartCondition) {
+		if (newTimingTriggeringEntityStartCondition != timingTriggeringEntityStartCondition) {
 			NotificationChain msgs = null;
-			if (eventToTaskMapping != null)
-				msgs = ((InternalEObject)eventToTaskMapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, null, msgs);
-			if (newEventToTaskMapping != null)
-				msgs = ((InternalEObject)newEventToTaskMapping).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, null, msgs);
-			msgs = basicSetEventToTaskMapping(newEventToTaskMapping, msgs);
+			if (timingTriggeringEntityStartCondition != null)
+				msgs = ((InternalEObject)timingTriggeringEntityStartCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, null, msgs);
+			if (newTimingTriggeringEntityStartCondition != null)
+				msgs = ((InternalEObject)newTimingTriggeringEntityStartCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, null, msgs);
+			msgs = basicSetTimingTriggeringEntityStartCondition(newTimingTriggeringEntityStartCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, newEventToTaskMapping, newEventToTaskMapping));
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, newTimingTriggeringEntityStartCondition, newTimingTriggeringEntityStartCondition));
 	}
 
 	/**
@@ -298,8 +430,8 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return basicSetStarter(null, msgs);
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return basicSetImplementation(null, msgs);
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return basicSetEventToTaskMapping(null, msgs);
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return basicSetTimingTriggeringEntityStartCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -317,8 +449,15 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return basicGetStarter();
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return getImplementation();
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return getEventToTaskMapping();
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				return getActivationOffset();
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				return getPositionInTask();
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				if (resolve) return getStartOnEvent();
+				return basicGetStartOnEvent();
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return getTimingTriggeringEntityStartCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -337,8 +476,17 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				setImplementation((EntityStartImplementation)newValue);
 				return;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				setEventToTaskMapping((EventToTaskMapping)newValue);
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				setActivationOffset((BigDecimal)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				setPositionInTask((Integer)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				setStartOnEvent((ExecutableEntity)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				setTimingTriggeringEntityStartCondition((TimingTriggeringEntityStartCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -358,8 +506,17 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				setImplementation((EntityStartImplementation)null);
 				return;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				setEventToTaskMapping((EventToTaskMapping)null);
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				setActivationOffset(ACTIVATION_OFFSET_EDEFAULT);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				setPositionInTask(POSITION_IN_TASK_EDEFAULT);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				setStartOnEvent((ExecutableEntity)null);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				setTimingTriggeringEntityStartCondition((TimingTriggeringEntityStartCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -377,10 +534,34 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return starter != null;
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return implementation != null;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return eventToTaskMapping != null;
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				return ACTIVATION_OFFSET_EDEFAULT == null ? activationOffset != null : !ACTIVATION_OFFSET_EDEFAULT.equals(activationOffset);
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				return POSITION_IN_TASK_EDEFAULT == null ? positionInTask != null : !POSITION_IN_TASK_EDEFAULT.equals(positionInTask);
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				return startOnEvent != null;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return timingTriggeringEntityStartCondition != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (activationOffset: ");
+		result.append(activationOffset);
+		result.append(", positionInTask: ");
+		result.append(positionInTask);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EntityStartInteractionImpl

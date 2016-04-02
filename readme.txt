@@ -1,246 +1,241 @@
 
 		TOPPERS/A-RTEGEN
-		�桼�������ޥ˥奢��
+		ユーザーズマニュアル
 
-���Υɥ�����Ȥϡ�TOPPERS/A-RTEGEN����Ѥ��뤿���ɬ�פʻ��������
-�����ΤǤ��롥
+このドキュメントは，TOPPERS/A-RTEGENを使用するために必要な事項を説明
+するものである．
 
 ----------------------------------------------------------------------
 TOPPERS/A-RTEGEN
     Automotive Runtime Environment 
 
-Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
 
-�嵭����Ԥϡ��ʲ��� (1)��(3)�ξ������������˸¤ꡤ�ܥɥ����
-��ȡ��ܥɥ�����Ȥ���Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
-�ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
-(1) �ܥɥ�����Ȥ����Ѥ�����ˤϡ��嵭�����ɽ�����������Ѿ��
-    ����Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥɥ��������˴ޤޤ��
-    ���뤳�ȡ�
-(2) �ܥɥ�����Ȥ���Ѥ�����ˤϡ��ɥ�����Ȥ���Ѥ����ݤε���
-    �򡤲��Ѹ�Υɥ��������˴ޤ�뤳�ȡ������������Ѹ�Υɥ����
-    ��Ȥ���TOPPERS�ץ��������Ȼ���γ�ȯ����ʪ�Ǥ�����ˤϡ����θ�
-    ��ǤϤʤ���
-(3) �ܥɥ�����Ȥ����Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»��
-    ����⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ��ޤ���
-    �ܥɥ�����ȤΥ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���ͳ�˴��
-    �����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
+上記著作権者は，以下の (1)〜(3)の条件を満たす場合に限り，本ドキュメ
+ント（本ドキュメントを改変したものを含む．以下同じ）を使用・複製・改
+変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+(1) 本ドキュメントを利用する場合には，上記の著作権表示，この利用条件
+    および下記の無保証規定が，そのままの形でドキュメント中に含まれて
+    いること．
+(2) 本ドキュメントを改変する場合には，ドキュメントを改変した旨の記述
+    を，改変後のドキュメント中に含めること．ただし，改変後のドキュメ
+    ントが，TOPPERSプロジェクト指定の開発成果物である場合には，この限
+    りではない．
+(3) 本ドキュメントの利用により直接的または間接的に生じるいかなる損害
+    からも，上記著作権者およびTOPPERSプロジェクトを免責すること．また，
+    本ドキュメントのユーザまたはエンドユーザからのいかなる理由に基づ
+    く請求からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
 
-�ܥɥ�����Ȥϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻���
-�˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������ΤǤϤ�
-����AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū�����Ѥ���
-�Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+本ドキュメントは，AUTOSAR（AUTomotive Open System ARchitecture）仕様
+に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するものではな
+い．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利用する
+者に対して，AUTOSARパートナーになることを求めている．
 
-�ܥɥ�����Ȥϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ���
-��TOPPERS�ץ��������Ȥϡ��ܥɥ�����Ȥ˴ؤ��ơ�����λ�����Ū���Ф�
-��Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥɥ�����Ȥ�����
-�ˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤������Ǥ����
-��ʤ���
+本ドキュメントは，無保証で提供されているものである．上記著作権者およ
+びTOPPERSプロジェクトは，本ドキュメントに関して，特定の使用目的に対す
+る適合性も含めて，いかなる保証も行わない．また，本ドキュメントの利用
+により直接的または間接的に生じたいかなる損害に関しても，その責任を負
+わない．
 
-$Id: readme.txt 488 2015-04-14 08:39:42Z mtakada $
+$Id: readme.txt 651 2016-03-31 06:20:22Z mtakada $
 ----------------------------------------------------------------------
 
-���ܼ�
+○目次
 
-1. ����
-2���ǥ��쥯�ȥ깽�����ե����빽��
-	2.1 ���ۥѥå������Υǥ��쥯�ȥ깽��
-3�����󥹥ȡ�����
-	3.1 ��ȯ�Ķ��ν���
-	3.2 XML�������ޤ�����
-4��A-RTEGEN�λȤ���
-5��A-RTEGEN�����Ѥ���OS����ե�����졼�����
-6. A-RTEGEN���䴰�������Ͼ���
+1. 概要
+2．ディレクトリ構成・ファイル構成
+	2.1 配布パッケージのディレクトリ構成
+3．インストール手順
+	3.1 開発環境の準備
+	3.2 XMLスキーマの入手
+4．A-RTEGENの使い方
+5．A-RTEGENが使用するOSコンフィギュレーション
+6. A-RTEGENが補完する入力情報
 
-1������
+1．概要
 
-AUTOSAR�ˤ�����SW-C�����BSWM���󶡤�����󥿥���Ķ��Ȥ��ơ��ʲ���2�ĤΥ⥸�塼�뤬���롥
+AUTOSARにおけるSW-CおよびBSWMに提供されるランタイム環境として，以下の2つのモジュールがある．
 
-��RTE(RunTime Environment)
-��SCHM(Basic Software Scheduler)
+・RTE(RunTime Environment)
+・SCHM(Basic Software Scheduler)
 
-A-RTEGEN�ϡ�������ֺܥ����ƥ������NCES�ǳ�ȯ����A-RTE�����A-SCHM����������ġ���Ǥ��롥
+A-RTEGENは，次世代車載システム向けにNCESで開発したA-RTEおよびA-SCHMを生成するツールである．
 
-��A-RTE��Automotive RunTime Environment��
-��A-SCHM��Automotive Basic Software Scheduler��
+・A-RTE（Automotive RunTime Environment）
+・A-SCHM（Automotive Basic Software Scheduler）
 
-���줾��Υ⥸�塼��˴ؤ���ܺ٤ϡ��ּ�����ֺܥ����ƥ����RTE�������ͽ�פ򻲾Ȥ��뤳�ȡ�
+それぞれのモジュールに関する詳細は，「次世代車載システム向けRTE外部仕様書」を参照すること．
 
-2���ǥ��쥯�ȥ깽�����ե����빽��
+2．ディレクトリ構成・ファイル構成
 
-2.1 ���ۥѥå������Υǥ��쥯�ȥ깽��
+2.1 配布パッケージのディレクトリ構成
 
 	bin/
-		bin/			A-RTEGEN�μ¹ԥץ������(rtegen.sh)
-		lib/			A-RTEGEN�μ¹Ԥ�ɬ�פȤʤ�饤�֥��
-		model/			A-RTEGEN������Ū�˻��Ѥ����ǥ�ե�����
-		schema/			XML�������ޥե�����(��3.2 XML�������ޤ�����פ��Ỳ��)
+		bin/			A-RTEGENの実行プログラム(rtegen.sh)
+		lib/			A-RTEGENの実行に必要となるライブラリ
+		model/			A-RTEGENが内部的に使用するモデルファイル
+		schema/			XMLスキーマファイル(「3.2 XMLスキーマの入手」の節参照)
 	ecu_extractor/		EcuExtractor
-						���ܺ٤�ecu_extractor/readme.txt�򻲾�
-	sample/				A-RTEGEN��TOPPERS/ATK2��TOPPERS/A-COMSTACK��
-						���Ѥ��뤿��Υ���ץ륢�ץꥱ�������
-						���ܺ٤�sample/readme.txt�򻲾�
-	src/				A-RTEGEN�Υ������ץ������
-						���ܺ٤�src/readme_dev.doc�򻲾�
+						※詳細はecu_extractor/readme.txtを参照
+	sample/				A-RTEGENを，TOPPERS/ATK2，TOPPERS/A-COMSTACKで
+						使用するためのサンプルアプリケーション
+						※詳細はsample/readme.txtを参照
+	src/				A-RTEGENのソースプログラム
+						※詳細はsrc/readme_dev.docを参照
 
-3�����󥹥ȡ�����
+3．インストール手順
 
-�����Ǥϡ�A-RTEGEN����Ѥ���ޤǤ�������򼨤���
+ここでは，A-RTEGENを使用するまでの設定手順を示す．
 
-3.1 ��ȯ�Ķ��ν���
+3.1 開発環境の準備
 
-A-RTEGEN���Ѥ���A-RTE/SCHM�������ˤϡ��ʲ��Υġ��뤬ɬ�פǤ��롥
+A-RTEGENを用いたA-RTE/SCHMの生成には，以下のツールが必要である．
 
-	�ۥ��ȥ����ƥ��ѤΥġ���
-		Java Runtime Environment �С������1.7.0_45�ʹ�
+	ホストシステム用のツール
+		Java Runtime Environment バージョン：1.7.0_45以降
 
-3.2 XML�������ޤ�����
+3.2 XMLスキーマの入手
 
-A-RTEGEN�����Ѥ�����ϡ�AUTOSAR��������ʪ���ʲ���XML�������ޤ����ꤷ��
-schema�ǥ��쥯�ȥ�����֤��롥
-��AUTOSAR_4-0-3_STRICT.xsd
-��xml.xsd
+A-RTEGENを利用する場合は，AUTOSAR公開成果物より以下のXMLスキーマを入手し，
+schemaディレクトリに配置する．
+・AUTOSAR_4-0-3_STRICT.xsd
+・xml.xsd
+また他のディレクトリに上記ファイルがある場合は，schemaディレクトリに配置せず
+次項のオプションパラメータ--schema-directoryを用いてXMLスキーマを指定することができる．
 
-AUTOSAR_4-0-3_STRICT.xsd��xml.xsd�ϰʲ��μ��Ǽ������롥
-  1) AUTOSAR����Web�����Ȥ˥�������(http://www.autosar.org/)
-  2) Specifications���֤�����
-  3) ���̺�����˥塼���Release4.0������
-  4) ���̺�����˥塼���Methodology and Templates������
-  5) ���̺�����˥塼���Templates������
-  6) Standard Specifications������
-  7) AUTOSAR_MMOD_XMLSchema.zip������������
+AUTOSAR_4-0-3_STRICT.xsdとxml.xsdは以下の手順で取得する．
+  1) AUTOSAR公式Webサイトにアクセス(http://www.autosar.org/)
+  2) Specificationsタブを選択
+  3) 画面左部メニューよりRelease4.0を選択
+  4) 画面左部メニューよりMethodology and Templatesを選択
+  5) 画面左部メニューよりTemplatesを選択
+  6) Standard Specificationsを選択
+  7) AUTOSAR_MMOD_XMLSchema.zipをダウンロード
 
-4��A-RTEGEN�λȤ���
+4．A-RTEGENの使い方
 
-A-RTEGEN(rtegen.sh)�λȤ����ϡ��ʲ����̤�Ǥ��롥
+A-RTEGEN(rtegen.sh)の使い方は，以下の通りである．
 
-rtegen.sh <file1> [<file2> [<file3>] ...] ... [--com-multicore] [--help] [--without-static-inline] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
+rtegen.sh <file1> [<file2> [<file3>] ...] ... [--com-multicore] [--help] [--schema-directory <directory>] [--without-static-inline] [-o (--output-directory) <directory>] [-p (--generation-phase) <phase>] [-t (--output-timestamp)] [-v (--version)]
 
 	 <file1> [<file2> [<file3>] ...]
-		A-RTEGEN�����ϥե�����̾(ʣ�������)
+		A-RTEGENの入力ファイル名(複数指定可)
 
 	--com-multicore
-		A-COM���ޥ�������б����Ƥ�����˻��ꤹ���nrte_sws_0334�͡�
+		A-COMがマルチコア対応している場合に指定する〔nrte_sws_0334〕．
 
 	--help
-		���ץ����Υꥹ�Ȥ�������ɽ�����롥
+		オプションのリストと説明を表示する．
+
+	--schema-directory <スキーマ配置ディレクトリパス名>
+		スキーマファイルを配置するディレクトリのパス名を指定する．
+		デフォルトは bin/schema/．
 
 	--without-static-inline
-		RTE API�򥤥�饤��Ÿ�����ʤ����˻��ꤹ���nrte_sws_0273�͡�
+		RTE APIをインライン展開しない場合に指定する〔nrte_sws_0273〕．
 
-	-o��--output-directory��<���ϥǥ��쥯�ȥ�ѥ�̾>
-		��������RTE�����֤���ǥ��쥯�ȥ�Υѥ�̾����ꤹ�롥
-		�ǥե���Ȥϥ����ȥǥ��쥯�ȥꡥ
+	-o［--output-directory］<出力ディレクトリパス名>
+		生成したRTEを配置するディレクトリのパス名を指定する．
+		デフォルトはカレントディレクトリ．
 
-	-p��--generation-phase��<�����ե���������>
-		�����ե���������ꤹ�롥GENERATE���⤷����CONTRACT�Τ����줫��
-		�ǥե���Ȥ�GENERATE��
+	-p［--generation-phase］<生成フェーズ種別>
+		生成フェーズを指定する．GENERATE，もしくはCONTRACTのいずれか．
+		デフォルトはGENERATE．
 
 	-t [--output-timestamp]
-		RTE/SCHM�����ɤΥإå������Ȥ˥�����������������Ϥ�����˻��ꤹ�롥
-		�ǥե���Ȥϥ��������������Ͻ��Ϥ���ʤ���
+		RTE/SCHMコードのヘッダコメントにコード生成日時を出力する場合に指定する．
+		デフォルトはコード生成日時は出力されない．
 
-	-v��--version��
-		A-RTEGEN�ΥС�������ɽ�����롥
-
-
-5��A-RTE/SCHM������Ū�˻��Ѥ���OS���֥�������
-
-A-RTE/SCHM������ư��μ����Τ���ˡ���Ҥ����OS���֥������Ȥ���Ѥ��롥
-A-RTEGEN�����Ϥ��줿AUTOSAR XML�ե�����ˤ�����OS���֥������Ȥ��ޤޤ�ʤ���硤A-RTEGEN��OS���֥������Ȥ��б����륪�֥������ȥ���ƥʤ�ޤ�ʲ���AUTOSAR XML�ե��������Ϥ��롥
-��Rte_GeneratedEcuc.arxml (OS���֥������ȤΥ��֥������ȥ���ƥʤ�ޤ�)
-�ʤ����ǡ������˴ؤ��벼����AUTOSAR XML�ե������ɬ�����Ϥ��롥
-��Rte_InternalDataTypes.arxml (OS���֥������Ȥ����Ѥ���ǡ������Υ���ƥʤ�ޤ�)
-
-AUOTSAR XML�ν��ϻ��ͤξܺ٤ϡ��ּ�����ֺܥ����ƥ����RTE�������ͽ�פΡ�2.13	RTE/SCHM�������������ˡפ���򻲾Ȥ��뤳�ȡ�
+	-v［--version］
+		A-RTEGENのバージョンを表示する．
 
 
-A-RTE/SCHM������Ū�˻��Ѥ���OS���֥������Ȥΰ�����ʲ��˼�����
+5．A-RTE/SCHMが内部的に使用するOSオブジェクト
+
+A-RTE/SCHMの内部動作の実装のために，後述するのOSオブジェクトを使用する．
+A-RTEGENに入力されたAUTOSAR XMLファイルにこれらのOSオブジェクトが含まれない場合，A-RTEGENはOSオブジェクトに対応するオブジェクトコンテナを含む以下のAUTOSAR XMLファイルを出力する．
+・Rte_GeneratedEcuc.arxml (OSオブジェクトのオブジェクトコンテナを含む)
+なお，データ型に関する下記のAUTOSAR XMLファイルは必ず出力する．
+・Rte_InternalDataTypes.arxml (OSオブジェクトが使用するデータ型のコンテナを含む)
+
+AUOTSAR XMLの出力仕様の詳細は，「次世代車載システム向けRTE外部仕様書」の「2.13	RTE/SCHMコード生成方針」の節を参照すること．
 
 
-����: <OS���֥������ȤΥ��硼�ȥ͡���>
-		<A-RTE/SCHM�ˤ��OS���֥������Ȥλ�������>
+A-RTE/SCHMが内部的に使用するOSオブジェクトの一覧を以下に示す．
+
+
+凡例: <OSオブジェクトのショートネーム>
+		<A-RTE/SCHMによるOSオブジェクトの使用用途>
 
 Rte_InternalSpinlock
-	�ޥ�����������ƥ�ˤ�����A-RTE��������¾�˻��Ѥ���OS���ԥ���å���
-	�ޥ�����������ƥ�Ǥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	マルチコアシステムにおけるA-RTE内部の排他に使用するOSスピンロック．
+	マルチコアシステムである場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_ComSendSignalProxyImmediateTask
-	���졼�֥��������ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���OS��������
-	���졼�֥��������ECU��Ϣ�Ȥ��Ԥʤ�졤COM�����ʥ뤬¨���̿��Ȥ������ꤵ��Ƥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	スレーブコアからのECU間連携の実現のために使用するOSタスク．
+	スレーブコアからのECU間連携が行なわれ，COMシグナルが即時通信として設定されている場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_ComSendSignalProxyImmediateEvent
-	���졼�֥��������ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���OS���٥�ȡ�
-	���졼�֥��������ECU��Ϣ�Ȥ��Ԥʤ�졤COM�����ʥ뤬¨���̿��Ȥ������ꤵ��Ƥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	スレーブコアからのECU間連携の実現のために使用するOSイベント．
+	スレーブコアからのECU間連携が行なわれ，COMシグナルが即時通信として設定されている場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_ComSendSignalTf_<PID>
-	(<PID> = ��OS����ؿ������֤���ѡ��ƥ������Υ��硼�ȥ͡���)
-	�ޥ�������������ѡ��ƥ�����󤫤��ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���OS����ؿ�(�ץ�ߥƥ��ּ����ǡ�������)��
-	�ޥ�������������ѡ��ƥ�����󤫤��ECU��Ϣ�Ȥ��Ԥʤ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<PID> = 本OS信頼関数を配置するパーティションのショートネーム)
+	マスタコアの非信頼パーティションからのECU間連携の実現のために使用するOS信頼関数(プリミティブ実装データ型用)．
+	マスタコアの非信頼パーティションからのECU関連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_ComSendSignalGroupTf_<PID>
-	(<PID> = ��OS����ؿ������֤���ѡ��ƥ������Υ��硼�ȥ͡���)
-	�ޥ�������������ѡ��ƥ�����󤫤��ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���OS����ؿ�(ʣ��ǡ�������)��
-	�ޥ�������������ѡ��ƥ�����󤫤��ECU��Ϣ�Ȥ��Ԥʤ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<PID> = 本OS信頼関数を配置するパーティションのショートネーム)
+	マスタコアの非信頼パーティションからのECU間連携の実現のために使用するOS信頼関数(複合データ型用)．
+	マスタコアの非信頼パーティションからのECU関連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 
 Rte_SrWriteTf_<c1>_<p1>_<o1>_<c2>_<p2>_<o2>
-	(<c1> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p1> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o1> = ����¦���ǤΥ��硼�ȥ͡��ࡤ
-	 <c2> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p2> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o2> = ����¦���ǤΥ��硼�ȥ͡���)
-	�ѡ��ƥ������֤�S/RϢ�ȤΥǡ��������μ¸��Τ���˻��Ѥ���OS����ؿ�(�ǡ������ޥ�ƥ�������)��
-	�ѡ��ƥ������֤�S/RϢ�Ȥ��Ԥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<c1> = 送信側SW-Cのショートネーム，<p1> = 送信側ポートのショートネーム，<o1> = 送信側要素のショートネーム，
+	 <c2> = 受信側SW-Cのショートネーム，<p2> = 受信側ポートのショートネーム，<o2> = 受信側要素のショートネーム)
+	パーティション間のS/R連携のデータ送信の実現のために使用するOS信頼関数(データセマンティクス用)．
+	パーティション間のS/R連携が行われる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_SrSendTf_<c1>_<p1>_<o1>_<c2>_<p2>_<o2>
-	(<c1> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p1> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o1> = ����¦���ǤΥ��硼�ȥ͡��ࡤ
-	 <c2> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p2> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o2> = ����¦���ǤΥ��硼�ȥ͡���)
-	�ѡ��ƥ������֤�S/RϢ�ȤΥǡ��������μ¸��Τ���˻��Ѥ���OS����ؿ�(���٥�ȥ��ޥ�ƥ�������)��
-	�ѡ��ƥ������֤�S/RϢ�Ȥ��Ԥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<c1> = 送信側SW-Cのショートネーム，<p1> = 送信側ポートのショートネーム，<o1> = 送信側要素のショートネーム，
+	 <c2> = 受信側SW-Cのショートネーム，<p2> = 受信側ポートのショートネーム，<o2> = 受信側要素のショートネーム)
+	パーティション間のS/R連携のデータ送信の実現のために使用するOS信頼関数(イベントセマンティクス用)．
+	パーティション間のS/R連携が行われる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_SrInvalidateTf_<c1>_<p1>_<o1>_<c2>_<p2>_<o2>
-	(<c1> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p1> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o1> = ����¦���ǤΥ��硼�ȥ͡��ࡤ
-	 <c2> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p2> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o2> = ����¦���ǤΥ��硼�ȥ͡���)
-	�ѡ��ƥ������֤�S/RϢ�ȤΥǡ���̵�����μ¸��Τ���˻��Ѥ���OS����ؿ���
-	�ѡ��ƥ������֤�S/RϢ�Ȥ��Ԥ�졤��������¦�ǡ������ǤΥǡ���̵������ͭ���Ǥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<c1> = 送信側SW-Cのショートネーム，<p1> = 送信側ポートのショートネーム，<o1> = 送信側要素のショートネーム，
+	 <c2> = 受信側SW-Cのショートネーム，<p2> = 受信側ポートのショートネーム，<o2> = 受信側要素のショートネーム)
+	パーティション間のS/R連携のデータ無効化の実現のために使用するOS信頼関数．
+	パーティション間のS/R連携が行われ，かつ送信側データ要素のデータ無効化が有効である場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_CsCallTf_<c>
-	(<c> = �����С�¦SW-C�Υ��硼�ȥ͡���)
-	�ѡ��ƥ������֤�C/SϢ�ȤΥ����С����ʥ֥�ƤӽФ��μ¸��Τ���˻��Ѥ���OS����ؿ���
-	�ѡ��ƥ������֤�C/SϢ�Ȥ��Ԥ�졤���ĥ��饤�����¦��SW-C�ν�°�ѡ��ƥ����������ѡ��ƥ������Ǥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<c> = サーバー側SW-Cのショートネーム)
+	パーティション間のC/S連携のサーバーランナブル呼び出しの実現のために使用するOS信頼関数．
+	パーティション間のC/S連携が行われ，かつクライアント側のSW-Cの所属パーティションが非信頼パーティションである場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
-Rte_ComProxy<PI>_<PID>_<t>
-	(<PI>=¨����������ξ�� Immediate��¨�������ʤ��ξ�� Periodic,
-     <PID> = ����¦SW-C�ν�°����ѡ��ƥ������Υ��硼�ȥ͡��ࡤ<t> = ����¦�ǡ������Ǥμ������ȸߴ����Τ��뷿̾(*1))
-	���졼�֥��������ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���IOC(�ץ�ߥƥ��ּ����ǡ�����)��
-	���졼�֥��������ECU��Ϣ�Ȥ��Ԥʤ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+Rte_ComProxy<PI>_<PID>
+	(<PI>=即時送信ありの場合 Immediate．即時送信なしの場合 Periodic,
+     <PID> = 送信側SW-Cの所属するパーティションのショートネーム)
+	スレーブコアからのECU間連携の実現のために使用するIOC．
+	スレーブコアからのECU間連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
-*1 �������������������ʤ���������̾���Ȥʤ롥
-	��8�ӥåȰʲ��μ������ξ�硤"uint8"��
-	��16�ӥåȰʲ��μ������ξ�硤"uint16"��
-	������ʳ��Υ������μ������ξ�硤"uint32"��
-
-Rte_ComProxy<PI>_<PID>_ComplexDataType
-	(<PI>=¨����������ξ�� Immediate��¨�������ʤ��ξ�� Periodic,
-     <PID> = ����¦SW-C�ν�°����ѡ��ƥ������Υ��硼�ȥ͡���)
-	���졼�֥��������ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���IOC(ʣ��ǡ�����)��
-	���졼�֥��������ECU��Ϣ�Ȥ��Ԥʤ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
-
-Rte_ComProxy<PID>_<c>_<p>_<o>_<csg>
-	(<PID> = ����¦SW-C�ν�°����ѡ��ƥ������Υ��硼�ȥ͡��ࡤ
-	 <c> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o> = ����¦���ǤΥ��硼�ȥ͡��ࡤ
-     <csg> = COM�����ʥ륰�롼�פΥ��硼�ȥ͡���)
-	���졼�֥��������ECU��Ϣ�Ȥμ¸��Τ���˻��Ѥ���IOC(ʣ��ǡ�����)��
-	���졼�֥��������ECU��Ϣ�Ȥ��Ԥʤ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+Rte_ComProxy<PID>_<c>_<p>_<o>_<CS>
+	(<PID> = 送信側SW-Cの所属するパーティションのショートネーム，
+	 <c> = 送信側SW-Cのショートネーム，<p> = 送信側ポートのショートネーム，<o> = 送信側要素のショートネーム，
+     <CS> = COMシグナル使用時 COMシグナルのショートネーム，COMシグナルグループ使用時 COMシグナルグループのショートネーム)
+	スレーブコアからのECU間連携の実現のために使用するIOC．
+	スレーブコアからのECU間連携が行なわれる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 Rte_Sr_<c>_<p>_<o>
-	(<c> = ����¦SW-C�Υ��硼�ȥ͡��ࡤ<p> = ����¦�ݡ��ȤΥ��硼�ȥ͡��ࡤ<o> = ����¦���ǤΥ��硼�ȥ͡���)
-	�ѡ��ƥ������֤�S/RϢ�Ȥμ¸��Τ���˻��Ѥ���IOC��
-	�ѡ��ƥ������֤�S/RϢ�Ȥ��Ԥ����硤��OS���֥������ȤΤ���Υ��֥������ȥ���ƥʤ���������롥
+	(<c> = 受信側SW-Cのショートネーム，<p> = 受信側ポートのショートネーム，<o> = 受信側要素のショートネーム)
+	パーティション間のS/R連携の実現のために使用するIOC．
+	パーティション間のS/R連携が行われる場合，本OSオブジェクトのためのオブジェクトコンテナが生成される．
 
 
-6. A-RTEGEN���䴰�������Ͼ���
+6. A-RTEGENが補完する入力情報
 
-A-RTE/SCHM�Υ����������������ˤ����ꡤ�����ξ�����­���Ƥ�����ˤϡ�A-RTEGEN�����Ͼ�����䴰���롥
-��QueuedReceiverComSpec
-	QueuedReceiverComSpec�����Ͼ����ɬ�ײս���������Ƥ��ʤ���硤���塼Ĺ(queueLength)��1�Ȥ���
-	���Ͼ�����䴰���롥
+A-RTE/SCHMのソースコード生成にあたり，下記の情報が不足している場合には，A-RTEGENは入力情報を補完する．
+・QueuedReceiverComSpec
+	QueuedReceiverComSpecが入力情報の必要箇所に定義されていない場合，キュー長(queueLength)を1として
+	入力情報を補完する．
 

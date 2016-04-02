@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -114,6 +114,7 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION: return (EObject)createTrustedFunctionComSendImplementation();
 			case InteractionPackage.PERIODIC_PROXY_COM_SEND_IMPLEMENTATION: return (EObject)createPeriodicProxyComSendImplementation();
 			case InteractionPackage.IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION: return (EObject)createImmediateProxyComSendImplementation();
+			case InteractionPackage.TACK_STATUS_VARIABLE_IMPLEMENTATION: return (EObject)createTAckStatusVariableImplementation();
 			case InteractionPackage.FILTER_BUFFER_IMPLEMENTATION: return (EObject)createFilterBufferImplementation();
 			case InteractionPackage.IOC_VALUE_BUFFER_IMPLEMENTATION: return (EObject)createIocValueBufferImplementation();
 			case InteractionPackage.COM_VALUE_BUFFER_IMPLEMENTATION: return (EObject)createComValueBufferImplementation();
@@ -122,19 +123,20 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 			case InteractionPackage.COM_SEND_PROXY_INTERACTION: return (EObject)createComSendProxyInteraction();
 			case InteractionPackage.PERIODIC_COM_SEND_PROXY: return (EObject)createPeriodicComSendProxy();
 			case InteractionPackage.IMMEDIATE_COM_SEND_PROXY: return (EObject)createImmediateComSendProxy();
+			case InteractionPackage.EXECUTION_CONTEXT: return (EObject)createExecutionContext();
+			case InteractionPackage.INFINITELOOP_IMPLEMENTATION: return (EObject)createInfiniteloopImplementation();
+			case InteractionPackage.ONE_SHOOT_IMPLEMENTATION: return (EObject)createOneShootImplementation();
+			case InteractionPackage.EVENT_POOLING_IMPLEMENTATION: return (EObject)createEventPoolingImplementation();
 			case InteractionPackage.OS_TASK_ACTIVATE_ENTITY_STARTER: return (EObject)createOsTaskActivateEntityStarter();
 			case InteractionPackage.OS_EVENT_SET_ENTITY_STARTER: return (EObject)createOsEventSetEntityStarter();
-			case InteractionPackage.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION: return (EObject)createTimingTriggeringEntityStartImplementation();
-			case InteractionPackage.MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION: return (EObject)createModeSwitchTriggeringEntityStartImplementation();
+			case InteractionPackage.TIMING_TRIGGERING_ENTITY_START_CONDITION: return (EObject)createTimingTriggeringEntityStartCondition();
 			case InteractionPackage.RUNNABLE_ENTITY_START_INTERACTION: return (EObject)createRunnableEntityStartInteraction();
+			case InteractionPackage.BSW_SCHEDULABLE_ENTITY_START_INTERACTION: return (EObject)createBswSchedulableEntityStartInteraction();
+			case InteractionPackage.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION: return (EObject)createTimingTriggeringEntityStartImplementation();
+			case InteractionPackage.PLAIN_ENTITY_START_IMPLEMENTATION: return (EObject)createPlainEntityStartImplementation();
 			case InteractionPackage.START_OFFSET_COUNTER_IMPLEMENTATION: return (EObject)createStartOffsetCounterImplementation();
 			case InteractionPackage.CYCLE_COUNTER_IMPLEMENTATION: return (EObject)createCycleCounterImplementation();
 			case InteractionPackage.GENERATED_ECU_CONFIGURATION: return (EObject)createGeneratedEcuConfiguration();
-			case InteractionPackage.BSW_SCHEDULABLE_ENTITY_START_INTERACTION: return (EObject)createBswSchedulableEntityStartInteraction();
-			case InteractionPackage.EVENT_TO_TASK_MAPPING: return (EObject)createEventToTaskMapping();
-			case InteractionPackage.EVENT: return (EObject)createEvent();
-			case InteractionPackage.TIMING_EVENT: return (EObject)createTimingEvent();
-			case InteractionPackage.MODE_SWITCH_EVENT: return (EObject)createModeSwitchEvent();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -305,6 +307,16 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TAckStatusVariableImplementation createTAckStatusVariableImplementation() {
+		TAckStatusVariableImplementationImpl tAckStatusVariableImplementation = new TAckStatusVariableImplementationImpl();
+		return tAckStatusVariableImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FilterBufferImplementation createFilterBufferImplementation() {
 		FilterBufferImplementationImpl filterBufferImplementation = new FilterBufferImplementationImpl();
 		return filterBufferImplementation;
@@ -385,6 +397,46 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExecutionContext createExecutionContext() {
+		ExecutionContextImpl executionContext = new ExecutionContextImpl();
+		return executionContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InfiniteloopImplementation createInfiniteloopImplementation() {
+		InfiniteloopImplementationImpl infiniteloopImplementation = new InfiniteloopImplementationImpl();
+		return infiniteloopImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OneShootImplementation createOneShootImplementation() {
+		OneShootImplementationImpl oneShootImplementation = new OneShootImplementationImpl();
+		return oneShootImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EventPoolingImplementation createEventPoolingImplementation() {
+		EventPoolingImplementationImpl eventPoolingImplementation = new EventPoolingImplementationImpl();
+		return eventPoolingImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OsTaskActivateEntityStarter createOsTaskActivateEntityStarter() {
 		OsTaskActivateEntityStarterImpl osTaskActivateEntityStarter = new OsTaskActivateEntityStarterImpl();
 		return osTaskActivateEntityStarter;
@@ -405,6 +457,16 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public TimingTriggeringEntityStartCondition createTimingTriggeringEntityStartCondition() {
+		TimingTriggeringEntityStartConditionImpl timingTriggeringEntityStartCondition = new TimingTriggeringEntityStartConditionImpl();
+		return timingTriggeringEntityStartCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation() {
 		TimingTriggeringEntityStartImplementationImpl timingTriggeringEntityStartImplementation = new TimingTriggeringEntityStartImplementationImpl();
 		return timingTriggeringEntityStartImplementation;
@@ -415,9 +477,9 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation() {
-		ModeSwitchTriggeringEntityStartImplementationImpl modeSwitchTriggeringEntityStartImplementation = new ModeSwitchTriggeringEntityStartImplementationImpl();
-		return modeSwitchTriggeringEntityStartImplementation;
+	public PlainEntityStartImplementation createPlainEntityStartImplementation() {
+		PlainEntityStartImplementationImpl plainEntityStartImplementation = new PlainEntityStartImplementationImpl();
+		return plainEntityStartImplementation;
 	}
 
 	/**
@@ -468,46 +530,6 @@ public class InteractionFactoryImpl extends EFactoryImpl implements InteractionF
 	public BswSchedulableEntityStartInteraction createBswSchedulableEntityStartInteraction() {
 		BswSchedulableEntityStartInteractionImpl bswSchedulableEntityStartInteraction = new BswSchedulableEntityStartInteractionImpl();
 		return bswSchedulableEntityStartInteraction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EventToTaskMapping createEventToTaskMapping() {
-		EventToTaskMappingImpl eventToTaskMapping = new EventToTaskMappingImpl();
-		return eventToTaskMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Event createEvent() {
-		EventImpl event = new EventImpl();
-		return event;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TimingEvent createTimingEvent() {
-		TimingEventImpl timingEvent = new TimingEventImpl();
-		return timingEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModeSwitchEvent createModeSwitchEvent() {
-		ModeSwitchEventImpl modeSwitchEvent = new ModeSwitchEventImpl();
-		return modeSwitchEvent;
 	}
 
 	/**

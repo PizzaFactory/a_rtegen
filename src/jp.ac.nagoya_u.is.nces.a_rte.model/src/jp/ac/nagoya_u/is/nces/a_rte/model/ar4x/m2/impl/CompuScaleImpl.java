@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -44,6 +44,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl;
 
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuConst;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuScale;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Limit;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
@@ -64,7 +65,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl#getShortLabel <em>Short Label</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl#getSymbol <em>Symbol</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl#getUpperLimit <em>Upper Limit</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl#getVt <em>Vt</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.impl.CompuScaleImpl#getCompuConst <em>Compu Const</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,24 +133,14 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 	protected Limit upperLimit;
 
 	/**
-	 * The default value of the '{@link #getVt() <em>Vt</em>}' attribute.
+	 * The cached value of the '{@link #getCompuConst() <em>Compu Const</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVt()
+	 * @see #getCompuConst()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getVt() <em>Vt</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVt()
-	 * @generated
-	 * @ordered
-	 */
-	protected String vt = VT_EDEFAULT;
+	protected CompuConst compuConst;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -303,8 +294,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVt() {
-		return vt;
+	public CompuConst getCompuConst() {
+		return compuConst;
 	}
 
 	/**
@@ -312,11 +303,33 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVt(String newVt) {
-		String oldVt = vt;
-		vt = newVt;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.COMPU_SCALE__VT, oldVt, vt));
+	public NotificationChain basicSetCompuConst(CompuConst newCompuConst, NotificationChain msgs) {
+		CompuConst oldCompuConst = compuConst;
+		compuConst = newCompuConst;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, M2Package.COMPU_SCALE__COMPU_CONST, oldCompuConst, newCompuConst);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompuConst(CompuConst newCompuConst) {
+		if (newCompuConst != compuConst) {
+			NotificationChain msgs = null;
+			if (compuConst != null)
+				msgs = ((InternalEObject)compuConst).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - M2Package.COMPU_SCALE__COMPU_CONST, null, msgs);
+			if (newCompuConst != null)
+				msgs = ((InternalEObject)newCompuConst).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - M2Package.COMPU_SCALE__COMPU_CONST, null, msgs);
+			msgs = basicSetCompuConst(newCompuConst, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, M2Package.COMPU_SCALE__COMPU_CONST, newCompuConst, newCompuConst));
 	}
 
 	/**
@@ -331,6 +344,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 				return basicSetLowerLimit(null, msgs);
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
 				return basicSetUpperLimit(null, msgs);
+			case M2Package.COMPU_SCALE__COMPU_CONST:
+				return basicSetCompuConst(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -351,8 +366,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 				return getSymbol();
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
 				return getUpperLimit();
-			case M2Package.COMPU_SCALE__VT:
-				return getVt();
+			case M2Package.COMPU_SCALE__COMPU_CONST:
+				return getCompuConst();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -377,8 +392,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
 				setUpperLimit((Limit)newValue);
 				return;
-			case M2Package.COMPU_SCALE__VT:
-				setVt((String)newValue);
+			case M2Package.COMPU_SCALE__COMPU_CONST:
+				setCompuConst((CompuConst)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -404,8 +419,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
 				setUpperLimit((Limit)null);
 				return;
-			case M2Package.COMPU_SCALE__VT:
-				setVt(VT_EDEFAULT);
+			case M2Package.COMPU_SCALE__COMPU_CONST:
+				setCompuConst((CompuConst)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -427,8 +442,8 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 				return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
 				return upperLimit != null;
-			case M2Package.COMPU_SCALE__VT:
-				return VT_EDEFAULT == null ? vt != null : !VT_EDEFAULT.equals(vt);
+			case M2Package.COMPU_SCALE__COMPU_CONST:
+				return compuConst != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -447,8 +462,6 @@ public class CompuScaleImpl extends M2ObjectImpl implements CompuScale {
 		result.append(shortLabel);
 		result.append(", symbol: "); //$NON-NLS-1$
 		result.append(symbol);
-		result.append(", vt: "); //$NON-NLS-1$
-		result.append(vt);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -56,6 +56,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExecutionContext <em>Execution Context</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExpectedConfig <em>Expected Config</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getStartInteraction <em>Start Interaction</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getStartOffsetCounterImplementation <em>Start Offset Counter Implementation</em>}</li>
@@ -68,6 +69,34 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface EntityStarter extends InteractionEnd {
+	/**
+	 * Returns the value of the '<em><b>Execution Context</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getEntityStarter <em>Entity Starter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Execution Context</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Execution Context</em>' reference.
+	 * @see #setExecutionContext(ExecutionContext)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getEntityStarter_ExecutionContext()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getEntityStarter
+	 * @model opposite="entityStarter" required="true"
+	 * @generated
+	 */
+	ExecutionContext getExecutionContext();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExecutionContext <em>Execution Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Execution Context</em>' reference.
+	 * @see #getExecutionContext()
+	 * @generated
+	 */
+	void setExecutionContext(ExecutionContext value);
+
 	/**
 	 * Returns the value of the '<em><b>Expected Config</b></em>' reference.
 	 * <!-- begin-user-doc -->

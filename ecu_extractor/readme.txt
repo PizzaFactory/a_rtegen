@@ -1,100 +1,102 @@
 
 	ECU Extractor
 
-ËÜ¥É¥­¥å¥á¥ó¥È¤Ï¡¤ECU Extractor¤ò»ÈÍÑ¤¹¤ë¤¿¤á¤ËÉ¬Í×¤Ê»ö¹à¤òÀâÌÀ¤¹¤ë¤â¤Î
-¤Ç¤¢¤ë¡¥
+æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã¯ï¼ŒECU Extractorã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã«å¿…è¦ãªäº‹é …ã‚’èª¬æ˜Žã™ã‚‹ã‚‚ã®
+ã§ã‚ã‚‹ï¼Ž
 
 ----------------------------------------------------------------------
 ECU Extractor
 
-Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+Copyright (C) 2013-2016 by Center for Embedded Computing Systems
             Graduate School of Information Science, Nagoya Univ., JAPAN
-Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
-Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
-Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
-Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+Copyright (C) 2014-2016 by eSOL Co.,Ltd., JAPAN
+Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
-Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
-Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
-Copyright (C) 2013-2015 by Witz Corporation
+Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+Copyright (C) 2015-2016 by SUZUKI MOTOR CORPORATION
+Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+Copyright (C) 2013-2016 by Witz Corporation
 
-¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î (1)¡Á(3)¤Î¾ò·ï¤òËþ¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥É¥­¥å¥á
-¥ó¥È¡ÊËÜ¥É¥­¥å¥á¥ó¥È¤ò²þÊÑ¤·¤¿¤â¤Î¤ò´Þ¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²þ
-ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½þ¤ÇµöÂú¤¹¤ë¡¥
-(1) ËÜ¥É¥­¥å¥á¥ó¥È¤òÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï
-    ¤ª¤è¤Ó²¼µ­¤ÎÌµÊÝ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Þ¤Þ¤Î·Á¤Ç¥É¥­¥å¥á¥ó¥ÈÃæ¤Ë´Þ¤Þ¤ì¤Æ
-    ¤¤¤ë¤³¤È¡¥
-(2) ËÜ¥É¥­¥å¥á¥ó¥È¤ò²þÊÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¥É¥­¥å¥á¥ó¥È¤ò²þÊÑ¤·¤¿»Ý¤Îµ­½Ò
-    ¤ò¡¤²þÊÑ¸å¤Î¥É¥­¥å¥á¥ó¥ÈÃæ¤Ë´Þ¤á¤ë¤³¤È¡¥¤¿¤À¤·¡¤²þÊÑ¸å¤Î¥É¥­¥å¥á
-    ¥ó¥È¤¬¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È»ØÄê¤Î³«È¯À®²ÌÊª¤Ç¤¢¤ë¾ì¹ç¤Ë¤Ï¡¤¤³¤Î¸Â
-    ¤ê¤Ç¤Ï¤Ê¤¤¡¥
-(3) ËÜ¥É¥­¥å¥á¥ó¥È¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Þ¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»³²
-    ¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥¤Þ¤¿¡¤
-    ËÜ¥É¥­¥å¥á¥ó¥È¤Î¥æ¡¼¥¶¤Þ¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍýÍ³¤Ë´ð¤Å
-    ¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã® (1)ï½ž(3)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡
+ãƒ³ãƒˆï¼ˆæœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼Žä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼Ž
+(1) æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶
+    ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¸­ã«å«ã¾ã‚Œã¦
+    ã„ã‚‹ã“ã¨ï¼Ž
+(2) æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’æ”¹å¤‰ã™ã‚‹å ´åˆã«ã¯ï¼Œãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’æ”¹å¤‰ã—ãŸæ—¨ã®è¨˜è¿°
+    ã‚’ï¼Œæ”¹å¤‰å¾Œã®ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¸­ã«å«ã‚ã‚‹ã“ã¨ï¼ŽãŸã ã—ï¼Œæ”¹å¤‰å¾Œã®ãƒ‰ã‚­ãƒ¥ãƒ¡
+    ãƒ³ãƒˆãŒï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆæŒ‡å®šã®é–‹ç™ºæˆæžœç‰©ã§ã‚ã‚‹å ´åˆã«ã¯ï¼Œã“ã®é™
+    ã‚Šã§ã¯ãªã„ï¼Ž
+(3) æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æŽ¥çš„ã¾ãŸã¯é–“æŽ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æå®³
+    ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼Žã¾ãŸï¼Œ
+    æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†ç”±ã«åŸºã¥
+    ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼Ž
 
-ËÜ¥É¥­¥å¥á¥ó¥È¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»ÅÍÍ
-¤Ë´ð¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç¤Ï¤Ê
-¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ð¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍøÍÑ¤¹¤ë
-¼Ô¤ËÂÐ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•æ§˜
+ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼Žä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§ã¯ãª
+ã„ï¼ŽAUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©ç”¨ã™ã‚‹
+è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼Ž
 
-ËÜ¥É¥­¥å¥á¥ó¥È¤Ï¡¤ÌµÊÝ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª¤è
-¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥É¥­¥å¥á¥ó¥È¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª¤ËÂÐ¤¹
-¤ëÅ¬¹çÀ­¤â´Þ¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊÝ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Þ¤¿¡¤ËÜ¥É¥­¥å¥á¥ó¥È¤ÎÍøÍÑ
-¤Ë¤è¤êÄ¾ÀÜÅª¤Þ¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½¤ÎÀÕÇ¤¤òÉé
-¤ï¤Ê¤¤¡¥
+æœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼Žä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆ
+ã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„ã«å¯¾ã™
+ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼Žã¾ãŸï¼Œæœ¬ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®åˆ©ç”¨
+ã«ã‚ˆã‚Šç›´æŽ¥çš„ã¾ãŸã¯é–“æŽ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œãã®è²¬ä»»ã‚’è² 
+ã‚ãªã„ï¼Ž
 
-$Id: readme.txt 427 2015-03-23 12:38:40Z mtakada $
+$Id: readme.txt 651 2016-03-31 06:20:22Z mtakada $
 ----------------------------------------------------------------------
 
-¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬
-(1) ECU Extractor³µÍ×
-¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+(1) ECU Extractoræ¦‚è¦
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
 
-ECU Extractor¤Ï¡¤Ê£¿ô¤ÎECU¤òÍ­¤¹¤ë¥·¥¹¥Æ¥à¥³¥ó¥Õ¥£¥®¥å¥ì¡¼¥·¥ç¥ó¥Õ¥¡¥¤
-¥ë(XML)¤«¤é¡¤ECUËè¤Î¥³¥ó¥Õ¥£¥®¥å¥ì¡¼¥·¥ç¥ó¥Õ¥¡¥¤¥ë¤Ç¤¢¤ëEcuExtract¤ò¡¤
-ECUËè¤ËÀÚ¤ê½Ð¤·¤ÆÀ¸À®¤¹¤ë¡¥
+ECU Extractorã¯ï¼Œè¤‡æ•°ã®ECUã‚’æœ‰ã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚®ãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚¡ã‚¤
+ãƒ«(XML)ã‹ã‚‰ï¼ŒECUæ¯Žã®ã‚³ãƒ³ãƒ•ã‚£ã‚®ãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«ã§ã‚ã‚‹EcuExtractã‚’ï¼Œ
+ECUæ¯Žã«åˆ‡ã‚Šå‡ºã—ã¦ç”Ÿæˆã™ã‚‹ï¼Ž
 
-¤Ê¤ª¡¤ËÜ¥Ä¡¼¥ë¤ÇÀ¸À®¤·¤¿EcuExtract¤Ï¡¤A-RTEGEN¤Ø¤ÎÆþÎÏ¤È¤¹¤ë¤³¤È¤òÁÛÄê
-¤·¤Æ¤ª¤ê¡¤A-RTEGEN¤Ç¤ÏECU-INSTANCE¤òÉ¬Í×¤È¤·¤Ê¤¤¤¿¤á¡¤ECU-INSTANCE¤ÎÄê
-µÁ¤ÏËÜ¥Ä¡¼¥ë¤Ë¤è¤Ã¤Æºï½ü¤¹¤ë¡¥
+ãªãŠï¼Œæœ¬ãƒ„ãƒ¼ãƒ«ã§ç”Ÿæˆã—ãŸEcuExtractã¯ï¼ŒA-RTEGENã¸ã®å…¥åŠ›ã¨ã™ã‚‹ã“ã¨ã‚’æƒ³å®š
+ã—ã¦ãŠã‚Šï¼ŒA-RTEGENã§ã¯ECU-INSTANCEã‚’å¿…è¦ã¨ã—ãªã„ãŸã‚ï¼ŒECU-INSTANCEã®å®š
+ç¾©ã¯æœ¬ãƒ„ãƒ¼ãƒ«ã«ã‚ˆã£ã¦å‰Šé™¤ã™ã‚‹ï¼Ž
 
-¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬
-(2) »È¤¤Êý
-¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬¨¬
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
-(2.1) Æ°ºî´Ä¶­
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+(2) ä½¿ã„æ–¹
+â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
+(2.1) å‹•ä½œç’°å¢ƒ
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
 
-ECU Extractor¤ÏRuby¤Ë¤è¤Ã¤Æµ­½Ò¤µ¤ì¤Æ¤¤¤ë¤¿¤á¡¤Ruby¤Î¼Â¹Ô´Ä¶­¤¬É¬Í×¤Ç¤¢
-¤ë¡¥Cygwin¤Ë´Þ¤Þ¤ì¤ë°Ê²¼¤Î¥Ð¡¼¥¸¥ç¥ó¤ÎRuby¤ÇÆ°ºî³ÎÇ§ºÑ¤ß¤Ç¤¢¤ë¡¥
+ECU Extractorã¯Rubyã«ã‚ˆã£ã¦è¨˜è¿°ã•ã‚Œã¦ã„ã‚‹ãŸã‚ï¼ŒRubyã®å®Ÿè¡Œç’°å¢ƒãŒå¿…è¦ã§ã‚
+ã‚‹ï¼ŽRubyInstaller for Windows ã‹ã‚‰é…å¸ƒã•ã‚Œã¦ã„ã‚‹ä»¥ä¸‹ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§å‹•ä½œç¢ºèªæ¸ˆã¿ã§ã‚ã‚‹ï¼Ž
 
-ruby 1.9.3p545 (2014-02-24) [i386-cygwin]
+ruby 2.0.0p645 (2015-04-13) [i386-mingw32]
 
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
-(2.2) EcuExtractºîÀ®
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
+(2.2) EcuExtractä½œæˆ
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
 
-SystemDeskÅù¤ÇºîÀ®¤·¤¿¥·¥¹¥Æ¥à¥³¥ó¥Õ¥£¥®¥å¥ì¡¼¥·¥ç¥ó¥Õ¥¡¥¤¥ë¤ò°ú¿ô¤È¤·
-¤ÆÍ¿¤¨¡¤¼Â¹Ô¤¹¤ë¡¥
+SystemDeskç­‰ã§ä½œæˆã—ãŸã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ³ãƒ•ã‚£ã‚®ãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¼•æ•°ã¨ã—
+ã¦ä¸Žãˆï¼Œå®Ÿè¡Œã™ã‚‹ï¼Ž
 
 $ ruby ecu_extractor.rb SystemDesign.arxml
 
-³ÆECU¥¤¥ó¥¹¥¿¥ó¥¹¤ËÀßÄê¤µ¤ì¤¿¥·¥ç¡¼¥È¥Í¡¼¥à¤òÉÕÍ¿¤·¤¿Ì¾Á°¤Ç¡¤»ØÄê¤·¤¿¥Õ
-¥¡¥¤¥ë¤ÈÆ±¤¸¥Õ¥©¥ë¥À¤Ë¡¤ECUËè¤ËEcuExtract¤òºîÀ®¤¹¤ë¡¥
-Ê£¿ô¤Îarxml¤ò°ú¿ô¤Ë»ØÄê¤·¤¿¾ì¹ç¡¤AR-PACKAGE¥ì¥Ù¥ë¤Ç¤Î¥Þ¡¼¥¸¤ò¹Ô¤Ã¤¿¾å¤Ç¡¤
-EcuExtract¤òºîÀ®¤¹¤ë¡¥¤³¤Î¾ì¹ç¡¤½ÐÎÏ¤¹¤ë¥Õ¥¡¥¤¥ëÌ¾¤Ï¡¤ÀèÆ¬¤Î°ú¿ô¤ÇÍ¿¤¨
-¤¿¥Õ¥¡¥¤¥ëÌ¾¤òºÎÍÑ¤¹¤ë¡¥
+å„ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«è¨­å®šã•ã‚ŒãŸã‚·ãƒ§ãƒ¼ãƒˆãƒãƒ¼ãƒ ã‚’ä»˜ä¸Žã—ãŸåå‰ã§ï¼ŒæŒ‡å®šã—ãŸãƒ•
+ã‚¡ã‚¤ãƒ«ã¨åŒã˜ãƒ•ã‚©ãƒ«ãƒ€ã«ï¼ŒECUæ¯Žã«EcuExtractã‚’ä½œæˆã™ã‚‹ï¼Ž
+è¤‡æ•°ã®arxmlã‚’å¼•æ•°ã«æŒ‡å®šã—ãŸå ´åˆï¼ŒAR-PACKAGEãƒ¬ãƒ™ãƒ«ã§ã®ãƒžãƒ¼ã‚¸ã‚’è¡Œã£ãŸä¸Šã§ï¼Œ
+EcuExtractã‚’ä½œæˆã™ã‚‹ï¼Žã“ã®å ´åˆï¼Œå‡ºåŠ›ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åã¯ï¼Œå…ˆé ­ã®å¼•æ•°ã§ä¸Žãˆ
+ãŸãƒ•ã‚¡ã‚¤ãƒ«åã‚’æŽ¡ç”¨ã™ã‚‹ï¼Ž
 
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
-(2.3) Ãí°Õ»ö¹à
-¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½¡½
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
+(2.3) æ³¨æ„äº‹é …
+â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•â€•
 
-ECU Extractor¤Ï¡¤¥³¥ó¥Ý¥¸¥·¥ç¥ó¤¬1¤Ä¤·¤«Â¸ºß¤·¤Ê¤¤¥·¥¹¥Æ¥à¤òÁÛÄê¤·¤Æ³«
-È¯¤·¤¿¡¥¤Þ¤¿¡¤Ê£»¨¤Ê¥·¥¹¥Æ¥àÀß·×¤Ë¤ÏÂÐ±þ¤Ç¤­¤Ê¤¤²ÄÇ½À­¤¬¤¢¤ë¤Î¤ÇÃí°Õ¤¹
-¤ë¡¥
+ECU Extractorã¯ï¼Œã‚³ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³ãŒ1ã¤ã—ã‹å­˜åœ¨ã—ãªã„ã‚·ã‚¹ãƒ†ãƒ ã‚’æƒ³å®šã—ã¦é–‹
+ç™ºã—ãŸï¼Žã¾ãŸï¼Œè¤‡é›‘ãªã‚·ã‚¹ãƒ†ãƒ è¨­è¨ˆã«ã¯å¯¾å¿œã§ããªã„å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§æ³¨æ„ã™
+ã‚‹ï¼Ž
 
 
 
-°Ê¾å
+ä»¥ä¸Š

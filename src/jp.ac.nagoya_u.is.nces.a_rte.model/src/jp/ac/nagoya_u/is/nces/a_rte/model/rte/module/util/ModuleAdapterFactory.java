@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -292,12 +292,20 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createTrustedFunctionRteOperationAdapter();
 			}
 			@Override
-			public Adapter caseTrustedFunctionRteSendOperation(TrustedFunctionRteSendOperation object) {
-				return createTrustedFunctionRteSendOperationAdapter();
-			}
-			@Override
 			public Adapter caseTrustedFunctionRteBufferWriteSendOperation(TrustedFunctionRteBufferWriteSendOperation object) {
 				return createTrustedFunctionRteBufferWriteSendOperationAdapter();
+			}
+			@Override
+			public Adapter caseTrustedFunctionRteBufferSendSendOperation(TrustedFunctionRteBufferSendSendOperation object) {
+				return createTrustedFunctionRteBufferSendSendOperationAdapter();
+			}
+			@Override
+			public Adapter caseTrustedFunctionRteBufferInvalidateSendOperation(TrustedFunctionRteBufferInvalidateSendOperation object) {
+				return createTrustedFunctionRteBufferInvalidateSendOperationAdapter();
+			}
+			@Override
+			public Adapter caseRteBufferInvalidateTrustedFunction(RteBufferInvalidateTrustedFunction object) {
+				return createRteBufferInvalidateTrustedFunctionAdapter();
 			}
 			@Override
 			public Adapter caseTrustedFunctionComSendOperation(TrustedFunctionComSendOperation object) {
@@ -340,8 +348,8 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createComReceiveSignalApiAdapter();
 			}
 			@Override
-			public Adapter caseComReceiveCallback(ComReceiveCallback object) {
-				return createComReceiveCallbackAdapter();
+			public Adapter caseComRxCallback(ComRxCallback object) {
+				return createComRxCallbackAdapter();
 			}
 			@Override
 			public Adapter caseComSendOperation(ComSendOperation object) {
@@ -352,12 +360,12 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createComCallbackAdapter();
 			}
 			@Override
-			public Adapter caseComReceiveTimeoutCallback(ComReceiveTimeoutCallback object) {
-				return createComReceiveTimeoutCallbackAdapter();
+			public Adapter caseComRxTOutCallback(ComRxTOutCallback object) {
+				return createComRxTOutCallbackAdapter();
 			}
 			@Override
-			public Adapter caseComInvalidateCallback(ComInvalidateCallback object) {
-				return createComInvalidateCallbackAdapter();
+			public Adapter caseComInvCallback(ComInvCallback object) {
+				return createComInvCallbackAdapter();
 			}
 			@Override
 			public Adapter caseComSendSignalProxyEntity(ComSendSignalProxyEntity object) {
@@ -370,6 +378,22 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComSendSignalPeriodicEntity(ComSendSignalPeriodicEntity object) {
 				return createComSendSignalPeriodicEntityAdapter();
+			}
+			@Override
+			public Adapter caseTAckNotifyOperation(TAckNotifyOperation object) {
+				return createTAckNotifyOperationAdapter();
+			}
+			@Override
+			public Adapter caseComTxTOutCallback(ComTxTOutCallback object) {
+				return createComTxTOutCallbackAdapter();
+			}
+			@Override
+			public Adapter caseComTAckCallback(ComTAckCallback object) {
+				return createComTAckCallbackAdapter();
+			}
+			@Override
+			public Adapter caseComTErrCallback(ComTErrCallback object) {
+				return createComTErrCallbackAdapter();
 			}
 			@Override
 			public Adapter caseFilterOperation(FilterOperation object) {
@@ -524,6 +548,10 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createRteExitApiAdapter();
 			}
 			@Override
+			public Adapter caseOsBackgroundTaskActivationExecutableTaskBody(OsBackgroundTaskActivationExecutableTaskBody object) {
+				return createOsBackgroundTaskActivationExecutableTaskBodyAdapter();
+			}
+			@Override
 			public Adapter caseOsTaskActivationExecutableTaskBody(OsTaskActivationExecutableTaskBody object) {
 				return createOsTaskActivationExecutableTaskBodyAdapter();
 			}
@@ -546,6 +574,10 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTimingTriggeringExecutableStartOperation(TimingTriggeringExecutableStartOperation object) {
 				return createTimingTriggeringExecutableStartOperationAdapter();
+			}
+			@Override
+			public Adapter casePlainExecutableStartOperation(PlainExecutableStartOperation object) {
+				return createPlainExecutableStartOperationAdapter();
 			}
 			@Override
 			public Adapter caseModeSwitchTriggeringExecutableStartOperation(ModeSwitchTriggeringExecutableStartOperation object) {
@@ -604,12 +636,8 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createVariableAdapter();
 			}
 			@Override
-			public Adapter casePrimitiveComSendProxyOperation(PrimitiveComSendProxyOperation object) {
-				return createPrimitiveComSendProxyOperationAdapter();
-			}
-			@Override
-			public Adapter caseComplexComSendProxyOperation(ComplexComSendProxyOperation object) {
-				return createComplexComSendProxyOperationAdapter();
+			public Adapter caseComSendProxyOperation(ComSendProxyOperation object) {
+				return createComSendProxyOperationAdapter();
 			}
 			@Override
 			public Adapter caseIocReceiveGroupApi(IocReceiveGroupApi object) {
@@ -650,6 +678,10 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRteBufferWriteTrustedFunction(RteBufferWriteTrustedFunction object) {
 				return createRteBufferWriteTrustedFunctionAdapter();
+			}
+			@Override
+			public Adapter caseRteBufferSendTrustedFunction(RteBufferSendTrustedFunction object) {
+				return createRteBufferSendTrustedFunctionAdapter();
 			}
 			@Override
 			public Adapter caseCsTrustedFunction(CsTrustedFunction object) {
@@ -788,8 +820,12 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 				return createRteBufferQueueTypeAdapter();
 			}
 			@Override
-			public Adapter caseRteSendTrustedFunctionParamType(RteSendTrustedFunctionParamType object) {
-				return createRteSendTrustedFunctionParamTypeAdapter();
+			public Adapter caseRteNonqueuedSendTrustedFunctionParamType(RteNonqueuedSendTrustedFunctionParamType object) {
+				return createRteNonqueuedSendTrustedFunctionParamTypeAdapter();
+			}
+			@Override
+			public Adapter caseRteQueuedSendTrustedFunctionParamType(RteQueuedSendTrustedFunctionParamType object) {
+				return createRteQueuedSendTrustedFunctionParamTypeAdapter();
 			}
 			@Override
 			public Adapter caseComSendTrustedFunctionParamType(ComSendTrustedFunctionParamType object) {
@@ -802,14 +838,6 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseNeverReadOperation(NeverReadOperation object) {
 				return createNeverReadOperationAdapter();
-			}
-			@Override
-			public Adapter caseRteBufferInvalidateTrustedFunction(RteBufferInvalidateTrustedFunction object) {
-				return createRteBufferInvalidateTrustedFunctionAdapter();
-			}
-			@Override
-			public Adapter caseTrustedFunctionRteBufferInvalidateSendOperation(TrustedFunctionRteBufferInvalidateSendOperation object) {
-				return createTrustedFunctionRteBufferInvalidateSendOperationAdapter();
 			}
 			@Override
 			public Adapter caseMemoryMapping(MemoryMapping object) {
@@ -986,6 +1014,26 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseRedefinitionType(RedefinitionType object) {
 				return createRedefinitionTypeAdapter();
+			}
+			@Override
+			public Adapter caseActivationOperation(ActivationOperation object) {
+				return createActivationOperationAdapter();
+			}
+			@Override
+			public Adapter caseOsActivateTaskApi(OsActivateTaskApi object) {
+				return createOsActivateTaskApiAdapter();
+			}
+			@Override
+			public Adapter caseFeedbackApi(FeedbackApi object) {
+				return createFeedbackApiAdapter();
+			}
+			@Override
+			public Adapter caseLogicalBlock(LogicalBlock object) {
+				return createLogicalBlockAdapter();
+			}
+			@Override
+			public Adapter caseTAckStatus(TAckStatus object) {
+				return createTAckStatusAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -1596,16 +1644,16 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation <em>Trusted Function Rte Send Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation <em>Trusted Function Rte Buffer Send Send Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation
 	 * @generated
 	 */
-	public Adapter createTrustedFunctionRteSendOperationAdapter() {
+	public Adapter createTrustedFunctionRteBufferSendSendOperationAdapter() {
 		return null;
 	}
 
@@ -1750,16 +1798,16 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback <em>Com Receive Callback</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback <em>Com Rx Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback
 	 * @generated
 	 */
-	public Adapter createComReceiveCallbackAdapter() {
+	public Adapter createComRxCallbackAdapter() {
 		return null;
 	}
 
@@ -1792,30 +1840,30 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback <em>Com Receive Timeout Callback</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback <em>Com Rx TOut Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback
 	 * @generated
 	 */
-	public Adapter createComReceiveTimeoutCallbackAdapter() {
+	public Adapter createComRxTOutCallbackAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback <em>Com Invalidate Callback</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback <em>Com Inv Callback</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback
 	 * @generated
 	 */
-	public Adapter createComInvalidateCallbackAdapter() {
+	public Adapter createComInvCallbackAdapter() {
 		return null;
 	}
 
@@ -1858,6 +1906,62 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComSendSignalPeriodicEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation <em>TAck Notify Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation
+	 * @generated
+	 */
+	public Adapter createTAckNotifyOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback <em>Com Tx TOut Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback
+	 * @generated
+	 */
+	public Adapter createComTxTOutCallbackAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback <em>Com TAck Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback
+	 * @generated
+	 */
+	public Adapter createComTAckCallbackAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback <em>Com TErr Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback
+	 * @generated
+	 */
+	public Adapter createComTErrCallbackAdapter() {
 		return null;
 	}
 
@@ -2310,6 +2414,34 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType <em>Rte Nonqueued Send Trusted Function Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType
+	 * @generated
+	 */
+	public Adapter createRteNonqueuedSendTrustedFunctionParamTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType <em>Rte Queued Send Trusted Function Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType
+	 * @generated
+	 */
+	public Adapter createRteQueuedSendTrustedFunctionParamTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType <em>Mode Queue Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2320,20 +2452,6 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModeQueueTypeAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType <em>Rte Send Trusted Function Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType
-	 * @generated
-	 */
-	public Adapter createRteSendTrustedFunctionParamTypeAdapter() {
 		return null;
 	}
 
@@ -3038,6 +3156,76 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation
+	 * @generated
+	 */
+	public Adapter createActivationOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi <em>Os Activate Task Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi
+	 * @generated
+	 */
+	public Adapter createOsActivateTaskApiAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi <em>Feedback Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi
+	 * @generated
+	 */
+	public Adapter createFeedbackApiAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalBlock <em>Logical Block</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalBlock
+	 * @generated
+	 */
+	public Adapter createLogicalBlockAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus
+	 * @generated
+	 */
+	public Adapter createTAckStatusAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi <em>Restart Partition Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3486,6 +3674,20 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody <em>Os Background Task Activation Executable Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody
+	 * @generated
+	 */
+	public Adapter createOsBackgroundTaskActivationExecutableTaskBodyAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody <em>Os Task Activation Executable Task Body</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3566,6 +3768,20 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTimingTriggeringExecutableStartOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation <em>Plain Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation
+	 * @generated
+	 */
+	public Adapter createPlainExecutableStartOperationAdapter() {
 		return null;
 	}
 
@@ -3780,30 +3996,16 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation <em>Primitive Com Send Proxy Operation</em>}'.
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation <em>Com Send Proxy Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation
 	 * @generated
 	 */
-	public Adapter createPrimitiveComSendProxyOperationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation <em>Complex Com Send Proxy Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation
-	 * @generated
-	 */
-	public Adapter createComplexComSendProxyOperationAdapter() {
+	public Adapter createComSendProxyOperationAdapter() {
 		return null;
 	}
 
@@ -3944,6 +4146,20 @@ public class ModuleAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRteBufferWriteTrustedFunctionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction
+	 * @generated
+	 */
+	public Adapter createRteBufferSendTrustedFunctionAdapter() {
 		return null;
 	}
 

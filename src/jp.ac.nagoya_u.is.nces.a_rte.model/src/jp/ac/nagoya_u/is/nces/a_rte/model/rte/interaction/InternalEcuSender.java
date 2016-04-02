@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -45,6 +45,7 @@
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -55,6 +56,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInCo
  * The following features are supported:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getSource <em>Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getTAckStatusVariableImplementation <em>TAck Status Variable Implementation</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getActivatesOnSendCompleted <em>Activates On Send Completed</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,5 +91,58 @@ public interface InternalEcuSender extends Sender {
 	 * @generated
 	 */
 	void setSource(VariableDataInstanceInComposition value);
+
+	/**
+	 * Returns the value of the '<em><b>TAck Status Variable Implementation</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>TAck Status Variable Implementation</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>TAck Status Variable Implementation</em>' containment reference.
+	 * @see #setTAckStatusVariableImplementation(TAckStatusVariableImplementation)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getInternalEcuSender_TAckStatusVariableImplementation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation#getParent
+	 * @model opposite="parent" containment="true"
+	 * @generated
+	 */
+	TAckStatusVariableImplementation getTAckStatusVariableImplementation();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getTAckStatusVariableImplementation <em>TAck Status Variable Implementation</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>TAck Status Variable Implementation</em>' containment reference.
+	 * @see #getTAckStatusVariableImplementation()
+	 * @generated
+	 */
+	void setTAckStatusVariableImplementation(TAckStatusVariableImplementation value);
+
+	/**
+	 * Returns the value of the '<em><b>Activates On Send Completed</b></em>' reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Activates On Send Completed</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Activates On Send Completed</em>' reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage#getInternalEcuSender_ActivatesOnSendCompleted()
+	 * @model ordered="false"
+	 * @generated
+	 */
+	EList<EntityStarter> getActivatesOnSendCompleted();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" required="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.source.prototype.isEventSemantics()'"
+	 * @generated
+	 */
+	boolean isEventSemantics();
 
 } // InternalEcuSender

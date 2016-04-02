@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -48,6 +48,7 @@ import java.lang.reflect.InvocationTargetException;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.InvalidationPolicy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PPortPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SenderComSpec;
@@ -208,6 +209,103 @@ public class PVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isAccessedByDataSendPoint() <em>Is Accessed By Data Send Point</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAccessedByDataSendPoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_ACCESSED_BY_DATA_SEND_POINT__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isAccessedByDataSendPoint() {
+		try {
+			return (Boolean)IS_ACCESSED_BY_DATA_SEND_POINT__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isTAckEnabled() <em>Is TAck Enabled</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTAckEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_TACK_ENABLED__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isTAckEnabled() {
+		try {
+			return (Boolean)IS_TACK_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #isTAckTimeoutEnabled() <em>Is TAck Timeout Enabled</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isTAckTimeoutEnabled()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_TACK_TIMEOUT_ENABLED__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isTAckTimeoutEnabled() {
+		try {
+			return (Boolean)IS_TACK_TIMEOUT_ENABLED__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
+	 * The cached invocation delegate for the '{@link #getRelatedDataSendCompletedEvent() <em>Get Related Data Send Completed Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRelatedDataSendCompletedEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate GET_RELATED_DATA_SEND_COMPLETED_EVENT__EINVOCATION_DELEGATE = ((EOperation.Internal)InstancePackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<DataSendCompletedEvent> getRelatedDataSendCompletedEvent() {
+		try {
+			return (EList<DataSendCompletedEvent>)GET_RELATED_DATA_SEND_COMPLETED_EVENT__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -251,6 +349,14 @@ public class PVariableDataInstanceInSwcImpl extends VariableDataInstanceInSwcImp
 				return getInitValue();
 			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC:
 				return getComSpec();
+			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT:
+				return isAccessedByDataSendPoint();
+			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED:
+				return isTAckEnabled();
+			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED:
+				return isTAckTimeoutEnabled();
+			case InstancePackage.PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT:
+				return getRelatedDataSendCompletedEvent();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

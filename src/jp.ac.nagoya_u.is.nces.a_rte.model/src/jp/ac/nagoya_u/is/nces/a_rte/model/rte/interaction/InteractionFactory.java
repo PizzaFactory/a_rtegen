@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -208,6 +208,15 @@ public interface InteractionFactory extends EFactory {
 	ImmediateProxyComSendImplementation createImmediateProxyComSendImplementation();
 
 	/**
+	 * Returns a new object of class '<em>TAck Status Variable Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TAck Status Variable Implementation</em>'.
+	 * @generated
+	 */
+	TAckStatusVariableImplementation createTAckStatusVariableImplementation();
+
+	/**
 	 * Returns a new object of class '<em>Filter Buffer Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,6 +289,42 @@ public interface InteractionFactory extends EFactory {
 	ImmediateComSendProxy createImmediateComSendProxy();
 
 	/**
+	 * Returns a new object of class '<em>Execution Context</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Context</em>'.
+	 * @generated
+	 */
+	ExecutionContext createExecutionContext();
+
+	/**
+	 * Returns a new object of class '<em>Infiniteloop Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Infiniteloop Implementation</em>'.
+	 * @generated
+	 */
+	InfiniteloopImplementation createInfiniteloopImplementation();
+
+	/**
+	 * Returns a new object of class '<em>One Shoot Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>One Shoot Implementation</em>'.
+	 * @generated
+	 */
+	OneShootImplementation createOneShootImplementation();
+
+	/**
+	 * Returns a new object of class '<em>Event Pooling Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Event Pooling Implementation</em>'.
+	 * @generated
+	 */
+	EventPoolingImplementation createEventPoolingImplementation();
+
+	/**
 	 * Returns a new object of class '<em>Os Task Activate Entity Starter</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -298,6 +343,15 @@ public interface InteractionFactory extends EFactory {
 	OsEventSetEntityStarter createOsEventSetEntityStarter();
 
 	/**
+	 * Returns a new object of class '<em>Timing Triggering Entity Start Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Timing Triggering Entity Start Condition</em>'.
+	 * @generated
+	 */
+	TimingTriggeringEntityStartCondition createTimingTriggeringEntityStartCondition();
+
+	/**
 	 * Returns a new object of class '<em>Timing Triggering Entity Start Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,13 +361,13 @@ public interface InteractionFactory extends EFactory {
 	TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation();
 
 	/**
-	 * Returns a new object of class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * Returns a new object of class '<em>Plain Entity Start Implementation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
+	 * @return a new object of class '<em>Plain Entity Start Implementation</em>'.
 	 * @generated
 	 */
-	ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation();
+	PlainEntityStartImplementation createPlainEntityStartImplementation();
 
 	/**
 	 * Returns a new object of class '<em>Runnable Entity Start Interaction</em>'.
@@ -359,42 +413,6 @@ public interface InteractionFactory extends EFactory {
 	 * @generated
 	 */
 	BswSchedulableEntityStartInteraction createBswSchedulableEntityStartInteraction();
-
-	/**
-	 * Returns a new object of class '<em>Event To Task Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event To Task Mapping</em>'.
-	 * @generated
-	 */
-	EventToTaskMapping createEventToTaskMapping();
-
-	/**
-	 * Returns a new object of class '<em>Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Event</em>'.
-	 * @generated
-	 */
-	Event createEvent();
-
-	/**
-	 * Returns a new object of class '<em>Timing Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Timing Event</em>'.
-	 * @generated
-	 */
-	TimingEvent createTimingEvent();
-
-	/**
-	 * Returns a new object of class '<em>Mode Switch Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Switch Event</em>'.
-	 * @generated
-	 */
-	ModeSwitchEvent createModeSwitchEvent();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
  *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
@@ -210,6 +210,10 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 				return createExternalEcuSenderExAdapter();
 			}
 			@Override
+			public Adapter caseExternalEcuReceiverEx(ExternalEcuReceiverEx object) {
+				return createExternalEcuReceiverExAdapter();
+			}
+			@Override
 			public Adapter caseEntityStarterEx(EntityStarterEx object) {
 				return createEntityStarterExAdapter();
 			}
@@ -220,6 +224,10 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseModeDeclarationGroupPrototypeEx(ModeDeclarationGroupPrototypeEx object) {
 				return createModeDeclarationGroupPrototypeExAdapter();
+			}
+			@Override
+			public Adapter caseRteEventEx(RteEventEx object) {
+				return createRteEventExAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -298,6 +306,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx <em>External Ecu Receiver Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx
+	 * @generated
+	 */
+	public Adapter createExternalEcuReceiverExAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EntityStarterEx <em>Entity Starter Ex</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -336,6 +358,20 @@ public class ExAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createModeDeclarationGroupPrototypeExAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx <em>Rte Event Ex</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx
+	 * @generated
+	 */
+	public Adapter createRteEventExAdapter() {
 		return null;
 	}
 

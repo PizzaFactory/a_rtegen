@@ -2,7 +2,7 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
  *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
@@ -78,7 +78,7 @@ public class M2ModelSaver {
 
 	private static class Saver {
 		private static final String XML_VERSION = "1.0";
-		private static final Charset DEFAULT_ENCODING = Charset.forName("EUC-JP");
+		private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
 
 		private final M2Root m2Root;
 		private final XMLStreamWriter writer;
