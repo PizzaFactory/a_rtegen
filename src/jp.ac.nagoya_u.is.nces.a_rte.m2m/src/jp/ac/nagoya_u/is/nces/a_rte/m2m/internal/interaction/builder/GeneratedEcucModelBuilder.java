@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -128,7 +128,7 @@ import org.eclipse.emf.ecore.EObject;
 import com.google.common.base.Optional;
 
 /**
- * ÉÔÂ­¤·¤Æ¤¤¤ëECUC¾ğÊó¤òÀ¸À®¤¹¤ë¡¥ ÆşÎÏ¥â¥Ç¥ëÃæ¤Ë¡¤À¸À®ÂĞ¾İ¤ÎECUC¾ğÊó¤¬Â¸ºß¤·¤Æ¤¤¤ë¾ì¹ç¤Ï¡¤ÆşÎÏ¤µ¤ì¤¿ECUC¾ğÊó¤ò»ÈÍÑ¤¹¤ë¡¥
+ * ä¸è¶³ã—ã¦ã„ã‚‹ECUCæƒ…å ±ã‚’ç”Ÿæˆã™ã‚‹ï¼ å…¥åŠ›ãƒ¢ãƒ‡ãƒ«ä¸­ã«ï¼Œç”Ÿæˆå¯¾è±¡ã®ECUCæƒ…å ±ãŒå­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã¯ï¼Œå…¥åŠ›ã•ã‚ŒãŸECUCæƒ…å ±ã‚’ä½¿ç”¨ã™ã‚‹ï¼
  */
 public class GeneratedEcucModelBuilder {
 	private final InteractionModelBuildContext context;
@@ -144,12 +144,12 @@ public class GeneratedEcucModelBuilder {
 	public void build() throws ModelException {
 		Os sourceAndTargetOs = this.context.cache.sourceOs;
 
-		// ¥³¥¢´ÖÏ¢·È¤Ë¤ª¤±¤ëÇÓÂ¾¤Î¤¿¤á¤Î¥¹¥Ô¥ó¥í¥Ã¥¯¤òÄÉ²Ã
+		// ã‚³ã‚¢é–“é€£æºã«ãŠã‘ã‚‹æ’ä»–ã®ãŸã‚ã®ã‚¹ãƒ”ãƒ³ãƒ­ãƒƒã‚¯ã‚’è¿½åŠ 
 		if (this.interactionRules.needsSpinlockForRteInternalExclusion()) {
 			buildRteInternalSpinlock(sourceAndTargetOs);
 		}
 
-		// ¥×¥í¥­¥·COMÄÌ¿®¤Î¤¿¤á¤Î¥¿¥¹¥¯¡¤¥¤¥Ù¥ó¥È¡¤IOC¤òÄÉ²Ã
+		// ãƒ—ãƒ­ã‚­ã‚·COMé€šä¿¡ã®ãŸã‚ã®ã‚¿ã‚¹ã‚¯ï¼Œã‚¤ãƒ™ãƒ³ãƒˆï¼ŒIOCã‚’è¿½åŠ 
 		Optional<ImmediateComSendProxy> sourceAndTargetImmediateComSendProxy = this.context.query.tryFindSingleByKind(IMMEDIATE_COM_SEND_PROXY);
 		if (sourceAndTargetImmediateComSendProxy.isPresent()) {
 			OsApplication targetOsApplication = sourceAndTargetImmediateComSendProxy.get().getOwnerPartition().getImplOsApplication().get(0);
@@ -160,21 +160,21 @@ public class GeneratedEcucModelBuilder {
 			buildComSendProxyOsIocCommunication(getOrCreateOsIoc(sourceAndTargetOs), sourceAndTargetProxyInteraction);
 		}
 
-		// S/R IOCÁ÷¿®¤Î¤¿¤á¤ÎIOC¤òÄÉ²Ã
+		// S/R IOCé€ä¿¡ã®ãŸã‚ã®IOCã‚’è¿½åŠ 
 		for (IocValueBufferImplementation sourceAndTargetValueBufferImplementation : this.context.query.<IocValueBufferImplementation> findByKind(IOC_VALUE_BUFFER_IMPLEMENTATION)) {
 			buildSrInterPartitionOsIocCommunication(getOrCreateOsIoc(sourceAndTargetOs), sourceAndTargetValueBufferImplementation);
 		}
 
-		// ¿®Íê´Ø¿ô·ĞÍ³COMÁ÷¿®¤Î¤¿¤á¤Î¿®Íê´Ø¿ô¤òÄÉ²Ã
+		// ä¿¡é ¼é–¢æ•°çµŒç”±COMé€ä¿¡ã®ãŸã‚ã®ä¿¡é ¼é–¢æ•°ã‚’è¿½åŠ 
 		buildComSendSignalTrustedFunctions();
 
-		// ¿®Íê´Ø¿ô·ĞÍ³¤ÎS/R¤Î¤¿¤á¤Î¿®Íê´Ø¿ô¤òÄÉ²Ã
+		// ä¿¡é ¼é–¢æ•°çµŒç”±ã®S/Rã®ãŸã‚ã®ä¿¡é ¼é–¢æ•°ã‚’è¿½åŠ 
 		buildSrTrustedFunctions();
 
-		// ¿®Íê´Ø¿ô·ĞÍ³¤ÎC/S¤Î¤¿¤á¤Î¿®Íê´Ø¿ô¤òÄÉ²Ã
+		// ä¿¡é ¼é–¢æ•°çµŒç”±ã®C/Sã®ãŸã‚ã®ä¿¡é ¼é–¢æ•°ã‚’è¿½åŠ 
 		buildCsTrustedFunctions();
 
-		// À¸À®¤·¤¿ECUC¤Î¥½¡¼¥È
+		// ç”Ÿæˆã—ãŸECUCã®ã‚½ãƒ¼ãƒˆ
 		GeneratedEcuConfiguration targetGeneratedEcuConfiguration = this.context.cache.interactionRoot.getGeneratedEcuConfiguration();
 		if (targetGeneratedEcuConfiguration != null) {
 			this.sorter.sortEcucContainers(targetGeneratedEcuConfiguration.getGeneratedOsEvent());
@@ -186,7 +186,7 @@ public class GeneratedEcucModelBuilder {
 	}
 
 	private void buildSrTrustedFunctions() throws ModelException {
-		// ¿®Íê´Ø¿ô·ĞÍ³RTEÁ÷¿®¤Î¤¿¤á¤Î¿®Íê´Ø¿ô¤òÄÉ²Ã
+		// ä¿¡é ¼é–¢æ•°çµŒç”±RTEé€ä¿¡ã®ãŸã‚ã®ä¿¡é ¼é–¢æ•°ã‚’è¿½åŠ 
 		for (TrustedFunctionRteSendImplementation sourceAndTargetSendImplementation : this.context.query.<TrustedFunctionRteSendImplementation> findByKind(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION)) {
 			buildRteBufferSendTrustedFunctions(sourceAndTargetSendImplementation);
 		}
@@ -220,7 +220,7 @@ public class GeneratedEcucModelBuilder {
 	}
 
 	private void buildComSendSignalImmediateOsEventAndTask(Os targetOs, OsApplication targetOsApplication, ImmediateComSendProxy sourceAndTargetComSendProxy) {
-		// OS¥¤¥Ù¥ó¥È¤Î¹½ÃÛ
+		// OSã‚¤ãƒ™ãƒ³ãƒˆã®æ§‹ç¯‰
 		OsEvent destOsEvent;
 
 		Optional<OsEvent> inputOsEvent = tryFindOsConfig(OS_EVENT, Identifiers.COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME);
@@ -231,19 +231,19 @@ public class GeneratedEcucModelBuilder {
 			destOsEvent = createComSendSignalImmediateOsEvent();
 			targetOs.getOsEvent().add(destOsEvent);
 
-			// À¸À®¤·¤¿ECUC¤Ç¤¢¤ë¤³¤È¤òÌÀ¼¨
+			// ç”Ÿæˆã—ãŸECUCã§ã‚ã‚‹ã“ã¨ã‚’æ˜ç¤º
 			getOrCreateGeneratedEcuConfiguration().getGeneratedOsEvent().add(destOsEvent);
 		}
 
 		sourceAndTargetComSendProxy.setOsEvent(destOsEvent);
 
-		// OS¥¿¥¹¥¯¤Î¹½ÃÛ
+		// OSã‚¿ã‚¹ã‚¯ã®æ§‹ç¯‰
 		Optional<OsTask> inputOsTask = tryFindOsConfig(OS_TASK, Identifiers.COM_SEND_SIGNAL_IMMEDIATE_TASK_NAME);
 		if (!inputOsTask.isPresent()) {
 			OsTask destOsTask = createComSendSignalImmediateOsTask(targetOs, sourceAndTargetComSendProxy, destOsEvent);
 			targetOsApplication.getOsAppTask().add(destOsTask);
 
-			// À¸À®¤·¤¿ECUC¤Ç¤¢¤ë¤³¤È¤òÌÀ¼¨
+			// ç”Ÿæˆã—ãŸECUCã§ã‚ã‚‹ã“ã¨ã‚’æ˜ç¤º
 			getOrCreateGeneratedEcuConfiguration().getGeneratedOsTask().add(destOsTask);
 		}
 	}
@@ -268,8 +268,8 @@ public class GeneratedEcucModelBuilder {
 
 	private void buildComSendProxyOsIocCommunication(OsIoc targetOsIoc, ComSendProxyInteraction sourceAndTargetProxyInteraction) throws ModelException {
 		if (sourceAndTargetProxyInteraction.getSignalDataType().isPrimitiveType()) {
-			// ¥×¥ê¥ß¥Æ¥£¥Ö·¿¤Î¾ì¹ç
-			// Í×µá¡¦ÃÍÅÁÈÂÍÑ¤ÎIOCÄÌ¿®¤ò¹½ÃÛ
+			// ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã®å ´åˆ
+			// è¦æ±‚ãƒ»å€¤ä¼æ¬ç”¨ã®IOCé€šä¿¡ã‚’æ§‹ç¯‰
 			OsIocCommunication destOsIocCommunication;
 
 			String osIocCommunicationName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
@@ -287,8 +287,8 @@ public class GeneratedEcucModelBuilder {
 			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destOsIocCommunication);
 
 		} else {
-			// Ê£¹ç¥Ç¡¼¥¿·¿¤Î¾ì¹ç
-			// Í×µáÅÁÈÂÍÑ¤ÎIOCÄÌ¿®¤ò¹½ÃÛ
+			// è¤‡åˆãƒ‡ãƒ¼ã‚¿å‹ã®å ´åˆ
+			// è¦æ±‚ä¼æ¬ç”¨ã®IOCé€šä¿¡ã‚’æ§‹ç¯‰
 			OsIocCommunication destRequestOsIocCommunication;
 
 			String requestOsIocComName = (sourceAndTargetProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
@@ -304,7 +304,7 @@ public class GeneratedEcucModelBuilder {
 			}
 			sourceAndTargetProxyInteraction.setRequestOsIocCommunication(destRequestOsIocCommunication);
 
-			// ÃÍÅÁÈÂÍÑ¤ÎIOCÄÌ¿®¤ò¹½ÃÛ
+			// å€¤ä¼æ¬ç”¨ã®IOCé€šä¿¡ã‚’æ§‹ç¯‰
 			ProxyComSendImplementation sourceSendImplementation = this.context.query.<ProxyComSendImplementation> findSingle(ref(PROXY_COM_SEND_IMPLEMENTATION__PROXY_INTERACTION, sourceAndTargetProxyInteraction));
 			InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
 			VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceSender.getSource().getPrototype();
@@ -332,13 +332,13 @@ public class GeneratedEcucModelBuilder {
 		destOsIocCommunication.setShortName(osIocCommunicationName);
 		targetOsIoc.getOsIocCommunication().add(destOsIocCommunication);
 		
-		// À¸À®¤·¤¿ECUC¤Ç¤¢¤ë¤³¤È¤òÌÀ¼¨
+		// ç”Ÿæˆã—ãŸECUCã§ã‚ã‚‹ã“ã¨ã‚’æ˜ç¤º
 		getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(destOsIocCommunication);
 
-		// ¼õ¿®Â¦¾ğÊó¤Î¹½ÃÛ
+		// å—ä¿¡å´æƒ…å ±ã®æ§‹ç¯‰
 		destOsIocCommunication.setOsIocReceiverProperties(createComSendProxyOsIocReceiverProperties(sourceProxyInteraction));
 
-		// Á÷¿®Â¦¾ğÊó¤Î¹½ÃÛ
+		// é€ä¿¡å´æƒ…å ±ã®æ§‹ç¯‰
 		destOsIocCommunication.getOsIocSenderProperties().add(createComSendProxyOsIocSenderProperties(sourceProxyInteraction));
 		return destOsIocCommunication;
 	}
@@ -392,7 +392,7 @@ public class GeneratedEcucModelBuilder {
 	}
 
 	private int getComSendProxyValueIocDefaultBufferLength(ComSendProxyInteraction sourceProxyInteraction) {
-		int count = 0; // ¼«¿È¤òÉ¬¤ºÂ­¤·¤³¤à¤¿¤á¡¢0¤«¤é¥¹¥¿¡¼¥È¤¹¤ë
+		int count = 0; // è‡ªèº«ã‚’å¿…ãšè¶³ã—ã“ã‚€ãŸã‚ã€0ã‹ã‚‰ã‚¹ã‚¿ãƒ¼ãƒˆã™ã‚‹
 		for (ComSendProxyInteraction sourceAnotherProxyInteraction : this.context.query.<ComSendProxyInteraction> findByKind(COM_SEND_PROXY_INTERACTION)) {
 			if (sourceAnotherProxyInteraction.getRequesterPartition() == sourceProxyInteraction.getRequesterPartition()) {
 				if ((sourceAnotherProxyInteraction.getProxy() instanceof PeriodicComSendProxy && sourceProxyInteraction.getProxy() instanceof PeriodicComSendProxy)
@@ -412,7 +412,7 @@ public class GeneratedEcucModelBuilder {
 		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceDataInstance = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 
-		// IOCÄÌ¿®¤ò¹½ÃÛ
+		// IOCé€šä¿¡ã‚’æ§‹ç¯‰
 		OsIocCommunication destOsIocCommunication;
 
 		Optional<OsIocCommunication> inputOsIocCommunication = tryFindOsConfig(OS_IOC_COMMUNICATION, Identifiers.createSrInterPartitionOsIocCommunicationName(sourceDataInstance));
@@ -423,22 +423,22 @@ public class GeneratedEcucModelBuilder {
 			destOsIocCommunication = createSrInterPartitionOsIocCommunication(sourceDataInstance);
 			targetOsIoc.getOsIocCommunication().add(destOsIocCommunication);
 
-			// À¸À®¤·¤¿ECUC¤Ç¤¢¤ë¤³¤È¤òÌÀ¼¨
+			// ç”Ÿæˆã—ãŸECUCã§ã‚ã‚‹ã“ã¨ã‚’æ˜ç¤º
 			getOrCreateGeneratedEcuConfiguration().getGeneratedOsIocCommunication().add(destOsIocCommunication);
 
-			// ¥Ç¡¼¥¿¾ğÊó¤Î¹½ÃÛ
+			// ãƒ‡ãƒ¼ã‚¿æƒ…å ±ã®æ§‹ç¯‰
 			destOsIocCommunication.getOsIocDataProperties().add(createSrInterPartitionOsIocDataProperties(sourceReceiver, sourceDataInstance));
 
-			// ¼õ¿®Â¦¾ğÊó¤Î¹½ÃÛ
+			// å—ä¿¡å´æƒ…å ±ã®æ§‹ç¯‰
 			destOsIocCommunication.setOsIocReceiverProperties(createSrInterPartitionOsIocReceiverProperties(sourceValueBufferImplementation));
 		}
 
-		// ¼ÂÁõ¤Ë»ÈÍÑ¤¹¤ëIOC¤ò¤Ò¤â¤Å¤±
+		// å®Ÿè£…ã«ä½¿ç”¨ã™ã‚‹IOCã‚’ã²ã‚‚ã¥ã‘
 		sourceValueBufferImplementation.setOsIocCommunication(destOsIocCommunication);
 
-		// Á÷¿®Â¦¾ğÊó¤ò¹½ÃÛ
+		// é€ä¿¡å´æƒ…å ±ã‚’æ§‹ç¯‰
 
-		// ½é´ü²½ÍÑ¤Ë¡¤¥ë¡¼¥×¥Ğ¥Ã¥¯¤ÎÁ÷¿®Â¦¾ğÊó¤ò¹½ÃÛ
+		// åˆæœŸåŒ–ç”¨ã«ï¼Œãƒ«ãƒ¼ãƒ—ãƒãƒƒã‚¯ã®é€ä¿¡å´æƒ…å ±ã‚’æ§‹ç¯‰
 		if (!sourceDataInstance.isEventSemantics()) {
 			Optional<EcucReferrable> inputLoopbackOsIocSenderProperties = tryFindOsConfig(destOsIocCommunication, OS_IOC_SENDER_PROPERTIES,
 					Identifiers.createOsIocSenderPropertiesName(sourceReceiver.getSource()));
@@ -447,10 +447,10 @@ public class GeneratedEcucModelBuilder {
 			}
 		}
 
-		// ³ÆÁ÷¿®¼ÔÍÑ¤ÎÁ÷¿®Â¦¾ğÊó¤ò¹½ÃÛ
+		// å„é€ä¿¡è€…ç”¨ã®é€ä¿¡å´æƒ…å ±ã‚’æ§‹ç¯‰
 		for (SendInteraction sourceSendInteraction : sourceReceiveInteraction.getSendInteraction()) {
 			Sender sourceSender = sourceSendInteraction.getSender().get(0);
-			IocSendImplementation targetIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation(); // NOTE IOC¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¡¢Á÷¿®Â¦¤ÏÉ¬¤ºIOCÁ÷¿®
+			IocSendImplementation targetIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation(); // NOTE IOCãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€é€ä¿¡å´ã¯å¿…ãšIOCé€ä¿¡
 
 			OsIocSenderProperties destOsIocSenderProperties;
 
@@ -463,14 +463,14 @@ public class GeneratedEcucModelBuilder {
 				destOsIocCommunication.getOsIocSenderProperties().add(destOsIocSenderProperties);
 			}
 
-			// ¼ÂÁõ¤Ë»ÈÍÑ¤¹¤ëIOC¥»¥ó¥À¤ò¤Ò¤â¤Å¤±
+			// å®Ÿè£…ã«ä½¿ç”¨ã™ã‚‹IOCã‚»ãƒ³ãƒ€ã‚’ã²ã‚‚ã¥ã‘
 			targetIocSendImplementation.setOsIocSenderProperties(destOsIocSenderProperties);
 		}
 
-		// OsIocSenderProperties¤ò¥½¡¼¥È
+		// OsIocSenderPropertiesã‚’ã‚½ãƒ¼ãƒˆ
 		this.sorter.sortEcucContainers(destOsIocCommunication.getOsIocSenderProperties());
 
-		// senderId¤ò³ä¤ê¿¶¤ê¡ÊÁ÷¿®¼Ô¿ô¤¬N¤Î¾ì¹ç¤Î¤ß¡Ë
+		// senderIdã‚’å‰²ã‚ŠæŒ¯ã‚Šï¼ˆé€ä¿¡è€…æ•°ãŒNã®å ´åˆã®ã¿ï¼‰
 		if (destOsIocCommunication.getOsIocSenderProperties().size() > 1) {
 			int nextSenderId = 0;
 			for (OsIocSenderProperties targetOsIocSenderProperties : destOsIocCommunication.getOsIocSenderProperties()) {
@@ -500,8 +500,8 @@ public class GeneratedEcucModelBuilder {
 			return Identifiers.createOsIocSenderPropertiesName(sourceInternalEcuSender.getSource());
 
 		} else {
-			// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// S/R¤Î¼Â¸½Êı¼°¤ÎÁªÂòÊı¿Ë¤¬ÊÑ¹¹¤È¤Ê¤êECU´Ö¤Ç¤ÏIOC¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ¤·¤Ê¤¯¤Ê¤Ã¤¿´Ø·¸¾å,ËÜÈ½Äê¤Îelse¤¬¤ÏÄÌ²á¤·¤Ê¤¤¤è¤¦¤Ë¤Ê¤Ã¤Æ¤¤¤ë.
+			// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// S/Rã®å®Ÿç¾æ–¹å¼ã®é¸æŠæ–¹é‡ãŒå¤‰æ›´ã¨ãªã‚ŠECUé–“ã§ã¯IOCãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨ã—ãªããªã£ãŸé–¢ä¿‚ä¸Š,æœ¬åˆ¤å®šã®elseãŒã¯é€šéã—ãªã„ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹.
 			ExternalEcuSender sourceExternalEcuSender = (ExternalEcuSender) sourceSender;
 			if (sourceExternalEcuSender.getSourceSignal() != null) {
 				return Identifiers.createOsIocSenderPropertiesName(sourceExternalEcuSender.getSourceSignal());
@@ -564,19 +564,19 @@ public class GeneratedEcucModelBuilder {
 		Optional<TrustedFunctionComSendImplementation> sourceImplForComSignal = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(
 				refExists(COM_SEND_IMPLEMENTATION__COM_SIGNAL)));
 		if (sourceImplForComSignal.isPresent()) {
-			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ¿®Íê´Ø¿ô¤ò¹½ÃÛ¤¹¤ë¾ì¹ç¤Ë¤ÏÉ¬¤º¥Ş¥¹¥¿¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤ò¹Ô¤ï¤Ê¤¤
+			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰ã™ã‚‹å ´åˆã«ã¯å¿…ãšãƒã‚¹ã‚¿ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„
 			buildComSendSignalTrustedFunction(Identifiers.createComSendSignalTrustedFunctionName(sourceMasterBswPartition), SymbolNames.createComSendSignalTrustedFunctionName(sourceMasterBswPartition));
 		}
 
 		Optional<TrustedFunctionComSendImplementation> sourceImplForComSignalGroup = this.context.query.tryFindSingle(isKindOf(TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION).AND(refExists(COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP)));
 		if (sourceImplForComSignalGroup.isPresent()) {
-			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ¿®Íê´Ø¿ô¤ò¹½ÃÛ¤¹¤ë¾ì¹ç¤Ë¤ÏÉ¬¤º¥Ş¥¹¥¿¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤ò¹Ô¤ï¤Ê¤¤
+			EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰ã™ã‚‹å ´åˆã«ã¯å¿…ãšãƒã‚¹ã‚¿ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„
 			buildComSendSignalTrustedFunction(Identifiers.createComSendSignalGroupTrustedFunctionName(sourceMasterBswPartition), SymbolNames.createComSendSignalGroupTrustedFunctionName(sourceMasterBswPartition));
 		}
 	}
 
 	private void buildComSendSignalTrustedFunction(String tfShortName, String tfSymbolName) {
-		EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ¿®Íê´Ø¿ô¤ò¹½ÃÛ¤¹¤ë¾ì¹ç¤Ë¤ÏÉ¬¤º¥Ş¥¹¥¿¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤ò¹Ô¤ï¤Ê¤¤
+		EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰ã™ã‚‹å ´åˆã«ã¯å¿…ãšãƒã‚¹ã‚¿ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã‚ãªã„
 
 		Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION, tfShortName);
 		if (!inputTrustedFunction.isPresent()) {
@@ -601,7 +601,7 @@ public class GeneratedEcucModelBuilder {
 				hasOp(ECUC_PARTITION___GET_OWNER_CORE, sourceSender.getOwnerPartition().getOwnerCore())));
 		OsApplication targetOsApplication = bswPartition.getImplOsApplication().get(0);
 
-		// ¥Ç¡¼¥¿½ñ¤­¹ş¤ßÍÑ¤Î¿®Íê´Ø¿ô¤Î¹½ÃÛ
+		// ãƒ‡ãƒ¼ã‚¿æ›¸ãè¾¼ã¿ç”¨ã®ä¿¡é ¼é–¢æ•°ã®æ§‹ç¯‰
 		OsApplicationTrustedFunction destWriteTrustedFunction;
 
 		Optional<OsApplicationTrustedFunction> inputWriteTrustedFunction;
@@ -625,7 +625,7 @@ public class GeneratedEcucModelBuilder {
 
 		sourceAndTargetSendImplementation.setWriteOsTrustedFunction(destWriteTrustedFunction);
 
-		// ¥Ç¡¼¥¿Ìµ¸ú²½ÍÑ¤Î¿®Íê´Ø¿ô¤Î¹½ÃÛ
+		// ãƒ‡ãƒ¼ã‚¿ç„¡åŠ¹åŒ–ç”¨ã®ä¿¡é ¼é–¢æ•°ã®æ§‹ç¯‰
 		if (sourceDataInstanceInSwc.isInvalidationEnabled()) {
 			OsApplicationTrustedFunction destInvalidateTrustedFunction;
 
@@ -671,12 +671,12 @@ public class GeneratedEcucModelBuilder {
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (ROperationInstanceInSwc sourceOperationInstanceInSwc : this.context.query.<ROperationInstanceInSwc> find(ref(OPERATION_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
 					if (this.interactionRules.needsTrustedFunctionForCsCall(sourceOperationInstanceInSwc)) {
-						// Á÷¿®¡§Èó¿®Íê¡¢¼õ¿®¡§¿®Íê¤Î¾ì¹ç¡¢¿®Íê´Ø¿ô»ÈÍÑ
+						// é€ä¿¡ï¼šéä¿¡é ¼ã€å—ä¿¡ï¼šä¿¡é ¼ã®å ´åˆã€ä¿¡é ¼é–¢æ•°ä½¿ç”¨
 						Optional<OsApplicationTrustedFunction> inputTrustedFunction = tryFindOsConfig(OS_APPLICATION_TRUSTED_FUNCTION, Identifiers.createCsCallTfName(sourceSwComponentType));
 						if (!inputTrustedFunction.isPresent()) {
 							Optional<EcucPartition> sourcePPartition = tryGetPEcucPartition(sourceOperationInstanceInSwc);
 
-							OsApplication targetOsApplication = sourcePPartition.get().getImplOsApplication().get(0); // NOTE ¿®Íê´Ø¿ô¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¡¢Í×µáÂ¦¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÏÉ¬¤ºÂ¸ºß¤¹¤ë
+							OsApplication targetOsApplication = sourcePPartition.get().getImplOsApplication().get(0); // NOTE ä¿¡é ¼é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€è¦æ±‚å´ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã¯å¿…ãšå­˜åœ¨ã™ã‚‹
 							OsApplicationTrustedFunction destOsTrustedFunction = createCsTrustedFunction(sourceSwComponentType);
 							targetOsApplication.getOsApplicationTrustedFunction().add(destOsTrustedFunction);
 
@@ -688,17 +688,17 @@ public class GeneratedEcucModelBuilder {
 		}
 	}
 
-	// NOTE ¤Ç¤­¤ì¤Ğex¥â¥Ç¥ë¤ËÄêµÁ¤·¤¿¤Û¤¦¤¬¤è¤¤
+	// NOTE ã§ãã‚Œã°exãƒ¢ãƒ‡ãƒ«ã«å®šç¾©ã—ãŸã»ã†ãŒã‚ˆã„
 	private Optional<EcucPartition> tryGetPEcucPartition(ROperationInstanceInSwc rOperationInstanceInSwc) throws ModelException {
 		OperationInstanceInComposition rOpInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, rOperationInstanceInSwc));
 		Optional<AssemblyOperationInstanceConnector> connector = this.context.query.<AssemblyOperationInstanceConnector> tryFindSingle(ref(ASSEMBLY_OPERATION_INSTANCE_CONNECTOR__REQUESTER, rOpInComposition));
-		if (!connector.isPresent()) { // COVERAGE ¸½¾õ¤Ï¡¢¾ï¤Ëfalse(¿®Íê´Ø¿ô¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¡¢Í×µáÂ¦¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÏÉ¬¤ºÂ¸ºß¤¹¤ë)
+		if (!connector.isPresent()) { // COVERAGE ç¾çŠ¶ã¯ã€å¸¸ã«false(ä¿¡é ¼é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€è¦æ±‚å´ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã¯å¿…ãšå­˜åœ¨ã™ã‚‹)
 			return Optional.absent();
 		}
 
 		PortInstanceInComposition pPortInComposition = connector.get().getProvider().getParent();
 		if (pPortInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().isEmpty()) {
-			return Optional.absent(); // COVERAGE ¸½¾õ¤Ï¡¢¾ï¤Ëfalse(¿®Íê´Ø¿ô¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¡¢Í×µáÂ¦¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÏÉ¬¤ºÂ¸ºß¤¹¤ë)
+			return Optional.absent(); // COVERAGE ç¾çŠ¶ã¯ã€å¸¸ã«false(ä¿¡é ¼é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€è¦æ±‚å´ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã¯å¿…ãšå­˜åœ¨ã™ã‚‹)
 		}
 
 		return Optional.of(pPortInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().get(0));

@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -218,7 +218,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
 
 /**
- * RTE¤ÎÀÅÅª¥·¥ó¥Ü¥ë(·¿¡¢Äê¿ô¡¢¥°¥í¡¼¥Ğ¥ëÊÑ¿ô)¤Î¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+ * RTEã®é™çš„ã‚·ãƒ³ãƒœãƒ«(å‹ã€å®šæ•°ã€ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°)ã®ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
  */
 public class RteStaticSymbolModelBuilder {
 
@@ -233,12 +233,12 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(API)
+	// ã‚·ãƒ³ãƒœãƒ«(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * ÀÅÅª¥·¥ó¥Ü¥ë¤Î¥·¥ó¥Ü¥ë¥â¥Ç¥ë(API)¤ò¹½ÃÛ¤¹¤ë¡£
+	 * é™çš„ã‚·ãƒ³ãƒœãƒ«ã®ã‚·ãƒ³ãƒœãƒ«ãƒ¢ãƒ‡ãƒ«(API)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 * 
-	 * @throws ModelException ¥â¥Ç¥ëÊÑ´¹¤ËÉ¬Í×¤È¤Ê¤ë¥â¥Ç¥ë¤Î¼èÆÀ¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * @throws ModelException ãƒ¢ãƒ‡ãƒ«å¤‰æ›ã«å¿…è¦ã¨ãªã‚‹ãƒ¢ãƒ‡ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public void buildApiSymbols() throws ModelException {
 		buildDataTypeApiSymbols();
@@ -248,33 +248,33 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥Ç¡¼¥¿·¿)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(ãƒ‡ãƒ¼ã‚¿å‹)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildDataTypeApiSymbols() throws ModelException {
-		// ¼ÂÁõ¥Ç¡¼¥¿·¿¤Î¹½ÃÛ
+		// å®Ÿè£…ãƒ‡ãƒ¼ã‚¿å‹ã®æ§‹ç¯‰
 		List<ImplementationDataType> sourceDataTypes = this.context.query.<ImplementationDataType> findByKind(IMPLEMENTATION_DATA_TYPE);
 		sortImplementationDataTypes(sourceDataTypes);
 		for (ImplementationDataType sourceDataType : sourceDataTypes) {
-			// ¼ÂÁõ·¿¤ÎÀ¸À®¡£¼ÂÂÎ¤è¤ê¤â»²¾È¤¬Àè¤ËÍè¤ë²ÄÇ½À­¤¬¤¢¤ë(ºÆÄêµÁ¤äComposite)¤¿¤á¡¢¼èÆÀ»ş¤ËÂ¸ºß¤·¤Ê¤¤¤Ê¤éºîÀ®¤¹¤ë¼ÂÁõ¤Ë¤·¤Æ¤¤¤ë¡£
+			// å®Ÿè£…å‹ã®ç”Ÿæˆã€‚å®Ÿä½“ã‚ˆã‚Šã‚‚å‚ç…§ãŒå…ˆã«æ¥ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹(å†å®šç¾©ã‚„Composite)ãŸã‚ã€å–å¾—æ™‚ã«å­˜åœ¨ã—ãªã„ãªã‚‰ä½œæˆã™ã‚‹å®Ÿè£…ã«ã—ã¦ã„ã‚‹ã€‚
 			getOrBuildImplementationDataType(sourceDataType);
 		}
 
-		// ¾å¸ÂÃÍ¡¦²¼¸ÂÃÍ¡¦ÎóµóÃÍÄê¿ô¤Î¹½ÃÛ
+		// ä¸Šé™å€¤ãƒ»ä¸‹é™å€¤ãƒ»åˆ—æŒ™å€¤å®šæ•°ã®æ§‹ç¯‰
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 	
 			Swc targetSwc = optionalSwc.get();
 	
-			// ¾å¸ÂÃÍ¡¤¤ª¤è¤Ó²¼¸ÂÃÍÄê¿ô¤Î¹½ÃÛ
+			// ä¸Šé™å€¤ï¼ŒãŠã‚ˆã³ä¸‹é™å€¤å®šæ•°ã®æ§‹ç¯‰
 			for (ApplicationDataType sourceApplicationDataType : this.context.query.select(sourceSwComponentType.getUsingApplicationDataTypes(),
 					hasOp(APPLICATION_DATA_TYPE_EX___PROVIDES_UPPER_LOWER_LIMIT_CONSTANT__APPLICATIONDATATYPE, true))) {
 				buildUpperLowerLimitConstant(targetSwc, sourceApplicationDataType, sourceSwComponentType);
 			}
 	
-			// ÎóµóÃÍÄê¿ô¤Î¹½ÃÛ
+			// åˆ—æŒ™å€¤å®šæ•°ã®æ§‹ç¯‰
 			for (AutosarDataType sourceDataType : sourceSwComponentType.getUsingDataTypes()) {
 				ApplicationDataType sourceApplicationDataType;
 				ImplementationDataType sourceImplementationDataType;
@@ -302,25 +302,25 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	private Type getOrBuildImplementationDataType(ImplementationDataType sourceDataType) throws ModelException {
-		// ºîÀ®ºÑ¤ß¤Ê¤éÍøÍÑ¤¹¤ë
+		// ä½œæˆæ¸ˆã¿ãªã‚‰åˆ©ç”¨ã™ã‚‹
 		try {
 			return this.context.builtQuery.findDestType(sourceDataType);
 		} catch (ModelException e) {
-			// Ì¤ºîÀ®
+			// æœªä½œæˆ
 			// do nothing
 		}
 
-		// Æ±°ì¥·¥ó¥Ü¥ë¤Ê¤éÍøÍÑ¤¹¤ë
+		// åŒä¸€ã‚·ãƒ³ãƒœãƒ«ãªã‚‰åˆ©ç”¨ã™ã‚‹
 		try {
 			Type destType = this.context.query.selectSingle(this.context.cache.rte.getImplementationDataType(), hasAttr(TYPE__SYMBOL_NAME, sourceDataType.getShortName()));
 			destType.getSource().add(sourceDataType);
 			return destType;
 		} catch (ModelException e) {
-			// Ì¤ºîÀ®
+			// æœªä½œæˆ
 			// do nothing
 		}
 		
-		// Ì¤À¸À®¤Ê¤Î¤ÇÀ¸À®¤¹¤ë
+		// æœªç”Ÿæˆãªã®ã§ç”Ÿæˆã™ã‚‹
 		Type destType;
 		if (sourceDataType.isRedefinitionType()) {
 			destType = createRedefinitionImplementationDataType(sourceDataType);
@@ -337,7 +337,7 @@ public class RteStaticSymbolModelBuilder {
 				destType = createPrimitiveImplementationDataType(sourceDataType);
 			}
 		}
-		// ¼ÂÁõ·¿¤òÀ¸À®¤¹¤ë¤«¤ÎÈ½ÊÌ¡¥À¸À®¤·¤Ê¤¤¾ì¹ç¡¤°ÍÂ¸·¿¤È¤·¤ÆÄêµÁ
+		// å®Ÿè£…å‹ã‚’ç”Ÿæˆã™ã‚‹ã‹ã®åˆ¤åˆ¥ï¼ç”Ÿæˆã—ãªã„å ´åˆï¼Œä¾å­˜å‹ã¨ã—ã¦å®šç¾©
 		if ((boolean) this.context.query.get(sourceDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_TYPE_DEFINITION__IMPLEMENTATIONDATATYPE)) {
 			this.context.cache.rte.getImplementationDataType().add(destType);
 		} else {
@@ -369,12 +369,12 @@ public class RteStaticSymbolModelBuilder {
 			destType = ModuleFactory.eINSTANCE.createRedefinitionStructType();
 		} else if (sourceSourceImplType.isUnionType()) {
 			destType = ModuleFactory.eINSTANCE.createRedefinitionUnionType();
-		} else if (sourceSourceImplType.isPointerType()) { // COVERAGE (¸½¾õ¡¤¤¤¤º¤ì¤Ë¤â³ºÅö¤·¤Ê¤¤¥Ñ¥¿¡¼¥ó¤ÏÂ¸ºß¤·¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		} else if (sourceSourceImplType.isPointerType()) { // COVERAGE (ç¾çŠ¶ï¼Œã„ãšã‚Œã«ã‚‚è©²å½“ã—ãªã„ãƒ‘ã‚¿ãƒ¼ãƒ³ã¯å­˜åœ¨ã—ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			destType = ModuleFactory.eINSTANCE.createRedefinitionPointerType();
 		}
 		
 		destType.setSymbolName(sourceImplType.getShortName());
-		destType.setOriginalTypeSymbolName(destSourceType.getOriginalTypeSymbolName()); // Âç¸µ¤ÎsymbolName¤ÈÆ±¤¸¤Ë¤¹¤ë
+		destType.setOriginalTypeSymbolName(destSourceType.getOriginalTypeSymbolName()); // å¤§å…ƒã®symbolNameã¨åŒã˜ã«ã™ã‚‹
 		destType.setSingleSource(sourceImplType);
 		destType.setSourceType(destSourceType);
 		destType.setSize(destSourceType.getSize());
@@ -387,7 +387,7 @@ public class RteStaticSymbolModelBuilder {
 		destType.setSymbolName(sourceDataType.getShortName());
 		destType.setSingleSource(sourceDataType);
 		
-		// NOTE Ì¤¥µ¥İ¡¼¥È
+		// NOTE æœªã‚µãƒãƒ¼ãƒˆ
 //		destType.setIsConstPointer(sourceDataType.getSwDataDefProps().getSwImplPolicy() == SwImplPolicyEnum.CONST);
 //		destType.setIsConstTarget(sourceDataType.getSwDataDefProps().getSwPointerTargetProps().getSwDataDefProps().getSwImplPolicy() == SwImplPolicyEnum.CONST);
 		
@@ -409,9 +409,9 @@ public class RteStaticSymbolModelBuilder {
 		destType.setSymbolName(sourceDataType.getShortName());
 		destType.setSingleSource(sourceDataType);
 		if (sourceImplementationDataTypeElement.isRedefinitionType()) {
-			// Category¤¬TYPE_REFERENCE¤Î¾ì¹ç¡¢sign¤Èoriginal type symbolname¤ÎÄêµÁÊıË¡¤òÊÑ¹¹
+			// CategoryãŒTYPE_REFERENCEã®å ´åˆã€signã¨original type symbolnameã®å®šç¾©æ–¹æ³•ã‚’å¤‰æ›´
 			ImplementationDataType sourceElementDataType = sourceImplementationDataTypeElement.getSwDataDefProps().getImplementationDataType();
-			getOrBuildImplementationDataType(sourceElementDataType); // °ÍÂ¸Àè¤Î·¿¤òÀè¤ËºîÀ®¡¦ÅĞÏ¿¤¹¤ë(¥³¥ó¥Ñ¥¤¥ë»ş¤ËÌäÂê¤¬½Ğ¤ë¤¿¤á)
+			getOrBuildImplementationDataType(sourceElementDataType); // ä¾å­˜å…ˆã®å‹ã‚’å…ˆã«ä½œæˆãƒ»ç™»éŒ²ã™ã‚‹(ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ™‚ã«å•é¡ŒãŒå‡ºã‚‹ãŸã‚)
 			destType.setSignedness(Types.getSignedness(sourceElementDataType));
 			destType.setOriginalTypeSymbolName(sourceElementDataType.getShortName());
 		} else {
@@ -433,7 +433,7 @@ public class RteStaticSymbolModelBuilder {
 			
 			Type destMemberType;
 			if (sourceElement.isRedefinitionType()) {
-				// Category¤¬TYPE_REFERENCE¤Î¾ì¹ç¡¢ºÆµ¢Åª¤Ë½èÍı¤ò¹Ô¤¦
+				// CategoryãŒTYPE_REFERENCEã®å ´åˆã€å†å¸°çš„ã«å‡¦ç†ã‚’è¡Œã†
 				destMemberType = getOrBuildImplementationDataType(sourceElement.getSwDataDefProps().getImplementationDataType());
 			} else {
 				String nativeName = sourceElement.getSwDataDefProps().getBaseType().getNativeDeclaration();
@@ -456,7 +456,7 @@ public class RteStaticSymbolModelBuilder {
 
 			Type destMemberType;
 			if (sourceElement.isRedefinitionType()) {
-				// Category¤¬TYPE_REFERENCE¤Î¾ì¹ç¡¢ºÆµ¢Åª¤Ë½èÍı¤ò¹Ô¤¦
+				// CategoryãŒTYPE_REFERENCEã®å ´åˆã€å†å¸°çš„ã«å‡¦ç†ã‚’è¡Œã†
 				destMemberType = getOrBuildImplementationDataType(sourceElement.getSwDataDefProps().getImplementationDataType());
 			} else {
 				String nativeName = sourceElement.getSwDataDefProps().getBaseType().getNativeDeclaration();
@@ -473,7 +473,7 @@ public class RteStaticSymbolModelBuilder {
 		List<IncludedDataTypeSet> sourceIncludedDataTypeSets = sourceSwComponentType.getInternalBehavior().getReferencerIncludedDataTypeSets(sourceApplicationDataType);
 		Set<String> sourceLiteralPrefixes = ImmutableSet.copyOf(this.context.query.<String> collect(sourceIncludedDataTypeSets, INCLUDED_DATA_TYPE_SET__LITERAL_PREFIX));
 	
-		// ¾å¸ÂÃÍ¡¤²¼¸ÂÃÍ¤ÎÀ¸À®
+		// ä¸Šé™å€¤ï¼Œä¸‹é™å€¤ã®ç”Ÿæˆ
 		if (sourceLiteralPrefixes.isEmpty()) {
 			buildUpperLowerLimitConstant(targetSwc, Optional.<String> absent(), sourceApplicationDataType, type);
 		} else {
@@ -506,7 +506,7 @@ public class RteStaticSymbolModelBuilder {
 
 	private void buildEnumConstant(Swc targetSwc, AtomicSwComponentType sourceSwComponentType, ImplementationDataType sourceImplementationDataType, CompuMethod sourceCompuMethod)
 			throws ModelException {
-		// ¾å¸ÂÃÍ¡¤²¼¸ÂÃÍ¤ÎÀ¸À®
+		// ä¸Šé™å€¤ï¼Œä¸‹é™å€¤ã®ç”Ÿæˆ
 		PrimitiveType type = this.context.builtQuery.findDest(TYPE, sourceImplementationDataType);
 		List<IncludedDataTypeSet> sourceIncludedDataTypeSets = sourceSwComponentType.getInternalBehavior().getReferencerIncludedDataTypeSets(sourceImplementationDataType);
 		Set<String> sourceLiteralPrefixes = ImmutableSet.copyOf(this.context.query.<String> collect(sourceIncludedDataTypeSets, INCLUDED_DATA_TYPE_SET__LITERAL_PREFIX));
@@ -539,18 +539,18 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(S/R)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(S/R)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSrApiSymbols() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
 			Swc targetSwc = optionalSwc.get();
 
-			// ½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+			// åˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 			for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 				for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
@@ -579,33 +579,33 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(C/S)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(C/S)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildCsApiSymbols() {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
 			Swc targetSwc = optionalSwc.get();
 
-			// ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥¨¥é¡¼Äê¿ô¤Î¹½ÃÛ
+			// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼å®šæ•°ã®æ§‹ç¯‰
 			targetSwc.getCsApiApplicationErrorConstant().addAll(createCsApplicationErrorConstants(sourceSwComponentType));
 		}
 	}
 
 	private List<Constant> createCsApplicationErrorConstants(AtomicSwComponentType sourceSwComponentType) {
-		// ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥¨¥é¡¼Äê¿ô¤Î¹½ÃÛ
+		// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼å®šæ•°ã®æ§‹ç¯‰
 		List<Constant> destApplicationErrorConstants = Lists.newArrayList();
 		for (ClientServerInterface sourceClientServerInterface : sourceSwComponentType.getUsingClientServerInterfaces()) {
 			for (ApplicationError sourceApplicationError : sourceClientServerInterface.getPossibleError()) {
-				// ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥¨¥é¡¼Äê¿ô¤ÎÀ¸À®
+				// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼å®šæ•°ã®ç”Ÿæˆ
 				destApplicationErrorConstants.add(createCsApplicationErrorConstant(sourceApplicationError));
 			}
 		}
 
-		// ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥¨¥é¡¼¤ÎÀµµ¬²½¡Ê¥·¥ó¥Ü¥ëÌ¾¤Î½ÅÊ£¤¹¤ëÄê¿ô¤ò½ü³°¤¹¤ë¡Ë
+		// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¨ãƒ©ãƒ¼ã®æ­£è¦åŒ–ï¼ˆã‚·ãƒ³ãƒœãƒ«åã®é‡è¤‡ã™ã‚‹å®šæ•°ã‚’é™¤å¤–ã™ã‚‹ï¼‰
 		List<Constant> normalizedApplicationErrorConstants = Lists.newArrayList();
 
 		ListMultimap<String, Constant> symbolName2ConstantMap = this.context.query.groupByKey(destApplicationErrorConstants, CONSTANT__SYMBOL_NAME);
@@ -630,12 +630,12 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥â¡¼¥É)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(ãƒ¢ãƒ¼ãƒ‰)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildModeApiSymbols() throws ModelException {
 		for (BswModuleDescription sourceBswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
 			Optional<Bswm> optionalTargetBswm = this.context.builtQuery.tryFindDest(BSWM, sourceBswModuleDescription);
-			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
@@ -645,7 +645,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	private void buildModeDeclarationGroups(Bswm targetBswm, BswModuleDescription sourceBswModuleDescription) throws ModelException {
-		BswInternalBehavior sourceBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: Bswm¤¬¤¢¤ë¤È¤¤¤¦¤³¤È¤ÏÍ­¸ú¤Êbehavior¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢null¥Á¥§¥Ã¥¯ÉÔÍ×
+		BswInternalBehavior sourceBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: BswmãŒã‚ã‚‹ã¨ã„ã†ã“ã¨ã¯æœ‰åŠ¹ãªbehaviorãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€nullãƒã‚§ãƒƒã‚¯ä¸è¦
 
 		for (DataTypeMappingSet sourceMappingSet : sourceBehavior.getDataTypeMapping()) {
 			for (ModeRequestTypeMap sourceModeRequestTypeMap : sourceMappingSet.getModeRequestTypeMap()) {
@@ -658,14 +658,14 @@ public class RteStaticSymbolModelBuilder {
 		jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup destModeDeclarationGroup = ModuleFactory.eINSTANCE.createModeDeclarationGroup();
 		destModeDeclarationGroup.setSingleSource(sourceModeDeclarationGroup);
 
-		// ¥â¡¼¥É·¿¤Î¹½ÃÛ
+		// ãƒ¢ãƒ¼ãƒ‰å‹ã®æ§‹ç¯‰
 		ModeType destModeType = createModeType(sourceModeRequestTypeMap.getModeGroup(), sourceModeRequestTypeMap);
 		destModeDeclarationGroup.setModeType(destModeType);
 
-		// ¥â¡¼¥É¤Î¼ÂÁõ·¿¤Î¹½ÃÛ
+		// ãƒ¢ãƒ¼ãƒ‰ã®å®Ÿè£…å‹ã®æ§‹ç¯‰
 		destModeDeclarationGroup.setImplementationDataType(destModeType.getImplementationDataType());
 		
-		// ¥â¡¼¥ÉÁ«°ÜÄê¿ô¤Î¹½ÃÛ
+		// ãƒ¢ãƒ¼ãƒ‰é·ç§»å®šæ•°ã®æ§‹ç¯‰
 		Constant destModeTransitionStatusConstant = ModuleFactory.eINSTANCE.createConstant();
 		destModeTransitionStatusConstant.setExternalSymbolName(SymbolNames.createExternalModeTransitionConstantName(sourceModeDeclarationGroup));
 		destModeTransitionStatusConstant.setSymbolName(SymbolNames.createModeTransitionConstantName(sourceBswModuleDescription, sourceModeDeclarationGroup));
@@ -675,7 +675,7 @@ public class RteStaticSymbolModelBuilder {
 
 		int idx = 0;
 		for (ModeDeclaration sourceModeDeclaration : sourceModeDeclarationGroup.getModeDeclaration()) {
-			// ¥â¡¼¥ÉÄê¿ô¤Î¹½ÃÛ
+			// ãƒ¢ãƒ¼ãƒ‰å®šæ•°ã®æ§‹ç¯‰
 			Constant destModeConstant = ModuleFactory.eINSTANCE.createConstant();
 			destModeConstant.setSingleSource(sourceModeDeclaration);
 			destModeConstant.setExternalSymbolName(SymbolNames.createExternalModeConstantName(sourceModeDeclarationGroup, sourceModeDeclaration));
@@ -684,7 +684,7 @@ public class RteStaticSymbolModelBuilder {
 			destModeConstant.setValue(String.valueOf(idx));
 			destModeDeclarationGroup.getModeConstant().add(destModeConstant);
 
-			// ½é´ü¥â¡¼¥ÉÄê¿ô¤Î¹½ÃÛ
+			// åˆæœŸãƒ¢ãƒ¼ãƒ‰å®šæ•°ã®æ§‹ç¯‰
 			if (sourceModeDeclaration == sourceModeDeclarationGroup.getInitialMode()) {
 				Constant destInitModeConstant = ModuleFactory.eINSTANCE.createConstant();
 				destInitModeConstant.setSymbolName(SymbolNames.createModeInitModeConstantName(sourceBswModuleDescription, sourceModeDeclarationGroup));
@@ -707,12 +707,12 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * ÀÅÅª¥·¥ó¥Ü¥ë¤Î¥·¥ó¥Ü¥ë¥â¥Ç¥ë(ÆâÉô¼ÂÁõÍÑ)¤ò¹½ÃÛ¤¹¤ë¡£
+	 * é™çš„ã‚·ãƒ³ãƒœãƒ«ã®ã‚·ãƒ³ãƒœãƒ«ãƒ¢ãƒ‡ãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 * 
-	 * @throws ModelException ¥â¥Ç¥ëÊÑ´¹¤ËÉ¬Í×¤È¤Ê¤ë¥â¥Ç¥ë¤Î¼èÆÀ¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * @throws ModelException ãƒ¢ãƒ‡ãƒ«å¤‰æ›ã«å¿…è¦ã¨ãªã‚‹ãƒ¢ãƒ‡ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public void buildImplSymbols() throws ModelException {
 		buildOsAccessImplSymbols();
@@ -725,7 +725,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(OS¥¢¥¯¥»¥¹)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(OSã‚¢ã‚¯ã‚»ã‚¹)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildOsAccessImplSymbols() throws ModelException {
 		buildOsTrustedMacros();
@@ -747,7 +747,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(COM¥¢¥¯¥»¥¹)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(COMã‚¢ã‚¯ã‚»ã‚¹)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildComAccessImplSymbols() throws ModelException {
 		buildComMetaDataSymbols();
@@ -757,7 +757,7 @@ public class RteStaticSymbolModelBuilder {
 		buildComProxyFunctionTable();
 	}
 
-	// COM¥á¥¿¾ğÊó¤Î¹½ÃÛ
+	// COMãƒ¡ã‚¿æƒ…å ±ã®æ§‹ç¯‰
 	private void buildComMetaDataSymbols() throws ModelException {
 		for (ComSignalGroup sourceComSignalGroup : this.context.query.<ComSignalGroup> findByKind(COM_SIGNAL_GROUP)) {
 			List<VariableDataInstanceInComposition> sourceDataInstanceInCompositions = this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
@@ -774,15 +774,15 @@ public class RteStaticSymbolModelBuilder {
 		SenderReceiverToSignalGroupMapping sourceSignalMapping = getSenderReceiverToSignalGroupMapping(sourceComSignalGroup);
 		SenderRecCompositeTypeMapping sourceCompositeTypeMapping = sourceSignalMapping.getTypeMapping();
 	
-		// Rte_BufferTypeComSignal½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+		// Rte_BufferTypeComSignalåˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 		Constant destComGroupSignalMetaDataInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		this.context.cache.rte.getImmediateConstant().add(destComGroupSignalMetaDataInitValueConstant);
 	
-		// Rte_BufferTypeOffset½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+		// Rte_BufferTypeOffsetåˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 		Constant destTypeMemberOffsetMetaDataInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		this.context.cache.rte.getImmediateConstant().add(destTypeMemberOffsetMetaDataInitValueConstant);
 	
-		// Rte_BufferTypeComSignal¤ÈRte_BufferTypeOffset¤Î¥á¥ó¥Ğ¤ò¹½ÃÛ
+		// Rte_BufferTypeComSignalã¨Rte_BufferTypeOffsetã®ãƒ¡ãƒ³ãƒã‚’æ§‹ç¯‰
 		ImplementationDataType sourceDataType = ((ImplementationDataType) sourceDataInstanceInSwc.getPrototype().getType()).getLeafImplementationDataType();
 		Type destDataType = this.context.builtQuery.findDestType(sourceDataType);
 		
@@ -798,7 +798,7 @@ public class RteStaticSymbolModelBuilder {
 						}
 					}
 				}
-			} else if (destDataType instanceof StructType || destDataType instanceof UnionType) { // COVERAGE (Ê¬´ôÌÖÍå¤Ï¤µ¤ì¤Æ¤¤¤ë¤Î¤Ç¥Æ¥¹¥ÈÍ×·ï¤òËş¤¿¤·¤Æ¤¤¤ë)
+			} else if (destDataType instanceof StructType || destDataType instanceof UnionType) { // COVERAGE (åˆ†å²ç¶²ç¾…ã¯ã•ã‚Œã¦ã„ã‚‹ã®ã§ãƒ†ã‚¹ãƒˆè¦ä»¶ã‚’æº€ãŸã—ã¦ã„ã‚‹)
 				for (SenderRecRecordElementMapping sourceElementMapping : ((SenderRecRecordTypeMapping) sourceCompositeTypeMapping).getRecordElementMapping()) {
 					if (sourceElement == sourceElementMapping.getImplementationRecordElement()) {
 						ComGroupSignal sourceGroupSignal = getComGroupSignal(sourceComSignalGroup, sourceElementMapping.getSystemSignal());
@@ -810,7 +810,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 	
-		// COM¥á¥¿¾ğÊó¤Î¥·¥ó¥Ü¥ë¤Î¥»¥Ã¥È¤ò¹½ÃÛ
+		// COMãƒ¡ã‚¿æƒ…å ±ã®ã‚·ãƒ³ãƒœãƒ«ã®ã‚»ãƒƒãƒˆã‚’æ§‹ç¯‰
 		Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
 		Partition targetPartition = this.context.cache.masterBswPartition;
 
@@ -821,7 +821,7 @@ public class RteStaticSymbolModelBuilder {
 		destComMetaDataVariableSet.setHasConst(false);
 		destComMetaDataVariableSet.setInitWithConstantValue(false);
 	
-		// Rte_BufferTypeComSignal¤Î¹½ÃÛ
+		// Rte_BufferTypeComSignalã®æ§‹ç¯‰
 		GlobalVariable destComGroupSignalMetaDataVariable = createGlobalVariable(
 				SymbolNames.createComMetaComGroupSignalVariableName(sourceComSignalGroup) + "[" + String.valueOf(sourceComSignalGroup.getComGroupSignal().size()) + "]", this.context.cache.comSignalIdType,
 				destComGroupSignalMetaDataInitValueConstant, true);
@@ -830,7 +830,7 @@ public class RteStaticSymbolModelBuilder {
 		destComGroupSignalMetaDataVariable.setInitWithConstantValue(true);
 		destComMetaDataVariableSet.getGlobalVariable().add(0, destComGroupSignalMetaDataVariable);
 	
-		// Rte_BufferTypeOffset¤Î¹½ÃÛ
+		// Rte_BufferTypeOffsetã®æ§‹ç¯‰
 		GlobalVariable destTypeMemberOffsetMetaDataVariable = createGlobalVariable(
 				SymbolNames.createComMetaTypeMemberOffsetVariableName(sourceComSignalGroup) + "[" + String.valueOf(sourceComSignalGroup.getComGroupSignal().size()) + "]",
 				this.context.cache.comMetaDataTypeMemberOffsetType, destTypeMemberOffsetMetaDataInitValueConstant, true);
@@ -839,7 +839,7 @@ public class RteStaticSymbolModelBuilder {
 		destTypeMemberOffsetMetaDataVariable.setInitWithConstantValue(true);
 		destComMetaDataVariableSet.getGlobalVariable().add(1, destTypeMemberOffsetMetaDataVariable);
 	
-		// Rte_BufferComMetaComplexData¤Î¹½ÃÛ
+		// Rte_BufferComMetaComplexDataã®æ§‹ç¯‰
 		Constant destComMetaDataInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		addConstantMember(destComMetaDataInitValueConstant, SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignalGroup)));
 		addConstantMember(destComMetaDataInitValueConstant, String.valueOf(sourceComSignalGroup.getComGroupSignal().size()) + "U");
@@ -853,7 +853,7 @@ public class RteStaticSymbolModelBuilder {
 		destComMetaDataVariable.setInitWithConstantValue(true);
 		destComMetaDataVariableSet.getGlobalVariable().add(2, destComMetaDataVariable);
 	
-		// ÏÀÍı¶è²è¤ËÅĞÏ¿
+		// è«–ç†åŒºç”»ã«ç™»éŒ²
 		targetPartition.getComMetaDataVariableSet().add(destComMetaDataVariableSet);
 	}
 
@@ -869,14 +869,14 @@ public class RteStaticSymbolModelBuilder {
 				return cgSignal;
 			}
 		}
-		// COVERAGE ¾ï¤ËÌ¤Ã£(¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		// COVERAGE å¸¸ã«æœªé”(å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 		return null;
 	}
 
-	// COM¥¢¥¯¥»¥¹´Ø¿ô¥¨¥¤¥ê¥¢¥¹¥Ş¥¯¥í¤Î¹½ÃÛ
+	// COMã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 	private void buildComAccessFunctionAliasMacros() throws ModelException {
-		// COM¥¢¥¯¥»¥¹´Ø¿ô¤Ø¤Î¥¨¥¤¥ê¥¢¥¹¥Ş¥¯¥í¤ÎÀ¸À®Í­Ìµ¤òÈ½Äê
-		// S/R¤Ç»ÈÍÑ¤µ¤ì¤Æ¤¤¤ëCOM¥·¥°¥Ê¥ë¥°¥ë¡¼¥×¤¬Â¸ºß¤¹¤ì¤ĞÀ¸À®¤¹¤ë
+		// COMã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°ã¸ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¯ãƒ­ã®ç”Ÿæˆæœ‰ç„¡ã‚’åˆ¤å®š
+		// S/Rã§ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹COMã‚·ã‚°ãƒŠãƒ«ã‚°ãƒ«ãƒ¼ãƒ—ãŒå­˜åœ¨ã™ã‚Œã°ç”Ÿæˆã™ã‚‹
 		boolean requiresSendFunctionAlias = false;
 		boolean requiresReceiveFunctionAlias = false;
 		for (ComSignalGroup sourceComSignalGroup : this.context.query.<ComSignalGroup> findByKind(COM_SIGNAL_GROUP)) {
@@ -886,28 +886,28 @@ public class RteStaticSymbolModelBuilder {
 			}
 
 			ImplementationDataType sourceImplType = sourceDataInstanceInCompositions.get(0).getPrototype().getImplementationDataType();
-			if (sourceImplType.isComplexType()) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤ComSignalGroup¤ÇPrimitiveType¤È¤Ê¤ë¥Ñ¥¿¡¼¥ó¤¬Â¸ºß¤·¤Ê¤¤¤¿¤á)
+			if (sourceImplType.isComplexType()) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒComSignalGroupã§PrimitiveTypeã¨ãªã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå­˜åœ¨ã—ãªã„ãŸã‚)
 				VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInCompositions.get(0).getPrototype();
 				if (sourceDataInstanceInSwc instanceof PVariableDataInstanceInSwc) {
-					// Á÷¿®Â¦¥Ş¥¯¥í¤Î¹½ÃÛ
+					// é€ä¿¡å´ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 					requiresSendFunctionAlias = true;
 				} else {
-					// ¼õ¿®Â¦¥Ş¥¯¥í¤Î¹½ÃÛ
+					// å—ä¿¡å´ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 					requiresReceiveFunctionAlias = true;
 				}
 			}
 		}
 	
-		// COM¥¢¥¯¥»¥¹´Ø¿ô¤Ø¤Î¥¨¥¤¥ê¥¢¥¹¥Ş¥¯¥í¤Î¹½ÃÛ
+		// COMã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°ã¸ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 		Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
 		Partition targetPartition = this.context.cache.masterBswPartition;
 	
-		// COMÁ÷¿®´Ø¿ô¤Ø¤Î¥¨¥¤¥ê¥¢¥¹¥Ş¥¯¥í¤Î¹½ÃÛ
+		// COMé€ä¿¡é–¢æ•°ã¸ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 		if (requiresSendFunctionAlias) {
 			targetPartition.getComSignalApiAlias().add(createComSendSignalGroupFunctionAliasMacro(sourcePartition));
 		}
 	
-		// COM¼õ¿®´Ø¿ô¤Ø¤Î¥¨¥¤¥ê¥¢¥¹¥Ş¥¯¥í¤Î¹½ÃÛ
+		// COMå—ä¿¡é–¢æ•°ã¸ã®ã‚¨ã‚¤ãƒªã‚¢ã‚¹ãƒã‚¯ãƒ­ã®æ§‹ç¯‰
 		if (requiresReceiveFunctionAlias) {
 			targetPartition.getComSignalApiAlias().add(createComReceiveSignalGroupFunctionAliasMacro(sourcePartition));
 		}
@@ -941,7 +941,7 @@ public class RteStaticSymbolModelBuilder {
 		return false;
 	}
 
-	// Ê£¹ç¥Ç¡¼¥¿·¿ÍÑCOM¼õ¿®¥Ğ¥Ã¥Õ¥¡¤Î¹½ÃÛ
+	// è¤‡åˆãƒ‡ãƒ¼ã‚¿å‹ç”¨COMå—ä¿¡ãƒãƒƒãƒ•ã‚¡ã®æ§‹ç¯‰
 	private void buildComReceiveBuffers() throws ModelException {
         Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
         Partition targetPartition = this.context.cache.masterBswPartition;
@@ -960,19 +960,19 @@ public class RteStaticSymbolModelBuilder {
         if (sourceExternalEcuSender.getSourceSignalGroup() != null) {
             ComSignalGroup sourceComSignalGroup = sourceExternalEcuSender.getSourceSignalGroup();
             List<VariableDataInstanceInComposition> sourceDataInstanceInCompositions = this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
-            if (sourceDataInstanceInCompositions.isEmpty()) { // COVERAGE ¾ï¤Ëfalse(sourceDataInstanceInCompositions¤¬Â¸ºß¤¹¤ëÂĞ¾İ¤·¤«ExternalEcuSender¤È¤Ê¤é¤Ê¤¤¤¿¤á)
+            if (sourceDataInstanceInCompositions.isEmpty()) { // COVERAGE å¸¸ã«false(sourceDataInstanceInCompositionsãŒå­˜åœ¨ã™ã‚‹å¯¾è±¡ã—ã‹ExternalEcuSenderã¨ãªã‚‰ãªã„ãŸã‚)
                 return Optional.absent();
             }
 
             ImplementationDataType sourceImplType = sourceDataInstanceInCompositions.get(0).getPrototype().getImplementationDataType();
-            if (sourceImplType.isComplexType()) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤ComSingnalGroup¤ÇPrimitiveType¤È¤Ê¤ë¥Ñ¥¿¡¼¥ó¤¬Â¸ºß¤·¤Ê¤¤¤¿¤á)
+            if (sourceImplType.isComplexType()) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒComSingnalGroupã§PrimitiveTypeã¨ãªã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå­˜åœ¨ã—ãªã„ãŸã‚)
             	Type type = this.context.builtQuery.findDestType(sourceImplType);
                 return Optional.of(createComReceiveBuffer(sourceComSignalGroup, sourceDataInstanceInCompositions.get(0), type, sourcePartition));
             }
         } else if (sourceExternalEcuSender.getSourceSignal() != null) {
             ComSignal sourceComSignal = sourceExternalEcuSender.getSourceSignal();
             List<VariableDataInstanceInComposition> sourceDataInstanceInCompositions = this.context.query.get(sourceComSignal, COM_SIGNAL_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNAL);
-            if (sourceDataInstanceInCompositions.isEmpty()) { // COVERAGE ¾ï¤Ëfalse(sourceDataInstanceInCompositions¤¬Â¸ºß¤¹¤ëÂĞ¾İ¤·¤«ExternalEcuSender¤È¤Ê¤é¤Ê¤¤¤¿¤á)
+            if (sourceDataInstanceInCompositions.isEmpty()) { // COVERAGE å¸¸ã«false(sourceDataInstanceInCompositionsãŒå­˜åœ¨ã™ã‚‹å¯¾è±¡ã—ã‹ExternalEcuSenderã¨ãªã‚‰ãªã„ãŸã‚)
                 return Optional.absent();
             }
 
@@ -1004,7 +1004,7 @@ public class RteStaticSymbolModelBuilder {
 		return destValueVariable;
 	}
 
-	// ¿®Íê´Ø¿ô·ĞÍ³COMÁ÷¿®ÍÑ°ú¿ô·¿¤Î¹½ÃÛ
+	// ä¿¡é ¼é–¢æ•°çµŒç”±COMé€ä¿¡ç”¨å¼•æ•°å‹ã®æ§‹ç¯‰
 	private void buildComTrustedFunctionParamTypes() {
 		Rte targetRte = this.context.cache.rte;
 
@@ -1039,14 +1039,14 @@ public class RteStaticSymbolModelBuilder {
 		targetRte.setComSendSignalGroupTfParamType(destType);
 	}
 
-	// ¥×¥í¥­¥··ĞÍ³COMÁ÷¿®¤Î¥Ï¥ó¥É¥é´Ø¿ô¥Æ¡¼¥Ö¥ë¤Î¹½ÃÛ
+	// ãƒ—ãƒ­ã‚­ã‚·çµŒç”±COMé€ä¿¡ã®ãƒãƒ³ãƒ‰ãƒ©é–¢æ•°ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ§‹ç¯‰
 	private void buildComProxyFunctionTable() throws ModelException {
 		Partition targetPartition = this.context.cache.masterBswPartition;
 		if (!needToCreateComProxyFunctionTable()) {
 			return;
 		}
 
-		// COM¥×¥í¥­¥·¤Î¥Ï¥ó¥É¥é´Ø¿ô¥Æ¡¼¥Ö¥ë¤ò¹½ÃÛ
+		// COMãƒ—ãƒ­ã‚­ã‚·ã®ãƒãƒ³ãƒ‰ãƒ©é–¢æ•°ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’æ§‹ç¯‰
 		Constant destFunctionTableInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		this.context.cache.rte.getImmediateConstant().add(destFunctionTableInitValueConstant);
 
@@ -1073,11 +1073,11 @@ public class RteStaticSymbolModelBuilder {
 				InternalEcuSender sourceSender = sourceSendImplementation.getParent().getInternalEcuSenders().get(0);
 				PVariableDataInstanceInSwc sourceDataInstanceInSwc = (PVariableDataInstanceInSwc) sourceSender.getSource().getPrototype();
 				Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceDataInstanceInSwc.getOwnerAtomicSwc());
-				if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+				if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 					continue;
 				}
 
-				// COM¥·¥°¥Ê¥ë¸ş¤±¤ÎCOM¥×¥í¥­¥·¥Ğ¥Ã¥Õ¥¡¤ò¹½ÃÛ
+				// COMã‚·ã‚°ãƒŠãƒ«å‘ã‘ã®COMãƒ—ãƒ­ã‚­ã‚·ãƒãƒƒãƒ•ã‚¡ã‚’æ§‹ç¯‰
 				if (sourceSendImplementation.getComSignal() != null) {
 					destFunctionTableIndexConstants.add(createComProxyFunctionIndexConstant(sourceDataInstanceInSwc,
 							SymbolNames.createComProxyFunctionTableIndexConstantName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignal())));
@@ -1089,7 +1089,7 @@ public class RteStaticSymbolModelBuilder {
 					}
 				}
 
-				// COM¥·¥°¥Ê¥ë¥°¥ë¡¼¥×¸ş¤±¤ÎCOM¥×¥í¥­¥·¥Ğ¥Ã¥Õ¥¡¤ò¹½ÃÛ
+				// COMã‚·ã‚°ãƒŠãƒ«ã‚°ãƒ«ãƒ¼ãƒ—å‘ã‘ã®COMãƒ—ãƒ­ã‚­ã‚·ãƒãƒƒãƒ•ã‚¡ã‚’æ§‹ç¯‰
 				if (sourceSendImplementation.getComSignalGroup() != null) {
 					destFunctionTableIndexConstants.add(createComProxyFunctionIndexConstant(sourceDataInstanceInSwc,
 							SymbolNames.createComProxyFunctionTableIndexConstantName(sourceDataInstanceInSwc, sourceSendImplementation.getComSignalGroup())));
@@ -1103,24 +1103,24 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 
-		// COM¥×¥í¥­¥·¤Î¥Ï¥ó¥É¥é´Ø¿ô¥Æ¡¼¥Ö¥ë¤Î¥á¥ó¥Ğ¤È³Æ¥á¥ó¥Ğ¤ÎIDÄê¿ô¤ò¥½¡¼¥È
+		// COMãƒ—ãƒ­ã‚­ã‚·ã®ãƒãƒ³ãƒ‰ãƒ©é–¢æ•°ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ¡ãƒ³ãƒã¨å„ãƒ¡ãƒ³ãƒã®IDå®šæ•°ã‚’ã‚½ãƒ¼ãƒˆ
 		Ordering<EObject> orderingBySymbolName = Ordering.natural().onResultOf(this.context.query.<String> feature2Function(CONSTANT__SYMBOL_NAME));
 		Collections.sort(destFunctionTableIndexConstants, orderingBySymbolName);
 
 		Ordering<EObject> orderingByConstantValue = Ordering.natural().onResultOf(this.context.query.<String> feature2Function(CONSTANT__VALUE));
 		ECollections.sort(destFunctionTableInitValueConstant.getMember(), orderingByConstantValue);
 
-		// IDÄê¿ô¤ËID¤ò³äÅö
+		// IDå®šæ•°ã«IDã‚’å‰²å½“
 		int index = 0;
 		for (Constant targetConstant : destFunctionTableIndexConstants) {
 			targetConstant.setValue(String.valueOf(index));
 			index++;
 		}
 
-		// À¸À®¤·¤¿IDÄê¿ô¤òÏÀÍı¶è²è¤ËÅĞÏ¿
+		// ç”Ÿæˆã—ãŸIDå®šæ•°ã‚’è«–ç†åŒºç”»ã«ç™»éŒ²
 		targetPartition.getComProxyFunctionTableIndexConstant().addAll(destFunctionTableIndexConstants);
 
-		// ¥Æ¡¼¥Ö¥ë¥µ¥¤¥ºÄê¿ô¤ò¹½ÃÛ
+		// ãƒ†ãƒ¼ãƒ–ãƒ«ã‚µã‚¤ã‚ºå®šæ•°ã‚’æ§‹ç¯‰
 		targetPartition.setComProxyFunctionTableSizeConstant(createComProxyFunctionTableSizeConstant(index));
 	}
 
@@ -1167,7 +1167,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(S/R)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(S/R)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSrImplSymbols() throws ModelException {
 		buildSrRteSendTrustedFunctionParamTypes();
@@ -1191,19 +1191,19 @@ public class RteStaticSymbolModelBuilder {
 	private void buildSrDataTypeImplConstants() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
 			Swc targetSwc = optionalSwc.get();
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (RVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<RVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					// Ìµ¸úÃÍÄê¿ô¤Î¹½ÃÛ
+					// ç„¡åŠ¹å€¤å®šæ•°ã®æ§‹ç¯‰
 					if (sourceDataInstanceInSwc.isInvalidationEnabled()) {
 						buildSrImplInvalidValueConstant(targetSwc, sourceDataInstanceInSwc);
 					}
 
-					// RTE¼ÂÁõ¸ş¤±½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+					// RTEå®Ÿè£…å‘ã‘åˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
@@ -1212,12 +1212,12 @@ public class RteStaticSymbolModelBuilder {
 
 			for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 				for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-					// Ìµ¸úÃÍÄê¿ô¤Î¹½ÃÛ
+					// ç„¡åŠ¹å€¤å®šæ•°ã®æ§‹ç¯‰
 					if (sourceDataInstanceInSwc.isInvalidationEnabled()) {
 						buildSrImplInvalidValueConstant(targetSwc, sourceDataInstanceInSwc);
 					}
 
-					// RTE¼ÂÁõ¸ş¤±½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+					// RTEå®Ÿè£…å‘ã‘åˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
@@ -1234,7 +1234,7 @@ public class RteStaticSymbolModelBuilder {
 		Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 		ValueSpecification sourceInvalidValue = sourceDataInstanceInSwc.getInvalidValue();
 
-		// Ìµ¸úÃÍÄê¿ô¤ÎÀ¸À®
+		// ç„¡åŠ¹å€¤å®šæ•°ã®ç”Ÿæˆ
 		Constant destInvalidValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		destInvalidValueConstant.setSingleSource(sourceDataInstanceInSwc);
 		destInvalidValueConstant.setRoleName(RoleNames.SR_INVALID_VALUE_ROLE_NAME);
@@ -1267,7 +1267,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 
-		// NOTE: ¸½¾õ¡¢·¿¤Ï¸ÄÊÌ²Õ½ê¤Ç¥½¡¼¥È¤ò¤«¤±¤ëÊı¿Ë¤È¤·¤Æ¤¤¤ë¤¿¤á¡¢RteBufferQueueType¤Ï¥½¡¼¥È
+		// NOTE: ç¾çŠ¶ã€å‹ã¯å€‹åˆ¥ç®‡æ‰€ã§ã‚½ãƒ¼ãƒˆã‚’ã‹ã‘ã‚‹æ–¹é‡ã¨ã—ã¦ã„ã‚‹ãŸã‚ã€RteBufferQueueTypeã¯ã‚½ãƒ¼ãƒˆ
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(this.context.query.<String> feature2Function(TYPE__SYMBOL_NAME));
 		ECollections.sort(this.context.cache.rte.getSrRteBufferQueueType(), ordering);
 	}
@@ -1275,11 +1275,11 @@ public class RteStaticSymbolModelBuilder {
 	private void buildSrRteBufferVariableSet(Partition targetPartition, RteValueBufferImplementation sourceValueBufferImplementation, InternalEcuReceiver sourceReceiver) throws ModelException {
 		Type type = this.context.builtQuery.findDestType(sourceReceiver.getSource().getPrototype().getImplementationDataType());
 
-		// RTE¥Ğ¥Ã¥Õ¥¡¤Î½é´üÃÍÄê¿ô¤Î¹½ÃÛ
+		// RTEãƒãƒƒãƒ•ã‚¡ã®åˆæœŸå€¤å®šæ•°ã®æ§‹ç¯‰
 		Constant destInitValueConstant = createSrRteBufferInitValueConstant(sourceValueBufferImplementation, sourceReceiver, type);
 		targetPartition.getSrRteBufferInitValueConstant().add(destInitValueConstant);
 
-		// RTE¥Ğ¥Ã¥Õ¥¡¤Î¹½ÃÛ
+		// RTEãƒãƒƒãƒ•ã‚¡ã®æ§‹ç¯‰
 		targetPartition.getSrRteBufferVariableSet().add(createSrRteBufferVariableSet(sourceValueBufferImplementation, sourceReceiver, type, destInitValueConstant));
 	}
 
@@ -1289,7 +1289,7 @@ public class RteStaticSymbolModelBuilder {
 	
 		RteBufferVariableSet destRteBuffer = ModuleFactory.eINSTANCE.createRteBufferVariableSet();
 		destRteBuffer.setSingleSource(sourceValueBufferImplementation);
-		destRteBuffer.setSymbolName(SymbolNames.createSrRteBufferVariableName(sourceReceiver.getSource())); // NOTE C¸À¸ì¾å¤Ë¤Ï¸½¤ì¤Ê¤¤²¾ÁÛ¥·¥ó¥Ü¥ë¤À¤¬¡¤¥½¡¼¥È¤ÎÅÔ¹ç¾å¥·¥ó¥Ü¥ëÌ¾¤òÀßÄê¤·¤Æ¤ª¤¯
+		destRteBuffer.setSymbolName(SymbolNames.createSrRteBufferVariableName(sourceReceiver.getSource())); // NOTE Cè¨€èªä¸Šã«ã¯ç¾ã‚Œãªã„ä»®æƒ³ã‚·ãƒ³ãƒœãƒ«ã ãŒï¼Œã‚½ãƒ¼ãƒˆã®éƒ½åˆä¸Šã‚·ãƒ³ãƒœãƒ«åã‚’è¨­å®šã—ã¦ãŠã
 	
 		GlobalVariable destValueVariable = createSrRteBufferValueVariable(sourceValueBufferImplementation, sourceReceiver, type, initValueConstant, initAtDefinition);
 		destValueVariable.setMemoryMapping(this.memmapBuilder.buildDataElementMemoryMapping(Optional.fromNullable(sourceValueBufferImplementation.getOwnerPartition()), sourceReceiver.getSource()));
@@ -1394,10 +1394,10 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	private void buildSrFilterSymbols() throws ModelException {
-		// ¥Õ¥£¥ë¥¿Äê¿ô¤Î¹½ÃÛ
+		// ãƒ•ã‚£ãƒ«ã‚¿å®šæ•°ã®æ§‹ç¯‰
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 		
@@ -1411,7 +1411,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 	
-		// ¥Õ¥£¥ë¥¿ÊÑ¿ô¤Î¹½ÃÛ
+		// ãƒ•ã‚£ãƒ«ã‚¿å¤‰æ•°ã®æ§‹ç¯‰
 		for (FilterBufferImplementation sourceFilterBufferImplementation : this.context.query.<FilterBufferImplementation> findByKind(FILTER_BUFFER_IMPLEMENTATION)) {
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourceFilterBufferImplementation.getOwnerPartition());
 			buildSrFilterVariable(targetPartition, sourceFilterBufferImplementation);
@@ -1516,15 +1516,15 @@ public class RteStaticSymbolModelBuilder {
 		InternalEcuReceiver sourceReceiver = sourceFilterBufferImplementation.getParent().getInternalEcuReceivers().get(0);
 		RVariableDataInstanceInSwc sourceDataInstance = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 	
-		// ¥Õ¥£¥ë¥¿¥Ğ¥Ã¥Õ¥¡¤ÎÀ¸À®
+		// ãƒ•ã‚£ãƒ«ã‚¿ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆ
 		if ((boolean) this.context.query.get(sourceDataInstance, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_OLD_VALUE_VARIABLE__RVARIABLEDATAINSTANCEINSWC)) {
-			// ¥Õ¥£¥ë¥¿²áµîÃÍ¥Ğ¥Ã¥Õ¥¡¤ÎÀ¸À®
+			// ãƒ•ã‚£ãƒ«ã‚¿éå»å€¤ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆ
 			PrimitiveType type = this.context.builtQuery.findDestPrimitiveType(sourceDataInstance.getImplementationDataType());
 	
 			GlobalVariable destFilterVariable = createSrFilterOldValueVariable(sourceFilterBufferImplementation, sourceReceiver, type);
 			targetPartition.getSrFilterOldValueVariable().add(destFilterVariable);
 		} else {
-			// ¥Õ¥£¥ë¥¿²ó¿ô¥Ğ¥Ã¥Õ¥¡¤ÎÀ¸À®
+			// ãƒ•ã‚£ãƒ«ã‚¿å›æ•°ãƒãƒƒãƒ•ã‚¡ã®ç”Ÿæˆ
 			PrimitiveType type = this.context.builtQuery.getAppropriateUintTypeForRange(sourceDataInstance.getFilter().getPeriod());
 	
 			Constant destFilterOccurrenceInitValue = createSrFilterOccurrenceInitValueConstant(sourceFilterBufferImplementation, sourceReceiver, sourceDataInstance, type);
@@ -1573,20 +1573,20 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(C/S)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(C/S)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildCsImplSymbols() throws ModelException {
-		// ¥İ¡¼¥ÈÄêµÁ°ú¿ôÄê¿ô¤Î¹½ÃÛ
+		// ãƒãƒ¼ãƒˆå®šç¾©å¼•æ•°å®šæ•°ã®æ§‹ç¯‰
 		buildCsPortDefinedValueConstants();
 
-		// ¿®Íê´Ø¿ô·ĞÍ³¥³¡¼¥ë¤Ë»ÈÍÑ¤¹¤ë¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
+		// ä¿¡é ¼é–¢æ•°çµŒç”±ã‚³ãƒ¼ãƒ«ã«ä½¿ç”¨ã™ã‚‹ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
 		buildCsSymbolsForCsTrustedFunction();
 	}
 
 	private void buildCsPortDefinedValueConstants() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 		
@@ -1610,7 +1610,7 @@ public class RteStaticSymbolModelBuilder {
 			targetSwc.getCsPortArgValueConstant().add(destPortArgValueConstant);
 
 			if (!destPortArgValueConstant.getMember().isEmpty()) {
-				destPortArgValueConstant.getSource().clear(); // NOTE query¤Ç¼èÆÀ¤¹¤ë¤È¤­¡¢ÊÑ¿ô¤Î¤Û¤¦¤ò¼èÆÀ¤µ¤»¤ë
+				destPortArgValueConstant.getSource().clear(); // NOTE queryã§å–å¾—ã™ã‚‹ã¨ãã€å¤‰æ•°ã®ã»ã†ã‚’å–å¾—ã•ã›ã‚‹
 
 				GlobalVariable destPortArgValueVariable = createCsPortArgValueVariable(sourcePortDefinedArgumentValue, i, Optional.fromNullable(sourcePartition), destPortArgValueConstant);
 				targetSwc.getCsPortArgValueVariable().add(destPortArgValueVariable);
@@ -1647,7 +1647,7 @@ public class RteStaticSymbolModelBuilder {
 	private void buildCsSymbolsForCsTrustedFunction() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 	
@@ -1666,20 +1666,20 @@ public class RteStaticSymbolModelBuilder {
 
 						EcucPartition sourceClientEcucPartition = (EcucPartition)clientSwc.getParent().getSingleSource();
 						EcucPartition sourceServerEcucPartition = (EcucPartition)serverSwc.getParent().getSingleSource();
-						 // COVERAGE (ecucPartition¤¬null¤Î¤È¤­¤ÏpEcucPartition¤ânull¤Ç¤¢¤ë¤¿¤á¥«¥Ğ¥ì¥Ã¥¸¤¬¥Ñ¥¹¤·¤Ê¤¤¡¥¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+						 // COVERAGE (ecucPartitionãŒnullã®ã¨ãã¯pEcucPartitionã‚‚nullã§ã‚ã‚‹ãŸã‚ã‚«ãƒãƒ¬ãƒƒã‚¸ãŒãƒ‘ã‚¹ã—ãªã„ï¼ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 						if (sourceClientEcucPartition == null || sourceServerEcucPartition == null) 
 							continue;
 
 						if (!sourceClientEcucPartition.isTrusted() && sourceServerEcucPartition.isTrusted()) {
-							// Á÷¿®¡§Èó¿®Íê¡¢¼õ¿®¡§¿®Íê¤Î¾ì¹ç¡¢¿®Íê´Ø¿ô»ÈÍÑ
-							// C/S¥³¡¼¥ëÍÑ¿®Íê´Ø¿ô°ú¿ô·¿¤ò¹½ÃÛ
+							// é€ä¿¡ï¼šéä¿¡é ¼ã€å—ä¿¡ï¼šä¿¡é ¼ã®å ´åˆã€ä¿¡é ¼é–¢æ•°ä½¿ç”¨
+							// C/Sã‚³ãƒ¼ãƒ«ç”¨ä¿¡é ¼é–¢æ•°å¼•æ•°å‹ã‚’æ§‹ç¯‰
 							if (!isCsTfParamTypeCreated) {
 								CsTrustedFunctionParamType destCsTrustedFunctionParamType = createCsTrustedFunctionParamType(sourceSwComponentType);
 								this.context.cache.rte.getCsTfParamType().add(destCsTrustedFunctionParamType);
 								isCsTfParamTypeCreated = true;
 							}
 							
-							// C/S¥³¡¼¥ëÍÑ¿®Íê´Ø¿ô¤Ç»ÈÍÑ¤¹¤ë¥ª¥Ú¥ì¡¼¥·¥ç¥ó¤Î¼±ÊÌID¤ò¹½ÃÛ
+							// C/Sã‚³ãƒ¼ãƒ«ç”¨ä¿¡é ¼é–¢æ•°ã§ä½¿ç”¨ã™ã‚‹ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®è­˜åˆ¥IDã‚’æ§‹ç¯‰
 							Constant destOpidConstant = createCsTfOpidConstant(sourceOperationInstanceInSwc, idx);
 							targetPartition.getCsTfOpidConstant().add(destOpidConstant);
 						}
@@ -1689,7 +1689,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 
-		// NOTE: ¸½¾õ¡¢·¿¤Ï¸ÄÊÌ²Õ½ê¤Ç¥½¡¼¥È¤ò¤«¤±¤ëÊı¿Ë¤È¤·¤Æ¤¤¤ë¤¿¤á¡¢CsTrustedFunctionParamType¤Ï¥½¡¼¥È
+		// NOTE: ç¾çŠ¶ã€å‹ã¯å€‹åˆ¥ç®‡æ‰€ã§ã‚½ãƒ¼ãƒˆã‚’ã‹ã‘ã‚‹æ–¹é‡ã¨ã—ã¦ã„ã‚‹ãŸã‚ã€CsTrustedFunctionParamTypeã¯ã‚½ãƒ¼ãƒˆ
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(this.context.query.<String> feature2Function(TYPE__SYMBOL_NAME));
 		ECollections.sort(this.context.cache.rte.getCsTfParamType(), ordering);
 	}
@@ -1720,12 +1720,12 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥â¡¼¥É)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(ãƒ¢ãƒ¼ãƒ‰)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildModeImplSymbols() throws ModelException {
 		for (BswModuleDescription sourceBswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
 			Optional<Bswm> optionalTargetBswm = this.context.builtQuery.tryFindDest(BSWM, sourceBswModuleDescription);
-			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
@@ -1735,29 +1735,29 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	private void buildModeMachineInstances(Bswm targetBswm, BswModuleDescription sourceBswModuleDescription) throws ModelException {
-		BswInternalBehavior sourceBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: Bswm¤¬¤¢¤ë¤È¤¤¤¦¤³¤È¤ÏÍ­¸ú¤Êbehavior¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢null¥Á¥§¥Ã¥¯ÉÔÍ×
+		BswInternalBehavior sourceBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: BswmãŒã‚ã‚‹ã¨ã„ã†ã“ã¨ã¯æœ‰åŠ¹ãªbehaviorãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€nullãƒã‚§ãƒƒã‚¯ä¸è¦
 
 		for (ModeDeclarationGroupPrototype sourceProvidedModeGroup : sourceBswModuleDescription.getProvidedModeGroup()) {
 			BswModeSenderPolicy sourceBswModeSenderPolicy = findBswModeSenderPolicyByModePrototype(sourceBehavior, sourceProvidedModeGroup);
 
-			// ¥â¡¼¥É¥Ş¥·¥ó¥¤¥ó¥¹¥¿¥ó¥¹¤ÎÇÛÃÖÀè¤ò·èÄê
-			// NOTE ¥Ñ¡¼¥Æ¥£¥·¥ç¥óÆâÏ¢·È¤Î¤ß¤ò¥µ¥İ¡¼¥È¤¹¤ë¤¿¤á¡¢ÇÛÃÖÀè¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Ï1¤Ä¤Ë·è¤Ş¤ë
+			// ãƒ¢ãƒ¼ãƒ‰ãƒã‚·ãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®é…ç½®å…ˆã‚’æ±ºå®š
+			// NOTE ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³å†…é€£æºã®ã¿ã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹ãŸã‚ã€é…ç½®å…ˆãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã¯1ã¤ã«æ±ºã¾ã‚‹
 			Collection<EcucPartition> sourceUsingEcucPartitions = this.context.query.get(sourceProvidedModeGroup, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION_FOR_MANAGER__MODEDECLARATIONGROUPPROTOTYPE);
-			EcucPartition sourceUsingEcucPartition = Iterables.getFirst(sourceUsingEcucPartitions, null); // NOTE nrte_sws_0345¤Ë¤è¤ê¡¢¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤ò»ÈÍÑ¤¹¤ë¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÎÂ¿½ÅÅÙ¤Ï0..1
+			EcucPartition sourceUsingEcucPartition = Iterables.getFirst(sourceUsingEcucPartitions, null); // NOTE nrte_sws_0345ã«ã‚ˆã‚Šã€ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã‚’ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã®å¤šé‡åº¦ã¯0..1
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourceUsingEcucPartition);
 			PartedBswm targetPartedBswm = targetBswm.getSinglePartedBswm(targetPartition);
 
-			// ¥â¡¼¥É¥Ş¥·¥ó¥¤¥ó¥¹¥¿¥ó¥¹¤ÎÉ¬Í×À­¤òÈ½Äê
+			// ãƒ¢ãƒ¼ãƒ‰ãƒã‚·ãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®å¿…è¦æ€§ã‚’åˆ¤å®š
 			if (!isUsedPrototype(sourceProvidedModeGroup, targetPartedBswm)) {
 				continue;
 			}
 			if (sourceBswModeSenderPolicy == null) {
-				// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				// BswModeSenderPolicy¤¬¤¢¤ë¤³¤È¤Ïvalidation¤ÇÊİ¾Ú
+				// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+				// BswModeSenderPolicyãŒã‚ã‚‹ã“ã¨ã¯validationã§ä¿è¨¼
 				continue;
 			}
 			
-			// ¥â¡¼¥É¥Ş¥·¥ó¥¤¥ó¥¹¥¿¥ó¥¹¤ò¹½ÃÛ
+			// ãƒ¢ãƒ¼ãƒ‰ãƒã‚·ãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ§‹ç¯‰
 			buildModeMachineInstance(targetPartedBswm, sourceBswModuleDescription, sourceProvidedModeGroup, sourceBswModeSenderPolicy, Optional.fromNullable(sourceUsingEcucPartition));
 		}
 	}
@@ -1779,8 +1779,8 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 	
-		// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-		// BswModeSenderPolicy¤¬¤¢¤ë¤³¤È¤Ïvalidation¤ÇÊİ¾Ú
+		// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+		// BswModeSenderPolicyãŒã‚ã‚‹ã“ã¨ã¯validationã§ä¿è¨¼
 		return null;
 	}
 
@@ -1792,7 +1792,7 @@ public class RteStaticSymbolModelBuilder {
 		ModeMachineInstance destModeMachineInstance = ModuleFactory.eINSTANCE.createModeMachineInstance();
 		destModeMachineInstance.setSingleSource(sourceModePrototype);
 
-		// ¥â¡¼¥ÉÀÚÂØÍ×µá¥­¥å¡¼¤Î¹½ÃÛ
+		// ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿è¦æ±‚ã‚­ãƒ¥ãƒ¼ã®æ§‹ç¯‰
 		ModeQueueType destModeQueueType = createModeQueueType(sourceBswModuleDescription, sourceModePrototype, sourceSenderPolicy, modeDeclarationGroup.getImplementationDataType());
 		destModeMachineInstance.setRequestModeQueueType(destModeQueueType);
 
@@ -1800,20 +1800,20 @@ public class RteStaticSymbolModelBuilder {
 		destModeQueuedVariable.setMemoryMapping(this.memmapBuilder.buildModeDeclarationMemoryMapping(sourcePartition, sourceModePrototype));
 		destModeMachineInstance.setRequestModeQueue(destModeQueuedVariable);
 
-		// ¸½ºß¥â¡¼¥ÉÊÑ¿ô¤Î¹½ÃÛ
+		// ç¾åœ¨ãƒ¢ãƒ¼ãƒ‰å¤‰æ•°ã®æ§‹ç¯‰
 		GlobalVariable destCurrentModeVariable = createCurrentModeVariable(sourceBswModuleDescription, sourceModePrototype, modeDeclarationGroup.getImplementationDataType());
 		destCurrentModeVariable.setMemoryMapping(this.memmapBuilder.buildModeDeclarationMemoryMapping(sourcePartition, sourceModePrototype));
 		destModeMachineInstance.setCurrentModeVariable(destCurrentModeVariable);
 		
-		// ¼¡¥â¡¼¥ÉÊÑ¿ô¤Î¹½ÃÛ
+		// æ¬¡ãƒ¢ãƒ¼ãƒ‰å¤‰æ•°ã®æ§‹ç¯‰
 		GlobalVariable destNextModeVariable = createNextModeVariable(sourceBswModuleDescription, sourceModePrototype, modeDeclarationGroup.getImplementationDataType());
 		destNextModeVariable.setMemoryMapping(this.memmapBuilder.buildModeDeclarationMemoryMapping(sourcePartition, sourceModePrototype));
 		destModeMachineInstance.setNextModeVariable(destNextModeVariable);
 	
-		// ½é´ü¥â¡¼¥É¤Ø¤Î»²¾È¤òÄÉ²Ã
+		// åˆæœŸãƒ¢ãƒ¼ãƒ‰ã¸ã®å‚ç…§ã‚’è¿½åŠ 
 		destModeMachineInstance.setInitModeConstant(modeDeclarationGroup.getInitModeConstant());
 
-		// ÏÀÍı¶è²è¤ËÅĞÏ¿
+		// è«–ç†åŒºç”»ã«ç™»éŒ²
 		targetPartedBswm.getModeMachineInstance().add(destModeMachineInstance);
 	}
 
@@ -1861,12 +1861,12 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(IRV)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(IRV)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildIrvImplSymbols() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> optionalSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!optionalSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 	
@@ -1874,7 +1874,7 @@ public class RteStaticSymbolModelBuilder {
 			Partition targetPartition = targetSwc.getParent();
 			Optional<EcucPartition> sourcePartition = Optional.fromNullable((EcucPartition) targetPartition.getSingleSource());
 
-			// IRV¤Î½é´üÃÍ
+			// IRVã®åˆæœŸå€¤
 			for (VariableDataPrototype sourceDataPrototype : sourceSwComponentType.getInternalBehavior().getExplicitInterRunnableVariable()) {
 				Constant destInitValueConstant = createIrvBufferInitValueConstant(sourceSwComponentType, sourceDataPrototype);
 				targetSwc.getIrvBufferInitValueConstant().add(destInitValueConstant);
@@ -1887,7 +1887,7 @@ public class RteStaticSymbolModelBuilder {
 		Type type = this.context.builtQuery.findDestType((ImplementationDataType)sourceDataPrototype.getType());
 		ValueSpecification sourceInitValue = sourceDataPrototype.getInitValue();
 	
-		// ½é´üÃÍÄê¿ô¤ÎÀ¸À®
+		// åˆæœŸå€¤å®šæ•°ã®ç”Ÿæˆ
 		Constant destInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		destInitValueConstant.setSingleSource(sourceDataPrototype);
 		destInitValueConstant.setSymbolName(SymbolNames.createRteIrvBufferInitValueConstantName(sourceSwComponentType, sourceDataPrototype));
@@ -1903,7 +1903,7 @@ public class RteStaticSymbolModelBuilder {
 
 		RteBufferVariableSet destIrvBuffer = ModuleFactory.eINSTANCE.createRteBufferVariableSet();
 		destIrvBuffer.setSingleSource(sourceDataPrototype);
-		destIrvBuffer.setSymbolName(SymbolNames.createRteIrvBufferVariableName(sourceSwComponentType, sourceDataPrototype)); // NOTE C¸À¸ì¾å¤Ë¤Ï¸½¤ì¤Ê¤¤²¾ÁÛ¥·¥ó¥Ü¥ë¤À¤¬¡¤¥½¡¼¥È¤ÎÅÔ¹ç¾å¥·¥ó¥Ü¥ëÌ¾¤òÀßÄê¤·¤Æ¤ª¤¯
+		destIrvBuffer.setSymbolName(SymbolNames.createRteIrvBufferVariableName(sourceSwComponentType, sourceDataPrototype)); // NOTE Cè¨€èªä¸Šã«ã¯ç¾ã‚Œãªã„ä»®æƒ³ã‚·ãƒ³ãƒœãƒ«ã ãŒï¼Œã‚½ãƒ¼ãƒˆã®éƒ½åˆä¸Šã‚·ãƒ³ãƒœãƒ«åã‚’è¨­å®šã—ã¦ãŠã
 	
 		Type type = this.context.builtQuery.findDestType(sourceDataPrototype.getImplementationDataType());
 		GlobalVariable destValueVariable = createGlobalVariable(SymbolNames.createRteIrvBufferValueVariableName(sourceSwComponentType, sourceDataPrototype), type, initValueConstant, initAtDefinition);
@@ -1924,7 +1924,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥¨¥ó¥Æ¥£¥Æ¥£Æ°ºî)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£å‹•ä½œ)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildEntityStartImplSymbols() throws ModelException {
 		for (OsTask sourceOsTask : this.context.query.<OsTask> findByKind(OS_TASK)) {
@@ -1935,11 +1935,11 @@ public class RteStaticSymbolModelBuilder {
 			List<OsEventSetEntityStarter> sourceOsEventSetEntityStarters = this.context.query.find(ref(OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
 	
 			if (sourceOsTaskActivateEntityStarter.isPresent()) {
-				// ¥é¥ó¥Ê¥Ö¥ëµ¯Æ°¤Ë¤Ä¤¤¤Æ¤Î¥°¥í¡¼¥Ğ¥ëÊÑ¿ô¡¤¤ª¤è¤ÓÄê¿ô¤òÀ¸À®
+				// ãƒ©ãƒ³ãƒŠãƒ–ãƒ«èµ·å‹•ã«ã¤ã„ã¦ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ï¼ŒãŠã‚ˆã³å®šæ•°ã‚’ç”Ÿæˆ
 				buildEntityStartImplSymbols(targetPartition, sourceOsTaskActivateEntityStarter.get(), sourceOsTask, Optional.<OsEvent> absent());
 	
 			} else if (!sourceOsEventSetEntityStarters.isEmpty()) {
-				// ¥é¥ó¥Ê¥Ö¥ëµ¯Æ°¤Ë¤Ä¤¤¤Æ¤Î¥°¥í¡¼¥Ğ¥ëÊÑ¿ô¡¤¤ª¤è¤ÓÄê¿ô¤òÀ¸À®
+				// ãƒ©ãƒ³ãƒŠãƒ–ãƒ«èµ·å‹•ã«ã¤ã„ã¦ã®ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ï¼ŒãŠã‚ˆã³å®šæ•°ã‚’ç”Ÿæˆ
 				for (OsEventSetEntityStarter sourceEntityStarter : sourceOsEventSetEntityStarters) {
 					buildEntityStartImplSymbols(targetPartition, sourceEntityStarter, sourceOsTask, Optional.fromNullable(sourceEntityStarter.getSourceOsEvent()));
 				}
@@ -1948,7 +1948,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	private void buildEntityStartImplSymbols(Partition targetPartition, EntityStarter sourceEntityStarter, OsTask sourceOsTask, Optional<OsEvent> sourceOsEvent) {
-		// ¼ş´üÄ´À°¥«¥¦¥ó¥¿ÊÑ¿ô¤Î¹½ÃÛ
+		// å‘¨æœŸèª¿æ•´ã‚«ã‚¦ãƒ³ã‚¿å¤‰æ•°ã®æ§‹ç¯‰
 		if (sourceEntityStarter.getCycleCounterImplementation() != null) {
 			PrimitiveType type = this.context.builtQuery.getAppropriateUintTypeForRange(sourceEntityStarter.getCycleCounterImplementation().getMaxCount());
 	
@@ -1956,7 +1956,7 @@ public class RteStaticSymbolModelBuilder {
 			targetPartition.getEntityStartVariable().add(createEntityCycleCounterVariable(sourceEntityStarter.getCycleCounterImplementation(), sourceOsTask, sourceOsEvent, type));
 		}
 
-		// ³«»Ï¥ª¥Õ¥»¥Ã¥ÈÄ´À°¥«¥¦¥ó¥¿ÊÑ¿ô¤Î¹½ÃÛ
+		// é–‹å§‹ã‚ªãƒ•ã‚»ãƒƒãƒˆèª¿æ•´ã‚«ã‚¦ãƒ³ã‚¿å¤‰æ•°ã®æ§‹ç¯‰
 		if (sourceEntityStarter.getStartOffsetCounterImplementation() != null) {
 			PrimitiveType type = this.context.builtQuery.getAppropriateUintTypeForRange(sourceEntityStarter.getStartOffsetCounterImplementation().getMaxCount());
 	
@@ -1964,9 +1964,9 @@ public class RteStaticSymbolModelBuilder {
 			targetPartition.getEntityStartVariable().add(createEntityStartOffsetCounterVariable(sourceEntityStarter.getStartOffsetCounterImplementation(), sourceOsTask, sourceOsEvent, type));
 		}
 
-		// ¼ş´üÄ´À°¡¦³«»Ï¥ª¥Õ¥»¥Ã¥ÈÄ´À°ÍÑ¤ÎÄê¿ô¤Î¹½ÃÛ
+		// å‘¨æœŸèª¿æ•´ãƒ»é–‹å§‹ã‚ªãƒ•ã‚»ãƒƒãƒˆèª¿æ•´ç”¨ã®å®šæ•°ã®æ§‹ç¯‰
 		for (EntityStartInteraction sourceStartInteraction : sourceEntityStarter.getStartInteraction()) {
-			if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤EntityStartImplementation¤ÏTimingTriggeringEntityStartImplementation¤Î¤ß¤Î¤¿¤á)
+			if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒEntityStartImplementationã¯TimingTriggeringEntityStartImplementationã®ã¿ã®ãŸã‚)
 				TimingTriggeringEntityStartImplementation timingTriggeringEntityStartImplementation = (TimingTriggeringEntityStartImplementation) sourceStartInteraction.getImplementation();
 	
 				if (timingTriggeringEntityStartImplementation.requiresCycleAdjust()) {
@@ -2062,7 +2062,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(S/R)ÍÑ¤Î¥æ¡¼¥Æ¥£¥ê¥Æ¥£
+	// ã‚·ãƒ³ãƒœãƒ«(S/R)ç”¨ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private Constant createSrInitValueConstant(VariableDataInstanceInSwc sourceDataInstanceInSwc, ValueSpecification sourceInitValueInSwc, String symbolName, String roleName) throws ModelException {
 		Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
@@ -2074,7 +2074,7 @@ public class RteStaticSymbolModelBuilder {
 			sourceInitValue = this.context.query.get(sourceDataInstanceInSwc.getInstance().get(0), VARIABLE_DATA_INSTANCE_IN_COMPOSITION_EX___GET_INIT_VALUE__VARIABLEDATAINSTANCEINCOMPOSITION);
 		}
 
-		// ½é´üÃÍÄê¿ô¤ÎÀ¸À®
+		// åˆæœŸå€¤å®šæ•°ã®ç”Ÿæˆ
 		Constant destInitValueConstant = ModuleFactory.eINSTANCE.createConstant();
 		destInitValueConstant.setSingleSource(sourceDataInstanceInSwc);
 		destInitValueConstant.setRoleName(roleName);
@@ -2086,7 +2086,7 @@ public class RteStaticSymbolModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÁ´ÈÌÍÑ¤Î¥æ¡¼¥Æ¥£¥ê¥Æ¥£
+	// ã‚·ãƒ³ãƒœãƒ«å…¨èˆ¬ç”¨ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private GlobalVariable createGlobalVariable(String symbol, Type type, Constant initValueConstant, boolean initAtDefinition) {
 		GlobalVariable destVariable = ModuleFactory.eINSTANCE.createGlobalVariable();

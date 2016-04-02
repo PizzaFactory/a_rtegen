@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -76,7 +76,7 @@ import com.google.common.collect.Lists;
 
 public class M2ModelMerger {
 	/**
-	 * �����Υ��֥������Ȥ���˰��פ��ʤ���ΤȤ��ƥޥå��󥰤�Ԥ�EObjectMatcher
+	 * 左右のオブジェクトが常に一致しないものとしてマッチングを行うEObjectMatcher
 	 */
 	private static class NeverMatchEObjectMatcher implements IEObjectMatcher {
 		/*
@@ -92,10 +92,10 @@ public class M2ModelMerger {
 		public void createMatches(Comparison comparison, Iterator<? extends EObject> leftEObjects, Iterator<? extends EObject> rightEObjects, Iterator<? extends EObject> originEObjects,
 				Monitor monitor) {
 
-			// ���դΥ��֥������ȤΥޥå�����
+			// 左辺のオブジェクトのマッチを構築
 			for (EObject eObject : Lists.newArrayList(leftEObjects)) {
 				Match parentMatch = comparison.getMatch(eObject.eContainer());
-				if (parentMatch == null) { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+				if (parentMatch == null) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					continue;
 				}
 
@@ -104,10 +104,10 @@ public class M2ModelMerger {
 				parentMatch.getSubmatches().add(match);
 			}
 
-			// ���դΥ��֥������ȤΥޥå�����
+			// 右辺のオブジェクトのマッチを構築
 			for (EObject eObject : Lists.newArrayList(rightEObjects)) {
 				Match parentMatch = comparison.getMatch(eObject.eContainer());
-				if (parentMatch == null) { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+				if (parentMatch == null) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					continue;
 				}
 
@@ -116,8 +116,8 @@ public class M2ModelMerger {
 				parentMatch.getSubmatches().add(match);
 			}
 
-			// ���ꥸ�ʥ�Υ��֥������ȤΥޥå�����
-			for (EObject eObject : Lists.newArrayList(originEObjects)) { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+			// オリジナルのオブジェクトのマッチを構築
+			for (EObject eObject : Lists.newArrayList(originEObjects)) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 				Match parentMatch = comparison.getMatch(eObject.eContainer());
 				if (parentMatch == null) {
 					continue;
@@ -156,25 +156,25 @@ public class M2ModelMerger {
 			switch (diff.getKind()) {
 			case ADD:
 			case MOVE:
-				if (diff instanceof ReferenceChange) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+				if (diff instanceof ReferenceChange) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 					ReferenceChange referenceChange = (ReferenceChange) diff;
-					if (!referenceChange.getReference().isContainment()) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+					if (!referenceChange.getReference().isContainment()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 						Activator.debugLog(NLS.bind("discarding a diff. it is not a containment reference diff. {0}", diff));
 						diff.discard();
 
-					} else if (referenceChange.getMatch().getLeft() == null || referenceChange.getMatch().getRight() == null) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+					} else if (referenceChange.getMatch().getLeft() == null || referenceChange.getMatch().getRight() == null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 						Activator.debugLog(NLS.bind("discarding a diff. it is of a submatch. {0}", diff));
 						diff.discard();
 
-					} else if (referenceChange.getValue().eContainer() == referenceChange.getMatch().getRight()) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+					} else if (referenceChange.getValue().eContainer() == referenceChange.getMatch().getRight()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 						Activator.debugLog(NLS.bind("discarding a diff. it is of the merge target. {0}", diff));
 						diff.discard();
 
-					} else if (isRightAlreadyContainsValue(referenceChange)) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+					} else if (isRightAlreadyContainsValue(referenceChange)) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 						Activator.debugLog(NLS.bind("discarding a diff. the value of it already exists in the merge target. {0}", diff));
 						diff.discard();
 					}
-				} else { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+				} else { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 					Activator.debugLog(NLS.bind("discarding a diff. it is not a reference diff. {0}", diff));
 					diff.discard();
 				}
@@ -188,7 +188,7 @@ public class M2ModelMerger {
 			}
 		}
 
-		// �ޡ���
+		// マージ
 		for (Diff diff : comparison.getDifferences()) {
 			mergeDiff(diff);
 		}
@@ -197,7 +197,7 @@ public class M2ModelMerger {
 	private boolean isRightAlreadyContainsValue(ReferenceChange referenceChange) {
 		final String diffObjectId = EcoreUtil.getID(referenceChange.getValue());
 		if (diffObjectId == null) {
-			// ID������ʤ���硤�ޤޤ�Ƥ��ʤ���Τ�Ƚ�Ǥ��롥
+			// IDを持たない場合，含まれていないものと判断する．
 			return false;
 		}
 
@@ -215,13 +215,13 @@ public class M2ModelMerger {
 			return;
 		}
 
-		// ��˰�¸�����ӷ�̤Υޡ�����»�
-		for (Diff requiresDiff : diff.getRequires()) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+		// 先に依存先の比較結果のマージを実施
+		for (Diff requiresDiff : diff.getRequires()) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			mergeDiff(requiresDiff);
 		}
 
-		// �ޡ���
-		if (diff instanceof ReferenceChange) { // COVERAGE ���true(false�Ȥʤ�Τ��Զ�纮�����ΤߤʤΤǡ�̤���Х�å�������ʤ�) 
+		// マージ
+		if (diff instanceof ReferenceChange) { // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない) 
 			ReferenceChange referenceChange = (ReferenceChange) diff;
 			Activator.debugLog(NLS.bind("merging {0}", referenceChange));
 

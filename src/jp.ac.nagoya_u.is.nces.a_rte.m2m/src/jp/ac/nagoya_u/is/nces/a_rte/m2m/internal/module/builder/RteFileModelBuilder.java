@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -183,7 +183,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Lists;
 
 /**
- * ¥Õ¥¡¥¤¥ë¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+ * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
  */
 public class RteFileModelBuilder {
 
@@ -196,20 +196,20 @@ public class RteFileModelBuilder {
 	}
 
 	public void buildRoot() {
-		// RTE¥â¥¸¥å¡¼¥ë¤ÎÀ¸À®
+		// RTEãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ç”Ÿæˆ
 		RteModule destRteModule = ModuleFactory.eINSTANCE.createRteModule();
 		this.context.cache.rteModule = destRteModule;
 		this.context.cache.moduleRoot.setRteModule(destRteModule);
 	}
 
 	/**
-	 * RTE¤Î°ÍÂ¸¥â¥¸¥å¡¼¥ë¤Î¥Õ¥¡¥¤¥ë¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+	 * RTEã®ä¾å­˜ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 */
 	public void buildDependentFiles() {
-		// IOC¥Ø¥Ã¥À¤Î¹½ÃÛ
+		// IOCãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
 		buildIocHeader(this.context.cache.rteModule);
 
-		// COM¥Ø¥Ã¥À¤Î¹½ÃÛ
+		// COMãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
 		buildComHeader(this.context.cache.rteModule);
 	}
 
@@ -248,24 +248,24 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * ¥Õ¥¡¥¤¥ë¥â¥Ç¥ë(API)¤ò¹½ÃÛ¤¹¤ë¡£
-	 * NOTE ¤³¤³¤Ç¤¤¤¦API¤Ï¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¸ş¤±¤Î¤â¤Î¤Î¤ß¤Ç¤¢¤ê¡¢¥é¥¤¥Õ¥µ¥¤¥¯¥ëAPI¤ÏÆâÉô¼ÂÁõÍÑ¤Î°·¤¤¤Ç¤¢¤ë¤³¤È¤ËÃí°Õ¡£
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«(API)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
+	 * NOTE ã“ã“ã§ã„ã†APIã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å‘ã‘ã®ã‚‚ã®ã®ã¿ã§ã‚ã‚Šã€ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«APIã¯å†…éƒ¨å®Ÿè£…ç”¨ã®æ‰±ã„ã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã€‚
 	 */
 	public void buildApiFiles() {
 		RteModule targetRteModule = this.context.cache.rteModule;
 
-		// RTE¥Ø¥Ã¥À¤Î¹½ÃÛ
+		// RTEãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
 		RteHeader destRteHeader = createRteHeader();
 		targetRteModule.setRteHeader(destRteHeader);
 
-		// RTE¥¿¥¤¥×¥Ø¥Ã¥À¤Î¹½ÃÛ
+		// RTEã‚¿ã‚¤ãƒ—ãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
 		RteTypeHeader destRteTypeHeader = createRteTypeHeader(this.context.cache.rte);
 		targetRteModule.setRteTypeHeader(destRteTypeHeader);
 
-		// ¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¡¤¤ª¤è¤Ó¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¥¿¥¤¥×¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¤Î¹½ÃÛ
+		// ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ï¼ŒãŠã‚ˆã³ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚¿ã‚¤ãƒ—ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹ç¯‰
 		buildApplicationHeaders(targetRteModule);
 		
-		// BSW¥¹¥±¥¸¥å¡¼¥é¤Î¥â¥¸¥å¡¼¥ëÏ¢·ë¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¡¢¤ª¤è¤Ó¥â¥¸¥å¡¼¥ëÏ¢·ë¥¿¥¤¥×¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¤Î¹½ÃÛ
+		// BSWã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©ã®ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«é€£çµãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã€ãŠã‚ˆã³ãƒ¢ã‚¸ãƒ¥ãƒ¼ãƒ«é€£çµã‚¿ã‚¤ãƒ—ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã®æ§‹ç¯‰
 		if (this.context.options.doesGenerateSchm) {
 			buildSchmModuleInterlinkHeaders(targetRteModule);
 		}
@@ -356,14 +356,14 @@ public class RteFileModelBuilder {
 		destApplicationHeader.setHasInlineApi(hasInlineApi(destApplicationHeader));
 
 		if (destApplicationHeader.getHasInlineApi()) {
-			// ¥¤¥ó¥é¥¤¥óAPI¤ËÉ¬Í×¤È¤Ê¤ë¥·¥ó¥Ü¥ë¤ò¼ı½¸
+			// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³APIã«å¿…è¦ã¨ãªã‚‹ã‚·ãƒ³ãƒœãƒ«ã‚’åé›†
 			List<RunnableEntity> runnablesAccessedFromInlineApi = Lists.newArrayList(getRunnablesAccessedFromInlineApi(sourceSwc));
-			runnablesAccessedFromInlineApi.removeAll(sourceSwc.getDependentRunnableEntity()); // NOTE SW-C¤Î°ÍÂ¸¥é¥ó¥Ê¥Ö¥ë¤ÏÊÌÅÓ¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¤ËÄÉ²Ã¤µ¤ì¤ë¤¿¤á¡¢¤³¤³¤Ç¤Ï½ü³°¤¹¤ë
+			runnablesAccessedFromInlineApi.removeAll(sourceSwc.getDependentRunnableEntity()); // NOTE SW-Cã®ä¾å­˜ãƒ©ãƒ³ãƒŠãƒ–ãƒ«ã¯åˆ¥é€”ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã«è¿½åŠ ã•ã‚Œã‚‹ãŸã‚ã€ã“ã“ã§ã¯é™¤å¤–ã™ã‚‹
 
-			// Partition¼ïÊÌ¤Ë¤è¤ë¥Ş¥¯¥í¤òÀßÄê¤¹¤ë(TOPPERS_TRUSTEDÅù)
+			// Partitionç¨®åˆ¥ã«ã‚ˆã‚‹ãƒã‚¯ãƒ­ã‚’è¨­å®šã™ã‚‹(TOPPERS_TRUSTEDç­‰)
 			destApplicationHeader.getSourceMacro().addAll(this.context.query.<Macro> collect(sourceSwc.getParent(), PARTITION__OS_TRUSTED_MACRO));
 			
-			// NOTE Os.h¤Ï¡¢hasInlineApi¤¬true¤Î¤È¤­¤Ë¡¢mtl¤ÇÄ¾ÀÜinclude¤¹¤ë
+			// NOTE Os.hã¯ã€hasInlineApiãŒtrueã®ã¨ãã«ã€mtlã§ç›´æ¥includeã™ã‚‹
 			destApplicationHeader.getIncludeHeader().add(getOrBuildRteUtilityHeader());
 			destApplicationHeader.getIncludeHeader().add(getOrBuildRteBswApiHeader());
 
@@ -418,7 +418,7 @@ public class RteFileModelBuilder {
 
 		destModuleInterlinkTypeHeader.getIncludeHeader().add(rteTypeHeader);
 
-		// ¥â¡¼¥ÉÏ¢·È
+		// ãƒ¢ãƒ¼ãƒ‰é€£æº
 		destModuleInterlinkTypeHeader.getModeType().addAll(this.context.query.<ModeType>collect(sourceBswm.getModeDeclarationGroup(), MODE_DECLARATION_GROUP__MODE_TYPE));
 		destModuleInterlinkTypeHeader.getModeDeclarationGroup().addAll(sourceBswm.getModeDeclarationGroup());
 		return destModuleInterlinkTypeHeader;
@@ -442,17 +442,17 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * ¥Õ¥¡¥¤¥ë¥â¥Ç¥ë(ÆâÉô¼ÂÁõÍÑ)¤ò¹½ÃÛ¤¹¤ë¡£
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 */
 	public void buildImplFiles() {
 		RteModule targetRteModule = this.context.cache.rteModule;
 		Rte sourceRte = this.context.cache.rte;
 
-		// ¥é¥¤¥Õ¥µ¥¤¥¯¥ë¥Ø¥Ã¥À¤ÎÀ¸À®
+		// ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«ãƒ˜ãƒƒãƒ€ã®ç”Ÿæˆ
 		RteLifecycleHeader destRteLifecycleHeader = createRteLifecycleHeader(sourceRte);
 		targetRteModule.setRteLifecycleHeader(destRteLifecycleHeader);
 
-		// RTE¥³¥ó¥Õ¥£¥®¥å¥ì¡¼¥·¥ç¥ó¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¤ÎÀ¸À®
+		// RTEã‚³ãƒ³ãƒ•ã‚£ã‚®ãƒ¥ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã®ç”Ÿæˆ
 		RteConfigurationHeader destRteConfigurationHeader = createRteConfigurationHeader();
 		if (this.context.options.suppressConfigHeader) {
 			targetRteModule.getDependentHeader().add(destRteConfigurationHeader);
@@ -460,28 +460,28 @@ public class RteFileModelBuilder {
 			targetRteModule.setRteConfigurationHeader(destRteConfigurationHeader);
 		}
 
-		// VFB¥È¥ì¡¼¥¹¥Ø¥Ã¥À¤ÎÀ¸À®
+		// VFBãƒˆãƒ¬ãƒ¼ã‚¹ãƒ˜ãƒƒãƒ€ã®ç”Ÿæˆ
 		RteVfbTraceHeader destRteVfbTraceHeader = createRteVfbTraceHeader(destRteConfigurationHeader);
 		targetRteModule.setRteVfbTraceHeader(destRteVfbTraceHeader);
 
-		// RTE¥³¡¼¥ë¥Ğ¥Ã¥¯¥Ø¥Ã¥À¤ÎÀ¸À®
+		// RTEã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ãƒ˜ãƒƒãƒ€ã®ç”Ÿæˆ
 		if (this.context.options.doesGenerateRte) {
 			RteCallbackHeader destRteCallbackHeader = createRteCallbackHeader(sourceRte);
 			targetRteModule.setRteCallbackHeader(destRteCallbackHeader);
 		}
 
-		// RTE¥æ¡¼¥Æ¥£¥ê¥Æ¥£¥Ø¥Ã¥À¤ÎÀ¸À®
+		// RTEãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ˜ãƒƒãƒ€ã®ç”Ÿæˆ
 		getOrBuildRteUtilityHeader();
 
-		// RTE BSW API¥Ø¥Ã¥À¤Î¹½ÃÛ
+		// RTE BSW APIãƒ˜ãƒƒãƒ€ã®æ§‹ç¯‰
 		getOrBuildRteBswApiHeader();
 
-		// RTE¥½¡¼¥¹¥Õ¥¡¥¤¥ë¤ÎÀ¸À®
+		// RTEã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®ç”Ÿæˆ
 		if (isEcucPartitionCollectionExists()) {
-			// ¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¹½À®¤Î¾ì¹ç
+			// ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³æ§‹æˆã®å ´åˆ
 			buildPartitionedSystemRteSources(targetRteModule, sourceRte);
 		} else {
-			// Èó¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¹½À®¤Î¾ì¹ç
+			// éãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³æ§‹æˆã®å ´åˆ
 			buildNonPartitionedSystemRteSource(targetRteModule, sourceRte);
 		}
 	}
@@ -568,12 +568,12 @@ public class RteFileModelBuilder {
 	}
 
 	private RteInternalHeader createNonPartitionedSystemRteInternalHeader(Rte sourceRte) {
-		// ¥Õ¥¡¥¤¥ë¤Ë´ØÏ¢ÉÕ¤±¤ë¥·¥ó¥Ü¥ë¤ò¼ı½¸
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã«é–¢é€£ä»˜ã‘ã‚‹ã‚·ãƒ³ãƒœãƒ«ã‚’åé›†
 		List<ExecutableEntity> dependentExecutableEntities = this.context.query.<ExecutableEntity> findByKind(sourceRte, EXECUTABLE_ENTITY);
 		dependentExecutableEntities.addAll(this.context.query.<RunnableEntity> collect(sourceRte.getCore(), CORE__PARTITION, PARTITION__SWC, SWC__DEPENDENT_RUNNABLE_ENTITY));
 		dependentExecutableEntities.addAll(this.context.query.<BswSchedulableEntity> collect(sourceRte.getCore(), CORE__PARTITION, PARTITION__PARTED_BSWM, PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY));
 
-		// RTEÆâÉô¥Ø¥Ã¥À¤òÀ¸À®
+		// RTEå†…éƒ¨ãƒ˜ãƒƒãƒ€ã‚’ç”Ÿæˆ
 		RteInternalHeader destCommonRteInternalHeader = ModuleFactory.eINSTANCE.createRteInternalHeader();
 		destCommonRteInternalHeader.setFileName(FileNames.RTE_COMMON_RTE_INTERNAL_HEADER_FILE_NAME);
 		destCommonRteInternalHeader.setGuardName(FileNames.RTE_COMMON_RTE_INTERNAL_HEADER_GUARD_NAME);
@@ -592,7 +592,7 @@ public class RteFileModelBuilder {
 		destCommonRteInternalHeader.getFunctionMacro().addAll(getInternalFunctionMacros(sourceRte));
 		destCommonRteInternalHeader.getComSignalApiWrapperGroup().addAll(this.<ComSignalApiWrapperFileContentsGroup> groupFunctionsByMemoryMapping(COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP, this.context.query.<ComSignalApiWrapper> findByKind(COM_SIGNAL_API_WRAPPER)));
 
-		// ¥â¡¼¥ÉÏ¢·È
+		// ãƒ¢ãƒ¼ãƒ‰é€£æº
 		buildModeSymbolPartOfCommonRteInternalHeader(destCommonRteInternalHeader, sourceRte);
 
 		return destCommonRteInternalHeader;
@@ -606,7 +606,7 @@ public class RteFileModelBuilder {
 		destRteSource.getIncludeHeader().add(this.context.cache.rteModule.getRteUtilityHeader());
 		destRteSource.getIncludeHeader().add(rteCommonHeader);
 		destRteSource.getIncludeHeader().add(this.context.cache.rteModule.getRteLifecycleHeader());
-		if (this.context.cache.rteModule.getRteCallbackHeader() != null) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (this.context.cache.rteModule.getRteCallbackHeader() != null) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			destRteSource.getIncludeHeader().add(this.context.cache.rteModule.getRteCallbackHeader());
 		}
 		destRteSource.getIncludeHeader().add(this.context.cache.rteModule.getRteBswApiHeader());
@@ -627,12 +627,12 @@ public class RteFileModelBuilder {
 	}
 
 	private void buildPartitionedSystemRteSources(RteModule targetRteModule, Rte sourceRte) {
-		// ¶¦ÄÌ¤ÎRTE¥½¡¼¥¹¥Õ¥¡¥¤¥ë¤ÎÀ¸À®
+		// å…±é€šã®RTEã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®ç”Ÿæˆ
 		RteInternalHeader destCommonRteInternalHeader = createPartitionedSystemCommonRteInternalHeader(sourceRte);
 		targetRteModule.setRteCommonHeader(destCommonRteInternalHeader);
 		targetRteModule.setRteCommonSource(createPartitionedSystemCommonRteSource(sourceRte, destCommonRteInternalHeader));
 
-		// ¥Ñ¡¼¥Æ¥£¥·¥ç¥óËè¤ÎRTE¥½¡¼¥¹¥Õ¥¡¥¤¥ë¤ÎÀ¸À®
+		// ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³æ¯ã®RTEã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®ç”Ÿæˆ
 		for (Core sourceCore : sourceRte.getCore()) {
 			for (Partition sourcePartition : sourceCore.getPartition()) {
 				RteInternalHeader destPartitionRteInternalHeader = createPartitionRteInternalHeader(sourcePartition, sourceRte, sourceCore, destCommonRteInternalHeader);
@@ -641,7 +641,7 @@ public class RteFileModelBuilder {
 			}
 		}
 		
-		// ¶¦ÄÌ¤ÎRTE¥½¡¼¥¹¥Õ¥¡¥¤¥ë¤«¤é¥³¥¢Ëè¤Î¥Ø¥Ã¥À¥Õ¥¡¥¤¥ë¤ò»²¾È¤µ¤»¤ë
+		// å…±é€šã®RTEã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚³ã‚¢æ¯ã®ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‚ç…§ã•ã›ã‚‹
 		targetRteModule.getRteCommonSource().getIncludeHeader().addAll(targetRteModule.getRtePartitionHeader());
 	}
 
@@ -660,10 +660,10 @@ public class RteFileModelBuilder {
 		destCommonRteInternalHeader.getFunctionMacro().addAll(getInternalFunctionMacros(sourceRte));
 		destCommonRteInternalHeader.getComSignalApiWrapperGroup().addAll(this.<ComSignalApiWrapperFileContentsGroup> groupFunctionsByMemoryMapping(COM_SIGNAL_API_WRAPPER_FILE_CONTENTS_GROUP, this.context.query.<ComSignalApiWrapper> findByKind(COM_SIGNAL_API_WRAPPER)));
 
-		// ¥â¡¼¥ÉÏ¢·È
+		// ãƒ¢ãƒ¼ãƒ‰é€£æº
 		buildModeSymbolPartOfCommonRteInternalHeader(destCommonRteInternalHeader, sourceRte);
 
-		// Common¤ËComProxyFunctionTableGroupÀßÄê
+		// Commonã«ComProxyFunctionTableGroupè¨­å®š
 		Optional<ComProxyFunctionTableFileContentsGroup> destComProxyFunctionTableGroup = createComProxyFunctionTableGroup();
 		if (destComProxyFunctionTableGroup.isPresent()) {
 			destCommonRteInternalHeader.getComProxyFunctionTableGroup().add(destComProxyFunctionTableGroup.get());
@@ -690,7 +690,7 @@ public class RteFileModelBuilder {
 
 		ComProxyFunctionTableFileContentsGroup destComProxyFunctionTableGroup = ModuleFactory.eINSTANCE.createComProxyFunctionTableFileContentsGroup();
 		for (ConstantMember member : functionTable.get().getInitValueConstant().getMember()) {
-			// ÀèÆ¬¤Î'&'¤òºï½ü¤·¤ÆÅĞÏ¿¤¹¤ë
+			// å…ˆé ­ã®'&'ã‚’å‰Šé™¤ã—ã¦ç™»éŒ²ã™ã‚‹
 			destComProxyFunctionTableGroup.getSrWriteProxyName().add(member.getValue().substring(1));
 		}
 		return Optional.of(destComProxyFunctionTableGroup);
@@ -721,7 +721,7 @@ public class RteFileModelBuilder {
 	}
 
 	private RteInternalHeader createPartitionRteInternalHeader(Partition sourcePartition, Rte sourceRte, Core sourceCore, RteInternalHeader commonRteInternalHeader) {
-		// ¥Õ¥¡¥¤¥ë¤Ë´ØÏ¢ÉÕ¤±¤ë¥·¥ó¥Ü¥ë¤ò¼ı½¸
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã«é–¢é€£ä»˜ã‘ã‚‹ã‚·ãƒ³ãƒœãƒ«ã‚’åé›†
 		List<ExecutableEntity> dependentExecutableEntities = Lists.newArrayList();
 		dependentExecutableEntities.addAll(this.context.query.<BswSchedulableEntity> collect(sourcePartition.getPartedBswm(), PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY));
 		dependentExecutableEntities.addAll(this.context.query.<RunnableEntity> collect(sourcePartition.getSwc(), SWC__DEPENDENT_RUNNABLE_ENTITY));
@@ -737,7 +737,7 @@ public class RteFileModelBuilder {
 			rteBswSchedulableEntities.addAll(getRteBswSchedulableEntities(sourceRte));
 		}
 
-		// RTEÆâÉô¥Ø¥Ã¥À¤òÀ¸À®
+		// RTEå†…éƒ¨ãƒ˜ãƒƒãƒ€ã‚’ç”Ÿæˆ
 		RteInternalHeader destRteInternalHeader = ModuleFactory.eINSTANCE.createRteInternalHeader();
 		destRteInternalHeader.setFileName(FileNames.createPartitionRteInternalHeaderFileName(sourcePartition));
 		destRteInternalHeader.setGuardName(FileNames.createPartitionRteInternalHeaderGuardName(sourcePartition));
@@ -770,7 +770,7 @@ public class RteFileModelBuilder {
 	}
 
 	private RteSource createPartitionRteSource(RteModule targetRteModule, Partition sourcePartition, Rte sourceRte, Core sourceCore, RteInternalHeader partitionRteInternalHeader) {
-		// ¥Õ¥¡¥¤¥ë¤Ë´ØÏ¢ÉÕ¤±¤ë¥·¥ó¥Ü¥ë¤ò¼ı½¸
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã«é–¢é€£ä»˜ã‘ã‚‹ã‚·ãƒ³ãƒœãƒ«ã‚’åé›†
 		List<RteLifecycleApi> rteLifecycleApis = Lists.newArrayList();
 		rteLifecycleApis.addAll(this.context.query.<RteLifecycleApi> findByKind(sourcePartition, RTE_LIFECYCLE_API));
 
@@ -792,7 +792,7 @@ public class RteFileModelBuilder {
 			globalVariables.addAll(getInternalGlobalVariablesOnlyDefinedForMasterCoreBswPartition(sourceRte, sourceCore, sourcePartition));
 		}
 
-		// RTE¥½¡¼¥¹¤òÀ¸À®
+		// RTEã‚½ãƒ¼ã‚¹ã‚’ç”Ÿæˆ
 		RteSource destRteSource = ModuleFactory.eINSTANCE.createRteSource();
 		destRteSource.setFileName(FileNames.createPartitionRteSourceFileName(sourcePartition));
 
@@ -830,7 +830,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * RTE¤¬ÄêµÁ¤¹¤ëBSW¥¹¥±¥¸¥å¡¼¥é¥Ö¥ë¤ò¼èÆÀ¤¹¤ë¡£
+	 * RTEãŒå®šç¾©ã™ã‚‹BSWã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©ãƒ–ãƒ«ã‚’å–å¾—ã™ã‚‹ã€‚
 	 */
 	private List<BswSchedulableEntity> getRteBswSchedulableEntities(Rte sourceRte) {
 		List<BswSchedulableEntity> rteBswSchedulableEntities = Lists.newArrayList();
@@ -879,7 +879,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * NOTE ËÜ¥á¥½¥Ã¥É¤Î¼èÆÀ·ë²Ì¤Ë¤Ï¡¢¥Ş¥¹¥¿¥³¥¢¤äBSWÇÛÃÖ¥Ñ¡¼¥Æ¥£¥·¥ç¥óÅù¤ÎÆÃÄê¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Ë¤Î¤ßÄêµÁ¤µ¤ì¤ë¥·¥ó¥Ü¥ë¤Ï´Ş¤Ş¤ì¤Ê¤¤¤³¤È¤ËÃí°Õ¡£
+	 * NOTE æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã®å–å¾—çµæœã«ã¯ã€ãƒã‚¹ã‚¿ã‚³ã‚¢ã‚„BSWé…ç½®ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ç­‰ã®ç‰¹å®šãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã«ã®ã¿å®šç¾©ã•ã‚Œã‚‹ã‚·ãƒ³ãƒœãƒ«ã¯å«ã¾ã‚Œãªã„ã“ã¨ã«æ³¨æ„ã€‚
 	 */
 	private List<GlobalVariable> getInternalGlobalVariablesDefinedForPartition(Partition sourcePartition) {
 		List<GlobalVariable> globalVariables = Lists.newArrayList(this.context.query.<GlobalVariable> findByKind(sourcePartition, GLOBAL_VARIABLE));
@@ -890,7 +890,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * ¥Ş¥¹¥¿¥³¥¢¤ÎBSWMÇÛÃÖ¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Ë¤Î¤ßÄêµÁ¤µ¤ì¤ë¥°¥í¡¼¥Ğ¥ëÊÑ¿ô¤Î¥ê¥¹¥È¤ò¼èÆÀ¤¹¤ë¡£
+	 * ãƒã‚¹ã‚¿ã‚³ã‚¢ã®BSWMé…ç½®ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã«ã®ã¿å®šç¾©ã•ã‚Œã‚‹ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã®ãƒªã‚¹ãƒˆã‚’å–å¾—ã™ã‚‹ã€‚
 	 */
 	private List<GlobalVariable> getInternalGlobalVariablesOnlyDefinedForMasterCoreBswPartition(Rte sourceRte, Core sourceCore, Partition sourcePartition) {
 		List<GlobalVariable> globalVariables = Lists.newArrayList(this.context.query.<GlobalVariable> findByKind(sourcePartition, GLOBAL_VARIABLE));
@@ -901,10 +901,10 @@ public class RteFileModelBuilder {
 	}
 
 	private void removeGlobalVariablesShouldBeExcludedFromFileContentsModel(List<GlobalVariable> globalVariables) {
-		// NOTE RteBufferVariableSet¤ÏÏÀÍı¥·¥ó¥Ü¥ë¤Î¤¿¤á½ü³°¤¹¤ë
+		// NOTE RteBufferVariableSetã¯è«–ç†ã‚·ãƒ³ãƒœãƒ«ã®ãŸã‚é™¤å¤–ã™ã‚‹
 		globalVariables.removeAll(this.context.query.<GlobalVariable, RteBufferVariableSet> selectByKind(globalVariables, RTE_BUFFER_VARIABLE_SET));
 
-		// NOTE GlobalVariableSet¤ÏGlobalVariableSetÃ±°Ì¤Ç¥Õ¥¡¥¤¥ë¤Ë½ĞÎÏ¤¹¤ë¤¿¤á¡¢¥á¥ó¥Ğ¤Ï½ü³°¤¹¤ë
+		// NOTE GlobalVariableSetã¯GlobalVariableSetå˜ä½ã§ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã™ã‚‹ãŸã‚ã€ãƒ¡ãƒ³ãƒã¯é™¤å¤–ã™ã‚‹
 		List<GlobalVariableSet> globalVariableSets =this.context.query.<GlobalVariableSet> findByKind(GLOBAL_VARIABLE_SET);
 		for (GlobalVariableSet variableSet : globalVariableSets) {
 			globalVariables.removeAll(variableSet.getGlobalVariable());
@@ -976,20 +976,20 @@ public class RteFileModelBuilder {
 		for (RteApi api : apiGroup.getRteApi()) {
 			if (api instanceof RteEnterApi) {
 				RteEnterApi rteEnterApi = (RteEnterApi) api;
-				// Rte_Enter¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// Rte_EnterãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteEnterApi.getIsNoneExclude()) {
 					return true;
 				}
 	
 			} else if (api instanceof RteExitApi) {
 				RteExitApi rteExitApi = (RteExitApi) api;
-				// Rte_Exit¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// Rte_ExitãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteExitApi.getIsNoneExclude()) {
 					return true;
 				}
 	
 			} else {
-				// NOTE Rte_Enter/Exit API°Ê³°¤ÎRTE API¤Ï¾ï¤Ë¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¤¿¤á¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// NOTE Rte_Enter/Exit APIä»¥å¤–ã®RTE APIã¯å¸¸ã«å®Ÿè£…é–¢æ•°ã‚’æŒã¤ãŸã‚ã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				return true;
 			}
 		}
@@ -1000,21 +1000,21 @@ public class RteFileModelBuilder {
 		for (RteApi api : apiGroup.getRteApi()) {
 			if (api instanceof RteEnterApi) {
 				RteEnterApi rteEnterApi = (RteEnterApi) api;
-				// Rte_Enter¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// Rte_EnterãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteEnterApi.getIsNoneExclude()) {
 					return true;
 				}
 	
 			} else if (api instanceof RteExitApi) {
 				RteExitApi rteExitApi = (RteExitApi) api;
-				// Rte_Exit¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// Rte_ExitãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteExitApi.getIsNoneExclude()) {
-					return true; // COVERAGE (¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§¡¥isNeededGroupÆâ¤Ç¼ÂÀÓ¤¢¤ê¡¥)
+					return true; // COVERAGE (ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèªï¼isNeededGroupå†…ã§å®Ÿç¸¾ã‚ã‚Šï¼)
 				}
 	
 			} else {
-				// NOTE Rte_Enter/Exit API°Ê³°¤ÎRTE API¤Ï¾ï¤Ë¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¤¿¤á¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
-				// ¤¿¤À¤·¡¢INLINE¤Î¤â¤Î¤ÏexternÀë¸À¤¬ÉÔÍ×¤Ë¤Ê¤ë¤Î¤Ç½ü³°¤¹¤ë
+				// NOTE Rte_Enter/Exit APIä»¥å¤–ã®RTE APIã¯å¸¸ã«å®Ÿè£…é–¢æ•°ã‚’æŒã¤ãŸã‚ã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
+				// ãŸã ã—ã€INLINEã®ã‚‚ã®ã¯externå®£è¨€ãŒä¸è¦ã«ãªã‚‹ã®ã§é™¤å¤–ã™ã‚‹
 				if (!api.getIsInline()) {
 					return true;
 				}
@@ -1027,20 +1027,20 @@ public class RteFileModelBuilder {
 		for (SchmApi api : schmGroup.getSchmApi()) {
 			if (api instanceof SchmEnterApi) {
 				SchmEnterApi rteEnterApi = (SchmEnterApi) api;
-				// SchM_Enter¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// SchM_EnterãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteEnterApi.getIsNoneExclude()) {
 					return true;
 				}
 	
 			} else if (api instanceof SchmExitApi) {
 				SchmExitApi rteExitApi = (SchmExitApi) api;
-				// SchM_Exit¤¬¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¾ì¹ç¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// SchM_ExitãŒå®Ÿè£…é–¢æ•°ã‚’æŒã¤å ´åˆã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				if (!rteExitApi.getIsNoneExclude()) {
 					return true;
 				}
 	
 			} else {
-				// NOTE SchM_Enter/Exit°Ê³°¤ÎBSW¥¹¥±¥¸¥å¡¼¥éAPI¤Ï¾ï¤Ë¼ÂÁõ´Ø¿ô¤ò»ı¤Ä¤¿¤á¡¢¼ÂÁõ´Ø¿ôÄêµÁ¤¬É¬Í×¤ÊAPI¥°¥ë¡¼¥×¤Ç¤¢¤ë¤ÈÈ½ÃÇ
+				// NOTE SchM_Enter/Exitä»¥å¤–ã®BSWã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©APIã¯å¸¸ã«å®Ÿè£…é–¢æ•°ã‚’æŒã¤ãŸã‚ã€å®Ÿè£…é–¢æ•°å®šç¾©ãŒå¿…è¦ãªAPIã‚°ãƒ«ãƒ¼ãƒ—ã§ã‚ã‚‹ã¨åˆ¤æ–­
 				return true;
 			}
 		}
@@ -1053,7 +1053,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * ¥á¥â¥ê¥Ş¥Ã¥Ô¥ó¥°¥Ø¥Ã¥À¤Î¥Õ¥¡¥¤¥ë¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+	 * ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ”ãƒ³ã‚°ãƒ˜ãƒƒãƒ€ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 */
 	public void buildMemoryMappingHeaders() {
 		RteModule targetRteModule = this.context.cache.rteModule;
@@ -1081,7 +1081,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * À¸À®¾ğÊó¤Î¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+	 * ç”Ÿæˆæƒ…å ±ã®ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 */
 	public void buildGenerationInfo() {
 		for (File targetFile : this.context.query.<File> findByKind(FILE)) {
@@ -1090,7 +1090,7 @@ public class RteFileModelBuilder {
 	}
 
 	/**
-	 * ¥Õ¥¡¥¤¥ë¥â¥Ç¥ëÃæ¤Ë´Ş¤Ş¤ì¤ë¥·¥ó¥Ü¥ë¤ò¥½¡¼¥È¤¹¤ë¡£
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ãƒ¢ãƒ‡ãƒ«ä¸­ã«å«ã¾ã‚Œã‚‹ã‚·ãƒ³ãƒœãƒ«ã‚’ã‚½ãƒ¼ãƒˆã™ã‚‹ã€‚
 	 */
 	public void sortFileContents() {
 		for (File targetFile : this.context.query.<File> findByKind(FILE)) {

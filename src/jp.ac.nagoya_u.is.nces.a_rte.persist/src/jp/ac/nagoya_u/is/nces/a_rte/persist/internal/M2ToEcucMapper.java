@@ -4,39 +4,39 @@
  *
  *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -116,7 +116,7 @@ public class M2ToEcucMapper {
 
 	private void mapModule(EcucModuleConfigurationValues m2Module) throws InternalPersistException {
 		EStructuralFeature moduleFeature = this.ecucRoot.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfContainerDef(m2Module.getDefinitionRef()));
-		if (moduleFeature == null) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+		if (moduleFeature == null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			return;
 		}
 
@@ -155,7 +155,7 @@ public class M2ToEcucMapper {
 		for (EcucAbstractReferenceValue referenceValue : m2Container.getReferenceValue()) {
 			if (referenceValue instanceof EcucReferenceValue) {
 				mapReference(ecucContainer, (EcucReferenceValue) referenceValue);
-			} else if (referenceValue instanceof EcucInstanceReferenceValue) { // COVERAGE ���true(�����Υ��ݡ����ϰϤǤϡ�EcucAbstractReferenceValue��EcucReferenceValue��EcucInstanceReferenceValue�Τ����줫�Ǥ��뤿��)
+			} else if (referenceValue instanceof EcucInstanceReferenceValue) { // COVERAGE 常にtrue(現状のサポート範囲では，EcucAbstractReferenceValueはEcucReferenceValueとEcucInstanceReferenceValueのいずれかであるため)
 				mapInstanceReference(ecucContainer, (EcucInstanceReferenceValue) referenceValue);
 			}
 		}
@@ -175,7 +175,7 @@ public class M2ToEcucMapper {
 			if (m2Parameter instanceof EcucNumericalParamValue) {
 				EcucNumericalParamValue ecucNumericalParamValue = (EcucNumericalParamValue) m2Parameter;
 				setRoleValue(ecucContainer, parameterFeature, M2ModelUtils.convertValueForFeature(ecucNumericalParamValue.getValue(), parameterFeature));
-			} else if (m2Parameter instanceof EcucTextualParamValue) { // COVERAGE ���true(�����Υ��ݡ����ϰϤǤϡ�EcucParameterValue��EcucNumericalParamValue��EcucTextualParamValue�Τ����줫�Ǥ��뤿��)
+			} else if (m2Parameter instanceof EcucTextualParamValue) { // COVERAGE 常にtrue(現状のサポート範囲では，EcucParameterValueはEcucNumericalParamValueとEcucTextualParamValueのいずれかであるため)
 				EcucTextualParamValue ecucTextualParamValue = (EcucTextualParamValue) m2Parameter;
 				setRoleValue(ecucContainer, parameterFeature, M2ModelUtils.convertValueForFeature(ecucTextualParamValue.getValue(), parameterFeature));
 			}
@@ -193,7 +193,7 @@ public class M2ToEcucMapper {
 		}
 
 		if (M2Package.eINSTANCE.equals(roleFeature.getEType().getEPackage())) {
-			// ������äƤ��뤫���ǧ����
+			// 型が合っているかを確認する
 			if (!roleFeature.getEType().isInstance(m2Reference.getValue())) {
 				throw new InternalPersistException("The referenced object " + m2Reference.getValue().getReference() + " is not typed with "
 						+ roleFeature.getEType().getName() + " for the parameter '" + roleFeature.getName() + "' of "
@@ -201,8 +201,8 @@ public class M2ToEcucMapper {
 			}
 			setRoleValue(ecucContainer, roleFeature, m2Reference.getValue());
 
-		} else if (EcucPackage.eINSTANCE.equals(roleFeature.getEType().getEPackage())) { // COVERAGE ���true(EcucReferenceValue�λ��������Ǥϡ�m2��ecuc�Τ����줫�Υѥå������Τ�ΤǤ��뤿��)
-			// ECUC�Υ��֥������Ȥ���������λ���Ƥ��ʤ��Τǡ������֥������Ȥ�������˥�ե���󥹤�Ž��ľ����
+		} else if (EcucPackage.eINSTANCE.equals(roleFeature.getEType().getEPackage())) { // COVERAGE 常にtrue(EcucReferenceValueの参照先要素は，m2かecucのいずれかのパッケージのものであるため)
+			// ECUCのオブジェクトは生成が完了していないので，全オブジェクトの生成後にリファレンスを貼り直す．
 			ecucContainer.addUnresolvedReference((EReference) roleFeature, EcucModelUtils.ID_PREFIX + m2Reference.getValue().getReference());
 		}
 		Activator.debugLog(NLS.bind("mapped {0} to {1} {2}", new Object[] { m2Reference, ecucContainer, roleFeature }));
@@ -210,7 +210,7 @@ public class M2ToEcucMapper {
 
 	private void mapInstanceReference(EcucReferrable ecucContainer, EcucInstanceReferenceValue m2InstanceReference) throws InternalPersistException {
 		EStructuralFeature roleFeature = ecucContainer.eClass().getEStructuralFeature(EcucModelUtils.getRoleNameOfInstanceReferenceDef(m2InstanceReference.getDefinitionRef()));
-		if (roleFeature == null) { // COVERAGE (���ѥ������ǤϤʤ����ᡤ�����ɥ�ӥ塼������ʤ����Ȥ��ǧ)
+		if (roleFeature == null) { // COVERAGE (常用ケースではないため，コードレビューで問題ないことを確認)
 			return;
 		}
 
@@ -230,7 +230,7 @@ public class M2ToEcucMapper {
 				ExtendedEObject eObject = (ExtendedEObject) eAllContents.next();
 				eObject.resolveReferences();
 			}
-		} catch (ModelException e) { // COVERAGE ���̤ã(�Զ�纮�����Τ���ã���륳���ɤʤΤǡ�̤���Х�å�������ʤ�)
+		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new PersistException("Internal error occurred while resolving autosar references of ECU Configuration. " + e.getMessage(), e);
 		}
 	}
