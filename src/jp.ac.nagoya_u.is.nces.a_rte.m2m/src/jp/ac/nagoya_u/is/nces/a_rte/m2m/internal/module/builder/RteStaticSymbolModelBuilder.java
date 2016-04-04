@@ -353,7 +353,7 @@ public class RteStaticSymbolModelBuilder {
 			}
 		}
 		// 実装型を生成するかの判別．生成しない場合，依存型として定義
-		if (this.context.query.get(sourceDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_TYPE_DEFINITION__IMPLEMENTATIONDATATYPE)) {
+		if ((boolean) this.context.query.get(sourceDataType, IMPLEMENTATION_DATA_TYPE_EX___PROVIDES_TYPE_DEFINITION__IMPLEMENTATIONDATATYPE)) {
 			this.context.cache.rte.getImplementationDataType().add(destType);
 		} else {
 			this.context.cache.rte.getDependentType().add(destType);
@@ -1256,7 +1256,7 @@ public class RteStaticSymbolModelBuilder {
 					}
 
 					// RTE実装向け初期値定数の構築
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
 				}
@@ -1270,7 +1270,7 @@ public class RteStaticSymbolModelBuilder {
 					}
 
 					// RTE実装向け初期値定数の構築
-					if (this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, VARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INIT_VALUE_CONSTANT__VARIABLEDATAINSTANCEINSWC)) {
 						targetSwc.getSrImplInitValueConstant().add(createSrImplInitValueConstant(sourceDataInstanceInSwc, sourceDataInstanceInSwc.getInitValue()));
 					}
 				}
@@ -1581,7 +1581,7 @@ public class RteStaticSymbolModelBuilder {
 		RVariableDataInstanceInSwc sourceDataInstance = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 	
 		// フィルタバッファの生成
-		if (this.context.query.get(sourceDataInstance, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_OLD_VALUE_VARIABLE__RVARIABLEDATAINSTANCEINSWC)) {
+		if ((boolean) this.context.query.get(sourceDataInstance, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___REQUIRES_FILTER_OLD_VALUE_VARIABLE__RVARIABLEDATAINSTANCEINSWC)) {
 			// フィルタ過去値バッファの生成
 			PrimitiveType type = this.context.builtQuery.findDestPrimitiveType(sourceDataInstance.getImplementationDataType());
 	

@@ -312,7 +312,7 @@ public class RteFunctionModelBuilder {
 						destSendApi.setIsInline(false);
 						targetSwc.getRteApi().add(destSendApi);
 					}
-					if (this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)) {
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)) {
 						FeedbackApi destFeedbackApi = createFeedbackApi(sourceDataInstanceInSwc);
 						// インライン化
 						destFeedbackApi.setIsInline(this.moduleRules.usesInlineFeedbackApi(sourceDataInstanceInSwc));
@@ -729,7 +729,7 @@ public class RteFunctionModelBuilder {
 			PartedBswm targetPartedBswm = getPartedBswmToLocateExclusiveAreaSymbol(targetBswm, sourceExclusiveArea);
 
 			// Enter/Exit APIを構築
-			if (this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA)) {
+			if ((boolean) this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA)) {
 				targetPartedBswm.getSchmApi().add(createSchmEnterApi(sourceBswModuleDescription, sourceExclusiveArea));
 				targetPartedBswm.getSchmApi().add(createSchmExitApi(sourceBswModuleDescription, sourceExclusiveArea));
 			}
@@ -1519,22 +1519,22 @@ public class RteFunctionModelBuilder {
 
 	private void buildComCallbacks(Rte targetRte) throws ModelException {
 		for (ExternalEcuSender sourceExternalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComRxCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComInvCallback(sourceExternalEcuSender));
 			}
-			if (this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComReceiveTimeoutCallback(sourceExternalEcuSender));
 			}
 		}
 		for (ExternalEcuReceiver sourceExternalEcuReciver : this.context.query.<ExternalEcuReceiver> findByKind(EXTERNAL_ECU_RECEIVER)) {
-			if (this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER)) {
 				targetRte.getComCallback().add(createComTAckCallback(sourceExternalEcuReciver));
 				targetRte.getComCallback().add(createComTErrCallback(sourceExternalEcuReciver));
 			}
-			if (this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER)) {
 				targetRte.getComCallback().add(createComTxTOutCallback(sourceExternalEcuReciver));
 			}
 		}

@@ -166,7 +166,7 @@ public class SenderReceiverImplementationModelBuilder {
 
 		VariableDataInstanceInSwc variableDataInstanceInSwc = sourceSender.getSource().getPrototype();
 		// FeedbackApiの提供有無をチェック(variableDataInstanceInSwcEx_...)
-		if(this.context.query.get(variableDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)){
+		if((boolean) this.context.query.get(variableDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)){
 			TAckStatusVariableImplementation destTAckStatusVariableImplementation = InteractionFactory.eINSTANCE.createTAckStatusVariableImplementation();
 			destTAckStatusVariableImplementation.setOwnerPartition(sourceSender.getOwnerPartition());
 			sourceSender.setTAckStatusVariableImplementation(destTAckStatusVariableImplementation);
@@ -206,7 +206,7 @@ public class SenderReceiverImplementationModelBuilder {
 				destDirectComSendImplementation.setComSignal(sourceComSignal);
 				destDirectComSendImplementation.setComSignalGroup(sourceComSignalGroup);
 				sourceAndTargetSendInteraction.setImplementation(destDirectComSendImplementation);
-			} else if (this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
+			} else if ((boolean) this.context.query.get(sourceSender.getOwnerPartition(), ECUC_PARTITION_EX___IS_IN_MASTER_CORE__ECUCPARTITION)) {
 				// マスタコア
 				if (sourceSender.getOwnerPartition().isTrusted()) {
 					// 信頼パーティションの場合，直接COM送信
