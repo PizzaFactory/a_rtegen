@@ -877,29 +877,6 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TrustedFunctionRteSendOperationItemProvider trustedFunctionRteSendOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteSendOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTrustedFunctionRteSendOperationAdapter() {
-		if (trustedFunctionRteSendOperationItemProvider == null) {
-			trustedFunctionRteSendOperationItemProvider = new TrustedFunctionRteSendOperationItemProvider(this);
-		}
-
-		return trustedFunctionRteSendOperationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -920,6 +897,75 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		}
 
 		return trustedFunctionRteBufferWriteSendOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TrustedFunctionRteBufferSendSendOperationItemProvider trustedFunctionRteBufferSendSendOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTrustedFunctionRteBufferSendSendOperationAdapter() {
+		if (trustedFunctionRteBufferSendSendOperationItemProvider == null) {
+			trustedFunctionRteBufferSendSendOperationItemProvider = new TrustedFunctionRteBufferSendSendOperationItemProvider(this);
+		}
+
+		return trustedFunctionRteBufferSendSendOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TrustedFunctionRteBufferInvalidateSendOperationItemProvider trustedFunctionRteBufferInvalidateSendOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTrustedFunctionRteBufferInvalidateSendOperationAdapter() {
+		if (trustedFunctionRteBufferInvalidateSendOperationItemProvider == null) {
+			trustedFunctionRteBufferInvalidateSendOperationItemProvider = new TrustedFunctionRteBufferInvalidateSendOperationItemProvider(this);
+		}
+
+		return trustedFunctionRteBufferInvalidateSendOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RteBufferInvalidateTrustedFunctionItemProvider rteBufferInvalidateTrustedFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRteBufferInvalidateTrustedFunctionAdapter() {
+		if (rteBufferInvalidateTrustedFunctionItemProvider == null) {
+			rteBufferInvalidateTrustedFunctionItemProvider = new RteBufferInvalidateTrustedFunctionItemProvider(this);
+		}
+
+		return rteBufferInvalidateTrustedFunctionItemProvider;
 	}
 
 	/**
@@ -1153,72 +1199,72 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComReceiveCallbackItemProvider comReceiveCallbackItemProvider;
+	protected ComRxCallbackItemProvider comRxCallbackItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxCallback}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComReceiveCallbackAdapter() {
-		if (comReceiveCallbackItemProvider == null) {
-			comReceiveCallbackItemProvider = new ComReceiveCallbackItemProvider(this);
+	public Adapter createComRxCallbackAdapter() {
+		if (comRxCallbackItemProvider == null) {
+			comRxCallbackItemProvider = new ComRxCallbackItemProvider(this);
 		}
 
-		return comReceiveCallbackItemProvider;
+		return comRxCallbackItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComReceiveTimeoutCallbackItemProvider comReceiveTimeoutCallbackItemProvider;
+	protected ComRxTOutCallbackItemProvider comRxTOutCallbackItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComRxTOutCallback}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComReceiveTimeoutCallbackAdapter() {
-		if (comReceiveTimeoutCallbackItemProvider == null) {
-			comReceiveTimeoutCallbackItemProvider = new ComReceiveTimeoutCallbackItemProvider(this);
+	public Adapter createComRxTOutCallbackAdapter() {
+		if (comRxTOutCallbackItemProvider == null) {
+			comRxTOutCallbackItemProvider = new ComRxTOutCallbackItemProvider(this);
 		}
 
-		return comReceiveTimeoutCallbackItemProvider;
+		return comRxTOutCallbackItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComInvalidateCallbackItemProvider comInvalidateCallbackItemProvider;
+	protected ComInvCallbackItemProvider comInvCallbackItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvCallback}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createComInvalidateCallbackAdapter() {
-		if (comInvalidateCallbackItemProvider == null) {
-			comInvalidateCallbackItemProvider = new ComInvalidateCallbackItemProvider(this);
+	public Adapter createComInvCallbackAdapter() {
+		if (comInvCallbackItemProvider == null) {
+			comInvCallbackItemProvider = new ComInvCallbackItemProvider(this);
 		}
 
-		return comInvalidateCallbackItemProvider;
+		return comInvCallbackItemProvider;
 	}
 
 	/**
@@ -1288,6 +1334,98 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		}
 
 		return comSendSignalPeriodicEntityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TAckNotifyOperationItemProvider tAckNotifyOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTAckNotifyOperationAdapter() {
+		if (tAckNotifyOperationItemProvider == null) {
+			tAckNotifyOperationItemProvider = new TAckNotifyOperationItemProvider(this);
+		}
+
+		return tAckNotifyOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComTxTOutCallbackItemProvider comTxTOutCallbackItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTxTOutCallback}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComTxTOutCallbackAdapter() {
+		if (comTxTOutCallbackItemProvider == null) {
+			comTxTOutCallbackItemProvider = new ComTxTOutCallbackItemProvider(this);
+		}
+
+		return comTxTOutCallbackItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComTAckCallbackItemProvider comTAckCallbackItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTAckCallback}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComTAckCallbackAdapter() {
+		if (comTAckCallbackItemProvider == null) {
+			comTAckCallbackItemProvider = new ComTAckCallbackItemProvider(this);
+		}
+
+		return comTAckCallbackItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComTErrCallbackItemProvider comTErrCallbackItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComTErrCallback}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComTErrCallbackAdapter() {
+		if (comTErrCallbackItemProvider == null) {
+			comTErrCallbackItemProvider = new ComTErrCallbackItemProvider(this);
+		}
+
+		return comTErrCallbackItemProvider;
 	}
 
 	/**
@@ -2073,6 +2211,29 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OsBackgroundTaskActivationExecutableTaskBodyItemProvider osBackgroundTaskActivationExecutableTaskBodyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOsBackgroundTaskActivationExecutableTaskBodyAdapter() {
+		if (osBackgroundTaskActivationExecutableTaskBodyItemProvider == null) {
+			osBackgroundTaskActivationExecutableTaskBodyItemProvider = new OsBackgroundTaskActivationExecutableTaskBodyItemProvider(this);
+		}
+
+		return osBackgroundTaskActivationExecutableTaskBodyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2185,6 +2346,29 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		}
 
 		return timingTriggeringExecutableStartOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlainExecutableStartOperationItemProvider plainExecutableStartOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlainExecutableStartOperationAdapter() {
+		if (plainExecutableStartOperationItemProvider == null) {
+			plainExecutableStartOperationItemProvider = new PlainExecutableStartOperationItemProvider(this);
+		}
+
+		return plainExecutableStartOperationItemProvider;
 	}
 
 	/**
@@ -2349,49 +2533,26 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PrimitiveComSendProxyOperationItemProvider primitiveComSendProxyOperationItemProvider;
+	protected ComSendProxyOperationItemProvider comSendProxyOperationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPrimitiveComSendProxyOperationAdapter() {
-		if (primitiveComSendProxyOperationItemProvider == null) {
-			primitiveComSendProxyOperationItemProvider = new PrimitiveComSendProxyOperationItemProvider(this);
+	public Adapter createComSendProxyOperationAdapter() {
+		if (comSendProxyOperationItemProvider == null) {
+			comSendProxyOperationItemProvider = new ComSendProxyOperationItemProvider(this);
 		}
 
-		return primitiveComSendProxyOperationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ComplexComSendProxyOperationItemProvider complexComSendProxyOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComplexComSendProxyOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createComplexComSendProxyOperationAdapter() {
-		if (complexComSendProxyOperationItemProvider == null) {
-			complexComSendProxyOperationItemProvider = new ComplexComSendProxyOperationItemProvider(this);
-		}
-
-		return complexComSendProxyOperationItemProvider;
+		return comSendProxyOperationItemProvider;
 	}
 
 	/**
@@ -2599,6 +2760,29 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		}
 
 		return rteBufferWriteTrustedFunctionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RteBufferSendTrustedFunctionItemProvider rteBufferSendTrustedFunctionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRteBufferSendTrustedFunctionAdapter() {
+		if (rteBufferSendTrustedFunctionItemProvider == null) {
+			rteBufferSendTrustedFunctionItemProvider = new RteBufferSendTrustedFunctionItemProvider(this);
+		}
+
+		return rteBufferSendTrustedFunctionItemProvider;
 	}
 
 	/**
@@ -3269,26 +3453,49 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RteSendTrustedFunctionParamTypeItemProvider rteSendTrustedFunctionParamTypeItemProvider;
+	protected RteNonqueuedSendTrustedFunctionParamTypeItemProvider rteNonqueuedSendTrustedFunctionParamTypeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteSendTrustedFunctionParamType}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteNonqueuedSendTrustedFunctionParamType}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRteSendTrustedFunctionParamTypeAdapter() {
-		if (rteSendTrustedFunctionParamTypeItemProvider == null) {
-			rteSendTrustedFunctionParamTypeItemProvider = new RteSendTrustedFunctionParamTypeItemProvider(this);
+	public Adapter createRteNonqueuedSendTrustedFunctionParamTypeAdapter() {
+		if (rteNonqueuedSendTrustedFunctionParamTypeItemProvider == null) {
+			rteNonqueuedSendTrustedFunctionParamTypeItemProvider = new RteNonqueuedSendTrustedFunctionParamTypeItemProvider(this);
 		}
 
-		return rteSendTrustedFunctionParamTypeItemProvider;
+		return rteNonqueuedSendTrustedFunctionParamTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RteQueuedSendTrustedFunctionParamTypeItemProvider rteQueuedSendTrustedFunctionParamTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteQueuedSendTrustedFunctionParamType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRteQueuedSendTrustedFunctionParamTypeAdapter() {
+		if (rteQueuedSendTrustedFunctionParamTypeItemProvider == null) {
+			rteQueuedSendTrustedFunctionParamTypeItemProvider = new RteQueuedSendTrustedFunctionParamTypeItemProvider(this);
+		}
+
+		return rteQueuedSendTrustedFunctionParamTypeItemProvider;
 	}
 
 	/**
@@ -3358,52 +3565,6 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		}
 
 		return neverReadOperationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RteBufferInvalidateTrustedFunctionItemProvider rteBufferInvalidateTrustedFunctionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRteBufferInvalidateTrustedFunctionAdapter() {
-		if (rteBufferInvalidateTrustedFunctionItemProvider == null) {
-			rteBufferInvalidateTrustedFunctionItemProvider = new RteBufferInvalidateTrustedFunctionItemProvider(this);
-		}
-
-		return rteBufferInvalidateTrustedFunctionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TrustedFunctionRteBufferInvalidateSendOperationItemProvider trustedFunctionRteBufferInvalidateSendOperationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTrustedFunctionRteBufferInvalidateSendOperationAdapter() {
-		if (trustedFunctionRteBufferInvalidateSendOperationItemProvider == null) {
-			trustedFunctionRteBufferInvalidateSendOperationItemProvider = new TrustedFunctionRteBufferInvalidateSendOperationItemProvider(this);
-		}
-
-		return trustedFunctionRteBufferInvalidateSendOperationItemProvider;
 	}
 
 	/**
@@ -4281,6 +4442,98 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ActivationOperationItemProvider activationOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createActivationOperationAdapter() {
+		if (activationOperationItemProvider == null) {
+			activationOperationItemProvider = new ActivationOperationItemProvider(this);
+		}
+
+		return activationOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OsActivateTaskApiItemProvider osActivateTaskApiItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOsActivateTaskApiAdapter() {
+		if (osActivateTaskApiItemProvider == null) {
+			osActivateTaskApiItemProvider = new OsActivateTaskApiItemProvider(this);
+		}
+
+		return osActivateTaskApiItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FeedbackApiItemProvider feedbackApiItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.FeedbackApi}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFeedbackApiAdapter() {
+		if (feedbackApiItemProvider == null) {
+			feedbackApiItemProvider = new FeedbackApiItemProvider(this);
+		}
+
+		return feedbackApiItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TAckStatusItemProvider tAckStatusItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTAckStatusAdapter() {
+		if (tAckStatusItemProvider == null) {
+			tAckStatusItemProvider = new TAckStatusItemProvider(this);
+		}
+
+		return tAckStatusItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4414,8 +4667,10 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (iocNonqueuedSendOperationItemProvider != null) iocNonqueuedSendOperationItemProvider.dispose();
 		if (directComSendOperationItemProvider != null) directComSendOperationItemProvider.dispose();
 		if (trustedFunctionRteOperationItemProvider != null) trustedFunctionRteOperationItemProvider.dispose();
-		if (trustedFunctionRteSendOperationItemProvider != null) trustedFunctionRteSendOperationItemProvider.dispose();
 		if (trustedFunctionRteBufferWriteSendOperationItemProvider != null) trustedFunctionRteBufferWriteSendOperationItemProvider.dispose();
+		if (trustedFunctionRteBufferSendSendOperationItemProvider != null) trustedFunctionRteBufferSendSendOperationItemProvider.dispose();
+		if (trustedFunctionRteBufferInvalidateSendOperationItemProvider != null) trustedFunctionRteBufferInvalidateSendOperationItemProvider.dispose();
+		if (rteBufferInvalidateTrustedFunctionItemProvider != null) rteBufferInvalidateTrustedFunctionItemProvider.dispose();
 		if (trustedFunctionComSendOperationItemProvider != null) trustedFunctionComSendOperationItemProvider.dispose();
 		if (immediateProxyComSendOperationItemProvider != null) immediateProxyComSendOperationItemProvider.dispose();
 		if (periodicProxyComSendOperationItemProvider != null) periodicProxyComSendOperationItemProvider.dispose();
@@ -4426,12 +4681,16 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (iocReadApiItemProvider != null) iocReadApiItemProvider.dispose();
 		if (comSendSignalApiItemProvider != null) comSendSignalApiItemProvider.dispose();
 		if (comReceiveSignalApiItemProvider != null) comReceiveSignalApiItemProvider.dispose();
-		if (comReceiveCallbackItemProvider != null) comReceiveCallbackItemProvider.dispose();
-		if (comReceiveTimeoutCallbackItemProvider != null) comReceiveTimeoutCallbackItemProvider.dispose();
-		if (comInvalidateCallbackItemProvider != null) comInvalidateCallbackItemProvider.dispose();
+		if (comRxCallbackItemProvider != null) comRxCallbackItemProvider.dispose();
+		if (comRxTOutCallbackItemProvider != null) comRxTOutCallbackItemProvider.dispose();
+		if (comInvCallbackItemProvider != null) comInvCallbackItemProvider.dispose();
 		if (comSendSignalProxyEntityItemProvider != null) comSendSignalProxyEntityItemProvider.dispose();
 		if (comSendSignalImmediateEntityItemProvider != null) comSendSignalImmediateEntityItemProvider.dispose();
 		if (comSendSignalPeriodicEntityItemProvider != null) comSendSignalPeriodicEntityItemProvider.dispose();
+		if (tAckNotifyOperationItemProvider != null) tAckNotifyOperationItemProvider.dispose();
+		if (comTxTOutCallbackItemProvider != null) comTxTOutCallbackItemProvider.dispose();
+		if (comTAckCallbackItemProvider != null) comTAckCallbackItemProvider.dispose();
+		if (comTErrCallbackItemProvider != null) comTErrCallbackItemProvider.dispose();
 		if (maskedNewDiffersMaskedOldFilterOperationItemProvider != null) maskedNewDiffersMaskedOldFilterOperationItemProvider.dispose();
 		if (maskedNewDiffersXFilterOperationItemProvider != null) maskedNewDiffersXFilterOperationItemProvider.dispose();
 		if (newIsWithinFilterOperationItemProvider != null) newIsWithinFilterOperationItemProvider.dispose();
@@ -4466,11 +4725,13 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (constantMemberItemProvider != null) constantMemberItemProvider.dispose();
 		if (rteEnterApiItemProvider != null) rteEnterApiItemProvider.dispose();
 		if (rteExitApiItemProvider != null) rteExitApiItemProvider.dispose();
+		if (osBackgroundTaskActivationExecutableTaskBodyItemProvider != null) osBackgroundTaskActivationExecutableTaskBodyItemProvider.dispose();
 		if (osTaskActivationExecutableTaskBodyItemProvider != null) osTaskActivationExecutableTaskBodyItemProvider.dispose();
 		if (osEventSetExecutableTaskBodyItemProvider != null) osEventSetExecutableTaskBodyItemProvider.dispose();
 		if (osTaskActivationOperationItemProvider != null) osTaskActivationOperationItemProvider.dispose();
 		if (osEventSetActivationOperationItemProvider != null) osEventSetActivationOperationItemProvider.dispose();
 		if (timingTriggeringExecutableStartOperationItemProvider != null) timingTriggeringExecutableStartOperationItemProvider.dispose();
+		if (plainExecutableStartOperationItemProvider != null) plainExecutableStartOperationItemProvider.dispose();
 		if (modeSwitchTriggeringExecutableStartOperationItemProvider != null) modeSwitchTriggeringExecutableStartOperationItemProvider.dispose();
 		if (cycleCountupOperationItemProvider != null) cycleCountupOperationItemProvider.dispose();
 		if (startOffsetCountupOperationItemProvider != null) startOffsetCountupOperationItemProvider.dispose();
@@ -4478,8 +4739,7 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (comSendSignalTrustedFunctionItemProvider != null) comSendSignalTrustedFunctionItemProvider.dispose();
 		if (osSetEventApiItemProvider != null) osSetEventApiItemProvider.dispose();
 		if (comSendSignalImmediateTaskBodyItemProvider != null) comSendSignalImmediateTaskBodyItemProvider.dispose();
-		if (primitiveComSendProxyOperationItemProvider != null) primitiveComSendProxyOperationItemProvider.dispose();
-		if (complexComSendProxyOperationItemProvider != null) complexComSendProxyOperationItemProvider.dispose();
+		if (comSendProxyOperationItemProvider != null) comSendProxyOperationItemProvider.dispose();
 		if (iocReceiveGroupApiItemProvider != null) iocReceiveGroupApiItemProvider.dispose();
 		if (moduleRootItemProvider != null) moduleRootItemProvider.dispose();
 		if (interPartitionTimeoutOperationItemProvider != null) interPartitionTimeoutOperationItemProvider.dispose();
@@ -4489,6 +4749,7 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (osGetSpinlockApiItemProvider != null) osGetSpinlockApiItemProvider.dispose();
 		if (multicoreRteStartApiItemProvider != null) multicoreRteStartApiItemProvider.dispose();
 		if (rteBufferWriteTrustedFunctionItemProvider != null) rteBufferWriteTrustedFunctionItemProvider.dispose();
+		if (rteBufferSendTrustedFunctionItemProvider != null) rteBufferSendTrustedFunctionItemProvider.dispose();
 		if (csTrustedFunctionItemProvider != null) csTrustedFunctionItemProvider.dispose();
 		if (csTfCalledRunnableItemProvider != null) csTfCalledRunnableItemProvider.dispose();
 		if (serverRunnableStartOperationItemProvider != null) serverRunnableStartOperationItemProvider.dispose();
@@ -4518,12 +4779,11 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (rteUtilityHeaderItemProvider != null) rteUtilityHeaderItemProvider.dispose();
 		if (blackboxHeaderItemProvider != null) blackboxHeaderItemProvider.dispose();
 		if (rteBufferQueueTypeItemProvider != null) rteBufferQueueTypeItemProvider.dispose();
-		if (rteSendTrustedFunctionParamTypeItemProvider != null) rteSendTrustedFunctionParamTypeItemProvider.dispose();
+		if (rteNonqueuedSendTrustedFunctionParamTypeItemProvider != null) rteNonqueuedSendTrustedFunctionParamTypeItemProvider.dispose();
+		if (rteQueuedSendTrustedFunctionParamTypeItemProvider != null) rteQueuedSendTrustedFunctionParamTypeItemProvider.dispose();
 		if (comSendTrustedFunctionParamTypeItemProvider != null) comSendTrustedFunctionParamTypeItemProvider.dispose();
 		if (csTrustedFunctionParamTypeItemProvider != null) csTrustedFunctionParamTypeItemProvider.dispose();
 		if (neverReadOperationItemProvider != null) neverReadOperationItemProvider.dispose();
-		if (rteBufferInvalidateTrustedFunctionItemProvider != null) rteBufferInvalidateTrustedFunctionItemProvider.dispose();
-		if (trustedFunctionRteBufferInvalidateSendOperationItemProvider != null) trustedFunctionRteBufferInvalidateSendOperationItemProvider.dispose();
 		if (swcMemoryMappingItemProvider != null) swcMemoryMappingItemProvider.dispose();
 		if (bswMemoryMappingItemProvider != null) bswMemoryMappingItemProvider.dispose();
 		if (globalVariableFileContentsGroupItemProvider != null) globalVariableFileContentsGroupItemProvider.dispose();
@@ -4562,6 +4822,10 @@ public class ModuleItemProviderAdapterFactory extends ModuleAdapterFactory imple
 		if (schmCoreInitApiImplItemProvider != null) schmCoreInitApiImplItemProvider.dispose();
 		if (pointerTypeItemProvider != null) pointerTypeItemProvider.dispose();
 		if (redefinitionPointerTypeItemProvider != null) redefinitionPointerTypeItemProvider.dispose();
+		if (activationOperationItemProvider != null) activationOperationItemProvider.dispose();
+		if (osActivateTaskApiItemProvider != null) osActivateTaskApiItemProvider.dispose();
+		if (feedbackApiItemProvider != null) feedbackApiItemProvider.dispose();
+		if (tAckStatusItemProvider != null) tAckStatusItemProvider.dispose();
 	}
 
 }

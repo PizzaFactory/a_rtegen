@@ -63,6 +63,7 @@ public class PartitionRestartingApiItemProvider extends RteLifecycleApiItemProvi
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModulePackage.Literals.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION);
+			childrenFeatures.add(ModulePackage.Literals.PARTITION_RESTARTING_API__ACTIVATION_OPERATION);
 		}
 		return childrenFeatures;
 	}
@@ -119,6 +120,7 @@ public class PartitionRestartingApiItemProvider extends RteLifecycleApiItemProvi
 
 		switch (notification.getFeatureID(PartitionRestartingApi.class)) {
 			case ModulePackage.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION:
+			case ModulePackage.PARTITION_RESTARTING_API__ACTIVATION_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -140,6 +142,11 @@ public class PartitionRestartingApiItemProvider extends RteLifecycleApiItemProvi
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION,
 				 ModuleFactory.eINSTANCE.createInterPartitionTimeoutOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.PARTITION_RESTARTING_API__ACTIVATION_OPERATION,
+				 ModuleFactory.eINSTANCE.createActivationOperation()));
 	}
 
 }

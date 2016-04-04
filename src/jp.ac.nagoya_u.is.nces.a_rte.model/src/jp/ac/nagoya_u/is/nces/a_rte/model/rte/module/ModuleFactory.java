@@ -1,45 +1,3 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
@@ -62,6 +20,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ModuleFactory eINSTANCE = jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleFactoryImpl.init();
+
+	/**
+	 * Returns a new object of class '<em>Bsw Schedulable Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Schedulable Entity</em>'.
+	 * @generated
+	 */
+	BswSchedulableEntity createBswSchedulableEntity();
+
+	/**
+	 * Returns a new object of class '<em>Runnable Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Runnable Entity</em>'.
+	 * @generated
+	 */
+	RunnableEntity createRunnableEntity();
 
 	/**
 	 * Returns a new object of class '<em>Write Api</em>'.
@@ -199,609 +175,6 @@ public interface ModuleFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>Primitive Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Type</em>'.
-	 * @generated
-	 */
-	PrimitiveType createPrimitiveType();
-
-	/**
-	 * Returns a new object of class '<em>Mode Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Type</em>'.
-	 * @generated
-	 */
-	ModeType createModeType();
-
-	/**
-	 * Returns a new object of class '<em>Redefinition Primitive Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Redefinition Primitive Type</em>'.
-	 * @generated
-	 */
-	RedefinitionPrimitiveType createRedefinitionPrimitiveType();
-
-	/**
-	 * Returns a new object of class '<em>Array Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Array Type</em>'.
-	 * @generated
-	 */
-	ArrayType createArrayType();
-
-	/**
-	 * Returns a new object of class '<em>Redefinition Array Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Redefinition Array Type</em>'.
-	 * @generated
-	 */
-	RedefinitionArrayType createRedefinitionArrayType();
-
-	/**
-	 * Returns a new object of class '<em>Union Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Union Type</em>'.
-	 * @generated
-	 */
-	UnionType createUnionType();
-
-	/**
-	 * Returns a new object of class '<em>Redefinition Union Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Redefinition Union Type</em>'.
-	 * @generated
-	 */
-	RedefinitionUnionType createRedefinitionUnionType();
-
-	/**
-	 * Returns a new object of class '<em>Struct Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Struct Type</em>'.
-	 * @generated
-	 */
-	StructType createStructType();
-
-	/**
-	 * Returns a new object of class '<em>Redefinition Struct Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Redefinition Struct Type</em>'.
-	 * @generated
-	 */
-	RedefinitionStructType createRedefinitionStructType();
-
-	/**
-	 * Returns a new object of class '<em>Blackbox Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Blackbox Type</em>'.
-	 * @generated
-	 */
-	BlackboxType createBlackboxType();
-
-	/**
-	 * Returns a new object of class '<em>Union Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Union Member</em>'.
-	 * @generated
-	 */
-	UnionMember createUnionMember();
-
-	/**
-	 * Returns a new object of class '<em>Struct Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Struct Member</em>'.
-	 * @generated
-	 */
-	StructMember createStructMember();
-
-	/**
-	 * Returns a new object of class '<em>Variable Member</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable Member</em>'.
-	 * @generated
-	 */
-	VariableMember createVariableMember();
-
-	/**
-	 * Returns a new object of class '<em>Rte Utility Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Utility Header</em>'.
-	 * @generated
-	 */
-	RteUtilityHeader createRteUtilityHeader();
-
-	/**
-	 * Returns a new object of class '<em>Blackbox Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Blackbox Header</em>'.
-	 * @generated
-	 */
-	BlackboxHeader createBlackboxHeader();
-
-	/**
-	 * Returns a new object of class '<em>Rte Buffer Queue Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Buffer Queue Type</em>'.
-	 * @generated
-	 */
-	RteBufferQueueType createRteBufferQueueType();
-
-	/**
-	 * Returns a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
-	 * @generated
-	 */
-	RteNonqueuedSendTrustedFunctionParamType createRteNonqueuedSendTrustedFunctionParamType();
-
-	/**
-	 * Returns a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
-	 * @generated
-	 */
-	RteQueuedSendTrustedFunctionParamType createRteQueuedSendTrustedFunctionParamType();
-
-	/**
-	 * Returns a new object of class '<em>Mode Queue Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Queue Type</em>'.
-	 * @generated
-	 */
-	ModeQueueType createModeQueueType();
-
-	/**
-	 * Returns a new object of class '<em>Com Send Trusted Function Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Send Trusted Function Param Type</em>'.
-	 * @generated
-	 */
-	ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType();
-
-	/**
-	 * Returns a new object of class '<em>Cs Trusted Function Param Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cs Trusted Function Param Type</em>'.
-	 * @generated
-	 */
-	CsTrustedFunctionParamType createCsTrustedFunctionParamType();
-
-	/**
-	 * Returns a new object of class '<em>Never Read Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Never Read Operation</em>'.
-	 * @generated
-	 */
-	NeverReadOperation createNeverReadOperation();
-
-	/**
-	 * Returns a new object of class '<em>Rte Buffer Invalidate Trusted Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Buffer Invalidate Trusted Function</em>'.
-	 * @generated
-	 */
-	RteBufferInvalidateTrustedFunction createRteBufferInvalidateTrustedFunction();
-
-	/**
-	 * Returns a new object of class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
-	 * @generated
-	 */
-	TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation();
-
-	/**
-	 * Returns a new object of class '<em>Swc Memory Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swc Memory Mapping</em>'.
-	 * @generated
-	 */
-	SwcMemoryMapping createSwcMemoryMapping();
-
-	/**
-	 * Returns a new object of class '<em>Bsw Memory Mapping</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bsw Memory Mapping</em>'.
-	 * @generated
-	 */
-	BswMemoryMapping createBswMemoryMapping();
-
-	/**
-	 * Returns a new object of class '<em>Global Variable File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Global Variable File Contents Group</em>'.
-	 * @generated
-	 */
-	GlobalVariableFileContentsGroup createGlobalVariableFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Rte Api File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Api File Contents Group</em>'.
-	 * @generated
-	 */
-	RteApiFileContentsGroup createRteApiFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
-	 * @generated
-	 */
-	RteLifecycleApiFileContentsGroup createRteLifecycleApiFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Task Body File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task Body File Contents Group</em>'.
-	 * @generated
-	 */
-	TaskBodyFileContentsGroup createTaskBodyFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
-	 * @generated
-	 */
-	BswSchedulableEntityFileContentsGroup createBswSchedulableEntityFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Com Callback File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Callback File Contents Group</em>'.
-	 * @generated
-	 */
-	ComCallbackFileContentsGroup createComCallbackFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Trusted Function File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Trusted Function File Contents Group</em>'.
-	 * @generated
-	 */
-	TrustedFunctionFileContentsGroup createTrustedFunctionFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Executable Entity File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Executable Entity File Contents Group</em>'.
-	 * @generated
-	 */
-	ExecutableEntityFileContentsGroup createExecutableEntityFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Bsw Memory Mapping Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bsw Memory Mapping Header</em>'.
-	 * @generated
-	 */
-	BswMemoryMappingHeader createBswMemoryMappingHeader();
-
-	/**
-	 * Returns a new object of class '<em>Swc Memory Mapping Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Swc Memory Mapping Header</em>'.
-	 * @generated
-	 */
-	SwcMemoryMappingHeader createSwcMemoryMappingHeader();
-
-	/**
-	 * Returns a new object of class '<em>Generation Info</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Generation Info</em>'.
-	 * @generated
-	 */
-	GenerationInfo createGenerationInfo();
-
-	/**
-	 * Returns a new object of class '<em>Macro</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Macro</em>'.
-	 * @generated
-	 */
-	Macro createMacro();
-
-	/**
-	 * Returns a new object of class '<em>Com Proxy Function</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Proxy Function</em>'.
-	 * @generated
-	 */
-	ComProxyFunction createComProxyFunction();
-
-	/**
-	 * Returns a new object of class '<em>Com Send Signal Api Wrapper</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Send Signal Api Wrapper</em>'.
-	 * @generated
-	 */
-	ComSendSignalApiWrapper createComSendSignalApiWrapper();
-
-	/**
-	 * Returns a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
-	 * @generated
-	 */
-	ComReceiveSignalApiWrapper createComReceiveSignalApiWrapper();
-
-	/**
-	 * Returns a new object of class '<em>Schm Enter Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Enter Api</em>'.
-	 * @generated
-	 */
-	SchmEnterApi createSchmEnterApi();
-
-	/**
-	 * Returns a new object of class '<em>Schm Exit Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Exit Api</em>'.
-	 * @generated
-	 */
-	SchmExitApi createSchmExitApi();
-
-	/**
-	 * Returns a new object of class '<em>Schm Switch Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Switch Api</em>'.
-	 * @generated
-	 */
-	SchmSwitchApi createSchmSwitchApi();
-
-	/**
-	 * Returns a new object of class '<em>Os Task Events Triggered By Mode</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Os Task Events Triggered By Mode</em>'.
-	 * @generated
-	 */
-	OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode();
-
-	/**
-	 * Returns a new object of class '<em>Os Task Event</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Os Task Event</em>'.
-	 * @generated
-	 */
-	OsTaskEvent createOsTaskEvent();
-
-	/**
-	 * Returns a new object of class '<em>Mode Queued Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mode Queued Variable</em>'.
-	 * @generated
-	 */
-	ModeQueuedVariable createModeQueuedVariable();
-
-	/**
-	 * Returns a new object of class '<em>Schm Mode Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Mode Api</em>'.
-	 * @generated
-	 */
-	SchmModeApi createSchmModeApi();
-
-	/**
-	 * Returns a new object of class '<em>Interlink Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interlink Header</em>'.
-	 * @generated
-	 */
-	ModuleInterlinkHeader createModuleInterlinkHeader();
-
-	/**
-	 * Returns a new object of class '<em>Schm Api File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Api File Contents Group</em>'.
-	 * @generated
-	 */
-	SchmApiFileContentsGroup createSchmApiFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
-	 * @generated
-	 */
-	ComSignalApiWrapperFileContentsGroup createComSignalApiWrapperFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Com Proxy Function File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Com Proxy Function File Contents Group</em>'.
-	 * @generated
-	 */
-	ComProxyFunctionFileContentsGroup createComProxyFunctionFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Interlink Type Header</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Interlink Type Header</em>'.
-	 * @generated
-	 */
-	ModuleInterlinkTypeHeader createModuleInterlinkTypeHeader();
-
-	/**
-	 * Returns a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
-	 * @generated
-	 */
-	SchmLifecycleApiFileContentsGroup createSchmLifecycleApiFileContentsGroup();
-
-	/**
-	 * Returns a new object of class '<em>Parted Bswm</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parted Bswm</em>'.
-	 * @generated
-	 */
-	PartedBswm createPartedBswm();
-
-	/**
-	 * Returns a new object of class '<em>Bswm</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bswm</em>'.
-	 * @generated
-	 */
-	Bswm createBswm();
-
-	/**
-	 * Returns a new object of class '<em>Schm Deinit Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Deinit Api</em>'.
-	 * @generated
-	 */
-	SchmDeinitApi createSchmDeinitApi();
-
-	/**
-	 * Returns a new object of class '<em>Schm Init Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Init Api</em>'.
-	 * @generated
-	 */
-	SchmInitApi createSchmInitApi();
-
-	/**
-	 * Returns a new object of class '<em>Singlecore Schm Init Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Singlecore Schm Init Api</em>'.
-	 * @generated
-	 */
-	SinglecoreSchmInitApi createSinglecoreSchmInitApi();
-
-	/**
-	 * Returns a new object of class '<em>Multicore Schm Init Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Multicore Schm Init Api</em>'.
-	 * @generated
-	 */
-	MulticoreSchmInitApi createMulticoreSchmInitApi();
-
-	/**
-	 * Returns a new object of class '<em>Schm Core Init Api Impl</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Schm Core Init Api Impl</em>'.
-	 * @generated
-	 */
-	SchmCoreInitApiImpl createSchmCoreInitApiImpl();
-
-	/**
-	 * Returns a new object of class '<em>Pointer Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pointer Type</em>'.
-	 * @generated
-	 */
-	PointerType createPointerType();
-
-	/**
-	 * Returns a new object of class '<em>Redefinition Pointer Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Redefinition Pointer Type</em>'.
-	 * @generated
-	 */
-	RedefinitionPointerType createRedefinitionPointerType();
-
-	/**
-	 * Returns a new object of class '<em>Activation Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Activation Operation</em>'.
-	 * @generated
-	 */
-	ActivationOperation createActivationOperation();
-
-	/**
-	 * Returns a new object of class '<em>Os Activate Task Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Os Activate Task Api</em>'.
-	 * @generated
-	 */
-	OsActivateTaskApi createOsActivateTaskApi();
-
-	/**
-	 * Returns a new object of class '<em>Feedback Api</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feedback Api</em>'.
-	 * @generated
-	 */
-	FeedbackApi createFeedbackApi();
-
-	/**
-	 * Returns a new object of class '<em>TAck Status</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>TAck Status</em>'.
-	 * @generated
-	 */
-	TAckStatus createTAckStatus();
-
-	/**
 	 * Returns a new object of class '<em>Local Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -818,6 +191,15 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	RteApplicationHeader createRteApplicationHeader();
+
+	/**
+	 * Returns a new object of class '<em>Rte</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte</em>'.
+	 * @generated
+	 */
+	Rte createRte();
 
 	/**
 	 * Returns a new object of class '<em>Core</em>'.
@@ -955,6 +337,15 @@ public interface ModuleFactory extends EFactory {
 	TrustedFunctionRteOperation createTrustedFunctionRteOperation();
 
 	/**
+	 * Returns a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
+	 * @generated
+	 */
+	TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation();
+
+	/**
 	 * Returns a new object of class '<em>Trusted Function Rte Buffer Send Send Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -962,6 +353,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	TrustedFunctionRteBufferSendSendOperation createTrustedFunctionRteBufferSendSendOperation();
+
+	/**
+	 * Returns a new object of class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
+	 * @generated
+	 */
+	TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation();
+
+	/**
+	 * Returns a new object of class '<em>Rte Buffer Invalidate Trusted Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Buffer Invalidate Trusted Function</em>'.
+	 * @generated
+	 */
+	RteBufferInvalidateTrustedFunction createRteBufferInvalidateTrustedFunction();
 
 	/**
 	 * Returns a new object of class '<em>Trusted Function Com Send Operation</em>'.
@@ -1369,24 +778,6 @@ public interface ModuleFactory extends EFactory {
 	DisabledInMode createDisabledInMode();
 
 	/**
-	 * Returns a new object of class '<em>Bsw Schedulable Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bsw Schedulable Entity</em>'.
-	 * @generated
-	 */
-	BswSchedulableEntity createBswSchedulableEntity();
-
-	/**
-	 * Returns a new object of class '<em>Runnable Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Runnable Entity</em>'.
-	 * @generated
-	 */
-	RunnableEntity createRunnableEntity();
-
-	/**
 	 * Returns a new object of class '<em>All Interrupt Block Exclude Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1567,15 +958,6 @@ public interface ModuleFactory extends EFactory {
 	IocEmptyQueueApi createIocEmptyQueueApi();
 
 	/**
-	 * Returns a new object of class '<em>Rte</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rte</em>'.
-	 * @generated
-	 */
-	Rte createRte();
-
-	/**
 	 * Returns a new object of class '<em>Com Send Signal Trusted Function</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1729,15 +1111,6 @@ public interface ModuleFactory extends EFactory {
 	ServerRunnableStartOperation createServerRunnableStartOperation();
 
 	/**
-	 * Returns a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
-	 * @generated
-	 */
-	TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation();
-
-	/**
 	 * Returns a new object of class '<em>Ioc Send Group Api</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1774,6 +1147,15 @@ public interface ModuleFactory extends EFactory {
 	RteInternalHeader createRteInternalHeader();
 
 	/**
+	 * Returns a new object of class '<em>Mode Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Type</em>'.
+	 * @generated
+	 */
+	ModeType createModeType();
+
+	/**
 	 * Returns a new object of class '<em>Mode Declaration Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1781,6 +1163,24 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ModeDeclarationGroup createModeDeclarationGroup();
+
+	/**
+	 * Returns a new object of class '<em>Mode Queue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Queue Type</em>'.
+	 * @generated
+	 */
+	ModeQueueType createModeQueueType();
+
+	/**
+	 * Returns a new object of class '<em>Mode Queued Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mode Queued Variable</em>'.
+	 * @generated
+	 */
+	ModeQueuedVariable createModeQueuedVariable();
 
 	/**
 	 * Returns a new object of class '<em>Mode Machine Instance</em>'.
@@ -1808,6 +1208,564 @@ public interface ModuleFactory extends EFactory {
 	 * @generated
 	 */
 	ComProxyFunctionTableFileContentsGroup createComProxyFunctionTableFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Primitive Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitive Type</em>'.
+	 * @generated
+	 */
+	PrimitiveType createPrimitiveType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Primitive Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Primitive Type</em>'.
+	 * @generated
+	 */
+	RedefinitionPrimitiveType createRedefinitionPrimitiveType();
+
+	/**
+	 * Returns a new object of class '<em>Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Array Type</em>'.
+	 * @generated
+	 */
+	ArrayType createArrayType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Array Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Array Type</em>'.
+	 * @generated
+	 */
+	RedefinitionArrayType createRedefinitionArrayType();
+
+	/**
+	 * Returns a new object of class '<em>Union Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Union Type</em>'.
+	 * @generated
+	 */
+	UnionType createUnionType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Union Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Union Type</em>'.
+	 * @generated
+	 */
+	RedefinitionUnionType createRedefinitionUnionType();
+
+	/**
+	 * Returns a new object of class '<em>Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Struct Type</em>'.
+	 * @generated
+	 */
+	StructType createStructType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Struct Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Struct Type</em>'.
+	 * @generated
+	 */
+	RedefinitionStructType createRedefinitionStructType();
+
+	/**
+	 * Returns a new object of class '<em>Blackbox Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Blackbox Type</em>'.
+	 * @generated
+	 */
+	BlackboxType createBlackboxType();
+
+	/**
+	 * Returns a new object of class '<em>Union Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Union Member</em>'.
+	 * @generated
+	 */
+	UnionMember createUnionMember();
+
+	/**
+	 * Returns a new object of class '<em>Struct Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Struct Member</em>'.
+	 * @generated
+	 */
+	StructMember createStructMember();
+
+	/**
+	 * Returns a new object of class '<em>Variable Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Member</em>'.
+	 * @generated
+	 */
+	VariableMember createVariableMember();
+
+	/**
+	 * Returns a new object of class '<em>Rte Utility Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Utility Header</em>'.
+	 * @generated
+	 */
+	RteUtilityHeader createRteUtilityHeader();
+
+	/**
+	 * Returns a new object of class '<em>Blackbox Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Blackbox Header</em>'.
+	 * @generated
+	 */
+	BlackboxHeader createBlackboxHeader();
+
+	/**
+	 * Returns a new object of class '<em>Rte Buffer Queue Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Buffer Queue Type</em>'.
+	 * @generated
+	 */
+	RteBufferQueueType createRteBufferQueueType();
+
+	/**
+	 * Returns a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Nonqueued Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	RteNonqueuedSendTrustedFunctionParamType createRteNonqueuedSendTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Queued Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	RteQueuedSendTrustedFunctionParamType createRteQueuedSendTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Com Send Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Send Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Cs Trusted Function Param Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cs Trusted Function Param Type</em>'.
+	 * @generated
+	 */
+	CsTrustedFunctionParamType createCsTrustedFunctionParamType();
+
+	/**
+	 * Returns a new object of class '<em>Never Read Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Never Read Operation</em>'.
+	 * @generated
+	 */
+	NeverReadOperation createNeverReadOperation();
+
+	/**
+	 * Returns a new object of class '<em>Swc Memory Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swc Memory Mapping</em>'.
+	 * @generated
+	 */
+	SwcMemoryMapping createSwcMemoryMapping();
+
+	/**
+	 * Returns a new object of class '<em>Bsw Memory Mapping</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Memory Mapping</em>'.
+	 * @generated
+	 */
+	BswMemoryMapping createBswMemoryMapping();
+
+	/**
+	 * Returns a new object of class '<em>Global Variable File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Global Variable File Contents Group</em>'.
+	 * @generated
+	 */
+	GlobalVariableFileContentsGroup createGlobalVariableFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Rte Api File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Api File Contents Group</em>'.
+	 * @generated
+	 */
+	RteApiFileContentsGroup createRteApiFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rte Lifecycle Api File Contents Group</em>'.
+	 * @generated
+	 */
+	RteLifecycleApiFileContentsGroup createRteLifecycleApiFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Task Body File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Body File Contents Group</em>'.
+	 * @generated
+	 */
+	TaskBodyFileContentsGroup createTaskBodyFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Schedulable Entity File Contents Group</em>'.
+	 * @generated
+	 */
+	BswSchedulableEntityFileContentsGroup createBswSchedulableEntityFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Com Callback File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Callback File Contents Group</em>'.
+	 * @generated
+	 */
+	ComCallbackFileContentsGroup createComCallbackFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Trusted Function File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Trusted Function File Contents Group</em>'.
+	 * @generated
+	 */
+	TrustedFunctionFileContentsGroup createTrustedFunctionFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Executable Entity File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Executable Entity File Contents Group</em>'.
+	 * @generated
+	 */
+	ExecutableEntityFileContentsGroup createExecutableEntityFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Bsw Memory Mapping Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bsw Memory Mapping Header</em>'.
+	 * @generated
+	 */
+	BswMemoryMappingHeader createBswMemoryMappingHeader();
+
+	/**
+	 * Returns a new object of class '<em>Swc Memory Mapping Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Swc Memory Mapping Header</em>'.
+	 * @generated
+	 */
+	SwcMemoryMappingHeader createSwcMemoryMappingHeader();
+
+	/**
+	 * Returns a new object of class '<em>Generation Info</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generation Info</em>'.
+	 * @generated
+	 */
+	GenerationInfo createGenerationInfo();
+
+	/**
+	 * Returns a new object of class '<em>Macro</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Macro</em>'.
+	 * @generated
+	 */
+	Macro createMacro();
+
+	/**
+	 * Returns a new object of class '<em>Com Proxy Function</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Proxy Function</em>'.
+	 * @generated
+	 */
+	ComProxyFunction createComProxyFunction();
+
+	/**
+	 * Returns a new object of class '<em>Com Send Signal Api Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Send Signal Api Wrapper</em>'.
+	 * @generated
+	 */
+	ComSendSignalApiWrapper createComSendSignalApiWrapper();
+
+	/**
+	 * Returns a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Receive Signal Api Wrapper</em>'.
+	 * @generated
+	 */
+	ComReceiveSignalApiWrapper createComReceiveSignalApiWrapper();
+
+	/**
+	 * Returns a new object of class '<em>Schm Enter Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Enter Api</em>'.
+	 * @generated
+	 */
+	SchmEnterApi createSchmEnterApi();
+
+	/**
+	 * Returns a new object of class '<em>Schm Exit Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Exit Api</em>'.
+	 * @generated
+	 */
+	SchmExitApi createSchmExitApi();
+
+	/**
+	 * Returns a new object of class '<em>Schm Mode Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Mode Api</em>'.
+	 * @generated
+	 */
+	SchmModeApi createSchmModeApi();
+
+	/**
+	 * Returns a new object of class '<em>Schm Switch Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Switch Api</em>'.
+	 * @generated
+	 */
+	SchmSwitchApi createSchmSwitchApi();
+
+	/**
+	 * Returns a new object of class '<em>Os Task Events Triggered By Mode</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Task Events Triggered By Mode</em>'.
+	 * @generated
+	 */
+	OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode();
+
+	/**
+	 * Returns a new object of class '<em>Os Task Event</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Task Event</em>'.
+	 * @generated
+	 */
+	OsTaskEvent createOsTaskEvent();
+
+	/**
+	 * Returns a new object of class '<em>Interlink Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interlink Header</em>'.
+	 * @generated
+	 */
+	ModuleInterlinkHeader createModuleInterlinkHeader();
+
+	/**
+	 * Returns a new object of class '<em>Schm Api File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Api File Contents Group</em>'.
+	 * @generated
+	 */
+	SchmApiFileContentsGroup createSchmApiFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Signal Api Wrapper File Contents Group</em>'.
+	 * @generated
+	 */
+	ComSignalApiWrapperFileContentsGroup createComSignalApiWrapperFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Com Proxy Function File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Com Proxy Function File Contents Group</em>'.
+	 * @generated
+	 */
+	ComProxyFunctionFileContentsGroup createComProxyFunctionFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Interlink Type Header</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interlink Type Header</em>'.
+	 * @generated
+	 */
+	ModuleInterlinkTypeHeader createModuleInterlinkTypeHeader();
+
+	/**
+	 * Returns a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Lifecycle Api File Contents Group</em>'.
+	 * @generated
+	 */
+	SchmLifecycleApiFileContentsGroup createSchmLifecycleApiFileContentsGroup();
+
+	/**
+	 * Returns a new object of class '<em>Parted Bswm</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Parted Bswm</em>'.
+	 * @generated
+	 */
+	PartedBswm createPartedBswm();
+
+	/**
+	 * Returns a new object of class '<em>Bswm</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bswm</em>'.
+	 * @generated
+	 */
+	Bswm createBswm();
+
+	/**
+	 * Returns a new object of class '<em>Schm Deinit Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Deinit Api</em>'.
+	 * @generated
+	 */
+	SchmDeinitApi createSchmDeinitApi();
+
+	/**
+	 * Returns a new object of class '<em>Schm Init Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Init Api</em>'.
+	 * @generated
+	 */
+	SchmInitApi createSchmInitApi();
+
+	/**
+	 * Returns a new object of class '<em>Singlecore Schm Init Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Singlecore Schm Init Api</em>'.
+	 * @generated
+	 */
+	SinglecoreSchmInitApi createSinglecoreSchmInitApi();
+
+	/**
+	 * Returns a new object of class '<em>Multicore Schm Init Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Multicore Schm Init Api</em>'.
+	 * @generated
+	 */
+	MulticoreSchmInitApi createMulticoreSchmInitApi();
+
+	/**
+	 * Returns a new object of class '<em>Schm Core Init Api Impl</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schm Core Init Api Impl</em>'.
+	 * @generated
+	 */
+	SchmCoreInitApiImpl createSchmCoreInitApiImpl();
+
+	/**
+	 * Returns a new object of class '<em>Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pointer Type</em>'.
+	 * @generated
+	 */
+	PointerType createPointerType();
+
+	/**
+	 * Returns a new object of class '<em>Redefinition Pointer Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Redefinition Pointer Type</em>'.
+	 * @generated
+	 */
+	RedefinitionPointerType createRedefinitionPointerType();
+
+	/**
+	 * Returns a new object of class '<em>Activation Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Activation Operation</em>'.
+	 * @generated
+	 */
+	ActivationOperation createActivationOperation();
+
+	/**
+	 * Returns a new object of class '<em>Os Activate Task Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Os Activate Task Api</em>'.
+	 * @generated
+	 */
+	OsActivateTaskApi createOsActivateTaskApi();
+
+	/**
+	 * Returns a new object of class '<em>Feedback Api</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Feedback Api</em>'.
+	 * @generated
+	 */
+	FeedbackApi createFeedbackApi();
+
+	/**
+	 * Returns a new object of class '<em>TAck Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>TAck Status</em>'.
+	 * @generated
+	 */
+	TAckStatus createTAckStatus();
 
 	/**
 	 * Returns the package supported by this factory.

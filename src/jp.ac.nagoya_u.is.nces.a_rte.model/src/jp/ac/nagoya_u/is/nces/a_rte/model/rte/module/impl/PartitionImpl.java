@@ -1,50 +1,11 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
+
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction;
@@ -57,22 +18,25 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckStatus;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -456,27 +420,6 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Boolean getIsBswPartition() {
-		return isBswPartition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIsBswPartition(Boolean newIsBswPartition) {
-		Boolean oldIsBswPartition = isBswPartition;
-		isBswPartition = newIsBswPartition;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__IS_BSW_PARTITION, oldIsBswPartition, isBswPartition));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Core getParent() {
 		if (eContainerFeatureID() != ModulePackage.PARTITION__PARENT) return null;
 		return (Core)eInternalContainer();
@@ -523,6 +466,408 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 			swc = new EObjectContainmentWithInverseEList<Swc>(Swc.class, this, ModulePackage.PARTITION__SWC, ModulePackage.SWC__PARENT);
 		}
 		return swc;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<PartedBswm> getPartedBswm() {
+		if (partedBswm == null) {
+			partedBswm = new EObjectContainmentWithInverseEList<PartedBswm>(PartedBswm.class, this, ModulePackage.PARTITION__PARTED_BSWM, ModulePackage.PARTED_BSWM__PARENT);
+		}
+		return partedBswm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Boolean getIsBswPartition() {
+		return isBswPartition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsBswPartition(Boolean newIsBswPartition) {
+		Boolean oldIsBswPartition = isBswPartition;
+		isBswPartition = newIsBswPartition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__IS_BSW_PARTITION, oldIsBswPartition, isBswPartition));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Macro getOsTrustedMacro() {
+		return osTrustedMacro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOsTrustedMacro(Macro newOsTrustedMacro, NotificationChain msgs) {
+		Macro oldOsTrustedMacro = osTrustedMacro;
+		osTrustedMacro = newOsTrustedMacro;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__OS_TRUSTED_MACRO, oldOsTrustedMacro, newOsTrustedMacro);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOsTrustedMacro(Macro newOsTrustedMacro) {
+		if (newOsTrustedMacro != osTrustedMacro) {
+			NotificationChain msgs = null;
+			if (osTrustedMacro != null)
+				msgs = ((InternalEObject)osTrustedMacro).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__OS_TRUSTED_MACRO, null, msgs);
+			if (newOsTrustedMacro != null)
+				msgs = ((InternalEObject)newOsTrustedMacro).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__OS_TRUSTED_MACRO, null, msgs);
+			msgs = basicSetOsTrustedMacro(newOsTrustedMacro, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__OS_TRUSTED_MACRO, newOsTrustedMacro, newOsTrustedMacro));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferVariableSet> getComReceiveBufferVariableSet() {
+		if (comReceiveBufferVariableSet == null) {
+			comReceiveBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__COM_RECEIVE_BUFFER_VARIABLE_SET);
+		}
+		return comReceiveBufferVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ComSignalApiWrapper> getComSignalApiWrapper() {
+		if (comSignalApiWrapper == null) {
+			comSignalApiWrapper = new EObjectContainmentWithInverseEList<ComSignalApiWrapper>(ComSignalApiWrapper.class, this, ModulePackage.PARTITION__COM_SIGNAL_API_WRAPPER, ModulePackage.COM_SIGNAL_API_WRAPPER__PARENT);
+		}
+		return comSignalApiWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<FunctionMacro> getComSignalApiAlias() {
+		if (comSignalApiAlias == null) {
+			comSignalApiAlias = new EObjectContainmentEList<FunctionMacro>(FunctionMacro.class, this, ModulePackage.PARTITION__COM_SIGNAL_API_ALIAS);
+		}
+		return comSignalApiAlias;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariableSet> getComMetaDataVariableSet() {
+		if (comMetaDataVariableSet == null) {
+			comMetaDataVariableSet = new EObjectContainmentEList<GlobalVariableSet>(GlobalVariableSet.class, this, ModulePackage.PARTITION__COM_META_DATA_VARIABLE_SET);
+		}
+		return comMetaDataVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ComProxyFunction> getComProxyFunction() {
+		if (comProxyFunction == null) {
+			comProxyFunction = new EObjectContainmentWithInverseEList<ComProxyFunction>(ComProxyFunction.class, this, ModulePackage.PARTITION__COM_PROXY_FUNCTION, ModulePackage.COM_PROXY_FUNCTION__PARENT);
+		}
+		return comProxyFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getComProxyFunctionTableIndexConstant() {
+		if (comProxyFunctionTableIndexConstant == null) {
+			comProxyFunctionTableIndexConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_INDEX_CONSTANT);
+		}
+		return comProxyFunctionTableIndexConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Constant getComProxyFunctionTableSizeConstant() {
+		return comProxyFunctionTableSizeConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComProxyFunctionTableSizeConstant(Constant newComProxyFunctionTableSizeConstant, NotificationChain msgs) {
+		Constant oldComProxyFunctionTableSizeConstant = comProxyFunctionTableSizeConstant;
+		comProxyFunctionTableSizeConstant = newComProxyFunctionTableSizeConstant;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, oldComProxyFunctionTableSizeConstant, newComProxyFunctionTableSizeConstant);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComProxyFunctionTableSizeConstant(Constant newComProxyFunctionTableSizeConstant) {
+		if (newComProxyFunctionTableSizeConstant != comProxyFunctionTableSizeConstant) {
+			NotificationChain msgs = null;
+			if (comProxyFunctionTableSizeConstant != null)
+				msgs = ((InternalEObject)comProxyFunctionTableSizeConstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, null, msgs);
+			if (newComProxyFunctionTableSizeConstant != null)
+				msgs = ((InternalEObject)newComProxyFunctionTableSizeConstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, null, msgs);
+			msgs = basicSetComProxyFunctionTableSizeConstant(newComProxyFunctionTableSizeConstant, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, newComProxyFunctionTableSizeConstant, newComProxyFunctionTableSizeConstant));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalVariable getComProxyFunctionTableVariable() {
+		return comProxyFunctionTableVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetComProxyFunctionTableVariable(GlobalVariable newComProxyFunctionTableVariable, NotificationChain msgs) {
+		GlobalVariable oldComProxyFunctionTableVariable = comProxyFunctionTableVariable;
+		comProxyFunctionTableVariable = newComProxyFunctionTableVariable;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, oldComProxyFunctionTableVariable, newComProxyFunctionTableVariable);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComProxyFunctionTableVariable(GlobalVariable newComProxyFunctionTableVariable) {
+		if (newComProxyFunctionTableVariable != comProxyFunctionTableVariable) {
+			NotificationChain msgs = null;
+			if (comProxyFunctionTableVariable != null)
+				msgs = ((InternalEObject)comProxyFunctionTableVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, null, msgs);
+			if (newComProxyFunctionTableVariable != null)
+				msgs = ((InternalEObject)newComProxyFunctionTableVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, null, msgs);
+			msgs = basicSetComProxyFunctionTableVariable(newComProxyFunctionTableVariable, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, newComProxyFunctionTableVariable, newComProxyFunctionTableVariable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferVariableSet> getComProxyBufferVariableSet() {
+		if (comProxyBufferVariableSet == null) {
+			comProxyBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__COM_PROXY_BUFFER_VARIABLE_SET);
+		}
+		return comProxyBufferVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrRteBufferInitValueConstant() {
+		if (srRteBufferInitValueConstant == null) {
+			srRteBufferInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_INIT_VALUE_CONSTANT);
+		}
+		return srRteBufferInitValueConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferVariableSet> getSrRteBufferVariableSet() {
+		if (srRteBufferVariableSet == null) {
+			srRteBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_VARIABLE_SET);
+		}
+		return srRteBufferVariableSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteBufferQueuedVariable> getSrRteBufferQueuedVariable() {
+		if (srRteBufferQueuedVariable == null) {
+			srRteBufferQueuedVariable = new EObjectContainmentEList<RteBufferQueuedVariable>(RteBufferQueuedVariable.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_QUEUED_VARIABLE);
+		}
+		return srRteBufferQueuedVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TrustedFunction> getRteBufferSendTrustedFunction() {
+		if (rteBufferSendTrustedFunction == null) {
+			rteBufferSendTrustedFunction = new EObjectContainmentEList<TrustedFunction>(TrustedFunction.class, this, ModulePackage.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION);
+		}
+		return rteBufferSendTrustedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getSrFilterConstant() {
+		if (srFilterConstant == null) {
+			srFilterConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__SR_FILTER_CONSTANT);
+		}
+		return srFilterConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getSrFilterOldValueVariable() {
+		if (srFilterOldValueVariable == null) {
+			srFilterOldValueVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__SR_FILTER_OLD_VALUE_VARIABLE);
+		}
+		return srFilterOldValueVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getSrFilterOccurrenceVariable() {
+		if (srFilterOccurrenceVariable == null) {
+			srFilterOccurrenceVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__SR_FILTER_OCCURRENCE_VARIABLE);
+		}
+		return srFilterOccurrenceVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getCsTfArgcConstant() {
+		if (csTfArgcConstant == null) {
+			csTfArgcConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__CS_TF_ARGC_CONSTANT);
+		}
+		return csTfArgcConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getCsTfOpidConstant() {
+		if (csTfOpidConstant == null) {
+			csTfOpidConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__CS_TF_OPID_CONSTANT);
+		}
+		return csTfOpidConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CsTrustedFunction> getCsTrustedFunction() {
+		if (csTrustedFunction == null) {
+			csTrustedFunction = new EObjectContainmentEList<CsTrustedFunction>(CsTrustedFunction.class, this, ModulePackage.PARTITION__CS_TRUSTED_FUNCTION);
+		}
+		return csTrustedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<GlobalVariable> getEntityStartVariable() {
+		if (entityStartVariable == null) {
+			entityStartVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__ENTITY_START_VARIABLE);
+		}
+		return entityStartVariable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Constant> getEntityStartConstant() {
+		if (entityStartConstant == null) {
+			entityStartConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__ENTITY_START_CONSTANT);
+		}
+		return entityStartConstant;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TaskBody> getTaskBody() {
+		if (taskBody == null) {
+			taskBody = new EObjectContainmentEList<TaskBody>(TaskBody.class, this, ModulePackage.PARTITION__TASK_BODY);
+		}
+		return taskBody;
 	}
 
 	/**
@@ -664,387 +1009,6 @@ public class PartitionImpl extends LogicalCompartmentImpl implements Partition {
 			tAckStatus = new EObjectContainmentEList<TAckStatus>(TAckStatus.class, this, ModulePackage.PARTITION__TACK_STATUS);
 		}
 		return tAckStatus;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TaskBody> getTaskBody() {
-		if (taskBody == null) {
-			taskBody = new EObjectContainmentEList<TaskBody>(TaskBody.class, this, ModulePackage.PARTITION__TASK_BODY);
-		}
-		return taskBody;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getCsTfArgcConstant() {
-		if (csTfArgcConstant == null) {
-			csTfArgcConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__CS_TF_ARGC_CONSTANT);
-		}
-		return csTfArgcConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getCsTfOpidConstant() {
-		if (csTfOpidConstant == null) {
-			csTfOpidConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__CS_TF_OPID_CONSTANT);
-		}
-		return csTfOpidConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CsTrustedFunction> getCsTrustedFunction() {
-		if (csTrustedFunction == null) {
-			csTrustedFunction = new EObjectContainmentEList<CsTrustedFunction>(CsTrustedFunction.class, this, ModulePackage.PARTITION__CS_TRUSTED_FUNCTION);
-		}
-		return csTrustedFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GlobalVariable> getEntityStartVariable() {
-		if (entityStartVariable == null) {
-			entityStartVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__ENTITY_START_VARIABLE);
-		}
-		return entityStartVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getEntityStartConstant() {
-		if (entityStartConstant == null) {
-			entityStartConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__ENTITY_START_CONSTANT);
-		}
-		return entityStartConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<TrustedFunction> getRteBufferSendTrustedFunction() {
-		if (rteBufferSendTrustedFunction == null) {
-			rteBufferSendTrustedFunction = new EObjectContainmentEList<TrustedFunction>(TrustedFunction.class, this, ModulePackage.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION);
-		}
-		return rteBufferSendTrustedFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getSrFilterConstant() {
-		if (srFilterConstant == null) {
-			srFilterConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__SR_FILTER_CONSTANT);
-		}
-		return srFilterConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GlobalVariable> getSrFilterOldValueVariable() {
-		if (srFilterOldValueVariable == null) {
-			srFilterOldValueVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__SR_FILTER_OLD_VALUE_VARIABLE);
-		}
-		return srFilterOldValueVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GlobalVariable> getSrFilterOccurrenceVariable() {
-		if (srFilterOccurrenceVariable == null) {
-			srFilterOccurrenceVariable = new EObjectContainmentEList<GlobalVariable>(GlobalVariable.class, this, ModulePackage.PARTITION__SR_FILTER_OCCURRENCE_VARIABLE);
-		}
-		return srFilterOccurrenceVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Macro getOsTrustedMacro() {
-		return osTrustedMacro;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOsTrustedMacro(Macro newOsTrustedMacro, NotificationChain msgs) {
-		Macro oldOsTrustedMacro = osTrustedMacro;
-		osTrustedMacro = newOsTrustedMacro;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__OS_TRUSTED_MACRO, oldOsTrustedMacro, newOsTrustedMacro);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOsTrustedMacro(Macro newOsTrustedMacro) {
-		if (newOsTrustedMacro != osTrustedMacro) {
-			NotificationChain msgs = null;
-			if (osTrustedMacro != null)
-				msgs = ((InternalEObject)osTrustedMacro).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__OS_TRUSTED_MACRO, null, msgs);
-			if (newOsTrustedMacro != null)
-				msgs = ((InternalEObject)newOsTrustedMacro).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__OS_TRUSTED_MACRO, null, msgs);
-			msgs = basicSetOsTrustedMacro(newOsTrustedMacro, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__OS_TRUSTED_MACRO, newOsTrustedMacro, newOsTrustedMacro));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RteBufferVariableSet> getComReceiveBufferVariableSet() {
-		if (comReceiveBufferVariableSet == null) {
-			comReceiveBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__COM_RECEIVE_BUFFER_VARIABLE_SET);
-		}
-		return comReceiveBufferVariableSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ComSignalApiWrapper> getComSignalApiWrapper() {
-		if (comSignalApiWrapper == null) {
-			comSignalApiWrapper = new EObjectContainmentWithInverseEList<ComSignalApiWrapper>(ComSignalApiWrapper.class, this, ModulePackage.PARTITION__COM_SIGNAL_API_WRAPPER, ModulePackage.COM_SIGNAL_API_WRAPPER__PARENT);
-		}
-		return comSignalApiWrapper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<FunctionMacro> getComSignalApiAlias() {
-		if (comSignalApiAlias == null) {
-			comSignalApiAlias = new EObjectContainmentEList<FunctionMacro>(FunctionMacro.class, this, ModulePackage.PARTITION__COM_SIGNAL_API_ALIAS);
-		}
-		return comSignalApiAlias;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<GlobalVariableSet> getComMetaDataVariableSet() {
-		if (comMetaDataVariableSet == null) {
-			comMetaDataVariableSet = new EObjectContainmentEList<GlobalVariableSet>(GlobalVariableSet.class, this, ModulePackage.PARTITION__COM_META_DATA_VARIABLE_SET);
-		}
-		return comMetaDataVariableSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<PartedBswm> getPartedBswm() {
-		if (partedBswm == null) {
-			partedBswm = new EObjectContainmentWithInverseEList<PartedBswm>(PartedBswm.class, this, ModulePackage.PARTITION__PARTED_BSWM, ModulePackage.PARTED_BSWM__PARENT);
-		}
-		return partedBswm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariable getComProxyFunctionTableVariable() {
-		return comProxyFunctionTableVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComProxyFunctionTableVariable(GlobalVariable newComProxyFunctionTableVariable, NotificationChain msgs) {
-		GlobalVariable oldComProxyFunctionTableVariable = comProxyFunctionTableVariable;
-		comProxyFunctionTableVariable = newComProxyFunctionTableVariable;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, oldComProxyFunctionTableVariable, newComProxyFunctionTableVariable);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComProxyFunctionTableVariable(GlobalVariable newComProxyFunctionTableVariable) {
-		if (newComProxyFunctionTableVariable != comProxyFunctionTableVariable) {
-			NotificationChain msgs = null;
-			if (comProxyFunctionTableVariable != null)
-				msgs = ((InternalEObject)comProxyFunctionTableVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, null, msgs);
-			if (newComProxyFunctionTableVariable != null)
-				msgs = ((InternalEObject)newComProxyFunctionTableVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, null, msgs);
-			msgs = basicSetComProxyFunctionTableVariable(newComProxyFunctionTableVariable, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_VARIABLE, newComProxyFunctionTableVariable, newComProxyFunctionTableVariable));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RteBufferVariableSet> getComProxyBufferVariableSet() {
-		if (comProxyBufferVariableSet == null) {
-			comProxyBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__COM_PROXY_BUFFER_VARIABLE_SET);
-		}
-		return comProxyBufferVariableSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getSrRteBufferInitValueConstant() {
-		if (srRteBufferInitValueConstant == null) {
-			srRteBufferInitValueConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_INIT_VALUE_CONSTANT);
-		}
-		return srRteBufferInitValueConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RteBufferVariableSet> getSrRteBufferVariableSet() {
-		if (srRteBufferVariableSet == null) {
-			srRteBufferVariableSet = new EObjectContainmentEList<RteBufferVariableSet>(RteBufferVariableSet.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_VARIABLE_SET);
-		}
-		return srRteBufferVariableSet;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RteBufferQueuedVariable> getSrRteBufferQueuedVariable() {
-		if (srRteBufferQueuedVariable == null) {
-			srRteBufferQueuedVariable = new EObjectContainmentEList<RteBufferQueuedVariable>(RteBufferQueuedVariable.class, this, ModulePackage.PARTITION__SR_RTE_BUFFER_QUEUED_VARIABLE);
-		}
-		return srRteBufferQueuedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ComProxyFunction> getComProxyFunction() {
-		if (comProxyFunction == null) {
-			comProxyFunction = new EObjectContainmentWithInverseEList<ComProxyFunction>(ComProxyFunction.class, this, ModulePackage.PARTITION__COM_PROXY_FUNCTION, ModulePackage.COM_PROXY_FUNCTION__PARENT);
-		}
-		return comProxyFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Constant> getComProxyFunctionTableIndexConstant() {
-		if (comProxyFunctionTableIndexConstant == null) {
-			comProxyFunctionTableIndexConstant = new EObjectContainmentEList<Constant>(Constant.class, this, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_INDEX_CONSTANT);
-		}
-		return comProxyFunctionTableIndexConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Constant getComProxyFunctionTableSizeConstant() {
-		return comProxyFunctionTableSizeConstant;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetComProxyFunctionTableSizeConstant(Constant newComProxyFunctionTableSizeConstant, NotificationChain msgs) {
-		Constant oldComProxyFunctionTableSizeConstant = comProxyFunctionTableSizeConstant;
-		comProxyFunctionTableSizeConstant = newComProxyFunctionTableSizeConstant;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, oldComProxyFunctionTableSizeConstant, newComProxyFunctionTableSizeConstant);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComProxyFunctionTableSizeConstant(Constant newComProxyFunctionTableSizeConstant) {
-		if (newComProxyFunctionTableSizeConstant != comProxyFunctionTableSizeConstant) {
-			NotificationChain msgs = null;
-			if (comProxyFunctionTableSizeConstant != null)
-				msgs = ((InternalEObject)comProxyFunctionTableSizeConstant).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, null, msgs);
-			if (newComProxyFunctionTableSizeConstant != null)
-				msgs = ((InternalEObject)newComProxyFunctionTableSizeConstant).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, null, msgs);
-			msgs = basicSetComProxyFunctionTableSizeConstant(newComProxyFunctionTableSizeConstant, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT, newComProxyFunctionTableSizeConstant, newComProxyFunctionTableSizeConstant));
 	}
 
 	/**

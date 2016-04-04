@@ -195,7 +195,7 @@ public class CompuConstImpl extends M2ObjectImpl implements CompuConst {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (vt: ");
+		result.append(" (vt: "); //$NON-NLS-1$
 		result.append(vt);
 		result.append(')');
 		return result.toString();

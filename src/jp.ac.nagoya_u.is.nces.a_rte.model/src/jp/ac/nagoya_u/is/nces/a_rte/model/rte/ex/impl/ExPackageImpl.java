@@ -2066,10 +2066,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesSendApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesFeedbackApi", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "providesFeedbackApi", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInstancePackage.getPVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rVariableDataInstanceInSwcExEClass, RVariableDataInstanceInSwcEx.class, "RVariableDataInstanceInSwcEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		op = initEOperation(getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), ecorePackage.getEBoolean(), "requiresFilterVariable", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInstancePackage.getRVariableDataInstanceInSwc(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -2111,27 +2111,27 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getExternalEcuSenderEx__RequiresRteInitialization__ExternalEcuSender(), ecorePackage.getEBoolean(), "requiresRteInitialization", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComInvCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComRxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		op = initEOperation(getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), ecorePackage.getEBoolean(), "providesComCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getExternalEcuSender(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(externalEcuReceiverExEClass, ExternalEcuReceiverEx.class, "ExternalEcuReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(externalEcuReceiverExEClass, ExternalEcuReceiverEx.class, "ExternalEcuReceiverEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxAndTxErrCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxAndTxErrCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver(), ecorePackage.getEBoolean(), "providesComTxTOutCallback", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theInteractionPackage.getExternalEcuReceiver(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(entityStarterExEClass, EntityStarterEx.class, "EntityStarterEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		op = initEOperation(getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), theInteractionPackage.getTimingTriggeringEntityStartImplementation(), "getTimingTriggeringEntityStartImplementations", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theInteractionPackage.getEntityStarter(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -2178,10 +2178,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		op = initEOperation(getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), theM2Package.getModeDeclarationGroupPrototype(), "getConnectedProvidedModePrototypes", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theM2Package.getModeDeclarationGroupPrototype(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rteEventExEClass, RteEventEx.class, "RteEventEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(rteEventExEClass, RteEventEx.class, "RteEventEx", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		op = initEOperation(getRteEventEx__GetRelatedEntityStarter__RteEvent(), theInteractionPackage.getEntityStarter(), "getRelatedEntityStarter", 1, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theM2Package.getRteEvent(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = initEOperation(getRteEventEx__GetRelatedEntityStarter__RteEvent(), theInteractionPackage.getEntityStarter(), "getRelatedEntityStarter", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theM2Package.getRteEvent(), "this_", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		// Create annotations
 		// stereotypes
@@ -2204,8 +2204,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "extension", "true"
-		   });																																																																																																																																																					
+			 "extension", "true" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2220,10 +2220,10 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																																																																																																																				
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -2310,8 +2310,8 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getCompuScaleEx__GetEnumLiteral__CompuScale(), 
 		   source, 
 		   new String[] {
-			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.compuConst.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuConst.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif"
-		   });		
+			 "body", "if not this_.symbol.oclIsUndefined()\n\t\t\t\t\t\tthen this_.symbol\n\t\t\t\t\telse if not this_.compuConst.vt.oclIsUndefined()\n\t\t\t\t\t\tthen this_.compuConst.vt\n\t\t\t\t\telse if not this_.shortLabel.oclIsUndefined()\n\t\t\t\t\t\tthen this_.shortLabel\n\t\t\t\t\telse null\n\t\t\t\t\tendif endif endif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getApplicationDataTypeEx__ProvidesUpperLowerLimitConstant__ApplicationDataType(), 
 		   source, 
@@ -2340,23 +2340,23 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExclusiveAreaEx__GetUsingPartitionsOfBswExclusiveArea__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()",
-			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
-		   });			
+			 "body", "let bswInternalBehavior : ar4x::m2::BswInternalBehavior = this_.parent.oclAsType(ar4x::m2::BswInternalBehavior)\n\t\t\t\t\t\tin\n\t\t\t\t\t\tbswInternalBehavior.bswSchedulableEntity->select(canEnterExclusiveArea->includes(this_))\n\t\t\t\t\t\t->union(bswInternalBehavior.bswSchedulableEntity->select(runsInsideExclusiveArea->includes(this_)))\n\t\t\t\t\t\t->collect(m | bswSchedulableEntityEx.getUsingPartition(m))->asSet()", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesRteEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)",
-			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)"
-		   });			
+			 "body", "this_.parent.oclAsType(ar4x::m2::SwcInternalBehavior).runnable.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::SwcInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExclusiveAreaEx__ProvidesSchmEnterExitApi__ExclusiveArea(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)",
-			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)"
-		   });			
+			 "body", "this_.parent.oclAsType(ar4x::m2::BswInternalBehavior).bswSchedulableEntity.canEnterExclusiveArea->includes(this_)", //$NON-NLS-1$ //$NON-NLS-2$
+			 "pre", "this_.parent.oclIsKindOf(ar4x::m2::BswInternalBehavior)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getSenderReceiverToSignalMappingEx__GetMappedDataInstanceInComposition__SenderReceiverToSignalMapping(), 
 		   source, 
@@ -2571,26 +2571,26 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getPVariableDataInstanceInSwcEx__ProvidesWriteApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"
-		   });			
+			 "body", "not this_.isEventSemantics() and this_.isAccessedByDataSendPoint()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesInvalidateApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and this_.isAccessedByDataSendPoint()"
-		   });			
+			 "body", "not this_.isEventSemantics() and this_.isInvalidationEnabled() and this_.isAccessedByDataSendPoint()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesSendApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.isEventSemantics() and this_.isAccessedByDataSendPoint()"
-		   });			
+			 "body", "this_.isEventSemantics() and this_.isAccessedByDataSendPoint()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwcEx__ProvidesFeedbackApi__PVariableDataInstanceInSwc(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.isAccessedByDataSendPoint() and this_.isTAckEnabled()"
-		   });			
+			 "body", "this_.isAccessedByDataSendPoint() and this_.isTAckEnabled()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwcEx__RequiresFilterVariable__RVariableDataInstanceInSwc(), 
 		   source, 
@@ -2655,14 +2655,14 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExternalEcuSenderEx__ProvidesComRxCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction->exists(not implementation.oclIsUndefined())\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty())"
-		   });			
+			 "body", "this_.sendInteraction->exists(not implementation.oclIsUndefined())\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComInvCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty() and isInvalidationEnabled())"
-		   });			
+			 "body", "this_.sendInteraction\n\t\t\t\t\t->exists(not implementation.oclIsUndefined() and receiveInteraction.getInternalEcuReceivers()\n\t\t\t\t\t\t->exists(isInvalidationEnabled()))\n\t\t\t\t\tor this_.getInternalEcuReceivers()->exists(activatesOnReceived->notEmpty() and isInvalidationEnabled())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuSenderEx__ProvidesComRxTOutCallback__ExternalEcuSender(), 
 		   source, 
@@ -2673,20 +2673,20 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getExternalEcuSenderEx__ProvidesComCallback__ExternalEcuSender(), 
 		   source, 
 		   new String[] {
-			 "body", "providesComRxCallback(this_)\n\t\t\t\t   or providesComInvCallback(this_)\n\t\t\t\t   or providesComRxTOutCallback(this_)"
-		   });			
+			 "body", "providesComRxCallback(this_)\n\t\t\t\t   or providesComInvCallback(this_)\n\t\t\t\t   or providesComRxTOutCallback(this_)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuReceiverEx__ProvidesComTxAndTxErrCallback__ExternalEcuReceiver(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckEnabled())"
-		   });			
+			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckEnabled())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getExternalEcuReceiverEx__ProvidesComTxTOutCallback__ExternalEcuReceiver(), 
 		   source, 
 		   new String[] {
-			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckTimeoutEnabled())"
-		   });		
+			 "body", "this_.getInternalEcuSenders()->select(sendInteraction->exists(implementation.oclIsKindOf(rte::interaction::ComSendImplementation)))\n\t\t\t\t\t->exists(source.prototype.oclAsType(ar4x::instance::PVariableDataInstanceInSwc).isTAckTimeoutEnabled())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getEntityStarterEx__GetTimingTriggeringEntityStartImplementations__EntityStarter(), 
 		   source, 
@@ -2757,13 +2757,13 @@ public class ExPackageImpl extends EPackageImpl implements ExPackage {
 		  (getModeDeclarationGroupPrototypeEx__GetConnectedProvidedModePrototypes__ModeDeclarationGroupPrototype(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()"
-		   });		
+			 "body", "ar4x::ecuc::RteBswRequiredModeGroupConnection.allInstances()->select(rteBswRequiredModeGroup = this_).rteBswProvidedModeGroup->asSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRteEventEx__GetRelatedEntityStarter__RteEvent(), 
 		   source, 
 		   new String[] {
-			 "body", "let reStartInteraction : interaction::RunnableEntityStartInteraction = interaction::RunnableEntityStartInteraction.allInstances()->any(sourceEvent = this_)\n\t\t\t\t\tin\n\t\t\t\t\tinteraction::EntityStarter.allInstances()->any(startInteraction->includes(reStartInteraction))"
+			 "body", "let reStartInteraction : interaction::RunnableEntityStartInteraction = interaction::RunnableEntityStartInteraction.allInstances()->any(sourceEvent = this_)\n\t\t\t\t\tin\n\t\t\t\t\tinteraction::EntityStarter.allInstances()->any(startInteraction->includes(reStartInteraction))" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

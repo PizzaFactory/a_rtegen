@@ -45,6 +45,8 @@ public class ComSendOperationItemProvider extends SendOperationItemProvider {
 
 			addAccessApiPropertyDescriptor(object);
 			addTempReturnVariablePropertyDescriptor(object);
+			addTAckStatusPropertyDescriptor(object);
+			addActivationFlagOnTxErrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +87,50 @@ public class ComSendOperationItemProvider extends SendOperationItemProvider {
 				 getString("_UI_ComSendOperation_tempReturnVariable_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendOperation_tempReturnVariable_feature", "_UI_ComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.COM_SEND_OPERATION__TEMP_RETURN_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the TAck Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTAckStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComSendOperation_tAckStatus_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendOperation_tAckStatus_feature", "_UI_ComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.COM_SEND_OPERATION__TACK_STATUS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activation Flag On Tx Err feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagOnTxErrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComSendOperation_activationFlagOnTxErr_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendOperation_activationFlagOnTxErr_feature", "_UI_ComSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.COM_SEND_OPERATION__ACTIVATION_FLAG_ON_TX_ERR,
 				 true,
 				 false,
 				 true,

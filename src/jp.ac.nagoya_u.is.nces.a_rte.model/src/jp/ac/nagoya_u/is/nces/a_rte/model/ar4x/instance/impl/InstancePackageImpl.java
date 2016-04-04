@@ -1353,16 +1353,16 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), ecorePackage.getEBoolean(), "isAccessedByDataSendPoint", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), ecorePackage.getEBoolean(), "isAccessedByDataSendPoint", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__IsTAckEnabled(), ecorePackage.getEBoolean(), "isTAckEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckEnabled(), ecorePackage.getEBoolean(), "isTAckEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), ecorePackage.getEBoolean(), "isTAckTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), ecorePackage.getEBoolean(), "isTAckTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), theM2Package.getDataSendCompletedEvent(), "getRelatedDataSendCompletedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), theM2Package.getDataSendCompletedEvent(), "getRelatedDataSendCompletedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getRVariableDataInstanceInSwc__IsFilterEnabled(), ecorePackage.getEBoolean(), "isFilterEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
@@ -1372,11 +1372,11 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationKeep(), ecorePackage.getEBoolean(), "isInvalidationKeep", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationKeep(), ecorePackage.getEBoolean(), "isInvalidationKeep", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationReplace(), ecorePackage.getEBoolean(), "isInvalidationReplace", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationReplace(), ecorePackage.getEBoolean(), "isInvalidationReplace", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getRVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
@@ -1384,13 +1384,13 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getRVariableDataInstanceInSwc__GetComSpec(), theM2Package.getReceiverComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), theM2Package.getDataReceivedEvent(), "getRelatedDataReceivedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), theM2Package.getDataReceivedEvent(), "getRelatedDataReceivedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), theM2Package.getDataReceiveErrorEvent(), "getRelatedDataReceiveErrorEvent", 0, -1, IS_UNIQUE, !IS_ORDERED);
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), theM2Package.getDataReceiveErrorEvent(), "getRelatedDataReceiveErrorEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAssemblyDataInstanceConnector_Requester(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getAssemblyDataInstanceConnector_Requester(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_ProviderConnection(), "requester", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(delegationDataInstanceConnectorEClass, DelegationDataInstanceConnector.class, "DelegationDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getDelegationDataInstanceConnector_Outer(), this.getVariableDataInstanceInSwc(), null, "outer", null, 1, 1, DelegationDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1458,10 +1458,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (this, 
 		   source, 
 		   new String[] {
-			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"
-		   });																																																						
+			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
+			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
 	}
 
 	/**
@@ -1578,26 +1578,26 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), 
 		   source, 
 		   new String[] {
-			 "body", "getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint->exists(accessedVariable.autosarVariable = self)"
-		   });		
+			 "body", "getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint->exists(accessedVariable.autosarVariable = self)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__IsTAckEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined()"
-		   });		
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), 
 		   source, 
 		   new String[] {
-			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined() and getComSpec().transmissionAcknowledge.timeout <> 0"
-		   });		
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined() and getComSpec().transmissionAcknowledge.timeout <> 0" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::m2::DataSendCompletedEvent.allInstances()->select(eventSourceData = self)->asOrderedSet()"
-		   });		
+			 "body", "ar4x::m2::DataSendCompletedEvent.allInstances()->select(eventSourceData = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getPVariableDataInstanceInSwc_ContextPPort(), 
 		   source, 
@@ -1632,14 +1632,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (getRVariableDataInstanceInSwc__IsInvalidationKeep(), 
 		   source, 
 		   new String[] {
-			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)"
-		   });			
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__IsInvalidationReplace(), 
 		   source, 
 		   new String[] {
-			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)"
-		   });			
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetInvalidationPolicy(), 
 		   source, 
@@ -1668,14 +1668,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		  (getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()"
-		   });		
+			 "body", "ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), 
 		   source, 
 		   new String[] {
-			 "body", "ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()"
-		   });		
+			 "body", "ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc_ContextRPort(), 
 		   source, 

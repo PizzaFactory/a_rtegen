@@ -46,7 +46,7 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 			addRequesterPartitionPropertyDescriptor(object);
 			addSignalDataTypePropertyDescriptor(object);
 			addRequestOsIocCommunicationPropertyDescriptor(object);
-			addValueOsIocCommunicationForComplexTypePropertyDescriptor(object);
+			addValueOsIocCommunicationPropertyDescriptor(object);
 			addProxyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -119,19 +119,19 @@ public class ComSendProxyInteractionItemProvider extends InteractionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Value Os Ioc Communication For Complex Type feature.
+	 * This adds a property descriptor for the Value Os Ioc Communication feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValueOsIocCommunicationForComplexTypePropertyDescriptor(Object object) {
+	protected void addValueOsIocCommunicationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_valueOsIocCommunicationForComplexType_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE,
+				 getString("_UI_ComSendProxyInteraction_valueOsIocCommunication_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComSendProxyInteraction_valueOsIocCommunication_feature", "_UI_ComSendProxyInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION,
 				 true,
 				 false,
 				 true,

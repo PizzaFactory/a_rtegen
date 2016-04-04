@@ -1,45 +1,3 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
@@ -108,88 +66,46 @@ public interface Rte extends LogicalCompartment {
 	EList<Core> getCore();
 
 	/**
-	 * Returns the value of the '<em><b>Com Callback</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback}.
+	 * Returns the value of the '<em><b>Bswm</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Com Callback</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Bswm</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Callback</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComCallback()
+	 * @return the value of the '<em>Bswm</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_Bswm()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ComCallback> getComCallback();
+	EList<Bswm> getBswm();
 
 	/**
-	 * Returns the value of the '<em><b>Com Send Signal Periodic Entity</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Generation Info</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Com Send Signal Periodic Entity</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Generation Info</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Send Signal Periodic Entity</em>' containment reference.
-	 * @see #setComSendSignalPeriodicEntity(ComSendSignalPeriodicEntity)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalPeriodicEntity()
-	 * @model containment="true"
+	 * @return the value of the '<em>Generation Info</em>' containment reference.
+	 * @see #setGenerationInfo(GenerationInfo)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_GenerationInfo()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	ComSendSignalPeriodicEntity getComSendSignalPeriodicEntity();
+	GenerationInfo getGenerationInfo();
 
 	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}' containment reference.
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Send Signal Periodic Entity</em>' containment reference.
-	 * @see #getComSendSignalPeriodicEntity()
+	 * @param value the new value of the '<em>Generation Info</em>' containment reference.
+	 * @see #getGenerationInfo()
 	 * @generated
 	 */
-	void setComSendSignalPeriodicEntity(ComSendSignalPeriodicEntity value);
-
-	/**
-	 * Returns the value of the '<em><b>Com Send Signal Immediate Entity</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Com Send Signal Immediate Entity</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Send Signal Immediate Entity</em>' containment reference.
-	 * @see #setComSendSignalImmediateEntity(ComSendSignalImmediateEntity)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalImmediateEntity()
-	 * @model containment="true"
-	 * @generated
-	 */
-	ComSendSignalImmediateEntity getComSendSignalImmediateEntity();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Send Signal Immediate Entity</em>' containment reference.
-	 * @see #getComSendSignalImmediateEntity()
-	 * @generated
-	 */
-	void setComSendSignalImmediateEntity(ComSendSignalImmediateEntity value);
-
-	/**
-	 * Returns the value of the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Com Send Signal Trusted Function</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Send Signal Trusted Function</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalTrustedFunction()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction();
+	void setGenerationInfo(GenerationInfo value);
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Type</b></em>' containment reference list.
@@ -208,36 +124,20 @@ public interface Rte extends LogicalCompartment {
 	EList<Type> getDependentType();
 
 	/**
-	 * Returns the value of the '<em><b>Immediate Constant</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Dependent Constant</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Immediate Constant</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Dependent Constant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Immediate Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ImmediateConstant()
+	 * @return the value of the '<em>Dependent Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_DependentConstant()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Constant> getImmediateConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteBufferQueueMaxLengthConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getSrRteBufferQueueMaxLengthConstant();
+	EList<Constant> getDependentConstant();
 
 	/**
 	 * Returns the value of the '<em><b>Dependent Os Api</b></em>' containment reference list.
@@ -320,98 +220,20 @@ public interface Rte extends LogicalCompartment {
 	EList<RteBufferVariableSet> getIocInitValueVariableSet();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Start Api</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Rte Memory Mapping</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Start Api</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Rte Memory Mapping</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Start Api</em>' containment reference.
-	 * @see #setRteStartApi(RteStartApi)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteStartApi()
+	 * @return the value of the '<em>Rte Memory Mapping</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteMemoryMapping()
 	 * @model containment="true"
 	 * @generated
 	 */
-	RteStartApi getRteStartApi();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rte Start Api</em>' containment reference.
-	 * @see #getRteStartApi()
-	 * @generated
-	 */
-	void setRteStartApi(RteStartApi value);
-
-	/**
-	 * Returns the value of the '<em><b>Dependent Constant</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dependent Constant</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependent Constant</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_DependentConstant()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Constant> getDependentConstant();
-
-	/**
-	 * Returns the value of the '<em><b>Com Send Signal Immediate Task Body</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Com Send Signal Immediate Task Body</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Com Send Signal Immediate Task Body</em>' containment reference.
-	 * @see #setComSendSignalImmediateTaskBody(ComSendSignalImmediateTaskBody)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalImmediateTaskBody()
-	 * @model containment="true"
-	 * @generated
-	 */
-	ComSendSignalImmediateTaskBody getComSendSignalImmediateTaskBody();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Com Send Signal Immediate Task Body</em>' containment reference.
-	 * @see #getComSendSignalImmediateTaskBody()
-	 * @generated
-	 */
-	void setComSendSignalImmediateTaskBody(ComSendSignalImmediateTaskBody value);
-
-	/**
-	 * Returns the value of the '<em><b>Rte Stop Api</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rte Stop Api</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Stop Api</em>' containment reference.
-	 * @see #setRteStopApi(RteStopApi)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteStopApi()
-	 * @model containment="true"
-	 * @generated
-	 */
-	RteStopApi getRteStopApi();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rte Stop Api</em>' containment reference.
-	 * @see #getRteStopApi()
-	 * @generated
-	 */
-	void setRteStopApi(RteStopApi value);
+	EList<BswMemoryMapping> getRteMemoryMapping();
 
 	/**
 	 * Returns the value of the '<em><b>Implementation Data Type</b></em>' containment reference list.
@@ -550,6 +372,22 @@ public interface Rte extends LogicalCompartment {
 	void setSrRteQueuedSendTfParamType(RteQueuedSendTrustedFunctionParamType value);
 
 	/**
+	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sr Rte Buffer Queue Max Length Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_SrRteBufferQueueMaxLengthConstant()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Constant> getSrRteBufferQueueMaxLengthConstant();
+
+	/**
 	 * Returns the value of the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list.
 	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueueType}.
 	 * <!-- begin-user-doc -->
@@ -566,62 +404,182 @@ public interface Rte extends LogicalCompartment {
 	EList<RteBufferQueueType> getSrRteBufferQueueType();
 
 	/**
-	 * Returns the value of the '<em><b>Rte Memory Mapping</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMapping}.
+	 * Returns the value of the '<em><b>Immediate Constant</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rte Memory Mapping</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Immediate Constant</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rte Memory Mapping</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteMemoryMapping()
+	 * @return the value of the '<em>Immediate Constant</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ImmediateConstant()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<BswMemoryMapping> getRteMemoryMapping();
+	EList<Constant> getImmediateConstant();
 
 	/**
-	 * Returns the value of the '<em><b>Generation Info</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Generation Info</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Com Send Signal Trusted Function</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generation Info</em>' containment reference.
-	 * @see #setGenerationInfo(GenerationInfo)
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_GenerationInfo()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	GenerationInfo getGenerationInfo();
-
-	/**
-	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Generation Info</em>' containment reference.
-	 * @see #getGenerationInfo()
-	 * @generated
-	 */
-	void setGenerationInfo(GenerationInfo value);
-
-	/**
-	 * Returns the value of the '<em><b>Bswm</b></em>' containment reference list.
-	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Bswm</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Bswm</em>' containment reference list.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_Bswm()
+	 * @return the value of the '<em>Com Send Signal Trusted Function</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalTrustedFunction()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Bswm> getBswm();
+	EList<ComSendSignalTrustedFunction> getComSendSignalTrustedFunction();
+
+	/**
+	 * Returns the value of the '<em><b>Com Send Signal Periodic Entity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Send Signal Periodic Entity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Send Signal Periodic Entity</em>' containment reference.
+	 * @see #setComSendSignalPeriodicEntity(ComSendSignalPeriodicEntity)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalPeriodicEntity()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ComSendSignalPeriodicEntity getComSendSignalPeriodicEntity();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Send Signal Periodic Entity</em>' containment reference.
+	 * @see #getComSendSignalPeriodicEntity()
+	 * @generated
+	 */
+	void setComSendSignalPeriodicEntity(ComSendSignalPeriodicEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Com Send Signal Immediate Entity</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Send Signal Immediate Entity</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Send Signal Immediate Entity</em>' containment reference.
+	 * @see #setComSendSignalImmediateEntity(ComSendSignalImmediateEntity)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalImmediateEntity()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ComSendSignalImmediateEntity getComSendSignalImmediateEntity();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Send Signal Immediate Entity</em>' containment reference.
+	 * @see #getComSendSignalImmediateEntity()
+	 * @generated
+	 */
+	void setComSendSignalImmediateEntity(ComSendSignalImmediateEntity value);
+
+	/**
+	 * Returns the value of the '<em><b>Com Send Signal Immediate Task Body</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Send Signal Immediate Task Body</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Send Signal Immediate Task Body</em>' containment reference.
+	 * @see #setComSendSignalImmediateTaskBody(ComSendSignalImmediateTaskBody)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComSendSignalImmediateTaskBody()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ComSendSignalImmediateTaskBody getComSendSignalImmediateTaskBody();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Com Send Signal Immediate Task Body</em>' containment reference.
+	 * @see #getComSendSignalImmediateTaskBody()
+	 * @generated
+	 */
+	void setComSendSignalImmediateTaskBody(ComSendSignalImmediateTaskBody value);
+
+	/**
+	 * Returns the value of the '<em><b>Com Callback</b></em>' containment reference list.
+	 * The list contents are of type {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Com Callback</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Com Callback</em>' containment reference list.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_ComCallback()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ComCallback> getComCallback();
+
+	/**
+	 * Returns the value of the '<em><b>Rte Start Api</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rte Start Api</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rte Start Api</em>' containment reference.
+	 * @see #setRteStartApi(RteStartApi)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteStartApi()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RteStartApi getRteStartApi();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rte Start Api</em>' containment reference.
+	 * @see #getRteStartApi()
+	 * @generated
+	 */
+	void setRteStartApi(RteStartApi value);
+
+	/**
+	 * Returns the value of the '<em><b>Rte Stop Api</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rte Stop Api</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rte Stop Api</em>' containment reference.
+	 * @see #setRteStopApi(RteStopApi)
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage#getRte_RteStopApi()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RteStopApi getRteStopApi();
+
+	/**
+	 * Sets the value of the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rte Stop Api</em>' containment reference.
+	 * @see #getRteStopApi()
+	 * @generated
+	 */
+	void setRteStopApi(RteStopApi value);
 
 	/**
 	 * Returns the value of the '<em><b>Schm Init Api</b></em>' containment reference.

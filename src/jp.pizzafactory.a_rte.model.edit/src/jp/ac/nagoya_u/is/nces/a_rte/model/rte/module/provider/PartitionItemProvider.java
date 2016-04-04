@@ -115,6 +115,7 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 			childrenFeatures.add(ModulePackage.Literals.PARTITION__RESTART_PARTITION_API);
 			childrenFeatures.add(ModulePackage.Literals.PARTITION__PARTITION_TERMINATED_API);
 			childrenFeatures.add(ModulePackage.Literals.PARTITION__PARTITION_RESTARTING_API);
+			childrenFeatures.add(ModulePackage.Literals.PARTITION__TACK_STATUS);
 		}
 		return childrenFeatures;
 	}
@@ -201,6 +202,7 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 			case ModulePackage.PARTITION__RESTART_PARTITION_API:
 			case ModulePackage.PARTITION__PARTITION_TERMINATED_API:
 			case ModulePackage.PARTITION__PARTITION_RESTARTING_API:
+			case ModulePackage.PARTITION__TACK_STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -341,6 +343,11 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION,
+				 ModuleFactory.eINSTANCE.createRteBufferInvalidateTrustedFunction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION,
 				 ModuleFactory.eINSTANCE.createComSendSignalTrustedFunction()));
 
 		newChildDescriptors.add
@@ -351,12 +358,12 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION,
-				 ModuleFactory.eINSTANCE.createCsTrustedFunction()));
+				 ModuleFactory.eINSTANCE.createRteBufferSendTrustedFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION,
-				 ModuleFactory.eINSTANCE.createRteBufferInvalidateTrustedFunction()));
+				 ModuleFactory.eINSTANCE.createCsTrustedFunction()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -496,6 +503,11 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION__TASK_BODY,
+				 ModuleFactory.eINSTANCE.createOsBackgroundTaskActivationExecutableTaskBody()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.PARTITION__TASK_BODY,
 				 ModuleFactory.eINSTANCE.createOsTaskActivationExecutableTaskBody()));
 
 		newChildDescriptors.add
@@ -522,6 +534,11 @@ public class PartitionItemProvider extends LogicalCompartmentItemProvider {
 			(createChildParameter
 				(ModulePackage.Literals.PARTITION__PARTITION_RESTARTING_API,
 				 ModuleFactory.eINSTANCE.createPartitionRestartingApi()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.PARTITION__TACK_STATUS,
+				 ModuleFactory.eINSTANCE.createTAckStatus()));
 	}
 
 	/**

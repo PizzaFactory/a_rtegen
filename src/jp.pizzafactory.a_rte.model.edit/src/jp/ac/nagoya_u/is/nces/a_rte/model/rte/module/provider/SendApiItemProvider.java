@@ -53,6 +53,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 			addTrustedFunctionParamVariablePropertyDescriptor(object);
 			addFilterResultVariablePropertyDescriptor(object);
 			addNeedsCheckArgPropertyDescriptor(object);
+			addActivationFlagPropertyDescriptor(object);
+			addTAckStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +170,50 @@ public class SendApiItemProvider extends RteApiItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Activation Flag feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendApi_activationFlag_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_activationFlag_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.SEND_API__ACTIVATION_FLAG,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the TAck Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTAckStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendApi_tAckStatus_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendApi_tAckStatus_feature", "_UI_SendApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.SEND_API__TACK_STATUS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -180,6 +226,7 @@ public class SendApiItemProvider extends RteApiItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModulePackage.Literals.SEND_API__OPERATION);
+			childrenFeatures.add(ModulePackage.Literals.SEND_API__ACTIVATION_OPERATION);
 		}
 		return childrenFeatures;
 	}
@@ -239,6 +286,7 @@ public class SendApiItemProvider extends RteApiItemProvider {
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModulePackage.SEND_API__OPERATION:
+			case ModulePackage.SEND_API__ACTIVATION_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -284,12 +332,17 @@ public class SendApiItemProvider extends RteApiItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.SEND_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteSendOperation()));
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.SEND_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation()));
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferSendSendOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.SEND_API__OPERATION,
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -318,8 +371,8 @@ public class SendApiItemProvider extends RteApiItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModulePackage.Literals.SEND_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation()));
+				(ModulePackage.Literals.SEND_API__ACTIVATION_OPERATION,
+				 ModuleFactory.eINSTANCE.createActivationOperation()));
 	}
 
 }

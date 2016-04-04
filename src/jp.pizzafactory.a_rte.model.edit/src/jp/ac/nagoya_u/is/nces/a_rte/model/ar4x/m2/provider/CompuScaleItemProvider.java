@@ -50,7 +50,6 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 
 			addShortLabelPropertyDescriptor(object);
 			addSymbolPropertyDescriptor(object);
-			addVtPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,28 +99,6 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Vt feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVtPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CompuScale_vt_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_CompuScale_vt_feature", "_UI_CompuScale_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 M2Package.Literals.COMPU_SCALE__VT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -135,6 +112,7 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(M2Package.Literals.COMPU_SCALE__LOWER_LIMIT);
 			childrenFeatures.add(M2Package.Literals.COMPU_SCALE__UPPER_LIMIT);
+			childrenFeatures.add(M2Package.Literals.COMPU_SCALE__COMPU_CONST);
 		}
 		return childrenFeatures;
 	}
@@ -192,11 +170,11 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 		switch (notification.getFeatureID(CompuScale.class)) {
 			case M2Package.COMPU_SCALE__SHORT_LABEL:
 			case M2Package.COMPU_SCALE__SYMBOL:
-			case M2Package.COMPU_SCALE__VT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case M2Package.COMPU_SCALE__LOWER_LIMIT:
 			case M2Package.COMPU_SCALE__UPPER_LIMIT:
+			case M2Package.COMPU_SCALE__COMPU_CONST:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -223,6 +201,11 @@ public class CompuScaleItemProvider extends M2ObjectItemProvider {
 			(createChildParameter
 				(M2Package.Literals.COMPU_SCALE__UPPER_LIMIT,
 				 M2Factory.eINSTANCE.createLimit()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.COMPU_SCALE__COMPU_CONST,
+				 M2Factory.eINSTANCE.createCompuConst()));
 	}
 
 	/**

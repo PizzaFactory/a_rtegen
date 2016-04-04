@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends SendOperationItemProvider {
+public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends TrustedFunctionRteOperationItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -44,7 +44,6 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 			super.getPropertyDescriptors(object);
 
 			addAccessTrustedFunctionPropertyDescriptor(object);
-			addTempReturnVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -63,28 +62,6 @@ public class TrustedFunctionRteBufferInvalidateSendOperationItemProvider extends
 				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_accessTrustedFunction_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Temp Return Variable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTempReturnVariablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteBufferInvalidateSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__TEMP_RETURN_VARIABLE,
 				 true,
 				 false,
 				 true,

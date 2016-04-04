@@ -197,7 +197,7 @@ public class TransmissionAcknowledgementRequestImpl extends M2ObjectImpl impleme
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (timeout: ");
+		result.append(" (timeout: "); //$NON-NLS-1$
 		result.append(timeout);
 		result.append(')');
 		return result.toString();

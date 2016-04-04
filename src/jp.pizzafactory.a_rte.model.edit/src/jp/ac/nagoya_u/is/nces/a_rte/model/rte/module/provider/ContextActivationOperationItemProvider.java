@@ -137,6 +137,11 @@ public class ContextActivationOperationItemProvider extends OperationItemProvide
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.CONTEXT_ACTIVATION_OPERATION__EXECUTABLE_START_OPERATION,
+				 ModuleFactory.eINSTANCE.createPlainExecutableStartOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.CONTEXT_ACTIVATION_OPERATION__EXECUTABLE_START_OPERATION,
 				 ModuleFactory.eINSTANCE.createModeSwitchTriggeringExecutableStartOperation()));
 
 		newChildDescriptors.add

@@ -44,6 +44,7 @@ public class IocSendOperationItemProvider extends SendOperationItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTypePropertyDescriptor(object);
+			addActivationFlagOnRxSuccessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +63,28 @@ public class IocSendOperationItemProvider extends SendOperationItemProvider {
 				 getString("_UI_IocSendOperation_type_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendOperation_type_feature", "_UI_IocSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.IOC_SEND_OPERATION__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activation Flag On Rx Success feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagOnRxSuccessPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IocSendOperation_activationFlagOnRxSuccess_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_IocSendOperation_activationFlagOnRxSuccess_feature", "_UI_IocSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS,
 				 true,
 				 false,
 				 true,

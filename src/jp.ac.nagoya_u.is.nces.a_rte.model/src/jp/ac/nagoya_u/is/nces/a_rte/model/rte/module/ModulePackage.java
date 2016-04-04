@@ -1,45 +1,3 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
@@ -76,7 +34,7 @@ public interface ModulePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "module";
+	String eNAME = "module"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace URI.
@@ -84,7 +42,7 @@ public interface ModulePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://nces.is.nagoya-u.ac.jp/a-rte/rte/module";
+	String eNS_URI = "http://nces.is.nagoya-u.ac.jp/a-rte/rte/module"; //$NON-NLS-1$
 
 	/**
 	 * The package namespace name.
@@ -92,7 +50,7 @@ public interface ModulePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "module";
+	String eNS_PREFIX = "module"; //$NON-NLS-1$
 
 	/**
 	 * The singleton instance of the package.
@@ -395,1006 +353,6 @@ public interface ModulePackage extends EPackage {
 	int FUNCTION_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl <em>Rte Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApi()
-	 * @generated
-	 */
-	int RTE_API = 6;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl <em>Write Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getWriteApi()
-	 * @generated
-	 */
-	int WRITE_API = 7;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl <em>Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendOperation()
-	 * @generated
-	 */
-	int SEND_OPERATION = 8;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedSendOperationImpl <em>Rte Buffer Nonqueued Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferNonqueuedSendOperation()
-	 * @generated
-	 */
-	int RTE_BUFFER_NONQUEUED_SEND_OPERATION = 9;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadOperationImpl <em>Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReadOperation()
-	 * @generated
-	 */
-	int READ_OPERATION = 11;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedReadOperationImpl <em>Rte Buffer Nonqueued Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferNonqueuedReadOperation()
-	 * @generated
-	 */
-	int RTE_BUFFER_NONQUEUED_READ_OPERATION = 10;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadApiImpl <em>Read Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReadApi()
-	 * @generated
-	 */
-	int READ_API = 12;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadOperationImpl <em>Irv Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvReadOperation()
-	 * @generated
-	 */
-	int IRV_READ_OPERATION = 13;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadApiImpl <em>Irv Read Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvReadApi()
-	 * @generated
-	 */
-	int IRV_READ_API = 14;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteOperationImpl <em>Irv Write Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvWriteOperation()
-	 * @generated
-	 */
-	int IRV_WRITE_OPERATION = 15;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteApiImpl <em>Irv Write Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvWriteApi()
-	 * @generated
-	 */
-	int IRV_WRITE_API = 16;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl <em>Rte Buffer Variable Set</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferVariableSet()
-	 * @generated
-	 */
-	int RTE_BUFFER_VARIABLE_SET = 17;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FileImpl <em>File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FileImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFile()
-	 * @generated
-	 */
-	int FILE = 23;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl <em>Rte Source</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteSource()
-	 * @generated
-	 */
-	int RTE_SOURCE = 20;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl <em>Global Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariable()
-	 * @generated
-	 */
-	int GLOBAL_VARIABLE = 22;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl <em>Rte Module</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteModule()
-	 * @generated
-	 */
-	int RTE_MODULE = 21;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl <em>Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getParameter()
-	 * @generated
-	 */
-	int PARAMETER = 24;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TypeImpl <em>Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getType()
-	 * @generated
-	 */
-	int TYPE = 25;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LocalVariableImpl <em>Local Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LocalVariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLocalVariable()
-	 * @generated
-	 */
-	int LOCAL_VARIABLE = 26;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationHeaderImpl <em>Rte Application Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApplicationHeader()
-	 * @generated
-	 */
-	int RTE_APPLICATION_HEADER = 27;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl <em>Core</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCore()
-	 * @generated
-	 */
-	int CORE = 31;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl <em>Partition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartition()
-	 * @generated
-	 */
-	int PARTITION = 32;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl <em>Swc</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwc()
-	 * @generated
-	 */
-	int SWC = 33;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteHeaderImpl <em>Rte Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteHeader()
-	 * @generated
-	 */
-	int RTE_HEADER = 34;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleHeaderImpl <em>Rte Lifecycle Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleHeader()
-	 * @generated
-	 */
-	int RTE_LIFECYCLE_HEADER = 36;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationTypeHeaderImpl <em>Rte Application Type Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationTypeHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApplicationTypeHeader()
-	 * @generated
-	 */
-	int RTE_APPLICATION_TYPE_HEADER = 37;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteVfbTraceHeaderImpl <em>Rte Vfb Trace Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteVfbTraceHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteVfbTraceHeader()
-	 * @generated
-	 */
-	int RTE_VFB_TRACE_HEADER = 38;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteConfigurationHeaderImpl <em>Rte Configuration Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteConfigurationHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteConfigurationHeader()
-	 * @generated
-	 */
-	int RTE_CONFIGURATION_HEADER = 39;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCallbackHeaderImpl <em>Rte Callback Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCallbackHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteCallbackHeader()
-	 * @generated
-	 */
-	int RTE_CALLBACK_HEADER = 40;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl <em>Rte Type Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteTypeHeader()
-	 * @generated
-	 */
-	int RTE_TYPE_HEADER = 41;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InvalidateApiImpl <em>Invalidate Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InvalidateApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInvalidateApi()
-	 * @generated
-	 */
-	int INVALIDATE_API = 42;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedSendOperationImpl <em>Ioc Nonqueued Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedSendOperation()
-	 * @generated
-	 */
-	int IOC_NONQUEUED_SEND_OPERATION = 43;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl <em>Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendOperation()
-	 * @generated
-	 */
-	int COM_SEND_OPERATION = 61;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DirectComSendOperationImpl <em>Direct Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DirectComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDirectComSendOperation()
-	 * @generated
-	 */
-	int DIRECT_COM_SEND_OPERATION = 44;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl <em>Trusted Function Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionComSendOperation()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_COM_SEND_OPERATION = 50;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedReadOperationImpl <em>Ioc Nonqueued Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedReadOperation()
-	 * @generated
-	 */
-	int IOC_NONQUEUED_READ_OPERATION = 53;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReadOperationImpl <em>Com Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReadOperation()
-	 * @generated
-	 */
-	int COM_READ_OPERATION = 54;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl <em>Ioc Nonqueued Communication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedCommunication()
-	 * @generated
-	 */
-	int IOC_NONQUEUED_COMMUNICATION = 55;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl <em>Ioc Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocApi()
-	 * @generated
-	 */
-	int IOC_API = 124;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocWriteApiImpl <em>Ioc Write Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocWriteApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocWriteApi()
-	 * @generated
-	 */
-	int IOC_WRITE_API = 56;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReadApiImpl <em>Ioc Read Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReadApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReadApi()
-	 * @generated
-	 */
-	int IOC_READ_API = 57;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl <em>Com Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComApi()
-	 * @generated
-	 */
-	int COM_API = 123;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiImpl <em>Com Send Signal Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApi()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_API = 58;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiImpl <em>Com Receive Signal Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApi()
-	 * @generated
-	 */
-	int COM_RECEIVE_SIGNAL_API = 59;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl <em>Com Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallback()
-	 * @generated
-	 */
-	int COM_CALLBACK = 62;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntity()
-	 * @generated
-	 */
-	int BSW_SCHEDULABLE_ENTITY = 4;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateEntityImpl <em>Com Send Signal Immediate Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateEntity()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY = 66;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl <em>Filter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFilterOperation()
-	 * @generated
-	 */
-	int FILTER_OPERATION = 72;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersMaskedOldFilterOperationImpl <em>Masked New Differs Masked Old Filter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersMaskedOldFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersMaskedOldFilterOperation()
-	 * @generated
-	 */
-	int MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION = 73;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersXFilterOperationImpl <em>Masked New Differs XFilter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersXFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersXFilterOperation()
-	 * @generated
-	 */
-	int MASKED_NEW_DIFFERS_XFILTER_OPERATION = 74;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsWithinFilterOperationImpl <em>New Is Within Filter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsWithinFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsWithinFilterOperation()
-	 * @generated
-	 */
-	int NEW_IS_WITHIN_FILTER_OPERATION = 75;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsOutsideFilterOperationImpl <em>New Is Outside Filter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsOutsideFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsOutsideFilterOperation()
-	 * @generated
-	 */
-	int NEW_IS_OUTSIDE_FILTER_OPERATION = 76;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewEqualsXFilterOperationImpl <em>Masked New Equals XFilter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewEqualsXFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewEqualsXFilterOperation()
-	 * @generated
-	 */
-	int MASKED_NEW_EQUALS_XFILTER_OPERATION = 77;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OneEveryNFilterOperationImpl <em>One Every NFilter Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OneEveryNFilterOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOneEveryNFilterOperation()
-	 * @generated
-	 */
-	int ONE_EVERY_NFILTER_OPERATION = 78;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApi()
-	 * @generated
-	 */
-	int RTE_LIFECYCLE_API = 84;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRestartPartitionApi()
-	 * @generated
-	 */
-	int RESTART_PARTITION_API = 81;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl <em>Partition Restarting Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionRestartingApi()
-	 * @generated
-	 */
-	int PARTITION_RESTARTING_API = 82;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl <em>Send Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendApi()
-	 * @generated
-	 */
-	int SEND_API = 85;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReceiveApi()
-	 * @generated
-	 */
-	int RECEIVE_API = 86;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl <em>Rte Buffer Queued Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedSendOperation()
-	 * @generated
-	 */
-	int RTE_BUFFER_QUEUED_SEND_OPERATION = 87;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl <em>Rte Buffer Queued Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedVariable()
-	 * @generated
-	 */
-	int RTE_BUFFER_QUEUED_VARIABLE = 88;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl <em>Ioc Queued Communication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedCommunication()
-	 * @generated
-	 */
-	int IOC_QUEUED_COMMUNICATION = 90;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl <em>Ioc Receive Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveApi()
-	 * @generated
-	 */
-	int IOC_RECEIVE_API = 91;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl <em>Ioc Send Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendApi()
-	 * @generated
-	 */
-	int IOC_SEND_API = 92;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedSendOperation()
-	 * @generated
-	 */
-	int IOC_QUEUED_SEND_OPERATION = 94;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl <em>Ioc Queued Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedReadOperation()
-	 * @generated
-	 */
-	int IOC_QUEUED_READ_OPERATION = 95;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl <em>Call Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCallApi()
-	 * @generated
-	 */
-	int CALL_API = 96;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl <em>Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExcludeOperation()
-	 * @generated
-	 */
-	int EXCLUDE_OPERATION = 100;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl <em>All Interrupt Block Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getAllInterruptBlockExcludeOperation()
-	 * @generated
-	 */
-	int ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 101;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl <em>Os Interrupt Block Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsInterruptBlockExcludeOperation()
-	 * @generated
-	 */
-	int OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 102;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl <em>Os Spinlock Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSpinlockExcludeOperation()
-	 * @generated
-	 */
-	int OS_SPINLOCK_EXCLUDE_OPERATION = 103;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl <em>Os Resource Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsResourceExcludeOperation()
-	 * @generated
-	 */
-	int OS_RESOURCE_EXCLUDE_OPERATION = 104;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl <em>Constant</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstant()
-	 * @generated
-	 */
-	int CONSTANT = 106;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl <em>Context Activation Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getContextActivationOperation()
-	 * @generated
-	 */
-	int CONTEXT_ACTIVATION_OPERATION = 115;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl <em>Os Task Activation Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationOperation()
-	 * @generated
-	 */
-	int OS_TASK_ACTIVATION_OPERATION = 113;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl <em>Os Event Set Activation Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetActivationOperation()
-	 * @generated
-	 */
-	int OS_EVENT_SET_ACTIVATION_OPERATION = 114;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl <em>Cycle Countup Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCycleCountupOperation()
-	 * @generated
-	 */
-	int CYCLE_COUNTUP_OPERATION = 119;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl <em>Task Body</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBody()
-	 * @generated
-	 */
-	int TASK_BODY = 121;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl <em>Ioc Empty Queue Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocEmptyQueueApi()
-	 * @generated
-	 */
-	int IOC_EMPTY_QUEUE_API = 122;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl <em>Rte</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRte()
-	 * @generated
-	 */
-	int RTE = 30;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl <em>Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getValue()
-	 * @generated
-	 */
-	int VALUE = 125;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl <em>Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariable()
-	 * @generated
-	 */
-	int VARIABLE = 131;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableSetImpl <em>Global Variable Set</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableSetImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableSet()
-	 * @generated
-	 */
-	int GLOBAL_VARIABLE_SET = 18;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl <em>Source File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSourceFile()
-	 * @generated
-	 */
-	int SOURCE_FILE = 154;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl <em>Header File</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getHeaderFile()
-	 * @generated
-	 */
-	int HEADER_FILE = 153;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl <em>Logical Compartment</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLogicalCompartment()
-	 * @generated
-	 */
-	int LOGICAL_COMPARTMENT = 29;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBswApiHeaderImpl <em>Rte Bsw Api Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBswApiHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBswApiHeader()
-	 * @generated
-	 */
-	int RTE_BSW_API_HEADER = 35;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl <em>Ioc Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendOperation()
-	 * @generated
-	 */
-	int IOC_SEND_OPERATION = 93;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteOperationImpl <em>Trusted Function Rte Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteOperation()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_RTE_OPERATION = 45;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl <em>Proxy Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getProxyComSendOperation()
-	 * @generated
-	 */
-	int PROXY_COM_SEND_OPERATION = 148;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ImmediateProxyComSendOperationImpl <em>Immediate Proxy Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ImmediateProxyComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getImmediateProxyComSendOperation()
-	 * @generated
-	 */
-	int IMMEDIATE_PROXY_COM_SEND_OPERATION = 51;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PeriodicProxyComSendOperationImpl <em>Periodic Proxy Com Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PeriodicProxyComSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPeriodicProxyComSendOperation()
-	 * @generated
-	 */
-	int PERIODIC_PROXY_COM_SEND_OPERATION = 52;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl <em>Ioc Communication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocCommunication()
-	 * @generated
-	 */
-	int IOC_COMMUNICATION = 147;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl <em>Com Send Signal Proxy Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalProxyEntity()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_PROXY_ENTITY = 65;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalPeriodicEntityImpl <em>Com Send Signal Periodic Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalPeriodicEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalPeriodicEntity()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_PERIODIC_ENTITY = 67;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCoreStartApiImplImpl <em>Rte Core Start Api Impl</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCoreStartApiImplImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteCoreStartApiImpl()
-	 * @generated
-	 */
-	int RTE_CORE_START_API_IMPL = 79;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStopApiImpl <em>Rte Stop Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStopApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStopApi()
-	 * @generated
-	 */
-	int RTE_STOP_API = 80;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionTerminatedApi()
-	 * @generated
-	 */
-	int PARTITION_TERMINATED_API = 83;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl <em>Rte Buffer Queued Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedReadOperation()
-	 * @generated
-	 */
-	int RTE_BUFFER_QUEUED_READ_OPERATION = 89;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl <em>Executable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableStartOperation()
-	 * @generated
-	 */
-	int EXECUTABLE_START_OPERATION = 98;
-
-	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl <em>Executable Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1403,276 +361,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	int EXECUTABLE_ENTITY = 3;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl <em>None Exclude Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNoneExcludeOperation()
-	 * @generated
-	 */
-	int NONE_EXCLUDE_OPERATION = 105;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl <em>Constant Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantMember()
-	 * @generated
-	 */
-	int CONSTANT_MEMBER = 107;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl <em>Rte Enter Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteEnterApi()
-	 * @generated
-	 */
-	int RTE_ENTER_API = 108;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl <em>Rte Exit Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteExitApi()
-	 * @generated
-	 */
-	int RTE_EXIT_API = 109;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationExecutableTaskBody()
-	 * @generated
-	 */
-	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 111;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl <em>Os Event Set Executable Task Body</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetExecutableTaskBody()
-	 * @generated
-	 */
-	int OS_EVENT_SET_EXECUTABLE_TASK_BODY = 112;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl <em>Timing Triggering Executable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	int TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = 116;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl <em>Start Offset Countup Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStartOffsetCountupOperation()
-	 * @generated
-	 */
-	int START_OFFSET_COUNTUP_OPERATION = 120;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl <em>Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunction()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION = 126;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl <em>Com Send Signal Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalTrustedFunction()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_TRUSTED_FUNCTION = 127;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl <em>Os Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsApi()
-	 * @generated
-	 */
-	int OS_API = 129;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl <em>Os Set Event Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSetEventApi()
-	 * @generated
-	 */
-	int OS_SET_EVENT_API = 128;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl <em>Com Send Signal Immediate Task Body</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateTaskBody()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = 130;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl <em>Ioc Receive Group Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveGroupApi()
-	 * @generated
-	 */
-	int IOC_RECEIVE_GROUP_API = 133;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl <em>Root</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleRoot()
-	 * @generated
-	 */
-	int MODULE_ROOT = 134;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl <em>Inter Partition Timeout Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInterPartitionTimeoutOperation()
-	 * @generated
-	 */
-	int INTER_PARTITION_TIMEOUT_OPERATION = 135;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl <em>Initialize Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInitializeOperation()
-	 * @generated
-	 */
-	int INITIALIZE_OPERATION = 136;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl <em>Variable Initialize Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableInitializeOperation()
-	 * @generated
-	 */
-	int VARIABLE_INITIALIZE_OPERATION = 137;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl <em>Ioc Initialize Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocInitializeOperation()
-	 * @generated
-	 */
-	int IOC_INITIALIZE_OPERATION = 138;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl <em>Os Suspend All Interrupts Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSuspendAllInterruptsApi()
-	 * @generated
-	 */
-	int OS_SUSPEND_ALL_INTERRUPTS_API = 139;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl <em>Os Get Spinlock Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsGetSpinlockApi()
-	 * @generated
-	 */
-	int OS_GET_SPINLOCK_API = 140;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl <em>Multicore Rte Start Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreRteStartApi()
-	 * @generated
-	 */
-	int MULTICORE_RTE_START_API = 141;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl <em>Rte Buffer Write Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferWriteTrustedFunction()
-	 * @generated
-	 */
-	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION = 142;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl <em>Trusted Function Rte Buffer Write Send Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferWriteSendOperation()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = 46;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl <em>Disabled In Mode</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDisabledInMode()
-	 * @generated
-	 */
-	int DISABLED_IN_MODE = 99;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeSwitchTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = 118;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl <em>Runnable Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRunnableEntity()
-	 * @generated
-	 */
-	int RUNNABLE_ENTITY = 5;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -1799,6 +487,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXECUTABLE_ENTITY_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntity()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY = 4;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -1936,6 +634,16 @@ public interface ModulePackage extends EPackage {
 	int BSW_SCHEDULABLE_ENTITY_OPERATION_COUNT = EXECUTABLE_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl <em>Runnable Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRunnableEntity()
+	 * @generated
+	 */
+	int RUNNABLE_ENTITY = 5;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2069,6 +777,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RUNNABLE_ENTITY_OPERATION_COUNT = EXECUTABLE_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl <em>Rte Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApi()
+	 * @generated
+	 */
+	int RTE_API = 6;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -2249,6 +967,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl <em>Write Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getWriteApi()
+	 * @generated
+	 */
+	int WRITE_API = 7;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -2485,6 +1213,16 @@ public interface ModulePackage extends EPackage {
 	int WRITE_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl <em>Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendOperation()
+	 * @generated
+	 */
+	int SEND_OPERATION = 8;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2573,6 +1311,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SEND_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedSendOperationImpl <em>Rte Buffer Nonqueued Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferNonqueuedSendOperation()
+	 * @generated
+	 */
+	int RTE_BUFFER_NONQUEUED_SEND_OPERATION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -2692,6 +1440,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_NONQUEUED_SEND_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadOperationImpl <em>Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReadOperation()
+	 * @generated
+	 */
+	int READ_OPERATION = 11;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2771,6 +1529,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int READ_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedReadOperationImpl <em>Rte Buffer Nonqueued Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferNonqueuedReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferNonqueuedReadOperation()
+	 * @generated
+	 */
+	int RTE_BUFFER_NONQUEUED_READ_OPERATION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -2861,6 +1629,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BUFFER_NONQUEUED_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadApiImpl <em>Read Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReadApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReadApi()
+	 * @generated
+	 */
+	int READ_API = 12;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -3061,6 +1839,16 @@ public interface ModulePackage extends EPackage {
 	int READ_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadOperationImpl <em>Irv Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvReadOperation()
+	 * @generated
+	 */
+	int IRV_READ_OPERATION = 13;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3131,6 +1919,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IRV_READ_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadApiImpl <em>Irv Read Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvReadApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvReadApi()
+	 * @generated
+	 */
+	int IRV_READ_API = 14;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -3331,6 +2129,16 @@ public interface ModulePackage extends EPackage {
 	int IRV_READ_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteOperationImpl <em>Irv Write Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvWriteOperation()
+	 * @generated
+	 */
+	int IRV_WRITE_OPERATION = 15;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3401,6 +2209,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IRV_WRITE_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteApiImpl <em>Irv Write Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IrvWriteApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIrvWriteApi()
+	 * @generated
+	 */
+	int IRV_WRITE_API = 16;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -3601,6 +2419,16 @@ public interface ModulePackage extends EPackage {
 	int IRV_WRITE_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 125;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3653,6 +2481,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl <em>Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariable()
+	 * @generated
+	 */
+	int VARIABLE = 131;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -3734,6 +2572,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int VARIABLE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl <em>Global Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariable()
+	 * @generated
+	 */
+	int GLOBAL_VARIABLE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -3869,6 +2717,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int GLOBAL_VARIABLE_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl <em>Rte Buffer Variable Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferVariableSetImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferVariableSet()
+	 * @generated
+	 */
+	int RTE_BUFFER_VARIABLE_SET = 17;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -4040,6 +2898,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BUFFER_VARIABLE_SET_OPERATION_COUNT = GLOBAL_VARIABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableSetImpl <em>Global Variable Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableSetImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableSet()
+	 * @generated
+	 */
+	int GLOBAL_VARIABLE_SET = 18;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -4331,6 +3199,16 @@ public interface ModulePackage extends EPackage {
 	int COM_PROXY_FUNCTION_TABLE_VARIABLE_OPERATION_COUNT = GLOBAL_VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FileImpl <em>File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FileImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFile()
+	 * @generated
+	 */
+	int FILE = 23;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4401,6 +3279,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int FILE_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl <em>Source File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SourceFileImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSourceFile()
+	 * @generated
+	 */
+	int SOURCE_FILE = 154;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -4482,6 +3370,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SOURCE_FILE_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl <em>Rte Source</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteSourceImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteSource()
+	 * @generated
+	 */
+	int RTE_SOURCE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -4682,6 +3580,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_SOURCE_OPERATION_COUNT = SOURCE_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl <em>Rte Module</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteModule()
+	 * @generated
+	 */
+	int RTE_MODULE = 21;
+
+	/**
 	 * The feature id for the '<em><b>Dependent Header</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4871,6 +3779,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_MODULE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ParameterImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getParameter()
+	 * @generated
+	 */
+	int PARAMETER = 24;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4979,6 +3897,16 @@ public interface ModulePackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TypeImpl <em>Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 25;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5076,6 +4004,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LocalVariableImpl <em>Local Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LocalVariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLocalVariable()
+	 * @generated
+	 */
+	int LOCAL_VARIABLE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -5177,6 +4115,16 @@ public interface ModulePackage extends EPackage {
 	int LOCAL_VARIABLE_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl <em>Header File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getHeaderFile()
+	 * @generated
+	 */
+	int HEADER_FILE = 153;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5265,6 +4213,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int HEADER_FILE_OPERATION_COUNT = FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationHeaderImpl <em>Rte Application Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApplicationHeader()
+	 * @generated
+	 */
+	int RTE_APPLICATION_HEADER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -5420,6 +4378,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_APPLICATION_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl <em>Logical Compartment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getLogicalCompartment()
+	 * @generated
+	 */
+	int LOGICAL_COMPARTMENT = 29;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5481,6 +4449,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int LOGICAL_COMPARTMENT_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl <em>Rte</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRte()
+	 * @generated
+	 */
+	int RTE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -5807,6 +4785,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_OPERATION_COUNT = LOGICAL_COMPARTMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl <em>Core</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCore()
+	 * @generated
+	 */
+	int CORE = 31;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5913,6 +4901,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CORE_OPERATION_COUNT = LOGICAL_COMPARTMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl <em>Partition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartition()
+	 * @generated
+	 */
+	int PARTITION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -6257,6 +5255,16 @@ public interface ModulePackage extends EPackage {
 	int PARTITION_OPERATION_COUNT = LOGICAL_COMPARTMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl <em>Swc</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwc()
+	 * @generated
+	 */
+	int SWC = 33;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6464,6 +5472,16 @@ public interface ModulePackage extends EPackage {
 	int SWC_OPERATION_COUNT = LOGICAL_COMPARTMENT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteHeaderImpl <em>Rte Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteHeader()
+	 * @generated
+	 */
+	int RTE_HEADER = 34;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6552,6 +5570,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBswApiHeaderImpl <em>Rte Bsw Api Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBswApiHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBswApiHeader()
+	 * @generated
+	 */
+	int RTE_BSW_API_HEADER = 35;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -6651,6 +5679,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BSW_API_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleHeaderImpl <em>Rte Lifecycle Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleHeader()
+	 * @generated
+	 */
+	int RTE_LIFECYCLE_HEADER = 36;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -6761,6 +5799,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_LIFECYCLE_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationTypeHeaderImpl <em>Rte Application Type Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApplicationTypeHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApplicationTypeHeader()
+	 * @generated
+	 */
+	int RTE_APPLICATION_TYPE_HEADER = 37;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6860,6 +5908,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_APPLICATION_TYPE_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteVfbTraceHeaderImpl <em>Rte Vfb Trace Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteVfbTraceHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteVfbTraceHeader()
+	 * @generated
+	 */
+	int RTE_VFB_TRACE_HEADER = 38;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6950,6 +6008,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_VFB_TRACE_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteConfigurationHeaderImpl <em>Rte Configuration Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteConfigurationHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteConfigurationHeader()
+	 * @generated
+	 */
+	int RTE_CONFIGURATION_HEADER = 39;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7038,6 +6106,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_CONFIGURATION_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCallbackHeaderImpl <em>Rte Callback Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCallbackHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteCallbackHeader()
+	 * @generated
+	 */
+	int RTE_CALLBACK_HEADER = 40;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -7137,6 +6215,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_CALLBACK_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl <em>Rte Type Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteTypeHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteTypeHeader()
+	 * @generated
+	 */
+	int RTE_TYPE_HEADER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -7254,6 +6342,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_TYPE_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InvalidateApiImpl <em>Invalidate Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InvalidateApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInvalidateApi()
+	 * @generated
+	 */
+	int INVALIDATE_API = 42;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -7472,6 +6570,16 @@ public interface ModulePackage extends EPackage {
 	int INVALIDATE_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl <em>Ioc Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendOperation()
+	 * @generated
+	 */
+	int IOC_SEND_OPERATION = 93;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7578,6 +6686,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_SEND_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedSendOperationImpl <em>Ioc Nonqueued Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedSendOperation()
+	 * @generated
+	 */
+	int IOC_NONQUEUED_SEND_OPERATION = 43;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -7695,6 +6813,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_NONQUEUED_SEND_OPERATION_OPERATION_COUNT = IOC_SEND_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl <em>Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendOperation()
+	 * @generated
+	 */
+	int COM_SEND_OPERATION = 61;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -7823,6 +6951,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DirectComSendOperationImpl <em>Direct Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DirectComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDirectComSendOperation()
+	 * @generated
+	 */
+	int DIRECT_COM_SEND_OPERATION = 44;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7947,6 +7085,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int DIRECT_COM_SEND_OPERATION_OPERATION_COUNT = COM_SEND_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteOperationImpl <em>Trusted Function Rte Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteOperation()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_RTE_OPERATION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -8075,14 +7223,14 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl <em>Trusted Function Rte Buffer Send Send Operation</em>}' class.
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl <em>Trusted Function Rte Buffer Write Send Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferSendSendOperation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferWriteSendOperation()
 	 * @generated
 	 */
-	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION = 47;
+	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = 46;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -8220,6 +7368,16 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl <em>Trusted Function Rte Buffer Send Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferSendSendOperation()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION = 47;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8355,456 +7513,6 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl <em>Com Rx Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxCallback()
-	 * @generated
-	 */
-	int COM_RX_CALLBACK = 60;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl <em>Com Rx TOut Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxTOutCallback()
-	 * @generated
-	 */
-	int COM_RX_TOUT_CALLBACK = 63;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl <em>Com Inv Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvCallback()
-	 * @generated
-	 */
-	int COM_INV_CALLBACK = 64;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl <em>TAck Notify Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckNotifyOperation()
-	 * @generated
-	 */
-	int TACK_NOTIFY_OPERATION = 68;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl <em>Com Tx TOut Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTxTOutCallback()
-	 * @generated
-	 */
-	int COM_TX_TOUT_CALLBACK = 69;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl <em>Com TAck Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTAckCallback()
-	 * @generated
-	 */
-	int COM_TACK_CALLBACK = 70;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl <em>Com TErr Callback</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTErrCallback()
-	 * @generated
-	 */
-	int COM_TERR_CALLBACK = 71;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
-	 * @generated
-	 */
-	int TF_CALL_API = 97;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
-	 * @generated
-	 */
-	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 110;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
-	 * @generated
-	 */
-	int PLAIN_EXECUTABLE_START_OPERATION = 117;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
-	 * @generated
-	 */
-	int COM_SEND_PROXY_OPERATION = 132;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
-	 * @generated
-	 */
-	int RTE_BUFFER_SEND_TRUSTED_FUNCTION = 143;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
-	 * @generated
-	 */
-	int CS_TRUSTED_FUNCTION = 144;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
-	 * @generated
-	 */
-	int CS_TF_CALLED_RUNNABLE = 145;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
-	 * @generated
-	 */
-	int SERVER_RUNNABLE_START_OPERATION = 146;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
-	 * @generated
-	 */
-	int IOC_SEND_GROUP_API = 149;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
-	 * @generated
-	 */
-	int IOC_QUEUED_GROUP_COMMUNICATION = 150;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
-	 * @generated
-	 */
-	int RTE_START_API = 152;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
-	 * @generated
-	 */
-	int SINGLECORE_RTE_START_API = 151;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl <em>Rte Internal Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteInternalHeader()
-	 * @generated
-	 */
-	int RTE_INTERNAL_HEADER = 155;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeDeclarationGroup()
-	 * @generated
-	 */
-	int MODE_DECLARATION_GROUP = 157;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl <em>Mode Machine Instance</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeMachineInstance()
-	 * @generated
-	 */
-	int MODE_MACHINE_INSTANCE = 160;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl <em>Function Macro</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionMacro()
-	 * @generated
-	 */
-	int FUNCTION_MACRO = 161;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl <em>Com Proxy Function Table File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunctionTableFileContentsGroup()
-	 * @generated
-	 */
-	int COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP = 162;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveType()
-	 * @generated
-	 */
-	int PRIMITIVE_TYPE = 163;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
-	 * @generated
-	 */
-	int MODE_TYPE = 156;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl <em>Redefinition Primitive Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionPrimitiveType()
-	 * @generated
-	 */
-	int REDEFINITION_PRIMITIVE_TYPE = 164;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl <em>Array Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getArrayType()
-	 * @generated
-	 */
-	int ARRAY_TYPE = 165;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl <em>Redefinition Array Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionArrayType()
-	 * @generated
-	 */
-	int REDEFINITION_ARRAY_TYPE = 166;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl <em>Union Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionType()
-	 * @generated
-	 */
-	int UNION_TYPE = 167;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl <em>Redefinition Union Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionUnionType()
-	 * @generated
-	 */
-	int REDEFINITION_UNION_TYPE = 168;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl <em>Struct Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructType()
-	 * @generated
-	 */
-	int STRUCT_TYPE = 169;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl <em>Redefinition Struct Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionStructType()
-	 * @generated
-	 */
-	int REDEFINITION_STRUCT_TYPE = 170;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl <em>Blackbox Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxType()
-	 * @generated
-	 */
-	int BLACKBOX_TYPE = 171;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl <em>Union Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionMember()
-	 * @generated
-	 */
-	int UNION_MEMBER = 172;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl <em>Struct Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructMember()
-	 * @generated
-	 */
-	int STRUCT_MEMBER = 173;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl <em>Variable Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableMember()
-	 * @generated
-	 */
-	int VARIABLE_MEMBER = 174;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl <em>Rte Utility Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteUtilityHeader()
-	 * @generated
-	 */
-	int RTE_UTILITY_HEADER = 175;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl <em>Blackbox Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxHeader()
-	 * @generated
-	 */
-	int BLACKBOX_HEADER = 176;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl <em>Rte Buffer Queue Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueueType()
-	 * @generated
-	 */
-	int RTE_BUFFER_QUEUE_TYPE = 177;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
-	 * @generated
-	 */
-	int MODE_QUEUE_TYPE = 158;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendTrustedFunctionParamType()
-	 * @generated
-	 */
-	int COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 180;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl <em>Cs Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunctionParamType()
-	 * @generated
-	 */
-	int CS_TRUSTED_FUNCTION_PARAM_TYPE = 181;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl <em>Never Read Operation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNeverReadOperation()
-	 * @generated
-	 */
-	int NEVER_READ_OPERATION = 182;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
-	 * @generated
-	 */
-	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = 49;
-
-	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8813,316 +7521,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION = 48;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMemoryMapping()
-	 * @generated
-	 */
-	int MEMORY_MAPPING = 183;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl <em>Swc Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMapping()
-	 * @generated
-	 */
-	int SWC_MEMORY_MAPPING = 184;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl <em>Bsw Memory Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMapping()
-	 * @generated
-	 */
-	int BSW_MEMORY_MAPPING = 185;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl <em>Global Variable File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableFileContentsGroup()
-	 * @generated
-	 */
-	int GLOBAL_VARIABLE_FILE_CONTENTS_GROUP = 186;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl <em>Function File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionFileContentsGroup()
-	 * @generated
-	 */
-	int FUNCTION_FILE_CONTENTS_GROUP = 187;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl <em>Rte Api File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApiFileContentsGroup()
-	 * @generated
-	 */
-	int RTE_API_FILE_CONTENTS_GROUP = 188;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl <em>Rte Lifecycle Api File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApiFileContentsGroup()
-	 * @generated
-	 */
-	int RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP = 189;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl <em>Task Body File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBodyFileContentsGroup()
-	 * @generated
-	 */
-	int TASK_BODY_FILE_CONTENTS_GROUP = 190;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl <em>Bsw Schedulable Entity File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntityFileContentsGroup()
-	 * @generated
-	 */
-	int BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP = 191;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl <em>Com Callback File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallbackFileContentsGroup()
-	 * @generated
-	 */
-	int COM_CALLBACK_FILE_CONTENTS_GROUP = 192;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl <em>Trusted Function File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionFileContentsGroup()
-	 * @generated
-	 */
-	int TRUSTED_FUNCTION_FILE_CONTENTS_GROUP = 193;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl <em>Executable Entity File Contents Group</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntityFileContentsGroup()
-	 * @generated
-	 */
-	int EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP = 194;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl <em>Bsw Memory Mapping Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMappingHeader()
-	 * @generated
-	 */
-	int BSW_MEMORY_MAPPING_HEADER = 195;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl <em>Swc Memory Mapping Header</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMappingHeader()
-	 * @generated
-	 */
-	int SWC_MEMORY_MAPPING_HEADER = 196;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl <em>Generation Info</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGenerationInfo()
-	 * @generated
-	 */
-	int GENERATION_INFO = 197;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl <em>Macro</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMacro()
-	 * @generated
-	 */
-	int MACRO = 198;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl <em>Schm Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmApi()
-	 * @generated
-	 */
-	int SCHM_API = 199;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl <em>Com Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_SIGNAL_API_WRAPPER = 200;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl <em>Com Proxy Function</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunction()
-	 * @generated
-	 */
-	int COM_PROXY_FUNCTION = 201;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl <em>Com Send Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_SEND_SIGNAL_API_WRAPPER = 202;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl <em>Com Receive Signal Api Wrapper</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApiWrapper()
-	 * @generated
-	 */
-	int COM_RECEIVE_SIGNAL_API_WRAPPER = 203;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl <em>Schm Lifecycle Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmLifecycleApi()
-	 * @generated
-	 */
-	int SCHM_LIFECYCLE_API = 204;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl <em>Schm Enter Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmEnterApi()
-	 * @generated
-	 */
-	int SCHM_ENTER_API = 205;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl <em>Schm Exit Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmExitApi()
-	 * @generated
-	 */
-	int SCHM_EXIT_API = 206;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl <em>Schm Switch Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmSwitchApi()
-	 * @generated
-	 */
-	int SCHM_SWITCH_API = 208;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
-	 * @generated
-	 */
-	int MODE_QUEUED_VARIABLE = 159;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
-	 * @generated
-	 */
-	int SCHM_MODE_API = 207;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl <em>Os Task Events Triggered By Mode</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEventsTriggeredByMode()
-	 * @generated
-	 */
-	int OS_TASK_EVENTS_TRIGGERED_BY_MODE = 209;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl <em>Os Task Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEvent()
-	 * @generated
-	 */
-	int OS_TASK_EVENT = 210;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl <em>Rte Nonqueued Send Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteNonqueuedSendTrustedFunctionParamType()
-	 * @generated
-	 */
-	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 178;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl <em>Rte Queued Send Trusted Function Param Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteQueuedSendTrustedFunctionParamType()
-	 * @generated
-	 */
-	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 179;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -9260,6 +7658,16 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION_OPERATION_COUNT = TRUSTED_FUNCTION_RTE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl <em>Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunction()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION = 126;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9375,6 +7783,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TRUSTED_FUNCTION_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
+	 * @generated
+	 */
+	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = 49;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -9501,6 +7919,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl <em>Trusted Function Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionComSendOperation()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_COM_SEND_OPERATION = 50;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -9665,6 +8093,16 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_COM_SEND_OPERATION_OPERATION_COUNT = COM_SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl <em>Proxy Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getProxyComSendOperation()
+	 * @generated
+	 */
+	int PROXY_COM_SEND_OPERATION = 148;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9825,6 +8263,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int PROXY_COM_SEND_OPERATION_OPERATION_COUNT = COM_SEND_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ImmediateProxyComSendOperationImpl <em>Immediate Proxy Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ImmediateProxyComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getImmediateProxyComSendOperation()
+	 * @generated
+	 */
+	int IMMEDIATE_PROXY_COM_SEND_OPERATION = 51;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -9998,6 +8446,16 @@ public interface ModulePackage extends EPackage {
 	int IMMEDIATE_PROXY_COM_SEND_OPERATION_OPERATION_COUNT = PROXY_COM_SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PeriodicProxyComSendOperationImpl <em>Periodic Proxy Com Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PeriodicProxyComSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPeriodicProxyComSendOperation()
+	 * @generated
+	 */
+	int PERIODIC_PROXY_COM_SEND_OPERATION = 52;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10160,6 +8618,16 @@ public interface ModulePackage extends EPackage {
 	int PERIODIC_PROXY_COM_SEND_OPERATION_OPERATION_COUNT = PROXY_COM_SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedReadOperationImpl <em>Ioc Nonqueued Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedReadOperation()
+	 * @generated
+	 */
+	int IOC_NONQUEUED_READ_OPERATION = 53;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10248,6 +8716,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_NONQUEUED_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReadOperationImpl <em>Com Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReadOperation()
+	 * @generated
+	 */
+	int COM_READ_OPERATION = 54;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10349,6 +8827,16 @@ public interface ModulePackage extends EPackage {
 	int COM_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl <em>Ioc Communication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocCommunication()
+	 * @generated
+	 */
+	int IOC_COMMUNICATION = 147;
+
+	/**
 	 * The number of structural features of the '<em>Ioc Communication</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10365,6 +8853,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_COMMUNICATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl <em>Ioc Nonqueued Communication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocNonqueuedCommunicationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocNonqueuedCommunication()
+	 * @generated
+	 */
+	int IOC_NONQUEUED_COMMUNICATION = 55;
 
 	/**
 	 * The feature id for the '<em><b>Write Api</b></em>' containment reference list.
@@ -10419,6 +8917,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_NONQUEUED_COMMUNICATION_OPERATION_COUNT = IOC_COMMUNICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl <em>Ioc Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocApi()
+	 * @generated
+	 */
+	int IOC_API = 124;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10536,6 +9044,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocWriteApiImpl <em>Ioc Write Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocWriteApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocWriteApi()
+	 * @generated
+	 */
+	int IOC_WRITE_API = 56;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10664,6 +9182,16 @@ public interface ModulePackage extends EPackage {
 	int IOC_WRITE_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReadApiImpl <em>Ioc Read Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReadApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReadApi()
+	 * @generated
+	 */
+	int IOC_READ_API = 57;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10779,6 +9307,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_READ_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl <em>Com Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComApi()
+	 * @generated
+	 */
+	int COM_API = 123;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -10907,6 +9445,16 @@ public interface ModulePackage extends EPackage {
 	int COM_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiImpl <em>Com Send Signal Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApi()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_API = 58;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11031,6 +9579,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_SIGNAL_API_OPERATION_COUNT = COM_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiImpl <em>Com Receive Signal Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApi()
+	 * @generated
+	 */
+	int COM_RECEIVE_SIGNAL_API = 59;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -11159,6 +9717,16 @@ public interface ModulePackage extends EPackage {
 	int COM_RECEIVE_SIGNAL_API_OPERATION_COUNT = COM_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl <em>Com Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallback()
+	 * @generated
+	 */
+	int COM_CALLBACK = 62;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11265,6 +9833,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_CALLBACK_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl <em>Com Rx Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxCallback()
+	 * @generated
+	 */
+	int COM_RX_CALLBACK = 60;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -11420,6 +9998,16 @@ public interface ModulePackage extends EPackage {
 	int COM_RX_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl <em>Com Rx TOut Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComRxTOutCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComRxTOutCallback()
+	 * @generated
+	 */
+	int COM_RX_TOUT_CALLBACK = 63;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11573,6 +10161,16 @@ public interface ModulePackage extends EPackage {
 	int COM_RX_TOUT_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl <em>Com Inv Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComInvCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComInvCallback()
+	 * @generated
+	 */
+	int COM_INV_CALLBACK = 64;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11715,6 +10313,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_INV_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl <em>Com Send Signal Proxy Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalProxyEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalProxyEntity()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_PROXY_ENTITY = 65;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -11861,6 +10469,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_PROXY_ENTITY_OPERATION_COUNT = BSW_SCHEDULABLE_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateEntityImpl <em>Com Send Signal Immediate Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateEntity()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY = 66;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12003,6 +10621,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_SIGNAL_IMMEDIATE_ENTITY_OPERATION_COUNT = COM_SEND_SIGNAL_PROXY_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalPeriodicEntityImpl <em>Com Send Signal Periodic Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalPeriodicEntityImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalPeriodicEntity()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_PERIODIC_ENTITY = 67;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -12149,6 +10777,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_PERIODIC_ENTITY_OPERATION_COUNT = COM_SEND_SIGNAL_PROXY_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl <em>TAck Notify Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TAckNotifyOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTAckNotifyOperation()
+	 * @generated
+	 */
+	int TACK_NOTIFY_OPERATION = 68;
+
+	/**
 	 * The feature id for the '<em><b>Activation Operation</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12183,6 +10821,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TACK_NOTIFY_OPERATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl <em>Com Tx TOut Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTxTOutCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTxTOutCallback()
+	 * @generated
+	 */
+	int COM_TX_TOUT_CALLBACK = 69;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -12302,6 +10950,16 @@ public interface ModulePackage extends EPackage {
 	int COM_TX_TOUT_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl <em>Com TAck Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTAckCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTAckCallback()
+	 * @generated
+	 */
+	int COM_TACK_CALLBACK = 70;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12417,6 +11075,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_TACK_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl <em>Com TErr Callback</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComTErrCallbackImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComTErrCallback()
+	 * @generated
+	 */
+	int COM_TERR_CALLBACK = 71;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -12536,6 +11204,16 @@ public interface ModulePackage extends EPackage {
 	int COM_TERR_CALLBACK_OPERATION_COUNT = COM_CALLBACK_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl <em>Filter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFilterOperation()
+	 * @generated
+	 */
+	int FILTER_OPERATION = 72;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12588,6 +11266,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersMaskedOldFilterOperationImpl <em>Masked New Differs Masked Old Filter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersMaskedOldFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersMaskedOldFilterOperation()
+	 * @generated
+	 */
+	int MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION = 73;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -12662,6 +11350,16 @@ public interface ModulePackage extends EPackage {
 	int MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersXFilterOperationImpl <em>Masked New Differs XFilter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewDiffersXFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewDiffersXFilterOperation()
+	 * @generated
+	 */
+	int MASKED_NEW_DIFFERS_XFILTER_OPERATION = 74;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12732,6 +11430,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MASKED_NEW_DIFFERS_XFILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsWithinFilterOperationImpl <em>New Is Within Filter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsWithinFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsWithinFilterOperation()
+	 * @generated
+	 */
+	int NEW_IS_WITHIN_FILTER_OPERATION = 75;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -12806,6 +11514,16 @@ public interface ModulePackage extends EPackage {
 	int NEW_IS_WITHIN_FILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsOutsideFilterOperationImpl <em>New Is Outside Filter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NewIsOutsideFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNewIsOutsideFilterOperation()
+	 * @generated
+	 */
+	int NEW_IS_OUTSIDE_FILTER_OPERATION = 76;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12878,6 +11596,16 @@ public interface ModulePackage extends EPackage {
 	int NEW_IS_OUTSIDE_FILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewEqualsXFilterOperationImpl <em>Masked New Equals XFilter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MaskedNewEqualsXFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMaskedNewEqualsXFilterOperation()
+	 * @generated
+	 */
+	int MASKED_NEW_EQUALS_XFILTER_OPERATION = 77;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12948,6 +11676,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MASKED_NEW_EQUALS_XFILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OneEveryNFilterOperationImpl <em>One Every NFilter Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OneEveryNFilterOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOneEveryNFilterOperation()
+	 * @generated
+	 */
+	int ONE_EVERY_NFILTER_OPERATION = 78;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -13029,6 +11767,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int ONE_EVERY_NFILTER_OPERATION_OPERATION_COUNT = FILTER_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApi()
+	 * @generated
+	 */
+	int RTE_LIFECYCLE_API = 84;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -13137,6 +11885,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_LIFECYCLE_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCoreStartApiImplImpl <em>Rte Core Start Api Impl</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteCoreStartApiImplImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteCoreStartApiImpl()
+	 * @generated
+	 */
+	int RTE_CORE_START_API_IMPL = 79;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -13265,6 +12023,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_CORE_START_API_IMPL_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStopApiImpl <em>Rte Stop Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStopApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStopApi()
+	 * @generated
+	 */
+	int RTE_STOP_API = 80;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13371,6 +12139,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_STOP_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRestartPartitionApi()
+	 * @generated
+	 */
+	int RESTART_PARTITION_API = 81;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -13488,6 +12266,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RESTART_PARTITION_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl <em>Partition Restarting Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionRestartingApi()
+	 * @generated
+	 */
+	int PARTITION_RESTARTING_API = 82;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -13616,6 +12404,16 @@ public interface ModulePackage extends EPackage {
 	int PARTITION_RESTARTING_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionTerminatedApi()
+	 * @generated
+	 */
+	int PARTITION_TERMINATED_API = 83;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13740,6 +12538,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int PARTITION_TERMINATED_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl <em>Send Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendApi()
+	 * @generated
+	 */
+	int SEND_API = 85;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -14003,6 +12811,16 @@ public interface ModulePackage extends EPackage {
 	int SEND_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReceiveApi()
+	 * @generated
+	 */
+	int RECEIVE_API = 86;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14210,6 +13028,16 @@ public interface ModulePackage extends EPackage {
 	int RECEIVE_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl <em>Rte Buffer Queued Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedSendOperation()
+	 * @generated
+	 */
+	int RTE_BUFFER_QUEUED_SEND_OPERATION = 87;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14325,6 +13153,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BUFFER_QUEUED_SEND_OPERATION_OPERATION_COUNT = SEND_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl <em>Rte Buffer Queued Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedVariable()
+	 * @generated
+	 */
+	int RTE_BUFFER_QUEUED_VARIABLE = 88;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -14471,6 +13309,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_QUEUED_VARIABLE_OPERATION_COUNT = GLOBAL_VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl <em>Rte Buffer Queued Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedReadOperation()
+	 * @generated
+	 */
+	int RTE_BUFFER_QUEUED_READ_OPERATION = 89;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14561,6 +13409,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_QUEUED_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl <em>Ioc Queued Communication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedCommunication()
+	 * @generated
+	 */
+	int IOC_QUEUED_COMMUNICATION = 90;
+
+	/**
 	 * The feature id for the '<em><b>Send Api</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14604,6 +13462,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_QUEUED_COMMUNICATION_OPERATION_COUNT = IOC_COMMUNICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl <em>Ioc Receive Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveApi()
+	 * @generated
+	 */
+	int IOC_RECEIVE_API = 91;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -14723,6 +13591,16 @@ public interface ModulePackage extends EPackage {
 	int IOC_RECEIVE_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl <em>Ioc Send Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendApi()
+	 * @generated
+	 */
+	int IOC_SEND_API = 92;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14838,6 +13716,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_SEND_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedSendOperation()
+	 * @generated
+	 */
+	int IOC_QUEUED_SEND_OPERATION = 94;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -14966,6 +13854,16 @@ public interface ModulePackage extends EPackage {
 	int IOC_QUEUED_SEND_OPERATION_OPERATION_COUNT = IOC_SEND_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl <em>Ioc Queued Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedReadOperation()
+	 * @generated
+	 */
+	int IOC_QUEUED_READ_OPERATION = 95;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15063,6 +13961,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_QUEUED_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl <em>Call Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCallApi()
+	 * @generated
+	 */
+	int CALL_API = 96;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -15279,6 +14187,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CALL_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
+	 * @generated
+	 */
+	int TF_CALL_API = 97;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -15542,6 +14460,16 @@ public interface ModulePackage extends EPackage {
 	int TF_CALL_API_OPERATION_COUNT = CALL_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl <em>Executable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableStartOperation()
+	 * @generated
+	 */
+	int EXECUTABLE_START_OPERATION = 98;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15614,6 +14542,16 @@ public interface ModulePackage extends EPackage {
 	int EXECUTABLE_START_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl <em>Disabled In Mode</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDisabledInMode()
+	 * @generated
+	 */
+	int DISABLED_IN_MODE = 99;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15677,6 +14615,16 @@ public interface ModulePackage extends EPackage {
 	int DISABLED_IN_MODE_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl <em>Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExcludeOperation()
+	 * @generated
+	 */
+	int EXCLUDE_OPERATION = 100;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15720,6 +14668,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCLUDE_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl <em>All Interrupt Block Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getAllInterruptBlockExcludeOperation()
+	 * @generated
+	 */
+	int ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 101;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -15767,6 +14725,16 @@ public interface ModulePackage extends EPackage {
 	int ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION_OPERATION_COUNT = EXCLUDE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl <em>Os Interrupt Block Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsInterruptBlockExcludeOperation()
+	 * @generated
+	 */
+	int OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = 102;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15810,6 +14778,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION_OPERATION_COUNT = EXCLUDE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl <em>Os Spinlock Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSpinlockExcludeOperation()
+	 * @generated
+	 */
+	int OS_SPINLOCK_EXCLUDE_OPERATION = 103;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -15866,6 +14844,16 @@ public interface ModulePackage extends EPackage {
 	int OS_SPINLOCK_EXCLUDE_OPERATION_OPERATION_COUNT = EXCLUDE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl <em>Os Resource Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsResourceExcludeOperation()
+	 * @generated
+	 */
+	int OS_RESOURCE_EXCLUDE_OPERATION = 104;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15920,6 +14908,16 @@ public interface ModulePackage extends EPackage {
 	int OS_RESOURCE_EXCLUDE_OPERATION_OPERATION_COUNT = EXCLUDE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl <em>None Exclude Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNoneExcludeOperation()
+	 * @generated
+	 */
+	int NONE_EXCLUDE_OPERATION = 105;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15963,6 +14961,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int NONE_EXCLUDE_OPERATION_OPERATION_COUNT = EXCLUDE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl <em>Constant</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstant()
+	 * @generated
+	 */
+	int CONSTANT = 106;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -16080,6 +15088,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTANT_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl <em>Constant Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantMember()
+	 * @generated
+	 */
+	int CONSTANT_MEMBER = 107;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -16206,6 +15224,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONSTANT_MEMBER_OPERATION_COUNT = CONSTANT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl <em>Rte Enter Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteEnterApi()
+	 * @generated
+	 */
+	int RTE_ENTER_API = 108;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -16406,6 +15434,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_ENTER_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl <em>Rte Exit Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteExitApi()
+	 * @generated
+	 */
+	int RTE_EXIT_API = 109;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16604,6 +15642,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_EXIT_API_OPERATION_COUNT = RTE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl <em>Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBody()
+	 * @generated
+	 */
+	int TASK_BODY = 121;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16719,6 +15767,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int TASK_BODY_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 110;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -16847,6 +15905,16 @@ public interface ModulePackage extends EPackage {
 	int OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = 111;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16971,6 +16039,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl <em>Os Event Set Executable Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetExecutableTaskBody()
+	 * @generated
+	 */
+	int OS_EVENT_SET_EXECUTABLE_TASK_BODY = 112;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17126,6 +16204,16 @@ public interface ModulePackage extends EPackage {
 	int OS_EVENT_SET_EXECUTABLE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl <em>Context Activation Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getContextActivationOperation()
+	 * @generated
+	 */
+	int CONTEXT_ACTIVATION_OPERATION = 115;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17198,6 +16286,16 @@ public interface ModulePackage extends EPackage {
 	int CONTEXT_ACTIVATION_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl <em>Os Task Activation Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationOperation()
+	 * @generated
+	 */
+	int OS_TASK_ACTIVATION_OPERATION = 113;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17268,6 +16366,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_TASK_ACTIVATION_OPERATION_OPERATION_COUNT = CONTEXT_ACTIVATION_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl <em>Os Event Set Activation Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetActivationOperation()
+	 * @generated
+	 */
+	int OS_EVENT_SET_ACTIVATION_OPERATION = 114;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17349,6 +16457,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_EVENT_SET_ACTIVATION_OPERATION_OPERATION_COUNT = CONTEXT_ACTIVATION_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl <em>Timing Triggering Executable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	int TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = 116;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17468,6 +16586,16 @@ public interface ModulePackage extends EPackage {
 	int TIMING_TRIGGERING_EXECUTABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
+	 * @generated
+	 */
+	int PLAIN_EXECUTABLE_START_OPERATION = 117;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17538,6 +16666,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int PLAIN_EXECUTABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeSwitchTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = 118;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17621,6 +16759,16 @@ public interface ModulePackage extends EPackage {
 	int MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl <em>Cycle Countup Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCycleCountupOperation()
+	 * @generated
+	 */
+	int CYCLE_COUNTUP_OPERATION = 119;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17684,6 +16832,16 @@ public interface ModulePackage extends EPackage {
 	int CYCLE_COUNTUP_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl <em>Start Offset Countup Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStartOffsetCountupOperation()
+	 * @generated
+	 */
+	int START_OFFSET_COUNTUP_OPERATION = 120;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17745,6 +16903,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int START_OFFSET_COUNTUP_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl <em>Ioc Empty Queue Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocEmptyQueueApi()
+	 * @generated
+	 */
+	int IOC_EMPTY_QUEUE_API = 122;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17862,6 +17030,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_EMPTY_QUEUE_API_OPERATION_COUNT = IOC_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl <em>Com Send Signal Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalTrustedFunction()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_TRUSTED_FUNCTION = 127;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -17999,6 +17177,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl <em>Os Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsApi()
+	 * @generated
+	 */
+	int OS_API = 129;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18105,6 +17293,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl <em>Os Set Event Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSetEventApi()
+	 * @generated
+	 */
+	int OS_SET_EVENT_API = 128;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18231,6 +17429,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_SET_EVENT_API_OPERATION_COUNT = OS_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl <em>Com Send Signal Immediate Task Body</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateTaskBody()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = 130;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18368,6 +17576,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY_OPERATION_COUNT = TASK_BODY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
+	 * @generated
+	 */
+	int COM_SEND_PROXY_OPERATION = 132;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18438,6 +17656,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_PROXY_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl <em>Ioc Receive Group Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveGroupApi()
+	 * @generated
+	 */
+	int IOC_RECEIVE_GROUP_API = 133;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18566,6 +17794,16 @@ public interface ModulePackage extends EPackage {
 	int IOC_RECEIVE_GROUP_API_OPERATION_COUNT = IOC_RECEIVE_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl <em>Root</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleRoot()
+	 * @generated
+	 */
+	int MODULE_ROOT = 134;
+
+	/**
 	 * The feature id for the '<em><b>Rte Module</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18602,6 +17840,16 @@ public interface ModulePackage extends EPackage {
 	int MODULE_ROOT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl <em>Inter Partition Timeout Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInterPartitionTimeoutOperation()
+	 * @generated
+	 */
+	int INTER_PARTITION_TIMEOUT_OPERATION = 135;
+
+	/**
 	 * The feature id for the '<em><b>Timeout Variable</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18636,6 +17884,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int INTER_PARTITION_TIMEOUT_OPERATION_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl <em>Initialize Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInitializeOperation()
+	 * @generated
+	 */
+	int INITIALIZE_OPERATION = 136;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18681,6 +17939,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int INITIALIZE_OPERATION_OPERATION_COUNT = OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl <em>Variable Initialize Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableInitializeOperation()
+	 * @generated
+	 */
+	int VARIABLE_INITIALIZE_OPERATION = 137;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18746,6 +18014,16 @@ public interface ModulePackage extends EPackage {
 	int VARIABLE_INITIALIZE_OPERATION_OPERATION_COUNT = INITIALIZE_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl <em>Ioc Initialize Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocInitializeOperation()
+	 * @generated
+	 */
+	int IOC_INITIALIZE_OPERATION = 138;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18798,6 +18076,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_INITIALIZE_OPERATION_OPERATION_COUNT = INITIALIZE_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl <em>Os Suspend All Interrupts Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSuspendAllInterruptsApi()
+	 * @generated
+	 */
+	int OS_SUSPEND_ALL_INTERRUPTS_API = 139;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -18908,6 +18196,16 @@ public interface ModulePackage extends EPackage {
 	int OS_SUSPEND_ALL_INTERRUPTS_API_OPERATION_COUNT = OS_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl <em>Os Get Spinlock Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsGetSpinlockApi()
+	 * @generated
+	 */
+	int OS_GET_SPINLOCK_API = 140;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19014,6 +18312,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_GET_SPINLOCK_API_OPERATION_COUNT = OS_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl <em>Multicore Rte Start Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreRteStartApi()
+	 * @generated
+	 */
+	int MULTICORE_RTE_START_API = 141;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19131,6 +18439,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTICORE_RTE_START_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl <em>Rte Buffer Write Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferWriteTrustedFunction()
+	 * @generated
+	 */
+	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION = 142;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19268,6 +18586,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_WRITE_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	int RTE_BUFFER_SEND_TRUSTED_FUNCTION = 143;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19401,6 +18729,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_BUFFER_SEND_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
+	 * @generated
+	 */
+	int CS_TRUSTED_FUNCTION = 144;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19547,6 +18885,16 @@ public interface ModulePackage extends EPackage {
 	int CS_TRUSTED_FUNCTION_OPERATION_COUNT = TRUSTED_FUNCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
+	 * @generated
+	 */
+	int CS_TF_CALLED_RUNNABLE = 145;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19608,6 +18956,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int CS_TF_CALLED_RUNNABLE_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
+	 * @generated
+	 */
+	int SERVER_RUNNABLE_START_OPERATION = 146;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19689,6 +19047,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVER_RUNNABLE_START_OPERATION_OPERATION_COUNT = EXECUTABLE_START_OPERATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
+	 * @generated
+	 */
+	int IOC_SEND_GROUP_API = 149;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19808,6 +19176,16 @@ public interface ModulePackage extends EPackage {
 	int IOC_SEND_GROUP_API_OPERATION_COUNT = IOC_SEND_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
+	 * @generated
+	 */
+	int IOC_QUEUED_GROUP_COMMUNICATION = 150;
+
+	/**
 	 * The feature id for the '<em><b>Receive Api</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -19842,6 +19220,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int IOC_QUEUED_GROUP_COMMUNICATION_OPERATION_COUNT = IOC_COMMUNICATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
+	 * @generated
+	 */
+	int RTE_START_API = 152;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -19950,6 +19338,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_START_API_OPERATION_COUNT = RTE_LIFECYCLE_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
+	 * @generated
+	 */
+	int SINGLECORE_RTE_START_API = 151;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -20067,6 +19465,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SINGLECORE_RTE_START_API_OPERATION_COUNT = RTE_START_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl <em>Rte Internal Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteInternalHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteInternalHeader()
+	 * @generated
+	 */
+	int RTE_INTERNAL_HEADER = 155;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -20294,6 +19702,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_INTERNAL_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
+	 * @generated
+	 */
+	int MODE_TYPE = 156;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20411,6 +19829,16 @@ public interface ModulePackage extends EPackage {
 	int MODE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeDeclarationGroup()
+	 * @generated
+	 */
+	int MODE_DECLARATION_GROUP = 157;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20508,6 +19936,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MODE_DECLARATION_GROUP_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
+	 * @generated
+	 */
+	int MODE_QUEUE_TYPE = 158;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -20625,6 +20063,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MODE_QUEUE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
+	 * @generated
+	 */
+	int MODE_QUEUED_VARIABLE = 159;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -20771,6 +20219,16 @@ public interface ModulePackage extends EPackage {
 	int MODE_QUEUED_VARIABLE_OPERATION_COUNT = GLOBAL_VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl <em>Mode Machine Instance</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeMachineInstance()
+	 * @generated
+	 */
+	int MODE_MACHINE_INSTANCE = 160;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20870,6 +20328,16 @@ public interface ModulePackage extends EPackage {
 	int MODE_MACHINE_INSTANCE_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl <em>Function Macro</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionMacroImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionMacro()
+	 * @generated
+	 */
+	int FUNCTION_MACRO = 161;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20933,6 +20401,16 @@ public interface ModulePackage extends EPackage {
 	int FUNCTION_MACRO_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl <em>Com Proxy Function Table File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionTableFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunctionTableFileContentsGroup()
+	 * @generated
+	 */
+	int COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP = 162;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20985,6 +20463,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_PROXY_FUNCTION_TABLE_FILE_CONTENTS_GROUP_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PrimitiveTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPrimitiveType()
+	 * @generated
+	 */
+	int PRIMITIVE_TYPE = 163;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21084,6 +20572,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int PRIMITIVE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl <em>Redefinition Primitive Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionPrimitiveType()
+	 * @generated
+	 */
+	int REDEFINITION_PRIMITIVE_TYPE = 164;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21203,6 +20701,16 @@ public interface ModulePackage extends EPackage {
 	int REDEFINITION_PRIMITIVE_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl <em>Array Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ArrayTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getArrayType()
+	 * @generated
+	 */
+	int ARRAY_TYPE = 165;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21309,6 +20817,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int ARRAY_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl <em>Redefinition Array Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionArrayTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionArrayType()
+	 * @generated
+	 */
+	int REDEFINITION_ARRAY_TYPE = 166;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21437,6 +20955,16 @@ public interface ModulePackage extends EPackage {
 	int REDEFINITION_ARRAY_TYPE_OPERATION_COUNT = ARRAY_TYPE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl <em>Union Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionType()
+	 * @generated
+	 */
+	int UNION_TYPE = 167;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21543,6 +21071,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int UNION_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl <em>Redefinition Union Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionUnionTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionUnionType()
+	 * @generated
+	 */
+	int REDEFINITION_UNION_TYPE = 168;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21671,6 +21209,16 @@ public interface ModulePackage extends EPackage {
 	int REDEFINITION_UNION_TYPE_OPERATION_COUNT = UNION_TYPE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl <em>Struct Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructType()
+	 * @generated
+	 */
+	int STRUCT_TYPE = 169;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -21777,6 +21325,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCT_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl <em>Redefinition Struct Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionStructTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRedefinitionStructType()
+	 * @generated
+	 */
+	int REDEFINITION_STRUCT_TYPE = 170;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -21905,6 +21463,16 @@ public interface ModulePackage extends EPackage {
 	int REDEFINITION_STRUCT_TYPE_OPERATION_COUNT = STRUCT_TYPE_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl <em>Blackbox Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxType()
+	 * @generated
+	 */
+	int BLACKBOX_TYPE = 171;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22004,6 +21572,16 @@ public interface ModulePackage extends EPackage {
 	int BLACKBOX_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl <em>Union Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.UnionMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getUnionMember()
+	 * @generated
+	 */
+	int UNION_MEMBER = 172;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22067,6 +21645,16 @@ public interface ModulePackage extends EPackage {
 	int UNION_MEMBER_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl <em>Struct Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StructMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStructMember()
+	 * @generated
+	 */
+	int STRUCT_MEMBER = 173;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22128,6 +21716,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int STRUCT_MEMBER_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl <em>Variable Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableMemberImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableMember()
+	 * @generated
+	 */
+	int VARIABLE_MEMBER = 174;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -22220,6 +21818,16 @@ public interface ModulePackage extends EPackage {
 	int VARIABLE_MEMBER_OPERATION_COUNT = VARIABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl <em>Rte Utility Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteUtilityHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteUtilityHeader()
+	 * @generated
+	 */
+	int RTE_UTILITY_HEADER = 175;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22310,6 +21918,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_UTILITY_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl <em>Blackbox Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BlackboxHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBlackboxHeader()
+	 * @generated
+	 */
+	int BLACKBOX_HEADER = 176;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22398,6 +22016,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int BLACKBOX_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl <em>Rte Buffer Queue Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueueTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueueType()
+	 * @generated
+	 */
+	int RTE_BUFFER_QUEUE_TYPE = 177;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -22517,6 +22145,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_BUFFER_QUEUE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl <em>Rte Nonqueued Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteNonqueuedSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteNonqueuedSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 178;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22616,6 +22254,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl <em>Rte Queued Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteQueuedSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteQueuedSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 179;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22713,6 +22361,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendTrustedFunctionParamType()
+	 * @generated
+	 */
+	int COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE = 180;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -22823,6 +22481,16 @@ public interface ModulePackage extends EPackage {
 	int COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl <em>Cs Trusted Function Param Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionParamTypeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunctionParamType()
+	 * @generated
+	 */
+	int CS_TRUSTED_FUNCTION_PARAM_TYPE = 181;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -22922,6 +22590,16 @@ public interface ModulePackage extends EPackage {
 	int CS_TRUSTED_FUNCTION_PARAM_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl <em>Never Read Operation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NeverReadOperationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNeverReadOperation()
+	 * @generated
+	 */
+	int NEVER_READ_OPERATION = 182;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23012,6 +22690,16 @@ public interface ModulePackage extends EPackage {
 	int NEVER_READ_OPERATION_OPERATION_COUNT = READ_OPERATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMemoryMapping()
+	 * @generated
+	 */
+	int MEMORY_MAPPING = 183;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23082,6 +22770,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MEMORY_MAPPING_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl <em>Swc Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMapping()
+	 * @generated
+	 */
+	int SWC_MEMORY_MAPPING = 184;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23156,6 +22854,16 @@ public interface ModulePackage extends EPackage {
 	int SWC_MEMORY_MAPPING_OPERATION_COUNT = MEMORY_MAPPING_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl <em>Bsw Memory Mapping</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMapping()
+	 * @generated
+	 */
+	int BSW_MEMORY_MAPPING = 185;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23228,6 +22936,16 @@ public interface ModulePackage extends EPackage {
 	int BSW_MEMORY_MAPPING_OPERATION_COUNT = MEMORY_MAPPING_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl <em>Global Variable File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGlobalVariableFileContentsGroup()
+	 * @generated
+	 */
+	int GLOBAL_VARIABLE_FILE_CONTENTS_GROUP = 186;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23291,6 +23009,16 @@ public interface ModulePackage extends EPackage {
 	int GLOBAL_VARIABLE_FILE_CONTENTS_GROUP_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl <em>Function File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.FunctionFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getFunctionFileContentsGroup()
+	 * @generated
+	 */
+	int FUNCTION_FILE_CONTENTS_GROUP = 187;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23352,6 +23080,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl <em>Rte Api File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApiFileContentsGroup()
+	 * @generated
+	 */
+	int RTE_API_FILE_CONTENTS_GROUP = 188;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23426,6 +23164,16 @@ public interface ModulePackage extends EPackage {
 	int RTE_API_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl <em>Rte Lifecycle Api File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApiFileContentsGroup()
+	 * @generated
+	 */
+	int RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP = 189;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23496,6 +23244,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_LIFECYCLE_API_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl <em>Task Body File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBodyFileContentsGroup()
+	 * @generated
+	 */
+	int TASK_BODY_FILE_CONTENTS_GROUP = 190;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23570,6 +23328,16 @@ public interface ModulePackage extends EPackage {
 	int TASK_BODY_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl <em>Bsw Schedulable Entity File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntityFileContentsGroup()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP = 191;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23640,6 +23408,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int BSW_SCHEDULABLE_ENTITY_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl <em>Com Callback File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComCallbackFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComCallbackFileContentsGroup()
+	 * @generated
+	 */
+	int COM_CALLBACK_FILE_CONTENTS_GROUP = 192;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23714,6 +23492,16 @@ public interface ModulePackage extends EPackage {
 	int COM_CALLBACK_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl <em>Trusted Function File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionFileContentsGroup()
+	 * @generated
+	 */
+	int TRUSTED_FUNCTION_FILE_CONTENTS_GROUP = 193;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23786,6 +23574,16 @@ public interface ModulePackage extends EPackage {
 	int TRUSTED_FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl <em>Executable Entity File Contents Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityFileContentsGroupImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntityFileContentsGroup()
+	 * @generated
+	 */
+	int EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP = 194;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23856,6 +23654,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int EXECUTABLE_ENTITY_FILE_CONTENTS_GROUP_OPERATION_COUNT = FUNCTION_FILE_CONTENTS_GROUP_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl <em>Bsw Memory Mapping Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswMemoryMappingHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswMemoryMappingHeader()
+	 * @generated
+	 */
+	int BSW_MEMORY_MAPPING_HEADER = 195;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -23957,6 +23765,16 @@ public interface ModulePackage extends EPackage {
 	int BSW_MEMORY_MAPPING_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl <em>Swc Memory Mapping Header</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcMemoryMappingHeaderImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSwcMemoryMappingHeader()
+	 * @generated
+	 */
+	int SWC_MEMORY_MAPPING_HEADER = 196;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -24056,6 +23874,16 @@ public interface ModulePackage extends EPackage {
 	int SWC_MEMORY_MAPPING_HEADER_OPERATION_COUNT = HEADER_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl <em>Generation Info</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GenerationInfoImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getGenerationInfo()
+	 * @generated
+	 */
+	int GENERATION_INFO = 197;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -24128,6 +23956,16 @@ public interface ModulePackage extends EPackage {
 	int GENERATION_INFO_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl <em>Macro</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MacroImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMacro()
+	 * @generated
+	 */
+	int MACRO = 198;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -24189,6 +24027,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int MACRO_OPERATION_COUNT = MODULE_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl <em>Schm Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmApi()
+	 * @generated
+	 */
+	int SCHM_API = 199;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24324,6 +24172,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHM_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl <em>Com Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_SIGNAL_API_WRAPPER = 200;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24468,6 +24326,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SIGNAL_API_WRAPPER_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl <em>Com Proxy Function</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComProxyFunctionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComProxyFunction()
+	 * @generated
+	 */
+	int COM_PROXY_FUNCTION = 201;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24650,6 +24518,16 @@ public interface ModulePackage extends EPackage {
 	int COM_PROXY_FUNCTION_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl <em>Com Send Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_SEND_SIGNAL_API_WRAPPER = 202;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -24792,6 +24670,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_SIGNAL_API_WRAPPER_OPERATION_COUNT = COM_SIGNAL_API_WRAPPER_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl <em>Com Receive Signal Api Wrapper</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComReceiveSignalApiWrapperImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComReceiveSignalApiWrapper()
+	 * @generated
+	 */
+	int COM_RECEIVE_SIGNAL_API_WRAPPER = 203;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -24938,6 +24826,16 @@ public interface ModulePackage extends EPackage {
 	int COM_RECEIVE_SIGNAL_API_WRAPPER_OPERATION_COUNT = COM_SIGNAL_API_WRAPPER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl <em>Schm Lifecycle Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmLifecycleApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmLifecycleApi()
+	 * @generated
+	 */
+	int SCHM_LIFECYCLE_API = 204;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25044,6 +24942,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHM_LIFECYCLE_API_OPERATION_COUNT = FUNCTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl <em>Schm Enter Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmEnterApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmEnterApi()
+	 * @generated
+	 */
+	int SCHM_ENTER_API = 205;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25199,6 +25107,16 @@ public interface ModulePackage extends EPackage {
 	int SCHM_ENTER_API_OPERATION_COUNT = SCHM_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl <em>Schm Exit Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmExitApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmExitApi()
+	 * @generated
+	 */
+	int SCHM_EXIT_API = 206;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25352,6 +25270,16 @@ public interface ModulePackage extends EPackage {
 	int SCHM_EXIT_API_OPERATION_COUNT = SCHM_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
+	 * @generated
+	 */
+	int SCHM_MODE_API = 207;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25503,6 +25431,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int SCHM_MODE_API_OPERATION_COUNT = SCHM_API_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl <em>Schm Switch Api</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmSwitchApi()
+	 * @generated
+	 */
+	int SCHM_SWITCH_API = 208;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -25667,6 +25605,16 @@ public interface ModulePackage extends EPackage {
 	int SCHM_SWITCH_API_OPERATION_COUNT = SCHM_API_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl <em>Os Task Events Triggered By Mode</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventsTriggeredByModeImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEventsTriggeredByMode()
+	 * @generated
+	 */
+	int OS_TASK_EVENTS_TRIGGERED_BY_MODE = 209;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25728,6 +25676,16 @@ public interface ModulePackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_TASK_EVENTS_TRIGGERED_BY_MODE_OPERATION_COUNT = MODULE_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl <em>Os Task Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskEventImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskEvent()
+	 * @generated
+	 */
+	int OS_TASK_EVENT = 210;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference list.
@@ -28423,6 +28381,7 @@ public interface ModulePackage extends EPackage {
 	 */
 	int INTEGER = 240;
 
+
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleObject <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
@@ -28496,6 +28455,178 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity <em>Executable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Executable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity
+	 * @generated
+	 */
+	EClass getExecutableEntity();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam <em>Role Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Role Param</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam()
+	 * @see #getExecutableEntity()
+	 * @generated
+	 */
+	EReference getExecutableEntity_RoleParam();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock <em>Is No Mock</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is No Mock</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock()
+	 * @see #getExecutableEntity()
+	 * @generated
+	 */
+	EAttribute getExecutableEntity_IsNoMock();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity <em>Bsw Schedulable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bsw Schedulable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity
+	 * @generated
+	 */
+	EClass getBswSchedulableEntity();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent Parted Bswm</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm()
+	 * @see #getBswSchedulableEntity()
+	 * @generated
+	 */
+	EReference getBswSchedulableEntity_ParentPartedBswm();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity <em>Runnable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Runnable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity
+	 * @generated
+	 */
+	EClass getRunnableEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity#getHasReturnValue <em>Has Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Return Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity#getHasReturnValue()
+	 * @see #getRunnableEntity()
+	 * @generated
+	 */
+	EAttribute getRunnableEntity_HasReturnValue();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi <em>Rte Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi
+	 * @generated
+	 */
+	EClass getRteApi();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getParent()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EReference getRteApi_Parent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName <em>Api Mapping Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Api Mapping Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EAttribute getRteApi_ApiMappingName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected <em>Is Connected</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Connected</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EAttribute getRteApi_IsConnected();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline <em>Is Inline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Inline</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EAttribute getRteApi_IsInline();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue <em>Return Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Return Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EReference getRteApi_ReturnValue();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineConstant <em>Inline Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inline Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineConstant()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EReference getRteApi_InlineConstant();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineGlobalVariable <em>Inline Global Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inline Global Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineGlobalVariable()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EReference getRteApi_InlineGlobalVariable();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineRunnableEntity <em>Inline Runnable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inline Runnable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineRunnableEntity()
+	 * @see #getRteApi()
+	 * @generated
+	 */
+	EReference getRteApi_InlineRunnableEntity();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi <em>Write Api</em>}'.
@@ -29177,104 +29308,6 @@ public interface ModulePackage extends EPackage {
 	EReference getRteSource_ComProxyFunctionGroup();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi <em>Rte Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi
-	 * @generated
-	 */
-	EClass getRteApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName <em>Api Mapping Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Api Mapping Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getApiMappingName()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EAttribute getRteApi_ApiMappingName();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue <em>Return Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Return Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getReturnValue()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EReference getRteApi_ReturnValue();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineConstant <em>Inline Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inline Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineConstant()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EReference getRteApi_InlineConstant();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineGlobalVariable <em>Inline Global Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inline Global Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineGlobalVariable()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EReference getRteApi_InlineGlobalVariable();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineRunnableEntity <em>Inline Runnable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inline Runnable Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getInlineRunnableEntity()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EReference getRteApi_InlineRunnableEntity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected <em>Is Connected</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Connected</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsConnected()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EAttribute getRteApi_IsConnected();
-
-	/**
-	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getParent()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EReference getRteApi_Parent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline <em>Is Inline</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Inline</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi#getIsInline()
-	 * @see #getRteApi()
-	 * @generated
-	 */
-	EAttribute getRteApi_IsInline();
-
-	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule <em>Rte Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29283,149 +29316,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRteModule();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonSource <em>Rte Common Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Common Source</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonSource()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteCommonSource();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionSource <em>Rte Partition Source</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Partition Source</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionSource()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RtePartitionSource();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationHeader <em>Rte Application Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Application Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteApplicationHeader();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationTypeHeader <em>Rte Application Type Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Application Type Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationTypeHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteApplicationTypeHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteLifecycleHeader <em>Rte Lifecycle Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Lifecycle Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteLifecycleHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteLifecycleHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCallbackHeader <em>Rte Callback Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Callback Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCallbackHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteCallbackHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteConfigurationHeader <em>Rte Configuration Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Configuration Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteConfigurationHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteConfigurationHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteVfbTraceHeader <em>Rte Vfb Trace Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Vfb Trace Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteVfbTraceHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteVfbTraceHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteTypeHeader <em>Rte Type Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Type Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteTypeHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteTypeHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteHeader <em>Rte Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonHeader <em>Rte Common Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Common Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteCommonHeader();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionHeader <em>Rte Partition Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Partition Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RtePartitionHeader();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteUtilityHeader <em>Rte Utility Header</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Utility Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteUtilityHeader()
-	 * @see #getRteModule()
-	 * @generated
-	 */
-	EReference getRteModule_RteUtilityHeader();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getDependentHeader <em>Dependent Header</em>}'.
@@ -29461,15 +29351,48 @@ public interface ModulePackage extends EPackage {
 	EReference getRteModule_SwcMemoryMappingHeader();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkHeader <em>Module Interlink Header</em>}'.
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteHeader <em>Rte Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Module Interlink Header</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkHeader()
+	 * @return the meta object for the containment reference '<em>Rte Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteHeader()
 	 * @see #getRteModule()
 	 * @generated
 	 */
-	EReference getRteModule_ModuleInterlinkHeader();
+	EReference getRteModule_RteHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteTypeHeader <em>Rte Type Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Type Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteTypeHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteTypeHeader();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationTypeHeader <em>Rte Application Type Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Application Type Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationTypeHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteApplicationTypeHeader();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationHeader <em>Rte Application Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Application Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteApplicationHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteApplicationHeader();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkTypeHeader <em>Module Interlink Type Header</em>}'.
@@ -29483,6 +29406,72 @@ public interface ModulePackage extends EPackage {
 	EReference getRteModule_ModuleInterlinkTypeHeader();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkHeader <em>Module Interlink Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Module Interlink Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getModuleInterlinkHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_ModuleInterlinkHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteLifecycleHeader <em>Rte Lifecycle Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Lifecycle Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteLifecycleHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteLifecycleHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteConfigurationHeader <em>Rte Configuration Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Configuration Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteConfigurationHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteConfigurationHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteVfbTraceHeader <em>Rte Vfb Trace Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Vfb Trace Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteVfbTraceHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteVfbTraceHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCallbackHeader <em>Rte Callback Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Callback Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCallbackHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteCallbackHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteUtilityHeader <em>Rte Utility Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Utility Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteUtilityHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteUtilityHeader();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteBswApiHeader <em>Rte Bsw Api Header</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29492,6 +29481,50 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRteModule_RteBswApiHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonHeader <em>Rte Common Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Common Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteCommonHeader();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionHeader <em>Rte Partition Header</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Partition Header</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionHeader()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RtePartitionHeader();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonSource <em>Rte Common Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Common Source</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRteCommonSource()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RteCommonSource();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionSource <em>Rte Partition Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Partition Source</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule#getRtePartitionSource()
+	 * @see #getRteModule()
+	 * @generated
+	 */
+	EReference getRteModule_RtePartitionSource();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable <em>Global Variable</em>}'.
@@ -29839,17 +29872,6 @@ public interface ModulePackage extends EPackage {
 	EClass getFunction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function#getSymbolName <em>Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function#getSymbolName()
-	 * @see #getFunction()
-	 * @generated
-	 */
-	EAttribute getFunction_SymbolName();
-
-	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function#getReturnType <em>Return Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29905,6 +29927,17 @@ public interface ModulePackage extends EPackage {
 	EReference getFunction_MemoryMapping();
 
 	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function#getSymbolName <em>Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function#getSymbolName()
+	 * @see #getFunction()
+	 * @generated
+	 */
+	EAttribute getFunction_SymbolName();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LogicalCompartment <em>Logical Compartment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29924,6 +29957,335 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLogicalCompartment_CompartmentName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte <em>Rte</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte
+	 * @generated
+	 */
+	EClass getRte();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCore <em>Core</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Core</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCore()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_Core();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm <em>Bswm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Bswm</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_Bswm();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Generation Info</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_GenerationInfo();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentType <em>Dependent Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_DependentType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant <em>Dependent Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_DependentConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentOsApi <em>Dependent Os Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Os Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentOsApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_DependentOsApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentIocCommunication <em>Dependent Ioc Communication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Ioc Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentIocCommunication()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_DependentIocCommunication();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentComApi <em>Dependent Com Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Com Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentComApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_DependentComApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueConstant <em>Ioc Init Value Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Ioc Init Value Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueConstant()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_IocInitValueConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueVariableSet <em>Ioc Init Value Variable Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Ioc Init Value Variable Set</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueVariableSet()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_IocInitValueVariableSet();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteMemoryMapping <em>Rte Memory Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rte Memory Mapping</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteMemoryMapping()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_RteMemoryMapping();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImplementationDataType <em>Implementation Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Implementation Data Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImplementationDataType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ImplementationDataType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Send Signal Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Send Signal Group Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalGroupTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType <em>Cs Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cs Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_CsTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType <em>Sr Rte Nonqueued Send Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sr Rte Nonqueued Send Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SrRteNonqueuedSendTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType <em>Sr Rte Queued Send Tf Param Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sr Rte Queued Send Tf Param Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SrRteQueuedSendTfParamType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant <em>Sr Rte Buffer Queue Max Length Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sr Rte Buffer Queue Max Length Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SrRteBufferQueueMaxLengthConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sr Rte Buffer Queue Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SrRteBufferQueueType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant <em>Immediate Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Immediate Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ImmediateConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Com Send Signal Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Send Signal Periodic Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalPeriodicEntity();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Send Signal Immediate Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalImmediateEntity();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Send Signal Immediate Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComSendSignalImmediateTaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback <em>Com Callback</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Com Callback</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_ComCallback();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Start Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_RteStartApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Stop Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_RteStopApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmInitApi <em>Schm Init Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Schm Init Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmInitApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SchmInitApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmDeinitApi <em>Schm Deinit Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Schm Deinit Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmDeinitApi()
+	 * @see #getRte()
+	 * @generated
+	 */
+	EReference getRte_SchmDeinitApi();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core <em>Core</em>}'.
@@ -30001,17 +30363,6 @@ public interface ModulePackage extends EPackage {
 	EClass getPartition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition <em>Is Bsw Partition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Bsw Partition</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EAttribute getPartition_IsBswPartition();
-
-	/**
 	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getParent <em>Parent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30034,158 +30385,26 @@ public interface ModulePackage extends EPackage {
 	EReference getPartition_Swc();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRestartPartitionApi <em>Restart Partition Api</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm <em>Parted Bswm</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Restart Partition Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRestartPartitionApi()
+	 * @return the meta object for the containment reference list '<em>Parted Bswm</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_RestartPartitionApi();
+	EReference getPartition_PartedBswm();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionTerminatedApi <em>Partition Terminated Api</em>}'.
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition <em>Is Bsw Partition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Partition Terminated Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionTerminatedApi()
+	 * @return the meta object for the attribute '<em>Is Bsw Partition</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getIsBswPartition()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_PartitionTerminatedApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionRestartingApi <em>Partition Restarting Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Partition Restarting Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionRestartingApi()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_PartitionRestartingApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus <em>TAck Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>TAck Status</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_TAckStatus();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody <em>Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_TaskBody();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfArgcConstant <em>Cs Tf Argc Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cs Tf Argc Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfArgcConstant()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_CsTfArgcConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfOpidConstant <em>Cs Tf Opid Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cs Tf Opid Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfOpidConstant()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_CsTfOpidConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTrustedFunction <em>Cs Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cs Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTrustedFunction()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_CsTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable <em>Entity Start Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Entity Start Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_EntityStartVariable();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant <em>Entity Start Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Entity Start Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_EntityStartConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Buffer Send Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_RteBufferSendTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterConstant <em>Sr Filter Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sr Filter Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterConstant()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_SrFilterConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOldValueVariable <em>Sr Filter Old Value Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sr Filter Old Value Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOldValueVariable()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_SrFilterOldValueVariable();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOccurrenceVariable <em>Sr Filter Occurrence Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sr Filter Occurrence Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOccurrenceVariable()
-	 * @see #getPartition()
-	 * @generated
-	 */
-	EReference getPartition_SrFilterOccurrenceVariable();
+	EAttribute getPartition_IsBswPartition();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getOsTrustedMacro <em>Os Trusted Macro</em>}'.
@@ -30243,15 +30462,37 @@ public interface ModulePackage extends EPackage {
 	EReference getPartition_ComMetaDataVariableSet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm <em>Parted Bswm</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunction <em>Com Proxy Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parted Bswm</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartedBswm()
+	 * @return the meta object for the containment reference list '<em>Com Proxy Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunction()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_PartedBswm();
+	EReference getPartition_ComProxyFunction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableIndexConstant <em>Com Proxy Function Table Index Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Com Proxy Function Table Index Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableIndexConstant()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_ComProxyFunctionTableIndexConstant();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant <em>Com Proxy Function Table Size Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Com Proxy Function Table Size Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_ComProxyFunctionTableSizeConstant();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableVariable <em>Com Proxy Function Table Variable</em>}'.
@@ -30309,37 +30550,158 @@ public interface ModulePackage extends EPackage {
 	EReference getPartition_SrRteBufferQueuedVariable();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunction <em>Com Proxy Function</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Com Proxy Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunction()
+	 * @return the meta object for the containment reference list '<em>Rte Buffer Send Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRteBufferSendTrustedFunction()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_ComProxyFunction();
+	EReference getPartition_RteBufferSendTrustedFunction();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableIndexConstant <em>Com Proxy Function Table Index Constant</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterConstant <em>Sr Filter Constant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Com Proxy Function Table Index Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableIndexConstant()
+	 * @return the meta object for the containment reference list '<em>Sr Filter Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterConstant()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_ComProxyFunctionTableIndexConstant();
+	EReference getPartition_SrFilterConstant();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant <em>Com Proxy Function Table Size Constant</em>}'.
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOldValueVariable <em>Sr Filter Old Value Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Proxy Function Table Size Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getComProxyFunctionTableSizeConstant()
+	 * @return the meta object for the containment reference list '<em>Sr Filter Old Value Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOldValueVariable()
 	 * @see #getPartition()
 	 * @generated
 	 */
-	EReference getPartition_ComProxyFunctionTableSizeConstant();
+	EReference getPartition_SrFilterOldValueVariable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOccurrenceVariable <em>Sr Filter Occurrence Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sr Filter Occurrence Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getSrFilterOccurrenceVariable()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_SrFilterOccurrenceVariable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfArgcConstant <em>Cs Tf Argc Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cs Tf Argc Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfArgcConstant()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_CsTfArgcConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfOpidConstant <em>Cs Tf Opid Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cs Tf Opid Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTfOpidConstant()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_CsTfOpidConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTrustedFunction <em>Cs Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cs Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getCsTrustedFunction()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_CsTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable <em>Entity Start Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entity Start Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartVariable()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_EntityStartVariable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant <em>Entity Start Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entity Start Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getEntityStartConstant()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_EntityStartConstant();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody <em>Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTaskBody()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_TaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRestartPartitionApi <em>Restart Partition Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Restart Partition Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getRestartPartitionApi()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_RestartPartitionApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionTerminatedApi <em>Partition Terminated Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Partition Terminated Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionTerminatedApi()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_PartitionTerminatedApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionRestartingApi <em>Partition Restarting Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Partition Restarting Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getPartitionRestartingApi()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_PartitionRestartingApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition#getTAckStatus()
+	 * @see #getPartition()
+	 * @generated
+	 */
+	EReference getPartition_TAckStatus();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc <em>Swc</em>}'.
@@ -30350,6 +30712,17 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSwc();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getParent()
+	 * @see #getSwc()
+	 * @generated
+	 */
+	EReference getSwc_Parent();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getSwcMemoryMapping <em>Swc Memory Mapping</em>}'.
@@ -30383,17 +30756,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSwc_DependentExternalRunnableEntity();
-
-	/**
-	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getParent()
-	 * @see #getSwc()
-	 * @generated
-	 */
-	EReference getSwc_Parent();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc#getRteApi <em>Rte Api</em>}'.
@@ -30813,6 +31175,17 @@ public interface ModulePackage extends EPackage {
 	EReference getTrustedFunctionRteOperation_TempReturnVariable();
 
 	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Trusted Function Param Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable()
+	 * @see #getTrustedFunctionRteOperation()
+	 * @generated
+	 */
+	EReference getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
+
+	/**
 	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30824,15 +31197,25 @@ public interface ModulePackage extends EPackage {
 	EReference getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation <em>Trusted Function Rte Buffer Write Send Operation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trusted Function Param Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation#getTrustedFunctionParamVariable()
-	 * @see #getTrustedFunctionRteOperation()
+	 * @return the meta object for class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation
 	 * @generated
 	 */
-	EReference getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
+	EClass getTrustedFunctionRteBufferWriteSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation#getAccessTrustedFunction <em>Access Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation#getAccessTrustedFunction()
+	 * @see #getTrustedFunctionRteBufferWriteSendOperation()
+	 * @generated
+	 */
+	EReference getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferSendSendOperation <em>Trusted Function Rte Buffer Send Send Operation</em>}'.
@@ -30854,6 +31237,48 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation
+	 * @generated
+	 */
+	EClass getTrustedFunctionRteBufferInvalidateSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getAccessTrustedFunction <em>Access Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getAccessTrustedFunction()
+	 * @see #getTrustedFunctionRteBufferInvalidateSendOperation()
+	 * @generated
+	 */
+	EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction <em>Rte Buffer Invalidate Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Invalidate Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction
+	 * @generated
+	 */
+	EClass getRteBufferInvalidateTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction#getOperation()
+	 * @see #getRteBufferInvalidateTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferInvalidateTrustedFunction_Operation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation <em>Trusted Function Com Send Operation</em>}'.
@@ -31749,6 +32174,2068 @@ public interface ModulePackage extends EPackage {
 	EClass getRteStopApi();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi <em>Restart Partition Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Restart Partition Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi
+	 * @generated
+	 */
+	EClass getRestartPartitionApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getOperation()
+	 * @see #getRestartPartitionApi()
+	 * @generated
+	 */
+	EReference getRestartPartitionApi_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi <em>Partition Restarting Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Partition Restarting Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi
+	 * @generated
+	 */
+	EClass getPartitionRestartingApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sr Inter Partition Timeout Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getSrInterPartitionTimeoutOperation()
+	 * @see #getPartitionRestartingApi()
+	 * @generated
+	 */
+	EReference getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation()
+	 * @see #getPartitionRestartingApi()
+	 * @generated
+	 */
+	EReference getPartitionRestartingApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi <em>Partition Terminated Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Partition Terminated Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi
+	 * @generated
+	 */
+	EClass getPartitionTerminatedApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sr Inter Partition Timeout Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation()
+	 * @see #getPartitionTerminatedApi()
+	 * @generated
+	 */
+	EReference getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation()
+	 * @see #getPartitionTerminatedApi()
+	 * @generated
+	 */
+	EReference getPartitionTerminatedApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi <em>Rte Lifecycle Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Lifecycle Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi
+	 * @generated
+	 */
+	EClass getRteLifecycleApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi <em>Send Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Send Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi
+	 * @generated
+	 */
+	EClass getSendApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getOperation()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_Operation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getDataParam <em>Data Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Param</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getDataParam()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_DataParam();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getStatusVariable <em>Status Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Status Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getStatusVariable()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_StatusVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Trusted Function Param Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTrustedFunctionParamVariable()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_TrustedFunctionParamVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getFilterResultVariable <em>Filter Result Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Filter Result Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getFilterResultVariable()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_FilterResultVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg <em>Needs Check Arg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Needs Check Arg</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EAttribute getSendApi_NeedsCheckArg();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation <em>Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_ActivationOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag <em>Activation Flag</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_ActivationFlag();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus <em>TAck Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>TAck Status</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus()
+	 * @see #getSendApi()
+	 * @generated
+	 */
+	EReference getSendApi_TAckStatus();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi <em>Receive Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Receive Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi
+	 * @generated
+	 */
+	EClass getReceiveApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getOperation()
+	 * @see #getReceiveApi()
+	 * @generated
+	 */
+	EReference getReceiveApi_Operation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getDataParam <em>Data Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Param</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getDataParam()
+	 * @see #getReceiveApi()
+	 * @generated
+	 */
+	EReference getReceiveApi_DataParam();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getStatusVariable <em>Status Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Status Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getStatusVariable()
+	 * @see #getReceiveApi()
+	 * @generated
+	 */
+	EReference getReceiveApi_StatusVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation <em>Rte Buffer Queued Send Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Queued Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation
+	 * @generated
+	 */
+	EClass getRteBufferQueuedSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getAccessVariable <em>Access Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getAccessVariable()
+	 * @see #getRteBufferQueuedSendOperation()
+	 * @generated
+	 */
+	EReference getRteBufferQueuedSendOperation_AccessVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getTempReturnVariable()
+	 * @see #getRteBufferQueuedSendOperation()
+	 * @generated
+	 */
+	EReference getRteBufferQueuedSendOperation_TempReturnVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getType()
+	 * @see #getRteBufferQueuedSendOperation()
+	 * @generated
+	 */
+	EReference getRteBufferQueuedSendOperation_Type();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable <em>Rte Buffer Queued Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Queued Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable
+	 * @generated
+	 */
+	EClass getRteBufferQueuedVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable#getQueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Queue Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable#getQueueType()
+	 * @see #getRteBufferQueuedVariable()
+	 * @generated
+	 */
+	EReference getRteBufferQueuedVariable_QueueType();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation <em>Rte Buffer Queued Read Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Queued Read Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation
+	 * @generated
+	 */
+	EClass getRteBufferQueuedReadOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation#getAccessVariable <em>Access Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation#getAccessVariable()
+	 * @see #getRteBufferQueuedReadOperation()
+	 * @generated
+	 */
+	EReference getRteBufferQueuedReadOperation_AccessVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication <em>Ioc Queued Communication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Queued Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication
+	 * @generated
+	 */
+	EClass getIocQueuedCommunication();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getSendApi <em>Send Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Send Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getSendApi()
+	 * @see #getIocQueuedCommunication()
+	 * @generated
+	 */
+	EReference getIocQueuedCommunication_SendApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getReceiveApi <em>Receive Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Receive Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getReceiveApi()
+	 * @see #getIocQueuedCommunication()
+	 * @generated
+	 */
+	EReference getIocQueuedCommunication_ReceiveApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getIocEmptyQueueApi <em>Ioc Empty Queue Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Ioc Empty Queue Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getIocEmptyQueueApi()
+	 * @see #getIocQueuedCommunication()
+	 * @generated
+	 */
+	EReference getIocQueuedCommunication_IocEmptyQueueApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi <em>Ioc Receive Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Receive Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi
+	 * @generated
+	 */
+	EClass getIocReceiveApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi <em>Ioc Send Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Send Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi
+	 * @generated
+	 */
+	EClass getIocSendApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation <em>Ioc Send Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation
+	 * @generated
+	 */
+	EClass getIocSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getType()
+	 * @see #getIocSendOperation()
+	 * @generated
+	 */
+	EReference getIocSendOperation_Type();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activation Flag On Rx Success</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess()
+	 * @see #getIocSendOperation()
+	 * @generated
+	 */
+	EReference getIocSendOperation_ActivationFlagOnRxSuccess();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation <em>Ioc Queued Send Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Queued Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation
+	 * @generated
+	 */
+	EClass getIocQueuedSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getAccessApi <em>Access Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getAccessApi()
+	 * @see #getIocQueuedSendOperation()
+	 * @generated
+	 */
+	EReference getIocQueuedSendOperation_AccessApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable()
+	 * @see #getIocQueuedSendOperation()
+	 * @generated
+	 */
+	EReference getIocQueuedSendOperation_TempReturnVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation <em>Ioc Queued Read Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Queued Read Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation
+	 * @generated
+	 */
+	EClass getIocQueuedReadOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getAccessApi <em>Access Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getAccessApi()
+	 * @see #getIocQueuedReadOperation()
+	 * @generated
+	 */
+	EReference getIocQueuedReadOperation_AccessApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getTempReturnVariable()
+	 * @see #getIocQueuedReadOperation()
+	 * @generated
+	 */
+	EReference getIocQueuedReadOperation_TempReturnVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi <em>Call Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Call Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi
+	 * @generated
+	 */
+	EClass getCallApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation()
+	 * @see #getCallApi()
+	 * @generated
+	 */
+	EReference getCallApi_Operation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperationParam <em>Operation Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Operation Param</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperationParam()
+	 * @see #getCallApi()
+	 * @generated
+	 */
+	EReference getCallApi_OperationParam();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getPortArgValue <em>Port Arg Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Port Arg Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getPortArgValue()
+	 * @see #getCallApi()
+	 * @generated
+	 */
+	EReference getCallApi_PortArgValue();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getReturnVariable <em>Return Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Return Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getReturnVariable()
+	 * @see #getCallApi()
+	 * @generated
+	 */
+	EReference getCallApi_ReturnVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi <em>Tf Call Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tf Call Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi
+	 * @generated
+	 */
+	EClass getTfCallApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfParamTypeName <em>Cs Tf Param Type Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Param Type Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfParamTypeName()
+	 * @see #getTfCallApi()
+	 * @generated
+	 */
+	EAttribute getTfCallApi_CsTfParamTypeName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfArgcConstantName <em>Cs Tf Argc Constant Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Argc Constant Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfArgcConstantName()
+	 * @see #getTfCallApi()
+	 * @generated
+	 */
+	EAttribute getTfCallApi_CsTfArgcConstantName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfOpidConstantName <em>Cs Tf Opid Constant Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Opid Constant Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfOpidConstantName()
+	 * @see #getTfCallApi()
+	 * @generated
+	 */
+	EAttribute getTfCallApi_CsTfOpidConstantName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfName <em>Cs Tf Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfName()
+	 * @see #getTfCallApi()
+	 * @generated
+	 */
+	EAttribute getTfCallApi_CsTfName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getNeedsCheckArg <em>Needs Check Arg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Needs Check Arg</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getNeedsCheckArg()
+	 * @see #getTfCallApi()
+	 * @generated
+	 */
+	EAttribute getTfCallApi_NeedsCheckArg();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation <em>Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation
+	 * @generated
+	 */
+	EClass getExecutableStartOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable <em>Start Executable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start Executable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable()
+	 * @see #getExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getExecutableStartOperation_StartExecutable();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getRieaExcludeOperation <em>Riea Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Riea Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getRieaExcludeOperation()
+	 * @see #getExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getExecutableStartOperation_RieaExcludeOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledInMode <em>Disabled In Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Disabled In Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledInMode()
+	 * @see #getExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getExecutableStartOperation_DisabledInMode();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode <em>Disabled In Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Disabled In Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode
+	 * @generated
+	 */
+	EClass getDisabledInMode();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getDisabledMode <em>Disabled Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Disabled Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getDisabledMode()
+	 * @see #getDisabledInMode()
+	 * @generated
+	 */
+	EReference getDisabledInMode_DisabledMode();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance <em>Mode Machine Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mode Machine Instance</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance()
+	 * @see #getDisabledInMode()
+	 * @generated
+	 */
+	EReference getDisabledInMode_ModeMachineInstance();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation <em>Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation
+	 * @generated
+	 */
+	EClass getExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation <em>All Interrupt Block Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>All Interrupt Block Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation
+	 * @generated
+	 */
+	EClass getAllInterruptBlockExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation <em>Os Interrupt Block Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Interrupt Block Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation
+	 * @generated
+	 */
+	EClass getOsInterruptBlockExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation <em>Os Spinlock Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Spinlock Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation
+	 * @generated
+	 */
+	EClass getOsSpinlockExcludeOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation#getOsSpinlockId <em>Os Spinlock Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Spinlock Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation#getOsSpinlockId()
+	 * @see #getOsSpinlockExcludeOperation()
+	 * @generated
+	 */
+	EAttribute getOsSpinlockExcludeOperation_OsSpinlockId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation <em>Os Resource Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Resource Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation
+	 * @generated
+	 */
+	EClass getOsResourceExcludeOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation#getOsResourceId <em>Os Resource Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Resource Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation#getOsResourceId()
+	 * @see #getOsResourceExcludeOperation()
+	 * @generated
+	 */
+	EAttribute getOsResourceExcludeOperation_OsResourceId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation <em>None Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>None Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation
+	 * @generated
+	 */
+	EClass getNoneExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant <em>Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant
+	 * @generated
+	 */
+	EClass getConstant();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getSymbolName <em>Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getSymbolName()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_SymbolName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName <em>External Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>External Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_ExternalSymbolName();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EReference getConstant_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getValue()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType <em>Constant Value Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Constant Value Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_ConstantValueType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getMember <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Member</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getMember()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EReference getConstant_Member();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName <em>Represented Variable Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Represented Variable Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName()
+	 * @see #getConstant()
+	 * @generated
+	 */
+	EAttribute getConstant_RepresentedVariableName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember <em>Constant Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Constant Member</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember
+	 * @generated
+	 */
+	EClass getConstantMember();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent()
+	 * @see #getConstantMember()
+	 * @generated
+	 */
+	EReference getConstantMember_Parent();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi <em>Rte Enter Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Enter Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi
+	 * @generated
+	 */
+	EClass getRteEnterApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getOperation()
+	 * @see #getRteEnterApi()
+	 * @generated
+	 */
+	EReference getRteEnterApi_Operation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getIsNoneExclude <em>Is None Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is None Exclude</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getIsNoneExclude()
+	 * @see #getRteEnterApi()
+	 * @generated
+	 */
+	EAttribute getRteEnterApi_IsNoneExclude();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi <em>Rte Exit Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Exit Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi
+	 * @generated
+	 */
+	EClass getRteExitApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getOperation()
+	 * @see #getRteExitApi()
+	 * @generated
+	 */
+	EReference getRteExitApi_Operation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getIsNoneExclude <em>Is None Exclude</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is None Exclude</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getIsNoneExclude()
+	 * @see #getRteExitApi()
+	 * @generated
+	 */
+	EAttribute getRteExitApi_IsNoneExclude();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody <em>Os Background Task Activation Executable Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Background Task Activation Executable Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody
+	 * @generated
+	 */
+	EClass getOsBackgroundTaskActivationExecutableTaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation()
+	 * @see #getOsBackgroundTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	EReference getOsBackgroundTaskActivationExecutableTaskBody_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody <em>Os Task Activation Executable Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Task Activation Executable Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody
+	 * @generated
+	 */
+	EClass getOsTaskActivationExecutableTaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody#getOperation()
+	 * @see #getOsTaskActivationExecutableTaskBody()
+	 * @generated
+	 */
+	EReference getOsTaskActivationExecutableTaskBody_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody <em>Os Event Set Executable Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Event Set Executable Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody
+	 * @generated
+	 */
+	EClass getOsEventSetExecutableTaskBody();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOperation()
+	 * @see #getOsEventSetExecutableTaskBody()
+	 * @generated
+	 */
+	EReference getOsEventSetExecutableTaskBody_Operation();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOsEventId <em>Os Event Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Os Event Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOsEventId()
+	 * @see #getOsEventSetExecutableTaskBody()
+	 * @generated
+	 */
+	EAttribute getOsEventSetExecutableTaskBody_OsEventId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getChecksOsEventId <em>Checks Os Event Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Checks Os Event Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getChecksOsEventId()
+	 * @see #getOsEventSetExecutableTaskBody()
+	 * @generated
+	 */
+	EAttribute getOsEventSetExecutableTaskBody_ChecksOsEventId();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getEventVariable <em>Event Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Event Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getEventVariable()
+	 * @see #getOsEventSetExecutableTaskBody()
+	 * @generated
+	 */
+	EReference getOsEventSetExecutableTaskBody_EventVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation <em>Os Task Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Task Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation
+	 * @generated
+	 */
+	EClass getOsTaskActivationOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation <em>Os Event Set Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Event Set Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation
+	 * @generated
+	 */
+	EClass getOsEventSetActivationOperation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation#getActivationOsEventId <em>Activation Os Event Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Activation Os Event Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation#getActivationOsEventId()
+	 * @see #getOsEventSetActivationOperation()
+	 * @generated
+	 */
+	EAttribute getOsEventSetActivationOperation_ActivationOsEventId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation <em>Context Activation Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Context Activation Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation
+	 * @generated
+	 */
+	EClass getContextActivationOperation();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getExecutableStartOperation <em>Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getExecutableStartOperation()
+	 * @see #getContextActivationOperation()
+	 * @generated
+	 */
+	EReference getContextActivationOperation_ExecutableStartOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getCycleCountupOperation <em>Cycle Countup Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Cycle Countup Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getCycleCountupOperation()
+	 * @see #getContextActivationOperation()
+	 * @generated
+	 */
+	EReference getContextActivationOperation_CycleCountupOperation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getStartOffsetCountupOperation <em>Start Offset Countup Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start Offset Countup Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getStartOffsetCountupOperation()
+	 * @see #getContextActivationOperation()
+	 * @generated
+	 */
+	EReference getContextActivationOperation_StartOffsetCountupOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation <em>Timing Triggering Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Timing Triggering Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation
+	 * @generated
+	 */
+	EClass getTimingTriggeringExecutableStartOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCyclePeriodConstant <em>Cycle Period Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cycle Period Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCyclePeriodConstant()
+	 * @see #getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getTimingTriggeringExecutableStartOperation_CyclePeriodConstant();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleOffsetConstant <em>Cycle Offset Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cycle Offset Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleOffsetConstant()
+	 * @see #getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getTimingTriggeringExecutableStartOperation_CycleOffsetConstant();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetConstant <em>Start Offset Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start Offset Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetConstant()
+	 * @see #getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getTimingTriggeringExecutableStartOperation_StartOffsetConstant();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetCounterVariable <em>Start Offset Counter Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start Offset Counter Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetCounterVariable()
+	 * @see #getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleCounterVariable <em>Cycle Counter Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cycle Counter Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleCounterVariable()
+	 * @see #getTimingTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation <em>Plain Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Plain Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation
+	 * @generated
+	 */
+	EClass getPlainExecutableStartOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation <em>Mode Switch Triggering Executable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Switch Triggering Executable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation
+	 * @generated
+	 */
+	EClass getModeSwitchTriggeringExecutableStartOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation#getStartMode <em>Start Mode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Start Mode</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation#getStartMode()
+	 * @see #getModeSwitchTriggeringExecutableStartOperation()
+	 * @generated
+	 */
+	EReference getModeSwitchTriggeringExecutableStartOperation_StartMode();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation <em>Cycle Countup Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cycle Countup Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation
+	 * @generated
+	 */
+	EClass getCycleCountupOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getCounterVariable <em>Counter Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Counter Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getCounterVariable()
+	 * @see #getCycleCountupOperation()
+	 * @generated
+	 */
+	EReference getCycleCountupOperation_CounterVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getMaxConstant <em>Max Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Max Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getMaxConstant()
+	 * @see #getCycleCountupOperation()
+	 * @generated
+	 */
+	EReference getCycleCountupOperation_MaxConstant();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation <em>Start Offset Countup Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Start Offset Countup Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation
+	 * @generated
+	 */
+	EClass getStartOffsetCountupOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getCounterVariable <em>Counter Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Counter Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getCounterVariable()
+	 * @see #getStartOffsetCountupOperation()
+	 * @generated
+	 */
+	EReference getStartOffsetCountupOperation_CounterVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getMaxConstant <em>Max Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Max Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getMaxConstant()
+	 * @see #getStartOffsetCountupOperation()
+	 * @generated
+	 */
+	EReference getStartOffsetCountupOperation_MaxConstant();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody <em>Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody
+	 * @generated
+	 */
+	EClass getTaskBody();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody#getOsTaskId <em>Os Task Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Task Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody#getOsTaskId()
+	 * @see #getTaskBody()
+	 * @generated
+	 */
+	EAttribute getTaskBody_OsTaskId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi <em>Ioc Empty Queue Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Empty Queue Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi
+	 * @generated
+	 */
+	EClass getIocEmptyQueueApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi <em>Com Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi
+	 * @generated
+	 */
+	EClass getComApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup <em>Is Signal Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Signal Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup()
+	 * @see #getComApi()
+	 * @generated
+	 */
+	EAttribute getComApi_IsSignalGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getComSignalSymbolName <em>Com Signal Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Com Signal Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getComSignalSymbolName()
+	 * @see #getComApi()
+	 * @generated
+	 */
+	EAttribute getComApi_ComSignalSymbolName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi <em>Ioc Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi
+	 * @generated
+	 */
+	EClass getIocApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi#getMappingName <em>Mapping Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mapping Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi#getMappingName()
+	 * @see #getIocApi()
+	 * @generated
+	 */
+	EAttribute getIocApi_MappingName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value
+	 * @generated
+	 */
+	EClass getValue();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction <em>Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction
+	 * @generated
+	 */
+	EClass getTrustedFunction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction#getTrustedFunctionIndex <em>Trusted Function Index</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trusted Function Index</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction#getTrustedFunctionIndex()
+	 * @see #getTrustedFunction()
+	 * @generated
+	 */
+	EAttribute getTrustedFunction_TrustedFunctionIndex();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Send Signal Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction
+	 * @generated
+	 */
+	EClass getComSendSignalTrustedFunction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getIsGroup <em>Is Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getIsGroup()
+	 * @see #getComSendSignalTrustedFunction()
+	 * @generated
+	 */
+	EAttribute getComSendSignalTrustedFunction_IsGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Signal Group Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getSignalGroupSymbolName()
+	 * @see #getComSendSignalTrustedFunction()
+	 * @generated
+	 */
+	EAttribute getComSendSignalTrustedFunction_SignalGroupSymbolName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi <em>Os Set Event Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Set Event Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi
+	 * @generated
+	 */
+	EClass getOsSetEventApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsTaskId <em>Os Task Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Task Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsTaskId()
+	 * @see #getOsSetEventApi()
+	 * @generated
+	 */
+	EAttribute getOsSetEventApi_OsTaskId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsEventId <em>Os Event Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Event Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsEventId()
+	 * @see #getOsSetEventApi()
+	 * @generated
+	 */
+	EAttribute getOsSetEventApi_OsEventId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi <em>Os Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi
+	 * @generated
+	 */
+	EClass getOsApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Send Signal Immediate Task Body</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody
+	 * @generated
+	 */
+	EClass getComSendSignalImmediateTaskBody();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getStartEntity <em>Start Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getStartEntity()
+	 * @see #getComSendSignalImmediateTaskBody()
+	 * @generated
+	 */
+	EReference getComSendSignalImmediateTaskBody_StartEntity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getOsEventId <em>Os Event Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Os Event Id</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getOsEventId()
+	 * @see #getComSendSignalImmediateTaskBody()
+	 * @generated
+	 */
+	EAttribute getComSendSignalImmediateTaskBody_OsEventId();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable
+	 * @generated
+	 */
+	EClass getVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getType()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_Type();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getMember <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Member</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getMember()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EReference getVariable_Member();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getSymbolName <em>Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getSymbolName()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EAttribute getVariable_SymbolName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation <em>Com Send Proxy Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Com Send Proxy Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation
+	 * @generated
+	 */
+	EClass getComSendProxyOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi <em>Access Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Access Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi()
+	 * @see #getComSendProxyOperation()
+	 * @generated
+	 */
+	EReference getComSendProxyOperation_AccessApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Function Table Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName()
+	 * @see #getComSendProxyOperation()
+	 * @generated
+	 */
+	EAttribute getComSendProxyOperation_FunctionTableSymbolName();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable <em>Table Index Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Table Index Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable()
+	 * @see #getComSendProxyOperation()
+	 * @generated
+	 */
+	EReference getComSendProxyOperation_TableIndexVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi <em>Ioc Receive Group Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Receive Group Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi
+	 * @generated
+	 */
+	EClass getIocReceiveGroupApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi#getComSendSignalSymbolName <em>Com Send Signal Symbol Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Com Send Signal Symbol Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi#getComSendSignalSymbolName()
+	 * @see #getIocReceiveGroupApi()
+	 * @generated
+	 */
+	EAttribute getIocReceiveGroupApi_ComSendSignalSymbolName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot <em>Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Root</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot
+	 * @generated
+	 */
+	EClass getModuleRoot();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRteModule <em>Rte Module</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte Module</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRteModule()
+	 * @see #getModuleRoot()
+	 * @generated
+	 */
+	EReference getModuleRoot_RteModule();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRte <em>Rte</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Rte</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRte()
+	 * @see #getModuleRoot()
+	 * @generated
+	 */
+	EReference getModuleRoot_Rte();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation <em>Inter Partition Timeout Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Inter Partition Timeout Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation
+	 * @generated
+	 */
+	EClass getInterPartitionTimeoutOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getTimeoutVariable <em>Timeout Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Timeout Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getTimeoutVariable()
+	 * @see #getInterPartitionTimeoutOperation()
+	 * @generated
+	 */
+	EReference getInterPartitionTimeoutOperation_TimeoutVariable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getExcludeOperation <em>Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getExcludeOperation()
+	 * @see #getInterPartitionTimeoutOperation()
+	 * @generated
+	 */
+	EReference getInterPartitionTimeoutOperation_ExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation <em>Initialize Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Initialize Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation
+	 * @generated
+	 */
+	EClass getInitializeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation <em>Variable Initialize Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Variable Initialize Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation
+	 * @generated
+	 */
+	EClass getVariableInitializeOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getInitVariable <em>Init Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Init Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getInitVariable()
+	 * @see #getVariableInitializeOperation()
+	 * @generated
+	 */
+	EReference getVariableInitializeOperation_InitVariable();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getExcludeOperation <em>Exclude Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Exclude Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getExcludeOperation()
+	 * @see #getVariableInitializeOperation()
+	 * @generated
+	 */
+	EReference getVariableInitializeOperation_ExcludeOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation <em>Ioc Initialize Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Initialize Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation
+	 * @generated
+	 */
+	EClass getIocInitializeOperation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation#getInitIocApi <em>Init Ioc Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Init Ioc Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation#getInitIocApi()
+	 * @see #getIocInitializeOperation()
+	 * @generated
+	 */
+	EReference getIocInitializeOperation_InitIocApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSuspendAllInterruptsApi <em>Os Suspend All Interrupts Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Suspend All Interrupts Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSuspendAllInterruptsApi
+	 * @generated
+	 */
+	EClass getOsSuspendAllInterruptsApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsGetSpinlockApi <em>Os Get Spinlock Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Os Get Spinlock Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsGetSpinlockApi
+	 * @generated
+	 */
+	EClass getOsGetSpinlockApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi <em>Multicore Rte Start Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Multicore Rte Start Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi
+	 * @generated
+	 */
+	EClass getMulticoreRteStartApi();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi#getCoreStartApiImpl <em>Core Start Api Impl</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Core Start Api Impl</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi#getCoreStartApiImpl()
+	 * @see #getMulticoreRteStartApi()
+	 * @generated
+	 */
+	EReference getMulticoreRteStartApi_CoreStartApiImpl();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction <em>Rte Buffer Write Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Write Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction
+	 * @generated
+	 */
+	EClass getRteBufferWriteTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getOperation()
+	 * @see #getRteBufferWriteTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferWriteTrustedFunction_Operation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getDataVariable <em>Data Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getDataVariable()
+	 * @see #getRteBufferWriteTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferWriteTrustedFunction_DataVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Buffer Send Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction
+	 * @generated
+	 */
+	EClass getRteBufferSendTrustedFunction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation()
+	 * @see #getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferSendTrustedFunction_Operation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable <em>Data Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable()
+	 * @see #getRteBufferSendTrustedFunction()
+	 * @generated
+	 */
+	EReference getRteBufferSendTrustedFunction_DataVariable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction <em>Cs Trusted Function</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cs Trusted Function</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction
+	 * @generated
+	 */
+	EClass getCsTrustedFunction();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getDataVariable <em>Data Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getDataVariable()
+	 * @see #getCsTrustedFunction()
+	 * @generated
+	 */
+	EReference getCsTrustedFunction_DataVariable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfParamTypeName <em>Cs Tf Param Type Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Param Type Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfParamTypeName()
+	 * @see #getCsTrustedFunction()
+	 * @generated
+	 */
+	EAttribute getCsTrustedFunction_CsTfParamTypeName();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfCalledRunnable <em>Cs Tf Called Runnable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Cs Tf Called Runnable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfCalledRunnable()
+	 * @see #getCsTrustedFunction()
+	 * @generated
+	 */
+	EReference getCsTrustedFunction_CsTfCalledRunnable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable <em>Cs Tf Called Runnable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cs Tf Called Runnable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable
+	 * @generated
+	 */
+	EClass getCsTfCalledRunnable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getCsTfOpidConstantName <em>Cs Tf Opid Constant Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cs Tf Opid Constant Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getCsTfOpidConstantName()
+	 * @see #getCsTfCalledRunnable()
+	 * @generated
+	 */
+	EAttribute getCsTfCalledRunnable_CsTfOpidConstantName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getStartOperation <em>Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getStartOperation()
+	 * @see #getCsTfCalledRunnable()
+	 * @generated
+	 */
+	EReference getCsTfCalledRunnable_StartOperation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation <em>Server Runnable Start Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Server Runnable Start Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation
+	 * @generated
+	 */
+	EClass getServerRunnableStartOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation#getStartServerRunnable <em>Start Server Runnable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start Server Runnable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation#getStartServerRunnable()
+	 * @see #getServerRunnableStartOperation()
+	 * @generated
+	 */
+	EReference getServerRunnableStartOperation_StartServerRunnable();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocCommunication <em>Ioc Communication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocCommunication
+	 * @generated
+	 */
+	EClass getIocCommunication();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation <em>Proxy Com Send Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Proxy Com Send Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation
+	 * @generated
+	 */
+	EClass getProxyComSendOperation();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType()
+	 * @see #getProxyComSendOperation()
+	 * @generated
+	 */
+	EReference getProxyComSendOperation_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi <em>Request Proxy Ioc Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Request Proxy Ioc Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi()
+	 * @see #getProxyComSendOperation()
+	 * @generated
+	 */
+	EReference getProxyComSendOperation_RequestProxyIocApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi <em>Value Proxy Ioc Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Value Proxy Ioc Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi()
+	 * @see #getProxyComSendOperation()
+	 * @generated
+	 */
+	EReference getProxyComSendOperation_ValueProxyIocApi();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName <em>Proxy Function Index Constant Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Proxy Function Index Constant Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName()
+	 * @see #getProxyComSendOperation()
+	 * @generated
+	 */
+	EAttribute getProxyComSendOperation_ProxyFunctionIndexConstantName();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi <em>Ioc Send Group Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Send Group Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi
+	 * @generated
+	 */
+	EClass getIocSendGroupApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication <em>Ioc Queued Group Communication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ioc Queued Group Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication
+	 * @generated
+	 */
+	EClass getIocQueuedGroupCommunication();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getReceiveApi <em>Receive Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Receive Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getReceiveApi()
+	 * @see #getIocQueuedGroupCommunication()
+	 * @generated
+	 */
+	EReference getIocQueuedGroupCommunication_ReceiveApi();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getSendApi <em>Send Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Send Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getSendApi()
+	 * @see #getIocQueuedGroupCommunication()
+	 * @generated
+	 */
+	EReference getIocQueuedGroupCommunication_SendApi();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi <em>Singlecore Rte Start Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Singlecore Rte Start Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi
+	 * @generated
+	 */
+	EClass getSinglecoreRteStartApi();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi#getOperation()
+	 * @see #getSinglecoreRteStartApi()
+	 * @generated
+	 */
+	EReference getSinglecoreRteStartApi_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi <em>Rte Start Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rte Start Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi
+	 * @generated
+	 */
+	EClass getRteStartApi();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile <em>Header File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31977,6 +34464,38 @@ public interface ModulePackage extends EPackage {
 	EReference getRteInternalHeader_SchmApiGroup();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType <em>Mode Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType
+	 * @generated
+	 */
+	EClass getModeType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getGuardName <em>Guard Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Guard Name</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getGuardName()
+	 * @see #getModeType()
+	 * @generated
+	 */
+	EAttribute getModeType_GuardName();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getImplementationDataType <em>Implementation Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Implementation Data Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getImplementationDataType()
+	 * @see #getModeType()
+	 * @generated
+	 */
+	EReference getModeType_ImplementationDataType();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup <em>Mode Declaration Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32040,6 +34559,59 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModeDeclarationGroup_InitModeConstant();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType <em>Mode Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Queue Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType
+	 * @generated
+	 */
+	EClass getModeQueueType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant <em>Max Length Constant</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Max Length Constant</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant()
+	 * @see #getModeQueueType()
+	 * @generated
+	 */
+	EReference getModeQueueType_MaxLengthConstant();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getElementType <em>Element Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Element Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getElementType()
+	 * @see #getModeQueueType()
+	 * @generated
+	 */
+	EReference getModeQueueType_ElementType();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable <em>Mode Queued Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mode Queued Variable</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable
+	 * @generated
+	 */
+	EClass getModeQueuedVariable();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable#getQueueType <em>Queue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Queue Type</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable#getQueueType()
+	 * @see #getModeQueuedVariable()
+	 * @generated
+	 */
+	EReference getModeQueuedVariable_QueueType();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance <em>Mode Machine Instance</em>}'.
@@ -32168,38 +34740,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPrimitiveType();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType <em>Mode Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType
-	 * @generated
-	 */
-	EClass getModeType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getGuardName <em>Guard Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Guard Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getGuardName()
-	 * @see #getModeType()
-	 * @generated
-	 */
-	EAttribute getModeType_GuardName();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getImplementationDataType <em>Implementation Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Implementation Data Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeType#getImplementationDataType()
-	 * @see #getModeType()
-	 * @generated
-	 */
-	EReference getModeType_ImplementationDataType();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RedefinitionPrimitiveType <em>Redefinition Primitive Type</em>}'.
@@ -32472,38 +35012,6 @@ public interface ModulePackage extends EPackage {
 	EClass getRteQueuedSendTrustedFunctionParamType();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType <em>Mode Queue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Queue Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType
-	 * @generated
-	 */
-	EClass getModeQueueType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant <em>Max Length Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Max Length Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getMaxLengthConstant()
-	 * @see #getModeQueueType()
-	 * @generated
-	 */
-	EReference getModeQueueType_MaxLengthConstant();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getElementType <em>Element Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Element Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueueType#getElementType()
-	 * @see #getModeQueueType()
-	 * @generated
-	 */
-	EReference getModeQueueType_ElementType();
-
-	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendTrustedFunctionParamType <em>Com Send Trusted Function Param Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32554,48 +35062,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getNeverReadOperation_InitValueConstant();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction <em>Rte Buffer Invalidate Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Invalidate Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction
-	 * @generated
-	 */
-	EClass getRteBufferInvalidateTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction#getOperation()
-	 * @see #getRteBufferInvalidateTrustedFunction()
-	 * @generated
-	 */
-	EReference getRteBufferInvalidateTrustedFunction_Operation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Trusted Function Rte Buffer Invalidate Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation
-	 * @generated
-	 */
-	EClass getTrustedFunctionRteBufferInvalidateSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getAccessTrustedFunction <em>Access Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferInvalidateSendOperation#getAccessTrustedFunction()
-	 * @see #getTrustedFunctionRteBufferInvalidateSendOperation()
-	 * @generated
-	 */
-	EReference getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping <em>Memory Mapping</em>}'.
@@ -33256,6 +35722,38 @@ public interface ModulePackage extends EPackage {
 	EAttribute getSchmExitApi_IsNoneExclude();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi <em>Schm Mode Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schm Mode Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi
+	 * @generated
+	 */
+	EClass getSchmModeApi();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup <em>Mode Declaration Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mode Declaration Group</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup()
+	 * @see #getSchmModeApi()
+	 * @generated
+	 */
+	EReference getSchmModeApi_ModeDeclarationGroup();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance <em>Mode Machine Instance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mode Machine Instance</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance()
+	 * @see #getSchmModeApi()
+	 * @generated
+	 */
+	EReference getSchmModeApi_ModeMachineInstance();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi <em>Schm Switch Api</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33372,59 +35870,6 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOsTaskEvent_OsTaskPriority();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable <em>Mode Queued Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Queued Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable
-	 * @generated
-	 */
-	EClass getModeQueuedVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable#getQueueType <em>Queue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Queue Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeQueuedVariable#getQueueType()
-	 * @see #getModeQueuedVariable()
-	 * @generated
-	 */
-	EReference getModeQueuedVariable_QueueType();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi <em>Schm Mode Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Schm Mode Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi
-	 * @generated
-	 */
-	EClass getSchmModeApi();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup <em>Mode Declaration Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mode Declaration Group</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeDeclarationGroup()
-	 * @see #getSchmModeApi()
-	 * @generated
-	 */
-	EReference getSchmModeApi_ModeDeclarationGroup();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance <em>Mode Machine Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mode Machine Instance</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi#getModeMachineInstance()
-	 * @see #getSchmModeApi()
-	 * @generated
-	 */
-	EReference getSchmModeApi_ModeMachineInstance();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader <em>Interlink Header</em>}'.
@@ -33629,28 +36074,6 @@ public interface ModulePackage extends EPackage {
 	EReference getPartedBswm_Parent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity <em>Dependent Bsw Schedulable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Bsw Schedulable Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity()
-	 * @see #getPartedBswm()
-	 * @generated
-	 */
-	EReference getPartedBswm_DependentBswSchedulableEntity();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi <em>Schm Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Schm Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi()
-	 * @see #getPartedBswm()
-	 * @generated
-	 */
-	EReference getPartedBswm_SchmApi();
-
-	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getBswm <em>Bswm</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33673,6 +36096,17 @@ public interface ModulePackage extends EPackage {
 	EReference getPartedBswm_BswMemoryMapping();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity <em>Dependent Bsw Schedulable Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Dependent Bsw Schedulable Entity</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getDependentBswSchedulableEntity()
+	 * @see #getPartedBswm()
+	 * @generated
+	 */
+	EReference getPartedBswm_DependentBswSchedulableEntity();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getModeMachineInstance <em>Mode Machine Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33682,6 +36116,17 @@ public interface ModulePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPartedBswm_ModeMachineInstance();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi <em>Schm Api</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Schm Api</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm#getSchmApi()
+	 * @see #getPartedBswm()
+	 * @generated
+	 */
+	EReference getPartedBswm_SchmApi();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm <em>Bswm</em>}'.
@@ -34042,2492 +36487,6 @@ public interface ModulePackage extends EPackage {
 	EReference getTAckStatus_StatusVariable();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi <em>Restart Partition Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Restart Partition Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi
-	 * @generated
-	 */
-	EClass getRestartPartitionApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi#getOperation()
-	 * @see #getRestartPartitionApi()
-	 * @generated
-	 */
-	EReference getRestartPartitionApi_Operation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi <em>Partition Restarting Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Partition Restarting Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi
-	 * @generated
-	 */
-	EClass getPartitionRestartingApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sr Inter Partition Timeout Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getSrInterPartitionTimeoutOperation()
-	 * @see #getPartitionRestartingApi()
-	 * @generated
-	 */
-	EReference getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation <em>Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi#getActivationOperation()
-	 * @see #getPartitionRestartingApi()
-	 * @generated
-	 */
-	EReference getPartitionRestartingApi_ActivationOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi <em>Partition Terminated Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Partition Terminated Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi
-	 * @generated
-	 */
-	EClass getPartitionTerminatedApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation <em>Sr Inter Partition Timeout Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sr Inter Partition Timeout Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getSrInterPartitionTimeoutOperation()
-	 * @see #getPartitionTerminatedApi()
-	 * @generated
-	 */
-	EReference getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation <em>Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi#getActivationOperation()
-	 * @see #getPartitionTerminatedApi()
-	 * @generated
-	 */
-	EReference getPartitionTerminatedApi_ActivationOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi <em>Rte Lifecycle Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Lifecycle Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteLifecycleApi
-	 * @generated
-	 */
-	EClass getRteLifecycleApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi <em>Send Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Send Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi
-	 * @generated
-	 */
-	EClass getSendApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getOperation()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_Operation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getDataParam <em>Data Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Param</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getDataParam()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_DataParam();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getStatusVariable <em>Status Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Status Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getStatusVariable()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_StatusVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTrustedFunctionParamVariable <em>Trusted Function Param Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Trusted Function Param Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTrustedFunctionParamVariable()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_TrustedFunctionParamVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getFilterResultVariable <em>Filter Result Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Filter Result Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getFilterResultVariable()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_FilterResultVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg <em>Needs Check Arg</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Needs Check Arg</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getNeedsCheckArg()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EAttribute getSendApi_NeedsCheckArg();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation <em>Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationOperation()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_ActivationOperation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag <em>Activation Flag</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Activation Flag</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getActivationFlag()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_ActivationFlag();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus <em>TAck Status</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>TAck Status</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi#getTAckStatus()
-	 * @see #getSendApi()
-	 * @generated
-	 */
-	EReference getSendApi_TAckStatus();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi <em>Receive Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Receive Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi
-	 * @generated
-	 */
-	EClass getReceiveApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getOperation()
-	 * @see #getReceiveApi()
-	 * @generated
-	 */
-	EReference getReceiveApi_Operation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getDataParam <em>Data Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Param</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getDataParam()
-	 * @see #getReceiveApi()
-	 * @generated
-	 */
-	EReference getReceiveApi_DataParam();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getStatusVariable <em>Status Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Status Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi#getStatusVariable()
-	 * @see #getReceiveApi()
-	 * @generated
-	 */
-	EReference getReceiveApi_StatusVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation <em>Rte Buffer Queued Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Queued Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation
-	 * @generated
-	 */
-	EClass getRteBufferQueuedSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getAccessVariable <em>Access Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getAccessVariable()
-	 * @see #getRteBufferQueuedSendOperation()
-	 * @generated
-	 */
-	EReference getRteBufferQueuedSendOperation_AccessVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getTempReturnVariable()
-	 * @see #getRteBufferQueuedSendOperation()
-	 * @generated
-	 */
-	EReference getRteBufferQueuedSendOperation_TempReturnVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation#getType()
-	 * @see #getRteBufferQueuedSendOperation()
-	 * @generated
-	 */
-	EReference getRteBufferQueuedSendOperation_Type();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable <em>Rte Buffer Queued Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Queued Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable
-	 * @generated
-	 */
-	EClass getRteBufferQueuedVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable#getQueueType <em>Queue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Queue Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedVariable#getQueueType()
-	 * @see #getRteBufferQueuedVariable()
-	 * @generated
-	 */
-	EReference getRteBufferQueuedVariable_QueueType();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation <em>Rte Buffer Queued Read Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Queued Read Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation
-	 * @generated
-	 */
-	EClass getRteBufferQueuedReadOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation#getAccessVariable <em>Access Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedReadOperation#getAccessVariable()
-	 * @see #getRteBufferQueuedReadOperation()
-	 * @generated
-	 */
-	EReference getRteBufferQueuedReadOperation_AccessVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication <em>Ioc Queued Communication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Queued Communication</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication
-	 * @generated
-	 */
-	EClass getIocQueuedCommunication();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getSendApi <em>Send Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Send Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getSendApi()
-	 * @see #getIocQueuedCommunication()
-	 * @generated
-	 */
-	EReference getIocQueuedCommunication_SendApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getReceiveApi <em>Receive Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Receive Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getReceiveApi()
-	 * @see #getIocQueuedCommunication()
-	 * @generated
-	 */
-	EReference getIocQueuedCommunication_ReceiveApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getIocEmptyQueueApi <em>Ioc Empty Queue Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Ioc Empty Queue Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedCommunication#getIocEmptyQueueApi()
-	 * @see #getIocQueuedCommunication()
-	 * @generated
-	 */
-	EReference getIocQueuedCommunication_IocEmptyQueueApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi <em>Ioc Receive Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Receive Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveApi
-	 * @generated
-	 */
-	EClass getIocReceiveApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi <em>Ioc Send Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Send Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendApi
-	 * @generated
-	 */
-	EClass getIocSendApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation <em>Ioc Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation
-	 * @generated
-	 */
-	EClass getIocSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getType()
-	 * @see #getIocSendOperation()
-	 * @generated
-	 */
-	EReference getIocSendOperation_Type();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess <em>Activation Flag On Rx Success</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Activation Flag On Rx Success</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation#getActivationFlagOnRxSuccess()
-	 * @see #getIocSendOperation()
-	 * @generated
-	 */
-	EReference getIocSendOperation_ActivationFlagOnRxSuccess();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation <em>Ioc Queued Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Queued Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation
-	 * @generated
-	 */
-	EClass getIocQueuedSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getAccessApi <em>Access Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getAccessApi()
-	 * @see #getIocQueuedSendOperation()
-	 * @generated
-	 */
-	EReference getIocQueuedSendOperation_AccessApi();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedSendOperation#getTempReturnVariable()
-	 * @see #getIocQueuedSendOperation()
-	 * @generated
-	 */
-	EReference getIocQueuedSendOperation_TempReturnVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation <em>Ioc Queued Read Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Queued Read Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation
-	 * @generated
-	 */
-	EClass getIocQueuedReadOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getAccessApi <em>Access Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getAccessApi()
-	 * @see #getIocQueuedReadOperation()
-	 * @generated
-	 */
-	EReference getIocQueuedReadOperation_AccessApi();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getTempReturnVariable <em>Temp Return Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Temp Return Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedReadOperation#getTempReturnVariable()
-	 * @see #getIocQueuedReadOperation()
-	 * @generated
-	 */
-	EReference getIocQueuedReadOperation_TempReturnVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi <em>Call Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Call Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi
-	 * @generated
-	 */
-	EClass getCallApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperation()
-	 * @see #getCallApi()
-	 * @generated
-	 */
-	EReference getCallApi_Operation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperationParam <em>Operation Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Operation Param</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getOperationParam()
-	 * @see #getCallApi()
-	 * @generated
-	 */
-	EReference getCallApi_OperationParam();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getPortArgValue <em>Port Arg Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Port Arg Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getPortArgValue()
-	 * @see #getCallApi()
-	 * @generated
-	 */
-	EReference getCallApi_PortArgValue();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getReturnVariable <em>Return Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Return Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi#getReturnVariable()
-	 * @see #getCallApi()
-	 * @generated
-	 */
-	EReference getCallApi_ReturnVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi <em>Tf Call Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Tf Call Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi
-	 * @generated
-	 */
-	EClass getTfCallApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfParamTypeName <em>Cs Tf Param Type Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Param Type Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfParamTypeName()
-	 * @see #getTfCallApi()
-	 * @generated
-	 */
-	EAttribute getTfCallApi_CsTfParamTypeName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfArgcConstantName <em>Cs Tf Argc Constant Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Argc Constant Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfArgcConstantName()
-	 * @see #getTfCallApi()
-	 * @generated
-	 */
-	EAttribute getTfCallApi_CsTfArgcConstantName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfOpidConstantName <em>Cs Tf Opid Constant Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Opid Constant Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfOpidConstantName()
-	 * @see #getTfCallApi()
-	 * @generated
-	 */
-	EAttribute getTfCallApi_CsTfOpidConstantName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfName <em>Cs Tf Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getCsTfName()
-	 * @see #getTfCallApi()
-	 * @generated
-	 */
-	EAttribute getTfCallApi_CsTfName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getNeedsCheckArg <em>Needs Check Arg</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Needs Check Arg</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi#getNeedsCheckArg()
-	 * @see #getTfCallApi()
-	 * @generated
-	 */
-	EAttribute getTfCallApi_NeedsCheckArg();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation <em>Executable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Executable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation
-	 * @generated
-	 */
-	EClass getExecutableStartOperation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledInMode <em>Disabled In Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Disabled In Mode</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getDisabledInMode()
-	 * @see #getExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getExecutableStartOperation_DisabledInMode();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable <em>Start Executable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Executable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getStartExecutable()
-	 * @see #getExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getExecutableStartOperation_StartExecutable();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getRieaExcludeOperation <em>Riea Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Riea Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableStartOperation#getRieaExcludeOperation()
-	 * @see #getExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getExecutableStartOperation_RieaExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode <em>Disabled In Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Disabled In Mode</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode
-	 * @generated
-	 */
-	EClass getDisabledInMode();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getDisabledMode <em>Disabled Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Disabled Mode</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getDisabledMode()
-	 * @see #getDisabledInMode()
-	 * @generated
-	 */
-	EReference getDisabledInMode_DisabledMode();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance <em>Mode Machine Instance</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mode Machine Instance</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.DisabledInMode#getModeMachineInstance()
-	 * @see #getDisabledInMode()
-	 * @generated
-	 */
-	EReference getDisabledInMode_ModeMachineInstance();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity <em>Executable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Executable Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity
-	 * @generated
-	 */
-	EClass getExecutableEntity();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam <em>Role Param</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Role Param</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getRoleParam()
-	 * @see #getExecutableEntity()
-	 * @generated
-	 */
-	EReference getExecutableEntity_RoleParam();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock <em>Is No Mock</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is No Mock</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExecutableEntity#getIsNoMock()
-	 * @see #getExecutableEntity()
-	 * @generated
-	 */
-	EAttribute getExecutableEntity_IsNoMock();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation <em>Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation
-	 * @generated
-	 */
-	EClass getExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation <em>All Interrupt Block Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>All Interrupt Block Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.AllInterruptBlockExcludeOperation
-	 * @generated
-	 */
-	EClass getAllInterruptBlockExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation <em>Os Interrupt Block Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Interrupt Block Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsInterruptBlockExcludeOperation
-	 * @generated
-	 */
-	EClass getOsInterruptBlockExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation <em>Os Spinlock Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Spinlock Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation
-	 * @generated
-	 */
-	EClass getOsSpinlockExcludeOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation#getOsSpinlockId <em>Os Spinlock Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Spinlock Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSpinlockExcludeOperation#getOsSpinlockId()
-	 * @see #getOsSpinlockExcludeOperation()
-	 * @generated
-	 */
-	EAttribute getOsSpinlockExcludeOperation_OsSpinlockId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation <em>Os Resource Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Resource Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation
-	 * @generated
-	 */
-	EClass getOsResourceExcludeOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation#getOsResourceId <em>Os Resource Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Resource Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsResourceExcludeOperation#getOsResourceId()
-	 * @see #getOsResourceExcludeOperation()
-	 * @generated
-	 */
-	EAttribute getOsResourceExcludeOperation_OsResourceId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation <em>None Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>None Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation
-	 * @generated
-	 */
-	EClass getNoneExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant <em>Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant
-	 * @generated
-	 */
-	EClass getConstant();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getSymbolName <em>Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getSymbolName()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_SymbolName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName <em>External Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>External Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getExternalSymbolName()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_ExternalSymbolName();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getType()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EReference getConstant_Type();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getValue()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_Value();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType <em>Constant Value Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Constant Value Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getConstantValueType()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_ConstantValueType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getMember <em>Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Member</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getMember()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EReference getConstant_Member();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName <em>Represented Variable Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Represented Variable Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant#getRepresentedVariableName()
-	 * @see #getConstant()
-	 * @generated
-	 */
-	EAttribute getConstant_RepresentedVariableName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember <em>Constant Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Constant Member</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember
-	 * @generated
-	 */
-	EClass getConstantMember();
-
-	/**
-	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent <em>Parent</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember#getParent()
-	 * @see #getConstantMember()
-	 * @generated
-	 */
-	EReference getConstantMember_Parent();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity <em>Bsw Schedulable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bsw Schedulable Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity
-	 * @generated
-	 */
-	EClass getBswSchedulableEntity();
-
-	/**
-	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm <em>Parent Parted Bswm</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parent Parted Bswm</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity#getParentPartedBswm()
-	 * @see #getBswSchedulableEntity()
-	 * @generated
-	 */
-	EReference getBswSchedulableEntity_ParentPartedBswm();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity <em>Runnable Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Runnable Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity
-	 * @generated
-	 */
-	EClass getRunnableEntity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity#getHasReturnValue <em>Has Return Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Has Return Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity#getHasReturnValue()
-	 * @see #getRunnableEntity()
-	 * @generated
-	 */
-	EAttribute getRunnableEntity_HasReturnValue();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi <em>Rte Enter Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Enter Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi
-	 * @generated
-	 */
-	EClass getRteEnterApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getOperation()
-	 * @see #getRteEnterApi()
-	 * @generated
-	 */
-	EReference getRteEnterApi_Operation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getIsNoneExclude <em>Is None Exclude</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is None Exclude</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi#getIsNoneExclude()
-	 * @see #getRteEnterApi()
-	 * @generated
-	 */
-	EAttribute getRteEnterApi_IsNoneExclude();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi <em>Rte Exit Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Exit Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi
-	 * @generated
-	 */
-	EClass getRteExitApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getOperation()
-	 * @see #getRteExitApi()
-	 * @generated
-	 */
-	EReference getRteExitApi_Operation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getIsNoneExclude <em>Is None Exclude</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is None Exclude</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi#getIsNoneExclude()
-	 * @see #getRteExitApi()
-	 * @generated
-	 */
-	EAttribute getRteExitApi_IsNoneExclude();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody <em>Os Background Task Activation Executable Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Background Task Activation Executable Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody
-	 * @generated
-	 */
-	EClass getOsBackgroundTaskActivationExecutableTaskBody();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsBackgroundTaskActivationExecutableTaskBody#getOperation()
-	 * @see #getOsBackgroundTaskActivationExecutableTaskBody()
-	 * @generated
-	 */
-	EReference getOsBackgroundTaskActivationExecutableTaskBody_Operation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody <em>Os Task Activation Executable Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Task Activation Executable Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody
-	 * @generated
-	 */
-	EClass getOsTaskActivationExecutableTaskBody();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody#getOperation()
-	 * @see #getOsTaskActivationExecutableTaskBody()
-	 * @generated
-	 */
-	EReference getOsTaskActivationExecutableTaskBody_Operation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody <em>Os Event Set Executable Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Event Set Executable Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody
-	 * @generated
-	 */
-	EClass getOsEventSetExecutableTaskBody();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOperation()
-	 * @see #getOsEventSetExecutableTaskBody()
-	 * @generated
-	 */
-	EReference getOsEventSetExecutableTaskBody_Operation();
-
-	/**
-	 * Returns the meta object for the attribute list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOsEventId <em>Os Event Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Os Event Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getOsEventId()
-	 * @see #getOsEventSetExecutableTaskBody()
-	 * @generated
-	 */
-	EAttribute getOsEventSetExecutableTaskBody_OsEventId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getChecksOsEventId <em>Checks Os Event Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Checks Os Event Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getChecksOsEventId()
-	 * @see #getOsEventSetExecutableTaskBody()
-	 * @generated
-	 */
-	EAttribute getOsEventSetExecutableTaskBody_ChecksOsEventId();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getEventVariable <em>Event Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Event Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody#getEventVariable()
-	 * @see #getOsEventSetExecutableTaskBody()
-	 * @generated
-	 */
-	EReference getOsEventSetExecutableTaskBody_EventVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation <em>Os Task Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Task Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation
-	 * @generated
-	 */
-	EClass getOsTaskActivationOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation <em>Os Event Set Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Event Set Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation
-	 * @generated
-	 */
-	EClass getOsEventSetActivationOperation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation#getActivationOsEventId <em>Activation Os Event Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Activation Os Event Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation#getActivationOsEventId()
-	 * @see #getOsEventSetActivationOperation()
-	 * @generated
-	 */
-	EAttribute getOsEventSetActivationOperation_ActivationOsEventId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation <em>Context Activation Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Context Activation Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation
-	 * @generated
-	 */
-	EClass getContextActivationOperation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getExecutableStartOperation <em>Executable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Executable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getExecutableStartOperation()
-	 * @see #getContextActivationOperation()
-	 * @generated
-	 */
-	EReference getContextActivationOperation_ExecutableStartOperation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getCycleCountupOperation <em>Cycle Countup Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Cycle Countup Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getCycleCountupOperation()
-	 * @see #getContextActivationOperation()
-	 * @generated
-	 */
-	EReference getContextActivationOperation_CycleCountupOperation();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getStartOffsetCountupOperation <em>Start Offset Countup Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Start Offset Countup Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ContextActivationOperation#getStartOffsetCountupOperation()
-	 * @see #getContextActivationOperation()
-	 * @generated
-	 */
-	EReference getContextActivationOperation_StartOffsetCountupOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation <em>Timing Triggering Executable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timing Triggering Executable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation
-	 * @generated
-	 */
-	EClass getTimingTriggeringExecutableStartOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCyclePeriodConstant <em>Cycle Period Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cycle Period Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCyclePeriodConstant()
-	 * @see #getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getTimingTriggeringExecutableStartOperation_CyclePeriodConstant();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleOffsetConstant <em>Cycle Offset Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cycle Offset Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleOffsetConstant()
-	 * @see #getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getTimingTriggeringExecutableStartOperation_CycleOffsetConstant();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetConstant <em>Start Offset Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Offset Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetConstant()
-	 * @see #getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getTimingTriggeringExecutableStartOperation_StartOffsetConstant();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetCounterVariable <em>Start Offset Counter Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Offset Counter Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getStartOffsetCounterVariable()
-	 * @see #getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleCounterVariable <em>Cycle Counter Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cycle Counter Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation#getCycleCounterVariable()
-	 * @see #getTimingTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation <em>Plain Executable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Plain Executable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation
-	 * @generated
-	 */
-	EClass getPlainExecutableStartOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation <em>Mode Switch Triggering Executable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Switch Triggering Executable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation
-	 * @generated
-	 */
-	EClass getModeSwitchTriggeringExecutableStartOperation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation#getStartMode <em>Start Mode</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Start Mode</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation#getStartMode()
-	 * @see #getModeSwitchTriggeringExecutableStartOperation()
-	 * @generated
-	 */
-	EReference getModeSwitchTriggeringExecutableStartOperation_StartMode();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation <em>Cycle Countup Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cycle Countup Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation
-	 * @generated
-	 */
-	EClass getCycleCountupOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getCounterVariable <em>Counter Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Counter Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getCounterVariable()
-	 * @see #getCycleCountupOperation()
-	 * @generated
-	 */
-	EReference getCycleCountupOperation_CounterVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getMaxConstant <em>Max Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Max Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CycleCountupOperation#getMaxConstant()
-	 * @see #getCycleCountupOperation()
-	 * @generated
-	 */
-	EReference getCycleCountupOperation_MaxConstant();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation <em>Start Offset Countup Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Start Offset Countup Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation
-	 * @generated
-	 */
-	EClass getStartOffsetCountupOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getCounterVariable <em>Counter Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Counter Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getCounterVariable()
-	 * @see #getStartOffsetCountupOperation()
-	 * @generated
-	 */
-	EReference getStartOffsetCountupOperation_CounterVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getMaxConstant <em>Max Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Max Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation#getMaxConstant()
-	 * @see #getStartOffsetCountupOperation()
-	 * @generated
-	 */
-	EReference getStartOffsetCountupOperation_MaxConstant();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody <em>Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody
-	 * @generated
-	 */
-	EClass getTaskBody();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody#getOsTaskId <em>Os Task Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Task Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TaskBody#getOsTaskId()
-	 * @see #getTaskBody()
-	 * @generated
-	 */
-	EAttribute getTaskBody_OsTaskId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi <em>Ioc Empty Queue Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Empty Queue Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocEmptyQueueApi
-	 * @generated
-	 */
-	EClass getIocEmptyQueueApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi <em>Com Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi
-	 * @generated
-	 */
-	EClass getComApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup <em>Is Signal Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Signal Group</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getIsSignalGroup()
-	 * @see #getComApi()
-	 * @generated
-	 */
-	EAttribute getComApi_IsSignalGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getComSignalSymbolName <em>Com Signal Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Com Signal Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComApi#getComSignalSymbolName()
-	 * @see #getComApi()
-	 * @generated
-	 */
-	EAttribute getComApi_ComSignalSymbolName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi <em>Ioc Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi
-	 * @generated
-	 */
-	EClass getIocApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi#getMappingName <em>Mapping Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mapping Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocApi#getMappingName()
-	 * @see #getIocApi()
-	 * @generated
-	 */
-	EAttribute getIocApi_MappingName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte <em>Rte</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte
-	 * @generated
-	 */
-	EClass getRte();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCore <em>Core</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Core</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCore()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_Core();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback <em>Com Callback</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Com Callback</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComCallback()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComCallback();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity <em>Com Send Signal Periodic Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Send Signal Periodic Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalPeriodicEntity()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalPeriodicEntity();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity <em>Com Send Signal Immediate Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Send Signal Immediate Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateEntity()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalImmediateEntity();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Com Send Signal Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTrustedFunction()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentType <em>Dependent Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_DependentType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant <em>Immediate Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Immediate Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImmediateConstant()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ImmediateConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant <em>Sr Rte Buffer Queue Max Length Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sr Rte Buffer Queue Max Length Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueMaxLengthConstant()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SrRteBufferQueueMaxLengthConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentOsApi <em>Dependent Os Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Os Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentOsApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_DependentOsApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentIocCommunication <em>Dependent Ioc Communication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Ioc Communication</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentIocCommunication()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_DependentIocCommunication();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentComApi <em>Dependent Com Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Com Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentComApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_DependentComApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueConstant <em>Ioc Init Value Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Ioc Init Value Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueConstant()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_IocInitValueConstant();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueVariableSet <em>Ioc Init Value Variable Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Ioc Init Value Variable Set</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getIocInitValueVariableSet()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_IocInitValueVariableSet();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi <em>Rte Start Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Start Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStartApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_RteStartApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant <em>Dependent Constant</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dependent Constant</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getDependentConstant()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_DependentConstant();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Send Signal Immediate Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalImmediateTaskBody()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalImmediateTaskBody();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi <em>Rte Stop Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Stop Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteStopApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_RteStopApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImplementationDataType <em>Implementation Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Implementation Data Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getImplementationDataType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ImplementationDataType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType <em>Com Send Signal Tf Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Send Signal Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalTfParamType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalTfParamType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType <em>Com Send Signal Group Tf Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Com Send Signal Group Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getComSendSignalGroupTfParamType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_ComSendSignalGroupTfParamType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType <em>Cs Tf Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cs Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getCsTfParamType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_CsTfParamType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType <em>Sr Rte Nonqueued Send Tf Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sr Rte Nonqueued Send Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteNonqueuedSendTfParamType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SrRteNonqueuedSendTfParamType();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType <em>Sr Rte Queued Send Tf Param Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Sr Rte Queued Send Tf Param Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteQueuedSendTfParamType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SrRteQueuedSendTfParamType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType <em>Sr Rte Buffer Queue Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Sr Rte Buffer Queue Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSrRteBufferQueueType()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SrRteBufferQueueType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteMemoryMapping <em>Rte Memory Mapping</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rte Memory Mapping</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getRteMemoryMapping()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_RteMemoryMapping();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo <em>Generation Info</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Generation Info</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getGenerationInfo()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_GenerationInfo();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm <em>Bswm</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Bswm</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getBswm()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_Bswm();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmInitApi <em>Schm Init Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Schm Init Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmInitApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SchmInitApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmDeinitApi <em>Schm Deinit Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Schm Deinit Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte#getSchmDeinitApi()
-	 * @see #getRte()
-	 * @generated
-	 */
-	EReference getRte_SchmDeinitApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value
-	 * @generated
-	 */
-	EClass getValue();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction <em>Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction
-	 * @generated
-	 */
-	EClass getTrustedFunction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction#getTrustedFunctionIndex <em>Trusted Function Index</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Trusted Function Index</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction#getTrustedFunctionIndex()
-	 * @see #getTrustedFunction()
-	 * @generated
-	 */
-	EAttribute getTrustedFunction_TrustedFunctionIndex();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction <em>Com Send Signal Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Send Signal Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction
-	 * @generated
-	 */
-	EClass getComSendSignalTrustedFunction();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getIsGroup <em>Is Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Group</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getIsGroup()
-	 * @see #getComSendSignalTrustedFunction()
-	 * @generated
-	 */
-	EAttribute getComSendSignalTrustedFunction_IsGroup();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getSignalGroupSymbolName <em>Signal Group Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Signal Group Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction#getSignalGroupSymbolName()
-	 * @see #getComSendSignalTrustedFunction()
-	 * @generated
-	 */
-	EAttribute getComSendSignalTrustedFunction_SignalGroupSymbolName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi <em>Os Set Event Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Set Event Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi
-	 * @generated
-	 */
-	EClass getOsSetEventApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsTaskId <em>Os Task Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Task Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsTaskId()
-	 * @see #getOsSetEventApi()
-	 * @generated
-	 */
-	EAttribute getOsSetEventApi_OsTaskId();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsEventId <em>Os Event Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Event Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi#getOsEventId()
-	 * @see #getOsSetEventApi()
-	 * @generated
-	 */
-	EAttribute getOsSetEventApi_OsEventId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi <em>Os Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsApi
-	 * @generated
-	 */
-	EClass getOsApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody <em>Com Send Signal Immediate Task Body</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Send Signal Immediate Task Body</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody
-	 * @generated
-	 */
-	EClass getComSendSignalImmediateTaskBody();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getStartEntity <em>Start Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Entity</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getStartEntity()
-	 * @see #getComSendSignalImmediateTaskBody()
-	 * @generated
-	 */
-	EReference getComSendSignalImmediateTaskBody_StartEntity();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getOsEventId <em>Os Event Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Os Event Id</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody#getOsEventId()
-	 * @see #getComSendSignalImmediateTaskBody()
-	 * @generated
-	 */
-	EAttribute getComSendSignalImmediateTaskBody_OsEventId();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable <em>Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable
-	 * @generated
-	 */
-	EClass getVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getSymbolName <em>Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getSymbolName()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EAttribute getVariable_SymbolName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation <em>Com Send Proxy Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Com Send Proxy Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation
-	 * @generated
-	 */
-	EClass getComSendProxyOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi <em>Access Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getAccessApi()
-	 * @see #getComSendProxyOperation()
-	 * @generated
-	 */
-	EReference getComSendProxyOperation_AccessApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName <em>Function Table Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Function Table Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getFunctionTableSymbolName()
-	 * @see #getComSendProxyOperation()
-	 * @generated
-	 */
-	EAttribute getComSendProxyOperation_FunctionTableSymbolName();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable <em>Table Index Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Table Index Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation#getTableIndexVariable()
-	 * @see #getComSendProxyOperation()
-	 * @generated
-	 */
-	EReference getComSendProxyOperation_TableIndexVariable();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getType()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_Type();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getMember <em>Member</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Member</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable#getMember()
-	 * @see #getVariable()
-	 * @generated
-	 */
-	EReference getVariable_Member();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi <em>Ioc Receive Group Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Receive Group Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi
-	 * @generated
-	 */
-	EClass getIocReceiveGroupApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi#getComSendSignalSymbolName <em>Com Send Signal Symbol Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Com Send Signal Symbol Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocReceiveGroupApi#getComSendSignalSymbolName()
-	 * @see #getIocReceiveGroupApi()
-	 * @generated
-	 */
-	EAttribute getIocReceiveGroupApi_ComSendSignalSymbolName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot <em>Root</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Root</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot
-	 * @generated
-	 */
-	EClass getModuleRoot();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRteModule <em>Rte Module</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte Module</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRteModule()
-	 * @see #getModuleRoot()
-	 * @generated
-	 */
-	EReference getModuleRoot_RteModule();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRte <em>Rte</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Rte</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleRoot#getRte()
-	 * @see #getModuleRoot()
-	 * @generated
-	 */
-	EReference getModuleRoot_Rte();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation <em>Inter Partition Timeout Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Inter Partition Timeout Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation
-	 * @generated
-	 */
-	EClass getInterPartitionTimeoutOperation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getTimeoutVariable <em>Timeout Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Timeout Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getTimeoutVariable()
-	 * @see #getInterPartitionTimeoutOperation()
-	 * @generated
-	 */
-	EReference getInterPartitionTimeoutOperation_TimeoutVariable();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getExcludeOperation <em>Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation#getExcludeOperation()
-	 * @see #getInterPartitionTimeoutOperation()
-	 * @generated
-	 */
-	EReference getInterPartitionTimeoutOperation_ExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation <em>Initialize Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Initialize Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation
-	 * @generated
-	 */
-	EClass getInitializeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation <em>Variable Initialize Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Initialize Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation
-	 * @generated
-	 */
-	EClass getVariableInitializeOperation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getInitVariable <em>Init Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Init Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getInitVariable()
-	 * @see #getVariableInitializeOperation()
-	 * @generated
-	 */
-	EReference getVariableInitializeOperation_InitVariable();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getExcludeOperation <em>Exclude Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Exclude Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation#getExcludeOperation()
-	 * @see #getVariableInitializeOperation()
-	 * @generated
-	 */
-	EReference getVariableInitializeOperation_ExcludeOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation <em>Ioc Initialize Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Initialize Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation
-	 * @generated
-	 */
-	EClass getIocInitializeOperation();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation#getInitIocApi <em>Init Ioc Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Init Ioc Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation#getInitIocApi()
-	 * @see #getIocInitializeOperation()
-	 * @generated
-	 */
-	EReference getIocInitializeOperation_InitIocApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSuspendAllInterruptsApi <em>Os Suspend All Interrupts Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Suspend All Interrupts Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSuspendAllInterruptsApi
-	 * @generated
-	 */
-	EClass getOsSuspendAllInterruptsApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsGetSpinlockApi <em>Os Get Spinlock Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Os Get Spinlock Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsGetSpinlockApi
-	 * @generated
-	 */
-	EClass getOsGetSpinlockApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi <em>Multicore Rte Start Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Multicore Rte Start Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi
-	 * @generated
-	 */
-	EClass getMulticoreRteStartApi();
-
-	/**
-	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi#getCoreStartApiImpl <em>Core Start Api Impl</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Core Start Api Impl</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi#getCoreStartApiImpl()
-	 * @see #getMulticoreRteStartApi()
-	 * @generated
-	 */
-	EReference getMulticoreRteStartApi_CoreStartApiImpl();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction <em>Rte Buffer Write Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Write Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction
-	 * @generated
-	 */
-	EClass getRteBufferWriteTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getOperation()
-	 * @see #getRteBufferWriteTrustedFunction()
-	 * @generated
-	 */
-	EReference getRteBufferWriteTrustedFunction_Operation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getDataVariable <em>Data Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction#getDataVariable()
-	 * @see #getRteBufferWriteTrustedFunction()
-	 * @generated
-	 */
-	EReference getRteBufferWriteTrustedFunction_DataVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction <em>Rte Buffer Send Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Buffer Send Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction
-	 * @generated
-	 */
-	EClass getRteBufferSendTrustedFunction();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getOperation()
-	 * @see #getRteBufferSendTrustedFunction()
-	 * @generated
-	 */
-	EReference getRteBufferSendTrustedFunction_Operation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable <em>Data Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferSendTrustedFunction#getDataVariable()
-	 * @see #getRteBufferSendTrustedFunction()
-	 * @generated
-	 */
-	EReference getRteBufferSendTrustedFunction_DataVariable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction <em>Cs Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cs Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction
-	 * @generated
-	 */
-	EClass getCsTrustedFunction();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getDataVariable <em>Data Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Data Variable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getDataVariable()
-	 * @see #getCsTrustedFunction()
-	 * @generated
-	 */
-	EReference getCsTrustedFunction_DataVariable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfParamTypeName <em>Cs Tf Param Type Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Param Type Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfParamTypeName()
-	 * @see #getCsTrustedFunction()
-	 * @generated
-	 */
-	EAttribute getCsTrustedFunction_CsTfParamTypeName();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfCalledRunnable <em>Cs Tf Called Runnable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Cs Tf Called Runnable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction#getCsTfCalledRunnable()
-	 * @see #getCsTrustedFunction()
-	 * @generated
-	 */
-	EReference getCsTrustedFunction_CsTfCalledRunnable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable <em>Cs Tf Called Runnable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cs Tf Called Runnable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable
-	 * @generated
-	 */
-	EClass getCsTfCalledRunnable();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getCsTfOpidConstantName <em>Cs Tf Opid Constant Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cs Tf Opid Constant Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getCsTfOpidConstantName()
-	 * @see #getCsTfCalledRunnable()
-	 * @generated
-	 */
-	EAttribute getCsTfCalledRunnable_CsTfOpidConstantName();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getStartOperation <em>Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable#getStartOperation()
-	 * @see #getCsTfCalledRunnable()
-	 * @generated
-	 */
-	EReference getCsTfCalledRunnable_StartOperation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation <em>Server Runnable Start Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Server Runnable Start Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation
-	 * @generated
-	 */
-	EClass getServerRunnableStartOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation#getStartServerRunnable <em>Start Server Runnable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start Server Runnable</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation#getStartServerRunnable()
-	 * @see #getServerRunnableStartOperation()
-	 * @generated
-	 */
-	EReference getServerRunnableStartOperation_StartServerRunnable();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation <em>Trusted Function Rte Buffer Write Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Trusted Function Rte Buffer Write Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation
-	 * @generated
-	 */
-	EClass getTrustedFunctionRteBufferWriteSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation#getAccessTrustedFunction <em>Access Trusted Function</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Access Trusted Function</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteBufferWriteSendOperation#getAccessTrustedFunction()
-	 * @see #getTrustedFunctionRteBufferWriteSendOperation()
-	 * @generated
-	 */
-	EReference getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocCommunication <em>Ioc Communication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Communication</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocCommunication
-	 * @generated
-	 */
-	EClass getIocCommunication();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation <em>Proxy Com Send Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Proxy Com Send Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation
-	 * @generated
-	 */
-	EClass getProxyComSendOperation();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getType()
-	 * @see #getProxyComSendOperation()
-	 * @generated
-	 */
-	EReference getProxyComSendOperation_Type();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi <em>Request Proxy Ioc Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Request Proxy Ioc Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getRequestProxyIocApi()
-	 * @see #getProxyComSendOperation()
-	 * @generated
-	 */
-	EReference getProxyComSendOperation_RequestProxyIocApi();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi <em>Value Proxy Ioc Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Proxy Ioc Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getValueProxyIocApi()
-	 * @see #getProxyComSendOperation()
-	 * @generated
-	 */
-	EReference getProxyComSendOperation_ValueProxyIocApi();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName <em>Proxy Function Index Constant Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proxy Function Index Constant Name</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ProxyComSendOperation#getProxyFunctionIndexConstantName()
-	 * @see #getProxyComSendOperation()
-	 * @generated
-	 */
-	EAttribute getProxyComSendOperation_ProxyFunctionIndexConstantName();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi <em>Ioc Send Group Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Send Group Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendGroupApi
-	 * @generated
-	 */
-	EClass getIocSendGroupApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication <em>Ioc Queued Group Communication</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Ioc Queued Group Communication</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication
-	 * @generated
-	 */
-	EClass getIocQueuedGroupCommunication();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getReceiveApi <em>Receive Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Receive Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getReceiveApi()
-	 * @see #getIocQueuedGroupCommunication()
-	 * @generated
-	 */
-	EReference getIocQueuedGroupCommunication_ReceiveApi();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getSendApi <em>Send Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Send Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocQueuedGroupCommunication#getSendApi()
-	 * @see #getIocQueuedGroupCommunication()
-	 * @generated
-	 */
-	EReference getIocQueuedGroupCommunication_SendApi();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi <em>Singlecore Rte Start Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Singlecore Rte Start Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi
-	 * @generated
-	 */
-	EClass getSinglecoreRteStartApi();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi#getOperation <em>Operation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Operation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi#getOperation()
-	 * @see #getSinglecoreRteStartApi()
-	 * @generated
-	 */
-	EReference getSinglecoreRteStartApi_Operation();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi <em>Rte Start Api</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rte Start Api</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStartApi
-	 * @generated
-	 */
-	EClass getRteStartApi();
-
-	/**
 	 * Returns the meta object for enum '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum <em>Parameter Pass Type Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -36706,6 +36665,142 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERATION = eINSTANCE.getOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl <em>Executable Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntity()
+		 * @generated
+		 */
+		EClass EXECUTABLE_ENTITY = eINSTANCE.getExecutableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Role Param</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTABLE_ENTITY__ROLE_PARAM = eINSTANCE.getExecutableEntity_RoleParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Is No Mock</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXECUTABLE_ENTITY__IS_NO_MOCK = eINSTANCE.getExecutableEntity_IsNoMock();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntity()
+		 * @generated
+		 */
+		EClass BSW_SCHEDULABLE_ENTITY = eINSTANCE.getBswSchedulableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Parted Bswm</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM = eINSTANCE.getBswSchedulableEntity_ParentPartedBswm();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl <em>Runnable Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRunnableEntity()
+		 * @generated
+		 */
+		EClass RUNNABLE_ENTITY = eINSTANCE.getRunnableEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Return Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RUNNABLE_ENTITY__HAS_RETURN_VALUE = eINSTANCE.getRunnableEntity_HasReturnValue();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl <em>Rte Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApi()
+		 * @generated
+		 */
+		EClass RTE_API = eINSTANCE.getRteApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_API__PARENT = eINSTANCE.getRteApi_Parent();
+
+		/**
+		 * The meta object literal for the '<em><b>Api Mapping Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_API__API_MAPPING_NAME = eINSTANCE.getRteApi_ApiMappingName();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Connected</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_API__IS_CONNECTED = eINSTANCE.getRteApi_IsConnected();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Inline</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_API__IS_INLINE = eINSTANCE.getRteApi_IsInline();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Value</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_API__RETURN_VALUE = eINSTANCE.getRteApi_ReturnValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Inline Constant</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_API__INLINE_CONSTANT = eINSTANCE.getRteApi_InlineConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Inline Global Variable</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_API__INLINE_GLOBAL_VARIABLE = eINSTANCE.getRteApi_InlineGlobalVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Inline Runnable Entity</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_API__INLINE_RUNNABLE_ENTITY = eINSTANCE.getRteApi_InlineRunnableEntity();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.WriteApiImpl <em>Write Api</em>}' class.
@@ -37240,80 +37335,6 @@ public interface ModulePackage extends EPackage {
 		EReference RTE_SOURCE__COM_PROXY_FUNCTION_GROUP = eINSTANCE.getRteSource_ComProxyFunctionGroup();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl <em>Rte Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteApi()
-		 * @generated
-		 */
-		EClass RTE_API = eINSTANCE.getRteApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Api Mapping Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RTE_API__API_MAPPING_NAME = eINSTANCE.getRteApi_ApiMappingName();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Value</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_API__RETURN_VALUE = eINSTANCE.getRteApi_ReturnValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Inline Constant</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_API__INLINE_CONSTANT = eINSTANCE.getRteApi_InlineConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Inline Global Variable</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_API__INLINE_GLOBAL_VARIABLE = eINSTANCE.getRteApi_InlineGlobalVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Inline Runnable Entity</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_API__INLINE_RUNNABLE_ENTITY = eINSTANCE.getRteApi_InlineRunnableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Connected</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RTE_API__IS_CONNECTED = eINSTANCE.getRteApi_IsConnected();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_API__PARENT = eINSTANCE.getRteApi_Parent();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Inline</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RTE_API__IS_INLINE = eINSTANCE.getRteApi_IsInline();
-
-		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteModuleImpl <em>Rte Module</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -37322,110 +37343,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass RTE_MODULE = eINSTANCE.getRteModule();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Common Source</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_COMMON_SOURCE = eINSTANCE.getRteModule_RteCommonSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Partition Source</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_PARTITION_SOURCE = eINSTANCE.getRteModule_RtePartitionSource();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Application Header</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_APPLICATION_HEADER = eINSTANCE.getRteModule_RteApplicationHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Application Type Header</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_APPLICATION_TYPE_HEADER = eINSTANCE.getRteModule_RteApplicationTypeHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Lifecycle Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_LIFECYCLE_HEADER = eINSTANCE.getRteModule_RteLifecycleHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Callback Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_CALLBACK_HEADER = eINSTANCE.getRteModule_RteCallbackHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Configuration Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_CONFIGURATION_HEADER = eINSTANCE.getRteModule_RteConfigurationHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Vfb Trace Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_VFB_TRACE_HEADER = eINSTANCE.getRteModule_RteVfbTraceHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Type Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_TYPE_HEADER = eINSTANCE.getRteModule_RteTypeHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_HEADER = eINSTANCE.getRteModule_RteHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Common Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_COMMON_HEADER = eINSTANCE.getRteModule_RteCommonHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Partition Header</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_PARTITION_HEADER = eINSTANCE.getRteModule_RtePartitionHeader();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Utility Header</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_MODULE__RTE_UTILITY_HEADER = eINSTANCE.getRteModule_RteUtilityHeader();
 
 		/**
 		 * The meta object literal for the '<em><b>Dependent Header</b></em>' containment reference list feature.
@@ -37452,12 +37369,36 @@ public interface ModulePackage extends EPackage {
 		EReference RTE_MODULE__SWC_MEMORY_MAPPING_HEADER = eINSTANCE.getRteModule_SwcMemoryMappingHeader();
 
 		/**
-		 * The meta object literal for the '<em><b>Module Interlink Header</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rte Header</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RTE_MODULE__MODULE_INTERLINK_HEADER = eINSTANCE.getRteModule_ModuleInterlinkHeader();
+		EReference RTE_MODULE__RTE_HEADER = eINSTANCE.getRteModule_RteHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Type Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_TYPE_HEADER = eINSTANCE.getRteModule_RteTypeHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Application Type Header</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_APPLICATION_TYPE_HEADER = eINSTANCE.getRteModule_RteApplicationTypeHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Application Header</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_APPLICATION_HEADER = eINSTANCE.getRteModule_RteApplicationHeader();
 
 		/**
 		 * The meta object literal for the '<em><b>Module Interlink Type Header</b></em>' containment reference list feature.
@@ -37468,12 +37409,92 @@ public interface ModulePackage extends EPackage {
 		EReference RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER = eINSTANCE.getRteModule_ModuleInterlinkTypeHeader();
 
 		/**
+		 * The meta object literal for the '<em><b>Module Interlink Header</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__MODULE_INTERLINK_HEADER = eINSTANCE.getRteModule_ModuleInterlinkHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Lifecycle Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_LIFECYCLE_HEADER = eINSTANCE.getRteModule_RteLifecycleHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Configuration Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_CONFIGURATION_HEADER = eINSTANCE.getRteModule_RteConfigurationHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Vfb Trace Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_VFB_TRACE_HEADER = eINSTANCE.getRteModule_RteVfbTraceHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Callback Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_CALLBACK_HEADER = eINSTANCE.getRteModule_RteCallbackHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Utility Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_UTILITY_HEADER = eINSTANCE.getRteModule_RteUtilityHeader();
+
+		/**
 		 * The meta object literal for the '<em><b>Rte Bsw Api Header</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RTE_MODULE__RTE_BSW_API_HEADER = eINSTANCE.getRteModule_RteBswApiHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Common Header</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_COMMON_HEADER = eINSTANCE.getRteModule_RteCommonHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Partition Header</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_PARTITION_HEADER = eINSTANCE.getRteModule_RtePartitionHeader();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Common Source</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_COMMON_SOURCE = eINSTANCE.getRteModule_RteCommonSource();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Partition Source</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_MODULE__RTE_PARTITION_SOURCE = eINSTANCE.getRteModule_RtePartitionSource();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.GlobalVariableImpl <em>Global Variable</em>}' class.
@@ -37746,14 +37767,6 @@ public interface ModulePackage extends EPackage {
 		EClass FUNCTION = eINSTANCE.getFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FUNCTION__SYMBOL_NAME = eINSTANCE.getFunction_SymbolName();
-
-		/**
 		 * The meta object literal for the '<em><b>Return Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -37794,6 +37807,14 @@ public interface ModulePackage extends EPackage {
 		EReference FUNCTION__MEMORY_MAPPING = eINSTANCE.getFunction_MemoryMapping();
 
 		/**
+		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION__SYMBOL_NAME = eINSTANCE.getFunction_SymbolName();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.LogicalCompartmentImpl <em>Logical Compartment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -37810,6 +37831,248 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LOGICAL_COMPARTMENT__COMPARTMENT_NAME = eINSTANCE.getLogicalCompartment_CompartmentName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl <em>Rte</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRte()
+		 * @generated
+		 */
+		EClass RTE = eINSTANCE.getRte();
+
+		/**
+		 * The meta object literal for the '<em><b>Core</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__CORE = eINSTANCE.getRte_Core();
+
+		/**
+		 * The meta object literal for the '<em><b>Bswm</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__BSWM = eINSTANCE.getRte_Bswm();
+
+		/**
+		 * The meta object literal for the '<em><b>Generation Info</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__GENERATION_INFO = eINSTANCE.getRte_GenerationInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__DEPENDENT_TYPE = eINSTANCE.getRte_DependentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__DEPENDENT_CONSTANT = eINSTANCE.getRte_DependentConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Os Api</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__DEPENDENT_OS_API = eINSTANCE.getRte_DependentOsApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Ioc Communication</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__DEPENDENT_IOC_COMMUNICATION = eINSTANCE.getRte_DependentIocCommunication();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependent Com Api</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__DEPENDENT_COM_API = eINSTANCE.getRte_DependentComApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Ioc Init Value Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__IOC_INIT_VALUE_CONSTANT = eINSTANCE.getRte_IocInitValueConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Ioc Init Value Variable Set</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__IOC_INIT_VALUE_VARIABLE_SET = eINSTANCE.getRte_IocInitValueVariableSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Memory Mapping</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__RTE_MEMORY_MAPPING = eINSTANCE.getRte_RteMemoryMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getRte_ImplementationDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Tf Param Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE = eINSTANCE.getRte_ComSendSignalTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Group Tf Param Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE = eINSTANCE.getRte_ComSendSignalGroupTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Param Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__CS_TF_PARAM_TYPE = eINSTANCE.getRte_CsTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Rte Nonqueued Send Tf Param Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteNonqueuedSendTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Rte Queued Send Tf Param Type</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteQueuedSendTfParamType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT = eINSTANCE.getRte_SrRteBufferQueueMaxLengthConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SR_RTE_BUFFER_QUEUE_TYPE = eINSTANCE.getRte_SrRteBufferQueueType();
+
+		/**
+		 * The meta object literal for the '<em><b>Immediate Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__IMMEDIATE_CONSTANT = eINSTANCE.getRte_ImmediateConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION = eINSTANCE.getRte_ComSendSignalTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Periodic Entity</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY = eINSTANCE.getRte_ComSendSignalPeriodicEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Immediate Entity</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY = eINSTANCE.getRte_ComSendSignalImmediateEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Immediate Task Body</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = eINSTANCE.getRte_ComSendSignalImmediateTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Callback</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__COM_CALLBACK = eINSTANCE.getRte_ComCallback();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Start Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__RTE_START_API = eINSTANCE.getRte_RteStartApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Stop Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__RTE_STOP_API = eINSTANCE.getRte_RteStopApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Schm Init Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SCHM_INIT_API = eINSTANCE.getRte_SchmInitApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Schm Deinit Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE__SCHM_DEINIT_API = eINSTANCE.getRte_SchmDeinitApi();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CoreImpl <em>Core</em>}' class.
@@ -37872,14 +38135,6 @@ public interface ModulePackage extends EPackage {
 		EClass PARTITION = eINSTANCE.getPartition();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Bsw Partition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARTITION__IS_BSW_PARTITION = eINSTANCE.getPartition_IsBswPartition();
-
-		/**
 		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -37896,116 +38151,20 @@ public interface ModulePackage extends EPackage {
 		EReference PARTITION__SWC = eINSTANCE.getPartition_Swc();
 
 		/**
-		 * The meta object literal for the '<em><b>Restart Partition Api</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Parted Bswm</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__RESTART_PARTITION_API = eINSTANCE.getPartition_RestartPartitionApi();
+		EReference PARTITION__PARTED_BSWM = eINSTANCE.getPartition_PartedBswm();
 
 		/**
-		 * The meta object literal for the '<em><b>Partition Terminated Api</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Is Bsw Partition</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__PARTITION_TERMINATED_API = eINSTANCE.getPartition_PartitionTerminatedApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Partition Restarting Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__PARTITION_RESTARTING_API = eINSTANCE.getPartition_PartitionRestartingApi();
-
-		/**
-		 * The meta object literal for the '<em><b>TAck Status</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__TACK_STATUS = eINSTANCE.getPartition_TAckStatus();
-
-		/**
-		 * The meta object literal for the '<em><b>Task Body</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__TASK_BODY = eINSTANCE.getPartition_TaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Argc Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__CS_TF_ARGC_CONSTANT = eINSTANCE.getPartition_CsTfArgcConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Opid Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__CS_TF_OPID_CONSTANT = eINSTANCE.getPartition_CsTfOpidConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Trusted Function</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__CS_TRUSTED_FUNCTION = eINSTANCE.getPartition_CsTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Entity Start Variable</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__ENTITY_START_VARIABLE = eINSTANCE.getPartition_EntityStartVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Entity Start Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__ENTITY_START_CONSTANT = eINSTANCE.getPartition_EntityStartConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Buffer Send Trusted Function</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION = eINSTANCE.getPartition_RteBufferSendTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Filter Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__SR_FILTER_CONSTANT = eINSTANCE.getPartition_SrFilterConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Filter Old Value Variable</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__SR_FILTER_OLD_VALUE_VARIABLE = eINSTANCE.getPartition_SrFilterOldValueVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Filter Occurrence Variable</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION__SR_FILTER_OCCURRENCE_VARIABLE = eINSTANCE.getPartition_SrFilterOccurrenceVariable();
+		EAttribute PARTITION__IS_BSW_PARTITION = eINSTANCE.getPartition_IsBswPartition();
 
 		/**
 		 * The meta object literal for the '<em><b>Os Trusted Macro</b></em>' containment reference feature.
@@ -38048,12 +38207,28 @@ public interface ModulePackage extends EPackage {
 		EReference PARTITION__COM_META_DATA_VARIABLE_SET = eINSTANCE.getPartition_ComMetaDataVariableSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Parted Bswm</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Com Proxy Function</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__PARTED_BSWM = eINSTANCE.getPartition_PartedBswm();
+		EReference PARTITION__COM_PROXY_FUNCTION = eINSTANCE.getPartition_ComProxyFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Proxy Function Table Index Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__COM_PROXY_FUNCTION_TABLE_INDEX_CONSTANT = eINSTANCE.getPartition_ComProxyFunctionTableIndexConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Proxy Function Table Size Constant</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT = eINSTANCE.getPartition_ComProxyFunctionTableSizeConstant();
 
 		/**
 		 * The meta object literal for the '<em><b>Com Proxy Function Table Variable</b></em>' containment reference feature.
@@ -38096,28 +38271,116 @@ public interface ModulePackage extends EPackage {
 		EReference PARTITION__SR_RTE_BUFFER_QUEUED_VARIABLE = eINSTANCE.getPartition_SrRteBufferQueuedVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Com Proxy Function</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Rte Buffer Send Trusted Function</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__COM_PROXY_FUNCTION = eINSTANCE.getPartition_ComProxyFunction();
+		EReference PARTITION__RTE_BUFFER_SEND_TRUSTED_FUNCTION = eINSTANCE.getPartition_RteBufferSendTrustedFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Com Proxy Function Table Index Constant</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sr Filter Constant</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__COM_PROXY_FUNCTION_TABLE_INDEX_CONSTANT = eINSTANCE.getPartition_ComProxyFunctionTableIndexConstant();
+		EReference PARTITION__SR_FILTER_CONSTANT = eINSTANCE.getPartition_SrFilterConstant();
 
 		/**
-		 * The meta object literal for the '<em><b>Com Proxy Function Table Size Constant</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Sr Filter Old Value Variable</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARTITION__COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT = eINSTANCE.getPartition_ComProxyFunctionTableSizeConstant();
+		EReference PARTITION__SR_FILTER_OLD_VALUE_VARIABLE = eINSTANCE.getPartition_SrFilterOldValueVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Filter Occurrence Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__SR_FILTER_OCCURRENCE_VARIABLE = eINSTANCE.getPartition_SrFilterOccurrenceVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Argc Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__CS_TF_ARGC_CONSTANT = eINSTANCE.getPartition_CsTfArgcConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Opid Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__CS_TF_OPID_CONSTANT = eINSTANCE.getPartition_CsTfOpidConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Trusted Function</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__CS_TRUSTED_FUNCTION = eINSTANCE.getPartition_CsTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity Start Variable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__ENTITY_START_VARIABLE = eINSTANCE.getPartition_EntityStartVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity Start Constant</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__ENTITY_START_CONSTANT = eINSTANCE.getPartition_EntityStartConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Task Body</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__TASK_BODY = eINSTANCE.getPartition_TaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Restart Partition Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__RESTART_PARTITION_API = eINSTANCE.getPartition_RestartPartitionApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Partition Terminated Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__PARTITION_TERMINATED_API = eINSTANCE.getPartition_PartitionTerminatedApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Partition Restarting Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__PARTITION_RESTARTING_API = eINSTANCE.getPartition_PartitionRestartingApi();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION__TACK_STATUS = eINSTANCE.getPartition_TAckStatus();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SwcImpl <em>Swc</em>}' class.
@@ -38128,6 +38391,14 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SWC = eINSTANCE.getSwc();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SWC__PARENT = eINSTANCE.getSwc_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Swc Memory Mapping</b></em>' containment reference list feature.
@@ -38152,14 +38423,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference SWC__DEPENDENT_EXTERNAL_RUNNABLE_ENTITY = eINSTANCE.getSwc_DependentExternalRunnableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SWC__PARENT = eINSTANCE.getSwc_Parent();
 
 		/**
 		 * The meta object literal for the '<em><b>Rte Api</b></em>' containment reference list feature.
@@ -38498,6 +38761,14 @@ public interface ModulePackage extends EPackage {
 		EReference TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getTrustedFunctionRteOperation_TempReturnVariable();
 
 		/**
+		 * The meta object literal for the '<em><b>Trusted Function Param Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
+
+		/**
 		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -38506,12 +38777,22 @@ public interface ModulePackage extends EPackage {
 		EReference TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getTrustedFunctionRteOperation_ActivationFlagOnRxSuccess();
 
 		/**
-		 * The meta object literal for the '<em><b>Trusted Function Param Variable</b></em>' reference feature.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl <em>Trusted Function Rte Buffer Write Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferWriteSendOperation()
+		 * @generated
+		 */
+		EClass TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteBufferWriteSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Trusted Function</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getTrustedFunctionRteOperation_TrustedFunctionParamVariable();
+		EReference TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferSendSendOperationImpl <em>Trusted Function Rte Buffer Send Send Operation</em>}' class.
@@ -38530,6 +38811,42 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferSendSendOperation_AccessTrustedFunction();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferInvalidateSendOperation()
+		 * @generated
+		 */
+		EClass TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Trusted Function</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = eINSTANCE.getRteBufferInvalidateTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferInvalidateTrustedFunction_Operation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionComSendOperationImpl <em>Trusted Function Com Send Operation</em>}' class.
@@ -39266,6 +39583,1702 @@ public interface ModulePackage extends EPackage {
 		EClass RTE_STOP_API = eINSTANCE.getRteStopApi();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRestartPartitionApi()
+		 * @generated
+		 */
+		EClass RESTART_PARTITION_API = eINSTANCE.getRestartPartitionApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RESTART_PARTITION_API__OPERATION = eINSTANCE.getRestartPartitionApi_Operation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl <em>Partition Restarting Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionRestartingApi()
+		 * @generated
+		 */
+		EClass PARTITION_RESTARTING_API = eINSTANCE.getPartitionRestartingApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Inter Partition Timeout Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_RESTARTING_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionRestartingApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionTerminatedApi()
+		 * @generated
+		 */
+		EClass PARTITION_TERMINATED_API = eINSTANCE.getPartitionTerminatedApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Sr Inter Partition Timeout Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTITION_TERMINATED_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionTerminatedApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApi()
+		 * @generated
+		 */
+		EClass RTE_LIFECYCLE_API = eINSTANCE.getRteLifecycleApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl <em>Send Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendApi()
+		 * @generated
+		 */
+		EClass SEND_API = eINSTANCE.getSendApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__OPERATION = eINSTANCE.getSendApi_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__DATA_PARAM = eINSTANCE.getSendApi_DataParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Status Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__STATUS_VARIABLE = eINSTANCE.getSendApi_StatusVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Trusted Function Param Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getSendApi_TrustedFunctionParamVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Filter Result Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__FILTER_RESULT_VARIABLE = eINSTANCE.getSendApi_FilterResultVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Needs Check Arg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEND_API__NEEDS_CHECK_ARG = eINSTANCE.getSendApi_NeedsCheckArg();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__ACTIVATION_OPERATION = eINSTANCE.getSendApi_ActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__ACTIVATION_FLAG = eINSTANCE.getSendApi_ActivationFlag();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEND_API__TACK_STATUS = eINSTANCE.getSendApi_TAckStatus();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReceiveApi()
+		 * @generated
+		 */
+		EClass RECEIVE_API = eINSTANCE.getReceiveApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECEIVE_API__OPERATION = eINSTANCE.getReceiveApi_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Param</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECEIVE_API__DATA_PARAM = eINSTANCE.getReceiveApi_DataParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Status Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECEIVE_API__STATUS_VARIABLE = eINSTANCE.getReceiveApi_StatusVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl <em>Rte Buffer Queued Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedSendOperation()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_QUEUED_SEND_OPERATION = eINSTANCE.getRteBufferQueuedSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__ACCESS_VARIABLE = eINSTANCE.getRteBufferQueuedSendOperation_AccessVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getRteBufferQueuedSendOperation_TempReturnVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE = eINSTANCE.getRteBufferQueuedSendOperation_Type();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl <em>Rte Buffer Queued Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedVariable()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_QUEUED_VARIABLE = eINSTANCE.getRteBufferQueuedVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Queue Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_QUEUED_VARIABLE__QUEUE_TYPE = eINSTANCE.getRteBufferQueuedVariable_QueueType();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl <em>Rte Buffer Queued Read Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedReadOperation()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_QUEUED_READ_OPERATION = eINSTANCE.getRteBufferQueuedReadOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_QUEUED_READ_OPERATION__ACCESS_VARIABLE = eINSTANCE.getRteBufferQueuedReadOperation_AccessVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl <em>Ioc Queued Communication</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedCommunication()
+		 * @generated
+		 */
+		EClass IOC_QUEUED_COMMUNICATION = eINSTANCE.getIocQueuedCommunication();
+
+		/**
+		 * The meta object literal for the '<em><b>Send Api</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_COMMUNICATION__SEND_API = eINSTANCE.getIocQueuedCommunication_SendApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Receive Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_COMMUNICATION__RECEIVE_API = eINSTANCE.getIocQueuedCommunication_ReceiveApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Ioc Empty Queue Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_COMMUNICATION__IOC_EMPTY_QUEUE_API = eINSTANCE.getIocQueuedCommunication_IocEmptyQueueApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl <em>Ioc Receive Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveApi()
+		 * @generated
+		 */
+		EClass IOC_RECEIVE_API = eINSTANCE.getIocReceiveApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl <em>Ioc Send Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendApi()
+		 * @generated
+		 */
+		EClass IOC_SEND_API = eINSTANCE.getIocSendApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl <em>Ioc Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendOperation()
+		 * @generated
+		 */
+		EClass IOC_SEND_OPERATION = eINSTANCE.getIocSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_SEND_OPERATION__TYPE = eINSTANCE.getIocSendOperation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getIocSendOperation_ActivationFlagOnRxSuccess();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedSendOperation()
+		 * @generated
+		 */
+		EClass IOC_QUEUED_SEND_OPERATION = eINSTANCE.getIocQueuedSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_SEND_OPERATION__ACCESS_API = eINSTANCE.getIocQueuedSendOperation_AccessApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getIocQueuedSendOperation_TempReturnVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl <em>Ioc Queued Read Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedReadOperation()
+		 * @generated
+		 */
+		EClass IOC_QUEUED_READ_OPERATION = eINSTANCE.getIocQueuedReadOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_READ_OPERATION__ACCESS_API = eINSTANCE.getIocQueuedReadOperation_AccessApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_READ_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getIocQueuedReadOperation_TempReturnVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl <em>Call Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCallApi()
+		 * @generated
+		 */
+		EClass CALL_API = eINSTANCE.getCallApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_API__OPERATION = eINSTANCE.getCallApi_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation Param</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_API__OPERATION_PARAM = eINSTANCE.getCallApi_OperationParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Port Arg Value</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_API__PORT_ARG_VALUE = eINSTANCE.getCallApi_PortArgValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALL_API__RETURN_VARIABLE = eINSTANCE.getCallApi_ReturnVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
+		 * @generated
+		 */
+		EClass TF_CALL_API = eINSTANCE.getTfCallApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Param Type Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TF_CALL_API__CS_TF_PARAM_TYPE_NAME = eINSTANCE.getTfCallApi_CsTfParamTypeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Argc Constant Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TF_CALL_API__CS_TF_ARGC_CONSTANT_NAME = eINSTANCE.getTfCallApi_CsTfArgcConstantName();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Opid Constant Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TF_CALL_API__CS_TF_OPID_CONSTANT_NAME = eINSTANCE.getTfCallApi_CsTfOpidConstantName();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TF_CALL_API__CS_TF_NAME = eINSTANCE.getTfCallApi_CsTfName();
+
+		/**
+		 * The meta object literal for the '<em><b>Needs Check Arg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TF_CALL_API__NEEDS_CHECK_ARG = eINSTANCE.getTfCallApi_NeedsCheckArg();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl <em>Executable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableStartOperation()
+		 * @generated
+		 */
+		EClass EXECUTABLE_START_OPERATION = eINSTANCE.getExecutableStartOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Executable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTABLE_START_OPERATION__START_EXECUTABLE = eINSTANCE.getExecutableStartOperation_StartExecutable();
+
+		/**
+		 * The meta object literal for the '<em><b>Riea Exclude Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION = eINSTANCE.getExecutableStartOperation_RieaExcludeOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Disabled In Mode</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTABLE_START_OPERATION__DISABLED_IN_MODE = eINSTANCE.getExecutableStartOperation_DisabledInMode();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl <em>Disabled In Mode</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDisabledInMode()
+		 * @generated
+		 */
+		EClass DISABLED_IN_MODE = eINSTANCE.getDisabledInMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Disabled Mode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISABLED_IN_MODE__DISABLED_MODE = eINSTANCE.getDisabledInMode_DisabledMode();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Machine Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISABLED_IN_MODE__MODE_MACHINE_INSTANCE = eINSTANCE.getDisabledInMode_ModeMachineInstance();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl <em>Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExcludeOperation()
+		 * @generated
+		 */
+		EClass EXCLUDE_OPERATION = eINSTANCE.getExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl <em>All Interrupt Block Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getAllInterruptBlockExcludeOperation()
+		 * @generated
+		 */
+		EClass ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = eINSTANCE.getAllInterruptBlockExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl <em>Os Interrupt Block Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsInterruptBlockExcludeOperation()
+		 * @generated
+		 */
+		EClass OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = eINSTANCE.getOsInterruptBlockExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl <em>Os Spinlock Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSpinlockExcludeOperation()
+		 * @generated
+		 */
+		EClass OS_SPINLOCK_EXCLUDE_OPERATION = eINSTANCE.getOsSpinlockExcludeOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Spinlock Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_SPINLOCK_EXCLUDE_OPERATION__OS_SPINLOCK_ID = eINSTANCE.getOsSpinlockExcludeOperation_OsSpinlockId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl <em>Os Resource Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsResourceExcludeOperation()
+		 * @generated
+		 */
+		EClass OS_RESOURCE_EXCLUDE_OPERATION = eINSTANCE.getOsResourceExcludeOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Resource Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_RESOURCE_EXCLUDE_OPERATION__OS_RESOURCE_ID = eINSTANCE.getOsResourceExcludeOperation_OsResourceId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl <em>None Exclude Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNoneExcludeOperation()
+		 * @generated
+		 */
+		EClass NONE_EXCLUDE_OPERATION = eINSTANCE.getNoneExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl <em>Constant</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstant()
+		 * @generated
+		 */
+		EClass CONSTANT = eINSTANCE.getConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__SYMBOL_NAME = eINSTANCE.getConstant_SymbolName();
+
+		/**
+		 * The meta object literal for the '<em><b>External Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__EXTERNAL_SYMBOL_NAME = eINSTANCE.getConstant_ExternalSymbolName();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSTANT__TYPE = eINSTANCE.getConstant_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__VALUE = eINSTANCE.getConstant_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Constant Value Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__CONSTANT_VALUE_TYPE = eINSTANCE.getConstant_ConstantValueType();
+
+		/**
+		 * The meta object literal for the '<em><b>Member</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSTANT__MEMBER = eINSTANCE.getConstant_Member();
+
+		/**
+		 * The meta object literal for the '<em><b>Represented Variable Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONSTANT__REPRESENTED_VARIABLE_NAME = eINSTANCE.getConstant_RepresentedVariableName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl <em>Constant Member</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantMember()
+		 * @generated
+		 */
+		EClass CONSTANT_MEMBER = eINSTANCE.getConstantMember();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONSTANT_MEMBER__PARENT = eINSTANCE.getConstantMember_Parent();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl <em>Rte Enter Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteEnterApi()
+		 * @generated
+		 */
+		EClass RTE_ENTER_API = eINSTANCE.getRteEnterApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_ENTER_API__OPERATION = eINSTANCE.getRteEnterApi_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Is None Exclude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_ENTER_API__IS_NONE_EXCLUDE = eINSTANCE.getRteEnterApi_IsNoneExclude();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl <em>Rte Exit Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteExitApi()
+		 * @generated
+		 */
+		EClass RTE_EXIT_API = eINSTANCE.getRteExitApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_EXIT_API__OPERATION = eINSTANCE.getRteExitApi_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Is None Exclude</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RTE_EXIT_API__IS_NONE_EXCLUDE = eINSTANCE.getRteExitApi_IsNoneExclude();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
+		 * @generated
+		 */
+		EClass OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody_Operation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationExecutableTaskBody()
+		 * @generated
+		 */
+		EClass OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = eINSTANCE.getOsTaskActivationExecutableTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsTaskActivationExecutableTaskBody_Operation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl <em>Os Event Set Executable Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetExecutableTaskBody()
+		 * @generated
+		 */
+		EClass OS_EVENT_SET_EXECUTABLE_TASK_BODY = eINSTANCE.getOsEventSetExecutableTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OS_EVENT_SET_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsEventSetExecutableTaskBody_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID = eINSTANCE.getOsEventSetExecutableTaskBody_OsEventId();
+
+		/**
+		 * The meta object literal for the '<em><b>Checks Os Event Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_EVENT_SET_EXECUTABLE_TASK_BODY__CHECKS_OS_EVENT_ID = eINSTANCE.getOsEventSetExecutableTaskBody_ChecksOsEventId();
+
+		/**
+		 * The meta object literal for the '<em><b>Event Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OS_EVENT_SET_EXECUTABLE_TASK_BODY__EVENT_VARIABLE = eINSTANCE.getOsEventSetExecutableTaskBody_EventVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl <em>Os Task Activation Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationOperation()
+		 * @generated
+		 */
+		EClass OS_TASK_ACTIVATION_OPERATION = eINSTANCE.getOsTaskActivationOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl <em>Os Event Set Activation Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetActivationOperation()
+		 * @generated
+		 */
+		EClass OS_EVENT_SET_ACTIVATION_OPERATION = eINSTANCE.getOsEventSetActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activation Os Event Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_EVENT_SET_ACTIVATION_OPERATION__ACTIVATION_OS_EVENT_ID = eINSTANCE.getOsEventSetActivationOperation_ActivationOsEventId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl <em>Context Activation Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getContextActivationOperation()
+		 * @generated
+		 */
+		EClass CONTEXT_ACTIVATION_OPERATION = eINSTANCE.getContextActivationOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Executable Start Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT_ACTIVATION_OPERATION__EXECUTABLE_START_OPERATION = eINSTANCE.getContextActivationOperation_ExecutableStartOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Cycle Countup Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT_ACTIVATION_OPERATION__CYCLE_COUNTUP_OPERATION = eINSTANCE.getContextActivationOperation_CycleCountupOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Offset Countup Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTEXT_ACTIVATION_OPERATION__START_OFFSET_COUNTUP_OPERATION = eINSTANCE.getContextActivationOperation_StartOffsetCountupOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl <em>Timing Triggering Executable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTimingTriggeringExecutableStartOperation()
+		 * @generated
+		 */
+		EClass TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = eINSTANCE.getTimingTriggeringExecutableStartOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Cycle Period Constant</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_CyclePeriodConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Cycle Offset Constant</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_OFFSET_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_CycleOffsetConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Offset Constant</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_StartOffsetConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Offset Counter Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_COUNTER_VARIABLE = eINSTANCE.getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Cycle Counter Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE = eINSTANCE.getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
+		 * @generated
+		 */
+		EClass PLAIN_EXECUTABLE_START_OPERATION = eINSTANCE.getPlainExecutableStartOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeSwitchTriggeringExecutableStartOperation()
+		 * @generated
+		 */
+		EClass MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = eINSTANCE.getModeSwitchTriggeringExecutableStartOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Mode</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE = eINSTANCE.getModeSwitchTriggeringExecutableStartOperation_StartMode();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl <em>Cycle Countup Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCycleCountupOperation()
+		 * @generated
+		 */
+		EClass CYCLE_COUNTUP_OPERATION = eINSTANCE.getCycleCountupOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Counter Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CYCLE_COUNTUP_OPERATION__COUNTER_VARIABLE = eINSTANCE.getCycleCountupOperation_CounterVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Constant</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CYCLE_COUNTUP_OPERATION__MAX_CONSTANT = eINSTANCE.getCycleCountupOperation_MaxConstant();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl <em>Start Offset Countup Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStartOffsetCountupOperation()
+		 * @generated
+		 */
+		EClass START_OFFSET_COUNTUP_OPERATION = eINSTANCE.getStartOffsetCountupOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Counter Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START_OFFSET_COUNTUP_OPERATION__COUNTER_VARIABLE = eINSTANCE.getStartOffsetCountupOperation_CounterVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Constant</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference START_OFFSET_COUNTUP_OPERATION__MAX_CONSTANT = eINSTANCE.getStartOffsetCountupOperation_MaxConstant();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl <em>Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBody()
+		 * @generated
+		 */
+		EClass TASK_BODY = eINSTANCE.getTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Task Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_BODY__OS_TASK_ID = eINSTANCE.getTaskBody_OsTaskId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl <em>Ioc Empty Queue Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocEmptyQueueApi()
+		 * @generated
+		 */
+		EClass IOC_EMPTY_QUEUE_API = eINSTANCE.getIocEmptyQueueApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl <em>Com Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComApi()
+		 * @generated
+		 */
+		EClass COM_API = eINSTANCE.getComApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Signal Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_API__IS_SIGNAL_GROUP = eINSTANCE.getComApi_IsSignalGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Signal Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_API__COM_SIGNAL_SYMBOL_NAME = eINSTANCE.getComApi_ComSignalSymbolName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl <em>Ioc Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocApi()
+		 * @generated
+		 */
+		EClass IOC_API = eINSTANCE.getIocApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Mapping Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IOC_API__MAPPING_NAME = eINSTANCE.getIocApi_MappingName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl <em>Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getValue()
+		 * @generated
+		 */
+		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl <em>Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunction()
+		 * @generated
+		 */
+		EClass TRUSTED_FUNCTION = eINSTANCE.getTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Trusted Function Index</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = eINSTANCE.getTrustedFunction_TrustedFunctionIndex();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl <em>Com Send Signal Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalTrustedFunction()
+		 * @generated
+		 */
+		EClass COM_SEND_SIGNAL_TRUSTED_FUNCTION = eINSTANCE.getComSendSignalTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SEND_SIGNAL_TRUSTED_FUNCTION__IS_GROUP = eINSTANCE.getComSendSignalTrustedFunction_IsGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Signal Group Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SEND_SIGNAL_TRUSTED_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME = eINSTANCE.getComSendSignalTrustedFunction_SignalGroupSymbolName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl <em>Os Set Event Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSetEventApi()
+		 * @generated
+		 */
+		EClass OS_SET_EVENT_API = eINSTANCE.getOsSetEventApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Task Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_SET_EVENT_API__OS_TASK_ID = eINSTANCE.getOsSetEventApi_OsTaskId();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OS_SET_EVENT_API__OS_EVENT_ID = eINSTANCE.getOsSetEventApi_OsEventId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl <em>Os Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsApi()
+		 * @generated
+		 */
+		EClass OS_API = eINSTANCE.getOsApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl <em>Com Send Signal Immediate Task Body</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateTaskBody()
+		 * @generated
+		 */
+		EClass COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = eINSTANCE.getComSendSignalImmediateTaskBody();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Entity</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__START_ENTITY = eINSTANCE.getComSendSignalImmediateTaskBody_StartEntity();
+
+		/**
+		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__OS_EVENT_ID = eINSTANCE.getComSendSignalImmediateTaskBody_OsEventId();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl <em>Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariable()
+		 * @generated
+		 */
+		EClass VARIABLE = eINSTANCE.getVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__TYPE = eINSTANCE.getVariable_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Member</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE__MEMBER = eINSTANCE.getVariable_Member();
+
+		/**
+		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE__SYMBOL_NAME = eINSTANCE.getVariable_SymbolName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
+		 * @generated
+		 */
+		EClass COM_SEND_PROXY_OPERATION = eINSTANCE.getComSendProxyOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_PROXY_OPERATION__ACCESS_API = eINSTANCE.getComSendProxyOperation_AccessApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Function Table Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = eINSTANCE.getComSendProxyOperation_FunctionTableSymbolName();
+
+		/**
+		 * The meta object literal for the '<em><b>Table Index Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = eINSTANCE.getComSendProxyOperation_TableIndexVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl <em>Ioc Receive Group Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveGroupApi()
+		 * @generated
+		 */
+		EClass IOC_RECEIVE_GROUP_API = eINSTANCE.getIocReceiveGroupApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Com Send Signal Symbol Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute IOC_RECEIVE_GROUP_API__COM_SEND_SIGNAL_SYMBOL_NAME = eINSTANCE.getIocReceiveGroupApi_ComSendSignalSymbolName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl <em>Root</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleRoot()
+		 * @generated
+		 */
+		EClass MODULE_ROOT = eINSTANCE.getModuleRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte Module</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODULE_ROOT__RTE_MODULE = eINSTANCE.getModuleRoot_RteModule();
+
+		/**
+		 * The meta object literal for the '<em><b>Rte</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODULE_ROOT__RTE = eINSTANCE.getModuleRoot_Rte();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl <em>Inter Partition Timeout Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInterPartitionTimeoutOperation()
+		 * @generated
+		 */
+		EClass INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getInterPartitionTimeoutOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Timeout Variable</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTER_PARTITION_TIMEOUT_OPERATION__TIMEOUT_VARIABLE = eINSTANCE.getInterPartitionTimeoutOperation_TimeoutVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclude Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTER_PARTITION_TIMEOUT_OPERATION__EXCLUDE_OPERATION = eINSTANCE.getInterPartitionTimeoutOperation_ExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl <em>Initialize Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInitializeOperation()
+		 * @generated
+		 */
+		EClass INITIALIZE_OPERATION = eINSTANCE.getInitializeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl <em>Variable Initialize Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableInitializeOperation()
+		 * @generated
+		 */
+		EClass VARIABLE_INITIALIZE_OPERATION = eINSTANCE.getVariableInitializeOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Variable</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_INITIALIZE_OPERATION__INIT_VARIABLE = eINSTANCE.getVariableInitializeOperation_InitVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Exclude Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VARIABLE_INITIALIZE_OPERATION__EXCLUDE_OPERATION = eINSTANCE.getVariableInitializeOperation_ExcludeOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl <em>Ioc Initialize Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocInitializeOperation()
+		 * @generated
+		 */
+		EClass IOC_INITIALIZE_OPERATION = eINSTANCE.getIocInitializeOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Init Ioc Api</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_INITIALIZE_OPERATION__INIT_IOC_API = eINSTANCE.getIocInitializeOperation_InitIocApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl <em>Os Suspend All Interrupts Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSuspendAllInterruptsApi()
+		 * @generated
+		 */
+		EClass OS_SUSPEND_ALL_INTERRUPTS_API = eINSTANCE.getOsSuspendAllInterruptsApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl <em>Os Get Spinlock Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsGetSpinlockApi()
+		 * @generated
+		 */
+		EClass OS_GET_SPINLOCK_API = eINSTANCE.getOsGetSpinlockApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl <em>Multicore Rte Start Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreRteStartApi()
+		 * @generated
+		 */
+		EClass MULTICORE_RTE_START_API = eINSTANCE.getMulticoreRteStartApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Core Start Api Impl</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MULTICORE_RTE_START_API__CORE_START_API_IMPL = eINSTANCE.getMulticoreRteStartApi_CoreStartApiImpl();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl <em>Rte Buffer Write Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferWriteTrustedFunction()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_WRITE_TRUSTED_FUNCTION = eINSTANCE.getRteBufferWriteTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferWriteTrustedFunction_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferWriteTrustedFunction_DataVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
+		 * @generated
+		 */
+		EClass RTE_BUFFER_SEND_TRUSTED_FUNCTION = eINSTANCE.getRteBufferSendTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferSendTrustedFunction_Operation();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferSendTrustedFunction_DataVariable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
+		 * @generated
+		 */
+		EClass CS_TRUSTED_FUNCTION = eINSTANCE.getCsTrustedFunction();
+
+		/**
+		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CS_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getCsTrustedFunction_DataVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Param Type Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CS_TRUSTED_FUNCTION__CS_TF_PARAM_TYPE_NAME = eINSTANCE.getCsTrustedFunction_CsTfParamTypeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Called Runnable</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CS_TRUSTED_FUNCTION__CS_TF_CALLED_RUNNABLE = eINSTANCE.getCsTrustedFunction_CsTfCalledRunnable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
+		 * @generated
+		 */
+		EClass CS_TF_CALLED_RUNNABLE = eINSTANCE.getCsTfCalledRunnable();
+
+		/**
+		 * The meta object literal for the '<em><b>Cs Tf Opid Constant Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CS_TF_CALLED_RUNNABLE__CS_TF_OPID_CONSTANT_NAME = eINSTANCE.getCsTfCalledRunnable_CsTfOpidConstantName();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Operation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CS_TF_CALLED_RUNNABLE__START_OPERATION = eINSTANCE.getCsTfCalledRunnable_StartOperation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
+		 * @generated
+		 */
+		EClass SERVER_RUNNABLE_START_OPERATION = eINSTANCE.getServerRunnableStartOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Start Server Runnable</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SERVER_RUNNABLE_START_OPERATION__START_SERVER_RUNNABLE = eINSTANCE.getServerRunnableStartOperation_StartServerRunnable();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl <em>Ioc Communication</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocCommunication()
+		 * @generated
+		 */
+		EClass IOC_COMMUNICATION = eINSTANCE.getIocCommunication();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl <em>Proxy Com Send Operation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getProxyComSendOperation()
+		 * @generated
+		 */
+		EClass PROXY_COM_SEND_OPERATION = eINSTANCE.getProxyComSendOperation();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_COM_SEND_OPERATION__TYPE = eINSTANCE.getProxyComSendOperation_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Request Proxy Ioc Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API = eINSTANCE.getProxyComSendOperation_RequestProxyIocApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Proxy Ioc Api</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API = eINSTANCE.getProxyComSendOperation_ValueProxyIocApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Proxy Function Index Constant Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME = eINSTANCE.getProxyComSendOperation_ProxyFunctionIndexConstantName();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
+		 * @generated
+		 */
+		EClass IOC_SEND_GROUP_API = eINSTANCE.getIocSendGroupApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
+		 * @generated
+		 */
+		EClass IOC_QUEUED_GROUP_COMMUNICATION = eINSTANCE.getIocQueuedGroupCommunication();
+
+		/**
+		 * The meta object literal for the '<em><b>Receive Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_GROUP_COMMUNICATION__RECEIVE_API = eINSTANCE.getIocQueuedGroupCommunication_ReceiveApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Send Api</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IOC_QUEUED_GROUP_COMMUNICATION__SEND_API = eINSTANCE.getIocQueuedGroupCommunication_SendApi();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
+		 * @generated
+		 */
+		EClass SINGLECORE_RTE_START_API = eINSTANCE.getSinglecoreRteStartApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SINGLECORE_RTE_START_API__OPERATION = eINSTANCE.getSinglecoreRteStartApi_Operation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
+		 * @generated
+		 */
+		EClass RTE_START_API = eINSTANCE.getRteStartApi();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.HeaderFileImpl <em>Header File</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -39440,6 +41453,32 @@ public interface ModulePackage extends EPackage {
 		EReference RTE_INTERNAL_HEADER__SCHM_API_GROUP = eINSTANCE.getRteInternalHeader_SchmApiGroup();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
+		 * @generated
+		 */
+		EClass MODE_TYPE = eINSTANCE.getModeType();
+
+		/**
+		 * The meta object literal for the '<em><b>Guard Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODE_TYPE__GUARD_NAME = eINSTANCE.getModeType_GuardName();
+
+		/**
+		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_TYPE__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getModeType_ImplementationDataType();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeDeclarationGroupImpl <em>Mode Declaration Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -39488,6 +41527,50 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODE_DECLARATION_GROUP__INIT_MODE_CONSTANT = eINSTANCE.getModeDeclarationGroup_InitModeConstant();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
+		 * @generated
+		 */
+		EClass MODE_QUEUE_TYPE = eINSTANCE.getModeQueueType();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Length Constant</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT = eINSTANCE.getModeQueueType_MaxLengthConstant();
+
+		/**
+		 * The meta object literal for the '<em><b>Element Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_QUEUE_TYPE__ELEMENT_TYPE = eINSTANCE.getModeQueueType_ElementType();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
+		 * @generated
+		 */
+		EClass MODE_QUEUED_VARIABLE = eINSTANCE.getModeQueuedVariable();
+
+		/**
+		 * The meta object literal for the '<em><b>Queue Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODE_QUEUED_VARIABLE__QUEUE_TYPE = eINSTANCE.getModeQueuedVariable_QueueType();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeMachineInstanceImpl <em>Mode Machine Instance</em>}' class.
@@ -39592,32 +41675,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass PRIMITIVE_TYPE = eINSTANCE.getPrimitiveType();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl <em>Mode Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeTypeImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeType()
-		 * @generated
-		 */
-		EClass MODE_TYPE = eINSTANCE.getModeType();
-
-		/**
-		 * The meta object literal for the '<em><b>Guard Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODE_TYPE__GUARD_NAME = eINSTANCE.getModeType_GuardName();
-
-		/**
-		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE_TYPE__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getModeType_ImplementationDataType();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RedefinitionPrimitiveTypeImpl <em>Redefinition Primitive Type</em>}' class.
@@ -39860,32 +41917,6 @@ public interface ModulePackage extends EPackage {
 		EClass RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE = eINSTANCE.getRteQueuedSendTrustedFunctionParamType();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl <em>Mode Queue Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueueTypeImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueueType()
-		 * @generated
-		 */
-		EClass MODE_QUEUE_TYPE = eINSTANCE.getModeQueueType();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Length Constant</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE_QUEUE_TYPE__MAX_LENGTH_CONSTANT = eINSTANCE.getModeQueueType_MaxLengthConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Element Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE_QUEUE_TYPE__ELEMENT_TYPE = eINSTANCE.getModeQueueType_ElementType();
-
-		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendTrustedFunctionParamTypeImpl <em>Com Send Trusted Function Param Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -39930,42 +41961,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEVER_READ_OPERATION__INIT_VALUE_CONSTANT = eINSTANCE.getNeverReadOperation_InitValueConstant();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl <em>Rte Buffer Invalidate Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferInvalidateTrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferInvalidateTrustedFunction()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION = eINSTANCE.getRteBufferInvalidateTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferInvalidateTrustedFunction_Operation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl <em>Trusted Function Rte Buffer Invalidate Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferInvalidateSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferInvalidateSendOperation()
-		 * @generated
-		 */
-		EClass TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Trusted Function</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferInvalidateSendOperation_AccessTrustedFunction();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MemoryMappingImpl <em>Memory Mapping</em>}' class.
@@ -40512,6 +42507,32 @@ public interface ModulePackage extends EPackage {
 		EAttribute SCHM_EXIT_API__IS_NONE_EXCLUDE = eINSTANCE.getSchmExitApi_IsNoneExclude();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
+		 * @generated
+		 */
+		EClass SCHM_MODE_API = eINSTANCE.getSchmModeApi();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Declaration Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHM_MODE_API__MODE_DECLARATION_GROUP = eINSTANCE.getSchmModeApi_ModeDeclarationGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Mode Machine Instance</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHM_MODE_API__MODE_MACHINE_INSTANCE = eINSTANCE.getSchmModeApi_ModeMachineInstance();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmSwitchApiImpl <em>Schm Switch Api</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -40604,50 +42625,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute OS_TASK_EVENT__OS_TASK_PRIORITY = eINSTANCE.getOsTaskEvent_OsTaskPriority();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl <em>Mode Queued Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeQueuedVariableImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeQueuedVariable()
-		 * @generated
-		 */
-		EClass MODE_QUEUED_VARIABLE = eINSTANCE.getModeQueuedVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Queue Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE_QUEUED_VARIABLE__QUEUE_TYPE = eINSTANCE.getModeQueuedVariable_QueueType();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl <em>Schm Mode Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SchmModeApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSchmModeApi()
-		 * @generated
-		 */
-		EClass SCHM_MODE_API = eINSTANCE.getSchmModeApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Mode Declaration Group</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHM_MODE_API__MODE_DECLARATION_GROUP = eINSTANCE.getSchmModeApi_ModeDeclarationGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Mode Machine Instance</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SCHM_MODE_API__MODE_MACHINE_INSTANCE = eINSTANCE.getSchmModeApi_ModeMachineInstance();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleInterlinkHeaderImpl <em>Interlink Header</em>}' class.
@@ -40816,22 +42793,6 @@ public interface ModulePackage extends EPackage {
 		EReference PARTED_BSWM__PARENT = eINSTANCE.getPartedBswm_Parent();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependent Bsw Schedulable Entity</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY = eINSTANCE.getPartedBswm_DependentBswSchedulableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Schm Api</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTED_BSWM__SCHM_API = eINSTANCE.getPartedBswm_SchmApi();
-
-		/**
 		 * The meta object literal for the '<em><b>Bswm</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -40848,12 +42809,28 @@ public interface ModulePackage extends EPackage {
 		EReference PARTED_BSWM__BSW_MEMORY_MAPPING = eINSTANCE.getPartedBswm_BswMemoryMapping();
 
 		/**
+		 * The meta object literal for the '<em><b>Dependent Bsw Schedulable Entity</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTED_BSWM__DEPENDENT_BSW_SCHEDULABLE_ENTITY = eINSTANCE.getPartedBswm_DependentBswSchedulableEntity();
+
+		/**
 		 * The meta object literal for the '<em><b>Mode Machine Instance</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference PARTED_BSWM__MODE_MACHINE_INSTANCE = eINSTANCE.getPartedBswm_ModeMachineInstance();
+
+		/**
+		 * The meta object literal for the '<em><b>Schm Api</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARTED_BSWM__SCHM_API = eINSTANCE.getPartedBswm_SchmApi();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswmImpl <em>Bswm</em>}' class.
@@ -41154,2024 +43131,6 @@ public interface ModulePackage extends EPackage {
 		 * @generated
 		 */
 		EReference TACK_STATUS__STATUS_VARIABLE = eINSTANCE.getTAckStatus_StatusVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl <em>Restart Partition Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RestartPartitionApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRestartPartitionApi()
-		 * @generated
-		 */
-		EClass RESTART_PARTITION_API = eINSTANCE.getRestartPartitionApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESTART_PARTITION_API__OPERATION = eINSTANCE.getRestartPartitionApi_Operation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl <em>Partition Restarting Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionRestartingApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionRestartingApi()
-		 * @generated
-		 */
-		EClass PARTITION_RESTARTING_API = eINSTANCE.getPartitionRestartingApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Inter Partition Timeout Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION_RESTARTING_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionRestartingApi_SrInterPartitionTimeoutOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION_RESTARTING_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionRestartingApi_ActivationOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl <em>Partition Terminated Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PartitionTerminatedApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPartitionTerminatedApi()
-		 * @generated
-		 */
-		EClass PARTITION_TERMINATED_API = eINSTANCE.getPartitionTerminatedApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Inter Partition Timeout Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION_TERMINATED_API__SR_INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getPartitionTerminatedApi_SrInterPartitionTimeoutOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARTITION_TERMINATED_API__ACTIVATION_OPERATION = eINSTANCE.getPartitionTerminatedApi_ActivationOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl <em>Rte Lifecycle Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteLifecycleApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteLifecycleApi()
-		 * @generated
-		 */
-		EClass RTE_LIFECYCLE_API = eINSTANCE.getRteLifecycleApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl <em>Send Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SendApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSendApi()
-		 * @generated
-		 */
-		EClass SEND_API = eINSTANCE.getSendApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__OPERATION = eINSTANCE.getSendApi_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__DATA_PARAM = eINSTANCE.getSendApi_DataParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Status Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__STATUS_VARIABLE = eINSTANCE.getSendApi_StatusVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Trusted Function Param Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__TRUSTED_FUNCTION_PARAM_VARIABLE = eINSTANCE.getSendApi_TrustedFunctionParamVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Filter Result Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__FILTER_RESULT_VARIABLE = eINSTANCE.getSendApi_FilterResultVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Needs Check Arg</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SEND_API__NEEDS_CHECK_ARG = eINSTANCE.getSendApi_NeedsCheckArg();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__ACTIVATION_OPERATION = eINSTANCE.getSendApi_ActivationOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Flag</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__ACTIVATION_FLAG = eINSTANCE.getSendApi_ActivationFlag();
-
-		/**
-		 * The meta object literal for the '<em><b>TAck Status</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEND_API__TACK_STATUS = eINSTANCE.getSendApi_TAckStatus();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl <em>Receive Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ReceiveApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getReceiveApi()
-		 * @generated
-		 */
-		EClass RECEIVE_API = eINSTANCE.getReceiveApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECEIVE_API__OPERATION = eINSTANCE.getReceiveApi_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Param</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECEIVE_API__DATA_PARAM = eINSTANCE.getReceiveApi_DataParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Status Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RECEIVE_API__STATUS_VARIABLE = eINSTANCE.getReceiveApi_StatusVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl <em>Rte Buffer Queued Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedSendOperation()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_QUEUED_SEND_OPERATION = eINSTANCE.getRteBufferQueuedSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__ACCESS_VARIABLE = eINSTANCE.getRteBufferQueuedSendOperation_AccessVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getRteBufferQueuedSendOperation_TempReturnVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_QUEUED_SEND_OPERATION__TYPE = eINSTANCE.getRteBufferQueuedSendOperation_Type();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl <em>Rte Buffer Queued Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedVariableImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedVariable()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_QUEUED_VARIABLE = eINSTANCE.getRteBufferQueuedVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Queue Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_QUEUED_VARIABLE__QUEUE_TYPE = eINSTANCE.getRteBufferQueuedVariable_QueueType();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl <em>Rte Buffer Queued Read Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferQueuedReadOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferQueuedReadOperation()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_QUEUED_READ_OPERATION = eINSTANCE.getRteBufferQueuedReadOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_QUEUED_READ_OPERATION__ACCESS_VARIABLE = eINSTANCE.getRteBufferQueuedReadOperation_AccessVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl <em>Ioc Queued Communication</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedCommunicationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedCommunication()
-		 * @generated
-		 */
-		EClass IOC_QUEUED_COMMUNICATION = eINSTANCE.getIocQueuedCommunication();
-
-		/**
-		 * The meta object literal for the '<em><b>Send Api</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_COMMUNICATION__SEND_API = eINSTANCE.getIocQueuedCommunication_SendApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Receive Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_COMMUNICATION__RECEIVE_API = eINSTANCE.getIocQueuedCommunication_ReceiveApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Ioc Empty Queue Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_COMMUNICATION__IOC_EMPTY_QUEUE_API = eINSTANCE.getIocQueuedCommunication_IocEmptyQueueApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl <em>Ioc Receive Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveApi()
-		 * @generated
-		 */
-		EClass IOC_RECEIVE_API = eINSTANCE.getIocReceiveApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl <em>Ioc Send Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendApi()
-		 * @generated
-		 */
-		EClass IOC_SEND_API = eINSTANCE.getIocSendApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl <em>Ioc Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendOperation()
-		 * @generated
-		 */
-		EClass IOC_SEND_OPERATION = eINSTANCE.getIocSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_SEND_OPERATION__TYPE = eINSTANCE.getIocSendOperation_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Flag On Rx Success</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS = eINSTANCE.getIocSendOperation_ActivationFlagOnRxSuccess();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl <em>Ioc Queued Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedSendOperation()
-		 * @generated
-		 */
-		EClass IOC_QUEUED_SEND_OPERATION = eINSTANCE.getIocQueuedSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_SEND_OPERATION__ACCESS_API = eINSTANCE.getIocQueuedSendOperation_AccessApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_SEND_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getIocQueuedSendOperation_TempReturnVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl <em>Ioc Queued Read Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedReadOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedReadOperation()
-		 * @generated
-		 */
-		EClass IOC_QUEUED_READ_OPERATION = eINSTANCE.getIocQueuedReadOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_READ_OPERATION__ACCESS_API = eINSTANCE.getIocQueuedReadOperation_AccessApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Temp Return Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_READ_OPERATION__TEMP_RETURN_VARIABLE = eINSTANCE.getIocQueuedReadOperation_TempReturnVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl <em>Call Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CallApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCallApi()
-		 * @generated
-		 */
-		EClass CALL_API = eINSTANCE.getCallApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL_API__OPERATION = eINSTANCE.getCallApi_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation Param</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL_API__OPERATION_PARAM = eINSTANCE.getCallApi_OperationParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Port Arg Value</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL_API__PORT_ARG_VALUE = eINSTANCE.getCallApi_PortArgValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Return Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CALL_API__RETURN_VARIABLE = eINSTANCE.getCallApi_ReturnVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl <em>Tf Call Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TfCallApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTfCallApi()
-		 * @generated
-		 */
-		EClass TF_CALL_API = eINSTANCE.getTfCallApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Param Type Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TF_CALL_API__CS_TF_PARAM_TYPE_NAME = eINSTANCE.getTfCallApi_CsTfParamTypeName();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Argc Constant Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TF_CALL_API__CS_TF_ARGC_CONSTANT_NAME = eINSTANCE.getTfCallApi_CsTfArgcConstantName();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Opid Constant Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TF_CALL_API__CS_TF_OPID_CONSTANT_NAME = eINSTANCE.getTfCallApi_CsTfOpidConstantName();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TF_CALL_API__CS_TF_NAME = eINSTANCE.getTfCallApi_CsTfName();
-
-		/**
-		 * The meta object literal for the '<em><b>Needs Check Arg</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TF_CALL_API__NEEDS_CHECK_ARG = eINSTANCE.getTfCallApi_NeedsCheckArg();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl <em>Executable Start Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableStartOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableStartOperation()
-		 * @generated
-		 */
-		EClass EXECUTABLE_START_OPERATION = eINSTANCE.getExecutableStartOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Disabled In Mode</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXECUTABLE_START_OPERATION__DISABLED_IN_MODE = eINSTANCE.getExecutableStartOperation_DisabledInMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Executable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXECUTABLE_START_OPERATION__START_EXECUTABLE = eINSTANCE.getExecutableStartOperation_StartExecutable();
-
-		/**
-		 * The meta object literal for the '<em><b>Riea Exclude Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXECUTABLE_START_OPERATION__RIEA_EXCLUDE_OPERATION = eINSTANCE.getExecutableStartOperation_RieaExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl <em>Disabled In Mode</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.DisabledInModeImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getDisabledInMode()
-		 * @generated
-		 */
-		EClass DISABLED_IN_MODE = eINSTANCE.getDisabledInMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Disabled Mode</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISABLED_IN_MODE__DISABLED_MODE = eINSTANCE.getDisabledInMode_DisabledMode();
-
-		/**
-		 * The meta object literal for the '<em><b>Mode Machine Instance</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISABLED_IN_MODE__MODE_MACHINE_INSTANCE = eINSTANCE.getDisabledInMode_ModeMachineInstance();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl <em>Executable Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExecutableEntityImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExecutableEntity()
-		 * @generated
-		 */
-		EClass EXECUTABLE_ENTITY = eINSTANCE.getExecutableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Role Param</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EXECUTABLE_ENTITY__ROLE_PARAM = eINSTANCE.getExecutableEntity_RoleParam();
-
-		/**
-		 * The meta object literal for the '<em><b>Is No Mock</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXECUTABLE_ENTITY__IS_NO_MOCK = eINSTANCE.getExecutableEntity_IsNoMock();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl <em>Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getExcludeOperation()
-		 * @generated
-		 */
-		EClass EXCLUDE_OPERATION = eINSTANCE.getExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl <em>All Interrupt Block Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.AllInterruptBlockExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getAllInterruptBlockExcludeOperation()
-		 * @generated
-		 */
-		EClass ALL_INTERRUPT_BLOCK_EXCLUDE_OPERATION = eINSTANCE.getAllInterruptBlockExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl <em>Os Interrupt Block Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsInterruptBlockExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsInterruptBlockExcludeOperation()
-		 * @generated
-		 */
-		EClass OS_INTERRUPT_BLOCK_EXCLUDE_OPERATION = eINSTANCE.getOsInterruptBlockExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl <em>Os Spinlock Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSpinlockExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSpinlockExcludeOperation()
-		 * @generated
-		 */
-		EClass OS_SPINLOCK_EXCLUDE_OPERATION = eINSTANCE.getOsSpinlockExcludeOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Spinlock Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_SPINLOCK_EXCLUDE_OPERATION__OS_SPINLOCK_ID = eINSTANCE.getOsSpinlockExcludeOperation_OsSpinlockId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl <em>Os Resource Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsResourceExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsResourceExcludeOperation()
-		 * @generated
-		 */
-		EClass OS_RESOURCE_EXCLUDE_OPERATION = eINSTANCE.getOsResourceExcludeOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Resource Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_RESOURCE_EXCLUDE_OPERATION__OS_RESOURCE_ID = eINSTANCE.getOsResourceExcludeOperation_OsResourceId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl <em>None Exclude Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.NoneExcludeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getNoneExcludeOperation()
-		 * @generated
-		 */
-		EClass NONE_EXCLUDE_OPERATION = eINSTANCE.getNoneExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl <em>Constant</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstant()
-		 * @generated
-		 */
-		EClass CONSTANT = eINSTANCE.getConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__SYMBOL_NAME = eINSTANCE.getConstant_SymbolName();
-
-		/**
-		 * The meta object literal for the '<em><b>External Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__EXTERNAL_SYMBOL_NAME = eINSTANCE.getConstant_ExternalSymbolName();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONSTANT__TYPE = eINSTANCE.getConstant_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__VALUE = eINSTANCE.getConstant_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Constant Value Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__CONSTANT_VALUE_TYPE = eINSTANCE.getConstant_ConstantValueType();
-
-		/**
-		 * The meta object literal for the '<em><b>Member</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONSTANT__MEMBER = eINSTANCE.getConstant_Member();
-
-		/**
-		 * The meta object literal for the '<em><b>Represented Variable Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONSTANT__REPRESENTED_VARIABLE_NAME = eINSTANCE.getConstant_RepresentedVariableName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl <em>Constant Member</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ConstantMemberImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getConstantMember()
-		 * @generated
-		 */
-		EClass CONSTANT_MEMBER = eINSTANCE.getConstantMember();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONSTANT_MEMBER__PARENT = eINSTANCE.getConstantMember_Parent();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl <em>Bsw Schedulable Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.BswSchedulableEntityImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getBswSchedulableEntity()
-		 * @generated
-		 */
-		EClass BSW_SCHEDULABLE_ENTITY = eINSTANCE.getBswSchedulableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Parted Bswm</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BSW_SCHEDULABLE_ENTITY__PARENT_PARTED_BSWM = eINSTANCE.getBswSchedulableEntity_ParentPartedBswm();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl <em>Runnable Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RunnableEntityImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRunnableEntity()
-		 * @generated
-		 */
-		EClass RUNNABLE_ENTITY = eINSTANCE.getRunnableEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Return Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RUNNABLE_ENTITY__HAS_RETURN_VALUE = eINSTANCE.getRunnableEntity_HasReturnValue();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl <em>Rte Enter Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteEnterApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteEnterApi()
-		 * @generated
-		 */
-		EClass RTE_ENTER_API = eINSTANCE.getRteEnterApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_ENTER_API__OPERATION = eINSTANCE.getRteEnterApi_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Is None Exclude</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RTE_ENTER_API__IS_NONE_EXCLUDE = eINSTANCE.getRteEnterApi_IsNoneExclude();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl <em>Rte Exit Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteExitApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteExitApi()
-		 * @generated
-		 */
-		EClass RTE_EXIT_API = eINSTANCE.getRteExitApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_EXIT_API__OPERATION = eINSTANCE.getRteExitApi_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Is None Exclude</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute RTE_EXIT_API__IS_NONE_EXCLUDE = eINSTANCE.getRteExitApi_IsNoneExclude();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl <em>Os Background Task Activation Executable Task Body</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsBackgroundTaskActivationExecutableTaskBodyImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsBackgroundTaskActivationExecutableTaskBody()
-		 * @generated
-		 */
-		EClass OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsBackgroundTaskActivationExecutableTaskBody_Operation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl <em>Os Task Activation Executable Task Body</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationExecutableTaskBodyImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationExecutableTaskBody()
-		 * @generated
-		 */
-		EClass OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY = eINSTANCE.getOsTaskActivationExecutableTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsTaskActivationExecutableTaskBody_Operation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl <em>Os Event Set Executable Task Body</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetExecutableTaskBodyImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetExecutableTaskBody()
-		 * @generated
-		 */
-		EClass OS_EVENT_SET_EXECUTABLE_TASK_BODY = eINSTANCE.getOsEventSetExecutableTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OS_EVENT_SET_EXECUTABLE_TASK_BODY__OPERATION = eINSTANCE.getOsEventSetExecutableTaskBody_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID = eINSTANCE.getOsEventSetExecutableTaskBody_OsEventId();
-
-		/**
-		 * The meta object literal for the '<em><b>Checks Os Event Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_EVENT_SET_EXECUTABLE_TASK_BODY__CHECKS_OS_EVENT_ID = eINSTANCE.getOsEventSetExecutableTaskBody_ChecksOsEventId();
-
-		/**
-		 * The meta object literal for the '<em><b>Event Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OS_EVENT_SET_EXECUTABLE_TASK_BODY__EVENT_VARIABLE = eINSTANCE.getOsEventSetExecutableTaskBody_EventVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl <em>Os Task Activation Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsTaskActivationOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsTaskActivationOperation()
-		 * @generated
-		 */
-		EClass OS_TASK_ACTIVATION_OPERATION = eINSTANCE.getOsTaskActivationOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl <em>Os Event Set Activation Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsEventSetActivationOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsEventSetActivationOperation()
-		 * @generated
-		 */
-		EClass OS_EVENT_SET_ACTIVATION_OPERATION = eINSTANCE.getOsEventSetActivationOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Os Event Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_EVENT_SET_ACTIVATION_OPERATION__ACTIVATION_OS_EVENT_ID = eINSTANCE.getOsEventSetActivationOperation_ActivationOsEventId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl <em>Context Activation Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ContextActivationOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getContextActivationOperation()
-		 * @generated
-		 */
-		EClass CONTEXT_ACTIVATION_OPERATION = eINSTANCE.getContextActivationOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Executable Start Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTEXT_ACTIVATION_OPERATION__EXECUTABLE_START_OPERATION = eINSTANCE.getContextActivationOperation_ExecutableStartOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Cycle Countup Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTEXT_ACTIVATION_OPERATION__CYCLE_COUNTUP_OPERATION = eINSTANCE.getContextActivationOperation_CycleCountupOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Offset Countup Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTEXT_ACTIVATION_OPERATION__START_OFFSET_COUNTUP_OPERATION = eINSTANCE.getContextActivationOperation_StartOffsetCountupOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl <em>Timing Triggering Executable Start Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TimingTriggeringExecutableStartOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTimingTriggeringExecutableStartOperation()
-		 * @generated
-		 */
-		EClass TIMING_TRIGGERING_EXECUTABLE_START_OPERATION = eINSTANCE.getTimingTriggeringExecutableStartOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Cycle Period Constant</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_PERIOD_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_CyclePeriodConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Cycle Offset Constant</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_OFFSET_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_CycleOffsetConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Offset Constant</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_CONSTANT = eINSTANCE.getTimingTriggeringExecutableStartOperation_StartOffsetConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Offset Counter Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__START_OFFSET_COUNTER_VARIABLE = eINSTANCE.getTimingTriggeringExecutableStartOperation_StartOffsetCounterVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Cycle Counter Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TIMING_TRIGGERING_EXECUTABLE_START_OPERATION__CYCLE_COUNTER_VARIABLE = eINSTANCE.getTimingTriggeringExecutableStartOperation_CycleCounterVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl <em>Plain Executable Start Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.PlainExecutableStartOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getPlainExecutableStartOperation()
-		 * @generated
-		 */
-		EClass PLAIN_EXECUTABLE_START_OPERATION = eINSTANCE.getPlainExecutableStartOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl <em>Mode Switch Triggering Executable Start Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModeSwitchTriggeringExecutableStartOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModeSwitchTriggeringExecutableStartOperation()
-		 * @generated
-		 */
-		EClass MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION = eINSTANCE.getModeSwitchTriggeringExecutableStartOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Mode</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE = eINSTANCE.getModeSwitchTriggeringExecutableStartOperation_StartMode();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl <em>Cycle Countup Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CycleCountupOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCycleCountupOperation()
-		 * @generated
-		 */
-		EClass CYCLE_COUNTUP_OPERATION = eINSTANCE.getCycleCountupOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Counter Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CYCLE_COUNTUP_OPERATION__COUNTER_VARIABLE = eINSTANCE.getCycleCountupOperation_CounterVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Constant</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CYCLE_COUNTUP_OPERATION__MAX_CONSTANT = eINSTANCE.getCycleCountupOperation_MaxConstant();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl <em>Start Offset Countup Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.StartOffsetCountupOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getStartOffsetCountupOperation()
-		 * @generated
-		 */
-		EClass START_OFFSET_COUNTUP_OPERATION = eINSTANCE.getStartOffsetCountupOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Counter Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference START_OFFSET_COUNTUP_OPERATION__COUNTER_VARIABLE = eINSTANCE.getStartOffsetCountupOperation_CounterVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Max Constant</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference START_OFFSET_COUNTUP_OPERATION__MAX_CONSTANT = eINSTANCE.getStartOffsetCountupOperation_MaxConstant();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl <em>Task Body</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TaskBodyImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTaskBody()
-		 * @generated
-		 */
-		EClass TASK_BODY = eINSTANCE.getTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Task Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TASK_BODY__OS_TASK_ID = eINSTANCE.getTaskBody_OsTaskId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl <em>Ioc Empty Queue Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocEmptyQueueApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocEmptyQueueApi()
-		 * @generated
-		 */
-		EClass IOC_EMPTY_QUEUE_API = eINSTANCE.getIocEmptyQueueApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl <em>Com Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComApi()
-		 * @generated
-		 */
-		EClass COM_API = eINSTANCE.getComApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Signal Group</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_API__IS_SIGNAL_GROUP = eINSTANCE.getComApi_IsSignalGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Signal Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_API__COM_SIGNAL_SYMBOL_NAME = eINSTANCE.getComApi_ComSignalSymbolName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl <em>Ioc Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocApi()
-		 * @generated
-		 */
-		EClass IOC_API = eINSTANCE.getIocApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Mapping Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IOC_API__MAPPING_NAME = eINSTANCE.getIocApi_MappingName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl <em>Rte</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRte()
-		 * @generated
-		 */
-		EClass RTE = eINSTANCE.getRte();
-
-		/**
-		 * The meta object literal for the '<em><b>Core</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__CORE = eINSTANCE.getRte_Core();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Callback</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_CALLBACK = eINSTANCE.getRte_ComCallback();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Periodic Entity</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_PERIODIC_ENTITY = eINSTANCE.getRte_ComSendSignalPeriodicEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Immediate Entity</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_IMMEDIATE_ENTITY = eINSTANCE.getRte_ComSendSignalImmediateEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Trusted Function</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_TRUSTED_FUNCTION = eINSTANCE.getRte_ComSendSignalTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependent Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__DEPENDENT_TYPE = eINSTANCE.getRte_DependentType();
-
-		/**
-		 * The meta object literal for the '<em><b>Immediate Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__IMMEDIATE_CONSTANT = eINSTANCE.getRte_ImmediateConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Rte Buffer Queue Max Length Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT = eINSTANCE.getRte_SrRteBufferQueueMaxLengthConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependent Os Api</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__DEPENDENT_OS_API = eINSTANCE.getRte_DependentOsApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependent Ioc Communication</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__DEPENDENT_IOC_COMMUNICATION = eINSTANCE.getRte_DependentIocCommunication();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependent Com Api</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__DEPENDENT_COM_API = eINSTANCE.getRte_DependentComApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Ioc Init Value Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__IOC_INIT_VALUE_CONSTANT = eINSTANCE.getRte_IocInitValueConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Ioc Init Value Variable Set</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__IOC_INIT_VALUE_VARIABLE_SET = eINSTANCE.getRte_IocInitValueVariableSet();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Start Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__RTE_START_API = eINSTANCE.getRte_RteStartApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Dependent Constant</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__DEPENDENT_CONSTANT = eINSTANCE.getRte_DependentConstant();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Immediate Task Body</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = eINSTANCE.getRte_ComSendSignalImmediateTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Stop Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__RTE_STOP_API = eINSTANCE.getRte_RteStopApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Implementation Data Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__IMPLEMENTATION_DATA_TYPE = eINSTANCE.getRte_ImplementationDataType();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Tf Param Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE = eINSTANCE.getRte_ComSendSignalTfParamType();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Group Tf Param Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE = eINSTANCE.getRte_ComSendSignalGroupTfParamType();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Param Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__CS_TF_PARAM_TYPE = eINSTANCE.getRte_CsTfParamType();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Rte Nonqueued Send Tf Param Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteNonqueuedSendTfParamType();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Rte Queued Send Tf Param Type</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE = eINSTANCE.getRte_SrRteQueuedSendTfParamType();
-
-		/**
-		 * The meta object literal for the '<em><b>Sr Rte Buffer Queue Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SR_RTE_BUFFER_QUEUE_TYPE = eINSTANCE.getRte_SrRteBufferQueueType();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Memory Mapping</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__RTE_MEMORY_MAPPING = eINSTANCE.getRte_RteMemoryMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Generation Info</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__GENERATION_INFO = eINSTANCE.getRte_GenerationInfo();
-
-		/**
-		 * The meta object literal for the '<em><b>Bswm</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__BSWM = eINSTANCE.getRte_Bswm();
-
-		/**
-		 * The meta object literal for the '<em><b>Schm Init Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SCHM_INIT_API = eINSTANCE.getRte_SchmInitApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Schm Deinit Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE__SCHM_DEINIT_API = eINSTANCE.getRte_SchmDeinitApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl <em>Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ValueImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getValue()
-		 * @generated
-		 */
-		EClass VALUE = eINSTANCE.getValue();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl <em>Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunction()
-		 * @generated
-		 */
-		EClass TRUSTED_FUNCTION = eINSTANCE.getTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Trusted Function Index</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRUSTED_FUNCTION__TRUSTED_FUNCTION_INDEX = eINSTANCE.getTrustedFunction_TrustedFunctionIndex();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl <em>Com Send Signal Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalTrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalTrustedFunction()
-		 * @generated
-		 */
-		EClass COM_SEND_SIGNAL_TRUSTED_FUNCTION = eINSTANCE.getComSendSignalTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Group</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_SEND_SIGNAL_TRUSTED_FUNCTION__IS_GROUP = eINSTANCE.getComSendSignalTrustedFunction_IsGroup();
-
-		/**
-		 * The meta object literal for the '<em><b>Signal Group Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_SEND_SIGNAL_TRUSTED_FUNCTION__SIGNAL_GROUP_SYMBOL_NAME = eINSTANCE.getComSendSignalTrustedFunction_SignalGroupSymbolName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl <em>Os Set Event Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSetEventApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSetEventApi()
-		 * @generated
-		 */
-		EClass OS_SET_EVENT_API = eINSTANCE.getOsSetEventApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Task Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_SET_EVENT_API__OS_TASK_ID = eINSTANCE.getOsSetEventApi_OsTaskId();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute OS_SET_EVENT_API__OS_EVENT_ID = eINSTANCE.getOsSetEventApi_OsEventId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl <em>Os Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsApi()
-		 * @generated
-		 */
-		EClass OS_API = eINSTANCE.getOsApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl <em>Com Send Signal Immediate Task Body</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendSignalImmediateTaskBodyImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendSignalImmediateTaskBody()
-		 * @generated
-		 */
-		EClass COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY = eINSTANCE.getComSendSignalImmediateTaskBody();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Entity</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__START_ENTITY = eINSTANCE.getComSendSignalImmediateTaskBody_StartEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Os Event Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY__OS_EVENT_ID = eINSTANCE.getComSendSignalImmediateTaskBody_OsEventId();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl <em>Variable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariable()
-		 * @generated
-		 */
-		EClass VARIABLE = eINSTANCE.getVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VARIABLE__SYMBOL_NAME = eINSTANCE.getVariable_SymbolName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl <em>Com Send Proxy Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ComSendProxyOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getComSendProxyOperation()
-		 * @generated
-		 */
-		EClass COM_SEND_PROXY_OPERATION = eINSTANCE.getComSendProxyOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COM_SEND_PROXY_OPERATION__ACCESS_API = eINSTANCE.getComSendProxyOperation_AccessApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Function Table Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute COM_SEND_PROXY_OPERATION__FUNCTION_TABLE_SYMBOL_NAME = eINSTANCE.getComSendProxyOperation_FunctionTableSymbolName();
-
-		/**
-		 * The meta object literal for the '<em><b>Table Index Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COM_SEND_PROXY_OPERATION__TABLE_INDEX_VARIABLE = eINSTANCE.getComSendProxyOperation_TableIndexVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__TYPE = eINSTANCE.getVariable_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Member</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE__MEMBER = eINSTANCE.getVariable_Member();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl <em>Ioc Receive Group Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocReceiveGroupApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocReceiveGroupApi()
-		 * @generated
-		 */
-		EClass IOC_RECEIVE_GROUP_API = eINSTANCE.getIocReceiveGroupApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Com Send Signal Symbol Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute IOC_RECEIVE_GROUP_API__COM_SEND_SIGNAL_SYMBOL_NAME = eINSTANCE.getIocReceiveGroupApi_ComSendSignalSymbolName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl <em>Root</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModuleRootImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getModuleRoot()
-		 * @generated
-		 */
-		EClass MODULE_ROOT = eINSTANCE.getModuleRoot();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte Module</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODULE_ROOT__RTE_MODULE = eINSTANCE.getModuleRoot_RteModule();
-
-		/**
-		 * The meta object literal for the '<em><b>Rte</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODULE_ROOT__RTE = eINSTANCE.getModuleRoot_Rte();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl <em>Inter Partition Timeout Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InterPartitionTimeoutOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInterPartitionTimeoutOperation()
-		 * @generated
-		 */
-		EClass INTER_PARTITION_TIMEOUT_OPERATION = eINSTANCE.getInterPartitionTimeoutOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Timeout Variable</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTER_PARTITION_TIMEOUT_OPERATION__TIMEOUT_VARIABLE = eINSTANCE.getInterPartitionTimeoutOperation_TimeoutVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclude Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTER_PARTITION_TIMEOUT_OPERATION__EXCLUDE_OPERATION = eINSTANCE.getInterPartitionTimeoutOperation_ExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl <em>Initialize Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.InitializeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getInitializeOperation()
-		 * @generated
-		 */
-		EClass INITIALIZE_OPERATION = eINSTANCE.getInitializeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl <em>Variable Initialize Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.VariableInitializeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getVariableInitializeOperation()
-		 * @generated
-		 */
-		EClass VARIABLE_INITIALIZE_OPERATION = eINSTANCE.getVariableInitializeOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Init Variable</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_INITIALIZE_OPERATION__INIT_VARIABLE = eINSTANCE.getVariableInitializeOperation_InitVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Exclude Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VARIABLE_INITIALIZE_OPERATION__EXCLUDE_OPERATION = eINSTANCE.getVariableInitializeOperation_ExcludeOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl <em>Ioc Initialize Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocInitializeOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocInitializeOperation()
-		 * @generated
-		 */
-		EClass IOC_INITIALIZE_OPERATION = eINSTANCE.getIocInitializeOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Init Ioc Api</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_INITIALIZE_OPERATION__INIT_IOC_API = eINSTANCE.getIocInitializeOperation_InitIocApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl <em>Os Suspend All Interrupts Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsSuspendAllInterruptsApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsSuspendAllInterruptsApi()
-		 * @generated
-		 */
-		EClass OS_SUSPEND_ALL_INTERRUPTS_API = eINSTANCE.getOsSuspendAllInterruptsApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl <em>Os Get Spinlock Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.OsGetSpinlockApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getOsGetSpinlockApi()
-		 * @generated
-		 */
-		EClass OS_GET_SPINLOCK_API = eINSTANCE.getOsGetSpinlockApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl <em>Multicore Rte Start Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.MulticoreRteStartApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getMulticoreRteStartApi()
-		 * @generated
-		 */
-		EClass MULTICORE_RTE_START_API = eINSTANCE.getMulticoreRteStartApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Core Start Api Impl</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MULTICORE_RTE_START_API__CORE_START_API_IMPL = eINSTANCE.getMulticoreRteStartApi_CoreStartApiImpl();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl <em>Rte Buffer Write Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferWriteTrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferWriteTrustedFunction()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_WRITE_TRUSTED_FUNCTION = eINSTANCE.getRteBufferWriteTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferWriteTrustedFunction_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_WRITE_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferWriteTrustedFunction_DataVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl <em>Rte Buffer Send Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteBufferSendTrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteBufferSendTrustedFunction()
-		 * @generated
-		 */
-		EClass RTE_BUFFER_SEND_TRUSTED_FUNCTION = eINSTANCE.getRteBufferSendTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__OPERATION = eINSTANCE.getRteBufferSendTrustedFunction_Operation();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RTE_BUFFER_SEND_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getRteBufferSendTrustedFunction_DataVariable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl <em>Cs Trusted Function</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTrustedFunctionImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTrustedFunction()
-		 * @generated
-		 */
-		EClass CS_TRUSTED_FUNCTION = eINSTANCE.getCsTrustedFunction();
-
-		/**
-		 * The meta object literal for the '<em><b>Data Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CS_TRUSTED_FUNCTION__DATA_VARIABLE = eINSTANCE.getCsTrustedFunction_DataVariable();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Param Type Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CS_TRUSTED_FUNCTION__CS_TF_PARAM_TYPE_NAME = eINSTANCE.getCsTrustedFunction_CsTfParamTypeName();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Called Runnable</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CS_TRUSTED_FUNCTION__CS_TF_CALLED_RUNNABLE = eINSTANCE.getCsTrustedFunction_CsTfCalledRunnable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl <em>Cs Tf Called Runnable</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.CsTfCalledRunnableImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getCsTfCalledRunnable()
-		 * @generated
-		 */
-		EClass CS_TF_CALLED_RUNNABLE = eINSTANCE.getCsTfCalledRunnable();
-
-		/**
-		 * The meta object literal for the '<em><b>Cs Tf Opid Constant Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CS_TF_CALLED_RUNNABLE__CS_TF_OPID_CONSTANT_NAME = eINSTANCE.getCsTfCalledRunnable_CsTfOpidConstantName();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Operation</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CS_TF_CALLED_RUNNABLE__START_OPERATION = eINSTANCE.getCsTfCalledRunnable_StartOperation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl <em>Server Runnable Start Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ServerRunnableStartOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getServerRunnableStartOperation()
-		 * @generated
-		 */
-		EClass SERVER_RUNNABLE_START_OPERATION = eINSTANCE.getServerRunnableStartOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Start Server Runnable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SERVER_RUNNABLE_START_OPERATION__START_SERVER_RUNNABLE = eINSTANCE.getServerRunnableStartOperation_StartServerRunnable();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl <em>Trusted Function Rte Buffer Write Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.TrustedFunctionRteBufferWriteSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getTrustedFunctionRteBufferWriteSendOperation()
-		 * @generated
-		 */
-		EClass TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION = eINSTANCE.getTrustedFunctionRteBufferWriteSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Access Trusted Function</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION__ACCESS_TRUSTED_FUNCTION = eINSTANCE.getTrustedFunctionRteBufferWriteSendOperation_AccessTrustedFunction();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl <em>Ioc Communication</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocCommunicationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocCommunication()
-		 * @generated
-		 */
-		EClass IOC_COMMUNICATION = eINSTANCE.getIocCommunication();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl <em>Proxy Com Send Operation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ProxyComSendOperationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getProxyComSendOperation()
-		 * @generated
-		 */
-		EClass PROXY_COM_SEND_OPERATION = eINSTANCE.getProxyComSendOperation();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROXY_COM_SEND_OPERATION__TYPE = eINSTANCE.getProxyComSendOperation_Type();
-
-		/**
-		 * The meta object literal for the '<em><b>Request Proxy Ioc Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROXY_COM_SEND_OPERATION__REQUEST_PROXY_IOC_API = eINSTANCE.getProxyComSendOperation_RequestProxyIocApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Value Proxy Ioc Api</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROXY_COM_SEND_OPERATION__VALUE_PROXY_IOC_API = eINSTANCE.getProxyComSendOperation_ValueProxyIocApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Proxy Function Index Constant Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROXY_COM_SEND_OPERATION__PROXY_FUNCTION_INDEX_CONSTANT_NAME = eINSTANCE.getProxyComSendOperation_ProxyFunctionIndexConstantName();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl <em>Ioc Send Group Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocSendGroupApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocSendGroupApi()
-		 * @generated
-		 */
-		EClass IOC_SEND_GROUP_API = eINSTANCE.getIocSendGroupApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl <em>Ioc Queued Group Communication</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.IocQueuedGroupCommunicationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getIocQueuedGroupCommunication()
-		 * @generated
-		 */
-		EClass IOC_QUEUED_GROUP_COMMUNICATION = eINSTANCE.getIocQueuedGroupCommunication();
-
-		/**
-		 * The meta object literal for the '<em><b>Receive Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_GROUP_COMMUNICATION__RECEIVE_API = eINSTANCE.getIocQueuedGroupCommunication_ReceiveApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Send Api</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference IOC_QUEUED_GROUP_COMMUNICATION__SEND_API = eINSTANCE.getIocQueuedGroupCommunication_SendApi();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl <em>Singlecore Rte Start Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.SinglecoreRteStartApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getSinglecoreRteStartApi()
-		 * @generated
-		 */
-		EClass SINGLECORE_RTE_START_API = eINSTANCE.getSinglecoreRteStartApi();
-
-		/**
-		 * The meta object literal for the '<em><b>Operation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SINGLECORE_RTE_START_API__OPERATION = eINSTANCE.getSinglecoreRteStartApi_Operation();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl <em>Rte Start Api</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.RteStartApiImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl.ModulePackageImpl#getRteStartApi()
-		 * @generated
-		 */
-		EClass RTE_START_API = eINSTANCE.getRteStartApi();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum <em>Parameter Pass Type Enum</em>}' enum.

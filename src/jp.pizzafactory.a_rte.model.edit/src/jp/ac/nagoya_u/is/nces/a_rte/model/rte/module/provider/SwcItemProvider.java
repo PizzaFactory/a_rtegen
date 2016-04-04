@@ -253,6 +253,11 @@ public class SwcItemProvider extends LogicalCompartmentItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ModulePackage.Literals.SWC__RTE_API,
+				 ModuleFactory.eINSTANCE.createFeedbackApi()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ModulePackage.Literals.SWC__API_ENUM_CONSTANT,
 				 ModuleFactory.eINSTANCE.createConstant()));
 

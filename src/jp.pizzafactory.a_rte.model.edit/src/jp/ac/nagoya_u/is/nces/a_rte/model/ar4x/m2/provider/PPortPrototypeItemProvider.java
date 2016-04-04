@@ -164,6 +164,11 @@ public class PPortPrototypeItemProvider extends PortPrototypeItemProvider {
 			(createChildParameter
 				(M2Package.Literals.PPORT_PROTOTYPE__PROVIDED_COM_SPEC,
 				 M2Factory.eINSTANCE.createNonqueuedSenderComSpec()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.PPORT_PROTOTYPE__PROVIDED_COM_SPEC,
+				 M2Factory.eINSTANCE.createQueuedSenderComSpec()));
 	}
 
 }

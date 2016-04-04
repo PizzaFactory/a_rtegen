@@ -244,6 +244,11 @@ public class BswInternalBehaviorItemProvider extends IdentifiableItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(M2Package.Literals.BSW_INTERNAL_BEHAVIOR__EVENT,
+				 M2Factory.eINSTANCE.createBswBackgroundEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(M2Package.Literals.BSW_INTERNAL_BEHAVIOR__MODE_SENDER_POLICY,
 				 M2Factory.eINSTANCE.createBswModeSenderPolicy()));
 	}

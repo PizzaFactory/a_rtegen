@@ -43,9 +43,34 @@ public class TrustedFunctionRteOperationItemProvider extends SendOperationItemPr
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTypePropertyDescriptor(object);
 			addTempReturnVariablePropertyDescriptor(object);
+			addTrustedFunctionParamVariablePropertyDescriptor(object);
+			addActivationFlagOnRxSuccessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TrustedFunctionRteOperation_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_type_feature", "_UI_TrustedFunctionRteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_OPERATION__TYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,6 +87,50 @@ public class TrustedFunctionRteOperationItemProvider extends SendOperationItemPr
 				 getString("_UI_TrustedFunctionRteOperation_tempReturnVariable_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_tempReturnVariable_feature", "_UI_TrustedFunctionRteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_OPERATION__TEMP_RETURN_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Trusted Function Param Variable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTrustedFunctionParamVariablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TrustedFunctionRteOperation_trustedFunctionParamVariable_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_trustedFunctionParamVariable_feature", "_UI_TrustedFunctionRteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_OPERATION__TRUSTED_FUNCTION_PARAM_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activation Flag On Rx Success feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagOnRxSuccessPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TrustedFunctionRteOperation_activationFlagOnRxSuccess_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TrustedFunctionRteOperation_activationFlagOnRxSuccess_feature", "_UI_TrustedFunctionRteOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.TRUSTED_FUNCTION_RTE_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS,
 				 true,
 				 false,
 				 true,

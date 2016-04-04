@@ -1,51 +1,11 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
 
 import java.util.Collection;
+
 import jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl;
+
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswMemoryMappingHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.HeaderFile;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleInterlinkHeader;
@@ -65,12 +25,17 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteTypeHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteUtilityHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteVfbTraceHeader;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SwcMemoryMappingHeader;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -320,8 +285,11 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteSource getRteCommonSource() {
-		return rteCommonSource;
+	public EList<HeaderFile> getDependentHeader() {
+		if (dependentHeader == null) {
+			dependentHeader = new EObjectContainmentEList<HeaderFile>(HeaderFile.class, this, ModulePackage.RTE_MODULE__DEPENDENT_HEADER);
+		}
+		return dependentHeader;
 	}
 
 	/**
@@ -329,11 +297,20 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRteCommonSource(RteSource newRteCommonSource, NotificationChain msgs) {
-		RteSource oldRteCommonSource = rteCommonSource;
-		rteCommonSource = newRteCommonSource;
+	public BswMemoryMappingHeader getBswMemoryMappingHeader() {
+		return bswMemoryMappingHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetBswMemoryMappingHeader(BswMemoryMappingHeader newBswMemoryMappingHeader, NotificationChain msgs) {
+		BswMemoryMappingHeader oldBswMemoryMappingHeader = bswMemoryMappingHeader;
+		bswMemoryMappingHeader = newBswMemoryMappingHeader;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, oldRteCommonSource, newRteCommonSource);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, oldBswMemoryMappingHeader, newBswMemoryMappingHeader);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -344,18 +321,18 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRteCommonSource(RteSource newRteCommonSource) {
-		if (newRteCommonSource != rteCommonSource) {
+	public void setBswMemoryMappingHeader(BswMemoryMappingHeader newBswMemoryMappingHeader) {
+		if (newBswMemoryMappingHeader != bswMemoryMappingHeader) {
 			NotificationChain msgs = null;
-			if (rteCommonSource != null)
-				msgs = ((InternalEObject)rteCommonSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, null, msgs);
-			if (newRteCommonSource != null)
-				msgs = ((InternalEObject)newRteCommonSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, null, msgs);
-			msgs = basicSetRteCommonSource(newRteCommonSource, msgs);
+			if (bswMemoryMappingHeader != null)
+				msgs = ((InternalEObject)bswMemoryMappingHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, null, msgs);
+			if (newBswMemoryMappingHeader != null)
+				msgs = ((InternalEObject)newBswMemoryMappingHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, null, msgs);
+			msgs = basicSetBswMemoryMappingHeader(newBswMemoryMappingHeader, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, newRteCommonSource, newRteCommonSource));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, newBswMemoryMappingHeader, newBswMemoryMappingHeader));
 	}
 
 	/**
@@ -363,11 +340,109 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteSource> getRtePartitionSource() {
-		if (rtePartitionSource == null) {
-			rtePartitionSource = new EObjectContainmentEList<RteSource>(RteSource.class, this, ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE);
+	public EList<SwcMemoryMappingHeader> getSwcMemoryMappingHeader() {
+		if (swcMemoryMappingHeader == null) {
+			swcMemoryMappingHeader = new EObjectContainmentEList<SwcMemoryMappingHeader>(SwcMemoryMappingHeader.class, this, ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER);
 		}
-		return rtePartitionSource;
+		return swcMemoryMappingHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteHeader getRteHeader() {
+		return rteHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRteHeader(RteHeader newRteHeader, NotificationChain msgs) {
+		RteHeader oldRteHeader = rteHeader;
+		rteHeader = newRteHeader;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_HEADER, oldRteHeader, newRteHeader);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRteHeader(RteHeader newRteHeader) {
+		if (newRteHeader != rteHeader) {
+			NotificationChain msgs = null;
+			if (rteHeader != null)
+				msgs = ((InternalEObject)rteHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_HEADER, null, msgs);
+			if (newRteHeader != null)
+				msgs = ((InternalEObject)newRteHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_HEADER, null, msgs);
+			msgs = basicSetRteHeader(newRteHeader, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_HEADER, newRteHeader, newRteHeader));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteTypeHeader getRteTypeHeader() {
+		return rteTypeHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRteTypeHeader(RteTypeHeader newRteTypeHeader, NotificationChain msgs) {
+		RteTypeHeader oldRteTypeHeader = rteTypeHeader;
+		rteTypeHeader = newRteTypeHeader;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, oldRteTypeHeader, newRteTypeHeader);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRteTypeHeader(RteTypeHeader newRteTypeHeader) {
+		if (newRteTypeHeader != rteTypeHeader) {
+			NotificationChain msgs = null;
+			if (rteTypeHeader != null)
+				msgs = ((InternalEObject)rteTypeHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, null, msgs);
+			if (newRteTypeHeader != null)
+				msgs = ((InternalEObject)newRteTypeHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, null, msgs);
+			msgs = basicSetRteTypeHeader(newRteTypeHeader, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, newRteTypeHeader, newRteTypeHeader));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RteApplicationTypeHeader> getRteApplicationTypeHeader() {
+		if (rteApplicationTypeHeader == null) {
+			rteApplicationTypeHeader = new EObjectContainmentEList<RteApplicationTypeHeader>(RteApplicationTypeHeader.class, this, ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER);
+		}
+		return rteApplicationTypeHeader;
 	}
 
 	/**
@@ -387,11 +462,23 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<RteApplicationTypeHeader> getRteApplicationTypeHeader() {
-		if (rteApplicationTypeHeader == null) {
-			rteApplicationTypeHeader = new EObjectContainmentEList<RteApplicationTypeHeader>(RteApplicationTypeHeader.class, this, ModulePackage.RTE_MODULE__RTE_APPLICATION_TYPE_HEADER);
+	public EList<ModuleInterlinkTypeHeader> getModuleInterlinkTypeHeader() {
+		if (moduleInterlinkTypeHeader == null) {
+			moduleInterlinkTypeHeader = new EObjectContainmentEList<ModuleInterlinkTypeHeader>(ModuleInterlinkTypeHeader.class, this, ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER);
 		}
-		return rteApplicationTypeHeader;
+		return moduleInterlinkTypeHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ModuleInterlinkHeader> getModuleInterlinkHeader() {
+		if (moduleInterlinkHeader == null) {
+			moduleInterlinkHeader = new EObjectContainmentEList<ModuleInterlinkHeader>(ModuleInterlinkHeader.class, this, ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER);
+		}
+		return moduleInterlinkHeader;
 	}
 
 	/**
@@ -435,49 +522,6 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_LIFECYCLE_HEADER, newRteLifecycleHeader, newRteLifecycleHeader));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteCallbackHeader getRteCallbackHeader() {
-		return rteCallbackHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRteCallbackHeader(RteCallbackHeader newRteCallbackHeader, NotificationChain msgs) {
-		RteCallbackHeader oldRteCallbackHeader = rteCallbackHeader;
-		rteCallbackHeader = newRteCallbackHeader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, oldRteCallbackHeader, newRteCallbackHeader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRteCallbackHeader(RteCallbackHeader newRteCallbackHeader) {
-		if (newRteCallbackHeader != rteCallbackHeader) {
-			NotificationChain msgs = null;
-			if (rteCallbackHeader != null)
-				msgs = ((InternalEObject)rteCallbackHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, null, msgs);
-			if (newRteCallbackHeader != null)
-				msgs = ((InternalEObject)newRteCallbackHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, null, msgs);
-			msgs = basicSetRteCallbackHeader(newRteCallbackHeader, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, newRteCallbackHeader, newRteCallbackHeader));
 	}
 
 	/**
@@ -571,8 +615,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteTypeHeader getRteTypeHeader() {
-		return rteTypeHeader;
+	public RteCallbackHeader getRteCallbackHeader() {
+		return rteCallbackHeader;
 	}
 
 	/**
@@ -580,11 +624,11 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRteTypeHeader(RteTypeHeader newRteTypeHeader, NotificationChain msgs) {
-		RteTypeHeader oldRteTypeHeader = rteTypeHeader;
-		rteTypeHeader = newRteTypeHeader;
+	public NotificationChain basicSetRteCallbackHeader(RteCallbackHeader newRteCallbackHeader, NotificationChain msgs) {
+		RteCallbackHeader oldRteCallbackHeader = rteCallbackHeader;
+		rteCallbackHeader = newRteCallbackHeader;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, oldRteTypeHeader, newRteTypeHeader);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, oldRteCallbackHeader, newRteCallbackHeader);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -595,18 +639,18 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRteTypeHeader(RteTypeHeader newRteTypeHeader) {
-		if (newRteTypeHeader != rteTypeHeader) {
+	public void setRteCallbackHeader(RteCallbackHeader newRteCallbackHeader) {
+		if (newRteCallbackHeader != rteCallbackHeader) {
 			NotificationChain msgs = null;
-			if (rteTypeHeader != null)
-				msgs = ((InternalEObject)rteTypeHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, null, msgs);
-			if (newRteTypeHeader != null)
-				msgs = ((InternalEObject)newRteTypeHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, null, msgs);
-			msgs = basicSetRteTypeHeader(newRteTypeHeader, msgs);
+			if (rteCallbackHeader != null)
+				msgs = ((InternalEObject)rteCallbackHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, null, msgs);
+			if (newRteCallbackHeader != null)
+				msgs = ((InternalEObject)newRteCallbackHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, null, msgs);
+			msgs = basicSetRteCallbackHeader(newRteCallbackHeader, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_TYPE_HEADER, newRteTypeHeader, newRteTypeHeader));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_CALLBACK_HEADER, newRteCallbackHeader, newRteCallbackHeader));
 	}
 
 	/**
@@ -614,8 +658,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteHeader getRteHeader() {
-		return rteHeader;
+	public RteUtilityHeader getRteUtilityHeader() {
+		return rteUtilityHeader;
 	}
 
 	/**
@@ -623,11 +667,11 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRteHeader(RteHeader newRteHeader, NotificationChain msgs) {
-		RteHeader oldRteHeader = rteHeader;
-		rteHeader = newRteHeader;
+	public NotificationChain basicSetRteUtilityHeader(RteUtilityHeader newRteUtilityHeader, NotificationChain msgs) {
+		RteUtilityHeader oldRteUtilityHeader = rteUtilityHeader;
+		rteUtilityHeader = newRteUtilityHeader;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_HEADER, oldRteHeader, newRteHeader);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, oldRteUtilityHeader, newRteUtilityHeader);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -638,18 +682,61 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRteHeader(RteHeader newRteHeader) {
-		if (newRteHeader != rteHeader) {
+	public void setRteUtilityHeader(RteUtilityHeader newRteUtilityHeader) {
+		if (newRteUtilityHeader != rteUtilityHeader) {
 			NotificationChain msgs = null;
-			if (rteHeader != null)
-				msgs = ((InternalEObject)rteHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_HEADER, null, msgs);
-			if (newRteHeader != null)
-				msgs = ((InternalEObject)newRteHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_HEADER, null, msgs);
-			msgs = basicSetRteHeader(newRteHeader, msgs);
+			if (rteUtilityHeader != null)
+				msgs = ((InternalEObject)rteUtilityHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, null, msgs);
+			if (newRteUtilityHeader != null)
+				msgs = ((InternalEObject)newRteUtilityHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, null, msgs);
+			msgs = basicSetRteUtilityHeader(newRteUtilityHeader, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_HEADER, newRteHeader, newRteHeader));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, newRteUtilityHeader, newRteUtilityHeader));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBswApiHeader getRteBswApiHeader() {
+		return rteBswApiHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRteBswApiHeader(RteBswApiHeader newRteBswApiHeader, NotificationChain msgs) {
+		RteBswApiHeader oldRteBswApiHeader = rteBswApiHeader;
+		rteBswApiHeader = newRteBswApiHeader;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, oldRteBswApiHeader, newRteBswApiHeader);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRteBswApiHeader(RteBswApiHeader newRteBswApiHeader) {
+		if (newRteBswApiHeader != rteBswApiHeader) {
+			NotificationChain msgs = null;
+			if (rteBswApiHeader != null)
+				msgs = ((InternalEObject)rteBswApiHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
+			if (newRteBswApiHeader != null)
+				msgs = ((InternalEObject)newRteBswApiHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
+			msgs = basicSetRteBswApiHeader(newRteBswApiHeader, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, newRteBswApiHeader, newRteBswApiHeader));
 	}
 
 	/**
@@ -712,8 +799,8 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RteUtilityHeader getRteUtilityHeader() {
-		return rteUtilityHeader;
+	public RteSource getRteCommonSource() {
+		return rteCommonSource;
 	}
 
 	/**
@@ -721,11 +808,11 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRteUtilityHeader(RteUtilityHeader newRteUtilityHeader, NotificationChain msgs) {
-		RteUtilityHeader oldRteUtilityHeader = rteUtilityHeader;
-		rteUtilityHeader = newRteUtilityHeader;
+	public NotificationChain basicSetRteCommonSource(RteSource newRteCommonSource, NotificationChain msgs) {
+		RteSource oldRteCommonSource = rteCommonSource;
+		rteCommonSource = newRteCommonSource;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, oldRteUtilityHeader, newRteUtilityHeader);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, oldRteCommonSource, newRteCommonSource);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -736,18 +823,18 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRteUtilityHeader(RteUtilityHeader newRteUtilityHeader) {
-		if (newRteUtilityHeader != rteUtilityHeader) {
+	public void setRteCommonSource(RteSource newRteCommonSource) {
+		if (newRteCommonSource != rteCommonSource) {
 			NotificationChain msgs = null;
-			if (rteUtilityHeader != null)
-				msgs = ((InternalEObject)rteUtilityHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, null, msgs);
-			if (newRteUtilityHeader != null)
-				msgs = ((InternalEObject)newRteUtilityHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, null, msgs);
-			msgs = basicSetRteUtilityHeader(newRteUtilityHeader, msgs);
+			if (rteCommonSource != null)
+				msgs = ((InternalEObject)rteCommonSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, null, msgs);
+			if (newRteCommonSource != null)
+				msgs = ((InternalEObject)newRteCommonSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, null, msgs);
+			msgs = basicSetRteCommonSource(newRteCommonSource, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_UTILITY_HEADER, newRteUtilityHeader, newRteUtilityHeader));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_COMMON_SOURCE, newRteCommonSource, newRteCommonSource));
 	}
 
 	/**
@@ -755,133 +842,11 @@ public class RteModuleImpl extends ExtendedEObjectImpl implements RteModule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<HeaderFile> getDependentHeader() {
-		if (dependentHeader == null) {
-			dependentHeader = new EObjectContainmentEList<HeaderFile>(HeaderFile.class, this, ModulePackage.RTE_MODULE__DEPENDENT_HEADER);
+	public EList<RteSource> getRtePartitionSource() {
+		if (rtePartitionSource == null) {
+			rtePartitionSource = new EObjectContainmentEList<RteSource>(RteSource.class, this, ModulePackage.RTE_MODULE__RTE_PARTITION_SOURCE);
 		}
-		return dependentHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BswMemoryMappingHeader getBswMemoryMappingHeader() {
-		return bswMemoryMappingHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBswMemoryMappingHeader(BswMemoryMappingHeader newBswMemoryMappingHeader, NotificationChain msgs) {
-		BswMemoryMappingHeader oldBswMemoryMappingHeader = bswMemoryMappingHeader;
-		bswMemoryMappingHeader = newBswMemoryMappingHeader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, oldBswMemoryMappingHeader, newBswMemoryMappingHeader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBswMemoryMappingHeader(BswMemoryMappingHeader newBswMemoryMappingHeader) {
-		if (newBswMemoryMappingHeader != bswMemoryMappingHeader) {
-			NotificationChain msgs = null;
-			if (bswMemoryMappingHeader != null)
-				msgs = ((InternalEObject)bswMemoryMappingHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, null, msgs);
-			if (newBswMemoryMappingHeader != null)
-				msgs = ((InternalEObject)newBswMemoryMappingHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, null, msgs);
-			msgs = basicSetBswMemoryMappingHeader(newBswMemoryMappingHeader, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__BSW_MEMORY_MAPPING_HEADER, newBswMemoryMappingHeader, newBswMemoryMappingHeader));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<SwcMemoryMappingHeader> getSwcMemoryMappingHeader() {
-		if (swcMemoryMappingHeader == null) {
-			swcMemoryMappingHeader = new EObjectContainmentEList<SwcMemoryMappingHeader>(SwcMemoryMappingHeader.class, this, ModulePackage.RTE_MODULE__SWC_MEMORY_MAPPING_HEADER);
-		}
-		return swcMemoryMappingHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ModuleInterlinkHeader> getModuleInterlinkHeader() {
-		if (moduleInterlinkHeader == null) {
-			moduleInterlinkHeader = new EObjectContainmentEList<ModuleInterlinkHeader>(ModuleInterlinkHeader.class, this, ModulePackage.RTE_MODULE__MODULE_INTERLINK_HEADER);
-		}
-		return moduleInterlinkHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<ModuleInterlinkTypeHeader> getModuleInterlinkTypeHeader() {
-		if (moduleInterlinkTypeHeader == null) {
-			moduleInterlinkTypeHeader = new EObjectContainmentEList<ModuleInterlinkTypeHeader>(ModuleInterlinkTypeHeader.class, this, ModulePackage.RTE_MODULE__MODULE_INTERLINK_TYPE_HEADER);
-		}
-		return moduleInterlinkTypeHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteBswApiHeader getRteBswApiHeader() {
-		return rteBswApiHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRteBswApiHeader(RteBswApiHeader newRteBswApiHeader, NotificationChain msgs) {
-		RteBswApiHeader oldRteBswApiHeader = rteBswApiHeader;
-		rteBswApiHeader = newRteBswApiHeader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, oldRteBswApiHeader, newRteBswApiHeader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRteBswApiHeader(RteBswApiHeader newRteBswApiHeader) {
-		if (newRteBswApiHeader != rteBswApiHeader) {
-			NotificationChain msgs = null;
-			if (rteBswApiHeader != null)
-				msgs = ((InternalEObject)rteBswApiHeader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
-			if (newRteBswApiHeader != null)
-				msgs = ((InternalEObject)newRteBswApiHeader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, null, msgs);
-			msgs = basicSetRteBswApiHeader(newRteBswApiHeader, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModulePackage.RTE_MODULE__RTE_BSW_API_HEADER, newRteBswApiHeader, newRteBswApiHeader));
+		return rtePartitionSource;
 	}
 
 	/**

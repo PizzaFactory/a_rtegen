@@ -48,6 +48,7 @@ public class RteBufferNonqueuedSendOperationItemProvider extends SendOperationIt
 			super.getPropertyDescriptors(object);
 
 			addAccessVariablePropertyDescriptor(object);
+			addActivationFlagOnRxSuccessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +67,28 @@ public class RteBufferNonqueuedSendOperationItemProvider extends SendOperationIt
 				 getString("_UI_RteBufferNonqueuedSendOperation_accessVariable_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferNonqueuedSendOperation_accessVariable_feature", "_UI_RteBufferNonqueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModulePackage.Literals.RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACCESS_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activation Flag On Rx Success feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagOnRxSuccessPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RteBufferNonqueuedSendOperation_activationFlagOnRxSuccess_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_RteBufferNonqueuedSendOperation_activationFlagOnRxSuccess_feature", "_UI_RteBufferNonqueuedSendOperation_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.RTE_BUFFER_NONQUEUED_SEND_OPERATION__ACTIVATION_FLAG_ON_RX_SUCCESS,
 				 true,
 				 false,
 				 true,
