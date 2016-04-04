@@ -129,6 +129,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		this.stdout = stdout;
 		try {
 			this.loader = AutosarModelLoader.forGeneratePhase();
+			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
 			
 			this.rteValidatorM2 = ModelValidator.forRteGeneratePhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteGeneratePhaseInstance();

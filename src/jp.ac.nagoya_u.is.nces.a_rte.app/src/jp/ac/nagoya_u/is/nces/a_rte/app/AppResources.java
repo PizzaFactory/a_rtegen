@@ -43,8 +43,10 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.Path;
 
 /**
  * RTEジェネレータアプリケーションが使用するリソースのデフォルト設定を保持する。
@@ -77,7 +79,15 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	/**
 	 * @return AUTOSARスキーマファイル
 	 */
-	public static IFile getDefaultSchemaFile(IProject project) {
-		return project.getFile(SCHEMA_DIRECTORY_PATH + SCHEMA_FILE_RELATIVE_PATH);
+	public static String getDefaultSchemaDirectory() {
+		return SCHEMA_DIRECTORY_PATH;
 	}
+	
+	/**
+	 * @return AUTOSARスキーマファイル
+	 */
+    public static IFile getSchemaFile(IContainer directory) {
+		return directory.getFolder(new Path(SCHEMA_DIRECTORY_PATH)).getFile(new Path(SCHEMA_FILE_NAME));
+	}
+	
 }

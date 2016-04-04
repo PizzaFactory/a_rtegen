@@ -100,6 +100,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	public ContractPhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		try {
 			this.loader = AutosarModelLoader.forContractPhase();
+			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
 			
 			this.rteValidatorM2 = ModelValidator.forRteContractPhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteContractPhaseInstance();

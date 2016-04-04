@@ -78,7 +78,7 @@ public class RteGeneratorApp {
 	public RteGeneratorApp(IProject project) {
 		GeneratorInitOptions generatorInitOptions = new GeneratorInitOptions();
 		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile(project);
-		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile(project);
+		generatorInitOptions.schemaFile = AppResources.getSchemaFile(project);
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
