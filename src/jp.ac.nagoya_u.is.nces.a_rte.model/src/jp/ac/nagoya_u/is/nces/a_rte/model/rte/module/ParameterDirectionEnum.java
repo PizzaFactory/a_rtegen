@@ -26,7 +26,7 @@ public enum ParameterDirectionEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IN(0, "in", "in"),
+	IN(0, "in", "in"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Out</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum ParameterDirectionEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OUT(0, "out", "out"),
+	OUT(0, "out", "out"), //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>Inout</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum ParameterDirectionEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INOUT(0, "inout", "inout");
+	INOUT(0, "inout", "inout"); //$NON-NLS-1$ //$NON-NLS-2$
 
 	/**
 	 * The '<em><b>In</b></em>' literal value.

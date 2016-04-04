@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -46,9 +46,11 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.Collection;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInComposition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataFilter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.HandleInvalidEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 
@@ -60,6 +62,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -69,6 +72,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getActivatesOnReceived <em>Activates On Received</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuReceiverImpl#getActivatesOnReceiveError <em>Activates On Receive Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +89,25 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * @ordered
 	 */
 	protected VariableDataInstanceInComposition source;
+
+	/**
+	 * The cached value of the '{@link #getActivatesOnReceived() <em>Activates On Received</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivatesOnReceived()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EntityStarter> activatesOnReceived;
+	/**
+	 * The cached value of the '{@link #getActivatesOnReceiveError() <em>Activates On Receive Error</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivatesOnReceiveError()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EntityStarter> activatesOnReceiveError;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +164,30 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE, oldSource, source));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EntityStarter> getActivatesOnReceived() {
+		if (activatesOnReceived == null) {
+			activatesOnReceived = new EObjectResolvingEList<EntityStarter>(EntityStarter.class, this, InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED);
+		}
+		return activatesOnReceived;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<EntityStarter> getActivatesOnReceiveError() {
+		if (activatesOnReceiveError == null) {
+			activatesOnReceiveError = new EObjectResolvingEList<EntityStarter>(EntityStarter.class, this, InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR);
+		}
+		return activatesOnReceiveError;
 	}
 
 	/**
@@ -263,6 +311,30 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	}
 
 	/**
+	 * The cached invocation delegate for the '{@link #isEventSemantics() <em>Is Event Semantics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isEventSemantics()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EOperation.Internal.InvocationDelegate IS_EVENT_SEMANTICS__EINVOCATION_DELEGATE = ((EOperation.Internal)InteractionPackage.Literals.INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS).getInvocationDelegate();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isEventSemantics() {
+		try {
+			return (Boolean)IS_EVENT_SEMANTICS__EINVOCATION_DELEGATE.dynamicInvoke(this, null);
+		}
+		catch (InvocationTargetException ite) {
+			throw new WrappedException(ite);
+		}
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -273,6 +345,10 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				return getActivatesOnReceived();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				return getActivatesOnReceiveError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,11 +358,20 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				setSource((VariableDataInstanceInComposition)newValue);
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				getActivatesOnReceived().clear();
+				getActivatesOnReceived().addAll((Collection<? extends EntityStarter>)newValue);
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				getActivatesOnReceiveError().clear();
+				getActivatesOnReceiveError().addAll((Collection<? extends EntityStarter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -303,6 +388,12 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				setSource((VariableDataInstanceInComposition)null);
 				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				getActivatesOnReceived().clear();
+				return;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				getActivatesOnReceiveError().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,6 +408,10 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 		switch (featureID) {
 			case InteractionPackage.INTERNAL_ECU_RECEIVER__SOURCE:
 				return source != null;
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED:
+				return activatesOnReceived != null && !activatesOnReceived.isEmpty();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR:
+				return activatesOnReceiveError != null && !activatesOnReceiveError.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -339,6 +434,8 @@ public class InternalEcuReceiverImpl extends ReceiverImpl implements InternalEcu
 				return getFilter();
 			case InteractionPackage.INTERNAL_ECU_RECEIVER___IS_ALIVE_TIMEOUT_ENABLED:
 				return isAliveTimeoutEnabled();
+			case InteractionPackage.INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS:
+				return isEventSemantics();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

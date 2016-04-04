@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -73,34 +73,35 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwAddrMethod;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableDataPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 
 import com.google.common.base.Optional;
 
 /**
- * À¸À®¤¹¤ëRTE¥½¡¼¥¹¥³¡¼¥ÉÃæ¤Ç»ÈÍÑ¤¹¤ë¼±ÊÌ»Ò¤òÄó¶¡¤·¤Ş¤¹¡¥
+ * ç”Ÿæˆã™ã‚‹RTEã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã§ä½¿ç”¨ã™ã‚‹è­˜åˆ¥å­ã‚’æä¾›ã—ã¾ã™ï¼
  */
-public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê¤¤¤¬¡¤static¥á¥½¥Ã¥É·²¤Î¥¯¥é¥¹¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+public class SymbolNames { // COVERAGE å¸¸ã«æœªé”(ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”ŸæˆãŒè¡Œãªã‚ã‚Œã¦ã„ãªã„ãŒï¼Œstaticãƒ¡ã‚½ãƒƒãƒ‰ç¾¤ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 
-	// ¥·¥ó¥Ü¥ë¤ÎÀÜÆ¬¼­
+	// ã‚·ãƒ³ãƒœãƒ«ã®æ¥é ­è¾
 	private static final String TRUSTED_FUNCTION_NAME_PREFIX = "TRUSTED_";
 	private static final String IOC_SYMBOL_NAME_PREFIX = "Ioc";
 
 	private static final String RTE_SYMBOL_NAME_PREFIX = "Rte_";
 	private static final String RTE_CONSTANT_NAME_PREFIX = "RTE_";
-	private static final String RTE_GUARD_NAME_PREFIX = "RTE_"; // ¥¬¡¼¥É¥Ş¥¯¥íÌ¾¤ÎÀÜÆ¬¼­
+	private static final String RTE_GUARD_NAME_PREFIX = "RTE_"; // ã‚¬ãƒ¼ãƒ‰ãƒã‚¯ãƒ­åã®æ¥é ­è¾
 
 	private static final String SCHM_SYMBOL_NAME_PREFIX = "SchM_";
 	private static final String SCHM_CONSTANT_NAME_PREFIX = "SCHM_";
 
-	// ¥á¥â¥ê¥Ş¥Ã¥Ô¥ó¥°¤Î¥·¥ó¥Ü¥ëÌ¾
+	// ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ”ãƒ³ã‚°ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String RTE_MEMORY_MAPPING_PREFIX = "RTE";
 
-	// ¥Ş¥¯¥í¤Î¥·¥ó¥Ü¥ëÌ¾
+	// ãƒã‚¯ãƒ­ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String OS_TRUSTED_MACRO = "TOPPERS_TRUSTED";
 	public static final String OS_NON_TRUSTED_MACRO = "TOPPERS_NON_TRUSTED";
 
-	// ·¿¤Î¥·¥ó¥Ü¥ëÌ¾
+	// å‹ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String VOID_TYPE_NAME = "void";
 	public static final String BOOLEAN_TYPE_NAME = "boolean";
 	public static final String UINT8_TYPE_NAME = "uint8";
@@ -116,25 +117,29 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	public static final String OS_TRUSTED_FUNCTION_INDEX_TYPE_NAME = "TrustedFunctionIndexType";
 	public static final String OS_TRUSTED_FUNCTION_PARAMETER_REF_TYPE_NAME = "TrustedFunctionParameterRefType";
 	public static final String COM_SIGNAL_ID_TYPE_NAME = "Com_SignalIdType";
-	public static final String RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_SendTrustedFunctionParamType";
+	public static final String RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_NonqueuedSendTrustedFunctionParamType";
+	public static final String RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE_NAME = "Rte_QueuedSendTrustedFunctionParamType";
 	public static final String COM_META_DATA_TYPE_MEMBER_OFFSET_TYPE_NAME = "Rte_BufferTypeOffset";
 	public static final String COM_META_DATA_TYPE_NAME = "Rte_ComMetaComplexDataType";
 	public static final String COM_SEND_SIGNAL_TF_PARAM_TYPE_NAME = "Rte_ComSendTrustedFunctionParamType";
 	public static final String COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE_NAME = "Rte_ComSendGroupTrustedFunctionParamType";
 	public static final String COM_PROXY_FUNCTION_TABLE_INDEX_TYPE_NAME = "Rte_SrWriteProxyFunctionTableIndex";
 
-	// Äê¿ô¤Î¥·¥ó¥Ü¥ëÌ¾
+	// å®šæ•°ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String RTE_E_OK_CONSTANT_NAME = "RTE_E_OK";
 	public static final String RTE_E_INVALID_CONSTANT_NAME = "RTE_E_INVALID";
 	public static final String RTE_E_MAX_AGE_EXCEEDED_CONSTANT_NAME = "RTE_E_MAX_AGE_EXCEEDED";
+	public static final String RTE_E_TRANSMIT_ACK_CONSTANT_NAME = "RTE_E_TRANSMIT_ACK";
 	public static final String COM_PROXY_FUNCTION_TABLE_SIZE_CONSTANT_NAME = "RTE_SR_WRITE_PROXY_FUNCTION_TABLE_SIZE";
+	public static final String BOOLEAN_FALSE_NAME = "FALSE";
 
-	// ¥°¥í¡¼¥Ğ¥ëÊÑ¿ô¤Î¥·¥ó¥Ü¥ëÌ¾
-	// ¸½ºß¤Ê¤·¡£
+	// ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ã®ã‚·ãƒ³ãƒœãƒ«å
+	// ç¾åœ¨ãªã—ã€‚
 
-	// ´Ø¿ô¤Î¥·¥ó¥Ü¥ëÌ¾
+	// é–¢æ•°ã®ã‚·ãƒ³ãƒœãƒ«å
 	private static final String CALL_BSW_FUNCTION_NAME_PREFIX = "Rte_Call_Bsw_";
 	private static final String OS_TASK_MACRO_NAME = "TASK";
+	public static final String OS_ACTIVATE_TASK_API_NAME = "Rte_Call_Bsw_ActivateTask";
 	public static final String OS_SET_EVENT_API_NAME = "Rte_Call_Bsw_SetEvent";
 	public static final String CALL_BSW_COM_SEND_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_SendSignal";
 	public static final String CALL_BSW_COM_RECEIVE_SIGNAL_API_NAME = "Rte_Call_Bsw_Com_ReceiveSignal";
@@ -158,7 +163,7 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	public static final String SCHM_INIT_API_NAME = SCHM_SYMBOL_NAME_PREFIX + "Init";
 	public static final String SCHM_DEINIT_API_NAME = SCHM_SYMBOL_NAME_PREFIX + "Deinit";
 
-	// °ú¿ô¤Î¥·¥ó¥Ü¥ëÌ¾
+	// å¼•æ•°ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String OS_TRUSTED_FUNCTION_INDEX_PARAM_NAME = "tfn_idx";
 	public static final String OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME = "tfn_prm";
 	public static final String SR_DATA_PARAM_NAME = "data";
@@ -167,17 +172,18 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	public static final String IRV_DATA_PARAM_NAME = "data";
 	public static final String IRV_DATA_REFERENCE_PARAM_NAME = "p_data";
 
-	// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¥·¥ó¥Ü¥ëÌ¾
+	// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®ã‚·ãƒ³ãƒœãƒ«å
 	public static final String RETURN_VALUE_LOCAL_VAR_NAME = "ercd";
 	public static final String TEMP_RETURN_VALUE_LOCAL_VAR_NAME = "tmp_ercd";
 	public static final String SR_DATA_VAR_NAME = "data";
 	public static final String SR_INVALID_VALUE_VAR_NAME = "inv_val";
 	public static final String SR_FILTER_RESULT_VAR_NAME = "flt_res";
-	public static final String RTE_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
-	public static final String COM_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_prm";
+	public static final String RTE_NONQUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_nq_prm";
+	public static final String RTE_QUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_q_prm";
+	public static final String COM_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_c_prm";
 	public static final String COM_GROUP_TRUSTED_FUNCTION_PARAM_VAR_NAME = "tfn_g_prm";
 	public static final String COM_PROXY_SIGNAL_ID_VAR_NAME = "sig_id";
-	public static final String COM_PROXY_UNION_DATA_VAR_NAME = "proxy_data";
+	public static final String COM_PROXY_DATA_VAR_NAME = "proxy_data";
 	public static final String COM_PROXY_FUNCTION_TABLE_INDEX_VAR_NAME = "inx";
 	public static final String MODE_VAR_NAME = "mode";
 	public static final String ENTITY_EVENT_VAR_NAME = "evt";
@@ -318,6 +324,14 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	public static String createSendApiImplName(PVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Send" + Identifiers.getImplExtension(dataInstanceInSwc);
 	}
+	
+	public static String createFeedbackApiName(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "Feedback" + Identifiers.getApiExtension(dataInstanceInSwc);
+	}
+
+	public static String createFeedbackApiImplName(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "Feedback" + Identifiers.getImplExtension(dataInstanceInSwc);
+	}
 
 	public static String createReadApiName(RVariableDataInstanceInSwc dataInstanceInSwc) {
 		return RTE_SYMBOL_NAME_PREFIX + "Read" + Identifiers.getApiExtension(dataInstanceInSwc);
@@ -441,16 +455,28 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return RTE_SYMBOL_NAME_PREFIX + "PartitionTerminated" + Identifiers.getExtension(sourcePartition);
 	}
 
-	public static String createComReceiveCallbackName(EcucContainer comSignalOrComSignalGroup) {
+	public static String createComRxCallbackName(EcucContainer comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbk_" + comSignalOrComSignalGroup.getShortName();
 	}
 
-	public static String createComReceiveTimeoutCallbackName(EcucContainer comSignalOrComSignalGroup) {
+	public static String createComRxTOutCallback(EcucContainer comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbkRxTOut_" + comSignalOrComSignalGroup.getShortName();
 	}
 
-	public static String createComInvalidateCallbackName(ComSignal comSignalOrComSignalGroup) {
+	public static String createComInvCallbackName(ComSignal comSignalOrComSignalGroup) {
 		return RTE_SYMBOL_NAME_PREFIX + "COMCbkInv_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTAckCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTAck_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTErrCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTErr_" + comSignalOrComSignalGroup.getShortName();
+	}
+
+	public static String createComTxTOutCallback(EcucContainer comSignalOrComSignalGroup) {
+		return RTE_SYMBOL_NAME_PREFIX + "COMCbkTxTOut_" + comSignalOrComSignalGroup.getShortName();
 	}
 
 	public static String createIocInitValueConstantName(OsIocCommunication osIocCommunication) {
@@ -465,10 +491,6 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocSend_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
-	public static String createIocSendGroupApiName(OsIocSenderProperties osIocSenderProperties) {
-		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocSendGroup_" + osIocSenderProperties.getParent().getShortName();
-	}
-
 	public static String createIocReadApiName(OsIocCommunication osIocCommunication) {
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocRead_" + osIocCommunication.getShortName();
 	}
@@ -481,10 +503,6 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocEmptyQueue_" + osIocCommunication.getShortName();
 	}
 
-	public static String createIocReceiveGroupApiName(OsIocCommunication osIocCommunication) {
-		return CALL_BSW_FUNCTION_NAME_PREFIX + "IocReceiveGroup_" + osIocCommunication.getShortName();
-	}
-
 	private static String getSenderIdSuffix(OsIocSenderProperties osIocSenderProperties) {
 		return osIocSenderProperties.getOsIocSenderId() == null ? "" : "_" + String.valueOf(osIocSenderProperties.getOsIocSenderId());
 	}
@@ -494,6 +512,9 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	}
 
 	public static String createBswSchedulableEntityName(BswModuleDescription sourceBswModuleDescription, jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity sourceBswModuleEntity) {
+		if(sourceBswModuleEntity.getImplementedEntry().getShortName().startsWith(Identifiers.getBswSchedulerNamePrefix(sourceBswModuleDescription))){
+			return sourceBswModuleEntity.getImplementedEntry().getShortName();
+		}
 		return Identifiers.getBswSchedulerNamePrefix(sourceBswModuleDescription) + "_" + sourceBswModuleEntity.getImplementedEntry().getShortName();
 	}
 
@@ -525,10 +546,6 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return RTE_CONSTANT_NAME_PREFIX + "ENTITY_START_OFFSET" + Identifiers.getImplExtension(osTask, osEvent, executableEntity);
 	}
 
-	public static String createComProxyUnionVariableMemberName(PrimitiveType type) {
-		return "data_" + type.getSymbolName();
-	}
-
 	public static String createSrRteBufferWriteTrustedFunctionName(VariableDataInstanceInComposition pDataInstanceInComposition, VariableDataInstanceInComposition rDataInstanceInComposition) {
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.createSrRteBufferWriteTrustedFunctionName(pDataInstanceInComposition, rDataInstanceInComposition);
 	}
@@ -554,6 +571,18 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	public static String createVariableMemorySectionName(Optional<EcucPartition> sourcePartition) {
 		return sourcePartition.isPresent() ? Identifiers.SECTION_TYPE_VAR + "_" + sourcePartition.get().getShortName() + "_" + ConfigValues.DEFAULT_SECTION_INITIALIZATION_POLICY
 				: Identifiers.SECTION_TYPE_VAR + "_" + ConfigValues.DEFAULT_SECTION_INITIALIZATION_POLICY;
+	}
+	
+	public static String createTAckStatusVariableName(VariableDataInstanceInSwc variableDataInstanceInSwc) {
+		return RTE_SYMBOL_NAME_PREFIX + "TAckStatus" + Identifiers.getImplExtension(variableDataInstanceInSwc);
+	}
+	
+	public static String createActivationFlagName(OsActivateTaskApi activatteTaskApi) {
+		return "actflg_" + activatteTaskApi.getOsTaskId();
+	}
+	
+	public static String createActivationFlagName(OsSetEventApi setEventApi) {
+		return "actflg_" + setEventApi.getOsTaskId() + "_" + setEventApi.getOsEventId();
 	}
 
 	public static String createFunctionMemorySectionName(Optional<EcucPartition> sourcePartition) {
@@ -696,10 +725,6 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return IOC_SYMBOL_NAME_PREFIX + "Send_" + osIocSenderProperties.getParent().getShortName() + getSenderIdSuffix(osIocSenderProperties);
 	}
 
-	public static String createIocSendGroupApiMappingName(OsIocSenderProperties osIocSenderProperties) {
-		return IOC_SYMBOL_NAME_PREFIX + "SendGroup_" + osIocSenderProperties.getParent().getShortName();
-	}
-
 	public static String createIocReadApiMappingName(OsIocCommunication osIocCommunication) {
 		return IOC_SYMBOL_NAME_PREFIX + "Read_" + osIocCommunication.getShortName();
 	}
@@ -712,13 +737,9 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 		return IOC_SYMBOL_NAME_PREFIX + "EmptyQueue_" + osIocCommunication.getShortName();
 	}
 
-	public static String createIocReceiveGroupApiMappingName(OsIocCommunication osIocCommunication) {
-		return IOC_SYMBOL_NAME_PREFIX + "ReceiveGroup_" + osIocCommunication.getShortName();
-	}
-
 	public static String createComSignalSymbolicName(Optional<? extends EcucContainer> comSignalOrComSignalGroup) {
 		if (!comSignalOrComSignalGroup.isPresent()) {
-			// COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			// COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return "ComConf_ComSignal";
 		}
 		return "ComConf_ComSignal_" + comSignalOrComSignalGroup.get().getShortName();
@@ -733,12 +754,12 @@ public class SymbolNames { // COVERAGE ¾ï¤ËÌ¤Ã£(¥¤¥ó¥¹¥¿¥ó¥¹À¸À®¤¬¹Ô¤Ê¤ï¤ì¤Æ¤¤¤Ê
 	}
 
 	public static String createComSendSignalTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
-		// NOTE ËÜÍè¤Ï¿®Íê´Ø¿ôÌ¾¤«¤é¥·¥ó¥Ü¥ëÌ¾¤òÀ¸À®¤¹¤ëÀß·×¤À¤¬¡¢°ÊÁ°¤Î¼ÂÁõ¤È¤Î¸ß´¹À­¤òÊİ¤Ä¤¿¤á¡¢¿®Íê´Ø¿ôÌ¾¤È°Û¤Ê¤ë¥·¥ó¥Ü¥ëÌ¾¤ò»ÈÍÑ¤¹¤ë¡£
+		// NOTE æœ¬æ¥ã¯ä¿¡é ¼é–¢æ•°åã‹ã‚‰ã‚·ãƒ³ãƒœãƒ«åã‚’ç”Ÿæˆã™ã‚‹è¨­è¨ˆã ãŒã€ä»¥å‰ã®å®Ÿè£…ã¨ã®äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã€ä¿¡é ¼é–¢æ•°åã¨ç•°ãªã‚‹ã‚·ãƒ³ãƒœãƒ«åã‚’ä½¿ç”¨ã™ã‚‹ã€‚
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.RTE_ID_PREFIX + "ComSendSignal" + "_" + sourceMasterBswPartition.getShortName();
 	}
 
 	public static String createComSendSignalGroupTrustedFunctionName(EcucPartition sourceMasterBswPartition) {
-		// NOTE ËÜÍè¤Ï¿®Íê´Ø¿ôÌ¾¤«¤é¥·¥ó¥Ü¥ëÌ¾¤òÀ¸À®¤¹¤ëÀß·×¤À¤¬¡¢°ÊÁ°¤Î¼ÂÁõ¤È¤Î¸ß´¹À­¤òÊİ¤Ä¤¿¤á¡¢¿®Íê´Ø¿ôÌ¾¤È°Û¤Ê¤ë¥·¥ó¥Ü¥ëÌ¾¤ò»ÈÍÑ¤¹¤ë¡£
+		// NOTE æœ¬æ¥ã¯ä¿¡é ¼é–¢æ•°åã‹ã‚‰ã‚·ãƒ³ãƒœãƒ«åã‚’ç”Ÿæˆã™ã‚‹è¨­è¨ˆã ãŒã€ä»¥å‰ã®å®Ÿè£…ã¨ã®äº’æ›æ€§ã‚’ä¿ã¤ãŸã‚ã€ä¿¡é ¼é–¢æ•°åã¨ç•°ãªã‚‹ã‚·ãƒ³ãƒœãƒ«åã‚’ä½¿ç”¨ã™ã‚‹ã€‚
 		return TRUSTED_FUNCTION_NAME_PREFIX + Identifiers.RTE_ID_PREFIX + "ComSendSignalGroup" + "_" + sourceMasterBswPartition.getShortName();
 	}
 

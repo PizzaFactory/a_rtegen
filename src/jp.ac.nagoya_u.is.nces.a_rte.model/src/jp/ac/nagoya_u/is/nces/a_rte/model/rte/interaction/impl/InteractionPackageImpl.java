@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -66,8 +66,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.DirectComSendImplement
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContextImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementation;
@@ -84,14 +85,15 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateProxyComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ProxyComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicProxyComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Receiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteSendImplementation;
@@ -101,7 +103,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
@@ -261,6 +264,13 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass tAckStatusVariableImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass filterBufferImplementationEClass = null;
 
 	/**
@@ -359,6 +369,41 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass executionContextEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionContextImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass infiniteloopImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass oneShootImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eventPoolingImplementationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass entityStarterEClass = null;
 
 	/**
@@ -387,6 +432,13 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass timingTriggeringEntityStartConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass entityStartImplementationEClass = null;
 
 	/**
@@ -401,7 +453,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modeSwitchTriggeringEntityStartImplementationEClass = null;
+	private EClass plainEntityStartImplementationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -437,34 +489,6 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * @generated
 	 */
 	private EClass bswSchedulableEntityStartInteractionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass eventToTaskMappingEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass eventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass timingEventEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass modeSwitchEventEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -645,6 +669,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSender__HasSendImplementation() {
+		return senderEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInternalEcuSender() {
 		return internalEcuSenderEClass;
 	}
@@ -656,6 +689,33 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EReference getInternalEcuSender_Source() {
 		return (EReference)internalEcuSenderEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalEcuSender_TAckStatusVariableImplementation() {
+		return (EReference)internalEcuSenderEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalEcuSender_ActivatesOnSendCompleted() {
+		return (EReference)internalEcuSenderEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInternalEcuSender__IsEventSemantics() {
+		return internalEcuSenderEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -942,6 +1002,24 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getInternalEcuReceiver_ActivatesOnReceived() {
+		return (EReference)internalEcuReceiverEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInternalEcuReceiver_ActivatesOnReceiveError() {
+		return (EReference)internalEcuReceiverEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getInternalEcuReceiver__IsInvalidationEnabled() {
 		return internalEcuReceiverEClass.getEOperations().get(0);
 	}
@@ -980,6 +1058,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EOperation getInternalEcuReceiver__IsAliveTimeoutEnabled() {
 		return internalEcuReceiverEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getInternalEcuReceiver__IsEventSemantics() {
+		return internalEcuReceiverEClass.getEOperations().get(5);
 	}
 
 	/**
@@ -1068,6 +1155,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getSendImplementation__IsEventSemantics() {
+		return sendImplementationEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRteSendImplementation() {
 		return rteSendImplementationEClass;
 	}
@@ -1124,6 +1220,24 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EClass getImmediateProxyComSendImplementation() {
 		return immediateProxyComSendImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTAckStatusVariableImplementation() {
+		return tAckStatusVariableImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTAckStatusVariableImplementation_Parent() {
+		return (EReference)tAckStatusVariableImplementationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1383,7 +1497,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComSendProxyInteraction_ValueOsIocCommunicationForComplexType() {
+	public EReference getComSendProxyInteraction_ValueOsIocCommunication() {
 		return (EReference)comSendProxyInteractionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1464,6 +1578,78 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getExecutionContext() {
+		return executionContextEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionContext_SourceOsTask() {
+		return (EReference)executionContextEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionContext_ExecutionContextImplementation() {
+		return (EReference)executionContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionContext_EntityStarter() {
+		return (EReference)executionContextEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutionContextImplementation() {
+		return executionContextImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInfiniteloopImplementation() {
+		return infiniteloopImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOneShootImplementation() {
+		return oneShootImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEventPoolingImplementation() {
+		return eventPoolingImplementationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEntityStarter() {
 		return entityStarterEClass;
 	}
@@ -1473,7 +1659,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntityStarter_ExpectedConfig() {
+	public EReference getEntityStarter_ExecutionContext() {
 		return (EReference)entityStarterEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1482,7 +1668,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntityStarter_StartInteraction() {
+	public EReference getEntityStarter_ExpectedConfig() {
 		return (EReference)entityStarterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1491,7 +1677,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntityStarter_StartOffsetCounterImplementation() {
+	public EReference getEntityStarter_StartInteraction() {
 		return (EReference)entityStarterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1500,8 +1686,17 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntityStarter_CycleCounterImplementation() {
+	public EReference getEntityStarter_StartOffsetCounterImplementation() {
 		return (EReference)entityStarterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntityStarter_CycleCounterImplementation() {
+		return (EReference)entityStarterEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1581,8 +1776,53 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntityStartInteraction_EventToTaskMapping() {
-		return (EReference)entityStartInteractionEClass.getEStructuralFeatures().get(2);
+	public EAttribute getEntityStartInteraction_ActivationOffset() {
+		return (EAttribute)entityStartInteractionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntityStartInteraction_PositionInTask() {
+		return (EAttribute)entityStartInteractionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntityStartInteraction_StartOnEvent() {
+		return (EReference)entityStartInteractionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntityStartInteraction_TimingTriggeringEntityStartCondition() {
+		return (EReference)entityStartInteractionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTimingTriggeringEntityStartCondition() {
+		return timingTriggeringEntityStartConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTimingTriggeringEntityStartCondition_Period() {
+		return (EAttribute)timingTriggeringEntityStartConditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1653,8 +1893,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModeSwitchTriggeringEntityStartImplementation() {
-		return modeSwitchTriggeringEntityStartImplementationEClass;
+	public EClass getPlainEntityStartImplementation() {
+		return plainEntityStartImplementationEClass;
 	}
 
 	/**
@@ -1664,6 +1904,15 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 */
 	public EClass getRunnableEntityStartInteraction() {
 		return runnableEntityStartInteractionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRunnableEntityStartInteraction_SourceEvent() {
+		return (EReference)runnableEntityStartInteractionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1788,89 +2037,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getEventToTaskMapping() {
-		return eventToTaskMappingEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEventToTaskMapping_ActivationOffset() {
-		return (EAttribute)eventToTaskMappingEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEventToTaskMapping_Event() {
-		return (EReference)eventToTaskMappingEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getEventToTaskMapping_PositionInTask() {
-		return (EAttribute)eventToTaskMappingEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEvent() {
-		return eventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_StartOnEvent() {
-		return (EReference)eventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEvent_SourceBswEvent() {
-		return (EReference)eventEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTimingEvent() {
-		return timingEventEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTimingEvent_Period() {
-		return (EAttribute)timingEventEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModeSwitchEvent() {
-		return modeSwitchEventEClass;
+	public EReference getBswSchedulableEntityStartInteraction_SourceEvent() {
+		return (EReference)bswSchedulableEntityStartInteractionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1913,9 +2081,13 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEOperation(senderEClass, SENDER___HAS_MULTIPLE_INTERNAL_ECU_RECEIVERS);
 		createEOperation(senderEClass, SENDER___GET_INTERNAL_ECU_RECEIVERS);
 		createEOperation(senderEClass, SENDER___GET_EXTERNAL_ECU_RECEIVERS);
+		createEOperation(senderEClass, SENDER___HAS_SEND_IMPLEMENTATION);
 
 		internalEcuSenderEClass = createEClass(INTERNAL_ECU_SENDER);
 		createEReference(internalEcuSenderEClass, INTERNAL_ECU_SENDER__SOURCE);
+		createEReference(internalEcuSenderEClass, INTERNAL_ECU_SENDER__TACK_STATUS_VARIABLE_IMPLEMENTATION);
+		createEReference(internalEcuSenderEClass, INTERNAL_ECU_SENDER__ACTIVATES_ON_SEND_COMPLETED);
+		createEOperation(internalEcuSenderEClass, INTERNAL_ECU_SENDER___IS_EVENT_SEMANTICS);
 
 		externalEcuSenderEClass = createEClass(EXTERNAL_ECU_SENDER);
 		createEReference(externalEcuSenderEClass, EXTERNAL_ECU_SENDER__SOURCE_SIGNAL);
@@ -1952,11 +2124,14 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		internalEcuReceiverEClass = createEClass(INTERNAL_ECU_RECEIVER);
 		createEReference(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER__SOURCE);
+		createEReference(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED);
+		createEReference(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR);
 		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___IS_INVALIDATION_ENABLED);
 		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___GET_HANDLE_INVALID);
 		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___IS_FILTER_ENABLED);
 		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___GET_FILTER);
 		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___IS_ALIVE_TIMEOUT_ENABLED);
+		createEOperation(internalEcuReceiverEClass, INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS);
 
 		valueBufferImplementationEClass = createEClass(VALUE_BUFFER_IMPLEMENTATION);
 		createEReference(valueBufferImplementationEClass, VALUE_BUFFER_IMPLEMENTATION__PARENT);
@@ -1970,6 +2145,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		sendImplementationEClass = createEClass(SEND_IMPLEMENTATION);
 		createEReference(sendImplementationEClass, SEND_IMPLEMENTATION__PARENT);
+		createEOperation(sendImplementationEClass, SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS);
 
 		rteSendImplementationEClass = createEClass(RTE_SEND_IMPLEMENTATION);
 
@@ -1983,6 +2159,9 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		periodicProxyComSendImplementationEClass = createEClass(PERIODIC_PROXY_COM_SEND_IMPLEMENTATION);
 
 		immediateProxyComSendImplementationEClass = createEClass(IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION);
+
+		tAckStatusVariableImplementationEClass = createEClass(TACK_STATUS_VARIABLE_IMPLEMENTATION);
+		createEReference(tAckStatusVariableImplementationEClass, TACK_STATUS_VARIABLE_IMPLEMENTATION__PARENT);
 
 		filterBufferImplementationEClass = createEClass(FILTER_BUFFER_IMPLEMENTATION);
 		createEReference(filterBufferImplementationEClass, FILTER_BUFFER_IMPLEMENTATION__PARENT);
@@ -2021,7 +2200,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__SIGNAL_DATA_TYPE);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION);
-		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE);
+		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION);
 		createEReference(comSendProxyInteractionEClass, COM_SEND_PROXY_INTERACTION__PROXY);
 
 		comSendProxyEClass = createEClass(COM_SEND_PROXY);
@@ -2035,7 +2214,21 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		interactionEClass = createEClass(INTERACTION);
 
+		executionContextEClass = createEClass(EXECUTION_CONTEXT);
+		createEReference(executionContextEClass, EXECUTION_CONTEXT__SOURCE_OS_TASK);
+		createEReference(executionContextEClass, EXECUTION_CONTEXT__EXECUTION_CONTEXT_IMPLEMENTATION);
+		createEReference(executionContextEClass, EXECUTION_CONTEXT__ENTITY_STARTER);
+
+		executionContextImplementationEClass = createEClass(EXECUTION_CONTEXT_IMPLEMENTATION);
+
+		infiniteloopImplementationEClass = createEClass(INFINITELOOP_IMPLEMENTATION);
+
+		oneShootImplementationEClass = createEClass(ONE_SHOOT_IMPLEMENTATION);
+
+		eventPoolingImplementationEClass = createEClass(EVENT_POOLING_IMPLEMENTATION);
+
 		entityStarterEClass = createEClass(ENTITY_STARTER);
+		createEReference(entityStarterEClass, ENTITY_STARTER__EXECUTION_CONTEXT);
 		createEReference(entityStarterEClass, ENTITY_STARTER__EXPECTED_CONFIG);
 		createEReference(entityStarterEClass, ENTITY_STARTER__START_INTERACTION);
 		createEReference(entityStarterEClass, ENTITY_STARTER__START_OFFSET_COUNTER_IMPLEMENTATION);
@@ -2051,7 +2244,19 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		entityStartInteractionEClass = createEClass(ENTITY_START_INTERACTION);
 		createEReference(entityStartInteractionEClass, ENTITY_START_INTERACTION__STARTER);
 		createEReference(entityStartInteractionEClass, ENTITY_START_INTERACTION__IMPLEMENTATION);
-		createEReference(entityStartInteractionEClass, ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING);
+		createEAttribute(entityStartInteractionEClass, ENTITY_START_INTERACTION__ACTIVATION_OFFSET);
+		createEAttribute(entityStartInteractionEClass, ENTITY_START_INTERACTION__POSITION_IN_TASK);
+		createEReference(entityStartInteractionEClass, ENTITY_START_INTERACTION__START_ON_EVENT);
+		createEReference(entityStartInteractionEClass, ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION);
+
+		timingTriggeringEntityStartConditionEClass = createEClass(TIMING_TRIGGERING_ENTITY_START_CONDITION);
+		createEAttribute(timingTriggeringEntityStartConditionEClass, TIMING_TRIGGERING_ENTITY_START_CONDITION__PERIOD);
+
+		runnableEntityStartInteractionEClass = createEClass(RUNNABLE_ENTITY_START_INTERACTION);
+		createEReference(runnableEntityStartInteractionEClass, RUNNABLE_ENTITY_START_INTERACTION__SOURCE_EVENT);
+
+		bswSchedulableEntityStartInteractionEClass = createEClass(BSW_SCHEDULABLE_ENTITY_START_INTERACTION);
+		createEReference(bswSchedulableEntityStartInteractionEClass, BSW_SCHEDULABLE_ENTITY_START_INTERACTION__SOURCE_EVENT);
 
 		entityStartImplementationEClass = createEClass(ENTITY_START_IMPLEMENTATION);
 
@@ -2062,9 +2267,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEOperation(timingTriggeringEntityStartImplementationEClass, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_CYCLE_ADJUST);
 		createEOperation(timingTriggeringEntityStartImplementationEClass, TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST);
 
-		modeSwitchTriggeringEntityStartImplementationEClass = createEClass(MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION);
-
-		runnableEntityStartInteractionEClass = createEClass(RUNNABLE_ENTITY_START_INTERACTION);
+		plainEntityStartImplementationEClass = createEClass(PLAIN_ENTITY_START_IMPLEMENTATION);
 
 		startOffsetCounterImplementationEClass = createEClass(START_OFFSET_COUNTER_IMPLEMENTATION);
 		createEAttribute(startOffsetCounterImplementationEClass, START_OFFSET_COUNTER_IMPLEMENTATION__MAX_COUNT);
@@ -2080,22 +2283,6 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		createEReference(generatedEcuConfigurationEClass, GENERATED_ECU_CONFIGURATION__GENERATED_OS_SPINLOCK);
 		createEReference(generatedEcuConfigurationEClass, GENERATED_ECU_CONFIGURATION__GENERATED_OS_IOC_COMMUNICATION);
 		createEReference(generatedEcuConfigurationEClass, GENERATED_ECU_CONFIGURATION__GENERATED_OS_TRUSTED_FUNCTION);
-
-		bswSchedulableEntityStartInteractionEClass = createEClass(BSW_SCHEDULABLE_ENTITY_START_INTERACTION);
-
-		eventToTaskMappingEClass = createEClass(EVENT_TO_TASK_MAPPING);
-		createEAttribute(eventToTaskMappingEClass, EVENT_TO_TASK_MAPPING__ACTIVATION_OFFSET);
-		createEReference(eventToTaskMappingEClass, EVENT_TO_TASK_MAPPING__EVENT);
-		createEAttribute(eventToTaskMappingEClass, EVENT_TO_TASK_MAPPING__POSITION_IN_TASK);
-
-		eventEClass = createEClass(EVENT);
-		createEReference(eventEClass, EVENT__START_ON_EVENT);
-		createEReference(eventEClass, EVENT__SOURCE_BSW_EVENT);
-
-		timingEventEClass = createEClass(TIMING_EVENT);
-		createEAttribute(timingEventEClass, TIMING_EVENT__PERIOD);
-
-		modeSwitchEventEClass = createEClass(MODE_SWITCH_EVENT);
 	}
 
 	/**
@@ -2150,6 +2337,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		trustedFunctionComSendImplementationEClass.getESuperTypes().add(this.getComSendImplementation());
 		periodicProxyComSendImplementationEClass.getESuperTypes().add(this.getProxyComSendImplementation());
 		immediateProxyComSendImplementationEClass.getESuperTypes().add(this.getProxyComSendImplementation());
+		tAckStatusVariableImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
 		filterBufferImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
 		iocValueBufferImplementationEClass.getESuperTypes().add(this.getValueBufferImplementation());
 		comValueBufferImplementationEClass.getESuperTypes().add(this.getValueBufferImplementation());
@@ -2163,22 +2351,24 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		periodicComSendProxyEClass.getESuperTypes().add(this.getComSendProxy());
 		immediateComSendProxyEClass.getESuperTypes().add(this.getComSendProxy());
 		interactionEClass.getESuperTypes().add(this.getInteractionReferrable());
+		executionContextEClass.getESuperTypes().add(this.getInteractionEnd());
+		executionContextImplementationEClass.getESuperTypes().add(this.getInteractionObject());
+		infiniteloopImplementationEClass.getESuperTypes().add(this.getExecutionContextImplementation());
+		oneShootImplementationEClass.getESuperTypes().add(this.getExecutionContextImplementation());
+		eventPoolingImplementationEClass.getESuperTypes().add(this.getExecutionContextImplementation());
 		entityStarterEClass.getESuperTypes().add(this.getInteractionEnd());
 		osTaskActivateEntityStarterEClass.getESuperTypes().add(this.getEntityStarter());
 		osEventSetEntityStarterEClass.getESuperTypes().add(this.getEntityStarter());
 		entityStartInteractionEClass.getESuperTypes().add(this.getInteraction());
+		timingTriggeringEntityStartConditionEClass.getESuperTypes().add(this.getInteractionObject());
+		runnableEntityStartInteractionEClass.getESuperTypes().add(this.getEntityStartInteraction());
+		bswSchedulableEntityStartInteractionEClass.getESuperTypes().add(this.getEntityStartInteraction());
 		entityStartImplementationEClass.getESuperTypes().add(this.getInteractionObject());
 		timingTriggeringEntityStartImplementationEClass.getESuperTypes().add(this.getEntityStartImplementation());
-		modeSwitchTriggeringEntityStartImplementationEClass.getESuperTypes().add(this.getEntityStartImplementation());
-		runnableEntityStartInteractionEClass.getESuperTypes().add(this.getEntityStartInteraction());
+		plainEntityStartImplementationEClass.getESuperTypes().add(this.getEntityStartImplementation());
 		startOffsetCounterImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
 		cycleCounterImplementationEClass.getESuperTypes().add(this.getVariableImplementation());
 		generatedEcuConfigurationEClass.getESuperTypes().add(this.getInteractionObject());
-		bswSchedulableEntityStartInteractionEClass.getESuperTypes().add(this.getEntityStartInteraction());
-		eventToTaskMappingEClass.getESuperTypes().add(this.getInteractionObject());
-		eventEClass.getESuperTypes().add(this.getInteractionObject());
-		timingEventEClass.getESuperTypes().add(this.getEvent());
-		modeSwitchEventEClass.getESuperTypes().add(this.getEvent());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(interactionObjectEClass, InteractionObject.class, "InteractionObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2199,8 +2389,14 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEOperation(getSender__GetExternalEcuReceivers(), this.getExternalEcuReceiver(), "getExternalEcuReceivers", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
+		initEOperation(getSender__HasSendImplementation(), ecorePackage.getEBoolean(), "hasSendImplementation", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(internalEcuSenderEClass, InternalEcuSender.class, "InternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getInternalEcuSender_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInternalEcuSender_TAckStatusVariableImplementation(), this.getTAckStatusVariableImplementation(), this.getTAckStatusVariableImplementation_Parent(), "tAckStatusVariableImplementation", null, 0, 1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInternalEcuSender_ActivatesOnSendCompleted(), this.getEntityStarter(), null, "activatesOnSendCompleted", null, 0, -1, InternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getInternalEcuSender__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(externalEcuSenderEClass, ExternalEcuSender.class, "ExternalEcuSender", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getExternalEcuSender_SourceSignal(), theEcucPackage.getComSignal(), null, "sourceSignal", null, 1, 1, ExternalEcuSender.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -2249,6 +2445,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEClass(internalEcuReceiverEClass, InternalEcuReceiver.class, "InternalEcuReceiver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getInternalEcuReceiver_Source(), theInstancePackage.getVariableDataInstanceInComposition(), null, "source", null, 1, 1, InternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInternalEcuReceiver_ActivatesOnReceived(), this.getEntityStarter(), null, "activatesOnReceived", null, 0, -1, InternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
+		initEReference(getInternalEcuReceiver_ActivatesOnReceiveError(), this.getEntityStarter(), null, "activatesOnReceiveError", null, 0, -1, InternalEcuReceiver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getInternalEcuReceiver__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
@@ -2259,6 +2457,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEOperation(getInternalEcuReceiver__GetFilter(), theM2Package.getDataFilter(), "getFilter", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getInternalEcuReceiver__IsAliveTimeoutEnabled(), ecorePackage.getEBoolean(), "isAliveTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getInternalEcuReceiver__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(valueBufferImplementationEClass, ValueBufferImplementation.class, "ValueBufferImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getValueBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_ValueBufferImplementation(), "parent", null, 1, 1, ValueBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -2273,6 +2473,8 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEClass(sendImplementationEClass, SendImplementation.class, "SendImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getSendImplementation_Parent(), this.getSendInteraction(), this.getSendInteraction_Implementation(), "parent", null, 1, 1, SendImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
+		initEOperation(getSendImplementation__IsEventSemantics(), ecorePackage.getEBoolean(), "isEventSemantics", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(rteSendImplementationEClass, RteSendImplementation.class, "RteSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(iocSendImplementationEClass, IocSendImplementation.class, "IocSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2285,6 +2487,9 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEClass(periodicProxyComSendImplementationEClass, PeriodicProxyComSendImplementation.class, "PeriodicProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(immediateProxyComSendImplementationEClass, ImmediateProxyComSendImplementation.class, "ImmediateProxyComSendImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(tAckStatusVariableImplementationEClass, TAckStatusVariableImplementation.class, "TAckStatusVariableImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getTAckStatusVariableImplementation_Parent(), this.getInternalEcuSender(), this.getInternalEcuSender_TAckStatusVariableImplementation(), "parent", null, 1, 1, TAckStatusVariableImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(filterBufferImplementationEClass, FilterBufferImplementation.class, "FilterBufferImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getFilterBufferImplementation_Parent(), this.getReceiveInteraction(), this.getReceiveInteraction_FilterBufferImplementation(), "parent", null, 1, 1, FilterBufferImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -2324,7 +2529,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEReference(getComSendProxyInteraction_RequesterPartition(), theEcucPackage.getEcucPartition(), null, "requesterPartition", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getComSendProxyInteraction_SignalDataType(), theM2Package.getImplementationDataType(), null, "signalDataType", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getComSendProxyInteraction_RequestOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "requestOsIocCommunication", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComSendProxyInteraction_ValueOsIocCommunicationForComplexType(), theEcucPackage.getOsIocCommunication(), null, "valueOsIocCommunicationForComplexType", null, 0, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getComSendProxyInteraction_ValueOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "valueOsIocCommunication", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getComSendProxyInteraction_Proxy(), this.getComSendProxy(), this.getComSendProxy_Interaction(), "proxy", null, 1, 1, ComSendProxyInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(comSendProxyEClass, ComSendProxy.class, "ComSendProxy", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2339,7 +2544,21 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEClass(interactionEClass, Interaction.class, "Interaction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
+		initEClass(executionContextEClass, ExecutionContext.class, "ExecutionContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getExecutionContext_SourceOsTask(), theEcucPackage.getOsTask(), null, "sourceOsTask", null, 1, 1, ExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getExecutionContext_ExecutionContextImplementation(), this.getExecutionContextImplementation(), null, "executionContextImplementation", null, 0, 1, ExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getExecutionContext_EntityStarter(), this.getEntityStarter(), this.getEntityStarter_ExecutionContext(), "entityStarter", null, 0, -1, ExecutionContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(executionContextImplementationEClass, ExecutionContextImplementation.class, "ExecutionContextImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(infiniteloopImplementationEClass, InfiniteloopImplementation.class, "InfiniteloopImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(oneShootImplementationEClass, OneShootImplementation.class, "OneShootImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
+		initEClass(eventPoolingImplementationEClass, EventPoolingImplementation.class, "EventPoolingImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+
 		initEClass(entityStarterEClass, EntityStarter.class, "EntityStarter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getEntityStarter_ExecutionContext(), this.getExecutionContext(), this.getExecutionContext_EntityStarter(), "executionContext", null, 1, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getEntityStarter_ExpectedConfig(), theEcucPackage.getRteUsedOsActivation(), null, "expectedConfig", null, 1, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getEntityStarter_StartInteraction(), this.getEntityStartInteraction(), this.getEntityStartInteraction_Starter(), "startInteraction", null, 0, -1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getEntityStarter_StartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation(), this.getStartOffsetCounterImplementation_Parent(), "startOffsetCounterImplementation", null, 0, 1, EntityStarter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -2355,7 +2574,19 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEClass(entityStartInteractionEClass, EntityStartInteraction.class, "EntityStartInteraction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getEntityStartInteraction_Starter(), this.getEntityStarter(), this.getEntityStarter_StartInteraction(), "starter", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getEntityStartInteraction_Implementation(), this.getEntityStartImplementation(), null, "implementation", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getEntityStartInteraction_EventToTaskMapping(), this.getEventToTaskMapping(), null, "eventToTaskMapping", null, 1, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEntityStartInteraction_ActivationOffset(), theM2Package.getTimeValue(), "activationOffset", null, 0, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getEntityStartInteraction_PositionInTask(), theModulePackage.getInteger(), "positionInTask", null, 0, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStartInteraction_StartOnEvent(), theM2Package.getExecutableEntity(), null, "startOnEvent", null, 0, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getEntityStartInteraction_TimingTriggeringEntityStartCondition(), this.getTimingTriggeringEntityStartCondition(), null, "timingTriggeringEntityStartCondition", null, 0, 1, EntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(timingTriggeringEntityStartConditionEClass, TimingTriggeringEntityStartCondition.class, "TimingTriggeringEntityStartCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getTimingTriggeringEntityStartCondition_Period(), theM2Package.getTimeValue(), "period", null, 1, 1, TimingTriggeringEntityStartCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(runnableEntityStartInteractionEClass, RunnableEntityStartInteraction.class, "RunnableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRunnableEntityStartInteraction_SourceEvent(), theM2Package.getRteEvent(), null, "sourceEvent", null, 1, 1, RunnableEntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(bswSchedulableEntityStartInteractionEClass, BswSchedulableEntityStartInteraction.class, "BswSchedulableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getBswSchedulableEntityStartInteraction_SourceEvent(), theM2Package.getBswEvent(), null, "sourceEvent", null, 1, 1, BswSchedulableEntityStartInteraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(entityStartImplementationEClass, EntityStartImplementation.class, "EntityStartImplementation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
@@ -2369,9 +2600,7 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 
 		initEOperation(getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust(), ecorePackage.getEBoolean(), "requiresStartOffsetAdjust", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(modeSwitchTriggeringEntityStartImplementationEClass, ModeSwitchTriggeringEntityStartImplementation.class, "ModeSwitchTriggeringEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		initEClass(runnableEntityStartInteractionEClass, RunnableEntityStartInteraction.class, "RunnableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(plainEntityStartImplementationEClass, PlainEntityStartImplementation.class, "PlainEntityStartImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(startOffsetCounterImplementationEClass, StartOffsetCounterImplementation.class, "StartOffsetCounterImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getStartOffsetCounterImplementation_MaxCount(), theM2Package.getInteger(), "maxCount", null, 1, 1, StartOffsetCounterImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -2387,22 +2616,6 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		initEReference(getGeneratedEcuConfiguration_GeneratedOsSpinlock(), theEcucPackage.getOsSpinlock(), null, "generatedOsSpinlock", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGeneratedEcuConfiguration_GeneratedOsIocCommunication(), theEcucPackage.getOsIocCommunication(), null, "generatedOsIocCommunication", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getGeneratedEcuConfiguration_GeneratedOsTrustedFunction(), theEcucPackage.getOsApplicationTrustedFunction(), null, "generatedOsTrustedFunction", null, 0, -1, GeneratedEcuConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(bswSchedulableEntityStartInteractionEClass, BswSchedulableEntityStartInteraction.class, "BswSchedulableEntityStartInteraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		initEClass(eventToTaskMappingEClass, EventToTaskMapping.class, "EventToTaskMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getEventToTaskMapping_ActivationOffset(), theM2Package.getTimeValue(), "activationOffset", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getEventToTaskMapping_Event(), this.getEvent(), null, "event", null, 1, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getEventToTaskMapping_PositionInTask(), theModulePackage.getInteger(), "positionInTask", null, 0, 1, EventToTaskMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getEvent_StartOnEvent(), theM2Package.getExecutableEntity(), null, "startOnEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getEvent_SourceBswEvent(), theM2Package.getBswEvent(), null, "sourceBswEvent", null, 0, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(timingEventEClass, TimingEvent.class, "TimingEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(getTimingEvent_Period(), theM2Package.getTimeValue(), "period", null, 0, 1, TimingEvent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(modeSwitchEventEClass, ModeSwitchEvent.class, "ModeSwitchEvent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
@@ -2466,6 +2679,18 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		   source, 
 		   new String[] {
 			 "body", "self.sendInteraction.receiveInteraction.getExternalEcuReceivers()\n\t\t\t\t\t->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSender__HasSendImplementation(), 
+		   source, 
+		   new String[] {
+			 "body", "sendInteraction->exists(not implementation.oclIsUndefined())" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalEcuSender__IsEventSemantics(), 
+		   source, 
+		   new String[] {
+			 "body", "self.source.prototype.isEventSemantics()" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getSendInteraction__GetInternalEcuSenders(), 
@@ -2568,6 +2793,18 @@ public class InteractionPackageImpl extends EPackageImpl implements InteractionP
 		   source, 
 		   new String[] {
 			 "body", "self.source.prototype.oclAsType(instance::RVariableDataInstanceInSwc).isAliveTimeoutEnabled()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalEcuReceiver__IsEventSemantics(), 
+		   source, 
+		   new String[] {
+			 "body", "self.source.prototype.isEventSemantics()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSendImplementation__IsEventSemantics(), 
+		   source, 
+		   new String[] {
+			 "body", "self.parent.getInternalEcuSenders()->any(true).isEventSemantics()" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getInteractionEnd__GetOwnerCore(), 

@@ -5,39 +5,39 @@ rem #      Automotive Runtime Environment Generator
 rem #
 rem #  Copyright (C) 2014-2015 by FUJI SOFT INCORPORATED, JAPAN
 rem #
-rem #  ��L���쌠�҂́C�ȉ���(1)�`(4)�̏����𖞂����ꍇ�Ɍ���C�{�\�t�g�E�F
-rem #  �A�i�{�\�t�g�E�F�A�����ς������̂��܂ށD�ȉ������j���g�p�E�����E��
-rem #  �ρE�Ĕz�z�i�ȉ��C���p�ƌĂԁj���邱�Ƃ𖳏��ŋ�������D
-rem #  (1) �{�\�t�g�E�F�A���\�[�X�R�[�h�̌`�ŗ��p����ꍇ�ɂ́C��L�̒���
-rem #      ���\���C���̗��p��������щ��L�̖��ۏ؋K�肪�C���̂܂܂̌`�Ń\�[
-rem #      �X�R�[�h���Ɋ܂܂�Ă��邱�ƁD
-rem #  (2) �{�\�t�g�E�F�A���C���C�u�����`���ȂǁC���̃\�t�g�E�F�A�J���Ɏg
-rem #      �p�ł���`�ōĔz�z����ꍇ�ɂ́C�Ĕz�z�ɔ����h�L�������g�i���p
-rem #      �҃}�j���A���Ȃǁj�ɁC��L�̒��쌠�\���C���̗��p��������щ��L
-rem #      �̖��ۏ؋K����f�ڂ��邱�ƁD
-rem #  (3) �{�\�t�g�E�F�A���C�@��ɑg�ݍ��ނȂǁC���̃\�t�g�E�F�A�J���Ɏg
-rem #      �p�ł��Ȃ��`�ōĔz�z����ꍇ�ɂ́C���̂����ꂩ�̏����𖞂�����
-rem #      �ƁD
-rem #    (a) �Ĕz�z�ɔ����h�L�������g�i���p�҃}�j���A���Ȃǁj�ɁC��L�̒�
-rem #        �쌠�\���C���̗��p��������щ��L�̖��ۏ؋K����f�ڂ��邱�ƁD
-rem #    (b) �Ĕz�z�̌`�Ԃ��C�ʂɒ�߂���@�ɂ���āCTOPPERS�v���W�F�N�g��
-rem #        �񍐂��邱�ƁD
-rem #  (4) �{�\�t�g�E�F�A�̗��p�ɂ�蒼�ړI�܂��͊ԐړI�ɐ����邢���Ȃ鑹
-rem #      �Q������C��L���쌠�҂����TOPPERS�v���W�F�N�g��Ɛӂ��邱�ƁD
-rem #      �܂��C�{�\�t�g�E�F�A�̃��[�U�܂��̓G���h���[�U����̂����Ȃ闝
-rem #      �R�Ɋ�Â�����������C��L���쌠�҂����TOPPERS�v���W�F�N�g��
-rem #      �Ɛӂ��邱�ƁD
+rem #  上記著作権者は，以下の(1)～(4)の条件を満たす場合に限り，本ソフトウェ
+rem #  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+rem #  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+rem #  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+rem #      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+rem #      スコード中に含まれていること．
+rem #  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+rem #      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+rem #      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+rem #      の無保証規定を掲載すること．
+rem #  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+rem #      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+rem #      と．
+rem #    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+rem #        作権表示，この利用条件および下記の無保証規定を掲載すること．
+rem #    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+rem #        報告すること．
+rem #  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+rem #      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+rem #      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+rem #      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+rem #      免責すること．
 rem #
-rem #  �{�\�t�g�E�F�A�́CAUTOSAR�iAUTomotive Open System ARchitecture�j�d
-rem #  �l�Ɋ�Â��Ă���D��L�̋����́CAUTOSAR�̒m�I���Y��������������̂�
-rem #  �͂Ȃ��DAUTOSAR�́CAUTOSAR�d�l�Ɋ�Â����\�t�g�E�F�A�����p�ړI�ŗ�
-rem #  �p����҂ɑ΂��āCAUTOSAR�p�[�g�i�[�ɂȂ邱�Ƃ����߂Ă���D
+rem #  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+rem #  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+rem #  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+rem #  用する者に対して，AUTOSARパートナーになることを求めている．
 rem #
-rem #  �{�\�t�g�E�F�A�́C���ۏ؂Œ񋟂���Ă�����̂ł���D��L���쌠�҂�
-rem #  ���TOPPERS�v���W�F�N�g�́C�{�\�t�g�E�F�A�Ɋւ��āC����̎g�p�ړI
-rem #  �ɑ΂���K�������܂߂āC�����Ȃ�ۏ؂��s��Ȃ��D�܂��C�{�\�t�g�E�F
-rem #  �A�̗��p�ɂ�蒼�ړI�܂��͊ԐړI�ɐ����������Ȃ鑹�Q�Ɋւ��Ă��C��
-rem #  �̐ӔC�𕉂�Ȃ��D
+rem #  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+rem #  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+rem #  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+rem #  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+rem #  の責任を負わない．
 rem #
 rem #  $Id: hsbv850e2fg4_cx_common.yaml 470 2014-10-10 05:33:29Z ksigihar $
 rem #

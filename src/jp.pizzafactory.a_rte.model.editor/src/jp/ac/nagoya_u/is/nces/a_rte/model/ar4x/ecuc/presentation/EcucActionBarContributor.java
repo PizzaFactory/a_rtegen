@@ -8,6 +8,7 @@ import java.util.Collection;
 import jp.pizzafactory.a_rte.model.rte.presentation.RteEditorPlugin;
 
 import org.eclipse.emf.common.ui.action.WorkbenchWindowActionDelegate;
+
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -41,6 +42,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.Viewer;
 
 import org.eclipse.jface.wizard.WizardDialog;
+
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 

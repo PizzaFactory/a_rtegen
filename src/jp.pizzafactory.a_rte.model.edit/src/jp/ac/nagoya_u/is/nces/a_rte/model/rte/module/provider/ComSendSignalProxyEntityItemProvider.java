@@ -62,8 +62,7 @@ public class ComSendSignalProxyEntityItemProvider extends BswSchedulableEntityIt
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION);
-			childrenFeatures.add(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION);
+			childrenFeatures.add(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION);
 		}
 		return childrenFeatures;
 	}
@@ -119,8 +118,7 @@ public class ComSendSignalProxyEntityItemProvider extends BswSchedulableEntityIt
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ComSendSignalProxyEntity.class)) {
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION:
-			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION:
+			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -140,13 +138,8 @@ public class ComSendSignalProxyEntityItemProvider extends BswSchedulableEntityIt
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__PRIMITIVE_OPERATION,
-				 ModuleFactory.eINSTANCE.createPrimitiveComSendProxyOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__COMPLEX_OPERATION,
-				 ModuleFactory.eINSTANCE.createComplexComSendProxyOperation()));
+				(ModulePackage.Literals.COM_SEND_SIGNAL_PROXY_ENTITY__OPERATION,
+				 ModuleFactory.eINSTANCE.createComSendProxyOperation()));
 	}
 
 }

@@ -6,7 +6,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -32,6 +34,7 @@ public class RunnableEntityImpl extends ExecutableEntityImpl implements Runnable
 	 * @ordered
 	 */
 	protected static final Boolean HAS_RETURN_VALUE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getHasReturnValue() <em>Has Return Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

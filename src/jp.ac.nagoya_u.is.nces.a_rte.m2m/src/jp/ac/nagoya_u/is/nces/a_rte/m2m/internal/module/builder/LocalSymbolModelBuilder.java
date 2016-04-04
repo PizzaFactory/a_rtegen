@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -51,7 +51,6 @@ import java.util.List;
 
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.ConfigValues;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.common.util.SymbolNames;
-import jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.util.Variables;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocDataProperties;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.OperationInstanceInSwc;
@@ -69,6 +68,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RecordValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TextValueSpecification;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ValueSpecification;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantMember;
@@ -76,6 +76,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ConstantValueTypeEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterDirectionEnum;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
@@ -212,8 +214,8 @@ public class LocalSymbolModelBuilder {
 		Parameter destFunctionParamsParam = ModuleFactory.eINSTANCE.createParameter();
 		destFunctionParamsParam.setType(this.context.cache.osTfParamRefType);
 		destFunctionParamsParam.setSymbolName(SymbolNames.OS_TRUSTED_FUNCTION_PARAMS_PARAM_NAME);
-		destFunctionParamsParam.setDirection(ParameterDirectionEnum.IN); // NOTE ËÜÍè¤ÏINOUT¤À¤¬¡¢¥³¡¼¥ÉÀ¸À®¤ÎÅÔ¹ç¾å¸½ºß¤ÎÀßÄê¤È¤·¤Æ¤¤¤ë
-		destFunctionParamsParam.setPassType(ParameterPassTypeEnum.VALUE); // NOTE ËÜÍè¤ÏREFERENCE¤À¤¬¡¢¥³¡¼¥ÉÀ¸À®¤ÎÅÔ¹ç¾å¸½ºß¤ÎÀßÄê¤È¤·¤Æ¤¤¤ë
+		destFunctionParamsParam.setDirection(ParameterDirectionEnum.IN); // NOTE æœ¬æ¥ã¯INOUTã ãŒã€ã‚³ãƒ¼ãƒ‰ç”Ÿæˆã®éƒ½åˆä¸Šç¾åœ¨ã®è¨­å®šã¨ã—ã¦ã„ã‚‹
+		destFunctionParamsParam.setPassType(ParameterPassTypeEnum.VALUE); // NOTE æœ¬æ¥ã¯REFERENCEã ãŒã€ã‚³ãƒ¼ãƒ‰ç”Ÿæˆã®éƒ½åˆä¸Šç¾åœ¨ã®è¨­å®šã¨ã—ã¦ã„ã‚‹
 		destFunctionParamsParam.setHasConst(false);
 		return destFunctionParamsParam;
 	}
@@ -286,10 +288,17 @@ public class LocalSymbolModelBuilder {
 		return destFilterResultVariable;
 	}
 
-	public LocalVariable createRteSendTrustedFunctionParamVariable() {
+	public LocalVariable createRteQueuedSendTrustedFunctionParamVariable() {
 		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
-		destTfParamVariable.setType(this.context.cache.rteSendTfParamType.get());
-		destTfParamVariable.setSymbolName(SymbolNames.RTE_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		destTfParamVariable.setType(this.context.cache.rteQueuedSendTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.RTE_QUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME);
+		return destTfParamVariable;
+	}
+
+	public LocalVariable createRteNonqueuedSendTrustedFunctionParamVariable() {
+		LocalVariable destTfParamVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destTfParamVariable.setType(this.context.cache.rteNonqueuedSendTfParamType.get());
+		destTfParamVariable.setSymbolName(SymbolNames.RTE_NONQUEUED_TRUSTED_FUNCTION_PARAM_VAR_NAME);
 		return destTfParamVariable;
 	}
 
@@ -328,24 +337,26 @@ public class LocalSymbolModelBuilder {
 		return destVariable;
 	}
 
-	public LocalVariable createComProxyUnionDataVariable(UnionType proxyUnionType) {
-		return Variables.createUnionTypeLocalVariable(proxyUnionType, SymbolNames.COM_PROXY_UNION_DATA_VAR_NAME);
+	public LocalVariable createComProxyDataVariable(PrimitiveType proxyDataType) {
+		LocalVariable destVariable = ModuleFactory.eINSTANCE.createLocalVariable();
+		destVariable.setType(proxyDataType);
+		destVariable.setSymbolName(SymbolNames.COM_PROXY_DATA_VAR_NAME);
+		return destVariable;
 	}
-
-	public UnionType createPrimitiveComProxyUnionType() {
-		UnionType destProxyUnionType = ModuleFactory.eINSTANCE.createUnionType();
-		destProxyUnionType.setIsAnonymous(true);
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint8Type));
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint16Type));
-		destProxyUnionType.getMember().add(createComProxyUnionMember(this.context.cache.uint32Type));
-		return destProxyUnionType;
-	}
-
-	private UnionMember createComProxyUnionMember(PrimitiveType type) {
-		UnionMember destUnionMember = ModuleFactory.eINSTANCE.createUnionMember();
-		destUnionMember.setMemberName(SymbolNames.createComProxyUnionVariableMemberName(type));
-		destUnionMember.setType(type);
-		return destUnionMember;
+	
+	public LocalVariable createActivationFlagVariable(ActivationOperation activationOperation) {
+		LocalVariable activationFlag = ModuleFactory.eINSTANCE.createLocalVariable();
+		if (activationOperation.getActivationApi() instanceof OsActivateTaskApi) {
+			OsActivateTaskApi activatteTaskApi = (OsActivateTaskApi)activationOperation.getActivationApi();
+			activationFlag.setSymbolName(SymbolNames.createActivationFlagName(activatteTaskApi));
+		}
+		else if (activationOperation.getActivationApi() instanceof OsSetEventApi) {
+			OsSetEventApi setEventApi = (OsSetEventApi)activationOperation.getActivationApi();
+			activationFlag.setSymbolName(SymbolNames.createActivationFlagName(setEventApi));
+		}
+		activationFlag.setType(this.context.cache.booleanType);
+		activationFlag.setInitValueConstant(this.context.cache.booleanFalse);
+		return activationFlag;
 	}
 
 	public void removeUnusedLocalVariables(Function targetFunction) {
@@ -361,7 +372,7 @@ public class LocalSymbolModelBuilder {
 	}
 
 	private ValueSpecification getLeafValueSpecification(ValueSpecification sourceValue) {
-		// OCL¤È¼ÂÁõ¤¬Èï¤ë¤¬¡¢ÅĞÏ¿¤·¤Æ¤¤¤Ê¤¤ValueSpecification¤ò½èÍı¤·¤¿¤¤¤Î¤Ç¡¢Java¤Ç¼ÂÁõ¤¹¤ë
+		// OCLã¨å®Ÿè£…ãŒè¢«ã‚‹ãŒã€ç™»éŒ²ã—ã¦ã„ãªã„ValueSpecificationã‚’å‡¦ç†ã—ãŸã„ã®ã§ã€Javaã§å®Ÿè£…ã™ã‚‹
 		if (sourceValue instanceof ConstantReference) {
 			return getLeafValueSpecification(((ConstantReference)sourceValue).getEndValueSpec());
 		}
@@ -406,7 +417,7 @@ public class LocalSymbolModelBuilder {
 	}
 
 	private ConstantMember createConstantForArrayElement(ValueSpecification sourceElementValue, Type type) {
-		// array¤ÎÂ¿¼¡¸µ¤Ë¤ÏÌ¤ÂĞ±ş
+		// arrayã®å¤šæ¬¡å…ƒã«ã¯æœªå¯¾å¿œ
 		ConstantMember destMemberConstant = ModuleFactory.eINSTANCE.createConstantMember();
 		destMemberConstant.setType(type);
 		destMemberConstant.setValue(getValueString(sourceElementValue));
@@ -417,13 +428,13 @@ public class LocalSymbolModelBuilder {
 	private void buildConstantMembersForRecord(Constant targetConstant, RecordValueSpecification sourceValue, StructType type) {
 		int index = 0;
 		for (StructMember member : type.getMember()) {
-			// NOTE validation¤ÇÊİ¾ã¤µ¤ì¤ë¤¿¤á¡¢index¤Ï¼èÆÀ²ÄÇ½¤È·è¤áÂÇ¤Á
+			// NOTE validationã§ä¿éšœã•ã‚Œã‚‹ãŸã‚ã€indexã¯å–å¾—å¯èƒ½ã¨æ±ºã‚æ‰“ã¡
 			targetConstant.getMember().add(createConstantForRecordElement(sourceValue.getField().get(index++), member));
 		}
 	}
 
 	private ConstantMember createConstantForRecordElement(ValueSpecification sourceElementValue, StructMember structMember) {
-		// array¤ÎÂ¿¼¡¸µ¤Ë¤ÏÌ¤ÂĞ±ş
+		// arrayã®å¤šæ¬¡å…ƒã«ã¯æœªå¯¾å¿œ
 		ConstantMember destMemberConstant = ModuleFactory.eINSTANCE.createConstantMember();
 		destMemberConstant.setType(structMember.getType());
 		destMemberConstant.setValue(getValueString(sourceElementValue));
@@ -432,7 +443,7 @@ public class LocalSymbolModelBuilder {
 	}
 
 	private void buildConstantMembersForUnion(Constant targetConstant, RecordValueSpecification sourceValue, UnionType type) {
-		// 1ÈÖÌÜ¤Î¥á¥ó¥Ğ¡¼¤Î¤ßÄÉ²Ã
+		// 1ç•ªç›®ã®ãƒ¡ãƒ³ãƒãƒ¼ã®ã¿è¿½åŠ 
 		targetConstant.getMember().add(createConstantForUnionElement(sourceValue.getField().get(0), type.getMember().get(0)));
 	}
 
@@ -453,7 +464,7 @@ public class LocalSymbolModelBuilder {
 	}
 
 	private String getValueString(ValueSpecification sourceValue) {
-		// OCL¤È¼ÂÁõ¤¬Èï¤ë¤¬¡¢ÅĞÏ¿¤·¤Æ¤¤¤Ê¤¤ValueSpecification¤ò½èÍı¤·¤¿¤¤¤Î¤Ç¡¢Java¤Ç¼ÂÁõ¤¹¤ë
+		// OCLã¨å®Ÿè£…ãŒè¢«ã‚‹ãŒã€ç™»éŒ²ã—ã¦ã„ãªã„ValueSpecificationã‚’å‡¦ç†ã—ãŸã„ã®ã§ã€Javaã§å®Ÿè£…ã™ã‚‹
 		ValueSpecification sourceLeafValue = getLeafValueSpecification(sourceValue);
 		if (sourceValue instanceof NumericalValueSpecification) {
 			return ((NumericalValueSpecification) sourceLeafValue).getValue().toString();
@@ -462,8 +473,8 @@ public class LocalSymbolModelBuilder {
 			return ((TextValueSpecification) sourceLeafValue).getValue();
 		}
 
-		// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-		// ÇÛÎó·¿/¹½Â¤ÂÎ·¿/¶¦ÍÑÂÎ·¿¤Î¥á¥ó¥Ğ¤ÏÉ¬¤º¥×¥ê¥ß¥Æ¥£¥Ö·¿¤Ç¤¢¤ë¤³¤È¤ò¥â¥Ç¥ëÀ©Ìó¤ÇÊİ¾Ú¤·¤Æ¤¤¤ë.
+		// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+		// é…åˆ—å‹/æ§‹é€ ä½“å‹/å…±ç”¨ä½“å‹ã®ãƒ¡ãƒ³ãƒã¯å¿…ãšãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã§ã‚ã‚‹ã“ã¨ã‚’ãƒ¢ãƒ‡ãƒ«åˆ¶ç´„ã§ä¿è¨¼ã—ã¦ã„ã‚‹.
 		return null;
 	}
 
@@ -481,7 +492,7 @@ public class LocalSymbolModelBuilder {
 		} else if (sourceLeafValue instanceof TextValueSpecification) {
 			targetConstant.setConstantValueType(ConstantValueTypeEnum.TEXT_VALUE);			
 
-		} else { // COVERAGE (numerical, text°Ê³°¤òÀßÄê¤¹¤ë¤³¤È¤Ï¤Ê¤¤¤¿¤áÌ¤ÅşÃ£)
+		} else { // COVERAGE (numerical, textä»¥å¤–ã‚’è¨­å®šã™ã‚‹ã“ã¨ã¯ãªã„ãŸã‚æœªåˆ°é”)
 			targetConstant.setConstantValueType(ConstantValueTypeEnum.UNKNOWN_VALUE);
 		}
 	}

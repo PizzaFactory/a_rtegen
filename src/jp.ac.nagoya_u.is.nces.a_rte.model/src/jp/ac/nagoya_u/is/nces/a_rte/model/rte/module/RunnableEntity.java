@@ -20,7 +20,6 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
  * @generated
  */
 public interface RunnableEntity extends ExecutableEntity {
-
 	/**
 	 * Returns the value of the '<em><b>Has Return Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @generated
 	 */
 	void setHasReturnValue(Boolean value);
+
 } // RunnableEntity

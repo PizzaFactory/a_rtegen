@@ -44,6 +44,8 @@ public class InternalEcuReceiverItemProvider extends ReceiverItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addSourcePropertyDescriptor(object);
+			addActivatesOnReceivedPropertyDescriptor(object);
+			addActivatesOnReceiveErrorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +64,50 @@ public class InternalEcuReceiverItemProvider extends ReceiverItemProvider {
 				 getString("_UI_InternalEcuReceiver_source_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuReceiver_source_feature", "_UI_InternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 InteractionPackage.Literals.INTERNAL_ECU_RECEIVER__SOURCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activates On Received feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivatesOnReceivedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InternalEcuReceiver_activatesOnReceived_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuReceiver_activatesOnReceived_feature", "_UI_InternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Activates On Receive Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivatesOnReceiveErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InternalEcuReceiver_activatesOnReceiveError_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InternalEcuReceiver_activatesOnReceiveError_feature", "_UI_InternalEcuReceiver_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR,
 				 true,
 				 false,
 				 true,

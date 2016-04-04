@@ -1,45 +1,3 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
- *
- *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
- *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
- *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
- *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
- *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
- *      スコード中に含まれていること．
- *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
- *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
- *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
- *      の無保証規定を掲載すること．
- *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
- *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
- *      と．
- *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
- *        作権表示，この利用条件および下記の無保証規定を掲載すること．
- *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
- *        報告すること．
- *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
- *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
- *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
- *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
- *      免責すること．
- *
- *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
- *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
- *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
- *  用する者に対して，AUTOSARパートナーになることを求めている．
- *
- *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
- *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
- *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
- *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
- *  の責任を負わない．
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.impl;
@@ -134,8 +92,10 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.IOC_NONQUEUED_SEND_OPERATION: return (EObject)createIocNonqueuedSendOperation();
 			case ModulePackage.DIRECT_COM_SEND_OPERATION: return (EObject)createDirectComSendOperation();
 			case ModulePackage.TRUSTED_FUNCTION_RTE_OPERATION: return (EObject)createTrustedFunctionRteOperation();
-			case ModulePackage.TRUSTED_FUNCTION_RTE_SEND_OPERATION: return (EObject)createTrustedFunctionRteSendOperation();
 			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_WRITE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferWriteSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_SEND_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferSendSendOperation();
+			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferInvalidateSendOperation();
+			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION: return (EObject)createRteBufferInvalidateTrustedFunction();
 			case ModulePackage.TRUSTED_FUNCTION_COM_SEND_OPERATION: return (EObject)createTrustedFunctionComSendOperation();
 			case ModulePackage.IMMEDIATE_PROXY_COM_SEND_OPERATION: return (EObject)createImmediateProxyComSendOperation();
 			case ModulePackage.PERIODIC_PROXY_COM_SEND_OPERATION: return (EObject)createPeriodicProxyComSendOperation();
@@ -146,12 +106,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.IOC_READ_API: return (EObject)createIocReadApi();
 			case ModulePackage.COM_SEND_SIGNAL_API: return (EObject)createComSendSignalApi();
 			case ModulePackage.COM_RECEIVE_SIGNAL_API: return (EObject)createComReceiveSignalApi();
-			case ModulePackage.COM_RECEIVE_CALLBACK: return (EObject)createComReceiveCallback();
-			case ModulePackage.COM_RECEIVE_TIMEOUT_CALLBACK: return (EObject)createComReceiveTimeoutCallback();
-			case ModulePackage.COM_INVALIDATE_CALLBACK: return (EObject)createComInvalidateCallback();
+			case ModulePackage.COM_RX_CALLBACK: return (EObject)createComRxCallback();
+			case ModulePackage.COM_RX_TOUT_CALLBACK: return (EObject)createComRxTOutCallback();
+			case ModulePackage.COM_INV_CALLBACK: return (EObject)createComInvCallback();
 			case ModulePackage.COM_SEND_SIGNAL_PROXY_ENTITY: return (EObject)createComSendSignalProxyEntity();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_ENTITY: return (EObject)createComSendSignalImmediateEntity();
 			case ModulePackage.COM_SEND_SIGNAL_PERIODIC_ENTITY: return (EObject)createComSendSignalPeriodicEntity();
+			case ModulePackage.TACK_NOTIFY_OPERATION: return (EObject)createTAckNotifyOperation();
+			case ModulePackage.COM_TX_TOUT_CALLBACK: return (EObject)createComTxTOutCallback();
+			case ModulePackage.COM_TACK_CALLBACK: return (EObject)createComTAckCallback();
+			case ModulePackage.COM_TERR_CALLBACK: return (EObject)createComTErrCallback();
 			case ModulePackage.MASKED_NEW_DIFFERS_MASKED_OLD_FILTER_OPERATION: return (EObject)createMaskedNewDiffersMaskedOldFilterOperation();
 			case ModulePackage.MASKED_NEW_DIFFERS_XFILTER_OPERATION: return (EObject)createMaskedNewDiffersXFilterOperation();
 			case ModulePackage.NEW_IS_WITHIN_FILTER_OPERATION: return (EObject)createNewIsWithinFilterOperation();
@@ -186,11 +150,13 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.CONSTANT_MEMBER: return (EObject)createConstantMember();
 			case ModulePackage.RTE_ENTER_API: return (EObject)createRteEnterApi();
 			case ModulePackage.RTE_EXIT_API: return (EObject)createRteExitApi();
+			case ModulePackage.OS_BACKGROUND_TASK_ACTIVATION_EXECUTABLE_TASK_BODY: return (EObject)createOsBackgroundTaskActivationExecutableTaskBody();
 			case ModulePackage.OS_TASK_ACTIVATION_EXECUTABLE_TASK_BODY: return (EObject)createOsTaskActivationExecutableTaskBody();
 			case ModulePackage.OS_EVENT_SET_EXECUTABLE_TASK_BODY: return (EObject)createOsEventSetExecutableTaskBody();
 			case ModulePackage.OS_TASK_ACTIVATION_OPERATION: return (EObject)createOsTaskActivationOperation();
 			case ModulePackage.OS_EVENT_SET_ACTIVATION_OPERATION: return (EObject)createOsEventSetActivationOperation();
 			case ModulePackage.TIMING_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createTimingTriggeringExecutableStartOperation();
+			case ModulePackage.PLAIN_EXECUTABLE_START_OPERATION: return (EObject)createPlainExecutableStartOperation();
 			case ModulePackage.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION: return (EObject)createModeSwitchTriggeringExecutableStartOperation();
 			case ModulePackage.CYCLE_COUNTUP_OPERATION: return (EObject)createCycleCountupOperation();
 			case ModulePackage.START_OFFSET_COUNTUP_OPERATION: return (EObject)createStartOffsetCountupOperation();
@@ -198,8 +164,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.COM_SEND_SIGNAL_TRUSTED_FUNCTION: return (EObject)createComSendSignalTrustedFunction();
 			case ModulePackage.OS_SET_EVENT_API: return (EObject)createOsSetEventApi();
 			case ModulePackage.COM_SEND_SIGNAL_IMMEDIATE_TASK_BODY: return (EObject)createComSendSignalImmediateTaskBody();
-			case ModulePackage.PRIMITIVE_COM_SEND_PROXY_OPERATION: return (EObject)createPrimitiveComSendProxyOperation();
-			case ModulePackage.COMPLEX_COM_SEND_PROXY_OPERATION: return (EObject)createComplexComSendProxyOperation();
+			case ModulePackage.COM_SEND_PROXY_OPERATION: return (EObject)createComSendProxyOperation();
 			case ModulePackage.IOC_RECEIVE_GROUP_API: return (EObject)createIocReceiveGroupApi();
 			case ModulePackage.MODULE_ROOT: return (EObject)createModuleRoot();
 			case ModulePackage.INTER_PARTITION_TIMEOUT_OPERATION: return (EObject)createInterPartitionTimeoutOperation();
@@ -209,6 +174,7 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.OS_GET_SPINLOCK_API: return (EObject)createOsGetSpinlockApi();
 			case ModulePackage.MULTICORE_RTE_START_API: return (EObject)createMulticoreRteStartApi();
 			case ModulePackage.RTE_BUFFER_WRITE_TRUSTED_FUNCTION: return (EObject)createRteBufferWriteTrustedFunction();
+			case ModulePackage.RTE_BUFFER_SEND_TRUSTED_FUNCTION: return (EObject)createRteBufferSendTrustedFunction();
 			case ModulePackage.CS_TRUSTED_FUNCTION: return (EObject)createCsTrustedFunction();
 			case ModulePackage.CS_TF_CALLED_RUNNABLE: return (EObject)createCsTfCalledRunnable();
 			case ModulePackage.SERVER_RUNNABLE_START_OPERATION: return (EObject)createServerRunnableStartOperation();
@@ -238,12 +204,11 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.RTE_UTILITY_HEADER: return (EObject)createRteUtilityHeader();
 			case ModulePackage.BLACKBOX_HEADER: return (EObject)createBlackboxHeader();
 			case ModulePackage.RTE_BUFFER_QUEUE_TYPE: return (EObject)createRteBufferQueueType();
-			case ModulePackage.RTE_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteSendTrustedFunctionParamType();
+			case ModulePackage.RTE_NONQUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteNonqueuedSendTrustedFunctionParamType();
+			case ModulePackage.RTE_QUEUED_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createRteQueuedSendTrustedFunctionParamType();
 			case ModulePackage.COM_SEND_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createComSendTrustedFunctionParamType();
 			case ModulePackage.CS_TRUSTED_FUNCTION_PARAM_TYPE: return (EObject)createCsTrustedFunctionParamType();
 			case ModulePackage.NEVER_READ_OPERATION: return (EObject)createNeverReadOperation();
-			case ModulePackage.RTE_BUFFER_INVALIDATE_TRUSTED_FUNCTION: return (EObject)createRteBufferInvalidateTrustedFunction();
-			case ModulePackage.TRUSTED_FUNCTION_RTE_BUFFER_INVALIDATE_SEND_OPERATION: return (EObject)createTrustedFunctionRteBufferInvalidateSendOperation();
 			case ModulePackage.SWC_MEMORY_MAPPING: return (EObject)createSwcMemoryMapping();
 			case ModulePackage.BSW_MEMORY_MAPPING: return (EObject)createBswMemoryMapping();
 			case ModulePackage.GLOBAL_VARIABLE_FILE_CONTENTS_GROUP: return (EObject)createGlobalVariableFileContentsGroup();
@@ -282,6 +247,10 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			case ModulePackage.SCHM_CORE_INIT_API_IMPL: return (EObject)createSchmCoreInitApiImpl();
 			case ModulePackage.POINTER_TYPE: return (EObject)createPointerType();
 			case ModulePackage.REDEFINITION_POINTER_TYPE: return (EObject)createRedefinitionPointerType();
+			case ModulePackage.ACTIVATION_OPERATION: return (EObject)createActivationOperation();
+			case ModulePackage.OS_ACTIVATE_TASK_API: return (EObject)createOsActivateTaskApi();
+			case ModulePackage.FEEDBACK_API: return (EObject)createFeedbackApi();
+			case ModulePackage.TACK_STATUS: return (EObject)createTAckStatus();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -347,6 +316,26 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswSchedulableEntity createBswSchedulableEntity() {
+		BswSchedulableEntityImpl bswSchedulableEntity = new BswSchedulableEntityImpl();
+		return bswSchedulableEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RunnableEntity createRunnableEntity() {
+		RunnableEntityImpl runnableEntity = new RunnableEntityImpl();
+		return runnableEntity;
 	}
 
 	/**
@@ -504,626 +493,6 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveType createPrimitiveType() {
-		PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
-		return primitiveType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModeType createModeType() {
-		ModeTypeImpl modeType = new ModeTypeImpl();
-		return modeType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedefinitionPrimitiveType createRedefinitionPrimitiveType() {
-		RedefinitionPrimitiveTypeImpl redefinitionPrimitiveType = new RedefinitionPrimitiveTypeImpl();
-		return redefinitionPrimitiveType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ArrayType createArrayType() {
-		ArrayTypeImpl arrayType = new ArrayTypeImpl();
-		return arrayType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedefinitionArrayType createRedefinitionArrayType() {
-		RedefinitionArrayTypeImpl redefinitionArrayType = new RedefinitionArrayTypeImpl();
-		return redefinitionArrayType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnionType createUnionType() {
-		UnionTypeImpl unionType = new UnionTypeImpl();
-		return unionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedefinitionUnionType createRedefinitionUnionType() {
-		RedefinitionUnionTypeImpl redefinitionUnionType = new RedefinitionUnionTypeImpl();
-		return redefinitionUnionType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructType createStructType() {
-		StructTypeImpl structType = new StructTypeImpl();
-		return structType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedefinitionStructType createRedefinitionStructType() {
-		RedefinitionStructTypeImpl redefinitionStructType = new RedefinitionStructTypeImpl();
-		return redefinitionStructType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BlackboxType createBlackboxType() {
-		BlackboxTypeImpl blackboxType = new BlackboxTypeImpl();
-		return blackboxType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public UnionMember createUnionMember() {
-		UnionMemberImpl unionMember = new UnionMemberImpl();
-		return unionMember;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public StructMember createStructMember() {
-		StructMemberImpl structMember = new StructMemberImpl();
-		return structMember;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public VariableMember createVariableMember() {
-		VariableMemberImpl variableMember = new VariableMemberImpl();
-		return variableMember;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteUtilityHeader createRteUtilityHeader() {
-		RteUtilityHeaderImpl rteUtilityHeader = new RteUtilityHeaderImpl();
-		return rteUtilityHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BlackboxHeader createBlackboxHeader() {
-		BlackboxHeaderImpl blackboxHeader = new BlackboxHeaderImpl();
-		return blackboxHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteBufferQueueType createRteBufferQueueType() {
-		RteBufferQueueTypeImpl rteBufferQueueType = new RteBufferQueueTypeImpl();
-		return rteBufferQueueType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModeQueueType createModeQueueType() {
-		ModeQueueTypeImpl modeQueueType = new ModeQueueTypeImpl();
-		return modeQueueType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteSendTrustedFunctionParamType createRteSendTrustedFunctionParamType() {
-		RteSendTrustedFunctionParamTypeImpl rteSendTrustedFunctionParamType = new RteSendTrustedFunctionParamTypeImpl();
-		return rteSendTrustedFunctionParamType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType() {
-		ComSendTrustedFunctionParamTypeImpl comSendTrustedFunctionParamType = new ComSendTrustedFunctionParamTypeImpl();
-		return comSendTrustedFunctionParamType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CsTrustedFunctionParamType createCsTrustedFunctionParamType() {
-		CsTrustedFunctionParamTypeImpl csTrustedFunctionParamType = new CsTrustedFunctionParamTypeImpl();
-		return csTrustedFunctionParamType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NeverReadOperation createNeverReadOperation() {
-		NeverReadOperationImpl neverReadOperation = new NeverReadOperationImpl();
-		return neverReadOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteBufferInvalidateTrustedFunction createRteBufferInvalidateTrustedFunction() {
-		RteBufferInvalidateTrustedFunctionImpl rteBufferInvalidateTrustedFunction = new RteBufferInvalidateTrustedFunctionImpl();
-		return rteBufferInvalidateTrustedFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation() {
-		TrustedFunctionRteBufferInvalidateSendOperationImpl trustedFunctionRteBufferInvalidateSendOperation = new TrustedFunctionRteBufferInvalidateSendOperationImpl();
-		return trustedFunctionRteBufferInvalidateSendOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwcMemoryMapping createSwcMemoryMapping() {
-		SwcMemoryMappingImpl swcMemoryMapping = new SwcMemoryMappingImpl();
-		return swcMemoryMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BswMemoryMapping createBswMemoryMapping() {
-		BswMemoryMappingImpl bswMemoryMapping = new BswMemoryMappingImpl();
-		return bswMemoryMapping;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GlobalVariableFileContentsGroup createGlobalVariableFileContentsGroup() {
-		GlobalVariableFileContentsGroupImpl globalVariableFileContentsGroup = new GlobalVariableFileContentsGroupImpl();
-		return globalVariableFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteApiFileContentsGroup createRteApiFileContentsGroup() {
-		RteApiFileContentsGroupImpl rteApiFileContentsGroup = new RteApiFileContentsGroupImpl();
-		return rteApiFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RteLifecycleApiFileContentsGroup createRteLifecycleApiFileContentsGroup() {
-		RteLifecycleApiFileContentsGroupImpl rteLifecycleApiFileContentsGroup = new RteLifecycleApiFileContentsGroupImpl();
-		return rteLifecycleApiFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskBodyFileContentsGroup createTaskBodyFileContentsGroup() {
-		TaskBodyFileContentsGroupImpl taskBodyFileContentsGroup = new TaskBodyFileContentsGroupImpl();
-		return taskBodyFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BswSchedulableEntityFileContentsGroup createBswSchedulableEntityFileContentsGroup() {
-		BswSchedulableEntityFileContentsGroupImpl bswSchedulableEntityFileContentsGroup = new BswSchedulableEntityFileContentsGroupImpl();
-		return bswSchedulableEntityFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComCallbackFileContentsGroup createComCallbackFileContentsGroup() {
-		ComCallbackFileContentsGroupImpl comCallbackFileContentsGroup = new ComCallbackFileContentsGroupImpl();
-		return comCallbackFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TrustedFunctionFileContentsGroup createTrustedFunctionFileContentsGroup() {
-		TrustedFunctionFileContentsGroupImpl trustedFunctionFileContentsGroup = new TrustedFunctionFileContentsGroupImpl();
-		return trustedFunctionFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ExecutableEntityFileContentsGroup createExecutableEntityFileContentsGroup() {
-		ExecutableEntityFileContentsGroupImpl executableEntityFileContentsGroup = new ExecutableEntityFileContentsGroupImpl();
-		return executableEntityFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public BswMemoryMappingHeader createBswMemoryMappingHeader() {
-		BswMemoryMappingHeaderImpl bswMemoryMappingHeader = new BswMemoryMappingHeaderImpl();
-		return bswMemoryMappingHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SwcMemoryMappingHeader createSwcMemoryMappingHeader() {
-		SwcMemoryMappingHeaderImpl swcMemoryMappingHeader = new SwcMemoryMappingHeaderImpl();
-		return swcMemoryMappingHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public GenerationInfo createGenerationInfo() {
-		GenerationInfoImpl generationInfo = new GenerationInfoImpl();
-		return generationInfo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Macro createMacro() {
-		MacroImpl macro = new MacroImpl();
-		return macro;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComProxyFunction createComProxyFunction() {
-		ComProxyFunctionImpl comProxyFunction = new ComProxyFunctionImpl();
-		return comProxyFunction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComSendSignalApiWrapper createComSendSignalApiWrapper() {
-		ComSendSignalApiWrapperImpl comSendSignalApiWrapper = new ComSendSignalApiWrapperImpl();
-		return comSendSignalApiWrapper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComReceiveSignalApiWrapper createComReceiveSignalApiWrapper() {
-		ComReceiveSignalApiWrapperImpl comReceiveSignalApiWrapper = new ComReceiveSignalApiWrapperImpl();
-		return comReceiveSignalApiWrapper;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmEnterApi createSchmEnterApi() {
-		SchmEnterApiImpl schmEnterApi = new SchmEnterApiImpl();
-		return schmEnterApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmExitApi createSchmExitApi() {
-		SchmExitApiImpl schmExitApi = new SchmExitApiImpl();
-		return schmExitApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmSwitchApi createSchmSwitchApi() {
-		SchmSwitchApiImpl schmSwitchApi = new SchmSwitchApiImpl();
-		return schmSwitchApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode() {
-		OsTaskEventsTriggeredByModeImpl osTaskEventsTriggeredByMode = new OsTaskEventsTriggeredByModeImpl();
-		return osTaskEventsTriggeredByMode;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OsTaskEvent createOsTaskEvent() {
-		OsTaskEventImpl osTaskEvent = new OsTaskEventImpl();
-		return osTaskEvent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModeQueuedVariable createModeQueuedVariable() {
-		ModeQueuedVariableImpl modeQueuedVariable = new ModeQueuedVariableImpl();
-		return modeQueuedVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmModeApi createSchmModeApi() {
-		SchmModeApiImpl schmModeApi = new SchmModeApiImpl();
-		return schmModeApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModuleInterlinkHeader createModuleInterlinkHeader() {
-		ModuleInterlinkHeaderImpl moduleInterlinkHeader = new ModuleInterlinkHeaderImpl();
-		return moduleInterlinkHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmApiFileContentsGroup createSchmApiFileContentsGroup() {
-		SchmApiFileContentsGroupImpl schmApiFileContentsGroup = new SchmApiFileContentsGroupImpl();
-		return schmApiFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComSignalApiWrapperFileContentsGroup createComSignalApiWrapperFileContentsGroup() {
-		ComSignalApiWrapperFileContentsGroupImpl comSignalApiWrapperFileContentsGroup = new ComSignalApiWrapperFileContentsGroupImpl();
-		return comSignalApiWrapperFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComProxyFunctionFileContentsGroup createComProxyFunctionFileContentsGroup() {
-		ComProxyFunctionFileContentsGroupImpl comProxyFunctionFileContentsGroup = new ComProxyFunctionFileContentsGroupImpl();
-		return comProxyFunctionFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ModuleInterlinkTypeHeader createModuleInterlinkTypeHeader() {
-		ModuleInterlinkTypeHeaderImpl moduleInterlinkTypeHeader = new ModuleInterlinkTypeHeaderImpl();
-		return moduleInterlinkTypeHeader;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmLifecycleApiFileContentsGroup createSchmLifecycleApiFileContentsGroup() {
-		SchmLifecycleApiFileContentsGroupImpl schmLifecycleApiFileContentsGroup = new SchmLifecycleApiFileContentsGroupImpl();
-		return schmLifecycleApiFileContentsGroup;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PartedBswm createPartedBswm() {
-		PartedBswmImpl partedBswm = new PartedBswmImpl();
-		return partedBswm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Bswm createBswm() {
-		BswmImpl bswm = new BswmImpl();
-		return bswm;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmDeinitApi createSchmDeinitApi() {
-		SchmDeinitApiImpl schmDeinitApi = new SchmDeinitApiImpl();
-		return schmDeinitApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmInitApi createSchmInitApi() {
-		SchmInitApiImpl schmInitApi = new SchmInitApiImpl();
-		return schmInitApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SinglecoreSchmInitApi createSinglecoreSchmInitApi() {
-		SinglecoreSchmInitApiImpl singlecoreSchmInitApi = new SinglecoreSchmInitApiImpl();
-		return singlecoreSchmInitApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MulticoreSchmInitApi createMulticoreSchmInitApi() {
-		MulticoreSchmInitApiImpl multicoreSchmInitApi = new MulticoreSchmInitApiImpl();
-		return multicoreSchmInitApi;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SchmCoreInitApiImpl createSchmCoreInitApiImpl() {
-		SchmCoreInitApiImplImpl schmCoreInitApiImpl = new SchmCoreInitApiImplImpl();
-		return schmCoreInitApiImpl;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PointerType createPointerType() {
-		PointerTypeImpl pointerType = new PointerTypeImpl();
-		return pointerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RedefinitionPointerType createRedefinitionPointerType() {
-		RedefinitionPointerTypeImpl redefinitionPointerType = new RedefinitionPointerTypeImpl();
-		return redefinitionPointerType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public LocalVariable createLocalVariable() {
 		LocalVariableImpl localVariable = new LocalVariableImpl();
 		return localVariable;
@@ -1137,6 +506,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public RteApplicationHeader createRteApplicationHeader() {
 		RteApplicationHeaderImpl rteApplicationHeader = new RteApplicationHeaderImpl();
 		return rteApplicationHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Rte createRte() {
+		RteImpl rte = new RteImpl();
+		return rte;
 	}
 
 	/**
@@ -1294,9 +673,39 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TrustedFunctionRteSendOperation createTrustedFunctionRteSendOperation() {
-		TrustedFunctionRteSendOperationImpl trustedFunctionRteSendOperation = new TrustedFunctionRteSendOperationImpl();
-		return trustedFunctionRteSendOperation;
+	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation() {
+		TrustedFunctionRteBufferWriteSendOperationImpl trustedFunctionRteBufferWriteSendOperation = new TrustedFunctionRteBufferWriteSendOperationImpl();
+		return trustedFunctionRteBufferWriteSendOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrustedFunctionRteBufferSendSendOperation createTrustedFunctionRteBufferSendSendOperation() {
+		TrustedFunctionRteBufferSendSendOperationImpl trustedFunctionRteBufferSendSendOperation = new TrustedFunctionRteBufferSendSendOperationImpl();
+		return trustedFunctionRteBufferSendSendOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrustedFunctionRteBufferInvalidateSendOperation createTrustedFunctionRteBufferInvalidateSendOperation() {
+		TrustedFunctionRteBufferInvalidateSendOperationImpl trustedFunctionRteBufferInvalidateSendOperation = new TrustedFunctionRteBufferInvalidateSendOperationImpl();
+		return trustedFunctionRteBufferInvalidateSendOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBufferInvalidateTrustedFunction createRteBufferInvalidateTrustedFunction() {
+		RteBufferInvalidateTrustedFunctionImpl rteBufferInvalidateTrustedFunction = new RteBufferInvalidateTrustedFunctionImpl();
+		return rteBufferInvalidateTrustedFunction;
 	}
 
 	/**
@@ -1404,9 +813,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComReceiveCallback createComReceiveCallback() {
-		ComReceiveCallbackImpl comReceiveCallback = new ComReceiveCallbackImpl();
-		return comReceiveCallback;
+	public ComRxCallback createComRxCallback() {
+		ComRxCallbackImpl comRxCallback = new ComRxCallbackImpl();
+		return comRxCallback;
 	}
 
 	/**
@@ -1414,9 +823,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComReceiveTimeoutCallback createComReceiveTimeoutCallback() {
-		ComReceiveTimeoutCallbackImpl comReceiveTimeoutCallback = new ComReceiveTimeoutCallbackImpl();
-		return comReceiveTimeoutCallback;
+	public ComRxTOutCallback createComRxTOutCallback() {
+		ComRxTOutCallbackImpl comRxTOutCallback = new ComRxTOutCallbackImpl();
+		return comRxTOutCallback;
 	}
 
 	/**
@@ -1424,9 +833,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ComInvalidateCallback createComInvalidateCallback() {
-		ComInvalidateCallbackImpl comInvalidateCallback = new ComInvalidateCallbackImpl();
-		return comInvalidateCallback;
+	public ComInvCallback createComInvCallback() {
+		ComInvCallbackImpl comInvCallback = new ComInvCallbackImpl();
+		return comInvCallback;
 	}
 
 	/**
@@ -1457,6 +866,46 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ComSendSignalPeriodicEntity createComSendSignalPeriodicEntity() {
 		ComSendSignalPeriodicEntityImpl comSendSignalPeriodicEntity = new ComSendSignalPeriodicEntityImpl();
 		return comSendSignalPeriodicEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckNotifyOperation createTAckNotifyOperation() {
+		TAckNotifyOperationImpl tAckNotifyOperation = new TAckNotifyOperationImpl();
+		return tAckNotifyOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTxTOutCallback createComTxTOutCallback() {
+		ComTxTOutCallbackImpl comTxTOutCallback = new ComTxTOutCallbackImpl();
+		return comTxTOutCallback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTAckCallback createComTAckCallback() {
+		ComTAckCallbackImpl comTAckCallback = new ComTAckCallbackImpl();
+		return comTAckCallback;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComTErrCallback createComTErrCallback() {
+		ComTErrCallbackImpl comTErrCallback = new ComTErrCallbackImpl();
+		return comTErrCallback;
 	}
 
 	/**
@@ -1714,26 +1163,6 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BswSchedulableEntity createBswSchedulableEntity() {
-		BswSchedulableEntityImpl bswSchedulableEntity = new BswSchedulableEntityImpl();
-		return bswSchedulableEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RunnableEntity createRunnableEntity() {
-		RunnableEntityImpl runnableEntity = new RunnableEntityImpl();
-		return runnableEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AllInterruptBlockExcludeOperation createAllInterruptBlockExcludeOperation() {
 		AllInterruptBlockExcludeOperationImpl allInterruptBlockExcludeOperation = new AllInterruptBlockExcludeOperationImpl();
 		return allInterruptBlockExcludeOperation;
@@ -1824,6 +1253,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public OsBackgroundTaskActivationExecutableTaskBody createOsBackgroundTaskActivationExecutableTaskBody() {
+		OsBackgroundTaskActivationExecutableTaskBodyImpl osBackgroundTaskActivationExecutableTaskBody = new OsBackgroundTaskActivationExecutableTaskBodyImpl();
+		return osBackgroundTaskActivationExecutableTaskBody;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody() {
 		OsTaskActivationExecutableTaskBodyImpl osTaskActivationExecutableTaskBody = new OsTaskActivationExecutableTaskBodyImpl();
 		return osTaskActivationExecutableTaskBody;
@@ -1874,6 +1313,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PlainExecutableStartOperation createPlainExecutableStartOperation() {
+		PlainExecutableStartOperationImpl plainExecutableStartOperation = new PlainExecutableStartOperationImpl();
+		return plainExecutableStartOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModeSwitchTriggeringExecutableStartOperation createModeSwitchTriggeringExecutableStartOperation() {
 		ModeSwitchTriggeringExecutableStartOperationImpl modeSwitchTriggeringExecutableStartOperation = new ModeSwitchTriggeringExecutableStartOperationImpl();
 		return modeSwitchTriggeringExecutableStartOperation;
@@ -1914,16 +1363,6 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Rte createRte() {
-		RteImpl rte = new RteImpl();
-		return rte;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ComSendSignalTrustedFunction createComSendSignalTrustedFunction() {
 		ComSendSignalTrustedFunctionImpl comSendSignalTrustedFunction = new ComSendSignalTrustedFunctionImpl();
 		return comSendSignalTrustedFunction;
@@ -1954,19 +1393,9 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveComSendProxyOperation createPrimitiveComSendProxyOperation() {
-		PrimitiveComSendProxyOperationImpl primitiveComSendProxyOperation = new PrimitiveComSendProxyOperationImpl();
-		return primitiveComSendProxyOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ComplexComSendProxyOperation createComplexComSendProxyOperation() {
-		ComplexComSendProxyOperationImpl complexComSendProxyOperation = new ComplexComSendProxyOperationImpl();
-		return complexComSendProxyOperation;
+	public ComSendProxyOperation createComSendProxyOperation() {
+		ComSendProxyOperationImpl comSendProxyOperation = new ComSendProxyOperationImpl();
+		return comSendProxyOperation;
 	}
 
 	/**
@@ -2064,6 +1493,16 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RteBufferSendTrustedFunction createRteBufferSendTrustedFunction() {
+		RteBufferSendTrustedFunctionImpl rteBufferSendTrustedFunction = new RteBufferSendTrustedFunctionImpl();
+		return rteBufferSendTrustedFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CsTrustedFunction createCsTrustedFunction() {
 		CsTrustedFunctionImpl csTrustedFunction = new CsTrustedFunctionImpl();
 		return csTrustedFunction;
@@ -2087,16 +1526,6 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ServerRunnableStartOperation createServerRunnableStartOperation() {
 		ServerRunnableStartOperationImpl serverRunnableStartOperation = new ServerRunnableStartOperationImpl();
 		return serverRunnableStartOperation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TrustedFunctionRteBufferWriteSendOperation createTrustedFunctionRteBufferWriteSendOperation() {
-		TrustedFunctionRteBufferWriteSendOperationImpl trustedFunctionRteBufferWriteSendOperation = new TrustedFunctionRteBufferWriteSendOperationImpl();
-		return trustedFunctionRteBufferWriteSendOperation;
 	}
 
 	/**
@@ -2144,9 +1573,39 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ModeType createModeType() {
+		ModeTypeImpl modeType = new ModeTypeImpl();
+		return modeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModeDeclarationGroup createModeDeclarationGroup() {
 		ModeDeclarationGroupImpl modeDeclarationGroup = new ModeDeclarationGroupImpl();
 		return modeDeclarationGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeQueueType createModeQueueType() {
+		ModeQueueTypeImpl modeQueueType = new ModeQueueTypeImpl();
+		return modeQueueType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModeQueuedVariable createModeQueuedVariable() {
+		ModeQueuedVariableImpl modeQueuedVariable = new ModeQueuedVariableImpl();
+		return modeQueuedVariable;
 	}
 
 	/**
@@ -2177,6 +1636,626 @@ public class ModuleFactoryImpl extends EFactoryImpl implements ModuleFactory {
 	public ComProxyFunctionTableFileContentsGroup createComProxyFunctionTableFileContentsGroup() {
 		ComProxyFunctionTableFileContentsGroupImpl comProxyFunctionTableFileContentsGroup = new ComProxyFunctionTableFileContentsGroupImpl();
 		return comProxyFunctionTableFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimitiveType createPrimitiveType() {
+		PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
+		return primitiveType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionPrimitiveType createRedefinitionPrimitiveType() {
+		RedefinitionPrimitiveTypeImpl redefinitionPrimitiveType = new RedefinitionPrimitiveTypeImpl();
+		return redefinitionPrimitiveType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArrayType createArrayType() {
+		ArrayTypeImpl arrayType = new ArrayTypeImpl();
+		return arrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionArrayType createRedefinitionArrayType() {
+		RedefinitionArrayTypeImpl redefinitionArrayType = new RedefinitionArrayTypeImpl();
+		return redefinitionArrayType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnionType createUnionType() {
+		UnionTypeImpl unionType = new UnionTypeImpl();
+		return unionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionUnionType createRedefinitionUnionType() {
+		RedefinitionUnionTypeImpl redefinitionUnionType = new RedefinitionUnionTypeImpl();
+		return redefinitionUnionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructType createStructType() {
+		StructTypeImpl structType = new StructTypeImpl();
+		return structType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionStructType createRedefinitionStructType() {
+		RedefinitionStructTypeImpl redefinitionStructType = new RedefinitionStructTypeImpl();
+		return redefinitionStructType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BlackboxType createBlackboxType() {
+		BlackboxTypeImpl blackboxType = new BlackboxTypeImpl();
+		return blackboxType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public UnionMember createUnionMember() {
+		UnionMemberImpl unionMember = new UnionMemberImpl();
+		return unionMember;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StructMember createStructMember() {
+		StructMemberImpl structMember = new StructMemberImpl();
+		return structMember;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableMember createVariableMember() {
+		VariableMemberImpl variableMember = new VariableMemberImpl();
+		return variableMember;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteUtilityHeader createRteUtilityHeader() {
+		RteUtilityHeaderImpl rteUtilityHeader = new RteUtilityHeaderImpl();
+		return rteUtilityHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BlackboxHeader createBlackboxHeader() {
+		BlackboxHeaderImpl blackboxHeader = new BlackboxHeaderImpl();
+		return blackboxHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteBufferQueueType createRteBufferQueueType() {
+		RteBufferQueueTypeImpl rteBufferQueueType = new RteBufferQueueTypeImpl();
+		return rteBufferQueueType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteNonqueuedSendTrustedFunctionParamType createRteNonqueuedSendTrustedFunctionParamType() {
+		RteNonqueuedSendTrustedFunctionParamTypeImpl rteNonqueuedSendTrustedFunctionParamType = new RteNonqueuedSendTrustedFunctionParamTypeImpl();
+		return rteNonqueuedSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteQueuedSendTrustedFunctionParamType createRteQueuedSendTrustedFunctionParamType() {
+		RteQueuedSendTrustedFunctionParamTypeImpl rteQueuedSendTrustedFunctionParamType = new RteQueuedSendTrustedFunctionParamTypeImpl();
+		return rteQueuedSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendTrustedFunctionParamType createComSendTrustedFunctionParamType() {
+		ComSendTrustedFunctionParamTypeImpl comSendTrustedFunctionParamType = new ComSendTrustedFunctionParamTypeImpl();
+		return comSendTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CsTrustedFunctionParamType createCsTrustedFunctionParamType() {
+		CsTrustedFunctionParamTypeImpl csTrustedFunctionParamType = new CsTrustedFunctionParamTypeImpl();
+		return csTrustedFunctionParamType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NeverReadOperation createNeverReadOperation() {
+		NeverReadOperationImpl neverReadOperation = new NeverReadOperationImpl();
+		return neverReadOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwcMemoryMapping createSwcMemoryMapping() {
+		SwcMemoryMappingImpl swcMemoryMapping = new SwcMemoryMappingImpl();
+		return swcMemoryMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswMemoryMapping createBswMemoryMapping() {
+		BswMemoryMappingImpl bswMemoryMapping = new BswMemoryMappingImpl();
+		return bswMemoryMapping;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GlobalVariableFileContentsGroup createGlobalVariableFileContentsGroup() {
+		GlobalVariableFileContentsGroupImpl globalVariableFileContentsGroup = new GlobalVariableFileContentsGroupImpl();
+		return globalVariableFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteApiFileContentsGroup createRteApiFileContentsGroup() {
+		RteApiFileContentsGroupImpl rteApiFileContentsGroup = new RteApiFileContentsGroupImpl();
+		return rteApiFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RteLifecycleApiFileContentsGroup createRteLifecycleApiFileContentsGroup() {
+		RteLifecycleApiFileContentsGroupImpl rteLifecycleApiFileContentsGroup = new RteLifecycleApiFileContentsGroupImpl();
+		return rteLifecycleApiFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskBodyFileContentsGroup createTaskBodyFileContentsGroup() {
+		TaskBodyFileContentsGroupImpl taskBodyFileContentsGroup = new TaskBodyFileContentsGroupImpl();
+		return taskBodyFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswSchedulableEntityFileContentsGroup createBswSchedulableEntityFileContentsGroup() {
+		BswSchedulableEntityFileContentsGroupImpl bswSchedulableEntityFileContentsGroup = new BswSchedulableEntityFileContentsGroupImpl();
+		return bswSchedulableEntityFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComCallbackFileContentsGroup createComCallbackFileContentsGroup() {
+		ComCallbackFileContentsGroupImpl comCallbackFileContentsGroup = new ComCallbackFileContentsGroupImpl();
+		return comCallbackFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TrustedFunctionFileContentsGroup createTrustedFunctionFileContentsGroup() {
+		TrustedFunctionFileContentsGroupImpl trustedFunctionFileContentsGroup = new TrustedFunctionFileContentsGroupImpl();
+		return trustedFunctionFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutableEntityFileContentsGroup createExecutableEntityFileContentsGroup() {
+		ExecutableEntityFileContentsGroupImpl executableEntityFileContentsGroup = new ExecutableEntityFileContentsGroupImpl();
+		return executableEntityFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BswMemoryMappingHeader createBswMemoryMappingHeader() {
+		BswMemoryMappingHeaderImpl bswMemoryMappingHeader = new BswMemoryMappingHeaderImpl();
+		return bswMemoryMappingHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwcMemoryMappingHeader createSwcMemoryMappingHeader() {
+		SwcMemoryMappingHeaderImpl swcMemoryMappingHeader = new SwcMemoryMappingHeaderImpl();
+		return swcMemoryMappingHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GenerationInfo createGenerationInfo() {
+		GenerationInfoImpl generationInfo = new GenerationInfoImpl();
+		return generationInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Macro createMacro() {
+		MacroImpl macro = new MacroImpl();
+		return macro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComProxyFunction createComProxyFunction() {
+		ComProxyFunctionImpl comProxyFunction = new ComProxyFunctionImpl();
+		return comProxyFunction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSendSignalApiWrapper createComSendSignalApiWrapper() {
+		ComSendSignalApiWrapperImpl comSendSignalApiWrapper = new ComSendSignalApiWrapperImpl();
+		return comSendSignalApiWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComReceiveSignalApiWrapper createComReceiveSignalApiWrapper() {
+		ComReceiveSignalApiWrapperImpl comReceiveSignalApiWrapper = new ComReceiveSignalApiWrapperImpl();
+		return comReceiveSignalApiWrapper;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmEnterApi createSchmEnterApi() {
+		SchmEnterApiImpl schmEnterApi = new SchmEnterApiImpl();
+		return schmEnterApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmExitApi createSchmExitApi() {
+		SchmExitApiImpl schmExitApi = new SchmExitApiImpl();
+		return schmExitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmModeApi createSchmModeApi() {
+		SchmModeApiImpl schmModeApi = new SchmModeApiImpl();
+		return schmModeApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmSwitchApi createSchmSwitchApi() {
+		SchmSwitchApiImpl schmSwitchApi = new SchmSwitchApiImpl();
+		return schmSwitchApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsTaskEventsTriggeredByMode createOsTaskEventsTriggeredByMode() {
+		OsTaskEventsTriggeredByModeImpl osTaskEventsTriggeredByMode = new OsTaskEventsTriggeredByModeImpl();
+		return osTaskEventsTriggeredByMode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsTaskEvent createOsTaskEvent() {
+		OsTaskEventImpl osTaskEvent = new OsTaskEventImpl();
+		return osTaskEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModuleInterlinkHeader createModuleInterlinkHeader() {
+		ModuleInterlinkHeaderImpl moduleInterlinkHeader = new ModuleInterlinkHeaderImpl();
+		return moduleInterlinkHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmApiFileContentsGroup createSchmApiFileContentsGroup() {
+		SchmApiFileContentsGroupImpl schmApiFileContentsGroup = new SchmApiFileContentsGroupImpl();
+		return schmApiFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComSignalApiWrapperFileContentsGroup createComSignalApiWrapperFileContentsGroup() {
+		ComSignalApiWrapperFileContentsGroupImpl comSignalApiWrapperFileContentsGroup = new ComSignalApiWrapperFileContentsGroupImpl();
+		return comSignalApiWrapperFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComProxyFunctionFileContentsGroup createComProxyFunctionFileContentsGroup() {
+		ComProxyFunctionFileContentsGroupImpl comProxyFunctionFileContentsGroup = new ComProxyFunctionFileContentsGroupImpl();
+		return comProxyFunctionFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ModuleInterlinkTypeHeader createModuleInterlinkTypeHeader() {
+		ModuleInterlinkTypeHeaderImpl moduleInterlinkTypeHeader = new ModuleInterlinkTypeHeaderImpl();
+		return moduleInterlinkTypeHeader;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmLifecycleApiFileContentsGroup createSchmLifecycleApiFileContentsGroup() {
+		SchmLifecycleApiFileContentsGroupImpl schmLifecycleApiFileContentsGroup = new SchmLifecycleApiFileContentsGroupImpl();
+		return schmLifecycleApiFileContentsGroup;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PartedBswm createPartedBswm() {
+		PartedBswmImpl partedBswm = new PartedBswmImpl();
+		return partedBswm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Bswm createBswm() {
+		BswmImpl bswm = new BswmImpl();
+		return bswm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmDeinitApi createSchmDeinitApi() {
+		SchmDeinitApiImpl schmDeinitApi = new SchmDeinitApiImpl();
+		return schmDeinitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmInitApi createSchmInitApi() {
+		SchmInitApiImpl schmInitApi = new SchmInitApiImpl();
+		return schmInitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SinglecoreSchmInitApi createSinglecoreSchmInitApi() {
+		SinglecoreSchmInitApiImpl singlecoreSchmInitApi = new SinglecoreSchmInitApiImpl();
+		return singlecoreSchmInitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MulticoreSchmInitApi createMulticoreSchmInitApi() {
+		MulticoreSchmInitApiImpl multicoreSchmInitApi = new MulticoreSchmInitApiImpl();
+		return multicoreSchmInitApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchmCoreInitApiImpl createSchmCoreInitApiImpl() {
+		SchmCoreInitApiImplImpl schmCoreInitApiImpl = new SchmCoreInitApiImplImpl();
+		return schmCoreInitApiImpl;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PointerType createPointerType() {
+		PointerTypeImpl pointerType = new PointerTypeImpl();
+		return pointerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RedefinitionPointerType createRedefinitionPointerType() {
+		RedefinitionPointerTypeImpl redefinitionPointerType = new RedefinitionPointerTypeImpl();
+		return redefinitionPointerType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ActivationOperation createActivationOperation() {
+		ActivationOperationImpl activationOperation = new ActivationOperationImpl();
+		return activationOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OsActivateTaskApi createOsActivateTaskApi() {
+		OsActivateTaskApiImpl osActivateTaskApi = new OsActivateTaskApiImpl();
+		return osActivateTaskApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FeedbackApi createFeedbackApi() {
+		FeedbackApiImpl feedbackApi = new FeedbackApiImpl();
+		return feedbackApi;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TAckStatus createTAckStatus() {
+		TAckStatusImpl tAckStatus = new TAckStatusImpl();
+		return tAckStatus;
 	}
 
 	/**

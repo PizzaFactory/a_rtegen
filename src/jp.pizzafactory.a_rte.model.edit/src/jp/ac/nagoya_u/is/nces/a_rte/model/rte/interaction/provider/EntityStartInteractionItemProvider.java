@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,6 +49,9 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 			super.getPropertyDescriptors(object);
 
 			addStarterPropertyDescriptor(object);
+			addActivationOffsetPropertyDescriptor(object);
+			addPositionInTaskPropertyDescriptor(object);
+			addStartOnEventPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,6 +79,72 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 	}
 
 	/**
+	 * This adds a property descriptor for the Activation Offset feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationOffsetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntityStartInteraction_activationOffset_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStartInteraction_activationOffset_feature", "_UI_EntityStartInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.ENTITY_START_INTERACTION__ACTIVATION_OFFSET,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Position In Task feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPositionInTaskPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntityStartInteraction_positionInTask_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStartInteraction_positionInTask_feature", "_UI_EntityStartInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.ENTITY_START_INTERACTION__POSITION_IN_TASK,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start On Event feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartOnEventPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntityStartInteraction_startOnEvent_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntityStartInteraction_startOnEvent_feature", "_UI_EntityStartInteraction_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 InteractionPackage.Literals.ENTITY_START_INTERACTION__START_ON_EVENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -87,7 +157,7 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(InteractionPackage.Literals.ENTITY_START_INTERACTION__IMPLEMENTATION);
-			childrenFeatures.add(InteractionPackage.Literals.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING);
+			childrenFeatures.add(InteractionPackage.Literals.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION);
 		}
 		return childrenFeatures;
 	}
@@ -132,8 +202,12 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntityStartInteraction.class)) {
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -159,12 +233,12 @@ public class EntityStartInteractionItemProvider extends InteractionItemProvider 
 		newChildDescriptors.add
 			(createChildParameter
 				(InteractionPackage.Literals.ENTITY_START_INTERACTION__IMPLEMENTATION,
-				 InteractionFactory.eINSTANCE.createModeSwitchTriggeringEntityStartImplementation()));
+				 InteractionFactory.eINSTANCE.createPlainEntityStartImplementation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InteractionPackage.Literals.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING,
-				 InteractionFactory.eINSTANCE.createEventToTaskMapping()));
+				(InteractionPackage.Literals.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION,
+				 InteractionFactory.eINSTANCE.createTimingTriggeringEntityStartCondition()));
 	}
 
 }

@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -68,10 +68,13 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ECUC_
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC;
@@ -81,6 +84,8 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.RVARI
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_IMPLEMENTATION__COM_SIGNAL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_IMPLEMENTATION__COM_SIGNAL_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXECUTION_CONTEXT;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_RECEIVER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXTERNAL_ECU_SENDER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_COM_SEND_PROXY;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION;
@@ -99,13 +104,16 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.EXECUTABLE_START_OPERATION__START_EXECUTABLE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FEEDBACK_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION__SYMBOL_NAME;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.GLOBAL_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INVALIDATE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IRV_READ_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IRV_WRITE_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_MACHINE_INSTANCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENTS_TRIGGERED_BY_MODE__START_MODE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_ID;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_TASK_EVENT__OS_TASK_PRIORITY;
@@ -124,6 +132,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SWC;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SWC__DEPENDENT_RUNNABLE_ENTITY;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TACK_STATUS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VALUE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.WRITE_API;
@@ -185,13 +194,19 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComValueBufferImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.DirectComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateComSendProxy;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ImmediateProxyComSendImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.IocValueBufferImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PeriodicComSendProxy;
@@ -202,96 +217,9 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteValueBufferImplemen
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionComSendImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TrustedFunctionRteSendImplementation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ArrayType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComInvalidateCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComProxyFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComReceiveTimeoutCallback;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalImmediateTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalPeriodicEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalProxyEntity;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendSignalTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSignalApiWrapper;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Core;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTfCalledRunnable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.CsTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InvalidateApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvReadOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IrvWriteOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeMachineInstance;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecutableStartOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreRteStartApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MulticoreSchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NoneExcludeOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEvent;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskEventsTriggeredByMode;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Parameter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ParameterPassTypeEnum;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartedBswm;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Partition;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionRestartingApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PartitionTerminatedApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PointerType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReadOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ReceiveApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RestartPartitionApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Rte;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferInvalidateTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferNonqueuedSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferQueuedSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferVariableSet;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteBufferWriteTrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteEnterApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteExitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteStopApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmDeinitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmEnterApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmExitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmModeApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmSwitchApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreRteStartApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SinglecoreSchmInitApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StructType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Swc;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TfCallApi;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunction;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionComSendOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TrustedFunctionRteOperation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Type;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.UnionType;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Value;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Variable;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableMember;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.WriteApi;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.*;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -302,7 +230,7 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Ordering;
 
 /**
- * RTE¤Î´Ø¿ô¤Î¥â¥Ç¥ë¤ò¹½ÃÛ¤¹¤ë¡£
+ * RTEã®é–¢æ•°ã®ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
  */
 public class RteFunctionModelBuilder {
 
@@ -332,13 +260,13 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(API)
+	// ã‚·ãƒ³ãƒœãƒ«(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * ´Ø¿ô¤Î¥·¥ó¥Ü¥ë¥â¥Ç¥ë(API)¤ò¹½ÃÛ¤¹¤ë¡£
-	 * NOTE ¤³¤³¤Ç¤¤¤¦API¤Ï¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¸ş¤±¤Î¤â¤Î¤Î¤ß¤Ç¤¢¤ê¡¢¥é¥¤¥Õ¥µ¥¤¥¯¥ëAPI¤ÏÆâÉô¼ÂÁõÍÑ¤Î°·¤¤¤Ç¤¢¤ë¤³¤È¤ËÃí°Õ¡£
+	 * é–¢æ•°ã®ã‚·ãƒ³ãƒœãƒ«ãƒ¢ãƒ‡ãƒ«(API)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
+	 * NOTE ã“ã“ã§ã„ã†APIã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å‘ã‘ã®ã‚‚ã®ã®ã¿ã§ã‚ã‚Šã€ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«APIã¯å†…éƒ¨å®Ÿè£…ç”¨ã®æ‰±ã„ã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã€‚
 	 * 
-	 * @throws ModelException ¥â¥Ç¥ëÊÑ´¹¤ËÉ¬Í×¤È¤Ê¤ë¥â¥Ç¥ë¤Î¼èÆÀ¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * @throws ModelException ãƒ¢ãƒ‡ãƒ«å¤‰æ›ã«å¿…è¦ã¨ãªã‚‹ãƒ¢ãƒ‡ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public void buildApiFunctions() throws ModelException {
 		buildDependentExecutableEntities();
@@ -355,52 +283,58 @@ public class RteFunctionModelBuilder {
 	private void buildRteApis() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> swc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!swc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!swc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 
 			Swc targetSwc = swc.get();
 
-			// Äó¶¡Â¦API¤Î¹½ÃÛ
+			// æä¾›å´APIã®æ§‹ç¯‰
 			for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 				for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
 					
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_WRITE_API__PVARIABLEDATAINSTANCEINSWC)) {
 						WriteApi destWriteApi = createWriteApi(sourceDataInstanceInSwc);
-						// ¥¤¥ó¥é¥¤¥ó²½
+						// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 						destWriteApi.setIsInline(this.moduleRules.usesInlineSrProvidedApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destWriteApi);
 					}
 
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_INVALIDATE_API__PVARIABLEDATAINSTANCEINSWC)) {
 						InvalidateApi destInvalidateApi = createInvalidateApi(sourceDataInstanceInSwc);
-						// ¥¤¥ó¥é¥¤¥ó²½
+						// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 						destInvalidateApi.setIsInline(this.moduleRules.usesInlineSrProvidedApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destInvalidateApi);
 					}
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_SEND_API__PVARIABLEDATAINSTANCEINSWC)) {
 						SendApi destSendApi = createSendApi(sourceDataInstanceInSwc);
-						// Rte_Send¤Ï¥¤¥ó¥é¥¤¥ó²½¤·¤Ê¤¤
+						// Rte_Sendã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã—ãªã„
 						destSendApi.setIsInline(false);
 						targetSwc.getRteApi().add(destSendApi);
+					}
+					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, PVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_FEEDBACK_API__PVARIABLEDATAINSTANCEINSWC)) {
+						FeedbackApi destFeedbackApi = createFeedbackApi(sourceDataInstanceInSwc);
+						// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
+						destFeedbackApi.setIsInline(this.moduleRules.usesInlineFeedbackApi(sourceDataInstanceInSwc));
+						targetSwc.getRteApi().add(destFeedbackApi);
 					}
 				}
 			}
 			
-			// Í×µáÂ¦API¤Î¹½ÃÛ
+			// è¦æ±‚å´APIã®æ§‹ç¯‰
 			CsTrustedFunction destCsTrustedFunction = null;
 
 			for (RPortPrototype sourcePortPrototype : sourceSwComponentType.getRPorts()) {
 				for (RVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<RVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_READ_API__RVARIABLEDATAINSTANCEINSWC)) {
 						ReadApi destReadApi = createReadApi(sourceDataInstanceInSwc);
-						// ¥¤¥ó¥é¥¤¥ó²½
+						// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 						destReadApi.setIsInline(this.moduleRules.usesInlineSrRequiredApi(sourceDataInstanceInSwc));
 						targetSwc.getRteApi().add(destReadApi);
 					}
 					if ((boolean) this.context.query.get(sourceDataInstanceInSwc, RVARIABLE_DATA_INSTANCE_IN_SWC_EX___PROVIDES_RECEIVE_API__RVARIABLEDATAINSTANCEINSWC)) {
 						ReceiveApi destReceiveApi = createReceiveApi(sourceDataInstanceInSwc);
-						// Rte_Receive¤Ï¥¤¥ó¥é¥¤¥ó²½¤·¤Ê¤¤
+						// Rte_Receiveã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã—ãªã„
 						destReceiveApi.setIsInline(false);
 						targetSwc.getRteApi().add(destReceiveApi);
 					}
@@ -418,11 +352,11 @@ public class RteFunctionModelBuilder {
 							EcucPartition sourceClientEcucPartition = (EcucPartition)clientSwc.getParent().getSingleSource();
 							EcucPartition sourceServerEcucPartition = (EcucPartition)serverSwc.getParent().getSingleSource();
 
-							 // COVERAGE (ecucPartition¤¬null¤Î¤È¤­¤ÏpEcucPartition¤ânull¤Ç¤¢¤ë¤¿¤á¥«¥Ğ¥ì¥Ã¥¸¤¬¥Ñ¥¹¤·¤Ê¤¤¡¥¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+							 // COVERAGE (ecucPartitionãŒnullã®ã¨ãã¯pEcucPartitionã‚‚nullã§ã‚ã‚‹ãŸã‚ã‚«ãƒãƒ¬ãƒƒã‚¸ãŒãƒ‘ã‚¹ã—ãªã„ï¼ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 							if (sourceClientEcucPartition != null && sourceServerEcucPartition != null
 									&& !sourceClientEcucPartition.isTrusted() && sourceServerEcucPartition.isTrusted()) {
-								// Á÷¿®¡§Èó¿®Íê¡¢¼õ¿®¡§¿®Íê¤Î¾ì¹ç¡¢¿®Íê´Ø¿ô»ÈÍÑ
-								// ¿®Íê´Ø¿ô¹½ÃÛ
+								// é€ä¿¡ï¼šéä¿¡é ¼ã€å—ä¿¡ï¼šä¿¡é ¼ã®å ´åˆã€ä¿¡é ¼é–¢æ•°ä½¿ç”¨
+								// ä¿¡é ¼é–¢æ•°æ§‹ç¯‰
 								Partition targetPartition = serverSwc.getParent();
 								EcucPartition sourcePartition = (EcucPartition) targetPartition.getSingleSource();
 
@@ -436,7 +370,7 @@ public class RteFunctionModelBuilder {
 								CsTfCalledRunnable destCsTfCalledRunnable = createCsTfCalledRunnable(sourceOperationInstanceInSwc);
 								destCsTrustedFunction.getCsTfCalledRunnable().add(destCsTfCalledRunnable);
 
-								// C/S¿®Íê´Ø¿ôÍÑ°ú¿ô¿ôÄê¿ô¤ò¹½ÃÛ
+								// C/Sä¿¡é ¼é–¢æ•°ç”¨å¼•æ•°æ•°å®šæ•°ã‚’æ§‹ç¯‰
 								Constant destArgcConstant = createCsTfArgcConstant(sourceOperationInstanceInSwc, destCsTfCalledRunnable.getStartOperation().getStartServerRunnable().getRoleParam().size());
 								targetPartition.getCsTfArgcConstant().add(destArgcConstant);
 								
@@ -445,10 +379,10 @@ public class RteFunctionModelBuilder {
 								destCallApi = createCallApi(sourceOperationInstanceInSwc);
 							}
 
-							// ¥¤¥ó¥é¥¤¥ó²½
+							// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 							destCallApi.setIsInline(this.moduleRules.usesInlineCsApi(sourceClientEcucPartition, sourceServerEcucPartition, sourceOperationInstanceInSwc));
 						} else {
-							// Ì¤ÀÜÂ³¤Î¾ì¹ç
+							// æœªæ¥ç¶šã®å ´åˆ
 							destCallApi = createCallApi(sourceOperationInstanceInSwc);
 							destCallApi.setIsInline(this.moduleRules.usesInlineCsApi(sourceOperationInstanceInSwc));
 						}
@@ -457,7 +391,7 @@ public class RteFunctionModelBuilder {
 				}
 			}
 
-			// ÇÓÂ¾¥¨¥ê¥¢API¤Î¹½ÃÛ
+			// æ’ä»–ã‚¨ãƒªã‚¢APIã®æ§‹ç¯‰
 			for (ExclusiveArea sourceExclusiveArea : sourceSwComponentType.getInternalBehavior().getExclusiveArea()) {
 				if ((boolean) this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_RTE_ENTER_EXIT_API__EXCLUSIVEAREA)) {
 					RteEnterApi destRteEnterApi = createRteEnterApi(sourceExclusiveArea);
@@ -470,23 +404,23 @@ public class RteFunctionModelBuilder {
 				}
 			}
 
-			// IRV API¤Î¹½ÃÛ
+			// IRV APIã®æ§‹ç¯‰
 			for (RunnableEntity sourceRunnableEntity : sourceSwComponentType.getInternalBehavior().getRunnable()) {
 				for (VariableDataPrototype sourceDataPrototype : getUniqueVariableDataPrototype(sourceRunnableEntity.getWrittenLocalVariable())) {
 					IrvWriteApi destIrvWriteApi = createIrvWriteApi(sourceSwComponentType, sourceRunnableEntity, sourceDataPrototype);
-					// ¥¤¥ó¥é¥¤¥ó²½
+					// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 					destIrvWriteApi.setIsInline(this.moduleRules.usesInlineIrvApi());
 					targetSwc.getRteApi().add(destIrvWriteApi);
 				}
 				for (VariableDataPrototype sourceDataPrototype : getUniqueVariableDataPrototype(sourceRunnableEntity.getReadLocalVariable())) {
 					IrvReadApi destIrvReadApi = createIrvReadApi(sourceSwComponentType, sourceRunnableEntity, sourceDataPrototype);
-					// ¥¤¥ó¥é¥¤¥ó²½
+					// ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–
 					destIrvReadApi.setIsInline(this.moduleRules.usesInlineIrvApi());
 					targetSwc.getRteApi().add(destIrvReadApi);
 				}
 			}
 
-			// ¥á¥â¥ê¥Ş¥Ã¥Ô¥ó¥°¤ò¹½ÃÛ
+			// ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ”ãƒ³ã‚°ã‚’æ§‹ç¯‰
 			for (RteApi targetApi : targetSwc.getRteApi()) {
 				EcucPartition sourcePartition = (EcucPartition) targetSwc.getParent().getSingleSource();
 				targetApi.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
@@ -525,7 +459,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(S/R)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(S/R)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private WriteApi createWriteApi(PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		WriteApi destApi = ModuleFactory.eINSTANCE.createWriteApi();
@@ -534,7 +468,7 @@ public class RteFunctionModelBuilder {
 		destApi.setApiMappingName(SymbolNames.createWriteApiName(sourceDataInstanceInSwc));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ¥Ñ¥é¥á¥¿¤ÎÀßÄê
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®è¨­å®š
 		Type paramType = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 
 		Parameter destDataParam = this.localSymbolModelBuilder.createSrInDataParam(paramType);
@@ -561,7 +495,7 @@ public class RteFunctionModelBuilder {
 		destApi.setApiMappingName(SymbolNames.createReadApiName(sourceDataInstanceInSwc));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ¥Ñ¥é¥á¥¿¤Î¹½ÃÛ
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®æ§‹ç¯‰
 		Type paramType = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 		
 		Parameter destDataParam = this.localSymbolModelBuilder.createSrOutDataParam(paramType);
@@ -578,7 +512,7 @@ public class RteFunctionModelBuilder {
 		destApi.setApiMappingName(SymbolNames.createSendApiName(sourceDataInstanceInSwc));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 	
-		// ¥Ñ¥é¥á¥¿¤ÎÀßÄê
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®è¨­å®š
 		Type paramType = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 		Parameter destDataParam = this.localSymbolModelBuilder.createSrInDataParam(paramType);
 		destApi.getParam().add(destDataParam);
@@ -594,7 +528,7 @@ public class RteFunctionModelBuilder {
 		destApi.setApiMappingName(SymbolNames.createReceiveApiName(sourceDataInstanceInSwc));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ¥Ñ¥é¥á¥¿¤Î¹½ÃÛ
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®æ§‹ç¯‰
 		Type paramType = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 
 		Parameter destDataParam = this.localSymbolModelBuilder.createSrOutDataParam(paramType);
@@ -603,9 +537,18 @@ public class RteFunctionModelBuilder {
 		destApi.setDataParam(destDataParam);
 		return destApi;
 	}
+	
+	private FeedbackApi createFeedbackApi(PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
+		FeedbackApi destApi = ModuleFactory.eINSTANCE.createFeedbackApi();
+		destApi.setSingleSource(sourceDataInstanceInSwc);
+		destApi.setSymbolName(SymbolNames.createFeedbackApiImplName(sourceDataInstanceInSwc));
+		destApi.setApiMappingName(SymbolNames.createFeedbackApiName(sourceDataInstanceInSwc));
+		destApi.setReturnType(this.context.cache.stdReturnType);
+		return destApi;
+	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(C/S)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(C/S)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private CallApi createCallApi(ROperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
 		CallApi destApi = ModuleFactory.eINSTANCE.createCallApi();
@@ -614,7 +557,7 @@ public class RteFunctionModelBuilder {
 		destApi.setApiMappingName(SymbolNames.createCallApiName(sourceOperationInstanceInSwc));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ¥Ñ¥é¥á¥¿¤ÎÀßÄê
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®è¨­å®š
 		destApi.getOperationParam().addAll(this.localSymbolModelBuilder.createCsOperationParams(sourceOperationInstanceInSwc));
 		destApi.getParam().addAll(destApi.getOperationParam());
 		
@@ -631,7 +574,7 @@ public class RteFunctionModelBuilder {
 		destApi.getOperationParam().addAll(this.localSymbolModelBuilder.createCsOperationParams(sourceOperationInstanceInSwc));
 		destApi.getParam().addAll(destApi.getOperationParam());
 	
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		destApi.setCsTfParamTypeName(SymbolNames.createCsTrustedFunctionParamTypeName(sourceOperationInstanceInSwc.getOwnerAtomicSwc()));
 		destApi.setCsTfArgcConstantName(SymbolNames.createCsTfArgcConstantName(sourceOperationInstanceInSwc));
 		destApi.setCsTfOpidConstantName(SymbolNames.createCsTfOpidConstantName(sourceOperationInstanceInSwc));
@@ -641,7 +584,7 @@ public class RteFunctionModelBuilder {
 		for (Parameter param : destApi.getParam()) {
 			Type type = param.getType();
 			
-			 // COVERAGE (8¥Ñ¥¿¡¼¥óÃæ4¥Ñ¥¿¡¼¥ó¤·¤«ÄÌ¤ê¤è¤¦¤¬¤Ê¤¤¡¥¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			 // COVERAGE (8ãƒ‘ã‚¿ãƒ¼ãƒ³ä¸­4ãƒ‘ã‚¿ãƒ¼ãƒ³ã—ã‹é€šã‚Šã‚ˆã†ãŒãªã„ï¼ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			if ((type instanceof ArrayType) || (type instanceof StructType) || (type instanceof UnionType) || (type instanceof PointerType)) {
 				needsCheckArg = true;
 				break;
@@ -685,14 +628,14 @@ public class RteFunctionModelBuilder {
 		if (runnableParamCount > 0) {
 			destConstant.setValue(String.valueOf(runnableParamCount) + "U");
 		} else {
-			// NOTE: ÇÛÎóÄ¹¤¬0¤Ë¤Ê¤ë¤Î¤òÈò¤±¤ë
+			// NOTE: é…åˆ—é•·ãŒ0ã«ãªã‚‹ã®ã‚’é¿ã‘ã‚‹
 			destConstant.setValue("1U");
 		}
 		return destConstant;
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(IRV)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(IRV)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private IrvWriteApi createIrvWriteApi(AtomicSwComponentType sourceSwComponentType, RunnableEntity sourceRunnableEntity, VariableDataPrototype sourceDataPrototype) throws ModelException {
 		IrvWriteApi destApi = ModuleFactory.eINSTANCE.createIrvWriteApi();
@@ -728,7 +671,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(ÇÓÂ¾À©¸æ)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(æ’ä»–åˆ¶å¾¡)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private RteEnterApi createRteEnterApi(ExclusiveArea sourceExclusiveArea) {
 		RteEnterApi destApi = ModuleFactory.eINSTANCE.createRteEnterApi();
@@ -753,19 +696,19 @@ public class RteFunctionModelBuilder {
 	private void buildSchmApis() throws ModelException {
 		for (BswModuleDescription sourceBswModuleDescription : this.context.query.<BswModuleDescription> findByKind(BSW_MODULE_DESCRIPTION)) {
 			Optional<Bswm> optionalTargetBswm = this.context.builtQuery.tryFindDest(BSWM, sourceBswModuleDescription);
-			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!optionalTargetBswm.isPresent()) {	// COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 	
 			Bswm targetBswm = optionalTargetBswm.get();
 	
-			// ÇÓÂ¾¥¨¥ê¥¢´ØÏ¢¤ÎAPI¹½ÃÛ(SchM_Enter/Exit)
+			// æ’ä»–ã‚¨ãƒªã‚¢é–¢é€£ã®APIæ§‹ç¯‰(SchM_Enter/Exit)
 			buildSchmApisForExclusiveArea(targetBswm, sourceBswModuleDescription);
 	
-			// ¥â¡¼¥É´ØÏ¢¤ÎAPI¹½ÃÛ(Schm_Switch/Mode/Init)
+			// ãƒ¢ãƒ¼ãƒ‰é–¢é€£ã®APIæ§‹ç¯‰(Schm_Switch/Mode/Init)
 			buildSchmApisForMode(targetBswm, sourceBswModuleDescription);
 	
-			// ¥á¥â¥ê¥Ş¥Ã¥Ô¥ó¥°¤ò¹½ÃÛ
+			// ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ”ãƒ³ã‚°ã‚’æ§‹ç¯‰
 			for (PartedBswm targetPartedBswm : targetBswm.getPartedBswm()) {
 				for (SchmApi targetApi : targetPartedBswm.getSchmApi()) {
 					EcucPartition sourcePartition = (EcucPartition) targetPartedBswm.getParent().getSingleSource();
@@ -776,16 +719,16 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(ÇÓÂ¾À©¸æ)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(æ’ä»–åˆ¶å¾¡)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSchmApisForExclusiveArea(Bswm targetBswm, BswModuleDescription sourceBswModuleDescription) throws ModelException {
-		BswInternalBehavior sourceEnableInternalBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: Bswm¤¬¤¢¤ë¤È¤¤¤¦¤³¤È¤ÏÍ­¸ú¤Êbehavior¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢null¥Á¥§¥Ã¥¯ÉÔÍ×
+		BswInternalBehavior sourceEnableInternalBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: BswmãŒã‚ã‚‹ã¨ã„ã†ã“ã¨ã¯æœ‰åŠ¹ãªbehaviorãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€nullãƒã‚§ãƒƒã‚¯ä¸è¦
 
 		for (ExclusiveArea sourceExclusiveArea : sourceEnableInternalBehavior.getExclusiveArea()) {
-			// Enter/Exit API¤ÎÇÛÃÖÀè¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ò·èÄê
+			// Enter/Exit APIã®é…ç½®å…ˆãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã‚’æ±ºå®š
 			PartedBswm targetPartedBswm = getPartedBswmToLocateExclusiveAreaSymbol(targetBswm, sourceExclusiveArea);
 
-			// Enter/Exit API¤ò¹½ÃÛ
+			// Enter/Exit APIã‚’æ§‹ç¯‰
 			if ((boolean) this.context.query.get(sourceExclusiveArea, EXCLUSIVE_AREA_EX___PROVIDES_SCHM_ENTER_EXIT_API__EXCLUSIVEAREA)) {
 				targetPartedBswm.getSchmApi().add(createSchmEnterApi(sourceBswModuleDescription, sourceExclusiveArea));
 				targetPartedBswm.getSchmApi().add(createSchmExitApi(sourceBswModuleDescription, sourceExclusiveArea));
@@ -796,7 +739,7 @@ public class RteFunctionModelBuilder {
 	private PartedBswm getPartedBswmToLocateExclusiveAreaSymbol(Bswm bswm, ExclusiveArea exclusiveArea) throws ModelException {
 		if (this.context.options.generationPhase) {
 			Collection<EcucPartition> usingEcucPartitions = this.context.query.get(exclusiveArea, EXCLUSIVE_AREA_EX___GET_USING_PARTITIONS_OF_BSW_EXCLUSIVE_AREA__EXCLUSIVEAREA);
-			EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345¤Ë¤è¤ê¡¢¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤ò»ÈÍÑ¤¹¤ë¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÎÂ¿½ÅÅÙ¤Ï0..1
+			EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345ã«ã‚ˆã‚Šã€ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã‚’ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã®å¤šé‡åº¦ã¯0..1
 			Partition partition = this.context.builtQuery.findDestPartition(usingEcucPartition);
 			return bswm.getSinglePartedBswm(partition);
 		} else {
@@ -823,17 +766,17 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥â¡¼¥É)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(ãƒ¢ãƒ¼ãƒ‰)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSchmApisForMode(Bswm targetBswm, BswModuleDescription sourceBswModuleDescription) throws ModelException {
-		BswInternalBehavior sourceEnableInternalBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: Bswm¤¬¤¢¤ë¤È¤¤¤¦¤³¤È¤ÏÍ­¸ú¤Êbehavior¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢null¥Á¥§¥Ã¥¯ÉÔÍ×
+		BswInternalBehavior sourceEnableInternalBehavior = sourceBswModuleDescription.getEnableInternalBehavior(); // NOTE: BswmãŒã‚ã‚‹ã¨ã„ã†ã“ã¨ã¯æœ‰åŠ¹ãªbehaviorãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€nullãƒã‚§ãƒƒã‚¯ä¸è¦
 
-		// Äó¶¡Â¦
+		// æä¾›å´
 		for (ModeDeclarationGroupPrototype sourceProvidedModeGroup : sourceBswModuleDescription.getProvidedModeGroup()) {
-			// Switch/Mode API¤ÎÇÛÃÖÀè¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ò·èÄê
+			// Switch/Mode APIã®é…ç½®å…ˆãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã‚’æ±ºå®š
 			PartedBswm targetPartedBswm = getPartedBswmToLocateModeSymbol(targetBswm, sourceProvidedModeGroup);
 
-			// Switch/Mode API¤ò¹½ÃÛ
+			// Switch/Mode APIã‚’æ§‹ç¯‰
 			if (providesSchmSwitchApi(sourceProvidedModeGroup, sourceEnableInternalBehavior)) {
 				targetPartedBswm.getSchmApi().add(createSchmSwitchApi(sourceBswModuleDescription, sourceProvidedModeGroup));
 			}
@@ -842,9 +785,9 @@ public class RteFunctionModelBuilder {
 			}
 		}
 
-		// Í×µáÂ¦
+		// è¦æ±‚å´
 		for (ModeDeclarationGroupPrototype sourceRequiredModeGroup : sourceBswModuleDescription.getRequiredModeGroup()) {
-			// Mode API¤ÎÇÛÃÖÀè¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ò·èÄê
+			// Mode APIã®é…ç½®å…ˆãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã‚’æ±ºå®š
 			PartedBswm targetPartedBswm = getPartedBswmToLocateModeSymbol(targetBswm, sourceRequiredModeGroup);
 
 			if (providesSchmModeApi(sourceRequiredModeGroup, sourceEnableInternalBehavior)) {
@@ -856,7 +799,7 @@ public class RteFunctionModelBuilder {
 	private PartedBswm getPartedBswmToLocateModeSymbol(Bswm bswm, ModeDeclarationGroupPrototype modePrototype) throws ModelException {
 		if (this.context.options.generationPhase) {
 			Collection<EcucPartition> usingEcucPartitions = this.context.query.get(modePrototype, MODE_DECLARATION_GROUP_PROTOTYPE_EX___GET_USING_PARTITION__MODEDECLARATIONGROUPPROTOTYPE);
-			EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345¤Ë¤è¤ê¡¢¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤ò»ÈÍÑ¤¹¤ë¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÎÂ¿½ÅÅÙ¤Ï0..1
+			EcucPartition usingEcucPartition = Iterables.getFirst(usingEcucPartitions, null); // NOTE nrte_sws_0345ã«ã‚ˆã‚Šã€ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã‚’ä½¿ç”¨ã™ã‚‹ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã®å¤šé‡åº¦ã¯0..1
 			Partition partition = this.context.builtQuery.findDestPartition(usingEcucPartition);
 			return bswm.getSinglePartedBswm(partition);
 		} else {
@@ -906,12 +849,12 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥¨¥ó¥Æ¥£¥Æ¥£Æ°ºî)(API)
+	// ã‚·ãƒ³ãƒœãƒ«(ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£å‹•ä½œ)(API)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildDependentExecutableEntities() throws ModelException {
 		for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 			Optional<Swc> foundSwc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-			if (!foundSwc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			if (!foundSwc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				continue;
 			}
 	
@@ -924,7 +867,7 @@ public class RteFunctionModelBuilder {
 			}
 		}
 	
-		// NOTE BSW¥¹¥±¥¸¥å¡¼¥é¥Ö¥ë¤ÏLogicalCompartmentModelBuilder¤Ç¹½ÃÛºÑ¤ß¤Ê¤Î¤Ç, ¥á¥â¥ê¥Ş¥Ã¥×¤Î³ä¤êÅö¤Æ¤ÈÌá¤êÃÍ·¿¤ÎÀßÄê¤Î¤ß¹Ô¤¦.
+		// NOTE BSWã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ©ãƒ–ãƒ«ã¯LogicalCompartmentModelBuilderã§æ§‹ç¯‰æ¸ˆã¿ãªã®ã§, ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ—ã®å‰²ã‚Šå½“ã¦ã¨æˆ»ã‚Šå€¤å‹ã®è¨­å®šã®ã¿è¡Œã†.
 		for (PartedBswm targetPartedBswm : this.context.query.<PartedBswm> findByKind(PARTED_BSWM)) {
 			for (jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.BswSchedulableEntity targetBswSchedulableEntity : targetPartedBswm.getDependentBswSchedulableEntity()) {
 				targetBswSchedulableEntity.setReturnType(this.context.cache.voidType);
@@ -940,23 +883,23 @@ public class RteFunctionModelBuilder {
 		RteEvent sourceRteEvent = sourceRunnableEntity.getEvent().isEmpty() ? null : sourceRunnableEntity.getEvent().get(0);
 		destEntity.setSymbolName(sourceRunnableEntity.getSymbol());
 		if (sourceRteEvent instanceof OperationInvokedEvent) {
-			// ¥ª¥Ú¥ì¡¼¥·¥ç¥ó¸Æ½Ğ¥¤¥Ù¥ó¥È¤Î¾ì¹ç
+			// ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å‘¼å‡ºã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆ
 			OperationInvokedEvent sourceOperationInvokedEvent = (OperationInvokedEvent) sourceRteEvent;
 			POperationInstanceInSwc sourceOperationInstanceInSwc = sourceOperationInvokedEvent.getOperation();
 
-			// Ìá¤êÃÍ·¿¤Î¹½ÃÛ
+			// æˆ»ã‚Šå€¤å‹ã®æ§‹ç¯‰
 			boolean hasReturnValue = !sourceOperationInstanceInSwc.getPrototype().getPossibleError().isEmpty();
 			destEntity.setReturnType(hasReturnValue ? this.context.cache.stdReturnType : this.context.cache.voidType);
 			destEntity.setHasReturnValue(hasReturnValue);
 
-			// ¥í¡¼¥ë°ú¿ô¤Î¹½ÃÛ
+			// ãƒ­ãƒ¼ãƒ«å¼•æ•°ã®æ§‹ç¯‰
 			destEntity.getRoleParam().addAll(this.localSymbolModelBuilder.createCsPortArgValueParams(sourceOperationInstanceInSwc));
 			destEntity.getRoleParam().addAll(this.localSymbolModelBuilder.createCsOperationParams(sourceOperationInstanceInSwc));
 
 			destEntity.getParam().addAll(destEntity.getRoleParam());
 
 		} else {
-			// ¤½¤ì°Ê³°¤ÎRTE¥¤¥Ù¥ó¥È¤Î¾ì¹ç
+			// ãã‚Œä»¥å¤–ã®RTEã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆ
 			destEntity.setReturnType(this.context.cache.voidType);
 		}
 
@@ -964,12 +907,12 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * ´Ø¿ô¤Î¥·¥ó¥Ü¥ë¥â¥Ç¥ë(ÆâÉô¼ÂÁõÍÑ)¤È¥·¥ó¥Ü¥ëÆâÉô¹½Â¤¥â¥Ç¥ë(ÆâÉô¼ÂÁõÍÑ)¤ò¹½ÃÛ¤¹¤ë¡£
+	 * é–¢æ•°ã®ã‚·ãƒ³ãƒœãƒ«ãƒ¢ãƒ‡ãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)ã¨ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ ãƒ¢ãƒ‡ãƒ«(å†…éƒ¨å®Ÿè£…ç”¨)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
 	 * 
-	 * @throws ModelException ¥â¥Ç¥ëÊÑ´¹¤ËÉ¬Í×¤È¤Ê¤ë¥â¥Ç¥ë¤Î¼èÆÀ¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * @throws ModelException ãƒ¢ãƒ‡ãƒ«å¤‰æ›ã«å¿…è¦ã¨ãªã‚‹ãƒ¢ãƒ‡ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public void buildImplFunctionsAndInternals() throws ModelException {
 		buildEntityStartImplFunctions();
@@ -986,13 +929,13 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(S/R)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(S/R)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSrImplFunctionsAndInternals() throws ModelException {
 		buildSrRteSendTrustedFunctions();
 	}
 
-	// RTE¥Ğ¥Ã¥Õ¥¡Á÷¿®ÍÑ¤Î¿®Íê´Ø¿ô¤ò¹½ÃÛ
+	// RTEãƒãƒƒãƒ•ã‚¡é€ä¿¡ç”¨ã®ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰
 	private void buildSrRteSendTrustedFunctions() throws ModelException {
 		for (TrustedFunctionRteSendImplementation sourceSendImplementation : this.context.query.<TrustedFunctionRteSendImplementation> findByKind(TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION)) {
 			EcucPartition sourcePartition = sourceSendImplementation.getWriteOsTrustedFunction().getParent().getOsAppEcucPartition();
@@ -1000,12 +943,17 @@ public class RteFunctionModelBuilder {
 			PVariableDataInstanceInSwc sourceDataInstanceInSwc = (PVariableDataInstanceInSwc) sender.getSource().getPrototype();
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 	
-			// Write/SendÍÑ¿®Íê´Ø¿ô¤ò¹½ÃÛ
-			RteBufferWriteTrustedFunction destWriteTrustedFunction = createRteBufferWriteTrustedFunction(sourceSendImplementation);
+			// Write/Sendç”¨ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰
+			TrustedFunction destWriteTrustedFunction = null;
+			if (sourceDataInstanceInSwc.isEventSemantics()) {
+				destWriteTrustedFunction = createRteBufferSendTrustedFunction(sourceSendImplementation);
+			} else {
+				destWriteTrustedFunction = createRteBufferWriteTrustedFunction(sourceSendImplementation);
+			}
 			destWriteTrustedFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.of(sourcePartition)));
 			targetPartition.getRteBufferSendTrustedFunction().add(destWriteTrustedFunction);
 	
-			// InvalidateÍÑ¿®Íê´¬¿ô¤ò¹½ÃÛ
+			// Invalidateç”¨ä¿¡é ¼å·»æ•°ã‚’æ§‹ç¯‰
 			if (sourceDataInstanceInSwc.isInvalidationEnabled()) {
 				RteBufferInvalidateTrustedFunction destInvalidateTrustedFunction = createRteBufferInvalidateTrustedFunction(sourceSendImplementation);
 				destInvalidateTrustedFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.of(sourcePartition)));
@@ -1017,19 +965,19 @@ public class RteFunctionModelBuilder {
 	private RteBufferInvalidateTrustedFunction createRteBufferInvalidateTrustedFunction(TrustedFunctionRteSendImplementation sourceSendImplementation) throws ModelException {
 		SendInteraction sourceSendInteraction = sourceSendImplementation.getParent();
 	
-		// ¿®Íê´Ø¿ô¤Î¹½ÃÛ
+		// ä¿¡é ¼é–¢æ•°ã®æ§‹ç¯‰
 		RteBufferInvalidateTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createRteBufferInvalidateTrustedFunction();
 		destTrustedFunction.setSingleSource(sourceSendImplementation);
 		buildTrustedFunctionSignature(destTrustedFunction);
 		destTrustedFunction.setSymbolName(sourceSendImplementation.getInvalidateOsTrustedFunction().getOsTrustedFunctionName());
 		destTrustedFunction.setTrustedFunctionIndex(sourceSendImplementation.getInvalidateOsTrustedFunction().getShortName());
 
-		// ÆâÉô¹½Â¤
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ 
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		destTrustedFunction.getLocalVariable().add(destFilterResultVariable);
 	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
 		RteBufferNonqueuedSendOperation destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForInvalidateTrustedFunction(sourceSendInteraction, destFilterResultVariable);
 		destTrustedFunction.setOperation(destOperation);
 	
@@ -1042,15 +990,15 @@ public class RteFunctionModelBuilder {
 		InternalEcuSender sourceSender = sourceSendInteraction.getInternalEcuSenders().get(0);
 		VariableDataInstanceInSwc sourcePDataInstanceInSwc = sourceSender.getSource().getPrototype();
 	
-		// ¿®Íê´Ø¿ô¤Î¹½ÃÛ
+		// ä¿¡é ¼é–¢æ•°ã®æ§‹ç¯‰
 		RteBufferWriteTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createRteBufferWriteTrustedFunction();
 		destTrustedFunction.setSingleSource(sourceSendImplementation);
 		buildTrustedFunctionSignature(destTrustedFunction);
 		destTrustedFunction.setSymbolName(sourceSendImplementation.getWriteOsTrustedFunction().getOsTrustedFunctionName());
 		destTrustedFunction.setTrustedFunctionIndex(sourceSendImplementation.getWriteOsTrustedFunction().getShortName());
 
-		// ÆâÉô¹½Â¤
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ 
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
 		LocalVariable destDataVariable = this.localSymbolModelBuilder.createSrDataVariable(sourcePDataInstanceInSwc, SymbolNames.SR_DATA_VAR_NAME);
 		destTrustedFunction.getLocalVariable().add(destDataVariable);
 	
@@ -1059,90 +1007,133 @@ public class RteFunctionModelBuilder {
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		destTrustedFunction.getLocalVariable().add(destFilterResultVariable);
 	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
-		if (sourcePDataInstanceInSwc.isEventSemantics()) {
-			RteBufferQueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferQueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
-			destTrustedFunction.setOperation(destSendOperation);
-		} else {
-			RteBufferNonqueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
-			destTrustedFunction.setOperation(destSendOperation);
-		}
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
+		RteBufferNonqueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable, destFilterResultVariable);
+		destTrustedFunction.setOperation(destSendOperation);
+	
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destTrustedFunction);
+		return destTrustedFunction;
+	}
+
+	private RteBufferSendTrustedFunction createRteBufferSendTrustedFunction(TrustedFunctionRteSendImplementation sourceSendImplementation) throws ModelException {
+		SendInteraction sourceSendInteraction = sourceSendImplementation.getParent();
+		InternalEcuSender sourceSender = sourceSendInteraction.getInternalEcuSenders().get(0);
+		VariableDataInstanceInSwc sourcePDataInstanceInSwc = sourceSender.getSource().getPrototype();
+	
+		// ä¿¡é ¼é–¢æ•°ã®æ§‹ç¯‰
+		RteBufferSendTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createRteBufferSendTrustedFunction();
+		destTrustedFunction.setSingleSource(sourceSendImplementation);
+		buildTrustedFunctionSignature(destTrustedFunction);
+		destTrustedFunction.setSymbolName(sourceSendImplementation.getWriteOsTrustedFunction().getOsTrustedFunctionName());
+		destTrustedFunction.setTrustedFunctionIndex(sourceSendImplementation.getWriteOsTrustedFunction().getShortName());
+
+		// å†…éƒ¨æ§‹é€ 
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
+		LocalVariable destDataVariable = this.localSymbolModelBuilder.createSrDataVariable(sourcePDataInstanceInSwc, SymbolNames.SR_DATA_VAR_NAME);
+		destTrustedFunction.getLocalVariable().add(destDataVariable);
+	
+		destTrustedFunction.setDataVariable(destDataVariable);
+	
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
+		RteBufferQueuedSendOperation destSendOperation = this.srOperationBuilder.createRteBufferQueuedSendOperationForWriteTrustedFunction(sourceSendInteraction, destDataVariable);
+		destTrustedFunction.setOperation(destSendOperation);
 	
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(destTrustedFunction);
 		return destTrustedFunction;
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥¨¥ó¥Æ¥£¥Æ¥£Æ°ºî)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£å‹•ä½œ)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildEntityStartImplFunctions() throws ModelException {
 		buildExecutableTaskBodies();
 	}
 
 	private void buildExecutableTaskBodies() throws ModelException {
-		for (OsTask sourceOsTask : this.context.query.<OsTask> findByKind(OS_TASK)) {
+		for (ExecutionContext sourceAndTargetExecutionContext : this.context.query.<ExecutionContext> findByKind(EXECUTION_CONTEXT)) {
+			OsTask sourceOsTask = sourceAndTargetExecutionContext.getSourceOsTask();
 			List<EcucPartition> sourcePartitions = this.context.query.collect(sourceOsTask, OS_TASK__OWNER_APPLICATION, OS_APPLICATION__OS_APP_ECUC_PARTITION);
 			EcucPartition sourcePartition = Iterables.getFirst(sourcePartitions, null);
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 
-			Optional<OsTaskActivateEntityStarter> sourceOsTaskActivateEntityStarter = this.context.query.tryFindSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
-			List<OsEventSetEntityStarter> sourceOsEventSetEntityStarters = this.context.query.find(ref(OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
 
-			// NOTE 1¤Ä¤Î¥¿¥¹¥¯¤¬¡¢OS¥¿¥¹¥¯µ¯Æ°¤ÈOS¥¤¥Ù¥ó¥ÈÀßÄê¤ÎÎ¾Êı¤Îµ¯Æ°Êı¼°¤ò¥µ¥İ¡¼¥È¤¹¤ë¤³¤È¤Ï¤Ê¤¤¤¿¤á¡¢¤É¤Á¤é¤«¤¬Â¸ºß¤¹¤ì¤Ğ¤½¤ÎÊı¼°¤Ç¤¢¤ë¤ÈÇ§¼±¤¹¤ë¡£
-			if (sourceOsTaskActivateEntityStarter.isPresent()) {
-				// ¥¿¥¹¥¯µ¯Æ°·Àµ¡¤ÇÆ°ºî¤¹¤ë¥¿¥¹¥¯¥Û¥Ç¥£¤Î¹½ÃÛ
-				OsTaskActivationExecutableTaskBody destTaskBody = createOsTaskActivationExecutableTaskBody(sourceOsTask, sourceOsTaskActivateEntityStarter.get());
+			if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof InfiniteloopImplementation) {
+				// ãƒªã‚¢ãƒ«ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰OSã‚¿ã‚¹ã‚¯ã§å‹•ä½œã™ã‚‹ã‚¿ã‚¹ã‚¯ãƒ›ãƒ‡ã‚£ã®æ§‹ç¯‰
+				OsBackgroundTaskActivationExecutableTaskBody destTaskBody = createOsBackgroundTaskActivationExecutableTaskBody(sourceOsTask);
 				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
 				targetPartition.getTaskBody().add(destTaskBody);
-
-			} else if (!sourceOsEventSetEntityStarters.isEmpty()) {
-				// OS¥¤¥Ù¥ó¥ÈÀßÄê·Àµ¡¤ÇÆ°ºî¤¹¤ë¥¿¥¹¥¯¥Ü¥Ç¥£¤Î¹½ÃÛ
-				OsEventSetExecutableTaskBody destTaskBody = createOsEventSetExecutableTaskBody(sourceOsTask, sourceOsEventSetEntityStarters);
+			} else if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof OneShootImplementation) {
+				// ã‚¿ã‚¹ã‚¯èµ·å‹•å¥‘æ©Ÿã§å‹•ä½œã™ã‚‹ã‚¿ã‚¹ã‚¯ãƒ›ãƒ‡ã‚£ã®æ§‹ç¯‰
+				OsTaskActivationExecutableTaskBody destTaskBody = createOsTaskActivationExecutableTaskBody(sourceOsTask);
+				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
+				targetPartition.getTaskBody().add(destTaskBody);
+			} else if (sourceAndTargetExecutionContext.getExecutionContextImplementation() instanceof EventPoolingImplementation) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒInfiniteloop/OneShoot/EventPoolingä»¥å¤–ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå­˜åœ¨ã—ãªã„ãŸã‚)
+				// OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®šå¥‘æ©Ÿã§å‹•ä½œã™ã‚‹ã‚¿ã‚¹ã‚¯ãƒœãƒ‡ã‚£ã®æ§‹ç¯‰
+				OsEventSetExecutableTaskBody destTaskBody = createOsEventSetExecutableTaskBody(sourceOsTask);
 				destTaskBody.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourcePartition)));
 				targetPartition.getTaskBody().add(destTaskBody);
 			}
 		}
 	}
 
-	private OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody(OsTask sourceOsTask, OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter) throws ModelException {
-		// ¥·¥ó¥Ü¥ë
+	private OsBackgroundTaskActivationExecutableTaskBody createOsBackgroundTaskActivationExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter = this.context.query.findSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
+		// ã‚·ãƒ³ãƒœãƒ«
+		OsBackgroundTaskActivationExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsBackgroundTaskActivationExecutableTaskBody();
+		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
+		destTaskBody.setReturnType(this.context.cache.voidType);
+		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
+
+		// å†…éƒ¨æ§‹é€ 
+		// ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£èµ·å‹•å‡¦ç†ã‚’æ§‹ç¯‰
+		destTaskBody.setOperation(this.entityOperationBuilder.createOsTaskActivationOperation(sourceOsTaskActivateEntityStarter, sourceOsTask));
+		return destTaskBody;
+	}
+
+	private OsTaskActivationExecutableTaskBody createOsTaskActivationExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		OsTaskActivateEntityStarter sourceOsTaskActivateEntityStarter = this.context.query.findSingle(ref(OS_TASK_ACTIVATE_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
+		// ã‚·ãƒ³ãƒœãƒ«
 		OsTaskActivationExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsTaskActivationExecutableTaskBody();
 		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
 		destTaskBody.setReturnType(this.context.cache.voidType);
 		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
 
-		// ÆâÉô¹½Â¤
-		// ¥¨¥ó¥Æ¥£¥Æ¥£µ¯Æ°½èÍı¤ò¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ 
+		// ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£èµ·å‹•å‡¦ç†ã‚’æ§‹ç¯‰
 		destTaskBody.setOperation(this.entityOperationBuilder.createOsTaskActivationOperation(sourceOsTaskActivateEntityStarter, sourceOsTask));
 		return destTaskBody;
 	}
 
-	private OsEventSetExecutableTaskBody createOsEventSetExecutableTaskBody(OsTask sourceOsTask, List<OsEventSetEntityStarter> entityStarters) throws ModelException {
-		// ¥·¥ó¥Ü¥ë
+	private OsEventSetExecutableTaskBody createOsEventSetExecutableTaskBody(OsTask sourceOsTask) throws ModelException {
+		List<OsEventSetEntityStarter> sourceOsEventSetEntityStarters = this.context.query.find(ref(OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_TASK, sourceOsTask));
+
+		// ã‚·ãƒ³ãƒœãƒ«
 		OsEventSetExecutableTaskBody destTaskBody = ModuleFactory.eINSTANCE.createOsEventSetExecutableTaskBody();
 		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
 		destTaskBody.setReturnType(this.context.cache.voidType);
 		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
-		destTaskBody.getOsEventId().addAll(this.context.query.<String> collect(entityStarters, OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_EVENT, ECUC_REFERRABLE__SHORT_NAME));
+		destTaskBody.getOsEventId().addAll(this.context.query.<String> collect(sourceOsEventSetEntityStarters, OS_EVENT_SET_ENTITY_STARTER__SOURCE_OS_EVENT, ECUC_REFERRABLE__SHORT_NAME));
 
-		// ÆâÉô¹½Â¤
-		if (entityStarters.size() > 1) {
-			// EntityStarter¤¬Ê£¿ô¤¢¤ë¾ì¹ç¤Ï¡¢¼±ÊÌ¤¬É¬Í×¤Ê¤¿¤á¡¢¤½¤Î¤¿¤á¤ÎÆâÉô¹½Â¤¤ò¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ 
+		if (sourceOsEventSetEntityStarters.size() > 1) {
+			// EntityStarterãŒè¤‡æ•°ã‚ã‚‹å ´åˆã¯ã€è­˜åˆ¥ãŒå¿…è¦ãªãŸã‚ã€ãã®ãŸã‚ã®å†…éƒ¨æ§‹é€ ã‚’æ§‹ç¯‰
 			destTaskBody.setChecksOsEventId(true);
 	
-			// OS¥¤¥Ù¥ó¥ÈID¤Î¥Á¥§¥Ã¥¯ÍÑÊÑ¿ô¤ò¹½ÃÛ
+			// OSã‚¤ãƒ™ãƒ³ãƒˆIDã®ãƒã‚§ãƒƒã‚¯ç”¨å¤‰æ•°ã‚’æ§‹ç¯‰
 			LocalVariable destEventVariable = this.localSymbolModelBuilder.createEntityEventVariable();
 			destTaskBody.getLocalVariable().add(destEventVariable);
 	
 			destTaskBody.setEventVariable(destEventVariable);
 		}
 	
-		destTaskBody.getOperation().addAll(this.entityOperationBuilder.createOsEventSetActivationOperations(entityStarters, sourceOsTask));
+		destTaskBody.getOperation().addAll(this.entityOperationBuilder.createOsEventSetActivationOperations(sourceOsEventSetEntityStarters, sourceOsTask));
 		return destTaskBody;
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(COM¥¢¥¯¥»¥¹)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(COMã‚¢ã‚¯ã‚»ã‚¹)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildComAccessImplFunctionsAndInternals() throws ModelException {
 		buildComAccessWrapperFunctions();
@@ -1153,8 +1144,8 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void buildComAccessWrapperFunctions() throws ModelException {
-		// COM¥¢¥¯¥»¥¹¥é¥Ã¥Ñ´Ø¿ô¤ÎÀ¸À®Í­Ìµ¤òÈ½Äê
-		// S/R¤Ç»ÈÍÑ¤µ¤ì¤Æ¤¤¤ëCOM¥·¥°¥Ê¥ë¥°¥ë¡¼¥×¤¬Â¸ºß¤¹¤ì¤ĞÀ¸À®¤¹¤ë
+		// COMã‚¢ã‚¯ã‚»ã‚¹ãƒ©ãƒƒãƒ‘é–¢æ•°ã®ç”Ÿæˆæœ‰ç„¡ã‚’åˆ¤å®š
+		// S/Rã§ä½¿ç”¨ã•ã‚Œã¦ã„ã‚‹COMã‚·ã‚°ãƒŠãƒ«ã‚°ãƒ«ãƒ¼ãƒ—ãŒå­˜åœ¨ã™ã‚Œã°ç”Ÿæˆã™ã‚‹
 		boolean requiresSendFunction = false;
 		boolean requiresReceiveFunction = false;
 
@@ -1165,7 +1156,7 @@ public class RteFunctionModelBuilder {
 			}
 
 			ImplementationDataType sourceType = sourceDataInstanceInCompositions.get(0).getPrototype().getImplementationDataType();
-			if (sourceType.isComplexType()) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤ComSingnalGroup¤ÇPrimitiveType¤È¤Ê¤ë¥Ñ¥¿¡¼¥ó¤¬Â¸ºß¤·¤Ê¤¤¤¿¤á)
+			if (sourceType.isComplexType()) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒComSingnalGroupã§PrimitiveTypeã¨ãªã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒå­˜åœ¨ã—ãªã„ãŸã‚)
 				VariableDataInstanceInSwc sourceDataInstanceInSwc = sourceDataInstanceInCompositions.get(0).getPrototype();
 				if (sourceDataInstanceInSwc instanceof PVariableDataInstanceInSwc) {
 					requiresSendFunction = true;
@@ -1175,30 +1166,30 @@ public class RteFunctionModelBuilder {
 			}
 		}
 
-		// COM¥¢¥¯¥»¥¹¥é¥Ã¥Ñ´Ø¿ô¤Î¹½ÃÛ
+		// COMã‚¢ã‚¯ã‚»ã‚¹ãƒ©ãƒƒãƒ‘é–¢æ•°ã®æ§‹ç¯‰
 		Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
 		Partition targetPartition = this.context.cache.masterBswPartition;
 
-		// COMÁ÷¿®¥é¥Ã¥Ñ´Ø¿ô¤Î¹½ÃÛ
+		// COMé€ä¿¡ãƒ©ãƒƒãƒ‘é–¢æ•°ã®æ§‹ç¯‰
 		if (requiresSendFunction) {
 			ComSignalApiWrapper destSendFunction = createComSendSignalGroupWrapperFunction(sourcePartition);
 			targetPartition.getComSignalApiWrapper().add(destSendFunction);
 		}
 
-		// COM¼õ¿®¥é¥Ã¥Ñ´Ø¿ô¤Î¹½ÃÛ
+		// COMå—ä¿¡ãƒ©ãƒƒãƒ‘é–¢æ•°ã®æ§‹ç¯‰
 		if (requiresReceiveFunction) {
 			ComSignalApiWrapper destReceiveFunction = createComReceiveSignalGroupWrapperFunction(sourcePartition);
 			targetPartition.getComSignalApiWrapper().add(destReceiveFunction);
 		}
 	
-		// ¥á¥â¥ê¥Ş¥Ã¥Ô¥ó¥°¤ò¹½ÃÛ
+		// ãƒ¡ãƒ¢ãƒªãƒãƒƒãƒ”ãƒ³ã‚°ã‚’æ§‹ç¯‰
 		for (ComSignalApiWrapper targetFunction : targetPartition.getComSignalApiWrapper()) {
 			targetFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(sourcePartition));
 		}
 	}
 
 	private ComSignalApiWrapper createComSendSignalGroupWrapperFunction(Optional<EcucPartition> sourcePartition) {
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
 		ComSendSignalApiWrapper destFunction = ModuleFactory.eINSTANCE.createComSendSignalApiWrapper();
 	
 		if (requiresToUseShadowSignalApi()) {
@@ -1208,7 +1199,7 @@ public class RteFunctionModelBuilder {
 		}
 		destFunction.setReturnType(this.context.cache.stdReturnType);
 	
-		// ¥Ñ¥é¥á¥¿¤Î¹½ÃÛ
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®æ§‹ç¯‰
 		Parameter destMetaParam = ModuleFactory.eINSTANCE.createParameter();
 		destMetaParam.setSymbolName(SymbolNames.COM_META_COMPLEX_DATA_PARAM_NAME);
 		destMetaParam.setType(this.context.cache.comMetaDataType);
@@ -1222,7 +1213,7 @@ public class RteFunctionModelBuilder {
 		destDataParam.setHasConst(true);
 		destFunction.getParam().add(destDataParam);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		if (requiresToUseShadowSignalApi()) {
 			destFunction.setSignalSymbolName(SymbolNames.COM_UPDATE_SHADOW_SIGNAL_API_NAME);			
 		} else {
@@ -1234,7 +1225,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	private ComSignalApiWrapper createComReceiveSignalGroupWrapperFunction(Optional<EcucPartition> sourcePartition) {
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
 		ComReceiveSignalApiWrapper destFunction = ModuleFactory.eINSTANCE.createComReceiveSignalApiWrapper();
 	
 		if (requiresToUseShadowSignalApi()) {
@@ -1244,7 +1235,7 @@ public class RteFunctionModelBuilder {
 		}
 		destFunction.setReturnType(this.context.cache.stdReturnType);
 	
-		// ¥Ñ¥é¥á¥¿¤Î¹½ÃÛ
+		// ãƒ‘ãƒ©ãƒ¡ã‚¿ã®æ§‹ç¯‰
 		Parameter destMetaParam = ModuleFactory.eINSTANCE.createParameter();
 		destMetaParam.setSymbolName(SymbolNames.COM_META_COMPLEX_DATA_PARAM_NAME);
 		destMetaParam.setType(this.context.cache.comMetaDataType);
@@ -1257,7 +1248,7 @@ public class RteFunctionModelBuilder {
 		destDataParam.setType(this.context.cache.uint8Type);
 		destFunction.getParam().add(destDataParam);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		if (requiresToUseShadowSignalApi()) {
 			destFunction.setSignalSymbolName(SymbolNames.COM_RECEIVE_SHADOW_SIGNAL_API_NAME);			
 		} else {
@@ -1278,7 +1269,7 @@ public class RteFunctionModelBuilder {
 		return false;
 	}
 
-	// COMÁ÷¿®ÍÑ¤Î¿®Íê´Ø¿ô¤ò¹½ÃÛ
+	// COMé€ä¿¡ç”¨ã®ä¿¡é ¼é–¢æ•°ã‚’æ§‹ç¯‰
 	private void buildComSendTrustedFunctions(Rte targetRte) {
 		this.context.cache.comSendSignalTf = Optional.absent();
 		this.context.cache.comSendSignalGroupTf = Optional.absent();
@@ -1293,7 +1284,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void buildComSendSignalTrustedFunction(Rte targetRte) {
-		EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ¿®Íê´Ø¿ô¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¤Ë¤ÏÉ¬¤º¥Ş¥¹¥¿¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤Ï¹Ô¤ï¤Ê¤¤
+		EcucPartition sourceMasterBswPartition = this.context.cache.sourceMasterBswPartition.get(); // NOTE ä¿¡é ¼é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã«ã¯å¿…ãšãƒã‚¹ã‚¿ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã¯è¡Œã‚ãªã„
 
 		ComSendSignalTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createComSendSignalTrustedFunction();
 		buildTrustedFunctionSignature(destTrustedFunction);
@@ -1306,7 +1297,7 @@ public class RteFunctionModelBuilder {
 
 		destTrustedFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourceMasterBswPartition)));
 		
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		LocalVariable destTfParamVariable = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 		destTrustedFunction.getLocalVariable().add(destTfParamVariable);
 		
@@ -1315,7 +1306,7 @@ public class RteFunctionModelBuilder {
 
 	private void buildComSendSignalGroupTrustedFunction(Rte targetRte) {
 		Optional<EcucPartition> optionalSourceMasterBswPartition = this.context.cache.sourceMasterBswPartition;
-		EcucPartition sourceMasterBswPartition = optionalSourceMasterBswPartition.get(); // NOTE ¿®Íê´Ø¿ô¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¤Ë¤ÏÉ¬¤º¥Ş¥¹¥¿¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤Ï¹Ô¤ï¤Ê¤¤
+		EcucPartition sourceMasterBswPartition = optionalSourceMasterBswPartition.get(); // NOTE ä¿¡é ¼é–¢æ•°ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã«ã¯å¿…ãšãƒã‚¹ã‚¿ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã¯è¡Œã‚ãªã„
 
 		ComSendSignalTrustedFunction destTrustedFunction = ModuleFactory.eINSTANCE.createComSendSignalTrustedFunction();
 		buildTrustedFunctionSignature(destTrustedFunction);
@@ -1328,7 +1319,7 @@ public class RteFunctionModelBuilder {
 		
 		destTrustedFunction.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.fromNullable(sourceMasterBswPartition)));
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		LocalVariable destTfParamVariable = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 		destTrustedFunction.getLocalVariable().add(destTfParamVariable);
 		
@@ -1336,23 +1327,20 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void buildComProxyFunctions() throws ModelException {
-		// Rte_SrWriteProxyºîÀ®
+		// Rte_SrWriteProxyä½œæˆ
 		if (isPeriodicProxyComSendImplementationExists() || isImmediateProxyComSendImplementationExists()) {
 			for (AtomicSwComponentType sourceSwComponentType : this.context.query.<AtomicSwComponentType> findByKind(ATOMIC_SW_COMPONENT_TYPE)) {
 				Optional<Swc> swc = this.context.builtQuery.tryFindDest(SWC, sourceSwComponentType);
-				if (!swc.isPresent()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+				if (!swc.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 					continue;
 				}
 
-				// Á÷¿®Â¦API¤Î¹½ÃÛ
+				// é€ä¿¡å´APIã®æ§‹ç¯‰
 				for (PPortPrototype sourcePortPrototype : sourceSwComponentType.getPPorts()) {
 					for (PVariableDataInstanceInSwc sourceDataInstanceInSwc : this.context.query.<PVariableDataInstanceInSwc> find(ref(VARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_PORT, sourcePortPrototype))) {
-						if (sourceDataInstanceInSwc.getImplementationDataType().isComplexType()) {
-							Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-
-							buildComProxyFunctionsForComSignalGroup(sourceDataInstanceInSwc, type);
-							buildComProxyFunctionsForComSignal(sourceDataInstanceInSwc, type);
-						}
+						Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
+						buildComProxyFunctionsForComSignalGroup(sourceDataInstanceInSwc, type);
+						buildComProxyFunctionsForComSignal(sourceDataInstanceInSwc, type);
 					}
 				}
 			}
@@ -1374,7 +1362,6 @@ public class RteFunctionModelBuilder {
 			List<VariableDataInstanceInComposition> sourceDataInstanceInCompositions = this.context.query.get(sourceComSignalGroup, COM_SIGNAL_GROUP_EX___GET_VARIABLE_DATA_INSTANCE_IN_COMPOSITIONS__COMSIGNALGROUP);
 			for (VariableDataInstanceInComposition sourceDataInComposition : sourceDataInstanceInCompositions) {
 				if (sourceDataInComposition.getPrototype() == sourceDataInstanceInSwc) {
-					// Complex¤Î¥Ç¡¼¥¿ÅÏ¤·ÍÑ
 					buildComProxyFunctionEach(sourceDataInstanceInSwc, sourceComSignalGroup, type, sourceComSignalGroup.transfersImmediately());
 				}
 			}
@@ -1392,34 +1379,64 @@ public class RteFunctionModelBuilder {
 		}
 	}
 
-	private void buildComProxyFunctionEach(PVariableDataInstanceInSwc sourceDataInstanceInSwc, EcucContainer sourceComSignalOrComSignalGroup, Type type, boolean immediate) {
+	private void buildComProxyFunctionEach(PVariableDataInstanceInSwc sourceDataInstanceInSwc, EcucContainer sourceComSignalOrComSignalGroup, Type type, boolean immediate) throws ModelException {
 		Optional<EcucPartition> sourcePartition = this.context.cache.sourceMasterBswPartition;
 		Partition targetPartition = this.context.cache.masterBswPartition;
 	
 		ComProxyFunction destProxyFunction = ModuleFactory.eINSTANCE.createComProxyFunction();
 		destProxyFunction.setSymbolName(SymbolNames.createComProxyFunctionName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+
+		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
+		destProxyFunction.getLocalVariable().add(destReturnValueVariable);
+		
+		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
+		InternalEcuSender sourceSender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
+		
+		// TAckStatusã®è¨­å®š
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			destProxyFunction.setTAckStatus(tAckStatus.get());
+		}
+		
+		// ActivationOperationã®è¨­å®š
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompletedWithoutActivationFlag(sourceSender);
+		destProxyFunction.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagã®è¨­å®š
+		EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnSendCompleted);
+		destProxyFunction.getLocalVariable().addAll(activationFlags);
+		
+		LocalVariable destProxyDataVariable = null;
+		if (type instanceof PrimitiveType) {
+			destProxyDataVariable = this.localSymbolModelBuilder.createComProxyDataVariable((PrimitiveType) type);
+			destProxyFunction.getLocalVariable().add(destProxyDataVariable);
+		}
+		
+		String proxyBufferVariableName = null;
 		if (immediate) {
 			destProxyFunction.setIocReceiveSymbolName(SymbolNames.createIocReceiveComProxyImmediateApiName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
-			destProxyFunction.setBufferComProxySymbolName(SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+			proxyBufferVariableName = SymbolNames.createImmediateComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
 		} else {
 			destProxyFunction.setIocReceiveSymbolName(SymbolNames.createIocReceiveComProxyPeriodicApiName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
-			destProxyFunction.setBufferComProxySymbolName(SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup));
+			proxyBufferVariableName = SymbolNames.createPeriodicComProxyBufferVariableName(sourceDataInstanceInSwc, sourceComSignalOrComSignalGroup);
 		}
-		if (type instanceof StructType || type instanceof UnionType) {
-			destProxyFunction.setProxyDataTypeName(type.getSymbolName());
+		
+		Optional<GlobalVariable> bufferVariable = this.context.query.tryFindSingle(isKindOf(GLOBAL_VARIABLE).AND(hasAttr(VARIABLE__SYMBOL_NAME, proxyBufferVariableName)));
+		if (bufferVariable.isPresent()) {
+			destProxyFunction.setBufferVariable(bufferVariable.get());
 		} else {
-			destProxyFunction.setProxyDataTypeName(type.getOriginalTypeSymbolName());
+			destProxyFunction.setBufferVariable(destProxyDataVariable);
 		}
 		
 		if (sourceComSignalOrComSignalGroup instanceof ComSignalGroup) {
 			ComSignalGroup sourceComSignalGroup = (ComSignalGroup) sourceComSignalOrComSignalGroup;
-			destProxyFunction.setSignalGroupSymbolName(SymbolNames.createComSendSignalGroupWrapperFunctionAliasName(sourcePartition));
-			destProxyFunction.setBufferComMetaComplexDataSymbolName(SymbolNames.createComMetaVariableName(sourceComSignalGroup));
+			destProxyFunction.setSendSignalFunctionSymbolName(SymbolNames.createComSendSignalGroupWrapperFunctionAliasName(sourcePartition));
+			destProxyFunction.setSignalInformationSymbolName(SymbolNames.createComMetaVariableName(sourceComSignalGroup));
 			destProxyFunction.setIsGroup(true);
 		} else {
-			// 1signal
-			destProxyFunction.setSignalGroupSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
-			destProxyFunction.setBufferComMetaComplexDataSymbolName(SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignalOrComSignalGroup)));
+			// Array(1signal) or Primitive
+			destProxyFunction.setSendSignalFunctionSymbolName(SymbolNames.CALL_BSW_COM_SEND_SIGNAL_API_NAME);
+			destProxyFunction.setSignalInformationSymbolName(SymbolNames.createComSignalSymbolicName(Optional.of(sourceComSignalOrComSignalGroup)));
 			destProxyFunction.setIsGroup(false);
 		}
 	
@@ -1450,95 +1467,50 @@ public class RteFunctionModelBuilder {
 	}
 
 	private ComSendSignalPeriodicEntity createComSendSignalPeriodicEntity(PeriodicComSendProxy sourceComSendProxy) throws ModelException {
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
 		ComSendSignalPeriodicEntity destEntity = ModuleFactory.eINSTANCE.createComSendSignalPeriodicEntity();
 		destEntity.setSymbolName(SymbolNames.COM_SEND_SIGNAL_PERIODIC_ENTITY_NAME);
 		destEntity.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		buildInternalPartOfComSendSignalProxyEntity(destEntity, sourceComSendProxy);
 		return destEntity;
 	}
 
 	private ComSendSignalImmediateEntity createComSendSignalImmediateEntity(ImmediateComSendProxy sourceComSendProxy) throws ModelException {
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
 		ComSendSignalImmediateEntity destEntity = ModuleFactory.eINSTANCE.createComSendSignalImmediateEntity();
 		destEntity.setSymbolName(SymbolNames.COM_SEND_SIGNAL_IMMEDIATE_ENTITY_NAME);
 		destEntity.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		buildInternalPartOfComSendSignalProxyEntity(destEntity, sourceComSendProxy);
 		return destEntity;
 	}
 
 	private void buildInternalPartOfComSendSignalProxyEntity(ComSendSignalProxyEntity targetEntity, ComSendProxy sourceComSendProxy) throws ModelException {
-		// ¥×¥ê¥ß¥Æ¥£¥Ö·¿¡¦Ê£¹ç¥Ç¡¼¥¿·¿¤Ç¶¦ÄÌ¤È¤Ê¤ëÆâÉô¹½Â¤¤ò¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã‚’æ§‹ç¯‰
 		LocalVariable destReturnVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetEntity.getLocalVariable().add(destReturnVariable);
 
-		// ¥×¥ê¥ß¥Æ¥£¥Ö·¿¸ş¤±¤ÎÆâÉô¹½Â¤¤ò¹½ÃÛ
-		List<ComSendProxyInteraction> sourcePrimitiveProxyInteractions = getPrimitiveProxyInteractions(sourceComSendProxy);
-		if (!sourcePrimitiveProxyInteractions.isEmpty()) {
-			UnionType destPrimitiveProxyUnionType = this.localSymbolModelBuilder.createPrimitiveComProxyUnionType();
-			targetEntity.getLocalType().add(destPrimitiveProxyUnionType);
+		// ãƒ—ãƒ­ã‚­ã‚·å‡¦ç†ã‚’æ§‹ç¯‰
+		LocalVariable destIndexVariable = this.localSymbolModelBuilder.createComProxyFunctionTableIndexVariable();
+		targetEntity.getLocalVariable().add(destIndexVariable);
 
-			LocalVariable destPrimitiveProxySignalIdVariable = this.localSymbolModelBuilder.createComProxySignalIdVariable();
-			targetEntity.getLocalVariable().add(destPrimitiveProxySignalIdVariable);
-
-			LocalVariable destPrimitiveProxyDataVariable = this.localSymbolModelBuilder.createComProxyUnionDataVariable(destPrimitiveProxyUnionType);
-			targetEntity.getLocalVariable().add(destPrimitiveProxyDataVariable);
-
-			for (ComSendProxyInteraction sourceProxyInteraction : sourcePrimitiveProxyInteractions) {
-				PrimitiveType type = this.context.builtQuery.findDestPrimitiveType(sourceProxyInteraction.getSignalDataType());
-				VariableMember dataVariable = this.context.query.selectSingle(destPrimitiveProxyDataVariable.getMember(),
-						hasAttr(VARIABLE__SYMBOL_NAME, SymbolNames.createComProxyUnionVariableMemberName(type)));
-
-				targetEntity.getPrimitiveOperation().add(
-						this.comProxyOperationModelBuilder.createPrimitiveComSendProxyOperation(sourceProxyInteraction, destPrimitiveProxySignalIdVariable, dataVariable));
-			}
+		// ãƒ—ãƒ­ã‚­ã‚·å‡¦ç†ã¯ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³æ¯ã§å…±é€šã¨ãªã‚‹ã®ã§ã€ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³å˜ä½ã§ç”Ÿæˆã™ã‚‹
+		ListMultimap<EcucPartition, ComSendProxyInteraction> sourceProxyInteractionsGroupByRequesterPartition = this.context.query.groupByKey(sourceComSendProxy.getInteraction(),
+				COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
+		for (EcucPartition sourceRequesterPartition : sourceProxyInteractionsGroupByRequesterPartition.keySet()) {
+			List<ComSendProxyInteraction> sourceProxyInteractionsOfRequesterPartition = sourceProxyInteractionsGroupByRequesterPartition.get(sourceRequesterPartition);
+			targetEntity.getOperation().add(this.comProxyOperationModelBuilder.createComSendProxyOperation(sourceProxyInteractionsOfRequesterPartition, destIndexVariable));
 		}
-
-		// Ê£¹ç¥Ç¡¼¥¿·¿¸ş¤±¤Î¥×¥í¥­¥·½èÍı¤ò¹½ÃÛ
-		List<ComSendProxyInteraction> sourceComplexProxyInteractions = getComplexComSendProxyInteractions(sourceComSendProxy);
-		if (!sourceComplexProxyInteractions.isEmpty()) {
-			LocalVariable destIndexVariable = this.localSymbolModelBuilder.createComProxyFunctionTableIndexVariable();
-			targetEntity.getLocalVariable().add(destIndexVariable);
-
-			// Ê£¹ç¥Ç¡¼¥¿·¿ÍÑ¤Î¥×¥í¥­¥·½èÍı¤Ï¥Ñ¡¼¥Æ¥£¥·¥ç¥óËè¤Ç¶¦ÄÌ¤È¤Ê¤ë¤Î¤Ç¡¢¥Ñ¡¼¥Æ¥£¥·¥ç¥óÃ±°Ì¤ÇÀ¸À®¤¹¤ë
-			ListMultimap<EcucPartition, ComSendProxyInteraction> sourceProxyInteractionsGroupByRequesterPartition = this.context.query.groupByKey(sourceComplexProxyInteractions,
-					COM_SEND_PROXY_INTERACTION__REQUESTER_PARTITION);
-			for (EcucPartition sourceRequesterPartition : sourceProxyInteractionsGroupByRequesterPartition.keySet()) {
-				List<ComSendProxyInteraction> sourceProxyInteractionsOfRequesterPartition = sourceProxyInteractionsGroupByRequesterPartition.get(sourceRequesterPartition);
-				targetEntity.getComplexOperation().add(this.comProxyOperationModelBuilder.createComplexComSendProxyOperation(sourceProxyInteractionsOfRequesterPartition, destIndexVariable));
-			}
-		}
-	}
-
-	private List<ComSendProxyInteraction> getPrimitiveProxyInteractions(ComSendProxy sourceComSendProxy) {
-		List<ComSendProxyInteraction> sourcePrimitiveProxyInteractions = new ArrayList<ComSendProxyInteraction>();
-		for (ComSendProxyInteraction sourceProxyInteraction : sourceComSendProxy.getInteraction()) {
-			if (sourceProxyInteraction.getSignalDataType().isPrimitiveType()) {
-				sourcePrimitiveProxyInteractions.add(sourceProxyInteraction);
-			}
-		}
-		return sourcePrimitiveProxyInteractions;
-	}
-
-	private List<ComSendProxyInteraction> getComplexComSendProxyInteractions(ComSendProxy sourceComSendProxy) {
-		List<ComSendProxyInteraction> sourceComplexProxyInteractions = new ArrayList<ComSendProxyInteraction>();
-		for (ComSendProxyInteraction sourceProxyInteraction : sourceComSendProxy.getInteraction()) {
-			if (sourceProxyInteraction.getSignalDataType().isComplexType()) {
-				sourceComplexProxyInteractions.add(sourceProxyInteraction);
-			}
-		}
-		return sourceComplexProxyInteractions;
 	}
 
 	private ComSendSignalImmediateTaskBody createComSendSignalImmediateTaskBody(OsTask sourceOsTask, ComSendSignalImmediateEntity immediateEntity) {
 		ComSendSignalImmediateTaskBody destTaskBody = ModuleFactory.eINSTANCE.createComSendSignalImmediateTaskBody();
 		destTaskBody.setSymbolName(SymbolNames.createTaskBodyName(sourceOsTask));
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		destTaskBody.setOsTaskId(sourceOsTask.getShortName());
 		destTaskBody.setOsEventId(Identifiers.COM_SEND_SIGNAL_IMMEDIATE_EVENT_NAME);
 		destTaskBody.setStartEntity(immediateEntity);
@@ -1547,151 +1519,303 @@ public class RteFunctionModelBuilder {
 
 	private void buildComCallbacks(Rte targetRte) throws ModelException {
 		for (ExternalEcuSender sourceExternalEcuSender : this.context.query.<ExternalEcuSender> findByKind(EXTERNAL_ECU_SENDER)) {
-			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_CALLBACK__EXTERNALECUSENDER)) {
-				targetRte.getComCallback().add(createComReceiveCallback(sourceExternalEcuSender));
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_CALLBACK__EXTERNALECUSENDER)) {
+				targetRte.getComCallback().add(createComRxCallback(sourceExternalEcuSender));
 			}
-			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INVALIDATE_CALLBACK__EXTERNALECUSENDER)) {
-				targetRte.getComCallback().add(createComInvalidateCallback(sourceExternalEcuSender));
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_INV_CALLBACK__EXTERNALECUSENDER)) {
+				targetRte.getComCallback().add(createComInvCallback(sourceExternalEcuSender));
 			}
-			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RECEIVE_TIMEOUT_CALLBACK__EXTERNALECUSENDER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuSender, EXTERNAL_ECU_SENDER_EX___PROVIDES_COM_RX_TOUT_CALLBACK__EXTERNALECUSENDER)) {
 				targetRte.getComCallback().add(createComReceiveTimeoutCallback(sourceExternalEcuSender));
+			}
+		}
+		for (ExternalEcuReceiver sourceExternalEcuReciver : this.context.query.<ExternalEcuReceiver> findByKind(EXTERNAL_ECU_RECEIVER)) {
+			if ((boolean) this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_AND_TX_ERR_CALLBACK__EXTERNALECURECEIVER)) {
+				targetRte.getComCallback().add(createComTAckCallback(sourceExternalEcuReciver));
+				targetRte.getComCallback().add(createComTErrCallback(sourceExternalEcuReciver));
+			}
+			if ((boolean) this.context.query.get(sourceExternalEcuReciver, EXTERNAL_ECU_RECEIVER_EX___PROVIDES_COM_TX_TOUT_CALLBACK__EXTERNALECURECEIVER)) {
+				targetRte.getComCallback().add(createComTxTOutCallback(sourceExternalEcuReciver));
 			}
 		}
 		for (ComCallback targetComCallback : targetRte.getComCallback()) {
 			targetComCallback.setMemoryMapping(this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.<EcucPartition> absent()));
 		}
 	}
-
-	private ComReceiveCallback createComReceiveCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
-		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
-		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
-
-		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
 	
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
-		ComReceiveCallback destCallback = ModuleFactory.eINSTANCE.createComReceiveCallback();
-		destCallback.setSymbolName(SymbolNames.createComReceiveCallbackName(sourceComSignalOrComSignalGroup));
+	private ComCallback createComTAckCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
+
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComTAckCallback destCallback = ModuleFactory.eINSTANCE.createComTAckCallback();
+		destCallback.setSymbolName(SymbolNames.createComTAckCallback(sourceComSignalOrComSignalGroup));
 		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationã®è¨­å®š
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
-		// ½èÍıÃæ¤Ç»ÈÍÑ¤¹¤ëCOM¥¢¥¯¥»¥¹´Ø¿ô¤Î´ØÏ¢ÉÕ
-		destCallback.setAccessApi(comReceiveSignalApi);
-
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¹½ÃÛ
-		Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
-		if (destDataVariable instanceof LocalVariable) {
-			destCallback.getLocalVariable().add((LocalVariable)destDataVariable);
-		}
-		destCallback.setDataVariable(destDataVariable);
-	
-		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
-		destCallback.getLocalVariable().add(destFilterResultVariable);
-	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
-					destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, destDataVariable);
-				} else {
-					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender, destDataVariable, destFilterResultVariable);
-				}
-	
-			} else if (sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
-				// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				// S/R¤Î¼Â¸½Êı¼°¤ÎÁªÂòÊı¿Ë¤¬ÊÑ¹¹¤È¤Ê¤êECU´Ö¤Ç¤ÏIOC¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ¤·¤Ê¤¯¤Ê¤Ã¤¿
-				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
-				if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
-					destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, destDataVariable, Optional.<LocalVariable> absent());
-				} else {
-					destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, destDataVariable, Optional.<LocalVariable> absent());
-				}
-	
-			} else {
-				continue;
-			}
-	
-			destCallback.getOperation().add(destOperation);
-		}
-	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
-		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
-	
 		return destCallback;
 	}
 
-	private ComInvalidateCallback createComInvalidateCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
-		ComInvalidateCallback destCallback = ModuleFactory.eINSTANCE.createComInvalidateCallback();
-		destCallback.setSymbolName(SymbolNames.createComInvalidateCallbackName(sourceExternalEcuSender.getSourceSignal()));
-		destCallback.setReturnType(this.context.cache.voidType);
+	private ComCallback createComTErrCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¹½ÃÛ
-		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
-		destCallback.getLocalVariable().add(destFilterResultVariable);
-	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComInvalidateCallback(sourceSendInteraction, sourceExternalEcuSender, destFilterResultVariable);
-	
-			} else { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				assert false; // ¤³¤³¤Ë¤ÏÍè¤Ê¤¤
-				continue;
-			}
-	
-			destCallback.getOperation().add(destOperation);
-		}
-	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
-		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
-	
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComTErrCallback destCallback = ModuleFactory.eINSTANCE.createComTErrCallback();
+		destCallback.setSymbolName(SymbolNames.createComTErrCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationã®è¨­å®š
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
+
 		return destCallback;
 	}
+	
+	private ComCallback createComTxTOutCallback(ExternalEcuReceiver sourceExternalEcuReciver) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuReciver.getSourceSignal() != null ? sourceExternalEcuReciver.getSourceSignal() : sourceExternalEcuReciver.getSourceSignalGroup(); // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 
-	private ComReceiveTimeoutCallback createComReceiveTimeoutCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComTxTOutCallback destCallback = ModuleFactory.eINSTANCE.createComTxTOutCallback();
+		destCallback.setSymbolName(SymbolNames.createComTxTOutCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+		
+		// TAckNotifyOperationã®è¨­å®š
+		EList<TAckNotifyOperation> tAckNotifyOperations = createTAckNotifyOperationsForComTxCallback(sourceExternalEcuReciver.getInternalEcuSenders());
+		destCallback.getTAckNotifyOperation().addAll(tAckNotifyOperations);
+
+		return destCallback;
+	}
+	
+	private EList<TAckNotifyOperation> createTAckNotifyOperationsForComTxCallback(EList<InternalEcuSender> internalEcuSenders) throws ModelException {
+		EList<TAckNotifyOperation> tAckNotifyOperations = new BasicEList<TAckNotifyOperation>();
+		for (InternalEcuSender sourceSender : internalEcuSenders) {
+			TAckNotifyOperation tAckNotifyOperation = ModuleFactory.eINSTANCE.createTAckNotifyOperation();
+			tAckNotifyOperations.add(tAckNotifyOperation);
+			
+			// ActivationOperationã®è¨­å®š
+			EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompletedWithoutActivationFlag(sourceSender);
+			tAckNotifyOperation.getActivationOperation().addAll(activationOperationOnSendCompleted);
+
+			// TAckStatusã®è¨­å®š
+			Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+			if (tAckStatus.isPresent()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
+				tAckNotifyOperation.setTAckStatus(tAckStatus.get());
+			}
+		}
+		return tAckNotifyOperations;
+	}
+
+	private ComRxCallback createComRxCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
 		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
 		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
 
-		ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
-
-		// ´Ø¿ô¥·¥ó¥Ü¥ë¤Î¹½ÃÛ
-		ComReceiveTimeoutCallback destCallback = ModuleFactory.eINSTANCE.createComReceiveTimeoutCallback();
-		destCallback.setSymbolName(SymbolNames.createComReceiveTimeoutCallbackName(sourceComSignalOrComSignalGroup));
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComRxCallback destCallback = ModuleFactory.eINSTANCE.createComRxCallback();
+		destCallback.setSymbolName(SymbolNames.createComRxCallbackName(sourceComSignalOrComSignalGroup));
 		destCallback.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
-		// ½èÍıÃæ¤Ç»ÈÍÑ¤¹¤ëCOM¥¢¥¯¥»¥¹´Ø¿ô¤Î´ØÏ¢ÉÕ
-		destCallback.setAccessApi(comReceiveSignalApi);
+		if (sourceExternalEcuSender.hasSendImplementation()) {
+			// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
+			// å‡¦ç†ä¸­ã§ä½¿ç”¨ã™ã‚‹COMã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°ã®é–¢é€£ä»˜
+			ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
+			destCallback.setAccessApi(comReceiveSignalApi);
 
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤Î¹½ÃÛ
-		Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
-		if (destDataVariable instanceof LocalVariable) {
-			destCallback.getLocalVariable().add((LocalVariable)destDataVariable);
-		}
-		destCallback.setDataVariable(destDataVariable);
-	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
-		for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
-			InternalEcuReceiver sourceSendInteractionReceiver = sourceSendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
-			if (!sourceSendInteractionReceiver.isAliveTimeoutEnabled()) {
-				continue;
+			// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
+			Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
+			if (destDataVariable instanceof LocalVariable) {
+				destCallback.getLocalVariable().add((LocalVariable) destDataVariable);
 			}
-	
-			SendOperation destOperation;
-			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(sourceSendInteraction, destDataVariable, this.context.cache.rteErrorMaxAgeExceededConstant);
-	
-			} else { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				assert false; // ¤³¤³¤Ë¤ÏÍè¤Ê¤¤
-				continue;
-			}
+			destCallback.setDataVariable(destDataVariable);
 
-			destCallback.getOperation().add(destOperation);
+			LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
+			destCallback.getLocalVariable().add(destFilterResultVariable);
+
+			// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				SendOperation destOperation;
+				
+				// ActivationOperationã®è¨­å®š(DataReceived)
+				EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceivedForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperationOnReceived);
+				
+				// ActivationFlagã®è¨­å®š
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnReceived);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+				
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
+					if (sourceFirstReceiver.getSource().getPrototype().isEventSemantics()) {
+						destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, destDataVariable);
+					} else {
+						destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender, destDataVariable,
+								destFilterResultVariable, activationOperationOnReceived);
+					}
+
+				} else {
+					continue;
+				}
+
+				destCallback.getOperation().add(destOperation);
+			}
+		} else {
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				// ActivationOperationã®è¨­å®š(DataReceived)
+				EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceivedForComReceiveCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperationOnReceived);
+				
+				// ActivationFlagã®è¨­å®š
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperationOnReceived);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+			}
 		}
+
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
+
 		return destCallback;
+	}
+
+	private ComInvCallback createComInvCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComInvCallback destCallback = ModuleFactory.eINSTANCE.createComInvCallback();
+		destCallback.setSymbolName(SymbolNames.createComInvCallbackName(sourceExternalEcuSender.getSourceSignal()));
+		destCallback.setReturnType(this.context.cache.voidType);
+
+		if (sourceExternalEcuSender.hasSendImplementation()) {
+			// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
+			// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
+			LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
+			destCallback.getLocalVariable().add(destFilterResultVariable);
+
+			// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				SendOperation destOperation;
+				
+				// ActivationOperationã®è¨­å®š(DataReceived or DataReceivedErr)
+				EList<ActivationOperation> activationOperations = createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperations);
+				
+				// ActivationFlagã®è¨­å®š
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperations);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+				
+				
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComInvalidateCallback(sourceSendInteraction, sourceExternalEcuSender, destFilterResultVariable, activationOperations);
+
+				} else { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+					assert false; // ã“ã“ã«ã¯æ¥ãªã„
+					continue;
+				}
+				destCallback.getOperation().add(destOperation);
+			}
+		} else {
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				// ActivationOperationã®è¨­å®š(DataReceived or DataReceivedErr)
+				EList<ActivationOperation> activationOperations = createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(sourceSendInteraction, sourceExternalEcuSender);
+				destCallback.getActivationOperation().addAll(activationOperations);
+				
+				// ActivationFlagã®è¨­å®š
+				EList<LocalVariable> activationFlags = getActivationFlags(activationOperations);
+				destCallback.getLocalVariable().addAll(activationFlags);
+				destCallback.getActivationFlag().addAll(activationFlags);
+			}
+		}
+
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
+		this.localSymbolModelBuilder.removeUnusedLocalVariables(destCallback);
+		
+		return destCallback;
+	}
+	
+	public EList<EntityStarter> collectRelatedEntityStarterForInvalidate(SendInteraction sourceSendInteraction) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) {
+			return new BasicEList<EntityStarter>(); // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+		}
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		if (sourceRDataInstanceInSwc.isInvalidationKeep()) {
+			return sourceReceiver.getActivatesOnReceiveError();
+		}
+		if (sourceRDataInstanceInSwc.isInvalidationReplace()) {
+			return sourceReceiver.getActivatesOnReceived();
+		}
+		
+		return new BasicEList<EntityStarter>();// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+	}
+
+	private ComRxTOutCallback createComReceiveTimeoutCallback(ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		EcucContainer sourceComSignalOrComSignalGroup = sourceExternalEcuSender.getSourceSignal() != null ? sourceExternalEcuSender.getSourceSignal() : sourceExternalEcuSender.getSourceSignalGroup();
+		InternalEcuReceiver sourceFirstReceiver = sourceExternalEcuSender.getInternalEcuReceivers().get(0);
+
+		// é–¢æ•°ã‚·ãƒ³ãƒœãƒ«ã®æ§‹ç¯‰
+		ComRxTOutCallback destCallback = ModuleFactory.eINSTANCE.createComRxTOutCallback();
+		destCallback.setSymbolName(SymbolNames.createComRxTOutCallback(sourceComSignalOrComSignalGroup));
+		destCallback.setReturnType(this.context.cache.voidType);
+
+		if (sourceExternalEcuSender.hasSendImplementation()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
+			// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
+			// å‡¦ç†ä¸­ã§ä½¿ç”¨ã™ã‚‹COMã‚¢ã‚¯ã‚»ã‚¹é–¢æ•°ã®é–¢é€£ä»˜
+			ComReceiveSignalApi comReceiveSignalApi = this.context.builtQuery.findDest(COM_RECEIVE_SIGNAL_API, sourceComSignalOrComSignalGroup);
+			destCallback.setAccessApi(comReceiveSignalApi);
+
+			// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®æ§‹ç¯‰
+			Variable destDataVariable = findOrCreateComCallbackDataVariable(sourceFirstReceiver, sourceComSignalOrComSignalGroup);
+			if (destDataVariable instanceof LocalVariable) {
+				destCallback.getLocalVariable().add((LocalVariable) destDataVariable);
+			}
+			destCallback.setDataVariable(destDataVariable);
+
+			// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
+			for (SendInteraction sourceSendInteraction : sourceExternalEcuSender.getSendInteraction()) {
+				InternalEcuReceiver sourceSendInteractionReceiver = sourceSendInteraction.getReceiveInteraction().getInternalEcuReceivers().get(0);
+				// ActivationOperationã®è¨­å®š(DataReceiveError)
+				for (EntityStarter entityStarter : sourceSendInteractionReceiver.getActivatesOnReceiveError()) {
+					destCallback.getActivationOperation().add(createActivationOperation(entityStarter));
+				}
+
+				if (!sourceSendInteractionReceiver.isAliveTimeoutEnabled()) {
+					continue;
+				}
+
+				SendOperation destOperation;
+				if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+					destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForComReceiveTimeoutCallback(sourceSendInteraction, destDataVariable, this.context.cache.rteErrorMaxAgeExceededConstant);
+				} else { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+					assert false; // ã“ã“ã«ã¯æ¥ãªã„
+					continue;
+				}
+
+				destCallback.getOperation().add(destOperation);
+			}
+		}
+		
+		return destCallback;
+	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnReceivedOrReceiveErrorForComInvCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : collectRelatedEntityStarterForInvalidate(sourceSendInteraction)) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter() && sourceRDataInstanceInSwc.isInvalidationReplace()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
 	}
 
 	private Variable findOrCreateComCallbackDataVariable(InternalEcuReceiver sourceFirstReceiver, EcucContainer sourceComSignalOrComSignalGroup) throws ModelException {
@@ -1705,7 +1829,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë(¥é¥¤¥Õ¥µ¥¤¥¯¥ë)(ÆâÉô¼ÂÁõÍÑ)
+	// ã‚·ãƒ³ãƒœãƒ«(ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«)(å†…éƒ¨å®Ÿè£…ç”¨)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildRteLifecycleImplFunctions() throws ModelException {
 		buildRteLifecycleApis();
@@ -1716,11 +1840,11 @@ public class RteFunctionModelBuilder {
 	
 		OsOS sourceOsOs = this.context.query.findSingleByKind(OS_OS);
 	
-		// RTE¤Î¥é¥¤¥Õ¥µ¥¤¥¯¥ë´ÉÍıÍÑ¤ÎAPI¤ò¹½ÃÛ
+		// RTEã®ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«ç®¡ç†ç”¨ã®APIã‚’æ§‹ç¯‰
 		if (sourceOsOs.isMulticoreOs()) {
-			// ¥Ş¥ë¥Á¥³¥¢¹½À®
+			// ãƒãƒ«ãƒã‚³ã‚¢æ§‹æˆ
 	
-			// ¥³¥¢Ëè¤ÎStart API¤Î¼ÂÁõ¤ò¹½ÃÛ
+			// ã‚³ã‚¢æ¯ã®Start APIã®å®Ÿè£…ã‚’æ§‹ç¯‰
 			for (Core sourceCore : targetRte.getCore()) {
 				EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
 						hasOp(ECUC_PARTITION___GET_OWNER_CORE, sourceCore.getCoreId())));
@@ -1730,7 +1854,7 @@ public class RteFunctionModelBuilder {
 				sourceCore.setRteCoreStartApiImpl(destStartApiImpl);
 			}
 	
-			// Start/Stop API¤ò¹½ÃÛ
+			// Start/Stop APIã‚’æ§‹ç¯‰
 			MemoryMapping masterBswPartitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(this.context.cache.sourceMasterBswPartition);
 
 			MulticoreRteStartApi destStartApi = createMulticoreRteStartApi(targetRte);
@@ -1742,10 +1866,10 @@ public class RteFunctionModelBuilder {
 			targetRte.setRteStopApi(destStopApi);
 	
 		} else {
-			// ¥·¥ó¥°¥ë¥³¥¢¹½À®
+			// ã‚·ãƒ³ã‚°ãƒ«ã‚³ã‚¢æ§‹æˆ
 			Core sourceCore = targetRte.getCore().get(0);
 	
-			// Start/Stop API¤ò¹½ÃÛ
+			// Start/Stop APIã‚’æ§‹ç¯‰
 			MemoryMapping masterBswPartitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(this.context.cache.sourceMasterBswPartition);
 	
 			SinglecoreRteStartApi destStartApi = createSinglecoreRteStartApi(sourceCore);
@@ -1757,7 +1881,7 @@ public class RteFunctionModelBuilder {
 			targetRte.setRteStopApi(destStopApi);
 		}
 	
-		// ¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Î¥é¥¤¥Õ¥µ¥¤¥¯¥ë´ÉÍıÍÑ¤ÎAPI¤ò¹½ÃÛ
+		// ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã®ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«ç®¡ç†ç”¨ã®APIã‚’æ§‹ç¯‰
 		for (EcucPartition sourcePartition : this.context.query.<EcucPartition> findByKind(ECUC_PARTITION)) {
 			Partition targetPartition = this.context.builtQuery.findDestPartition(sourcePartition);
 			MemoryMapping partitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(Optional.of(sourcePartition));
@@ -1784,7 +1908,7 @@ public class RteFunctionModelBuilder {
 		destStartApi.setSymbolName(SymbolNames.RTE_START_API_NAME);
 		destStartApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destStartApi.getOperation().add(this.initOperationBuilder.createRteVariableInitializeOperationAtStart(sourceCore));
 		return destStartApi;
 	}
@@ -1794,7 +1918,7 @@ public class RteFunctionModelBuilder {
 		destStartApi.setSymbolName(SymbolNames.RTE_START_API_NAME);
 		destStartApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destStartApi.getCoreStartApiImpl().addAll(this.context.query.<RteCoreStartApiImpl> findByKind(rte, RTE_CORE_START_API_IMPL));
 		return destStartApi;
 	}
@@ -1804,7 +1928,7 @@ public class RteFunctionModelBuilder {
 		destStartApi.setSymbolName(SymbolNames.createRteCoreStartApiImplName(sourceCore));
 		destStartApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destStartApi.getOperation().add(this.initOperationBuilder.createRteVariableInitializeOperationAtStart(sourceCore));
 		return destStartApi;
 	}
@@ -1821,7 +1945,7 @@ public class RteFunctionModelBuilder {
 		destApi.setSymbolName(SymbolNames.createPartitionTerminatedApiName(sourcePartition));
 		destApi.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destApi.setSrInterPartitionTimeoutOperation(this.srOperationBuilder.createInterPartitionTimeoutOperation(sourcePartition));
 		return destApi;
 	}
@@ -1831,7 +1955,7 @@ public class RteFunctionModelBuilder {
 		destApi.setSymbolName(SymbolNames.createPartitionRestartingApiName(sourcePartition));
 		destApi.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destApi.setSrInterPartitionTimeoutOperation(this.srOperationBuilder.createInterPartitionTimeoutOperation(sourcePartition));
 		return destApi;
 	}
@@ -1841,7 +1965,7 @@ public class RteFunctionModelBuilder {
 		destApi.setSymbolName(SymbolNames.createRestartPartitionApiName(sourcePartition));
 		destApi.setReturnType(this.context.cache.stdReturnType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destApi.getOperation().add(this.initOperationBuilder.createRteVariableInitializeOperationAtPartitionRestart(sourcePartition));
 		destApi.getOperation().add(this.initOperationBuilder.createIocInitializeOperationAtPartitionRestart(sourcePartition));
 		return destApi;
@@ -1856,11 +1980,11 @@ public class RteFunctionModelBuilder {
 
 		OsOS osOs = this.context.query.findSingleByKind(OS_OS);
 
-		// RTE¤Î¥é¥¤¥Õ¥µ¥¤¥¯¥ë´ÉÍıÍÑ¤ÎAPI¤ò¹½ÃÛ
+		// RTEã®ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«ç®¡ç†ç”¨ã®APIã‚’æ§‹ç¯‰
 		if (osOs.isMulticoreOs()) {
-			// ¥Ş¥ë¥Á¥³¥¢¹½À®
+			// ãƒãƒ«ãƒã‚³ã‚¢æ§‹æˆ
 
-			// ¥³¥¢Ëè¤ÎStart API¤Î¼ÂÁõ¤ò¹½ÃÛ
+			// ã‚³ã‚¢æ¯ã®Start APIã®å®Ÿè£…ã‚’æ§‹ç¯‰
 			for (Core sourceCore : targetRte.getCore()) {
 				EcucPartition sourceBswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
 						hasOp(ECUC_PARTITION___GET_OWNER_CORE, sourceCore.getCoreId())));
@@ -1870,7 +1994,7 @@ public class RteFunctionModelBuilder {
 				sourceCore.setSchmCoreInitApiImpl(destInitApiImpl);
 			}
 
-			// Init/Deinit API¤ò¹½ÃÛ
+			// Init/Deinit APIã‚’æ§‹ç¯‰
 			MemoryMapping masterBswPartitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(this.context.cache.sourceMasterBswPartition);
 
 			MulticoreSchmInitApi destInitApi = createMulticoreSchmInitApi(targetRte);
@@ -1882,10 +2006,10 @@ public class RteFunctionModelBuilder {
 			targetRte.setSchmDeinitApi(destDeinitApi);
 
 		} else {
-			// ¥·¥ó¥°¥ë¥³¥¢¹½À®
+			// ã‚·ãƒ³ã‚°ãƒ«ã‚³ã‚¢æ§‹æˆ
 			Core sourceCore = targetRte.getCore().get(0);
 
-			// Init/Deinit API¤ò¹½ÃÛ
+			// Init/Deinit APIã‚’æ§‹ç¯‰
 			MemoryMapping masterBswPartitionMemmap = this.memmapBuilder.buildRteFunctionMemoryMapping(this.context.cache.sourceMasterBswPartition);
 
 			SinglecoreSchmInitApi destInitApi = createSinglecoreSchmInitApi(sourceCore);
@@ -1903,7 +2027,7 @@ public class RteFunctionModelBuilder {
 		destInitApi.setSymbolName(SymbolNames.SCHM_INIT_API_NAME);
 		destInitApi.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destInitApi.getOperation().add(this.initOperationBuilder.createSchmVariableInitializeOperationAtStart(sourceCore));
 		buildModeSwitchEventPartOfSchmInitFunction(destInitApi, sourceCore);
 		return destInitApi;
@@ -1914,7 +2038,7 @@ public class RteFunctionModelBuilder {
 		destInitApi.setSymbolName(SymbolNames.SCHM_INIT_API_NAME);
 		destInitApi.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destInitApi.getCoreInitApiImpl().addAll(this.context.query.<SchmCoreInitApiImpl> findByKind(rte, SCHM_CORE_INIT_API_IMPL));
 		return destInitApi;
 	}
@@ -1929,7 +2053,7 @@ public class RteFunctionModelBuilder {
 		destInitApi.setSymbolName(SymbolNames.createSchmCoreStartApiImplName(sourceCore));
 		destInitApi.setReturnType(this.context.cache.voidType);
 
-		// ÆâÉô¹½Â¤
+		// å†…éƒ¨æ§‹é€ 
 		destInitApi.getOperation().add(this.initOperationBuilder.createSchmVariableInitializeOperationAtStart(sourceCore));
 		buildModeSwitchEventPartOfSchmInitFunction(destInitApi, sourceCore);
 		return destInitApi;
@@ -1970,22 +2094,22 @@ public class RteFunctionModelBuilder {
 					continue;
 				}
 
-				RteBswEventToTaskMapping sourceBswEventToTaskMapping = sourceBswModeSwitchEvent.getConfig().get(0); // NOTE ¥³¥ó¥Õ¥£¥°¤¬Â¸ºß¤¹¤ë¤³¤È¤Ïnrte_sws_0196¤Ç³ÎÇ§ºÑ¤ß
+				RteBswEventToTaskMapping sourceBswEventToTaskMapping = sourceBswModeSwitchEvent.getConfig().get(0); // NOTE ã‚³ãƒ³ãƒ•ã‚£ã‚°ãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã¯nrte_sws_0196ã§ç¢ºèªæ¸ˆã¿
 				OsTask sourceOsTask = sourceBswEventToTaskMapping.getRteBswMappedToTask();
 				if (sourceOsTask == null) {
-					// Ä¾ÀÜµ¯Æ°
+					// ç›´æ¥èµ·å‹•
 					ModeSwitchTriggeringExecutableStartOperation destExcutableStartOperation = this.entityOperationBuilder.createModeSwitchTriggeringExecutableStartOperation(sourceBswInternalBehavior.getParent(), sourceBswModeSwitchEvent);
 					targetApi.getInitialExecutableStartOperation().add(destExcutableStartOperation);
 
 				} else {
-					// OS¥¿¥¹¥¯µ¯Æ°¡¿OS¥¤¥Ù¥ó¥ÈÀßÄê
+					// OSã‚¿ã‚¹ã‚¯èµ·å‹•ï¼OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®š
 					buildOsTaskEvent(targetApi.getInitialExecutableOsTaskEvent(), sourceBswEventToTaskMapping, sourceOsTask);
 				}
 			}
 		}
 
-		// À¸À®¤·¤¿ÆâÉô¹½Â¤¤ò¥½¡¼¥È
-		// ¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ë³«»Ï½èÍı
+		// ç”Ÿæˆã—ãŸå†…éƒ¨æ§‹é€ ã‚’ã‚½ãƒ¼ãƒˆ
+		// ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«é–‹å§‹å‡¦ç†
 		Ordering<EObject> executableStartOperationOrdering = Ordering.natural().onResultOf(this.context.query.<String> features2Function(EXECUTABLE_START_OPERATION__START_EXECUTABLE, FUNCTION__SYMBOL_NAME))
 				.compound(Ordering.natural().onResultOf(this.context.query.<String> features2Function(MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE, CONSTANT__SYMBOL_NAME)));
 		ECollections.sort(targetApi.getInitialExecutableStartOperation(), executableStartOperationOrdering);
@@ -1997,7 +2121,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ë¶¦ÄÌ¤Î¥æ¡¼¥Æ¥£¥ê¥Æ¥£
+	// ã‚·ãƒ³ãƒœãƒ«å…±é€šã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildTrustedFunctionSignature(TrustedFunction targetTrustedFunction) {
 		targetTrustedFunction.setReturnType(this.context.cache.osStatusType);
@@ -2007,13 +2131,13 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ 
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	/**
-	 * ´Ø¿ô¤Î¥·¥ó¥Ü¥ëÆâÉô¹½Â¤¥â¥Ç¥ë(API)¤ò¹½ÃÛ¤¹¤ë¡£
-	 * NOTE ¤³¤³¤Ç¤¤¤¦API¤Ï¥¢¥×¥ê¥±¡¼¥·¥ç¥ó¸ş¤±¤Î¤â¤Î¤Î¤ß¤Ç¤¢¤ê¡¢¥é¥¤¥Õ¥µ¥¤¥¯¥ëAPI¤ÏÆâÉô¼ÂÁõÍÑ¤Î°·¤¤¤Ç¤¢¤ë¤³¤È¤ËÃí°Õ¡£
+	 * é–¢æ•°ã®ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ ãƒ¢ãƒ‡ãƒ«(API)ã‚’æ§‹ç¯‰ã™ã‚‹ã€‚
+	 * NOTE ã“ã“ã§ã„ã†APIã¯ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³å‘ã‘ã®ã‚‚ã®ã®ã¿ã§ã‚ã‚Šã€ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚¯ãƒ«APIã¯å†…éƒ¨å®Ÿè£…ç”¨ã®æ‰±ã„ã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã€‚
 	 * 
-	 * @throws ModelException ¥â¥Ç¥ëÊÑ´¹¤ËÉ¬Í×¤È¤Ê¤ë¥â¥Ç¥ë¤Î¼èÆÀ¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * @throws ModelException ãƒ¢ãƒ‡ãƒ«å¤‰æ›ã«å¿…è¦ã¨ãªã‚‹ãƒ¢ãƒ‡ãƒ«ã®å–å¾—ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public void buildApiFunctionInternals() throws ModelException {
 		if (this.context.options.doesGenerateRte) {
@@ -2035,6 +2159,9 @@ public class RteFunctionModelBuilder {
 			}
 			for (SendApi targetApi : this.context.query.<RteApi, SendApi> selectByKind(targetSwc.getRteApi(), SEND_API)) {
 				buildSendApiInternal(targetApi, (PVariableDataInstanceInSwc) targetApi.getSingleSource());
+			}
+			for (FeedbackApi targetApi : this.context.query.<RteApi, FeedbackApi> selectByKind(targetSwc.getRteApi(), FEEDBACK_API)) {
+				buildFeedbackApiInternal(targetApi, (PVariableDataInstanceInSwc) targetApi.getSingleSource());
 			}
 			for (ReadApi targetApi : this.context.query.<RteApi, ReadApi> selectByKind(targetSwc.getRteApi(), READ_API)) {
 				buildReadApiInternal(targetApi, (RVariableDataInstanceInSwc) targetApi.getSingleSource());
@@ -2080,12 +2207,12 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤(S/R)
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ (S/R)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildWriteApiInternal(WriteApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 
-		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return;
 		}
 	
@@ -2094,10 +2221,10 @@ public class RteFunctionModelBuilder {
 	
 		Parameter dataParam = targetApi.getDataParam();
 	
-		// ÀÜÂ³¾õÂÖ¤ÎÀßÄê
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
 		targetApi.setIsConnected(!sourceSender.getSendInteraction().isEmpty());
 	
-		// ¥í¡¼¥«¥ëÊÑ¿ôÀë¸À¤ÎÀßÄê
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®£è¨€ã®è¨­å®š
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetApi.getLocalVariable().add(destReturnValueVariable);
 		
@@ -2106,33 +2233,67 @@ public class RteFunctionModelBuilder {
 		
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
-	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
+
+		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteNonqueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteNonqueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+
+		// ActivationOperationã®è¨­å®š(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagã®è¨­å®š
+		EList<LocalVariable> activationFlagsForSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsForSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsForSendCompleted);
+		
+		// TAckStatusã®è¨­å®š
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationã®è¨­å®š(DataReceived)
+			EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceived(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationOnReceived);
+			
+			// ActivationFlagã®è¨­å®š
+			EList<LocalVariable> activationFlagsForDataReceived = getActivationFlags(activationOperationOnReceived);
+			targetApi.getLocalVariable().addAll(activationFlagsForDataReceived);
+			targetApi.getActivationFlag().addAll(activationFlagsForDataReceived);
+			
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteApi(targetApi, sourceSendInteraction, dataParam, destFilterResultVariable);
-	
+				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForWriteApi(targetApi, sourceSendInteraction, dataParam, destFilterResultVariable,
+						activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
 	
+				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferWriteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferWriteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, destTfParamVariableForRte, type, activationOperationOnReceived);
 			} else if (sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
 				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable));
-	
+				destOperation = this.srOperationBuilder.createIocNonqueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable), activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 	
@@ -2145,13 +2306,15 @@ public class RteFunctionModelBuilder {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
@@ -2159,15 +2322,17 @@ public class RteFunctionModelBuilder {
 	
 				setInitReturnValueVariable(destReturnValueVariable);
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) {
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 	
 				setInitReturnValueVariable(destReturnValueVariable);
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else {
 				continue;
 			}
@@ -2175,8 +2340,8 @@ public class RteFunctionModelBuilder {
 			destOperation.setIsWriteApi(true);
 			targetApi.getOperation().add(destOperation);
 		}
-	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
 		if (Variables.isContainedInFunction(destReturnValueVariable)) {
@@ -2185,11 +2350,88 @@ public class RteFunctionModelBuilder {
 			targetApi.setReturnValue(this.context.cache.rteErrorOkConstant);
 		}
 
-		// °ú¿ô¤Î¥á¥â¥ê¥Á¥§¥Ã¥¯¤¬É¬Í×¤«¤òÀßÄê
-		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType()));
+		// å¼•æ•°ã®ãƒ¡ãƒ¢ãƒªãƒã‚§ãƒƒã‚¯ãŒå¿…è¦ã‹ã‚’è¨­å®š
+		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType(), sourceDataInstanceInSwc.isTAckEnabled()));
 	}
 
-	private boolean needsCheckArg(EList<SendOperation> sendOperations, Type type) {
+	private EList<LocalVariable> getActivationFlags(EList<ActivationOperation> activationOperationOnSendCompleted) {
+		EList<LocalVariable> activationFlags = new BasicEList<LocalVariable>();
+		for (ActivationOperation activationOperation : activationOperationOnSendCompleted) {
+			if (activationOperation.getActivationFlag() != null) {
+				activationFlags.add(activationOperation.getActivationFlag());
+			}
+		}
+		return activationFlags;
+	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnSendCompleted(InternalEcuSender sourceSender) throws ModelException {
+		EList<ActivationOperation> activationOperationOnSendCompleted = new BasicEList<ActivationOperation>();
+		for (EntityStarter entityStarter : sourceSender.getActivatesOnSendCompleted()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (!sourceSender.getExternalEcuReceivers().isEmpty()) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperationOnSendCompleted.add(activationOperation);
+		}
+		return activationOperationOnSendCompleted;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnSendCompletedWithoutActivationFlag(InternalEcuSender sourceSender) throws ModelException {
+		EList<ActivationOperation> activationOperationOnSendCompleted = new BasicEList<ActivationOperation>();
+		for (EntityStarter entityStarter : sourceSender.getActivatesOnSendCompleted()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			activationOperationOnSendCompleted.add(activationOperation);
+		}
+		return activationOperationOnSendCompleted;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnReceived(SendInteraction sourceSendInteraction) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		for (EntityStarter entityStarter : sourceReceiver.getActivatesOnReceived()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceReceiver.isFilterEnabled() || sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation
+					|| sourceSendInteraction.getImplementation() instanceof IocSendImplementation) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+
+	private EList<ActivationOperation> createActivationOperationsOnReceivedForComReceiveCallback(SendInteraction sourceSendInteraction, ExternalEcuSender sourceExternalEcuSender) throws ModelException {
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			return new BasicEList<ActivationOperation>();
+		}
+
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : sourceReceiver.getActivatesOnReceived()) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if (sourceRDataInstanceInSwc.isFilterEnabled() && sourceExternalEcuSender.getRequiresRteFilter()) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+
+	private ActivationOperation createActivationOperation(EntityStarter entityStarter) throws ModelException {
+		ActivationOperation activationOperation = ModuleFactory.eINSTANCE.createActivationOperation();
+		activationOperation.setActivationApi((OsApi) this.context.builtQuery.findDest(OS_API, entityStarter));
+		OsTask sourceTask = entityStarter.getExecutionContext().getSourceOsTask();
+		activationOperation.setOsTaskPriority(sourceTask.getOsTaskPriority());
+		return activationOperation;
+	}
+
+	private boolean needsCheckArg(EList<SendOperation> sendOperations, Type type, boolean hasTAckStatus) {
 		if (type instanceof PrimitiveType) {
 			return false;
 		}
@@ -2197,9 +2439,11 @@ public class RteFunctionModelBuilder {
 		for (SendOperation sendOperation : sendOperations) {
 			if (sendOperation instanceof TrustedFunctionRteOperation) {
 				return true;
-			} else if (sendOperation instanceof TrustedFunctionComSendOperation && !(type instanceof PointerType)) { // COVERAGE nrte_sws_0287¤Ë¤è¤ê¡¢TrustedFunctionComSendOperation»ş¤ËPointerType¤¬Íè¤ë¤³¤È¤Ï¤Ê¤¤
+			} else if (sendOperation instanceof TrustedFunctionComSendOperation) {
 				return true;
-			} else if (sendOperation instanceof IocSendOperation && type instanceof PointerType) {
+			} else if (sendOperation instanceof IocSendOperation && (type instanceof PointerType || hasTAckStatus)) {
+				return true;
+			} else if (sendOperation instanceof ProxyComSendOperation && hasTAckStatus) {
 				return true;
 			}
 		}
@@ -2213,17 +2457,17 @@ public class RteFunctionModelBuilder {
 	private void buildInvalidateApiInternal(InvalidateApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 	
-		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return;
 		}
 		
 		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
 		InternalEcuSender sourceSender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
 	
-		// ÀÜÂ³¾õÂÖ¤ÎÀßÄê
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
 		targetApi.setIsConnected(!sourceSender.getSendInteraction().isEmpty());
 	
-		// ¥í¡¼¥«¥ëÊÑ¿ôÀë¸À¤ÎÀßÄê
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®£è¨€ã®è¨­å®š
 		Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceDataInstanceInSwc, RoleNames.SR_INVALID_VALUE_ROLE_NAME);
 	
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
@@ -2239,60 +2483,98 @@ public class RteFunctionModelBuilder {
 	
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
-	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
+
+		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteNonqueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteNonqueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+
+		// ActivationOperationã®è¨­å®š(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagã®è¨­å®š
+		EList<LocalVariable> activationFlagsOnSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsOnSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsOnSendCompleted);
+
+		// TAckStatusã®è¨­å®š
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationã®è¨­å®š(DataReceived or DataReceivedErr)
+			EList<ActivationOperation> activationOperationsOnReceivedOrReceiveError = createActivationOperationsOnReceivedOrReceiveErrorForInvalidateApi(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationsOnReceivedOrReceiveError);
+			
+			// ActivationFlagã®è¨­å®š
+			EList<LocalVariable> activationFlagsOnReceivedOrReceiveError = getActivationFlags(activationOperationsOnReceivedOrReceiveError);
+			targetApi.getLocalVariable().addAll(activationFlagsOnReceivedOrReceiveError);
+			targetApi.getActivationFlag().addAll(activationFlagsOnReceivedOrReceiveError);
+
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
-				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForInvalidateApi(targetApi, sourceSendInteraction, invalidValueConstant, destFilterResultVariable);
-	
+				destOperation = this.srOperationBuilder.createRteBufferNonqueuedSendOperationForInvalidateApi(targetApi, sourceSendInteraction, invalidValueConstant, destFilterResultVariable,
+						activationOperationsOnReceivedOrReceiveError);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferInvalidateSendOperation(sourceSendInteraction, sourceTrustedFunctionRteSendImplementation, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferInvalidateSendOperation(sourceSendInteraction, sourceTrustedFunctionRteSendImplementation,
+						destReturnValueVariable, destTempReturnValueVariable, destTfParamVariableForRte, activationOperationsOnReceivedOrReceiveError);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTempReturnValueVariable);
-	
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				if (sourceTrustedFunctionComSendImplementation.getComSignal() != null) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤) Ìµ¸ú²½¤ÏÊ£¹ç¥Ç¡¼¥¿·¿Ì¤¥µ¥İ¡¼¥È(nrte_sws_0291)
+				if (sourceTrustedFunctionComSendImplementation.getComSignal() != null) { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„) ç„¡åŠ¹åŒ–ã¯è¤‡åˆãƒ‡ãƒ¼ã‚¿å‹æœªã‚µãƒãƒ¼ãƒˆ(nrte_sws_0291)
 					if (destTfParamVariableForSignal == null) {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
-					// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤) Ìµ¸ú²½¤ÏÊ£¹ç¥Ç¡¼¥¿·¿Ì¤¥µ¥İ¡¼¥È(nrte_sws_0291)
+					// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„) ç„¡åŠ¹åŒ–ã¯è¤‡åˆãƒ‡ãƒ¼ã‚¿å‹æœªã‚µãƒãƒ¼ãƒˆ(nrte_sws_0291)
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, destInvalidValueVariable, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
 				ImmediateProxyComSendImplementation sourceImmediateProxyComSendImplementation = (ImmediateProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, invalidValueConstant, destReturnValueVariable, destTempReturnValueVariable, type);
-	
-			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, invalidValueConstant, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
+			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, invalidValueConstant, destReturnValueVariable, destTempReturnValueVariable, type);
-	
-			} else { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				assert false; // ¤³¤³¤Ë¤ÏÍè¤Ê¤¤
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, invalidValueConstant, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
+			} else { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+				assert false; // ã“ã“ã«ã¯æ¥ãªã„
 				continue;
 			}
 	
 			targetApi.getOperation().add(destOperation);
 		}
-	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
 		if (Variables.isContainedInFunction(destReturnValueVariable)) {
@@ -2301,11 +2583,32 @@ public class RteFunctionModelBuilder {
 			targetApi.setReturnValue(this.context.cache.rteErrorOkConstant);
 		}
 	}
+	
+	private EList<ActivationOperation> createActivationOperationsOnReceivedOrReceiveErrorForInvalidateApi(SendInteraction sourceSendInteraction) throws ModelException {
+		
+		ReceiveInteraction sourceReceiveInteraction = sourceSendInteraction.getReceiveInteraction();
+		if (!sourceSendInteraction.getExternalEcuSenders().isEmpty() || sourceReceiveInteraction.getInternalEcuReceivers().isEmpty()) {
+			return new BasicEList<ActivationOperation>();
+		}
 
+		EList<ActivationOperation> activationOperations = new BasicEList<ActivationOperation>();
+		InternalEcuReceiver sourceReceiver = sourceReceiveInteraction.getInternalEcuReceivers().get(0);
+		RVariableDataInstanceInSwc sourceRDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
+		for (EntityStarter entityStarter : collectRelatedEntityStarterForInvalidate(sourceSendInteraction)) {
+			ActivationOperation activationOperation = createActivationOperation(entityStarter);
+			if ((sourceRDataInstanceInSwc.isFilterEnabled() && sourceRDataInstanceInSwc.isInvalidationReplace()) ||
+					(sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation || sourceSendInteraction.getImplementation() instanceof IocSendImplementation)) {
+				activationOperation.setActivationFlag(this.localSymbolModelBuilder.createActivationFlagVariable(activationOperation));
+			}
+			activationOperations.add(activationOperation);
+		}
+		return activationOperations;
+	}
+	
 	private void buildReadApiInternal(ReadApi targetApi, RVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		Parameter dataParam = targetApi.getDataParam();
 	
-		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			buildUnconnectedReadApiInternal(targetApi, sourceDataInstanceInSwc, dataParam);
 			return;
 		}
@@ -2313,7 +2616,7 @@ public class RteFunctionModelBuilder {
 		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
 		InternalEcuReceiver sourceReceiver = this.context.query.findSingle(ref(INTERNAL_ECU_RECEIVER__SOURCE, sourceDataInstanceInComposition));
 	
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		if (sourceReceiver.getReceiveInteraction().isEmpty()) {
 			buildUnconnectedReadApiInternal(targetApi, sourceDataInstanceInSwc, dataParam);
 			return;
@@ -2326,17 +2629,17 @@ public class RteFunctionModelBuilder {
 		Parameter dataParam = targetApi.getDataParam();
 		ReceiveInteraction sourceReceiveInteraction = sourceReceiver.getReceiveInteraction().get(0);
 	
-		// ÀÜÂ³¾õÂÖ¤ÎÀßÄê
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
 		targetApi.setIsConnected(true);
 	
-		// ÊÖ¤êÃÍÍÑÊÑ¿ô¤Î¹½ÃÛ
+		// è¿”ã‚Šå€¤ç”¨å¤‰æ•°ã®æ§‹ç¯‰
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetApi.getLocalVariable().add(destReturnValueVariable);
 	
 		LocalVariable destTempReturnValueVariable = this.localSymbolModelBuilder.createTempReturnValueVariable();
 		targetApi.getLocalVariable().add(destTempReturnValueVariable);
 	
-		// ÆÉ¤ß¹ş¤ß½èÍı¤Î¹½ÃÛ
+		// èª­ã¿è¾¼ã¿å‡¦ç†ã®æ§‹ç¯‰
 		ReadOperation destOperation;
 		if (sourceReceiveInteraction.getValueBufferImplementation() instanceof RteValueBufferImplementation) {
 			destOperation = this.srOperationBuilder.createRteBufferNonqueuedReadOperation(targetApi, sourceReceiveInteraction, dataParam, destReturnValueVariable);
@@ -2353,13 +2656,13 @@ public class RteFunctionModelBuilder {
 			destOperation = this.srOperationBuilder.createNeverReadOperation(targetApi, sourceDataInstanceInSwc, dataParam);
 		}
 	
-		// Ìµ¸ú²½½èÍı¤ÎÀßÄê
+		// ç„¡åŠ¹åŒ–å‡¦ç†ã®è¨­å®š
 		HandleInvalidEnum sourceHandleInvalid = sourceDataInstanceInSwc.isInvalidationEnabled() ? sourceDataInstanceInSwc.getInvalidationPolicy().getHandleInvalid() : HandleInvalidEnum.DONT_INVALIDATE;
 		if (HandleInvalidEnum.KEEP.equals(sourceHandleInvalid)) {
 			Constant invalidValueConstant = this.context.builtQuery.findDest(CONSTANT, sourceDataInstanceInSwc, RoleNames.SR_INVALID_VALUE_ROLE_NAME);
 			destOperation.setInvalidValueConstant(invalidValueConstant);
 			if (targetApi.getIsInline()) {
-				if (! targetApi.getInlineConstant().contains(invalidValueConstant)) {	// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤) Ìµ¸úÃÍ¥Ş¥¯¥íÌ¾¤¬½ÅÊ£¤¹¤ë¤³¤È¤Ï¤Ê¤¤
+				if (! targetApi.getInlineConstant().contains(invalidValueConstant)) {	// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„) ç„¡åŠ¹å€¤ãƒã‚¯ãƒ­åãŒé‡è¤‡ã™ã‚‹ã“ã¨ã¯ãªã„
 					targetApi.getInlineConstant().add(invalidValueConstant);
 				}
 			}
@@ -2367,7 +2670,7 @@ public class RteFunctionModelBuilder {
 	
 		targetApi.setOperation(destOperation);
 	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
 		if (Variables.isContainedInFunction(destReturnValueVariable)) {
@@ -2382,10 +2685,32 @@ public class RteFunctionModelBuilder {
 		targetApi.setOperation(this.srOperationBuilder.createNeverReadOperation(targetApi, sourceDataInstanceInSwc, dataParam));
 	}
 
+	private void buildFeedbackApiInternal(FeedbackApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
+		targetApi.setIsConnected(false);
+
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE// (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
+			return;
+		}
+
+		VariableDataInstanceInComposition sourceDataInstanceInComposition = sourceDataInstanceInSwc.getInstance().get(0);
+		InternalEcuSender sourceSender = this.context.query.findSingle(ref(INTERNAL_ECU_SENDER__SOURCE, sourceDataInstanceInComposition));
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
+		targetApi.setIsConnected(!sourceSender.getSendInteraction().isEmpty());
+
+		// TAckStatusã®è¨­å®š
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+			if (targetApi.getIsInline()) {
+				targetApi.getInlineGlobalVariable().add(tAckStatus.get().getStatusVariable());
+			}
+		}
+	}
+	
 	private void buildSendApiInternal(SendApi targetApi, PVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 	
-		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return;
 		}
 	
@@ -2394,10 +2719,10 @@ public class RteFunctionModelBuilder {
 	
 		Parameter dataParam = targetApi.getDataParam();
 	
-		// ÀÜÂ³¾õÂÖ¤ÎÀßÄê
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
 		targetApi.setIsConnected(!sourceSender.getSendInteraction().isEmpty());
 	
-		// ¥í¡¼¥«¥ëÊÑ¿ôÀë¸À¤ÎÀßÄê
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®£è¨€ã®è¨­å®š
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetApi.getLocalVariable().add(destReturnValueVariable);
 	
@@ -2407,12 +2732,42 @@ public class RteFunctionModelBuilder {
 		LocalVariable destFilterResultVariable = this.localSymbolModelBuilder.createSrFilterResultVariable();
 		targetApi.getLocalVariable().add(destFilterResultVariable);
 	
-		// Á÷¿®½èÍı¤Î¹½ÃÛ
 		LocalVariable destTfParamVariableForRte = null;
+		if (this.context.cache.rteQueuedSendTfParamType.isPresent()) {
+			destTfParamVariableForRte = this.localSymbolModelBuilder.createRteQueuedSendTrustedFunctionParamVariable();
+			targetApi.getLocalVariable().add(destTfParamVariableForRte);
+		}
+		
+		// ActivationOperationã®è¨­å®š(DataSendCompleted)
+		EList<ActivationOperation> activationOperationOnSendCompleted = createActivationOperationsOnSendCompleted(sourceSender);
+		targetApi.getActivationOperation().addAll(activationOperationOnSendCompleted);
+		
+		// ActivationFlagã®è¨­å®š
+		EList<LocalVariable> activationFlagsOnSendCompleted = getActivationFlags(activationOperationOnSendCompleted);
+		targetApi.getLocalVariable().addAll(activationFlagsOnSendCompleted);
+		targetApi.getActivationFlag().addAll(activationFlagsOnSendCompleted);
+
+		// TAckStatusã®è¨­å®š
+		Optional<TAckStatus> tAckStatus = this.context.builtQuery.tryFindDest(TACK_STATUS, sourceSender.getTAckStatusVariableImplementation());
+		if (tAckStatus.isPresent()) {
+			targetApi.setTAckStatus(tAckStatus.get());
+		}
+
+		// é€ä¿¡å‡¦ç†ã®æ§‹ç¯‰
 		LocalVariable destTfParamVariableForSignal = null;
 		LocalVariable destTfParamVariableForSignalGroup = null;
 		for (SendInteraction sourceSendInteraction : sourceSender.getSendInteraction()) {
 			SendOperation destOperation;
+
+			// ActivationOperationã®è¨­å®š(DataReceived)
+			EList<ActivationOperation> activationOperationOnReceived = createActivationOperationsOnReceived(sourceSendInteraction);
+			targetApi.getActivationOperation().addAll(activationOperationOnReceived);
+			
+			// ActivationFlagã®è¨­å®š
+			EList<LocalVariable> activationFlagsOnReceived = getActivationFlags(activationOperationOnReceived);
+			targetApi.getLocalVariable().addAll(activationFlagsOnReceived);
+			targetApi.getActivationFlag().addAll(activationFlagsOnReceived);
+			
 			if (sourceSendInteraction.getImplementation() instanceof RteSendImplementation) {
 				setInitReturnValueVariable(destReturnValueVariable);
 				destOperation = this.srOperationBuilder.createRteBufferQueuedSendOperation(sourceSendInteraction, dataParam, Optional.of(destReturnValueVariable));
@@ -2421,25 +2776,24 @@ public class RteFunctionModelBuilder {
 				IocSendImplementation sourceIocSendImplementation = (IocSendImplementation) sourceSendInteraction.getImplementation();
 				
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable), Optional.of(destTempReturnValueVariable));
-	
+				destOperation = this.srOperationBuilder.createIocQueuedSendOperation(sourceIocSendImplementation, dataParam, Optional.of(destReturnValueVariable),
+						Optional.of(destTempReturnValueVariable), activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof DirectComSendImplementation) {
 				DirectComSendImplementation sourceDirectComSendImplementation = (DirectComSendImplementation) sourceSendInteraction.getImplementation();
 				
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
-				
+				destOperation = this.srOperationBuilder.createDirectComSendOperation(sourceDirectComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionRteSendImplementation) {
 				TrustedFunctionRteSendImplementation sourceTrustedFunctionRteSendImplementation = (TrustedFunctionRteSendImplementation) sourceSendInteraction.getImplementation();
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				if (destTfParamVariableForRte == null) { // COVERAGE (¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
-					destTfParamVariableForRte = this.localSymbolModelBuilder.createRteSendTrustedFunctionParamVariable();
-					targetApi.getLocalVariable().add(destTfParamVariableForRte);
-				}
-				destOperation = this.srOperationBuilder.createTrustedFunctionRteSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForRte, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createTrustedFunctionRteBufferSendSendOperation(sourceTrustedFunctionRteSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, destTfParamVariableForRte, type, activationOperationOnReceived);
+
 			} else if (sourceSendInteraction.getImplementation() instanceof TrustedFunctionComSendImplementation) {
 				TrustedFunctionComSendImplementation sourceTrustedFunctionComSendImplementation = (TrustedFunctionComSendImplementation) sourceSendInteraction.getImplementation();
 				
@@ -2452,13 +2806,15 @@ public class RteFunctionModelBuilder {
 						destTfParamVariableForSignal = this.localSymbolModelBuilder.createComSendSignalTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignal);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignal, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignal, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				} else {
 					if (destTfParamVariableForSignalGroup == null) {
 						destTfParamVariableForSignalGroup = this.localSymbolModelBuilder.createComSendSignalGroupTrustedFunctionParamVariable();
 						targetApi.getLocalVariable().add(destTfParamVariableForSignalGroup);
 					}
-					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable, destTfParamVariableForSignalGroup, destTempReturnValueVariable, type);
+					destOperation = this.srOperationBuilder.createTrustedFunctionComSendOperation(sourceTrustedFunctionComSendImplementation, dataParam, destReturnValueVariable,
+							destTfParamVariableForSignalGroup, destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
 				}
 	
 			} else if (sourceSendInteraction.getImplementation() instanceof ImmediateProxyComSendImplementation) {
@@ -2466,23 +2822,25 @@ public class RteFunctionModelBuilder {
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
-			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+				destOperation = this.srOperationBuilder.createImmediateProxyComSendOperation(sourceImmediateProxyComSendImplementation, dataParam, destReturnValueVariable,
+						destTempReturnValueVariable, type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
+			} else if (sourceSendInteraction.getImplementation() instanceof PeriodicProxyComSendImplementation) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 				PeriodicProxyComSendImplementation sourcePeriodicProxyComSendImplementation = (PeriodicProxyComSendImplementation) sourceSendInteraction.getImplementation();
 				
 				Type type = this.context.builtQuery.findDestType(sourceDataInstanceInSwc.getImplementationDataType());
 				setInitReturnValueVariable(destReturnValueVariable);
-				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable, type);
-	
+				destOperation = this.srOperationBuilder.createPeriodicProxyComSendOperation(sourcePeriodicProxyComSendImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable,
+						type, targetApi.getTAckStatus(), activationOperationOnSendCompleted);
+
 			} else {
 				continue;
 			}
 	
 			targetApi.getOperation().add(destOperation);
 		}
-	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	
 		if (Variables.isContainedInFunction(destReturnValueVariable)) {
@@ -2491,14 +2849,14 @@ public class RteFunctionModelBuilder {
 			targetApi.setReturnValue(this.context.cache.rteErrorOkConstant);
 		}
 
-		// °ú¿ô¤Î¥á¥â¥ê¥Á¥§¥Ã¥¯¤¬É¬Í×¤«¤òÀßÄê
-		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType()));
+		// å¼•æ•°ã®ãƒ¡ãƒ¢ãƒªãƒã‚§ãƒƒã‚¯ãŒå¿…è¦ã‹ã‚’è¨­å®š
+		targetApi.setNeedsCheckArg(needsCheckArg(targetApi.getOperation(), dataParam.getType(), sourceDataInstanceInSwc.isTAckEnabled()));
 	}
-
+	
 	private void buildReceiveApiInternal(ReceiveApi targetApi, RVariableDataInstanceInSwc sourceDataInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 	
-		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (sourceDataInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return;
 		}
 	
@@ -2507,17 +2865,17 @@ public class RteFunctionModelBuilder {
 	
 		Parameter dataParam = targetApi.getDataParam();
 	
-		// ÆâÉô¹½Â¤¤Î¹½ÃÛ
+		// å†…éƒ¨æ§‹é€ ã®æ§‹ç¯‰
 		if (sourceReceiver.getReceiveInteraction().isEmpty()) {
 			return;
 		}
 	
 		ReceiveInteraction sourceReceiveInteraction = sourceReceiver.getReceiveInteraction().get(0);
 	
-		// ÀÜÂ³¾õÂÖ¤ÎÀßÄê
+		// æ¥ç¶šçŠ¶æ…‹ã®è¨­å®š
 		targetApi.setIsConnected(true);
 	
-		// ÊÖ¤êÃÍÍÑÊÑ¿ô¤Î¹½ÃÛ
+		// è¿”ã‚Šå€¤ç”¨å¤‰æ•°ã®æ§‹ç¯‰
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetApi.getLocalVariable().add(destReturnValueVariable);
 	
@@ -2526,36 +2884,36 @@ public class RteFunctionModelBuilder {
 		LocalVariable destTempReturnValueVariable = this.localSymbolModelBuilder.createTempReturnValueVariable();
 		targetApi.getLocalVariable().add(destTempReturnValueVariable);
 	
-		// ÆÉ¤ß¹ş¤ß½èÍı¤Î¹½ÃÛ
+		// èª­ã¿è¾¼ã¿å‡¦ç†ã®æ§‹ç¯‰
 		ReadOperation destOperation;
 		if (sourceReceiveInteraction.getValueBufferImplementation() instanceof RteValueBufferImplementation) {
 			destOperation = this.srOperationBuilder.createRteBufferQueuedReadOperation(sourceReceiveInteraction, dataParam, destReturnValueVariable);
 	
-		} else if (sourceReceiveInteraction.getValueBufferImplementation() instanceof IocValueBufferImplementation) { // COVERAGE ¾ï¤Ëtrue(false¤È¤Ê¤ë¤Î¤ÏÉÔ¶ñ¹çº®Æş»ş¤Î¤ß¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+		} else if (sourceReceiveInteraction.getValueBufferImplementation() instanceof IocValueBufferImplementation) { // COVERAGE å¸¸ã«true(falseã¨ãªã‚‹ã®ã¯ä¸å…·åˆæ··å…¥æ™‚ã®ã¿ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 			IocValueBufferImplementation sourceIocValueBufferImplementation = (IocValueBufferImplementation) sourceReceiveInteraction.getValueBufferImplementation();
 			destOperation = this.srOperationBuilder.createIocQueuedReceiveOperation(sourceIocValueBufferImplementation, dataParam, destReturnValueVariable, destTempReturnValueVariable);
 	
-		} else { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// ¤³¤³¤Ë¤ÏÍè¤Ê¤¤
+		} else { // COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// ã“ã“ã«ã¯æ¥ãªã„
 			assert false;
 			return;
 		}
 	
 		targetApi.setOperation(destOperation);
 	
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤(C/S)
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ (C/S)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildCallApiInternal(CallApi targetApi, ROperationInstanceInSwc sourceOperationInstanceInSwc) throws ModelException {
 		targetApi.setIsConnected(false);
 
-		// ¥İ¡¼¥ÈÄêµÁ°ú¿ô¤ÎÀßÄê
-		// ÀÜÂ³Àè¤Î¥ª¥Ú¥ì¡¼¥·¥ç¥ó¤¬Â¸ºß¤¹¤ë¤«¤ò³ÎÇ§
-		if (sourceOperationInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		// ãƒãƒ¼ãƒˆå®šç¾©å¼•æ•°ã®è¨­å®š
+		// æ¥ç¶šå…ˆã®ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
+		if (sourceOperationInstanceInSwc.getInstance().isEmpty()) { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			return;
 		}
 
@@ -2570,15 +2928,15 @@ public class RteFunctionModelBuilder {
 
 		targetApi.setIsConnected(true);
 
-		// »ÈÍÑ¤¹¤ë¥İ¡¼¥ÈÄêµÁ°ú¿ô¤ò´ØÏ¢ÉÕ
+		// ä½¿ç”¨ã™ã‚‹ãƒãƒ¼ãƒˆå®šç¾©å¼•æ•°ã‚’é–¢é€£ä»˜
 		List<Value> portArgValues = findCsPortArgValues(sourceProvidedOperationInstanceInSwc);
 		targetApi.getPortArgValue().addAll(portArgValues);
 
-		// ¥í¡¼¥«¥ëÊÑ¿ô¤ò¹½ÃÛ
+		// ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’æ§‹ç¯‰
 		LocalVariable destReturnValueVariable = this.localSymbolModelBuilder.createReturnValueVariable();
 		targetApi.getLocalVariable().add(destReturnValueVariable);
 
-		// ¥é¥ó¥Ê¥Ö¥ë³«»Ï¥ª¥Ú¥ì¡¼¥·¥ç¥ó¤ò¹½ÃÛ
+		// ãƒ©ãƒ³ãƒŠãƒ–ãƒ«é–‹å§‹ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ§‹ç¯‰
 		targetApi.setOperation(this.entityOperationBuilder.createServerRunnableStartOperation(sourceOperationInvokedEvent.getStartOnEvent()));
 
 		jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity startRunnable = this.context.builtQuery.findDest(RUNNABLE_ENTITY, sourceOperationInvokedEvent.getStartOnEvent());
@@ -2588,7 +2946,7 @@ public class RteFunctionModelBuilder {
 			for (Value value : portArgValues) {
 				if (value instanceof Constant) {
 					targetApi.getInlineConstant().add((Constant)value);
-				} else if (value instanceof GlobalVariable) {	// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
+				} else if (value instanceof GlobalVariable) {	// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
 					targetApi.getInlineGlobalVariable().add((GlobalVariable)value);
 				}
 			}
@@ -2603,7 +2961,7 @@ public class RteFunctionModelBuilder {
 			targetApi.setReturnVariable(destReturnValueVariable);
 		}
 
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 
 		if (Variables.isContainedInFunction(destReturnValueVariable)) {
@@ -2614,7 +2972,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	private void addInlineRunnableEntity(CallApi targetApi, jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RunnableEntity entity) {
-		if (! targetApi.getInlineRunnableEntity().contains(entity)) { // COVERAGE (¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		if (! targetApi.getInlineRunnableEntity().contains(entity)) { // COVERAGE (ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 			targetApi.getInlineRunnableEntity().add(entity);
 		}
 	}
@@ -2629,7 +2987,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤(IRV)
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ (IRV)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildIrvWriteApiInternal(IrvWriteApi targetApi, VariableDataPrototype sourceDataPrototype) throws ModelException {
 		IrvWriteOperation destOperation = this.irvOperationBuilder.createIrvWriteOperation(targetApi, sourceDataPrototype, targetApi.getDataParam());
@@ -2641,12 +2999,12 @@ public class RteFunctionModelBuilder {
 		IrvReadOperation destOperation = this.irvOperationBuilder.createIrvReadOperation(targetApi, sourceDataPrototype, targetApi.getDataParam());
 		targetApi.setOperation(destOperation);
 
-		// »ÈÍÑ¤·¤Æ¤¤¤Ê¤¤¥í¡¼¥«¥ëÊÑ¿ô¤ò½ü³°
+		// ä½¿ç”¨ã—ã¦ã„ãªã„ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã‚’é™¤å¤–
 		this.localSymbolModelBuilder.removeUnusedLocalVariables(targetApi);
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤(ÇÓÂ¾À©¸æ)
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ (æ’ä»–åˆ¶å¾¡)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildRteEnterApiInternal(RteEnterApi targetApi, ExclusiveArea sourceExclusiveArea) {
 		targetApi.setOperation(this.excludeOperationBuilder.createExcludeOperation(sourceExclusiveArea));
@@ -2673,7 +3031,7 @@ public class RteFunctionModelBuilder {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------------------------
-	// ¥·¥ó¥Ü¥ëÆâÉô¹½Â¤(¥â¡¼¥É)
+	// ã‚·ãƒ³ãƒœãƒ«å†…éƒ¨æ§‹é€ (ãƒ¢ãƒ¼ãƒ‰)
 	//-------------------------------------------------------------------------------------------------------------------------------------
 	private void buildSchmModeApiInternal(SchmModeApi targetApi, ModeDeclarationGroupPrototype sourceModeUserModePrototype, BswModuleDescription sourceBswModuleDescription) throws ModelException {
 		Optional<ModeDeclarationGroupPrototype> sourceModeManagerModePrototype = tryGetModeManagerModePrototype(sourceBswModuleDescription, sourceModeUserModePrototype);
@@ -2691,18 +3049,18 @@ public class RteFunctionModelBuilder {
 
 	private Optional<ModeDeclarationGroupPrototype> tryGetModeManagerModePrototype(BswModuleDescription sourceBswModuleDescription, ModeDeclarationGroupPrototype sourceModeUserModePrototype) {
 		if (sourceBswModuleDescription.getProvidedModeGroup().contains(sourceModeUserModePrototype)) {
-			// ¥â¡¼¥É¥æ¡¼¥¶¤¬Äó¶¡Â¦¤Î¾ì¹ç¡¢¥â¡¼¥É¥æ¡¼¥¶¤È¥â¡¼¥É¥Ş¥Í¡¼¥¸¥ã¤¬Æ±°ì¤Î¤¿¤á¡¢¥â¡¼¥É¥æ¡¼¥¶¤ò¤½¤Î¤Ş¤ŞÊÖ¤¹
+			// ãƒ¢ãƒ¼ãƒ‰ãƒ¦ãƒ¼ã‚¶ãŒæä¾›å´ã®å ´åˆã€ãƒ¢ãƒ¼ãƒ‰ãƒ¦ãƒ¼ã‚¶ã¨ãƒ¢ãƒ¼ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ãŒåŒä¸€ã®ãŸã‚ã€ãƒ¢ãƒ¼ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‚’ãã®ã¾ã¾è¿”ã™
 			return Optional.of(sourceModeUserModePrototype);
 		} else {
-			// ¥â¡¼¥É¥æ¡¼¥¶¤¬Í×µáÂ¦¤Î¾ì¹ç¡¢ÀÜÂ³Àè¤Î¥â¡¼¥É¥Ş¥Í¡¼¥¸¥ã¤ò¼èÆÀ
-			// NOTE ÀÜÂ³¤ÏÉü¿ôÂ¸ºß¤¹¤ë²ÄÇ½À­¤¬¤¢¤ë¤¬¡¢¤½¤Î¾ì¹ç¤Ç¤âÄó¶¡Â¦¤ÏÉ¬¤º1¤Ä¤È¤Ê¤ë¤¿¤á¡¢ÂåÉ½¤È¤Ê¤ëÀÜÂ³¤«¤éÄó¶¡Â¦¤ò¼èÆÀ¤¹¤ë
+			// ãƒ¢ãƒ¼ãƒ‰ãƒ¦ãƒ¼ã‚¶ãŒè¦æ±‚å´ã®å ´åˆã€æ¥ç¶šå…ˆã®ãƒ¢ãƒ¼ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ã‚’å–å¾—
+			// NOTE æ¥ç¶šã¯å¾©æ•°å­˜åœ¨ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹ãŒã€ãã®å ´åˆã§ã‚‚æä¾›å´ã¯å¿…ãš1ã¤ã¨ãªã‚‹ãŸã‚ã€ä»£è¡¨ã¨ãªã‚‹æ¥ç¶šã‹ã‚‰æä¾›å´ã‚’å–å¾—ã™ã‚‹
 			Optional<RteBswRequiredModeGroupConnection> sourceConnection = this.context.query.tryFindSingle(isKindOf(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION).AND(
 					ref(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP, sourceModeUserModePrototype)));
 			if (sourceConnection.isPresent()) {
-				// ÀÜÂ³¤¢¤ê
+				// æ¥ç¶šã‚ã‚Š
 				return Optional.of(sourceConnection.get().getRteBswProvidedModeGroup());
 			} else {
-				// ÀÜÂ³¤Ê¤·
+				// æ¥ç¶šãªã—
 				return Optional.absent();
 			}
 		}
@@ -2710,7 +3068,7 @@ public class RteFunctionModelBuilder {
 
 	private void buildSchmSwitchApiInternal(SchmSwitchApi targetApi, ModeDeclarationGroupPrototype sourceProvidedModePrototype) throws ModelException {
 		Optional<ModeMachineInstance> modeInstance = this.context.builtQuery.tryFindDest(MODE_MACHINE_INSTANCE, sourceProvidedModePrototype);
-		if (modeInstance.isPresent()) { // COVERAGE ¾ï¤Ëtrue(API¤ÎÀ¸À®¾ò·ï¤È¡¢ModeMachineInstance¤ÎÀ¸À®¾ò·ï¤¬Æ±¤¸¤Ç¤¢¤ë¤¿¤á)
+		if (modeInstance.isPresent()) { // COVERAGE å¸¸ã«true(APIã®ç”Ÿæˆæ¡ä»¶ã¨ã€ModeMachineInstanceã®ç”Ÿæˆæ¡ä»¶ãŒåŒã˜ã§ã‚ã‚‹ãŸã‚)
 			targetApi.setModeMachineInstance(modeInstance.get());
 		}
 
@@ -2728,22 +3086,22 @@ public class RteFunctionModelBuilder {
 					continue;
 				}
 
-				RteBswEventToTaskMapping sourceBswEventToTaskMapping = sourceBswModeSwitchEvent.getConfig().get(0); // NOTE ¥³¥ó¥Õ¥£¥°¤¬Â¸ºß¤¹¤ë¤³¤È¤Ïnrte_sws_0196¤Ç³ÎÇ§ºÑ¤ß
+				RteBswEventToTaskMapping sourceBswEventToTaskMapping = sourceBswModeSwitchEvent.getConfig().get(0); // NOTE ã‚³ãƒ³ãƒ•ã‚£ã‚°ãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã¯nrte_sws_0196ã§ç¢ºèªæ¸ˆã¿
 				OsTask sourceOsTask = sourceBswEventToTaskMapping.getRteBswMappedToTask();
 				if (sourceOsTask == null) {
-					// Ä¾ÀÜµ¯Æ°
+					// ç›´æ¥èµ·å‹•
 					ModeSwitchTriggeringExecutableStartOperation destExcutableStartOperation = this.entityOperationBuilder.createModeSwitchTriggeringExecutableStartOperation(sourceBswInternalBehavior.getParent(), sourceBswModeSwitchEvent);
 					targetApi.getExecutableStartOperation().add(destExcutableStartOperation);
 
 				} else {
-					// OS¥¿¥¹¥¯µ¯Æ°¡¿OS¥¤¥Ù¥ó¥ÈÀßÄê
+					// OSã‚¿ã‚¹ã‚¯èµ·å‹•ï¼OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®š
 					buildOsTaskEventByMode(targetApi.getOsTaskEventTriggeredByMode(), sourceBswModeSwitchEvent, sourceBswEventToTaskMapping, sourceOsTask);
 				}
 			}
 		}
 
-		// À¸À®¤·¤¿ÆâÉô¹½Â¤¤ò¥½¡¼¥È
-		// ¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ë³«»Ï½èÍı
+		// ç”Ÿæˆã—ãŸå†…éƒ¨æ§‹é€ ã‚’ã‚½ãƒ¼ãƒˆ
+		// ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«é–‹å§‹å‡¦ç†
 		Ordering<EObject> executableStartOperationOrdering = Ordering.natural().onResultOf(this.context.query.<String> features2Function(EXECUTABLE_START_OPERATION__START_EXECUTABLE, FUNCTION__SYMBOL_NAME))
 				.compound(Ordering.natural().onResultOf(this.context.query.<String> features2Function(MODE_SWITCH_TRIGGERING_EXECUTABLE_START_OPERATION__START_MODE, CONSTANT__SYMBOL_NAME)));
 		ECollections.sort(targetApi.getExecutableStartOperation(), executableStartOperationOrdering);
@@ -2796,12 +3154,12 @@ public class RteFunctionModelBuilder {
 
 		Optional<OsTaskEvent> foundOsTaskEvent = this.context.query.trySelectSingle(targetTaskEvents, hasAttr(OS_TASK_EVENT__OS_TASK_ID, sourceOsTask.getShortName()));
 		if (foundOsTaskEvent.isPresent()) {
-			// À¸À®ºÑ¤ß¤ÎOsTaskEvent¤¬Â¸ºß¤¹¤ë¾ì¹ç
+			// ç”Ÿæˆæ¸ˆã¿ã®OsTaskEventãŒå­˜åœ¨ã™ã‚‹å ´åˆ
 			foundOsTaskEvent.get().getOsEventId().add(sourceOsEvent.getShortName());
 			ECollections.sort(foundOsTaskEvent.get().getOsEventId());
 
 		} else {
-			// À¸À®ºÑ¤ß¤ÎOsTaskEvent¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç
+			// ç”Ÿæˆæ¸ˆã¿ã®OsTaskEventãŒå­˜åœ¨ã—ãªã„å ´åˆ
 			OsTaskEvent destTaskEvent = ModuleFactory.eINSTANCE.createOsTaskEvent();
 			destTaskEvent.setOsTaskId(sourceOsTask.getShortName());
 			if (sourceOsEvent != null) {

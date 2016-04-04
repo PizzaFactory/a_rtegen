@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -48,6 +48,9 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPack
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_EXTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.RECEIVE_INTERACTION___GET_INTERNAL_ECU_RECEIVERS;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.SEND_INTERACTION__RECEIVE_INTERACTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.ACTIVATION_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.FUNCTION;
@@ -60,6 +63,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.INTER_PARTITION_TIMEOUT_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.IOC_INITIALIZE_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.LOCAL_VARIABLE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__MEMORY_SECTION_SYMBOL_NAME;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MEMORY_MAPPING__PREFIX;
@@ -67,11 +71,10 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Litera
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODE_DECLARATION_GROUP__MODE_TRANSITION_STATUS_CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.MODULE_OBJECT__SOURCE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.OS_EVENT_SET_EXECUTABLE_TASK_BODY__OS_EVENT_ID;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.RTE_CORE_START_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SCHM_CORE_INIT_API_IMPL;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.SEND_OPERATION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.TACK_NOTIFY_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE_INITIALIZE_OPERATION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.VARIABLE__SYMBOL_NAME;
 
@@ -85,6 +88,8 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ReceiveInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Receiver;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ActivationOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ComSendProxyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Constant;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Function;
@@ -94,13 +99,16 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.GlobalVariableFileContentsG
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InitializeOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.InterPartitionTimeoutOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.IocInitializeOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.LocalVariable;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.MemoryMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeDeclarationGroup;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsActivateTaskApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetExecutableTaskBody;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PrimitiveComSendProxyOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsSetEventApi;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteCoreStartApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SchmCoreInitApiImpl;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.SendOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TAckNotifyOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.VariableInitializeOperation;
 
 import org.eclipse.emf.common.util.ECollections;
@@ -134,7 +142,7 @@ public class ModuleModelSorter {
 					EList<Constant> targetConstants = (EList<Constant>) targetFile.eGet(eReference);
 					sortConstants(targetConstants);
 
-				} else if (GLOBAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {	// COVERAGE ¾ï¤Ëfalse(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ïtrue¤òÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+				} else if (GLOBAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {	// COVERAGE å¸¸ã«false(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯trueã‚’é€šã‚‰ãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 					EList<GlobalVariable> targetGlobalVariables = (EList<GlobalVariable>) targetFile.eGet(eReference);
 					sortGlobalVariables(targetGlobalVariables);
 
@@ -179,24 +187,34 @@ public class ModuleModelSorter {
 				} else if (SEND_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SendOperation> targetOperations = (EList<SendOperation>) targetFunction.eGet(eReference);
 					sortSendOperations(targetOperations);
-				} else if (PRIMITIVE_COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
-					EList<PrimitiveComSendProxyOperation> targetOperations = (EList<PrimitiveComSendProxyOperation>) targetFunction.eGet(eReference);
+				} else if (COM_SEND_PROXY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<ComSendProxyOperation> targetOperations = (EList<ComSendProxyOperation>) targetFunction.eGet(eReference);
 					sortProxyComSendOperations(targetOperations);
+				} else if (ACTIVATION_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<ActivationOperation> targetOperations = (EList<ActivationOperation>) targetFunction.eGet(eReference);
+					sortActivationOperations(targetOperations);
+				} else if (TACK_NOTIFY_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<TAckNotifyOperation> targetOperations = (EList<TAckNotifyOperation>) targetFunction.eGet(eReference);
+					sortTAckNortifyOperations(targetOperations);
 				} else if (RTE_CORE_START_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<RteCoreStartApiImpl> targetOperations = (EList<RteCoreStartApiImpl>) targetFunction.eGet(eReference);
 					sortRteCoreStartApi(targetOperations);
 				} else if (SCHM_CORE_INIT_API_IMPL.isSuperTypeOf(eReference.getEReferenceType())) {
 					EList<SchmCoreInitApiImpl> targetOperations = (EList<SchmCoreInitApiImpl>) targetFunction.eGet(eReference);
 					sortSchmCoreInitApi(targetOperations);
+				} else if (LOCAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {
+					EList<LocalVariable> targetLocalVariables = (EList<LocalVariable>) targetFunction.eGet(eReference);
+					sortLocalVariables(targetLocalVariables);
+
 				}
 
-				// NOTE ReadOperation¤ÏÉ¬¤ºÂ¿½ÅÅÙ1¤Î¤¿¤á¡¤¥½¡¼¥È¤ò¹Ô¤Ê¤ï¤Ê¤¤¡¥
-				// NOTE ContextActivationOperation, RunnableStartOperation¤ÏÎã³°Åª¤ËOperation¤ÎÀ¸À®»ş¤Ë¥½¡¼¥È¤ò¹Ô¤¦¤¿¤á¡¤¤³¤³¤Ç¤Ï¥½¡¼¥È¤·¤Ê¤¤¡¥
+				// NOTE ReadOperationã¯å¿…ãšå¤šé‡åº¦1ã®ãŸã‚ï¼Œã‚½ãƒ¼ãƒˆã‚’è¡Œãªã‚ãªã„ï¼
+				// NOTE ContextActivationOperation, RunnableStartOperationã¯ä¾‹å¤–çš„ã«Operationã®ç”Ÿæˆæ™‚ã«ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ãŸã‚ï¼Œã“ã“ã§ã¯ã‚½ãƒ¼ãƒˆã—ãªã„ï¼
 
 			} else {
 				if (INTER_PARTITION_TIMEOUT_OPERATION.isSuperTypeOf(eReference.getEReferenceType())) {
 					InterPartitionTimeoutOperation targetOperation = (InterPartitionTimeoutOperation) targetFunction.eGet(eReference);
-					if (targetOperation == null) { // COVERAGE ¾ï¤Ëfalse(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ïtrue¤òÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+					if (targetOperation == null) { // COVERAGE å¸¸ã«false(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯trueã‚’é€šã‚‰ãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 						continue;
 					}
 					sortInterPartitionTimeoutOperationContents(targetOperation);
@@ -204,6 +222,17 @@ public class ModuleModelSorter {
 				}
 			}
 		}
+	}
+
+	private void sortTAckNortifyOperations(EList<TAckNotifyOperation> targetOperations) {
+		for (TAckNotifyOperation targetOperation : targetOperations) {
+			sortActivationOperations(targetOperation.getActivationOperation());
+		}
+	}
+
+	private void sortActivationOperations(EList<ActivationOperation> targetOperations) {
+		Ordering<ActivationOperation> ordering = Ordering.from(createActivationOperationTaskPriorityComparator()).compound(Ordering.from(createActivationOperationArgNameComparator()));
+		ECollections.sort(targetOperations, ordering);
 	}
 
 	private void sortInitializeOperations(EList<InitializeOperation> targetOperations) {
@@ -220,7 +249,7 @@ public class ModuleModelSorter {
 			VariableInitializeOperation variableInitializeOperation = (VariableInitializeOperation) targetOperation;
 			sortGlobalVariables(variableInitializeOperation.getInitVariable());
 
-		} else if (targetOperation instanceof IocInitializeOperation) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤InitializeOperation¤Ï¡¤VariableInitializeOperation¤«IocInitializeOperation¤Î¤¤¤º¤ì¤«¤Ç¤¢¤ë¤¿¤á)
+		} else if (targetOperation instanceof IocInitializeOperation) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒInitializeOperationã¯ï¼ŒVariableInitializeOperationã‹IocInitializeOperationã®ã„ãšã‚Œã‹ã§ã‚ã‚‹ãŸã‚)
 			IocInitializeOperation iocInitializeOperation = (IocInitializeOperation) targetOperation;
 			sortFunctions(iocInitializeOperation.getInitIocApi());
 		}
@@ -240,6 +269,38 @@ public class ModuleModelSorter {
 				.compound(Ordering.from(createInternalEcuReceiverComparator()).nullsLast().onResultOf(sendOperation2InternalEcuReceiver))
 				.compound(Ordering.from(createExternalEcuReceiverComparator()).nullsLast().onResultOf(sendOperation2ExternalEcuReceiver));
 		ECollections.sort(targetOperations, ordering);
+		
+		for (SendOperation targetOperation : targetOperations) {
+			for (EReference eReference : targetOperation.eClass().getEAllReferences()) {
+				if (eReference.isMany()) {
+					if (LOCAL_VARIABLE.isSuperTypeOf(eReference.getEReferenceType())) {
+						@SuppressWarnings("unchecked")
+						EList<LocalVariable> targetLocalVariables = (EList<LocalVariable>) targetOperation.eGet(eReference);
+						sortLocalVariables(targetLocalVariables);
+					}
+				}
+			}
+		}
+	}
+	
+	private Comparator<ActivationOperation> createActivationOperationArgNameComparator() {
+		return new Comparator<ActivationOperation>() {
+			@Override
+			public int compare(ActivationOperation o1, ActivationOperation o2) {
+				String o1ActivationName = o1.getActivationApi() instanceof OsActivateTaskApi ? ((OsActivateTaskApi)o1.getActivationApi()).getOsTaskId() : ((OsSetEventApi)o1.getActivationApi()).getOsTaskId() + ((OsSetEventApi)o1.getActivationApi()).getOsEventId();
+				String o2ActivationName = o2.getActivationApi() instanceof OsActivateTaskApi ? ((OsActivateTaskApi)o2.getActivationApi()).getOsTaskId() : ((OsSetEventApi)o2.getActivationApi()).getOsTaskId() + ((OsSetEventApi)o2.getActivationApi()).getOsEventId();
+				return ComparisonChain.start().compare(o1ActivationName, o2ActivationName).result();
+			}
+		};
+	}
+	
+	private Comparator<ActivationOperation> createActivationOperationTaskPriorityComparator() {
+		return new Comparator<ActivationOperation>() {
+			@Override
+			public int compare(ActivationOperation o1, ActivationOperation o2) {
+				return o2.getOsTaskPriority() - o1.getOsTaskPriority();
+			}
+		};
 	}
 
 	private Comparator<InternalEcuReceiver> createInternalEcuReceiverComparator() {
@@ -275,8 +336,8 @@ public class ModuleModelSorter {
 		sortGlobalVariables(targetOperation.getTimeoutVariable());
 	}
 
-	private void sortProxyComSendOperations(EList<PrimitiveComSendProxyOperation> targetOperations) {
-		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(PRIMITIVE_COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
+	private void sortProxyComSendOperations(EList<ComSendProxyOperation> targetOperations) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> features2Function(COM_SEND_PROXY_OPERATION__ACCESS_API, FUNCTION__SYMBOL_NAME));
 		ECollections.sort(targetOperations, ordering);
 	}
 	
@@ -326,6 +387,11 @@ public class ModuleModelSorter {
 	private void sortGlobalVariables(EList<? extends GlobalVariable> targetGlobalVariables) {
 		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(VARIABLE__SYMBOL_NAME));
 		ECollections.sort(targetGlobalVariables, ordering);
+	}
+
+	private void sortLocalVariables(EList<? extends LocalVariable> targetLocalVariables) {
+		Ordering<EObject> ordering = Ordering.natural().onResultOf(ModuleModelSorter.this.context.query.<String> feature2Function(VARIABLE__SYMBOL_NAME));
+		ECollections.sort(targetLocalVariables, ordering);
 	}
 
 	private void sortFunctions(EList<? extends Function> targetFunctions) {

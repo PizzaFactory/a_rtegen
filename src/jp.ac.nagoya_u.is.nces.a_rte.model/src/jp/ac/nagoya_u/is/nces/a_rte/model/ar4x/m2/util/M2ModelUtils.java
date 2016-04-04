@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -64,41 +64,41 @@ import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 
 /**
- * M2¥â¥Ç¥ë¤Ë´Ø¤¹¤ë¥æ¡¼¥Æ¥£¥ê¥Æ¥£µ¡Ç½¤òÄó¶¡¤¹¤ë¡£
+ * M2ãƒ¢ãƒ‡ãƒ«ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£æ©Ÿèƒ½ã‚’æä¾›ã™ã‚‹ã€‚
  */
 public class M2ModelUtils {
 
 	/**
-	 * M2¥â¥Ç¥ë¤Î¥ª¥Ö¥¸¥§¥¯¥È¤ÎID¤ÎÀÜÆ¬¼­
+	 * M2ãƒ¢ãƒ‡ãƒ«ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®IDã®æ¥é ­è¾
 	 */
 	public static final String ID_PREFIX = "m2.";
 
 	/**
-	 * M2¥â¥Ç¥ë¤Î¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¶èÀÚ¤êÊ¸»ú
+	 * M2ãƒ¢ãƒ‡ãƒ«ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®åŒºåˆ‡ã‚Šæ–‡å­—
 	 */
 	public static final String REFERENCE_SEPARATOR = "/";
 
 	/**
-	 * ¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¥í¡¼¥ëÌ¾¤ÎÀÜÈø¼­
+	 * ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ«åã®æ¥å°¾è¾
 	 */
 	public static final String REFERENCE_ROLE_SUFFIX = "Ref";
 
 	/**
-	 * ¥¿¥¤¥×¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¥í¡¼¥ëÌ¾¤ÎÀÜÈø¼­
+	 * ã‚¿ã‚¤ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ«åã®æ¥å°¾è¾
 	 */
 	public static final String TYPE_REFERENCE_ROLE_SUFFIX = "Tref";
 
 	/**
-	 * ¥¤¥ó¥¹¥¿¥ó¥¹¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¥í¡¼¥ëÌ¾¤ÎÀÜÈø¼­
+	 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ«åã®æ¥å°¾è¾
 	 */
 	public static final String INSTANCE_REFERENCE_ROLE_SUFFIX = "Iref";
 
 	/**
-	 * mixedString¤ÎÃÍ¤òÊİ»ı¤¹¤ëÂ°À­¤Î¥í¡¼¥ëÌ¾
+	 * mixedStringã®å€¤ã‚’ä¿æŒã™ã‚‹å±æ€§ã®ãƒ­ãƒ¼ãƒ«å
 	 */
 	public static final String MIXED_STRING_VALUE_FEATURE_NAME = "value";
 
-	// ¿ôÃÍ¡¤¤ª¤è¤ÓÏÀÍıÃÍ¤ÎÊ¸»úÎóÉ½¸½
+	// æ•°å€¤ï¼ŒãŠã‚ˆã³è«–ç†å€¤ã®æ–‡å­—åˆ—è¡¨ç¾
 	private static final String BINARY_PREFIX = "0b";
 	private static final String OCTAL_PREFIX = "0";
 	private static final CharMatcher OCTAL_RANGE = CharMatcher.inRange('0', '7').precomputed();
@@ -108,54 +108,54 @@ public class M2ModelUtils {
 	private static final Integer BOOLEAN_FALSE_VALUE = 0;
 	private static final List<String> BOOLEAN_TRUE_TEXT_REPRESENTATIONS = Lists.newArrayList("1", "true");
 
-	// ¥â¥Ç¥ë¤Î¥¹¥Æ¥ì¥ª¥¿¥¤¥×¤Ë´Ø¤¹¤ë¥¢¥Î¥Æ¡¼¥·¥ç¥ó
+	// ãƒ¢ãƒ‡ãƒ«ã®ã‚¹ãƒ†ãƒ¬ã‚ªã‚¿ã‚¤ãƒ—ã«é–¢ã™ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
 	private static final String IS_OF_TYPE_STEREOTYPE = "isOfType";
 	private static final String MIXED_STRING_STEREOTYPE = "atpMixedString";
 	private static final String NON_M2_STEREOTYPE = "nonM2";
 
-	// XML±ÊÂ³²½¤Ë´Ø¤¹¤ë¥¢¥Î¥Æ¡¼¥·¥ç¥ó
-	private static final String XML_ROLE_WRAPPER_ELEMENT_TAG = "xml.roleWrapperElement"; // ¥í¡¼¥ë¥é¥Ã¥Ñ¡¼¤ò¶¯À©Åª¤ËÍ­¸ú¤Ë¤¹¤ë
-	private static final String XML_NAME_TAG = "xml.name"; // ¥í¡¼¥ë¤ËÂĞ±ş¤¹¤ëXML¥¿¥°Ì¾(Ã±¿ô·Á)
-	private static final String XML_NAME_PLURAL_TAG = "xml.namePlural"; // ¥í¡¼¥ë¤ËÂĞ±ş¤¹¤ëXML¥¿¥°Ì¾(Ê£¿ô·Á)
+	// XMLæ°¸ç¶šåŒ–ã«é–¢ã™ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
+	private static final String XML_ROLE_WRAPPER_ELEMENT_TAG = "xml.roleWrapperElement"; // ãƒ­ãƒ¼ãƒ«ãƒ©ãƒƒãƒ‘ãƒ¼ã‚’å¼·åˆ¶çš„ã«æœ‰åŠ¹ã«ã™ã‚‹
+	private static final String XML_NAME_TAG = "xml.name"; // ãƒ­ãƒ¼ãƒ«ã«å¯¾å¿œã™ã‚‹XMLã‚¿ã‚°å(å˜æ•°å½¢)
+	private static final String XML_NAME_PLURAL_TAG = "xml.namePlural"; // ãƒ­ãƒ¼ãƒ«ã«å¯¾å¿œã™ã‚‹XMLã‚¿ã‚°å(è¤‡æ•°å½¢)
 
 	/**
-	 * ecucDef¤Î¥Ç¥Õ¥©¥ë¥ÈÃÍ
+	 * ecucDefã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
 	 */
 	public static final String DEFAULT_ECUC_DEF_EDITION = "4.2.0";
 
 	/**
-	 * ¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¼ïÊÌ¤òÉ½¤¹¡£
+	 * ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ç¨®åˆ¥ã‚’è¡¨ã™ã€‚
 	 */
 	public static enum ReferenceType {
 		/**
-		 * AUTOSAR¥â¥Ç¥ë¤Ë¤ª¤±¤ë½¸Ìó¤òÉ½¤¹¡£
+		 * AUTOSARãƒ¢ãƒ‡ãƒ«ã«ãŠã‘ã‚‹é›†ç´„ã‚’è¡¨ã™ã€‚
 		 */
 		CONTAINMENT,
 
 		/**
-		 * AUTOSAR¥â¥Ç¥ë¤Ë¤ª¤±¤ë¥ê¥Õ¥¡¥ì¥ó¥¹¤òÉ½¤¹¡£
+		 * AUTOSARãƒ¢ãƒ‡ãƒ«ã«ãŠã‘ã‚‹ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’è¡¨ã™ã€‚
 		 */
 		REFERENCE,
 
 		/**
-		 * AUTOSAR¥â¥Ç¥ë¤Ë¤ª¤±¤ë¥¿¥¤¥×¥ê¥Õ¥¡¥ì¥ó¥¹¤òÉ½¤¹¡£
+		 * AUTOSARãƒ¢ãƒ‡ãƒ«ã«ãŠã‘ã‚‹ã‚¿ã‚¤ãƒ—ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’è¡¨ã™ã€‚
 		 */
 		TYPE_REFERENCE,
 	}
 
 	/**
-	 * {@link EStructuralFeature}¤«¤é¥¤¥ó¥¹¥¿¥ó¥¹¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¥í¡¼¥ëÌ¾¤ò¼èÆÀ¤¹¤ë¡£
-	 * @param eStructuralFeature ¼èÆÀÂĞ¾İ¤Î{@link EStructuralFeature}
-	 * @return ¥¤¥ó¥¹¥¿¥ó¥¹¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¥í¡¼¥ëÌ¾
+	 * {@link EStructuralFeature}ã‹ã‚‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ«åã‚’å–å¾—ã™ã‚‹ã€‚
+	 * @param eStructuralFeature å–å¾—å¯¾è±¡ã®{@link EStructuralFeature}
+	 * @return ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ãƒ­ãƒ¼ãƒ«å
 	 */
 	public static String getIrefRoleNameOfRoleFeature(EStructuralFeature eStructuralFeature) {
 		return eStructuralFeature.getName() + INSTANCE_REFERENCE_ROLE_SUFFIX;
 	}
 
 	/**
-	 * ¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¼ïÊÌ¤òÈ½Äê¤¹¤ë¡£
-	 * @param eReference È½ÄêÂĞ¾İ¤Î{@link EReference}
-	 * @return ¥ê¥Õ¥¡¥ì¥ó¥¹¤Î¼ïÊÌ
+	 * ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ç¨®åˆ¥ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param eReference åˆ¤å®šå¯¾è±¡ã®{@link EReference}
+	 * @return ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ç¨®åˆ¥
 	 */
 	public static ReferenceType getReferenceType(EReference eReference) {
 		if (eReference.isContainment()) {
@@ -170,32 +170,32 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * Ê¸»úÎó¤ò¡¢»ØÄê¤µ¤ì¤¿{@link EStructuralFeature}¤ËÀßÄê²ÄÇ½¤Ê¥ª¥Ö¥¸¥§¥¯¥È¤ËÊÑ´¹¤¹¤ë¡£
-	 * @param originalValue ÊÑ´¹¸µ¤ÎÊ¸»úÎó
-	 * @param eFeature ÊÑ´¹Àè¤Î{@link EStructuralFeature}
-	 * @return ÊÑ´¹·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
-	 * @throws ModelException ÊÑ´¹¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * æ–‡å­—åˆ—ã‚’ã€æŒ‡å®šã•ã‚ŒãŸ{@link EStructuralFeature}ã«è¨­å®šå¯èƒ½ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚
+	 * @param originalValue å¤‰æ›å…ƒã®æ–‡å­—åˆ—
+	 * @param eFeature å¤‰æ›å…ˆã®{@link EStructuralFeature}
+	 * @return å¤‰æ›çµæœã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws ModelException å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public static Object convertValueForFeature(String originalValue, EStructuralFeature eFeature) throws ModelException {
 		return convertValueToType(originalValue, (EDataType) eFeature.getEType());
 	}
 
 	/**
-	 * {@link BigDecimal}¤ò¡¢»ØÄê¤µ¤ì¤¿{@link EStructuralFeature}¤ËÀßÄê²ÄÇ½¤Ê¥ª¥Ö¥¸¥§¥¯¥È¤ËÊÑ´¹¤¹¤ë¡£
-	 * @param originalValue ÊÑ´¹¸µ¤Î{@link BigDecimal}
-	 * @param eFeature ÊÑ´¹Àè¤Î{@link EStructuralFeature}
-	 * @return ÊÑ´¹·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
-	 * @throws ModelException ÊÑ´¹¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * {@link BigDecimal}ã‚’ã€æŒ‡å®šã•ã‚ŒãŸ{@link EStructuralFeature}ã«è¨­å®šå¯èƒ½ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚
+	 * @param originalValue å¤‰æ›å…ƒã®{@link BigDecimal}
+	 * @param eFeature å¤‰æ›å…ˆã®{@link EStructuralFeature}
+	 * @return å¤‰æ›çµæœã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws ModelException å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public static Object convertValueForFeature(BigDecimal originalValue, EStructuralFeature eFeature) throws ModelException {
 		return convertValueToType(originalValue, (EDataType) eFeature.getEType());
 	}
 
 	/**
-	 * Ê¸»úÎó¤¬¡¢»ØÄê¤µ¤ì¤¿{@link EDataType}¤Î¥ª¥Ö¥¸¥§¥¯¥È¤ËÊÑ´¹²ÄÇ½¤«¤òÈ½Äê¤¹¤ë¡£
-	 * @param originalValue ÊÑ´¹¸µ¤ÎÊ¸»úÎó
-	 * @param type ÊÑ´¹Àè¤Î{@link EDataType}
-	 * @return ÊÑ´¹²ÄÇ½¤Ç¤¢¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * æ–‡å­—åˆ—ãŒã€æŒ‡å®šã•ã‚ŒãŸ{@link EDataType}ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›å¯èƒ½ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param originalValue å¤‰æ›å…ƒã®æ–‡å­—åˆ—
+	 * @param type å¤‰æ›å…ˆã®{@link EDataType}
+	 * @return å¤‰æ›å¯èƒ½ã§ã‚ã‚‹å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public static boolean tryConvertValueToType(String originalValue, EDataType type) {
 		try {
@@ -207,11 +207,11 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * Ê¸»úÎó¤ò¡¢»ØÄê¤µ¤ì¤¿{@link EDataType}¤Î¥ª¥Ö¥¸¥§¥¯¥È¤ËÊÑ´¹¤¹¤ë¡£
-	 * @param originalValue ÊÑ´¹¸µ¤ÎÊ¸»úÎó
-	 * @param type ÊÑ´¹Àè¤Î{@link EDataType}
-	 * @return ÊÑ´¹·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
-	 * @throws ModelException ÊÑ´¹¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * æ–‡å­—åˆ—ã‚’ã€æŒ‡å®šã•ã‚ŒãŸ{@link EDataType}ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚
+	 * @param originalValue å¤‰æ›å…ƒã®æ–‡å­—åˆ—
+	 * @param type å¤‰æ›å…ˆã®{@link EDataType}
+	 * @return å¤‰æ›çµæœã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws ModelException å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public static Object convertValueToType(String originalValue, EDataType type) throws ModelException {
 		try {
@@ -241,11 +241,11 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * {@link BigDecimal}¤ò¡¢»ØÄê¤µ¤ì¤¿{@link EDataType}¤Î¥ª¥Ö¥¸¥§¥¯¥È¤ËÊÑ´¹¤¹¤ë¡£
-	 * @param originalValue ÊÑ´¹¸µ¤Î{@link BigDecimal}
-	 * @param type ÊÑ´¹Àè¤Î{@link EDataType}
-	 * @return ÊÑ´¹·ë²Ì¤Î¥ª¥Ö¥¸¥§¥¯¥È
-	 * @throws ModelException ÊÑ´¹¤Ë¼ºÇÔ¤·¤¿¾ì¹ç
+	 * {@link BigDecimal}ã‚’ã€æŒ‡å®šã•ã‚ŒãŸ{@link EDataType}ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹ã€‚
+	 * @param originalValue å¤‰æ›å…ƒã®{@link BigDecimal}
+	 * @param type å¤‰æ›å…ˆã®{@link EDataType}
+	 * @return å¤‰æ›çµæœã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @throws ModelException å¤‰æ›ã«å¤±æ•—ã—ãŸå ´åˆ
 	 */
 	public static Object convertValueToType(BigDecimal originalValue, EDataType type) throws ModelException {
 		try {
@@ -342,47 +342,47 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * {@link EClass}¤ËmixedString¤Î¥¹¥Æ¥ì¥ª¥¿¥¤¥×¤¬ÉÕÍ¿¤µ¤ì¤Æ¤¤¤ë¤«¤òÈ½Äê¤¹¤ë¡£
-	 * @param eClass È½ÄêÂĞ¾İ¤Î{@link EClass}
-	 * @return {@link EClass}¤ËmixedString¤Î¥¹¥Æ¥ì¥ª¥¿¥¤¥×¤¬ÉÕÍ¿¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * {@link EClass}ã«mixedStringã®ã‚¹ãƒ†ãƒ¬ã‚ªã‚¿ã‚¤ãƒ—ãŒä»˜ä¸ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param eClass åˆ¤å®šå¯¾è±¡ã®{@link EClass}
+	 * @return {@link EClass}ã«mixedStringã®ã‚¹ãƒ†ãƒ¬ã‚ªã‚¿ã‚¤ãƒ—ãŒä»˜ä¸ã•ã‚Œã¦ã„ã‚‹å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public static boolean hasMixedStringStereotype(EClass eClass) {
 		return EmfUtils.hasStereotype(eClass, MIXED_STRING_STEREOTYPE);
 	}
 
 	/**
-	 * {@link EStructuralFeature}¤Î±ÊÂ³²½»ş¤Ë¥í¡¼¥ë¥é¥Ã¥Ñ¤ò»ÈÍÑ¤¹¤ë¤«¤òÈ½Äê¤¹¤ë¡£
-	 * @param eStructuralFeature È½ÄêÂĞ¾İ¤Î{@link EStructuralFeature}
-	 * @param defaultValue {@link EStructuralFeature}¤Ëxml.roleWrapperEnabled¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç¤Î¥Ç¥Õ¥©¥ë¥ÈÃÍ
-	 * @return {@link EStructuralFeature}¤Î±ÊÂ³²½»ş¤Ë¥í¡¼¥ë¥é¥Ã¥Ñ¤ò»ÈÍÑ¤¹¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * {@link EStructuralFeature}ã®æ°¸ç¶šåŒ–æ™‚ã«ãƒ­ãƒ¼ãƒ«ãƒ©ãƒƒãƒ‘ã‚’ä½¿ç”¨ã™ã‚‹ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param eStructuralFeature åˆ¤å®šå¯¾è±¡ã®{@link EStructuralFeature}
+	 * @param defaultValue {@link EStructuralFeature}ã«xml.roleWrapperEnabledãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤
+	 * @return {@link EStructuralFeature}ã®æ°¸ç¶šåŒ–æ™‚ã«ãƒ­ãƒ¼ãƒ«ãƒ©ãƒƒãƒ‘ã‚’ä½¿ç”¨ã™ã‚‹å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public static boolean isXmlRoleWrapperEnabled(EStructuralFeature eStructuralFeature, boolean defaultValue) {
 		return EmfUtils.getBooleanTagValue(eStructuralFeature, XML_ROLE_WRAPPER_ELEMENT_TAG, defaultValue);
 	}
 
 	/**
-	 * {@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿xml.name¤ÎÃÍ¤ò¼èÆÀ¤¹¤ë¡£
-	 * @param eStructuralFeature ¼èÆÀÂĞ¾İ¤Î{@link EStructuralFeature}
-	 * @return¡¡{@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿xml.name¤ÎÃÍ
+	 * {@link EStructuralFeature}ã«è¨­å®šã•ã‚ŒãŸxml.nameã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
+	 * @param eStructuralFeature å–å¾—å¯¾è±¡ã®{@link EStructuralFeature}
+	 * @returnã€€{@link EStructuralFeature}ã«è¨­å®šã•ã‚ŒãŸxml.nameã®å€¤
 	 */
 	public static Optional<String> tryGetXmlName(EStructuralFeature eStructuralFeature) {
 		return EmfUtils.tryGetTag(eStructuralFeature, XML_NAME_TAG);
 	}
 
 	/**
-	 * {@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿xml.namePlural¤ÎÃÍ¤ò¼èÆÀ¤¹¤ë¡£
-	 * @param eStructuralFeature ¼èÆÀÂĞ¾İ¤Î{@link EStructuralFeature}
-	 * @return¡¡{@link EStructuralFeature}¤ËÀßÄê¤µ¤ì¤¿xml.namePlural¤ÎÃÍ
+	 * {@link EStructuralFeature}ã«è¨­å®šã•ã‚ŒãŸxml.namePluralã®å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
+	 * @param eStructuralFeature å–å¾—å¯¾è±¡ã®{@link EStructuralFeature}
+	 * @returnã€€{@link EStructuralFeature}ã«è¨­å®šã•ã‚ŒãŸxml.namePluralã®å€¤
 	 */
 	public static Optional<String> tryGetXmlPluralName(EStructuralFeature eStructuralFeature) {
 		return EmfUtils.tryGetTag(eStructuralFeature, XML_NAME_PLURAL_TAG);
 	}
 
 	/**
-	 * <p>¿ôÃÍ¥ª¥Ö¥¸¥§¥¯¥È¤ò{@link BigDecimal}¤ËÊÑ´¹¤¹¤ë¡£</p>
-	 * <p>NOTE ¸½ºß¡¢ÊÑ´¹²ÄÇ½¤Ê¿ôÃÍ¥ª¥Ö¥¸¥§¥¯¥È¤Ï{@link BigDecimal}¡¢{@link BigInteger}¡¢{@link Boolean}¡¢{@link Integer}¤Î¤ß¤Ç¤¢¤ë¤³¤È¤ËÃí°Õ¡£</p>
-	 * @param value ÊÑ´¹¸µ¤Î¿ôÃÍ¥ª¥Ö¥¸¥§¥¯¥È
-	 * @return ÊÑ´¹²ÄÇ½¤Ê¿ôÃÍ¥ª¥Ö¥¸¥§¥¯¥È¤Ç¤¢¤ë¾ì¹ç¡¢ÊÑ´¹·ë²Ì¤Î{@link BigDecimal}¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢null¡£
+	 * <p>æ•°å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’{@link BigDecimal}ã«å¤‰æ›ã™ã‚‹ã€‚</p>
+	 * <p>NOTE ç¾åœ¨ã€å¤‰æ›å¯èƒ½ãªæ•°å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯{@link BigDecimal}ã€{@link BigInteger}ã€{@link Boolean}ã€{@link Integer}ã®ã¿ã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„ã€‚</p>
+	 * @param value å¤‰æ›å…ƒã®æ•°å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+	 * @return å¤‰æ›å¯èƒ½ãªæ•°å€¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã§ã‚ã‚‹å ´åˆã€å¤‰æ›çµæœã®{@link BigDecimal}ã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€nullã€‚
 	 */
 	public static BigDecimal convertValueToBigDecimal(Object value) {
 		if (value instanceof BigDecimal) {
@@ -404,9 +404,9 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * ¿ôÃÍ·¿¤ÎÂ°À­¤«¤É¤¦¤«¤òÈ½Äê¤¹¤ë¡£
-	 * @param eAttribute È½ÄêÂĞ¾İ¤Î{@link EAttribute}
-	 * @return ¿ôÃÍ·¿¤ÎÂ°À­¤Ç¤¢¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * æ•°å€¤å‹ã®å±æ€§ã‹ã©ã†ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param eAttribute åˆ¤å®šå¯¾è±¡ã®{@link EAttribute}
+	 * @return æ•°å€¤å‹ã®å±æ€§ã§ã‚ã‚‹å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public static boolean isNumericalAttribute(EAttribute eAttribute) {
 		return isJavaBooleanType(eAttribute.getEAttributeType()) || isJavaIntegerType(eAttribute.getEAttributeType()) || isJavaBigInteger(eAttribute.getEAttributeType())
@@ -414,9 +414,9 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * M2¥â¥Ç¥ë¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ø¤Î¥ê¥Õ¥¡¥ì¥ó¥¹¤òÀ¸À®¤¹¤ë¡£
-	 * @param object ¥ê¥Õ¥¡¥ì¥ó¥¹¤ÎÀ¸À®ÂĞ¾İ¤Î{@link M2Object}
-	 * @return M2¥â¥Ç¥ë¤Î¥ª¥Ö¥¸¥§¥¯¥È¤Ø¤Î¥ê¥Õ¥¡¥ì¥ó¥¹
+	 * M2ãƒ¢ãƒ‡ãƒ«ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ã€‚
+	 * @param object ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã®ç”Ÿæˆå¯¾è±¡ã®{@link M2Object}
+	 * @return M2ãƒ¢ãƒ‡ãƒ«ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¸ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹
 	 */
 	public static String generateAutosarReference(M2Object object) {
 		StringBuilder sb = new StringBuilder();
@@ -433,9 +433,9 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * {@link Referrable}¤Ø¤Î¥ê¥Õ¥¡¥ì¥ó¥¹¥Ù¡¼¥¹(¿Æ¥â¥Ç¥ëÍ×ÁÇ¤Î¥ê¥Õ¥¡¥ì¥ó¥¹)¤ò¼èÆÀ¤¹¤ë¡£
-	 * @param referrable ¥ê¥Õ¥¡¥ì¥ó¥¹¥Ù¡¼¥¹¤Î¼èÆÀÂĞ¾İ¤Î{@link Referrable}
-	 * @return {@link Referrable}¤Ø¤Î¥ê¥Õ¥¡¥ì¥ó¥¹¥Ù¡¼¥¹
+	 * {@link Referrable}ã¸ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ™ãƒ¼ã‚¹(è¦ªãƒ¢ãƒ‡ãƒ«è¦ç´ ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹)ã‚’å–å¾—ã™ã‚‹ã€‚
+	 * @param referrable ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ™ãƒ¼ã‚¹ã®å–å¾—å¯¾è±¡ã®{@link Referrable}
+	 * @return {@link Referrable}ã¸ã®ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ãƒ™ãƒ¼ã‚¹
 	 */
 	public static String getReferenceBase(Referrable referrable) {
 		String reference = referrable.getReference();
@@ -444,9 +444,9 @@ public class M2ModelUtils {
 	}
 
 	/**
-	 * {@link EStructuralFeature}¤¬AUTOSAR¤ÎM2¤ÇÄêµÁ¤µ¤ì¤¿Â°À­¡¿¥ê¥Õ¥¡¥ì¥ó¥¹¤Ç¤¢¤ë¤«¤òÈ½Äê¤¹¤ë¡£
-	 * @param eFeature È½ÄêÂĞ¾İ¤Î{@link EStructuralFeature}
-	 * @return {@link EStructuralFeature}¤¬AUTOSAR¤ÎM2¤ÇÄêµÁ¤µ¤ì¤¿Â°À­¡¿¥ê¥Õ¥¡¥ì¥ó¥¹¤Ç¤¢¤ë¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * {@link EStructuralFeature}ãŒAUTOSARã®M2ã§å®šç¾©ã•ã‚ŒãŸå±æ€§ï¼ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã§ã‚ã‚‹ã‹ã‚’åˆ¤å®šã™ã‚‹ã€‚
+	 * @param eFeature åˆ¤å®šå¯¾è±¡ã®{@link EStructuralFeature}
+	 * @return {@link EStructuralFeature}ãŒAUTOSARã®M2ã§å®šç¾©ã•ã‚ŒãŸå±æ€§ï¼ãƒªãƒ•ã‚¡ãƒ¬ãƒ³ã‚¹ã§ã‚ã‚‹å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public static boolean isNonM2Feature(EStructuralFeature eFeature) {
 		return EmfUtils.hasStereotype(eFeature, NON_M2_STEREOTYPE);

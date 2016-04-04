@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -883,13 +883,49 @@ public interface InstancePackage extends EPackage {
 	int PVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Is Accessed By Data Send Point</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is TAck Enabled</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 5;
+
+	/**
+	 * The operation id for the '<em>Is TAck Timeout Enabled</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Get Related Data Send Completed Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 7;
+
+	/**
 	 * The number of operations of the '<em>PVariable Data Instance In Swc</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PVARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 4;
+	int PVARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Instance Id</b></em>' attribute list.
@@ -1081,13 +1117,31 @@ public interface InstancePackage extends EPackage {
 	int RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_ENABLED = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Is Invalidation Keep</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Is Invalidation Replace</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 5;
+
+	/**
 	 * The operation id for the '<em>Get Invalidation Policy</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 4;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 6;
 
 	/**
 	 * The operation id for the '<em>Get Init Value</em>' operation.
@@ -1096,7 +1150,7 @@ public interface InstancePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 5;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Get Queue Length</em>' operation.
@@ -1105,7 +1159,7 @@ public interface InstancePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_QUEUE_LENGTH = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 6;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_QUEUE_LENGTH = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 8;
 
 	/**
 	 * The operation id for the '<em>Get Com Spec</em>' operation.
@@ -1114,7 +1168,25 @@ public interface InstancePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 7;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 9;
+
+	/**
+	 * The operation id for the '<em>Get Related Data Received Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 10;
+
+	/**
+	 * The operation id for the '<em>Get Related Data Receive Error Event</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>RVariable Data Instance In Swc</em>' class.
@@ -1123,7 +1195,7 @@ public interface InstancePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RVARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 8;
+	int RVARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT = VARIABLE_DATA_INSTANCE_IN_SWC_OPERATION_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -2047,6 +2119,46 @@ public interface InstancePackage extends EPackage {
 	EOperation getPVariableDataInstanceInSwc__GetComSpec();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isAccessedByDataSendPoint() <em>Is Accessed By Data Send Point</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Accessed By Data Send Point</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isAccessedByDataSendPoint()
+	 * @generated
+	 */
+	EOperation getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isTAckEnabled() <em>Is TAck Enabled</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is TAck Enabled</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isTAckEnabled()
+	 * @generated
+	 */
+	EOperation getPVariableDataInstanceInSwc__IsTAckEnabled();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isTAckTimeoutEnabled() <em>Is TAck Timeout Enabled</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is TAck Timeout Enabled</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#isTAckTimeoutEnabled()
+	 * @generated
+	 */
+	EOperation getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#getRelatedDataSendCompletedEvent() <em>Get Related Data Send Completed Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Data Send Completed Event</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.PVariableDataInstanceInSwc#getRelatedDataSendCompletedEvent()
+	 * @generated
+	 */
+	EOperation getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc <em>RVariable Data Instance In Swc</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2108,6 +2220,26 @@ public interface InstancePackage extends EPackage {
 	EOperation getRVariableDataInstanceInSwc__IsInvalidationEnabled();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#isInvalidationKeep() <em>Is Invalidation Keep</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Invalidation Keep</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#isInvalidationKeep()
+	 * @generated
+	 */
+	EOperation getRVariableDataInstanceInSwc__IsInvalidationKeep();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#isInvalidationReplace() <em>Is Invalidation Replace</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Invalidation Replace</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#isInvalidationReplace()
+	 * @generated
+	 */
+	EOperation getRVariableDataInstanceInSwc__IsInvalidationReplace();
+
+	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getInvalidationPolicy() <em>Get Invalidation Policy</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2146,6 +2278,26 @@ public interface InstancePackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRVariableDataInstanceInSwc__GetComSpec();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getRelatedDataReceivedEvent() <em>Get Related Data Received Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Data Received Event</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getRelatedDataReceivedEvent()
+	 * @generated
+	 */
+	EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getRelatedDataReceiveErrorEvent() <em>Get Related Data Receive Error Event</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Related Data Receive Error Event</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.RVariableDataInstanceInSwc#getRelatedDataReceiveErrorEvent()
+	 * @generated
+	 */
+	EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.AssemblyDataInstanceConnector <em>Assembly Data Instance Connector</em>}'.
@@ -2866,6 +3018,38 @@ public interface InstancePackage extends EPackage {
 		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC = eINSTANCE.getPVariableDataInstanceInSwc__GetComSpec();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Accessed By Data Send Point</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT = eINSTANCE.getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint();
+
+		/**
+		 * The meta object literal for the '<em><b>Is TAck Enabled</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED = eINSTANCE.getPVariableDataInstanceInSwc__IsTAckEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Is TAck Timeout Enabled</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED = eINSTANCE.getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Data Send Completed Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT = eINSTANCE.getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.impl.RVariableDataInstanceInSwcImpl <em>RVariable Data Instance In Swc</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2916,6 +3100,22 @@ public interface InstancePackage extends EPackage {
 		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_ENABLED = eINSTANCE.getRVariableDataInstanceInSwc__IsInvalidationEnabled();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Invalidation Keep</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP = eINSTANCE.getRVariableDataInstanceInSwc__IsInvalidationKeep();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Invalidation Replace</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE = eINSTANCE.getRVariableDataInstanceInSwc__IsInvalidationReplace();
+
+		/**
 		 * The meta object literal for the '<em><b>Get Invalidation Policy</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2946,6 +3146,22 @@ public interface InstancePackage extends EPackage {
 		 * @generated
 		 */
 		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC = eINSTANCE.getRVariableDataInstanceInSwc__GetComSpec();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Data Received Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT = eINSTANCE.getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Related Data Receive Error Event</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT = eINSTANCE.getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.impl.AssemblyDataInstanceConnectorImpl <em>Assembly Data Instance Connector</em>}' class.

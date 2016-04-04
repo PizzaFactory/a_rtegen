@@ -188,6 +188,26 @@ public class SwcInternalBehaviorItemProvider extends IdentifiableItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(M2Package.Literals.SWC_INTERNAL_BEHAVIOR__EVENT,
+				 M2Factory.eINSTANCE.createBackgroundEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.SWC_INTERNAL_BEHAVIOR__EVENT,
+				 M2Factory.eINSTANCE.createDataSendCompletedEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.SWC_INTERNAL_BEHAVIOR__EVENT,
+				 M2Factory.eINSTANCE.createDataReceivedEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.SWC_INTERNAL_BEHAVIOR__EVENT,
+				 M2Factory.eINSTANCE.createDataReceiveErrorEvent()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(M2Package.Literals.SWC_INTERNAL_BEHAVIOR__EVENT,
 				 M2Factory.eINSTANCE.createOperationInvokedEvent()));
 
 		newChildDescriptors.add

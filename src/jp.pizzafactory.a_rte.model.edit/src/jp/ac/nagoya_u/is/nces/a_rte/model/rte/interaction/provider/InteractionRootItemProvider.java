@@ -192,6 +192,11 @@ public class InteractionRootItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(InteractionPackage.Literals.INTERACTION_ROOT__INTERACTION_END,
+				 InteractionFactory.eINSTANCE.createExecutionContext()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InteractionPackage.Literals.INTERACTION_ROOT__INTERACTION_END,
 				 InteractionFactory.eINSTANCE.createOsTaskActivateEntityStarter()));
 
 		newChildDescriptors.add

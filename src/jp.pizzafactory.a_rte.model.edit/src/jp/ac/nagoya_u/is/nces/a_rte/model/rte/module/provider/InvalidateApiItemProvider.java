@@ -15,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -46,8 +47,54 @@ public class InvalidateApiItemProvider extends RteApiItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addActivationFlagPropertyDescriptor(object);
+			addTAckStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Activation Flag feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addActivationFlagPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InvalidateApi_activationFlag_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidateApi_activationFlag_feature", "_UI_InvalidateApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.INVALIDATE_API__ACTIVATION_FLAG,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the TAck Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTAckStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InvalidateApi_tAckStatus_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_InvalidateApi_tAckStatus_feature", "_UI_InvalidateApi_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModulePackage.Literals.INVALIDATE_API__TACK_STATUS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -63,6 +110,7 @@ public class InvalidateApiItemProvider extends RteApiItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModulePackage.Literals.INVALIDATE_API__OPERATION);
+			childrenFeatures.add(ModulePackage.Literals.INVALIDATE_API__ACTIVATION_OPERATION);
 		}
 		return childrenFeatures;
 	}
@@ -119,6 +167,7 @@ public class InvalidateApiItemProvider extends RteApiItemProvider {
 
 		switch (notification.getFeatureID(InvalidateApi.class)) {
 			case ModulePackage.INVALIDATE_API__OPERATION:
+			case ModulePackage.INVALIDATE_API__ACTIVATION_OPERATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -164,12 +213,17 @@ public class InvalidateApiItemProvider extends RteApiItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.INVALIDATE_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteSendOperation()));
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.INVALIDATE_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation()));
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferSendSendOperation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.INVALIDATE_API__OPERATION,
+				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -198,8 +252,8 @@ public class InvalidateApiItemProvider extends RteApiItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModulePackage.Literals.INVALIDATE_API__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation()));
+				(ModulePackage.Literals.INVALIDATE_API__ACTIVATION_OPERATION,
+				 ModuleFactory.eINSTANCE.createActivationOperation()));
 	}
 
 }

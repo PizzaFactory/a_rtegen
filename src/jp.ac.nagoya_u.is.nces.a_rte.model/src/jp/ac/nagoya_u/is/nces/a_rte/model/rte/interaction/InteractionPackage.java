@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  æÂµ≠√¯∫Ó∏¢º‘§œ°§∞ ≤º§Œ(1)°¡(4)§ŒæÚ∑Ô§ÚÀ˛§ø§πæÏπÁ§À∏¬§Í°§À‹•Ω•’•»•¶•ß
- *  •¢° À‹•Ω•’•»•¶•ß•¢§Ú≤˛ —§∑§ø§‚§Œ§Ú¥ﬁ§‡°•∞ ≤º∆±§∏°À§Úª»Õ—°¶ £¿Ω°¶≤˛
- *   —°¶∫∆«€…€° ∞ ≤º°§Õ¯Õ—§»∏∆§÷°À§π§Î§≥§»§ÚÃµΩ˛§«µˆ¬˙§π§Î°•
- *  (1) À‹•Ω•’•»•¶•ß•¢§Ú•Ω°º•π•≥°º•…§Œ∑¡§«Õ¯Õ—§π§ÎæÏπÁ§À§œ°§æÂµ≠§Œ√¯∫Ó
- *      ∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠§ŒÃµ ›æ⁄µ¨ƒÍ§¨°§§Ω§Œ§ﬁ§ﬁ§Œ∑¡§«•Ω°º
- *      •π•≥°º•…√Ê§À¥ﬁ§ﬁ§Ï§∆§§§Î§≥§»°•
- *  (2) À‹•Ω•’•»•¶•ß•¢§Ú°§•È•§•÷•È•Í∑¡º∞§ §…°§¬æ§Œ•Ω•’•»•¶•ß•¢≥´»Ø§Àª»
- *      Õ—§«§≠§Î∑¡§«∫∆«€…€§π§ÎæÏπÁ§À§œ°§∫∆«€…€§À»º§¶•…•≠•Â•·•Û•»° Õ¯Õ—
- *      º‘•ﬁ•À•Â•¢•Î§ §…°À§À°§æÂµ≠§Œ√¯∫Ó∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠
- *      §ŒÃµ ›æ⁄µ¨ƒÍ§Ú∑«∫‹§π§Î§≥§»°•
- *  (3) À‹•Ω•’•»•¶•ß•¢§Ú°§µ°¥Ô§À¡»§ﬂπ˛§‡§ §…°§¬æ§Œ•Ω•’•»•¶•ß•¢≥´»Ø§Àª»
- *      Õ—§«§≠§ §§∑¡§«∫∆«€…€§π§ÎæÏπÁ§À§œ°§º°§Œ§§§∫§Ï§´§ŒæÚ∑Ô§ÚÀ˛§ø§π§≥
- *      §»°•
- *    (a) ∫∆«€…€§À»º§¶•…•≠•Â•·•Û•»° Õ¯Õ—º‘•ﬁ•À•Â•¢•Î§ §…°À§À°§æÂµ≠§Œ√¯
- *        ∫Ó∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠§ŒÃµ ›æ⁄µ¨ƒÍ§Ú∑«∫‹§π§Î§≥§»°•
- *    (b) ∫∆«€…€§Œ∑¡¬÷§Ú°§ Ã§ÀƒÍ§·§Î ˝À°§À§Ë§√§∆°§TOPPERS•◊•Ì•∏•ß•Ø•»§À
- *         Ûπ§π§Î§≥§»°•
- *  (4) À‹•Ω•’•»•¶•ß•¢§ŒÕ¯Õ—§À§Ë§Íƒæ¿‹≈™§ﬁ§ø§œ¥÷¿‹≈™§À¿∏§∏§Î§§§´§ §Î¬ª
- *      ≥≤§´§È§‚°§æÂµ≠√¯∫Ó∏¢º‘§™§Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§ÚÃ»¿’§π§Î§≥§»°•
- *      §ﬁ§ø°§À‹•Ω•’•»•¶•ß•¢§Œ•Ê°º•∂§ﬁ§ø§œ•®•Û•…•Ê°º•∂§´§È§Œ§§§´§ §ÎÕ˝
- *      Õ≥§À¥§≈§Ø¿¡µ·§´§È§‚°§æÂµ≠√¯∫Ó∏¢º‘§™§Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§Ú
- *      Ã»¿’§π§Î§≥§»°•
+ *  ‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„ÅØÔºå‰ª•‰∏ã„ÅÆ(1)„Äú(4)„ÅÆÊù°‰ª∂„ÇíÊ∫Ä„Åü„ÅôÂ†¥Âêà„Å´Èôê„ÇäÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß
+ *  „Ç¢ÔºàÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÊîπÂ§â„Åó„Åü„ÇÇ„ÅÆ„ÇíÂê´„ÇÄÔºé‰ª•‰∏ãÂêå„ÅòÔºâ„Çí‰ΩøÁî®„ÉªË§áË£Ω„ÉªÊîπ
+ *  Â§â„ÉªÂÜçÈÖçÂ∏ÉÔºà‰ª•‰∏ãÔºåÂà©Áî®„Å®Âëº„Å∂Ôºâ„Åô„Çã„Åì„Å®„ÇíÁÑ°ÂÑü„ÅßË®±Ë´æ„Åô„ÇãÔºé
+ *  (1) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„Çí„ÇΩ„Éº„Çπ„Ç≥„Éº„Éâ„ÅÆÂΩ¢„ÅßÂà©Áî®„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºå‰∏äË®ò„ÅÆËëó‰Ωú
+ *      Ê®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò„ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÅåÔºå„Åù„ÅÆ„Åæ„Åæ„ÅÆÂΩ¢„Åß„ÇΩ„Éº
+ *      „Çπ„Ç≥„Éº„Éâ‰∏≠„Å´Âê´„Åæ„Çå„Å¶„ÅÑ„Çã„Åì„Å®Ôºé
+ *  (2) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÔºå„É©„Ç§„Éñ„É©„É™ÂΩ¢Âºè„Å™„Å©Ôºå‰ªñ„ÅÆ„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢ÈñãÁô∫„Å´‰Ωø
+ *      Áî®„Åß„Åç„ÇãÂΩ¢„ÅßÂÜçÈÖçÂ∏É„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºåÂÜçÈÖçÂ∏É„Å´‰º¥„ÅÜ„Éâ„Ç≠„É•„É°„É≥„ÉàÔºàÂà©Áî®
+ *      ËÄÖ„Éû„Éã„É•„Ç¢„É´„Å™„Å©Ôºâ„Å´Ôºå‰∏äË®ò„ÅÆËëó‰ΩúÊ®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò
+ *      „ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÇíÊé≤Ëºâ„Åô„Çã„Åì„Å®Ôºé
+ *  (3) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÔºåÊ©üÂô®„Å´ÁµÑ„ÅøËæº„ÇÄ„Å™„Å©Ôºå‰ªñ„ÅÆ„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢ÈñãÁô∫„Å´‰Ωø
+ *      Áî®„Åß„Åç„Å™„ÅÑÂΩ¢„ÅßÂÜçÈÖçÂ∏É„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºåÊ¨°„ÅÆ„ÅÑ„Åö„Çå„Åã„ÅÆÊù°‰ª∂„ÇíÊ∫Ä„Åü„Åô„Åì
+ *      „Å®Ôºé
+ *    (a) ÂÜçÈÖçÂ∏É„Å´‰º¥„ÅÜ„Éâ„Ç≠„É•„É°„É≥„ÉàÔºàÂà©Áî®ËÄÖ„Éû„Éã„É•„Ç¢„É´„Å™„Å©Ôºâ„Å´Ôºå‰∏äË®ò„ÅÆËëó
+ *        ‰ΩúÊ®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò„ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÇíÊé≤Ëºâ„Åô„Çã„Åì„Å®Ôºé
+ *    (b) ÂÜçÈÖçÂ∏É„ÅÆÂΩ¢ÊÖã„ÇíÔºåÂà•„Å´ÂÆö„ÇÅ„ÇãÊñπÊ≥ï„Å´„Çà„Å£„Å¶ÔºåTOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„Å´
+ *        Â†±Âëä„Åô„Çã„Åì„Å®Ôºé
+ *  (4) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅÆÂà©Áî®„Å´„Çà„ÇäÁõ¥Êé•ÁöÑ„Åæ„Åü„ÅØÈñìÊé•ÁöÑ„Å´Áîü„Åò„Çã„ÅÑ„Åã„Å™„ÇãÊêç
+ *      ÂÆ≥„Åã„Çâ„ÇÇÔºå‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä„Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„ÇíÂÖçË≤¨„Åô„Çã„Åì„Å®Ôºé
+ *      „Åæ„ÅüÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅÆ„É¶„Éº„Ç∂„Åæ„Åü„ÅØ„Ç®„É≥„Éâ„É¶„Éº„Ç∂„Åã„Çâ„ÅÆ„ÅÑ„Åã„Å™„ÇãÁêÜ
+ *      Áî±„Å´Âü∫„Å•„ÅèË´ãÊ±Ç„Åã„Çâ„ÇÇÔºå‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä„Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„Çí
+ *      ÂÖçË≤¨„Åô„Çã„Åì„Å®Ôºé
  *
- *  À‹•Ω•’•»•¶•ß•¢§œ°§AUTOSAR° AUTomotive Open System ARchitecture°Àª≈
- *  ÕÕ§À¥§≈§§§∆§§§Î°•æÂµ≠§Œµˆ¬˙§œ°§AUTOSAR§Œ√Œ≈™∫‚ª∫∏¢§Úµˆ¬˙§π§Î§‚§Œ§«
- *  §œ§ §§°•AUTOSAR§œ°§AUTOSARª≈ÕÕ§À¥§≈§§§ø•Ω•’•»•¶•ß•¢§Úæ¶Õ—Ã‹≈™§«Õ¯
- *  Õ—§π§Îº‘§À¬–§∑§∆°§AUTOSAR•—°º•»• °º§À§ §Î§≥§»§Úµ·§·§∆§§§Î°•
+ *  Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅØÔºåAUTOSARÔºàAUTomotive Open System ARchitectureÔºâ‰ªï
+ *  Êßò„Å´Âü∫„Å•„ÅÑ„Å¶„ÅÑ„ÇãÔºé‰∏äË®ò„ÅÆË®±Ë´æ„ÅØÔºåAUTOSAR„ÅÆÁü•ÁöÑË≤°Áî£Ê®©„ÇíË®±Ë´æ„Åô„Çã„ÇÇ„ÅÆ„Åß
+ *  „ÅØ„Å™„ÅÑÔºéAUTOSAR„ÅØÔºåAUTOSAR‰ªïÊßò„Å´Âü∫„Å•„ÅÑ„Åü„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÂïÜÁî®ÁõÆÁöÑ„ÅßÂà©
+ *  Áî®„Åô„ÇãËÄÖ„Å´ÂØæ„Åó„Å¶ÔºåAUTOSAR„Éë„Éº„Éà„Éä„Éº„Å´„Å™„Çã„Åì„Å®„ÇíÊ±Ç„ÇÅ„Å¶„ÅÑ„ÇãÔºé
  *
- *  À‹•Ω•’•»•¶•ß•¢§œ°§Ãµ ›æ⁄§«ƒÛ∂°§µ§Ï§∆§§§Î§‚§Œ§«§¢§Î°•æÂµ≠√¯∫Ó∏¢º‘§™
- *  §Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§œ°§À‹•Ω•’•»•¶•ß•¢§À¥ÿ§∑§∆°§∆√ƒÍ§Œª»Õ—Ã‹≈™
- *  §À¬–§π§Î≈¨πÁ¿≠§‚¥ﬁ§·§∆°§§§§´§ §Î ›æ⁄§‚π‘§Ô§ §§°•§ﬁ§ø°§À‹•Ω•’•»•¶•ß
- *  •¢§ŒÕ¯Õ—§À§Ë§Íƒæ¿‹≈™§ﬁ§ø§œ¥÷¿‹≈™§À¿∏§∏§ø§§§´§ §Î¬ª≥≤§À¥ÿ§∑§∆§‚°§§Ω
- *  §Œ¿’«§§Ú…È§Ô§ §§°•
+ *  Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅØÔºåÁÑ°‰øùË®º„ÅßÊèê‰æõ„Åï„Çå„Å¶„ÅÑ„Çã„ÇÇ„ÅÆ„Åß„ÅÇ„ÇãÔºé‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä
+ *  „Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„ÅØÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„Å´Èñ¢„Åó„Å¶ÔºåÁâπÂÆö„ÅÆ‰ΩøÁî®ÁõÆÁöÑ
+ *  „Å´ÂØæ„Åô„ÇãÈÅ©ÂêàÊÄß„ÇÇÂê´„ÇÅ„Å¶Ôºå„ÅÑ„Åã„Å™„Çã‰øùË®º„ÇÇË°å„Çè„Å™„ÅÑÔºé„Åæ„ÅüÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß
+ *  „Ç¢„ÅÆÂà©Áî®„Å´„Çà„ÇäÁõ¥Êé•ÁöÑ„Åæ„Åü„ÅØÈñìÊé•ÁöÑ„Å´Áîü„Åò„Åü„ÅÑ„Åã„Å™„ÇãÊêçÂÆ≥„Å´Èñ¢„Åó„Å¶„ÇÇÔºå„Åù
+ *  „ÅÆË≤¨‰ªª„ÇíË≤†„Çè„Å™„ÅÑÔºé
  *
  *  $Id $
  */
@@ -173,7 +173,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getInteractionEnd()
 	 * @generated
 	 */
-	int INTERACTION_END = 23;
+	int INTERACTION_END = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -321,13 +321,22 @@ public interface InteractionPackage extends EPackage {
 	int SENDER___GET_EXTERNAL_ECU_RECEIVERS = INTERACTION_END_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Has Send Implementation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENDER___HAS_SEND_IMPLEMENTATION = INTERACTION_END_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SENDER_OPERATION_COUNT = INTERACTION_END_OPERATION_COUNT + 5;
+	int SENDER_OPERATION_COUNT = INTERACTION_END_OPERATION_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuSenderImpl <em>Internal Ecu Sender</em>}' class.
@@ -376,13 +385,31 @@ public interface InteractionPackage extends EPackage {
 	int INTERNAL_ECU_SENDER__SOURCE = SENDER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>TAck Status Variable Implementation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_SENDER__TACK_STATUS_VARIABLE_IMPLEMENTATION = SENDER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activates On Send Completed</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_SENDER__ACTIVATES_ON_SEND_COMPLETED = SENDER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Internal Ecu Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_ECU_SENDER_FEATURE_COUNT = SENDER_FEATURE_COUNT + 1;
+	int INTERNAL_ECU_SENDER_FEATURE_COUNT = SENDER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Owner Core</em>' operation.
@@ -439,13 +466,31 @@ public interface InteractionPackage extends EPackage {
 	int INTERNAL_ECU_SENDER___GET_EXTERNAL_ECU_RECEIVERS = SENDER___GET_EXTERNAL_ECU_RECEIVERS;
 
 	/**
+	 * The operation id for the '<em>Has Send Implementation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_SENDER___HAS_SEND_IMPLEMENTATION = SENDER___HAS_SEND_IMPLEMENTATION;
+
+	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_SENDER___IS_EVENT_SEMANTICS = SENDER_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Internal Ecu Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_ECU_SENDER_OPERATION_COUNT = SENDER_OPERATION_COUNT + 0;
+	int INTERNAL_ECU_SENDER_OPERATION_COUNT = SENDER_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl <em>External Ecu Sender</em>}' class.
@@ -593,6 +638,15 @@ public interface InteractionPackage extends EPackage {
 	int EXTERNAL_ECU_SENDER___GET_EXTERNAL_ECU_RECEIVERS = SENDER___GET_EXTERNAL_ECU_RECEIVERS;
 
 	/**
+	 * The operation id for the '<em>Has Send Implementation</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_ECU_SENDER___HAS_SEND_IMPLEMENTATION = SENDER___HAS_SEND_IMPLEMENTATION;
+
+	/**
 	 * The number of operations of the '<em>External Ecu Sender</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -609,7 +663,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getInteraction()
 	 * @generated
 	 */
-	int INTERACTION = 32;
+	int INTERACTION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -995,13 +1049,31 @@ public interface InteractionPackage extends EPackage {
 	int INTERNAL_ECU_RECEIVER__SOURCE = RECEIVER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Activates On Received</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED = RECEIVER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Activates On Receive Error</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR = RECEIVER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Internal Ecu Receiver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_ECU_RECEIVER_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 1;
+	int INTERNAL_ECU_RECEIVER_FEATURE_COUNT = RECEIVER_FEATURE_COUNT + 3;
 
 	/**
 	 * The operation id for the '<em>Get Owner Core</em>' operation.
@@ -1094,13 +1166,22 @@ public interface InteractionPackage extends EPackage {
 	int INTERNAL_ECU_RECEIVER___IS_ALIVE_TIMEOUT_ENABLED = RECEIVER_OPERATION_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS = RECEIVER_OPERATION_COUNT + 5;
+
+	/**
 	 * The number of operations of the '<em>Internal Ecu Receiver</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_ECU_RECEIVER_OPERATION_COUNT = RECEIVER_OPERATION_COUNT + 5;
+	int INTERNAL_ECU_RECEIVER_OPERATION_COUNT = RECEIVER_OPERATION_COUNT + 6;
 
 
 	/**
@@ -1111,7 +1192,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getVariableImplementation()
 	 * @generated
 	 */
-	int VARIABLE_IMPLEMENTATION = 22;
+	int VARIABLE_IMPLEMENTATION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1434,13 +1515,22 @@ public interface InteractionPackage extends EPackage {
 	int SEND_IMPLEMENTATION_FEATURE_COUNT = INTERACTION_REFERRABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = INTERACTION_REFERRABLE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_IMPLEMENTATION_OPERATION_COUNT = INTERACTION_REFERRABLE_OPERATION_COUNT + 0;
+	int SEND_IMPLEMENTATION_OPERATION_COUNT = INTERACTION_REFERRABLE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RteSendImplementationImpl <em>Rte Send Implementation</em>}' class.
@@ -1478,6 +1568,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int RTE_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RTE_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
 
 	/**
 	 * The number of operations of the '<em>Rte Send Implementation</em>' class.
@@ -1535,6 +1634,15 @@ public interface InteractionPackage extends EPackage {
 	int IOC_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IOC_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Ioc Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1551,7 +1659,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getComSendImplementation()
 	 * @generated
 	 */
-	int COM_SEND_IMPLEMENTATION = 24;
+	int COM_SEND_IMPLEMENTATION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1597,6 +1705,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int COM_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
 
 	/**
 	 * The number of operations of the '<em>Com Send Implementation</em>' class.
@@ -1663,6 +1780,15 @@ public interface InteractionPackage extends EPackage {
 	int DIRECT_COM_SEND_IMPLEMENTATION_FEATURE_COUNT = COM_SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIRECT_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Direct Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1727,6 +1853,15 @@ public interface InteractionPackage extends EPackage {
 	int TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION_FEATURE_COUNT = COM_SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Trusted Function Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1743,7 +1878,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getProxyComSendImplementation()
 	 * @generated
 	 */
-	int PROXY_COM_SEND_IMPLEMENTATION = 27;
+	int PROXY_COM_SEND_IMPLEMENTATION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1798,6 +1933,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROXY_COM_SEND_IMPLEMENTATION_FEATURE_COUNT = COM_SEND_IMPLEMENTATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
 
 	/**
 	 * The number of operations of the '<em>Proxy Com Send Implementation</em>' class.
@@ -1873,6 +2017,15 @@ public interface InteractionPackage extends EPackage {
 	int PERIODIC_PROXY_COM_SEND_IMPLEMENTATION_FEATURE_COUNT = PROXY_COM_SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERIODIC_PROXY_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = PROXY_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Periodic Proxy Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1946,6 +2099,15 @@ public interface InteractionPackage extends EPackage {
 	int IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION_FEATURE_COUNT = PROXY_COM_SEND_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = PROXY_COM_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Immediate Proxy Com Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,6 +2117,61 @@ public interface InteractionPackage extends EPackage {
 	int IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION_OPERATION_COUNT = PROXY_COM_SEND_IMPLEMENTATION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TAckStatusVariableImplementationImpl <em>TAck Status Variable Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TAckStatusVariableImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTAckStatusVariableImplementation()
+	 * @generated
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION = 19;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION__ID = VARIABLE_IMPLEMENTATION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner Partition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION__OWNER_PARTITION = VARIABLE_IMPLEMENTATION__OWNER_PARTITION;
+
+	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION__PARENT = VARIABLE_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>TAck Status Variable Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION_FEATURE_COUNT = VARIABLE_IMPLEMENTATION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>TAck Status Variable Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TACK_STATUS_VARIABLE_IMPLEMENTATION_OPERATION_COUNT = VARIABLE_IMPLEMENTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.FilterBufferImplementationImpl <em>Filter Buffer Implementation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,7 +2179,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getFilterBufferImplementation()
 	 * @generated
 	 */
-	int FILTER_BUFFER_IMPLEMENTATION = 19;
+	int FILTER_BUFFER_IMPLEMENTATION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2017,7 +2234,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getIocValueBufferImplementation()
 	 * @generated
 	 */
-	int IOC_VALUE_BUFFER_IMPLEMENTATION = 20;
+	int IOC_VALUE_BUFFER_IMPLEMENTATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2090,7 +2307,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getComValueBufferImplementation()
 	 * @generated
 	 */
-	int COM_VALUE_BUFFER_IMPLEMENTATION = 21;
+	int COM_VALUE_BUFFER_IMPLEMENTATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2173,7 +2390,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getInteractionRoot()
 	 * @generated
 	 */
-	int INTERACTION_ROOT = 25;
+	int INTERACTION_ROOT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Interaction End</b></em>' containment reference list.
@@ -2229,7 +2446,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTrustedFunctionRteSendImplementation()
 	 * @generated
 	 */
-	int TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION = 26;
+	int TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2277,6 +2494,15 @@ public interface InteractionPackage extends EPackage {
 	int TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION_FEATURE_COUNT = SEND_IMPLEMENTATION_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Is Event Semantics</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRUSTED_FUNCTION_RTE_SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS;
+
+	/**
 	 * The number of operations of the '<em>Trusted Function Rte Send Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2294,7 +2520,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getComSendProxyInteraction()
 	 * @generated
 	 */
-	int COM_SEND_PROXY_INTERACTION = 28;
+	int COM_SEND_PROXY_INTERACTION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2333,13 +2559,13 @@ public interface InteractionPackage extends EPackage {
 	int COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION = INTERACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Value Os Ioc Communication For Complex Type</b></em>' reference.
+	 * The feature id for the '<em><b>Value Os Ioc Communication</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE = INTERACTION_FEATURE_COUNT + 3;
+	int COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION = INTERACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Proxy</b></em>' reference.
@@ -2376,7 +2602,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getComSendProxy()
 	 * @generated
 	 */
-	int COM_SEND_PROXY = 29;
+	int COM_SEND_PROXY = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2449,7 +2675,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getPeriodicComSendProxy()
 	 * @generated
 	 */
-	int PERIODIC_COM_SEND_PROXY = 30;
+	int PERIODIC_COM_SEND_PROXY = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2522,7 +2748,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getImmediateComSendProxy()
 	 * @generated
 	 */
-	int IMMEDIATE_COM_SEND_PROXY = 31;
+	int IMMEDIATE_COM_SEND_PROXY = 32;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2598,6 +2824,200 @@ public interface InteractionPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImpl <em>Execution Context</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getExecutionContext()
+	 * @generated
+	 */
+	int EXECUTION_CONTEXT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT__ID = INTERACTION_END__ID;
+
+	/**
+	 * The feature id for the '<em><b>Owner Partition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT__OWNER_PARTITION = INTERACTION_END__OWNER_PARTITION;
+
+	/**
+	 * The feature id for the '<em><b>Source Os Task</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT__SOURCE_OS_TASK = INTERACTION_END_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Execution Context Implementation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT__EXECUTION_CONTEXT_IMPLEMENTATION = INTERACTION_END_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Entity Starter</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT__ENTITY_STARTER = INTERACTION_END_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Execution Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT_FEATURE_COUNT = INTERACTION_END_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Get Owner Core</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT___GET_OWNER_CORE = INTERACTION_END___GET_OWNER_CORE;
+
+	/**
+	 * The number of operations of the '<em>Execution Context</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT_OPERATION_COUNT = INTERACTION_END_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImplementationImpl <em>Execution Context Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getExecutionContextImplementation()
+	 * @generated
+	 */
+	int EXECUTION_CONTEXT_IMPLEMENTATION = 35;
+
+	/**
+	 * The number of structural features of the '<em>Execution Context Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT_IMPLEMENTATION_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Execution Context Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_CONTEXT_IMPLEMENTATION_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InfiniteloopImplementationImpl <em>Infiniteloop Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InfiniteloopImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getInfiniteloopImplementation()
+	 * @generated
+	 */
+	int INFINITELOOP_IMPLEMENTATION = 36;
+
+	/**
+	 * The number of structural features of the '<em>Infiniteloop Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFINITELOOP_IMPLEMENTATION_FEATURE_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Infiniteloop Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFINITELOOP_IMPLEMENTATION_OPERATION_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.OneShootImplementationImpl <em>One Shoot Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.OneShootImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getOneShootImplementation()
+	 * @generated
+	 */
+	int ONE_SHOOT_IMPLEMENTATION = 37;
+
+	/**
+	 * The number of structural features of the '<em>One Shoot Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_SHOOT_IMPLEMENTATION_FEATURE_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>One Shoot Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONE_SHOOT_IMPLEMENTATION_OPERATION_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventPoolingImplementationImpl <em>Event Pooling Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventPoolingImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEventPoolingImplementation()
+	 * @generated
+	 */
+	int EVENT_POOLING_IMPLEMENTATION = 38;
+
+	/**
+	 * The number of structural features of the '<em>Event Pooling Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_POOLING_IMPLEMENTATION_FEATURE_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Event Pooling Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_POOLING_IMPLEMENTATION_OPERATION_COUNT = EXECUTION_CONTEXT_IMPLEMENTATION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl <em>Entity Starter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2605,7 +3025,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEntityStarter()
 	 * @generated
 	 */
-	int ENTITY_STARTER = 33;
+	int ENTITY_STARTER = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2626,13 +3046,22 @@ public interface InteractionPackage extends EPackage {
 	int ENTITY_STARTER__OWNER_PARTITION = INTERACTION_END__OWNER_PARTITION;
 
 	/**
+	 * The feature id for the '<em><b>Execution Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_STARTER__EXECUTION_CONTEXT = INTERACTION_END_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Expected Config</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_STARTER__EXPECTED_CONFIG = INTERACTION_END_FEATURE_COUNT + 0;
+	int ENTITY_STARTER__EXPECTED_CONFIG = INTERACTION_END_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Start Interaction</b></em>' reference list.
@@ -2641,7 +3070,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_STARTER__START_INTERACTION = INTERACTION_END_FEATURE_COUNT + 1;
+	int ENTITY_STARTER__START_INTERACTION = INTERACTION_END_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Start Offset Counter Implementation</b></em>' containment reference.
@@ -2650,7 +3079,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_STARTER__START_OFFSET_COUNTER_IMPLEMENTATION = INTERACTION_END_FEATURE_COUNT + 2;
+	int ENTITY_STARTER__START_OFFSET_COUNTER_IMPLEMENTATION = INTERACTION_END_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Cycle Counter Implementation</b></em>' containment reference.
@@ -2659,7 +3088,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_STARTER__CYCLE_COUNTER_IMPLEMENTATION = INTERACTION_END_FEATURE_COUNT + 3;
+	int ENTITY_STARTER__CYCLE_COUNTER_IMPLEMENTATION = INTERACTION_END_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Entity Starter</em>' class.
@@ -2668,7 +3097,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_STARTER_FEATURE_COUNT = INTERACTION_END_FEATURE_COUNT + 4;
+	int ENTITY_STARTER_FEATURE_COUNT = INTERACTION_END_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Get Owner Core</em>' operation.
@@ -2696,7 +3125,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getOsTaskActivateEntityStarter()
 	 * @generated
 	 */
-	int OS_TASK_ACTIVATE_ENTITY_STARTER = 34;
+	int OS_TASK_ACTIVATE_ENTITY_STARTER = 40;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2715,6 +3144,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_TASK_ACTIVATE_ENTITY_STARTER__OWNER_PARTITION = ENTITY_STARTER__OWNER_PARTITION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_TASK_ACTIVATE_ENTITY_STARTER__EXECUTION_CONTEXT = ENTITY_STARTER__EXECUTION_CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Expected Config</b></em>' reference.
@@ -2796,7 +3234,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getOsEventSetEntityStarter()
 	 * @generated
 	 */
-	int OS_EVENT_SET_ENTITY_STARTER = 35;
+	int OS_EVENT_SET_ENTITY_STARTER = 41;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2815,6 +3253,15 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int OS_EVENT_SET_ENTITY_STARTER__OWNER_PARTITION = ENTITY_STARTER__OWNER_PARTITION;
+
+	/**
+	 * The feature id for the '<em><b>Execution Context</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OS_EVENT_SET_ENTITY_STARTER__EXECUTION_CONTEXT = ENTITY_STARTER__EXECUTION_CONTEXT;
 
 	/**
 	 * The feature id for the '<em><b>Expected Config</b></em>' reference.
@@ -2905,7 +3352,7 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEntityStartInteraction()
 	 * @generated
 	 */
-	int ENTITY_START_INTERACTION = 36;
+	int ENTITY_START_INTERACTION = 42;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2935,13 +3382,40 @@ public interface InteractionPackage extends EPackage {
 	int ENTITY_START_INTERACTION__IMPLEMENTATION = INTERACTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Event To Task Mapping</b></em>' containment reference.
+	 * The feature id for the '<em><b>Activation Offset</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING = INTERACTION_FEATURE_COUNT + 2;
+	int ENTITY_START_INTERACTION__ACTIVATION_OFFSET = INTERACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Position In Task</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_START_INTERACTION__POSITION_IN_TASK = INTERACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_START_INTERACTION__START_ON_EVENT = INTERACTION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Timing Triggering Entity Start Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION = INTERACTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Entity Start Interaction</em>' class.
@@ -2950,7 +3424,7 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_START_INTERACTION_FEATURE_COUNT = INTERACTION_FEATURE_COUNT + 3;
+	int ENTITY_START_INTERACTION_FEATURE_COUNT = INTERACTION_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Entity Start Interaction</em>' class.
@@ -2962,6 +3436,43 @@ public interface InteractionPackage extends EPackage {
 	int ENTITY_START_INTERACTION_OPERATION_COUNT = INTERACTION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartConditionImpl <em>Timing Triggering Entity Start Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartConditionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingTriggeringEntityStartCondition()
+	 * @generated
+	 */
+	int TIMING_TRIGGERING_ENTITY_START_CONDITION = 43;
+
+	/**
+	 * The feature id for the '<em><b>Period</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_TRIGGERING_ENTITY_START_CONDITION__PERIOD = INTERACTION_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Timing Triggering Entity Start Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_TRIGGERING_ENTITY_START_CONDITION_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Timing Triggering Entity Start Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_TRIGGERING_ENTITY_START_CONDITION_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartImplementationImpl <em>Entity Start Implementation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2969,7 +3480,248 @@ public interface InteractionPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEntityStartImplementation()
 	 * @generated
 	 */
-	int ENTITY_START_IMPLEMENTATION = 37;
+	int ENTITY_START_IMPLEMENTATION = 46;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartImplementationImpl <em>Timing Triggering Entity Start Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingTriggeringEntityStartImplementation()
+	 * @generated
+	 */
+	int TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION = 47;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl <em>Runnable Entity Start Interaction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getRunnableEntityStartInteraction()
+	 * @generated
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION = 44;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__ID = ENTITY_START_INTERACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Starter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__STARTER = ENTITY_START_INTERACTION__STARTER;
+
+	/**
+	 * The feature id for the '<em><b>Implementation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__IMPLEMENTATION = ENTITY_START_INTERACTION__IMPLEMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Activation Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__ACTIVATION_OFFSET = ENTITY_START_INTERACTION__ACTIVATION_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>Position In Task</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__POSITION_IN_TASK = ENTITY_START_INTERACTION__POSITION_IN_TASK;
+
+	/**
+	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__START_ON_EVENT = ENTITY_START_INTERACTION__START_ON_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Timing Triggering Entity Start Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION = ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Source Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION__SOURCE_EVENT = ENTITY_START_INTERACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Runnable Entity Start Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION_FEATURE_COUNT = ENTITY_START_INTERACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Runnable Entity Start Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RUNNABLE_ENTITY_START_INTERACTION_OPERATION_COUNT = ENTITY_START_INTERACTION_OPERATION_COUNT + 0;
+
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.StartOffsetCounterImplementationImpl <em>Start Offset Counter Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.StartOffsetCounterImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getStartOffsetCounterImplementation()
+	 * @generated
+	 */
+	int START_OFFSET_COUNTER_IMPLEMENTATION = 49;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.CycleCounterImplementationImpl <em>Cycle Counter Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.CycleCounterImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getCycleCounterImplementation()
+	 * @generated
+	 */
+	int CYCLE_COUNTER_IMPLEMENTATION = 50;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.GeneratedEcuConfigurationImpl <em>Generated Ecu Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.GeneratedEcuConfigurationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getGeneratedEcuConfiguration()
+	 * @generated
+	 */
+	int GENERATED_ECU_CONFIGURATION = 51;
+
+	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.BswSchedulableEntityStartInteractionImpl <em>Bsw Schedulable Entity Start Interaction</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.BswSchedulableEntityStartInteractionImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getBswSchedulableEntityStartInteraction()
+	 * @generated
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION = 45;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__ID = ENTITY_START_INTERACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Starter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__STARTER = ENTITY_START_INTERACTION__STARTER;
+
+	/**
+	 * The feature id for the '<em><b>Implementation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__IMPLEMENTATION = ENTITY_START_INTERACTION__IMPLEMENTATION;
+
+	/**
+	 * The feature id for the '<em><b>Activation Offset</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__ACTIVATION_OFFSET = ENTITY_START_INTERACTION__ACTIVATION_OFFSET;
+
+	/**
+	 * The feature id for the '<em><b>Position In Task</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__POSITION_IN_TASK = ENTITY_START_INTERACTION__POSITION_IN_TASK;
+
+	/**
+	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__START_ON_EVENT = ENTITY_START_INTERACTION__START_ON_EVENT;
+
+	/**
+	 * The feature id for the '<em><b>Timing Triggering Entity Start Condition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION = ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION;
+
+	/**
+	 * The feature id for the '<em><b>Source Event</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__SOURCE_EVENT = ENTITY_START_INTERACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bsw Schedulable Entity Start Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION_FEATURE_COUNT = ENTITY_START_INTERACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Bsw Schedulable Entity Start Interaction</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION_OPERATION_COUNT = ENTITY_START_INTERACTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Entity Start Implementation</em>' class.
@@ -2988,16 +3740,6 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartImplementationImpl <em>Timing Triggering Entity Start Implementation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingTriggeringEntityStartImplementation()
-	 * @generated
-	 */
-	int TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Cycle Period</b></em>' attribute.
@@ -3063,107 +3805,32 @@ public interface InteractionPackage extends EPackage {
 	int TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = ENTITY_START_IMPLEMENTATION_OPERATION_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl <em>Mode Switch Triggering Entity Start Implementation</em>}' class.
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.PlainEntityStartImplementationImpl <em>Plain Entity Start Implementation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchTriggeringEntityStartImplementation()
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.PlainEntityStartImplementationImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getPlainEntityStartImplementation()
 	 * @generated
 	 */
-	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION = 39;
+	int PLAIN_ENTITY_START_IMPLEMENTATION = 48;
 
 	/**
-	 * The number of structural features of the '<em>Mode Switch Triggering Entity Start Implementation</em>' class.
+	 * The number of structural features of the '<em>Plain Entity Start Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION_FEATURE_COUNT = ENTITY_START_IMPLEMENTATION_FEATURE_COUNT + 0;
+	int PLAIN_ENTITY_START_IMPLEMENTATION_FEATURE_COUNT = ENTITY_START_IMPLEMENTATION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of operations of the '<em>Mode Switch Triggering Entity Start Implementation</em>' class.
+	 * The number of operations of the '<em>Plain Entity Start Implementation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = ENTITY_START_IMPLEMENTATION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl <em>Runnable Entity Start Interaction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getRunnableEntityStartInteraction()
-	 * @generated
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION = 40;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION__ID = ENTITY_START_INTERACTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Starter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION__STARTER = ENTITY_START_INTERACTION__STARTER;
-
-	/**
-	 * The feature id for the '<em><b>Implementation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION__IMPLEMENTATION = ENTITY_START_INTERACTION__IMPLEMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Event To Task Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING = ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING;
-
-	/**
-	 * The number of structural features of the '<em>Runnable Entity Start Interaction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION_FEATURE_COUNT = ENTITY_START_INTERACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Runnable Entity Start Interaction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RUNNABLE_ENTITY_START_INTERACTION_OPERATION_COUNT = ENTITY_START_INTERACTION_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.StartOffsetCounterImplementationImpl <em>Start Offset Counter Implementation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.StartOffsetCounterImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getStartOffsetCounterImplementation()
-	 * @generated
-	 */
-	int START_OFFSET_COUNTER_IMPLEMENTATION = 41;
+	int PLAIN_ENTITY_START_IMPLEMENTATION_OPERATION_COUNT = ENTITY_START_IMPLEMENTATION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3220,16 +3887,6 @@ public interface InteractionPackage extends EPackage {
 	int START_OFFSET_COUNTER_IMPLEMENTATION_OPERATION_COUNT = VARIABLE_IMPLEMENTATION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.CycleCounterImplementationImpl <em>Cycle Counter Implementation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.CycleCounterImplementationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getCycleCounterImplementation()
-	 * @generated
-	 */
-	int CYCLE_COUNTER_IMPLEMENTATION = 42;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3282,17 +3939,6 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int CYCLE_COUNTER_IMPLEMENTATION_OPERATION_COUNT = VARIABLE_IMPLEMENTATION_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.GeneratedEcuConfigurationImpl <em>Generated Ecu Configuration</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.GeneratedEcuConfigurationImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getGeneratedEcuConfiguration()
-	 * @generated
-	 */
-	int GENERATED_ECU_CONFIGURATION = 43;
 
 	/**
 	 * The feature id for the '<em><b>Generated Os Task</b></em>' reference list.
@@ -3356,275 +4002,6 @@ public interface InteractionPackage extends EPackage {
 	 * @ordered
 	 */
 	int GENERATED_ECU_CONFIGURATION_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.BswSchedulableEntityStartInteractionImpl <em>Bsw Schedulable Entity Start Interaction</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.BswSchedulableEntityStartInteractionImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getBswSchedulableEntityStartInteraction()
-	 * @generated
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION = 44;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__ID = ENTITY_START_INTERACTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Starter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__STARTER = ENTITY_START_INTERACTION__STARTER;
-
-	/**
-	 * The feature id for the '<em><b>Implementation</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__IMPLEMENTATION = ENTITY_START_INTERACTION__IMPLEMENTATION;
-
-	/**
-	 * The feature id for the '<em><b>Event To Task Mapping</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING = ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING;
-
-	/**
-	 * The number of structural features of the '<em>Bsw Schedulable Entity Start Interaction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION_FEATURE_COUNT = ENTITY_START_INTERACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Bsw Schedulable Entity Start Interaction</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BSW_SCHEDULABLE_ENTITY_START_INTERACTION_OPERATION_COUNT = ENTITY_START_INTERACTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl <em>Event To Task Mapping</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEventToTaskMapping()
-	 * @generated
-	 */
-	int EVENT_TO_TASK_MAPPING = 45;
-
-	/**
-	 * The feature id for the '<em><b>Activation Offset</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING__ACTIVATION_OFFSET = INTERACTION_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Event</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING__EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Position In Task</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING__POSITION_IN_TASK = INTERACTION_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Event To Task Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of operations of the '<em>Event To Task Mapping</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_TO_TASK_MAPPING_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl <em>Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEvent()
-	 * @generated
-	 */
-	int EVENT = 46;
-
-	/**
-	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__START_ON_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__SOURCE_BSW_EVENT = INTERACTION_OBJECT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_FEATURE_COUNT = INTERACTION_OBJECT_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_OPERATION_COUNT = INTERACTION_OBJECT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl <em>Timing Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingEvent()
-	 * @generated
-	 */
-	int TIMING_EVENT = 47;
-
-	/**
-	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_EVENT__SOURCE_BSW_EVENT = EVENT__SOURCE_BSW_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Period</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_EVENT__PERIOD = EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Timing Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Timing Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TIMING_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
-
-
-	/**
-	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl <em>Mode Switch Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchEvent()
-	 * @generated
-	 */
-	int MODE_SWITCH_EVENT = 48;
-
-	/**
-	 * The feature id for the '<em><b>Start On Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE_SWITCH_EVENT__START_ON_EVENT = EVENT__START_ON_EVENT;
-
-	/**
-	 * The feature id for the '<em><b>Source Bsw Event</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE_SWITCH_EVENT__SOURCE_BSW_EVENT = EVENT__SOURCE_BSW_EVENT;
-
-	/**
-	 * The number of structural features of the '<em>Mode Switch Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE_SWITCH_EVENT_FEATURE_COUNT = EVENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Mode Switch Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODE_SWITCH_EVENT_OPERATION_COUNT = EVENT_OPERATION_COUNT + 0;
-
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionObject <em>Object</em>}'.
@@ -3729,6 +4106,16 @@ public interface InteractionPackage extends EPackage {
 	EOperation getSender__GetExternalEcuReceivers();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender#hasSendImplementation() <em>Has Send Implementation</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Send Implementation</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Sender#hasSendImplementation()
+	 * @generated
+	 */
+	EOperation getSender__HasSendImplementation();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender <em>Internal Ecu Sender</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3748,6 +4135,38 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInternalEcuSender_Source();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getTAckStatusVariableImplementation <em>TAck Status Variable Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>TAck Status Variable Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getTAckStatusVariableImplementation()
+	 * @see #getInternalEcuSender()
+	 * @generated
+	 */
+	EReference getInternalEcuSender_TAckStatusVariableImplementation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getActivatesOnSendCompleted <em>Activates On Send Completed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activates On Send Completed</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#getActivatesOnSendCompleted()
+	 * @see #getInternalEcuSender()
+	 * @generated
+	 */
+	EReference getInternalEcuSender_ActivatesOnSendCompleted();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#isEventSemantics() <em>Is Event Semantics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Event Semantics</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuSender#isEventSemantics()
+	 * @generated
+	 */
+	EOperation getInternalEcuSender__IsEventSemantics();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExternalEcuSender <em>External Ecu Sender</em>}'.
@@ -4074,6 +4493,28 @@ public interface InteractionPackage extends EPackage {
 	EReference getInternalEcuReceiver_Source();
 
 	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#getActivatesOnReceived <em>Activates On Received</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activates On Received</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#getActivatesOnReceived()
+	 * @see #getInternalEcuReceiver()
+	 * @generated
+	 */
+	EReference getInternalEcuReceiver_ActivatesOnReceived();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#getActivatesOnReceiveError <em>Activates On Receive Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Activates On Receive Error</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#getActivatesOnReceiveError()
+	 * @see #getInternalEcuReceiver()
+	 * @generated
+	 */
+	EReference getInternalEcuReceiver_ActivatesOnReceiveError();
+
+	/**
 	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#isInvalidationEnabled() <em>Is Invalidation Enabled</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4122,6 +4563,16 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getInternalEcuReceiver__IsAliveTimeoutEnabled();
+
+	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#isEventSemantics() <em>Is Event Semantics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Event Semantics</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InternalEcuReceiver#isEventSemantics()
+	 * @generated
+	 */
+	EOperation getInternalEcuReceiver__IsEventSemantics();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ValueBufferImplementation <em>Value Buffer Implementation</em>}'.
@@ -4219,6 +4670,16 @@ public interface InteractionPackage extends EPackage {
 	EReference getSendImplementation_Parent();
 
 	/**
+	 * Returns the meta object for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendImplementation#isEventSemantics() <em>Is Event Semantics</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Event Semantics</em>' operation.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.SendImplementation#isEventSemantics()
+	 * @generated
+	 */
+	EOperation getSendImplementation__IsEventSemantics();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RteSendImplementation <em>Rte Send Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4288,6 +4749,27 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getImmediateProxyComSendImplementation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation <em>TAck Status Variable Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>TAck Status Variable Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation
+	 * @generated
+	 */
+	EClass getTAckStatusVariableImplementation();
+
+	/**
+	 * Returns the meta object for the container reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation#getParent()
+	 * @see #getTAckStatusVariableImplementation()
+	 * @generated
+	 */
+	EReference getTAckStatusVariableImplementation_Parent();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementation <em>Filter Buffer Implementation</em>}'.
@@ -4587,15 +5069,15 @@ public interface InteractionPackage extends EPackage {
 	EReference getComSendProxyInteraction_RequestOsIocCommunication();
 
 	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType <em>Value Os Ioc Communication For Complex Type</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunication <em>Value Os Ioc Communication</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Value Os Ioc Communication For Complex Type</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunicationForComplexType()
+	 * @return the meta object for the reference '<em>Value Os Ioc Communication</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getValueOsIocCommunication()
 	 * @see #getComSendProxyInteraction()
 	 * @generated
 	 */
-	EReference getComSendProxyInteraction_ValueOsIocCommunicationForComplexType();
+	EReference getComSendProxyInteraction_ValueOsIocCommunication();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction#getProxy <em>Proxy</em>}'.
@@ -4681,6 +5163,89 @@ public interface InteractionPackage extends EPackage {
 	EClass getInteraction();
 
 	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext <em>Execution Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Context</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext
+	 * @generated
+	 */
+	EClass getExecutionContext();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getSourceOsTask <em>Source Os Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Os Task</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getSourceOsTask()
+	 * @see #getExecutionContext()
+	 * @generated
+	 */
+	EReference getExecutionContext_SourceOsTask();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getExecutionContextImplementation <em>Execution Context Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Execution Context Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getExecutionContextImplementation()
+	 * @see #getExecutionContext()
+	 * @generated
+	 */
+	EReference getExecutionContext_ExecutionContextImplementation();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getEntityStarter <em>Entity Starter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Entity Starter</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext#getEntityStarter()
+	 * @see #getExecutionContext()
+	 * @generated
+	 */
+	EReference getExecutionContext_EntityStarter();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContextImplementation <em>Execution Context Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Context Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContextImplementation
+	 * @generated
+	 */
+	EClass getExecutionContextImplementation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation <em>Infiniteloop Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Infiniteloop Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation
+	 * @generated
+	 */
+	EClass getInfiniteloopImplementation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation <em>One Shoot Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>One Shoot Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation
+	 * @generated
+	 */
+	EClass getOneShootImplementation();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation <em>Event Pooling Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Event Pooling Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation
+	 * @generated
+	 */
+	EClass getEventPoolingImplementation();
+
+	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter <em>Entity Starter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4689,6 +5254,17 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEntityStarter();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExecutionContext <em>Execution Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Execution Context</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExecutionContext()
+	 * @see #getEntityStarter()
+	 * @generated
+	 */
+	EReference getEntityStarter_ExecutionContext();
 
 	/**
 	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter#getExpectedConfig <em>Expected Config</em>}'.
@@ -4820,15 +5396,69 @@ public interface InteractionPackage extends EPackage {
 	EReference getEntityStartInteraction_Implementation();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getEventToTaskMapping <em>Event To Task Mapping</em>}'.
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getActivationOffset <em>Activation Offset</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Event To Task Mapping</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getEventToTaskMapping()
+	 * @return the meta object for the attribute '<em>Activation Offset</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getActivationOffset()
 	 * @see #getEntityStartInteraction()
 	 * @generated
 	 */
-	EReference getEntityStartInteraction_EventToTaskMapping();
+	EAttribute getEntityStartInteraction_ActivationOffset();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getPositionInTask <em>Position In Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position In Task</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getPositionInTask()
+	 * @see #getEntityStartInteraction()
+	 * @generated
+	 */
+	EAttribute getEntityStartInteraction_PositionInTask();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getStartOnEvent <em>Start On Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Start On Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getStartOnEvent()
+	 * @see #getEntityStartInteraction()
+	 * @generated
+	 */
+	EReference getEntityStartInteraction_StartOnEvent();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getTimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Timing Triggering Entity Start Condition</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction#getTimingTriggeringEntityStartCondition()
+	 * @see #getEntityStartInteraction()
+	 * @generated
+	 */
+	EReference getEntityStartInteraction_TimingTriggeringEntityStartCondition();
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Timing Triggering Entity Start Condition</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition
+	 * @generated
+	 */
+	EClass getTimingTriggeringEntityStartCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition#getPeriod <em>Period</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Period</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition#getPeriod()
+	 * @see #getTimingTriggeringEntityStartCondition()
+	 * @generated
+	 */
+	EAttribute getTimingTriggeringEntityStartCondition_Period();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartImplementation <em>Entity Start Implementation</em>}'.
@@ -4903,14 +5533,14 @@ public interface InteractionPackage extends EPackage {
 	EOperation getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation <em>Mode Switch Triggering Entity Start Implementation</em>}'.
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation <em>Plain Entity Start Implementation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Switch Triggering Entity Start Implementation</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation
+	 * @return the meta object for class '<em>Plain Entity Start Implementation</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation
 	 * @generated
 	 */
-	EClass getModeSwitchTriggeringEntityStartImplementation();
+	EClass getPlainEntityStartImplementation();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction <em>Runnable Entity Start Interaction</em>}'.
@@ -4921,6 +5551,17 @@ public interface InteractionPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getRunnableEntityStartInteraction();
+
+	/**
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction#getSourceEvent <em>Source Event</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction#getSourceEvent()
+	 * @see #getRunnableEntityStartInteraction()
+	 * @generated
+	 */
+	EReference getRunnableEntityStartInteraction_SourceEvent();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation <em>Start Offset Counter Implementation</em>}'.
@@ -5062,110 +5703,15 @@ public interface InteractionPackage extends EPackage {
 	EClass getBswSchedulableEntityStartInteraction();
 
 	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping <em>Event To Task Mapping</em>}'.
+	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction#getSourceEvent <em>Source Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Event To Task Mapping</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping
+	 * @return the meta object for the reference '<em>Source Event</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction#getSourceEvent()
+	 * @see #getBswSchedulableEntityStartInteraction()
 	 * @generated
 	 */
-	EClass getEventToTaskMapping();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getActivationOffset <em>Activation Offset</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Activation Offset</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getActivationOffset()
-	 * @see #getEventToTaskMapping()
-	 * @generated
-	 */
-	EAttribute getEventToTaskMapping_ActivationOffset();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getEvent <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getEvent()
-	 * @see #getEventToTaskMapping()
-	 * @generated
-	 */
-	EReference getEventToTaskMapping_Event();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getPositionInTask <em>Position In Task</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Position In Task</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping#getPositionInTask()
-	 * @see #getEventToTaskMapping()
-	 * @generated
-	 */
-	EAttribute getEventToTaskMapping_PositionInTask();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event <em>Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event
-	 * @generated
-	 */
-	EClass getEvent();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getStartOnEvent <em>Start On Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Start On Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getStartOnEvent()
-	 * @see #getEvent()
-	 * @generated
-	 */
-	EReference getEvent_StartOnEvent();
-
-	/**
-	 * Returns the meta object for the reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent <em>Source Bsw Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Source Bsw Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event#getSourceBswEvent()
-	 * @see #getEvent()
-	 * @generated
-	 */
-	EReference getEvent_SourceBswEvent();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent <em>Timing Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Timing Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent
-	 * @generated
-	 */
-	EClass getTimingEvent();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent#getPeriod <em>Period</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Period</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent#getPeriod()
-	 * @see #getTimingEvent()
-	 * @generated
-	 */
-	EAttribute getTimingEvent_Period();
-
-	/**
-	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent <em>Mode Switch Event</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Mode Switch Event</em>'.
-	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent
-	 * @generated
-	 */
-	EClass getModeSwitchEvent();
+	EReference getBswSchedulableEntityStartInteraction_SourceEvent();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -5277,6 +5823,14 @@ public interface InteractionPackage extends EPackage {
 		EOperation SENDER___GET_EXTERNAL_ECU_RECEIVERS = eINSTANCE.getSender__GetExternalEcuReceivers();
 
 		/**
+		 * The meta object literal for the '<em><b>Has Send Implementation</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SENDER___HAS_SEND_IMPLEMENTATION = eINSTANCE.getSender__HasSendImplementation();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InternalEcuSenderImpl <em>Internal Ecu Sender</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5293,6 +5847,30 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERNAL_ECU_SENDER__SOURCE = eINSTANCE.getInternalEcuSender_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>TAck Status Variable Implementation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_ECU_SENDER__TACK_STATUS_VARIABLE_IMPLEMENTATION = eINSTANCE.getInternalEcuSender_TAckStatusVariableImplementation();
+
+		/**
+		 * The meta object literal for the '<em><b>Activates On Send Completed</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_ECU_SENDER__ACTIVATES_ON_SEND_COMPLETED = eINSTANCE.getInternalEcuSender_ActivatesOnSendCompleted();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Event Semantics</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERNAL_ECU_SENDER___IS_EVENT_SEMANTICS = eINSTANCE.getInternalEcuSender__IsEventSemantics();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExternalEcuSenderImpl <em>External Ecu Sender</em>}' class.
@@ -5553,6 +6131,22 @@ public interface InteractionPackage extends EPackage {
 		EReference INTERNAL_ECU_RECEIVER__SOURCE = eINSTANCE.getInternalEcuReceiver_Source();
 
 		/**
+		 * The meta object literal for the '<em><b>Activates On Received</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVED = eINSTANCE.getInternalEcuReceiver_ActivatesOnReceived();
+
+		/**
+		 * The meta object literal for the '<em><b>Activates On Receive Error</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERNAL_ECU_RECEIVER__ACTIVATES_ON_RECEIVE_ERROR = eINSTANCE.getInternalEcuReceiver_ActivatesOnReceiveError();
+
+		/**
 		 * The meta object literal for the '<em><b>Is Invalidation Enabled</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5591,6 +6185,14 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INTERNAL_ECU_RECEIVER___IS_ALIVE_TIMEOUT_ENABLED = eINSTANCE.getInternalEcuReceiver__IsAliveTimeoutEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Event Semantics</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INTERNAL_ECU_RECEIVER___IS_EVENT_SEMANTICS = eINSTANCE.getInternalEcuReceiver__IsEventSemantics();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ValueBufferImplementationImpl <em>Value Buffer Implementation</em>}' class.
@@ -5673,6 +6275,14 @@ public interface InteractionPackage extends EPackage {
 		EReference SEND_IMPLEMENTATION__PARENT = eINSTANCE.getSendImplementation_Parent();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Event Semantics</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SEND_IMPLEMENTATION___IS_EVENT_SEMANTICS = eINSTANCE.getSendImplementation__IsEventSemantics();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RteSendImplementationImpl <em>Rte Send Implementation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5739,6 +6349,24 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass IMMEDIATE_PROXY_COM_SEND_IMPLEMENTATION = eINSTANCE.getImmediateProxyComSendImplementation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TAckStatusVariableImplementationImpl <em>TAck Status Variable Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TAckStatusVariableImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTAckStatusVariableImplementation()
+		 * @generated
+		 */
+		EClass TACK_STATUS_VARIABLE_IMPLEMENTATION = eINSTANCE.getTAckStatusVariableImplementation();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TACK_STATUS_VARIABLE_IMPLEMENTATION__PARENT = eINSTANCE.getTAckStatusVariableImplementation_Parent();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.FilterBufferImplementationImpl <em>Filter Buffer Implementation</em>}' class.
@@ -5985,12 +6613,12 @@ public interface InteractionPackage extends EPackage {
 		EReference COM_SEND_PROXY_INTERACTION__REQUEST_OS_IOC_COMMUNICATION = eINSTANCE.getComSendProxyInteraction_RequestOsIocCommunication();
 
 		/**
-		 * The meta object literal for the '<em><b>Value Os Ioc Communication For Complex Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value Os Ioc Communication</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION_FOR_COMPLEX_TYPE = eINSTANCE.getComSendProxyInteraction_ValueOsIocCommunicationForComplexType();
+		EReference COM_SEND_PROXY_INTERACTION__VALUE_OS_IOC_COMMUNICATION = eINSTANCE.getComSendProxyInteraction_ValueOsIocCommunication();
 
 		/**
 		 * The meta object literal for the '<em><b>Proxy</b></em>' reference feature.
@@ -6065,6 +6693,80 @@ public interface InteractionPackage extends EPackage {
 		EClass INTERACTION = eINSTANCE.getInteraction();
 
 		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImpl <em>Execution Context</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getExecutionContext()
+		 * @generated
+		 */
+		EClass EXECUTION_CONTEXT = eINSTANCE.getExecutionContext();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Os Task</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_CONTEXT__SOURCE_OS_TASK = eINSTANCE.getExecutionContext_SourceOsTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Execution Context Implementation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_CONTEXT__EXECUTION_CONTEXT_IMPLEMENTATION = eINSTANCE.getExecutionContext_ExecutionContextImplementation();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity Starter</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_CONTEXT__ENTITY_STARTER = eINSTANCE.getExecutionContext_EntityStarter();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImplementationImpl <em>Execution Context Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ExecutionContextImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getExecutionContextImplementation()
+		 * @generated
+		 */
+		EClass EXECUTION_CONTEXT_IMPLEMENTATION = eINSTANCE.getExecutionContextImplementation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InfiniteloopImplementationImpl <em>Infiniteloop Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InfiniteloopImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getInfiniteloopImplementation()
+		 * @generated
+		 */
+		EClass INFINITELOOP_IMPLEMENTATION = eINSTANCE.getInfiniteloopImplementation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.OneShootImplementationImpl <em>One Shoot Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.OneShootImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getOneShootImplementation()
+		 * @generated
+		 */
+		EClass ONE_SHOOT_IMPLEMENTATION = eINSTANCE.getOneShootImplementation();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventPoolingImplementationImpl <em>Event Pooling Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventPoolingImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEventPoolingImplementation()
+		 * @generated
+		 */
+		EClass EVENT_POOLING_IMPLEMENTATION = eINSTANCE.getEventPoolingImplementation();
+
+		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStarterImpl <em>Entity Starter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6073,6 +6775,14 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ENTITY_STARTER = eINSTANCE.getEntityStarter();
+
+		/**
+		 * The meta object literal for the '<em><b>Execution Context</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTITY_STARTER__EXECUTION_CONTEXT = eINSTANCE.getEntityStarter_ExecutionContext();
 
 		/**
 		 * The meta object literal for the '<em><b>Expected Config</b></em>' reference feature.
@@ -6177,12 +6887,54 @@ public interface InteractionPackage extends EPackage {
 		EReference ENTITY_START_INTERACTION__IMPLEMENTATION = eINSTANCE.getEntityStartInteraction_Implementation();
 
 		/**
-		 * The meta object literal for the '<em><b>Event To Task Mapping</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Activation Offset</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING = eINSTANCE.getEntityStartInteraction_EventToTaskMapping();
+		EAttribute ENTITY_START_INTERACTION__ACTIVATION_OFFSET = eINSTANCE.getEntityStartInteraction_ActivationOffset();
+
+		/**
+		 * The meta object literal for the '<em><b>Position In Task</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY_START_INTERACTION__POSITION_IN_TASK = eINSTANCE.getEntityStartInteraction_PositionInTask();
+
+		/**
+		 * The meta object literal for the '<em><b>Start On Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTITY_START_INTERACTION__START_ON_EVENT = eINSTANCE.getEntityStartInteraction_StartOnEvent();
+
+		/**
+		 * The meta object literal for the '<em><b>Timing Triggering Entity Start Condition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION = eINSTANCE.getEntityStartInteraction_TimingTriggeringEntityStartCondition();
+
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartConditionImpl <em>Timing Triggering Entity Start Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingTriggeringEntityStartConditionImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingTriggeringEntityStartCondition()
+		 * @generated
+		 */
+		EClass TIMING_TRIGGERING_ENTITY_START_CONDITION = eINSTANCE.getTimingTriggeringEntityStartCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIMING_TRIGGERING_ENTITY_START_CONDITION__PERIOD = eINSTANCE.getTimingTriggeringEntityStartCondition_Period();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartImplementationImpl <em>Entity Start Implementation</em>}' class.
@@ -6245,14 +6997,14 @@ public interface InteractionPackage extends EPackage {
 		EOperation TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST = eINSTANCE.getTimingTriggeringEntityStartImplementation__RequiresStartOffsetAdjust();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl <em>Mode Switch Triggering Entity Start Implementation</em>}' class.
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.PlainEntityStartImplementationImpl <em>Plain Entity Start Implementation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchTriggeringEntityStartImplementationImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchTriggeringEntityStartImplementation()
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.PlainEntityStartImplementationImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getPlainEntityStartImplementation()
 		 * @generated
 		 */
-		EClass MODE_SWITCH_TRIGGERING_ENTITY_START_IMPLEMENTATION = eINSTANCE.getModeSwitchTriggeringEntityStartImplementation();
+		EClass PLAIN_ENTITY_START_IMPLEMENTATION = eINSTANCE.getPlainEntityStartImplementation();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.RunnableEntityStartInteractionImpl <em>Runnable Entity Start Interaction</em>}' class.
@@ -6263,6 +7015,14 @@ public interface InteractionPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RUNNABLE_ENTITY_START_INTERACTION = eINSTANCE.getRunnableEntityStartInteraction();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Event</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RUNNABLE_ENTITY_START_INTERACTION__SOURCE_EVENT = eINSTANCE.getRunnableEntityStartInteraction_SourceEvent();
 
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.StartOffsetCounterImplementationImpl <em>Start Offset Counter Implementation</em>}' class.
@@ -6377,92 +7137,12 @@ public interface InteractionPackage extends EPackage {
 		EClass BSW_SCHEDULABLE_ENTITY_START_INTERACTION = eINSTANCE.getBswSchedulableEntityStartInteraction();
 
 		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl <em>Event To Task Mapping</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventToTaskMappingImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEventToTaskMapping()
-		 * @generated
-		 */
-		EClass EVENT_TO_TASK_MAPPING = eINSTANCE.getEventToTaskMapping();
-
-		/**
-		 * The meta object literal for the '<em><b>Activation Offset</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Source Event</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute EVENT_TO_TASK_MAPPING__ACTIVATION_OFFSET = eINSTANCE.getEventToTaskMapping_ActivationOffset();
-
-		/**
-		 * The meta object literal for the '<em><b>Event</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT_TO_TASK_MAPPING__EVENT = eINSTANCE.getEventToTaskMapping_Event();
-
-		/**
-		 * The meta object literal for the '<em><b>Position In Task</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EVENT_TO_TASK_MAPPING__POSITION_IN_TASK = eINSTANCE.getEventToTaskMapping_PositionInTask();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl <em>Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EventImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getEvent()
-		 * @generated
-		 */
-		EClass EVENT = eINSTANCE.getEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Start On Event</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT__START_ON_EVENT = eINSTANCE.getEvent_StartOnEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Source Bsw Event</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference EVENT__SOURCE_BSW_EVENT = eINSTANCE.getEvent_SourceBswEvent();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl <em>Timing Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.TimingEventImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getTimingEvent()
-		 * @generated
-		 */
-		EClass TIMING_EVENT = eINSTANCE.getTimingEvent();
-
-		/**
-		 * The meta object literal for the '<em><b>Period</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TIMING_EVENT__PERIOD = eINSTANCE.getTimingEvent_Period();
-
-		/**
-		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl <em>Mode Switch Event</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.ModeSwitchEventImpl
-		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.InteractionPackageImpl#getModeSwitchEvent()
-		 * @generated
-		 */
-		EClass MODE_SWITCH_EVENT = eINSTANCE.getModeSwitchEvent();
+		EReference BSW_SCHEDULABLE_ENTITY_START_INTERACTION__SOURCE_EVENT = eINSTANCE.getBswSchedulableEntityStartInteraction_SourceEvent();
 
 	}
 

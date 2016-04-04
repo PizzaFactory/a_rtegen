@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -44,19 +44,18 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl;
 
+import java.math.BigDecimal;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -68,7 +67,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getStarter <em>Starter</em>}</li>
  *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getImplementation <em>Implementation</em>}</li>
- *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getEventToTaskMapping <em>Event To Task Mapping</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getActivationOffset <em>Activation Offset</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getPositionInTask <em>Position In Task</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getStartOnEvent <em>Start On Event</em>}</li>
+ *   <li>{@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.impl.EntityStartInteractionImpl#getTimingTriggeringEntityStartCondition <em>Timing Triggering Entity Start Condition</em>}</li>
  * </ul>
  * </p>
  *
@@ -96,14 +98,64 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	protected EntityStartImplementation implementation;
 
 	/**
-	 * The cached value of the '{@link #getEventToTaskMapping() <em>Event To Task Mapping</em>}' containment reference.
+	 * The default value of the '{@link #getActivationOffset() <em>Activation Offset</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEventToTaskMapping()
+	 * @see #getActivationOffset()
 	 * @generated
 	 * @ordered
 	 */
-	protected EventToTaskMapping eventToTaskMapping;
+	protected static final BigDecimal ACTIVATION_OFFSET_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getActivationOffset() <em>Activation Offset</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActivationOffset()
+	 * @generated
+	 * @ordered
+	 */
+	protected BigDecimal activationOffset = ACTIVATION_OFFSET_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPositionInTask() <em>Position In Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPositionInTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Integer POSITION_IN_TASK_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPositionInTask() <em>Position In Task</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPositionInTask()
+	 * @generated
+	 * @ordered
+	 */
+	protected Integer positionInTask = POSITION_IN_TASK_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getStartOnEvent() <em>Start On Event</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStartOnEvent()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExecutableEntity startOnEvent;
+
+	/**
+	 * The cached value of the '{@link #getTimingTriggeringEntityStartCondition() <em>Timing Triggering Entity Start Condition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimingTriggeringEntityStartCondition()
+	 * @generated
+	 * @ordered
+	 */
+	protected TimingTriggeringEntityStartCondition timingTriggeringEntityStartCondition;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -232,8 +284,8 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EventToTaskMapping getEventToTaskMapping() {
-		return eventToTaskMapping;
+	public BigDecimal getActivationOffset() {
+		return activationOffset;
 	}
 
 	/**
@@ -241,11 +293,91 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEventToTaskMapping(EventToTaskMapping newEventToTaskMapping, NotificationChain msgs) {
-		EventToTaskMapping oldEventToTaskMapping = eventToTaskMapping;
-		eventToTaskMapping = newEventToTaskMapping;
+	public void setActivationOffset(BigDecimal newActivationOffset) {
+		BigDecimal oldActivationOffset = activationOffset;
+		activationOffset = newActivationOffset;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET, oldActivationOffset, activationOffset));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Integer getPositionInTask() {
+		return positionInTask;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPositionInTask(Integer newPositionInTask) {
+		Integer oldPositionInTask = positionInTask;
+		positionInTask = newPositionInTask;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK, oldPositionInTask, positionInTask));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutableEntity getStartOnEvent() {
+		if (startOnEvent != null && ((EObject)startOnEvent).eIsProxy()) {
+			InternalEObject oldStartOnEvent = (InternalEObject)startOnEvent;
+			startOnEvent = (ExecutableEntity)eResolveProxy(oldStartOnEvent);
+			if (startOnEvent != oldStartOnEvent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT, oldStartOnEvent, startOnEvent));
+			}
+		}
+		return startOnEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutableEntity basicGetStartOnEvent() {
+		return startOnEvent;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartOnEvent(ExecutableEntity newStartOnEvent) {
+		ExecutableEntity oldStartOnEvent = startOnEvent;
+		startOnEvent = newStartOnEvent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT, oldStartOnEvent, startOnEvent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TimingTriggeringEntityStartCondition getTimingTriggeringEntityStartCondition() {
+		return timingTriggeringEntityStartCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition newTimingTriggeringEntityStartCondition, NotificationChain msgs) {
+		TimingTriggeringEntityStartCondition oldTimingTriggeringEntityStartCondition = timingTriggeringEntityStartCondition;
+		timingTriggeringEntityStartCondition = newTimingTriggeringEntityStartCondition;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, oldEventToTaskMapping, newEventToTaskMapping);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, oldTimingTriggeringEntityStartCondition, newTimingTriggeringEntityStartCondition);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -256,18 +388,18 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEventToTaskMapping(EventToTaskMapping newEventToTaskMapping) {
-		if (newEventToTaskMapping != eventToTaskMapping) {
+	public void setTimingTriggeringEntityStartCondition(TimingTriggeringEntityStartCondition newTimingTriggeringEntityStartCondition) {
+		if (newTimingTriggeringEntityStartCondition != timingTriggeringEntityStartCondition) {
 			NotificationChain msgs = null;
-			if (eventToTaskMapping != null)
-				msgs = ((InternalEObject)eventToTaskMapping).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, null, msgs);
-			if (newEventToTaskMapping != null)
-				msgs = ((InternalEObject)newEventToTaskMapping).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, null, msgs);
-			msgs = basicSetEventToTaskMapping(newEventToTaskMapping, msgs);
+			if (timingTriggeringEntityStartCondition != null)
+				msgs = ((InternalEObject)timingTriggeringEntityStartCondition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, null, msgs);
+			if (newTimingTriggeringEntityStartCondition != null)
+				msgs = ((InternalEObject)newTimingTriggeringEntityStartCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, null, msgs);
+			msgs = basicSetTimingTriggeringEntityStartCondition(newTimingTriggeringEntityStartCondition, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, newEventToTaskMapping, newEventToTaskMapping));
+			eNotify(new ENotificationImpl(this, Notification.SET, InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION, newTimingTriggeringEntityStartCondition, newTimingTriggeringEntityStartCondition));
 	}
 
 	/**
@@ -298,8 +430,8 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return basicSetStarter(null, msgs);
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return basicSetImplementation(null, msgs);
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return basicSetEventToTaskMapping(null, msgs);
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return basicSetTimingTriggeringEntityStartCondition(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -317,8 +449,15 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return basicGetStarter();
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return getImplementation();
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return getEventToTaskMapping();
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				return getActivationOffset();
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				return getPositionInTask();
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				if (resolve) return getStartOnEvent();
+				return basicGetStartOnEvent();
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return getTimingTriggeringEntityStartCondition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -337,8 +476,17 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				setImplementation((EntityStartImplementation)newValue);
 				return;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				setEventToTaskMapping((EventToTaskMapping)newValue);
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				setActivationOffset((BigDecimal)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				setPositionInTask((Integer)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				setStartOnEvent((ExecutableEntity)newValue);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				setTimingTriggeringEntityStartCondition((TimingTriggeringEntityStartCondition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -358,8 +506,17 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				setImplementation((EntityStartImplementation)null);
 				return;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				setEventToTaskMapping((EventToTaskMapping)null);
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				setActivationOffset(ACTIVATION_OFFSET_EDEFAULT);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				setPositionInTask(POSITION_IN_TASK_EDEFAULT);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				setStartOnEvent((ExecutableEntity)null);
+				return;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				setTimingTriggeringEntityStartCondition((TimingTriggeringEntityStartCondition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -377,10 +534,34 @@ public abstract class EntityStartInteractionImpl extends InteractionImpl impleme
 				return starter != null;
 			case InteractionPackage.ENTITY_START_INTERACTION__IMPLEMENTATION:
 				return implementation != null;
-			case InteractionPackage.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING:
-				return eventToTaskMapping != null;
+			case InteractionPackage.ENTITY_START_INTERACTION__ACTIVATION_OFFSET:
+				return ACTIVATION_OFFSET_EDEFAULT == null ? activationOffset != null : !ACTIVATION_OFFSET_EDEFAULT.equals(activationOffset);
+			case InteractionPackage.ENTITY_START_INTERACTION__POSITION_IN_TASK:
+				return POSITION_IN_TASK_EDEFAULT == null ? positionInTask != null : !POSITION_IN_TASK_EDEFAULT.equals(positionInTask);
+			case InteractionPackage.ENTITY_START_INTERACTION__START_ON_EVENT:
+				return startOnEvent != null;
+			case InteractionPackage.ENTITY_START_INTERACTION__TIMING_TRIGGERING_ENTITY_START_CONDITION:
+				return timingTriggeringEntityStartCondition != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (activationOffset: "); //$NON-NLS-1$
+		result.append(activationOffset);
+		result.append(", positionInTask: "); //$NON-NLS-1$
+		result.append(positionInTask);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EntityStartInteractionImpl

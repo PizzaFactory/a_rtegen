@@ -279,11 +279,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AutosarVariableRef" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="autosarVariableIref"
-          eType="#//m2/VariableInAtomicSwcInstanceRef" containment="true"/>
+          eType="#//m2/VariableInAtomicSwcTypeInstanceRef" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="autosarVariable" eType="#//instance/VariableDataInstanceInSwc"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="localVariable" eType="#//m2/VariableDataPrototype"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableInAtomicSwcInstanceRef" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableInAtomicSwcTypeInstanceRef"
+        eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="portPrototype" lowerBound="1"
           eType="#//m2/PortPrototype"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetDataPrototype"
@@ -297,6 +298,36 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimingEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BackgroundEvent" eSuperTypes="#//m2/RteEvent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataSendCompletedEvent" eSuperTypes="#//m2/RteEvent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventSource" lowerBound="1"
+          eType="#//m2/VariableAccess"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="eventSourceData" lowerBound="1"
+          eType="#//instance/VariableDataInstanceInSwc" changeable="false" volatile="true"
+          transient="true" derived="true" resolveProxies="false">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="derivation" value="eventSource.accessedVariable.autosarVariable"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataReceivedEvent" eSuperTypes="#//m2/RteEvent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataIref" lowerBound="1"
+          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
+          eType="#//instance/VariableDataInstanceInSwc"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataReceiveErrorEvent" eSuperTypes="#//m2/RteEvent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataIref" lowerBound="1"
+          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
+          eType="#//instance/VariableDataInstanceInSwc"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RVariableInAtomicSwcInstanceRef" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contextRPort" lowerBound="1"
+          eType="#//m2/PortPrototype"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetDataElement" lowerBound="1"
+          eType="#//m2/VariableDataPrototype"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucModuleConfigurationValues" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
@@ -355,11 +386,19 @@
     <eClassifiers xsi:type="ecore:EClass" name="SenderComSpec" abstract="true" eSuperTypes="#//m2/PPortComSpec">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
           eType="#//m2/VariableDataPrototype"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="transmissionAcknowledge"
+          eType="#//m2/TransmissionAcknowledgementRequest" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TransmissionAcknowledgementRequest"
+        eSuperTypes="#//m2/M2Object">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
+          eType="#//m2/TimeValue"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NonqueuedSenderComSpec" eSuperTypes="#//m2/SenderComSpec">
       <eStructuralFeatures xsi:type="ecore:EReference" name="initValue" lowerBound="1"
           eType="#//m2/ValueSpecification" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueuedSenderComSpec" eSuperTypes="#//m2/SenderComSpec"/>
     <eClassifiers xsi:type="ecore:EClass" name="NonqueuedReceiverComSpec" eSuperTypes="#//m2/ReceiverComSpec">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliveTimeout" lowerBound="1"
           eType="#//m2/TimeValue"/>
@@ -791,6 +830,16 @@
           <details key="body" value="not handleInvalid.oclIsUndefined() and (handleInvalid = m2::HandleInvalidEnum::keep or handleInvalid =&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;m2::HandleInvalidEnum::replace)"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="isInvalidationKeep" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not handleInvalid.oclIsUndefined() and handleInvalid = m2::HandleInvalidEnum::keep"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isInvalidationReplace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not handleInvalid.oclIsUndefined() and handleInvalid = m2::HandleInvalidEnum::replace"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
           eType="#//m2/VariableDataPrototype"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="handleInvalid" eType="#//m2/HandleInvalidEnum"/>
@@ -985,7 +1034,11 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="#//m2/CIdentifier"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="upperLimit" eType="#//m2/Limit"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vt" eType="#//m2/String"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="compuConst" eType="#//m2/CompuConst"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompuConst" eSuperTypes="#//m2/M2Object">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vt" eType="#//m2/VerbatimString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AnyInstanceRef" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextElement" upperBound="-1"
@@ -1170,6 +1223,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="BswTimingEvent" eSuperTypes="#//m2/BswEvent">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BswBackgroundEvent" eSuperTypes="#//m2/BswEvent"/>
     <eClassifiers xsi:type="ecore:EEnum" name="BswCallTypeEnum">
       <eLiterals name="regular"/>
       <eLiterals name="callback" value="1"/>
@@ -1786,6 +1840,27 @@
           <details key="body" value="let comSpec : m2::SenderComSpec = contextPPort.providedComSpec.oclAsType(m2::SenderComSpec)->any(dataElement = self.prototype)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;in if comSpec.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else comSpec&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="isAccessedByDataSendPoint" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint->exists(accessedVariable.autosarVariable = self)"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isTAckEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not getComSpec().transmissionAcknowledge.oclIsUndefined()"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isTAckTimeoutEnabled" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not getComSpec().transmissionAcknowledge.oclIsUndefined() and getComSpec().transmissionAcknowledge.timeout &lt;> 0"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="getRelatedDataSendCompletedEvent" ordered="false" upperBound="-1"
+          eType="#//m2/DataSendCompletedEvent">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="ar4x::m2::DataSendCompletedEvent.allInstances()->select(eventSourceData = self)->asOrderedSet()"/>
+        </eAnnotations>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextPPort" lowerBound="1"
           eType="#//m2/PPortPrototype" changeable="false" volatile="true" transient="true"
           derived="true" resolveProxies="false">
@@ -1818,6 +1893,22 @@
           <details key="body" value="not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)"/>
         </eAnnotations>
       </eOperations>
+      <eOperations name="isInvalidationKeep" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="無効化ポリシーがKeepかどうか"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isInvalidationReplace" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="無効化ポリシーがReplaceかどうか"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)"/>
+        </eAnnotations>
+      </eOperations>
       <eOperations name="getInvalidationPolicy" lowerBound="1" eType="#//m2/InvalidationPolicy">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="無効値処理方法の取得"/>
@@ -1842,6 +1933,18 @@
       <eOperations name="getComSpec" lowerBound="1" eType="#//m2/ReceiverComSpec">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="body" value="let comSpec : m2::ReceiverComSpec = contextRPort.requiredComSpec.oclAsType(m2::ReceiverComSpec)->any(dataElement = self.prototype)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;in if comSpec.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;else comSpec&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="getRelatedDataReceivedEvent" ordered="false" upperBound="-1"
+          eType="#//m2/DataReceivedEvent">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="getRelatedDataReceiveErrorEvent" ordered="false" upperBound="-1"
+          eType="#//m2/DataReceiveErrorEvent">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="body" value="ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()"/>
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextRPort" lowerBound="1"

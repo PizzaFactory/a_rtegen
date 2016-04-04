@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -45,8 +45,7 @@ package jp.ac.nagoya_u.is.nces.a_rte.m2m.internal.module.builder;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage.Literals.RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_STARTER__START_INTERACTION;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING;
-import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EVENT_TO_TASK_MAPPING__POSITION_IN_TASK;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_START_INTERACTION__POSITION_IN_TASK;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.BSWM;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage.Literals.CONSTANT__SYMBOL_NAME;
@@ -71,13 +70,13 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleDescription;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeDeclarationGroupPrototype;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ModeInBswModuleDescriptionInstanceRef;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.CycleCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.Bswm;
@@ -94,6 +93,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModeSwitchTriggeringExecuta
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsEventSetActivationOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.OsTaskActivationOperation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.PlainExecutableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ServerRunnableStartOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.StartOffsetCountupOperation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.TimingTriggeringExecutableStartOperation;
@@ -125,7 +125,7 @@ public class EntityOperationModelBuilder {
 		destOsTaskActivationOperation.setSingleSource(sourceEntityStarter);
 		buildEntityCountupOperation(destOsTaskActivationOperation, sourceEntityStarter);
 	
-		// ¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ëµ¯Æ°½èÍı¤Î¹½ÃÛ
+		// ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«èµ·å‹•å‡¦ç†ã®æ§‹ç¯‰
 		for (EntityStartInteraction sourceStartInteraction : sortedCopyOfEntityStartInteractions(sourceEntityStarter.getStartInteraction())) {
 			buildExecutableStartOperation(destOsTaskActivationOperation, sourceStartInteraction);
 		}
@@ -134,33 +134,33 @@ public class EntityOperationModelBuilder {
 
 	public List<OsEventSetActivationOperation> createOsEventSetActivationOperations(List<OsEventSetEntityStarter> sourceEntityStarters, OsTask sourceOsTask) throws ModelException {
 
-		// EntityStartInteraction¤ò¥¿¥¹¥¯Æâ¼Â¹Ô½ç½ø¤Ë¤è¤ê¥½¡¼¥È
+		// EntityStartInteractionã‚’ã‚¿ã‚¹ã‚¯å†…å®Ÿè¡Œé †åºã«ã‚ˆã‚Šã‚½ãƒ¼ãƒˆ
 		List<EntityStartInteraction> entityStartInteractions = this.context.query.collect(sourceEntityStarters, ENTITY_STARTER__START_INTERACTION);
 		List<EntityStartInteraction> sortedEntityStartInteractions = sortedCopyOfEntityStartInteractions(entityStartInteractions);
 
-		// OS¥¤¥Ù¥ó¥ÈÀßÄê¤Î¥Ï¥ó¥É¥ê¥ó¥°½èÍı¤ò¹½ÃÛ
+		// OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®šã®ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°å‡¦ç†ã‚’æ§‹ç¯‰
 		List<OsEventSetActivationOperation> destOperations = Lists.newArrayList();
 		for (EntityStartInteraction sourceStartInteraction : sortedEntityStartInteractions) {
 			OsEventSetEntityStarter sourceEntityStarter = (OsEventSetEntityStarter) sourceStartInteraction.getStarter();
 			destOperations.add(createOsEventSetActivationOperation(sourceEntityStarter, sourceStartInteraction, sourceOsTask));
 		}
 
-		// Æ±°ì¤ÎEntityStarter¤«¤éÀ¸À®¤µ¤ì¤¿¥ª¥Ú¥ì¡¼¥·¥ç¥ó¤¬ÊÂ¤ó¤Ç¤¤¤ë¾ì¹ç¡¤OS¥¤¥Ù¥ó¥ÈÀßÄê¤Î¥Ï¥ó¥É¥ê¥ó¥°½èÍı¤ò·ë¹ç
+		// åŒä¸€ã®EntityStarterã‹ã‚‰ç”Ÿæˆã•ã‚ŒãŸã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ãŒä¸¦ã‚“ã§ã„ã‚‹å ´åˆï¼ŒOSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®šã®ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°å‡¦ç†ã‚’çµåˆ
 		List<OsEventSetActivationOperation> destCombinedOperations = Lists.newArrayList(destOperations.get(0));
 		OsEventSetActivationOperation destCombineTargetOperation = destCombinedOperations.get(0);
 
 		for (OsEventSetActivationOperation destOperation : destOperations.subList(1, destOperations.size())) {
 			if (destCombineTargetOperation.getSingleSource() == destOperation.getSingleSource()) {
-				// ¸µ¤Ë¤Ê¤Ã¤¿EntityStarter¤¬Æ±°ì¤Ê¤Î¤Ç¡¤½èÍı¤ò·ë¹ç
+				// å…ƒã«ãªã£ãŸEntityStarterãŒåŒä¸€ãªã®ã§ï¼Œå‡¦ç†ã‚’çµåˆ
 				destCombineTargetOperation.getExecutableStartOperation().addAll(destOperation.getExecutableStartOperation());
 			} else {
-				// ¸µ¤Ë¤Ê¤Ã¤¿EntityStarter¤¬°Û¤Ê¤ë¤Î¤Ç¡¤¼¡¤Î·ë¹ç¤ò³«»Ï¤¹¤ë
+				// å…ƒã«ãªã£ãŸEntityStarterãŒç•°ãªã‚‹ã®ã§ï¼Œæ¬¡ã®çµåˆã‚’é–‹å§‹ã™ã‚‹
 				destCombinedOperations.add(destOperation);
 				destCombineTargetOperation = destOperation;
 			}
 		}
 	
-		// ¥«¥¦¥ó¥È¥¢¥Ã¥×½èÍı¤ò¹½ÃÛ
+		// ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—å‡¦ç†ã‚’æ§‹ç¯‰
 		for (OsEventSetEntityStarter sourceEntityStarter : sourceEntityStarters) {
 			List<OsEventSetActivationOperation> targetActivationOperations = this.context.builtQuery.selectDests(destCombinedOperations, sourceEntityStarter);
 			OsEventSetActivationOperation targetActivationOperation = Iterables.getLast(targetActivationOperations);
@@ -171,7 +171,7 @@ public class EntityOperationModelBuilder {
 	}
 
 	private List<EntityStartInteraction> sortedCopyOfEntityStartInteractions(List<EntityStartInteraction> sourceEntityStartInteractions) {
-		return Ordering.natural().onResultOf(this.context.query.<Integer> features2Function(ENTITY_START_INTERACTION__EVENT_TO_TASK_MAPPING, EVENT_TO_TASK_MAPPING__POSITION_IN_TASK)).sortedCopy(sourceEntityStartInteractions);
+		return Ordering.natural().onResultOf(this.context.query.<Integer> features2Function(ENTITY_START_INTERACTION__POSITION_IN_TASK)).sortedCopy(sourceEntityStartInteractions);
 	}
 
 	private OsEventSetActivationOperation createOsEventSetActivationOperation(OsEventSetEntityStarter sourceEntityStarter, EntityStartInteraction sourceStartInteraction, OsTask sourceOsTask)
@@ -179,7 +179,7 @@ public class EntityOperationModelBuilder {
 		OsEventSetActivationOperation destContextActivationOperation = ModuleFactory.eINSTANCE.createOsEventSetActivationOperation();
 		destContextActivationOperation.setSingleSource(sourceEntityStarter);
 	
-		// ¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ëµ¯Æ°½èÍı¤Î¹½ÃÛ
+		// ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«èµ·å‹•å‡¦ç†ã®æ§‹ç¯‰
 		buildExecutableStartOperation(destContextActivationOperation, sourceStartInteraction);
 		destContextActivationOperation.setActivationOsEventId(sourceEntityStarter.getSourceOsEvent().getShortName());
 		return destContextActivationOperation;
@@ -189,32 +189,29 @@ public class EntityOperationModelBuilder {
 		if (!isEnabledEntityStartInteraction(sourceStartInteraction)) {
 			return;
 		}
-		if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤Implementation¤ÏTimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementation¤Î¤ß¤Î¤¿¤á)
+		if (sourceStartInteraction.getImplementation() instanceof TimingTriggeringEntityStartImplementation) {
 			TimingTriggeringEntityStartImplementation sourceTimingTriggeringEntityStartImplementation = (TimingTriggeringEntityStartImplementation) sourceStartInteraction.getImplementation();
 			targetContextActivationOperation.getExecutableStartOperation().add(createTimingTriggeringExecutableStartOperation(sourceStartInteraction, sourceTimingTriggeringEntityStartImplementation));
 
-		} else if (sourceStartInteraction.getImplementation() instanceof ModeSwitchTriggeringEntityStartImplementation) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤Implementation¤ÏTimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementation¤Î¤ß¤Î¤¿¤á)
-			ModeSwitchTriggeringEntityStartImplementation sourceModeSwitchImplementation = (ModeSwitchTriggeringEntityStartImplementation) sourceStartInteraction.getImplementation();
-			targetContextActivationOperation.getExecutableStartOperation().add(createModeSwitchTriggeringExecutableStartOperation(sourceStartInteraction, sourceModeSwitchImplementation));
+		} else if (sourceStartInteraction.getImplementation() instanceof PlainEntityStartImplementation) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼ŒImplementationã¯TimingTriggeringEntityStartImplementation,ModeSwitchTriggeringEntityStartImplementationã®ã¿ã®ãŸã‚)
+			PlainEntityStartImplementation plainImplementation = (PlainEntityStartImplementation) sourceStartInteraction.getImplementation();
+			targetContextActivationOperation.getExecutableStartOperation().add(createPlainExecutableStartOperation(sourceStartInteraction, plainImplementation));
 		}
 	}
 
 	private boolean isEnabledEntityStartInteraction(EntityStartInteraction sourceStartInteraction) {
-		if (sourceStartInteraction.getEventToTaskMapping().getEvent().getSourceBswEvent() == null) {
-			// RTE¥¤¥Ù¥ó¥È¤Î¾ì¹ç
-			return true; // ¾ï¤ËÍ­¸ú
-		} else {
-			// BSW¥¤¥Ù¥ó¥È¤Î¾ì¹ç
-			return this.moduleRules.isEnabledBswEvent(sourceStartInteraction.getEventToTaskMapping().getEvent().getSourceBswEvent());
+		if (sourceStartInteraction instanceof BswSchedulableEntityStartInteraction) {
+			return this.moduleRules.isEnabledBswEvent(((BswSchedulableEntityStartInteraction)sourceStartInteraction).getSourceEvent());
 		}
+		return true; // RTEã§ã¯ï¼Œãƒ¢ãƒ¼ãƒ‰ãŒæœªã‚µãƒãƒ¼ãƒˆã®ãŸã‚å¸¸ã«æœ‰åŠ¹
 	}
 
 	private TimingTriggeringExecutableStartOperation createTimingTriggeringExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
 			TimingTriggeringEntityStartImplementation sourceStartImplementation) throws ModelException {
 
 		TimingTriggeringExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createTimingTriggeringExecutableStartOperation();
-		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent());
-		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent());
+		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getStartOnEvent());
+		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction);
 
 		if (sourceStartImplementation.requiresCycleAdjust()) {
 			destOperation.setCycleCounterVariable(this.context.builtQuery.<GlobalVariable> findDest(GLOBAL_VARIABLE, sourceStartInteraction.getStarter().getCycleCounterImplementation()));
@@ -229,23 +226,23 @@ public class EntityOperationModelBuilder {
 		return destOperation;
 	}
 
-	private ModeSwitchTriggeringExecutableStartOperation createModeSwitchTriggeringExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
-			ModeSwitchTriggeringEntityStartImplementation sourceModeSwitchImplementation) throws ModelException {
+	private PlainExecutableStartOperation createPlainExecutableStartOperation(EntityStartInteraction sourceStartInteraction,
+			PlainEntityStartImplementation sourcePlainImplementation) throws ModelException {
 
-		ModeSwitchTriggeringExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createModeSwitchTriggeringExecutableStartOperation();
-		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent().getStartOnEvent());
-		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction.getEventToTaskMapping().getEvent());
+		PlainExecutableStartOperation destOperation = ModuleFactory.eINSTANCE.createPlainExecutableStartOperation();
+		buildCommonPartOfExecutableStartOperation(destOperation, sourceStartInteraction.getStartOnEvent());
+		buildDisabledInModePartOfExecutableStartOperation(destOperation, sourceStartInteraction);
 		return destOperation;
 	}
 
 	private Optional<ModeDeclarationGroupPrototype> tryGetEnableProvidedModeDeclarationGroupPrototype(ModeDeclarationGroupPrototype prototype) {
-		// Í­¸ú¤ÊÄó¶¡Â¦¤Ç¤¢¤ì¤Ğ¡¢¤½¤ì¤òÊÖ¤¹
+		// æœ‰åŠ¹ãªæä¾›å´ã§ã‚ã‚Œã°ã€ãã‚Œã‚’è¿”ã™
 		Optional<ModeMachineInstance> providedInstance = this.context.builtQuery.tryFindDest(MODE_MACHINE_INSTANCE, prototype);
 		if (providedInstance.isPresent()) {
 			return Optional.of(prototype);
 		}
 
-		// Í×µáÂ¦¤Î¾ì¹ç¡¢Í­¸ú¤ÊÄó¶¡Â¦¤¬¤¢¤ì¤Ğ¤½¤ì¤òÊÖ¤¹
+		// è¦æ±‚å´ã®å ´åˆã€æœ‰åŠ¹ãªæä¾›å´ãŒã‚ã‚Œã°ãã‚Œã‚’è¿”ã™
 		Optional<RteBswRequiredModeGroupConnection> connection = this.context.query.tryFindSingle(isKindOf(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION)
 				.AND(ref(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP, prototype)));
 		if (connection.isPresent()) { // 1:1(n)
@@ -257,19 +254,18 @@ public class EntityOperationModelBuilder {
 		return Optional.absent();
 	}
 	
-	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, Event sourceEvent) throws ModelException {
-		BswEvent sourceBswEvent = sourceEvent.getSourceBswEvent();
-		if (sourceBswEvent == null) {
-			return;
+	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, EntityStartInteraction sourceStartInteraction) throws ModelException {
+		// RTEã§ã¯ï¼Œãƒ¢ãƒ¼ãƒ‰ãŒæœªã‚µãƒãƒ¼ãƒˆ
+		if (sourceStartInteraction instanceof BswSchedulableEntityStartInteraction) {
+			buildDisabledInModePartOfExecutableStartOperation(targetOperation, ((BswSchedulableEntityStartInteraction)sourceStartInteraction).getSourceEvent());
 		}
-		buildDisabledInModePartOfExecutableStartOperation(targetOperation, sourceBswEvent);
 	}
 
 	private void buildDisabledInModePartOfExecutableStartOperation(ExecutableStartOperation targetOperation, BswEvent sourceBswEvent) throws ModelException {
 		for (ModeInBswModuleDescriptionInstanceRef sourceDisabledInModeIref : sourceBswEvent.getDisabledInMode()) {
 			Optional<ModeDeclarationGroupPrototype> sourceEnableProvidedModePrototype = tryGetEnableProvidedModeDeclarationGroupPrototype(sourceDisabledInModeIref.getContextModeDeclarationGroup());
 			if (!sourceEnableProvidedModePrototype.isPresent()) {
-				// 0:1Ï¢·È(Äó¶¡Â¦¤Î¥â¡¼¥É¥Ş¥·¥ó¥¤¥ó¥¹¥¿¥ó¥¹¤¬ÉÔÍ×¤Ê¥±¡¼¥¹¤ò´Ş¤à)¤Î¾ì¹ç¤Ï¤³¤³¤ËÍè¤ë¡£»öÁ°(isEnabledEvent())¤ËÉ¬Í×¤ÈÈ½Äê¤µ¤ì¤Æ¤¤¤ë¤¿¤á¡¢disabledÈ½Äê¤ÏÉÔÍ×
+				// 0:1é€£æº(æä¾›å´ã®ãƒ¢ãƒ¼ãƒ‰ãƒã‚·ãƒ³ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒä¸è¦ãªã‚±ãƒ¼ã‚¹ã‚’å«ã‚€)ã®å ´åˆã¯ã“ã“ã«æ¥ã‚‹ã€‚äº‹å‰(isEnabledEvent())ã«å¿…è¦ã¨åˆ¤å®šã•ã‚Œã¦ã„ã‚‹ãŸã‚ã€disabledåˆ¤å®šã¯ä¸è¦
 				continue;
 			}
 
@@ -305,12 +301,12 @@ public class EntityOperationModelBuilder {
 	}
 	
 	private void buildEntityCountupOperation(ContextActivationOperation targetContextActivationOperation, EntityStarter sourceEntityStarter) throws ModelException {
-		// ¼ş´üÄ´À°¥«¥¦¥ó¥¿ÊÑ¿ô¤Î¹½ÃÛ
+		// å‘¨æœŸèª¿æ•´ã‚«ã‚¦ãƒ³ã‚¿å¤‰æ•°ã®æ§‹ç¯‰
 		if (sourceEntityStarter.getCycleCounterImplementation() != null) {
 			targetContextActivationOperation.setCycleCountupOperation(createCycleCountupOperation(sourceEntityStarter.getCycleCounterImplementation()));
 		}
 	
-		// ³«»Ï¥ª¥Õ¥»¥Ã¥ÈÄ´À°¥«¥¦¥ó¥¿ÊÑ¿ô¤Î¹½ÃÛ
+		// é–‹å§‹ã‚ªãƒ•ã‚»ãƒƒãƒˆèª¿æ•´ã‚«ã‚¦ãƒ³ã‚¿å¤‰æ•°ã®æ§‹ç¯‰
 		if (sourceEntityStarter.getStartOffsetCounterImplementation() != null) {
 			targetContextActivationOperation.setStartOffsetCountupOperation(createStartOffsetCountupOperation(sourceEntityStarter.getStartOffsetCounterImplementation()));
 		}

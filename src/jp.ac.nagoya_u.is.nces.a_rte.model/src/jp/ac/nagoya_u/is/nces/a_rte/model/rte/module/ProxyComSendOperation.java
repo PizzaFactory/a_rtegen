@@ -1,45 +1,3 @@
-/*
- *  TOPPERS/A-RTEGEN
- *      Automotive Runtime Environment Generator
- *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
- *
- *  ╛х╡н├°║ю╕в╝╘д╧бд░╩▓╝д╬(1)б┴(4)д╬╛Є╖ядЄ╦■д┐д╣╛ь╣чд╦╕┬дъбд╦▄е╜е╒е╚ежез
- *  евб╩╦▄е╜е╒е╚ежезевдЄ▓■╩╤д╖д┐дтд╬дЄ┤▐дрбе░╩▓╝╞▒д╕б╦дЄ╗╚═╤бж╩г└╜бж▓■
- *  ╩╤бж║╞╟█╔█б╩░╩▓╝бд═°═╤д╚╕╞д╓б╦д╣дыд│д╚дЄ╠╡╜■д╟╡Ў┬·д╣дыбе
- *  (1) ╦▄е╜е╒е╚ежезевдЄе╜б╝е╣е│б╝е╔д╬╖┴д╟═°═╤д╣ды╛ь╣чд╦д╧бд╛х╡нд╬├°║ю
- *      ╕в╔╜╝ибдд│д╬═°═╤╛Є╖ядкдшд╙▓╝╡нд╬╠╡╩▌╛┌╡м─ъдмбдд╜д╬д▐д▐д╬╖┴д╟е╜б╝
- *      е╣е│б╝е╔├цд╦┤▐д▐дьд╞дддыд│д╚бе
- *  (2) ╦▄е╜е╒е╚ежезевдЄбдещеде╓ещеъ╖┴╝░д╩д╔бд┬╛д╬е╜е╒е╚ежезев│л╚пд╦╗╚
- *      ═╤д╟днды╖┴д╟║╞╟█╔█д╣ды╛ь╣чд╦д╧бд║╞╟█╔█д╦╚╝дже╔енехесеєе╚б╩═°═╤
- *      ╝╘е▐е╦ехевеыд╩д╔б╦д╦бд╛х╡нд╬├°║ю╕в╔╜╝ибдд│д╬═°═╤╛Є╖ядкдшд╙▓╝╡н
- *      д╬╠╡╩▌╛┌╡м─ъдЄ╖╟║▄д╣дыд│д╚бе
- *  (3) ╦▄е╜е╒е╚ежезевдЄбд╡б┤яд╦┴╚д▀╣■дрд╩д╔бд┬╛д╬е╜е╒е╚ежезев│л╚пд╦╗╚
- *      ═╤д╟днд╩дд╖┴д╟║╞╟█╔█д╣ды╛ь╣чд╦д╧бд╝бд╬ддд║дьдлд╬╛Є╖ядЄ╦■д┐д╣д│
- *      д╚бе
- *    (a) ║╞╟█╔█д╦╚╝дже╔енехесеєе╚б╩═°═╤╝╘е▐е╦ехевеыд╩д╔б╦д╦бд╛х╡нд╬├°
- *        ║ю╕в╔╜╝ибдд│д╬═°═╤╛Є╖ядкдшд╙▓╝╡нд╬╠╡╩▌╛┌╡м─ъдЄ╖╟║▄д╣дыд│д╚бе
- *    (b) ║╞╟█╔█д╬╖┴┬╓дЄбд╩╠д╦─ъдсды╩¤╦бд╦дшд├д╞бдTOPPERSе╫еэе╕езепе╚д╦
- *        ╩є╣Ёд╣дыд│д╚бе
- *  (4) ╦▄е╜е╒е╚ежезевд╬═°═╤д╦дшдъ─╛└▄┼кд▐д┐д╧┤╓└▄┼кд╦└╕д╕дыдддлд╩ды┬╗
- *      │▓длдщдтбд╛х╡н├°║ю╕в╝╘дкдшд╙TOPPERSе╫еэе╕езепе╚дЄ╠╚└╒д╣дыд│д╚бе
- *      д▐д┐бд╦▄е╜е╒е╚ежезевд╬ецб╝е╢д▐д┐д╧еиеєе╔ецб╝е╢длдщд╬дддлд╩ды═¤
- *      ═│д╦┤Ёд┼дп└┴╡сдлдщдтбд╛х╡н├°║ю╕в╝╘дкдшд╙TOPPERSе╫еэе╕езепе╚дЄ
- *      ╠╚└╒д╣дыд│д╚бе
- *
- *  ╦▄е╜е╒е╚ежезевд╧бдAUTOSARб╩AUTomotive Open System ARchitectureб╦╗┼
- *  ══д╦┤Ёд┼ддд╞дддыбе╛х╡нд╬╡Ў┬·д╧бдAUTOSARд╬├╬┼к║т╗║╕вдЄ╡Ў┬·д╣дыдтд╬д╟
- *  д╧д╩ддбеAUTOSARд╧бдAUTOSAR╗┼══д╦┤Ёд┼ддд┐е╜е╒е╚ежезевдЄ╛ж═╤╠▄┼кд╟═°
- *  ═╤д╣ды╝╘д╦┬╨д╖д╞бдAUTOSARе╤б╝е╚е╩б╝д╦д╩дыд│д╚дЄ╡сдсд╞дддыбе
- *
- *  ╦▄е╜е╒е╚ежезевд╧бд╠╡╩▌╛┌д╟─є╢бд╡дьд╞дддыдтд╬д╟двдыбе╛х╡н├°║ю╕в╝╘дк
- *  дшд╙TOPPERSе╫еэе╕езепе╚д╧бд╦▄е╜е╒е╚ежезевд╦┤╪д╖д╞бд╞├─ъд╬╗╚═╤╠▄┼к
- *  д╦┬╨д╣ды┼м╣ч└ндт┤▐дсд╞бддддлд╩ды╩▌╛┌дт╣╘дяд╩ддбед▐д┐бд╦▄е╜е╒е╚ежез
- *  евд╬═°═╤д╦дшдъ─╛└▄┼кд▐д┐д╧┤╓└▄┼кд╦└╕д╕д┐дддлд╩ды┬╗│▓д╦┤╪д╖д╞дтбдд╜
- *  д╬└╒╟ддЄ╔щдяд╩ддбе
- *
- *  $Id $
- */
 /**
  */
 package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module;
@@ -94,13 +52,9 @@ public interface ProxyComSendOperation extends ComSendOperation {
 	/**
 	 * Returns the value of the '<em><b>Request Proxy Ioc Api</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Request Proxy Ioc Api</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * е╫еэене╖д╪д╬═╫╡с┼┴╚┬═╤IOC APIбг
+	 * уГЧуГнуВнуВ╖уБ╕уБошжБц▒Вф╝ЭцРмчФиIOC APIуАВ
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Request Proxy Ioc Api</em>' reference.
 	 * @see #setRequestProxyIocApi(IocSendApi)
@@ -123,14 +77,10 @@ public interface ProxyComSendOperation extends ComSendOperation {
 	/**
 	 * Returns the value of the '<em><b>Value Proxy Ioc Api</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Value Proxy Ioc Api</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * е╫еэене╖д╪д╬├═┼┴╚┬═╤IOC APIбг
-	 * NOTE е╫еъе▀е╞еге╓╖┐д╬┴ў┐о╜ш═¤д╟д╧╗╚═╤д╡дьд╩ддд┐дсбвnullдм└▀─ъд╡дьдыбг
+	 * уГЧуГнуВнуВ╖уБ╕уБохАдф╝ЭцРмчФиIOC APIуАВ
+	 * NOTE уГЧуГкуГЯуГЖуВгуГЦхЮЛуБощАБф┐бхЗжчРЖуБзуБпф╜┐чФиуБХуВМуБкуБДуБЯуВБуАБnullуБМшинхоЪуБХуВМуВЛуАВ
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Value Proxy Ioc Api</em>' reference.
 	 * @see #setValueProxyIocApi(IocSendApi)
@@ -153,14 +103,10 @@ public interface ProxyComSendOperation extends ComSendOperation {
 	/**
 	 * Returns the value of the '<em><b>Proxy Function Index Constant Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Proxy Function Index Constant Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * е╫еэене╖┤╪┐Їд╬╝▒╩╠едеєе╟е├епе╣─ъ┐Ї╠╛бг
-	 * NOTE е╫еъе▀е╞еге╓╖┐д╬┴ў┐о╜ш═¤д╟д╧╗╚═╤д╡дьд╩ддд┐дсбвnullдм└▀─ъд╡дьдыбг
+	 * уГЧуГнуВнуВ╖щЦвцХ░уБошнШхИеуВдуГ│уГЗуГГуВпуВ╣хоЪцХ░хРНуАВ
+	 * NOTE уГЧуГкуГЯуГЖуВгуГЦхЮЛуБощАБф┐бхЗжчРЖуБзуБпф╜┐чФиуБХуВМуБкуБДуБЯуВБуАБnullуБМшинхоЪуБХуВМуВЛуАВ
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Proxy Function Index Constant Name</em>' attribute.
 	 * @see #setProxyFunctionIndexConstantName(String)

@@ -3,46 +3,46 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  æÂµ≠√¯∫Ó∏¢º‘§œ°§∞ ≤º§Œ(1)°¡(4)§ŒæÚ∑Ô§ÚÀ˛§ø§πæÏπÁ§À∏¬§Í°§À‹•Ω•’•»•¶•ß
- *  •¢° À‹•Ω•’•»•¶•ß•¢§Ú≤˛ —§∑§ø§‚§Œ§Ú¥ﬁ§‡°•∞ ≤º∆±§∏°À§Úª»Õ—°¶ £¿Ω°¶≤˛
- *   —°¶∫∆«€…€° ∞ ≤º°§Õ¯Õ—§»∏∆§÷°À§π§Î§≥§»§ÚÃµΩ˛§«µˆ¬˙§π§Î°•
- *  (1) À‹•Ω•’•»•¶•ß•¢§Ú•Ω°º•π•≥°º•…§Œ∑¡§«Õ¯Õ—§π§ÎæÏπÁ§À§œ°§æÂµ≠§Œ√¯∫Ó
- *      ∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠§ŒÃµ ›æ⁄µ¨ƒÍ§¨°§§Ω§Œ§ﬁ§ﬁ§Œ∑¡§«•Ω°º
- *      •π•≥°º•…√Ê§À¥ﬁ§ﬁ§Ï§∆§§§Î§≥§»°•
- *  (2) À‹•Ω•’•»•¶•ß•¢§Ú°§•È•§•÷•È•Í∑¡º∞§ §…°§¬æ§Œ•Ω•’•»•¶•ß•¢≥´»Ø§Àª»
- *      Õ—§«§≠§Î∑¡§«∫∆«€…€§π§ÎæÏπÁ§À§œ°§∫∆«€…€§À»º§¶•…•≠•Â•·•Û•»° Õ¯Õ—
- *      º‘•ﬁ•À•Â•¢•Î§ §…°À§À°§æÂµ≠§Œ√¯∫Ó∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠
- *      §ŒÃµ ›æ⁄µ¨ƒÍ§Ú∑«∫‹§π§Î§≥§»°•
- *  (3) À‹•Ω•’•»•¶•ß•¢§Ú°§µ°¥Ô§À¡»§ﬂπ˛§‡§ §…°§¬æ§Œ•Ω•’•»•¶•ß•¢≥´»Ø§Àª»
- *      Õ—§«§≠§ §§∑¡§«∫∆«€…€§π§ÎæÏπÁ§À§œ°§º°§Œ§§§∫§Ï§´§ŒæÚ∑Ô§ÚÀ˛§ø§π§≥
- *      §»°•
- *    (a) ∫∆«€…€§À»º§¶•…•≠•Â•·•Û•»° Õ¯Õ—º‘•ﬁ•À•Â•¢•Î§ §…°À§À°§æÂµ≠§Œ√¯
- *        ∫Ó∏¢…Ωº®°§§≥§ŒÕ¯Õ—æÚ∑Ô§™§Ë§”≤ºµ≠§ŒÃµ ›æ⁄µ¨ƒÍ§Ú∑«∫‹§π§Î§≥§»°•
- *    (b) ∫∆«€…€§Œ∑¡¬÷§Ú°§ Ã§ÀƒÍ§·§Î ˝À°§À§Ë§√§∆°§TOPPERS•◊•Ì•∏•ß•Ø•»§À
- *         Ûπ§π§Î§≥§»°•
- *  (4) À‹•Ω•’•»•¶•ß•¢§ŒÕ¯Õ—§À§Ë§Íƒæ¿‹≈™§ﬁ§ø§œ¥÷¿‹≈™§À¿∏§∏§Î§§§´§ §Î¬ª
- *      ≥≤§´§È§‚°§æÂµ≠√¯∫Ó∏¢º‘§™§Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§ÚÃ»¿’§π§Î§≥§»°•
- *      §ﬁ§ø°§À‹•Ω•’•»•¶•ß•¢§Œ•Ê°º•∂§ﬁ§ø§œ•®•Û•…•Ê°º•∂§´§È§Œ§§§´§ §ÎÕ˝
- *      Õ≥§À¥§≈§Ø¿¡µ·§´§È§‚°§æÂµ≠√¯∫Ó∏¢º‘§™§Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§Ú
- *      Ã»¿’§π§Î§≥§»°•
+ *  ‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„ÅØÔºå‰ª•‰∏ã„ÅÆ(1)„Äú(4)„ÅÆÊù°‰ª∂„ÇíÊ∫Ä„Åü„ÅôÂ†¥Âêà„Å´Èôê„ÇäÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß
+ *  „Ç¢ÔºàÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÊîπÂ§â„Åó„Åü„ÇÇ„ÅÆ„ÇíÂê´„ÇÄÔºé‰ª•‰∏ãÂêå„ÅòÔºâ„Çí‰ΩøÁî®„ÉªË§áË£Ω„ÉªÊîπ
+ *  Â§â„ÉªÂÜçÈÖçÂ∏ÉÔºà‰ª•‰∏ãÔºåÂà©Áî®„Å®Âëº„Å∂Ôºâ„Åô„Çã„Åì„Å®„ÇíÁÑ°ÂÑü„ÅßË®±Ë´æ„Åô„ÇãÔºé
+ *  (1) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„Çí„ÇΩ„Éº„Çπ„Ç≥„Éº„Éâ„ÅÆÂΩ¢„ÅßÂà©Áî®„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºå‰∏äË®ò„ÅÆËëó‰Ωú
+ *      Ê®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò„ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÅåÔºå„Åù„ÅÆ„Åæ„Åæ„ÅÆÂΩ¢„Åß„ÇΩ„Éº
+ *      „Çπ„Ç≥„Éº„Éâ‰∏≠„Å´Âê´„Åæ„Çå„Å¶„ÅÑ„Çã„Åì„Å®Ôºé
+ *  (2) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÔºå„É©„Ç§„Éñ„É©„É™ÂΩ¢Âºè„Å™„Å©Ôºå‰ªñ„ÅÆ„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢ÈñãÁô∫„Å´‰Ωø
+ *      Áî®„Åß„Åç„ÇãÂΩ¢„ÅßÂÜçÈÖçÂ∏É„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºåÂÜçÈÖçÂ∏É„Å´‰º¥„ÅÜ„Éâ„Ç≠„É•„É°„É≥„ÉàÔºàÂà©Áî®
+ *      ËÄÖ„Éû„Éã„É•„Ç¢„É´„Å™„Å©Ôºâ„Å´Ôºå‰∏äË®ò„ÅÆËëó‰ΩúÊ®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò
+ *      „ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÇíÊé≤Ëºâ„Åô„Çã„Åì„Å®Ôºé
+ *  (3) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÔºåÊ©üÂô®„Å´ÁµÑ„ÅøËæº„ÇÄ„Å™„Å©Ôºå‰ªñ„ÅÆ„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢ÈñãÁô∫„Å´‰Ωø
+ *      Áî®„Åß„Åç„Å™„ÅÑÂΩ¢„ÅßÂÜçÈÖçÂ∏É„Åô„ÇãÂ†¥Âêà„Å´„ÅØÔºåÊ¨°„ÅÆ„ÅÑ„Åö„Çå„Åã„ÅÆÊù°‰ª∂„ÇíÊ∫Ä„Åü„Åô„Åì
+ *      „Å®Ôºé
+ *    (a) ÂÜçÈÖçÂ∏É„Å´‰º¥„ÅÜ„Éâ„Ç≠„É•„É°„É≥„ÉàÔºàÂà©Áî®ËÄÖ„Éû„Éã„É•„Ç¢„É´„Å™„Å©Ôºâ„Å´Ôºå‰∏äË®ò„ÅÆËëó
+ *        ‰ΩúÊ®©Ë°®Á§∫Ôºå„Åì„ÅÆÂà©Áî®Êù°‰ª∂„Åä„Çà„Å≥‰∏ãË®ò„ÅÆÁÑ°‰øùË®ºË¶èÂÆö„ÇíÊé≤Ëºâ„Åô„Çã„Åì„Å®Ôºé
+ *    (b) ÂÜçÈÖçÂ∏É„ÅÆÂΩ¢ÊÖã„ÇíÔºåÂà•„Å´ÂÆö„ÇÅ„ÇãÊñπÊ≥ï„Å´„Çà„Å£„Å¶ÔºåTOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„Å´
+ *        Â†±Âëä„Åô„Çã„Åì„Å®Ôºé
+ *  (4) Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅÆÂà©Áî®„Å´„Çà„ÇäÁõ¥Êé•ÁöÑ„Åæ„Åü„ÅØÈñìÊé•ÁöÑ„Å´Áîü„Åò„Çã„ÅÑ„Åã„Å™„ÇãÊêç
+ *      ÂÆ≥„Åã„Çâ„ÇÇÔºå‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä„Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„ÇíÂÖçË≤¨„Åô„Çã„Åì„Å®Ôºé
+ *      „Åæ„ÅüÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅÆ„É¶„Éº„Ç∂„Åæ„Åü„ÅØ„Ç®„É≥„Éâ„É¶„Éº„Ç∂„Åã„Çâ„ÅÆ„ÅÑ„Åã„Å™„ÇãÁêÜ
+ *      Áî±„Å´Âü∫„Å•„ÅèË´ãÊ±Ç„Åã„Çâ„ÇÇÔºå‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä„Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„Çí
+ *      ÂÖçË≤¨„Åô„Çã„Åì„Å®Ôºé
  *
- *  À‹•Ω•’•»•¶•ß•¢§œ°§AUTOSAR° AUTomotive Open System ARchitecture°Àª≈
- *  ÕÕ§À¥§≈§§§∆§§§Î°•æÂµ≠§Œµˆ¬˙§œ°§AUTOSAR§Œ√Œ≈™∫‚ª∫∏¢§Úµˆ¬˙§π§Î§‚§Œ§«
- *  §œ§ §§°•AUTOSAR§œ°§AUTOSARª≈ÕÕ§À¥§≈§§§ø•Ω•’•»•¶•ß•¢§Úæ¶Õ—Ã‹≈™§«Õ¯
- *  Õ—§π§Îº‘§À¬–§∑§∆°§AUTOSAR•—°º•»• °º§À§ §Î§≥§»§Úµ·§·§∆§§§Î°•
+ *  Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅØÔºåAUTOSARÔºàAUTomotive Open System ARchitectureÔºâ‰ªï
+ *  Êßò„Å´Âü∫„Å•„ÅÑ„Å¶„ÅÑ„ÇãÔºé‰∏äË®ò„ÅÆË®±Ë´æ„ÅØÔºåAUTOSAR„ÅÆÁü•ÁöÑË≤°Áî£Ê®©„ÇíË®±Ë´æ„Åô„Çã„ÇÇ„ÅÆ„Åß
+ *  „ÅØ„Å™„ÅÑÔºéAUTOSAR„ÅØÔºåAUTOSAR‰ªïÊßò„Å´Âü∫„Å•„ÅÑ„Åü„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÇíÂïÜÁî®ÁõÆÁöÑ„ÅßÂà©
+ *  Áî®„Åô„ÇãËÄÖ„Å´ÂØæ„Åó„Å¶ÔºåAUTOSAR„Éë„Éº„Éà„Éä„Éº„Å´„Å™„Çã„Åì„Å®„ÇíÊ±Ç„ÇÅ„Å¶„ÅÑ„ÇãÔºé
  *
- *  À‹•Ω•’•»•¶•ß•¢§œ°§Ãµ ›æ⁄§«ƒÛ∂°§µ§Ï§∆§§§Î§‚§Œ§«§¢§Î°•æÂµ≠√¯∫Ó∏¢º‘§™
- *  §Ë§”TOPPERS•◊•Ì•∏•ß•Ø•»§œ°§À‹•Ω•’•»•¶•ß•¢§À¥ÿ§∑§∆°§∆√ƒÍ§Œª»Õ—Ã‹≈™
- *  §À¬–§π§Î≈¨πÁ¿≠§‚¥ﬁ§·§∆°§§§§´§ §Î ›æ⁄§‚π‘§Ô§ §§°•§ﬁ§ø°§À‹•Ω•’•»•¶•ß
- *  •¢§ŒÕ¯Õ—§À§Ë§Íƒæ¿‹≈™§ﬁ§ø§œ¥÷¿‹≈™§À¿∏§∏§ø§§§´§ §Î¬ª≥≤§À¥ÿ§∑§∆§‚°§§Ω
- *  §Œ¿’«§§Ú…È§Ô§ §§°•
+ *  Êú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„ÅØÔºåÁÑ°‰øùË®º„ÅßÊèê‰æõ„Åï„Çå„Å¶„ÅÑ„Çã„ÇÇ„ÅÆ„Åß„ÅÇ„ÇãÔºé‰∏äË®òËëó‰ΩúÊ®©ËÄÖ„Åä
+ *  „Çà„Å≥TOPPERS„Éó„É≠„Ç∏„Çß„ÇØ„Éà„ÅØÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß„Ç¢„Å´Èñ¢„Åó„Å¶ÔºåÁâπÂÆö„ÅÆ‰ΩøÁî®ÁõÆÁöÑ
+ *  „Å´ÂØæ„Åô„ÇãÈÅ©ÂêàÊÄß„ÇÇÂê´„ÇÅ„Å¶Ôºå„ÅÑ„Åã„Å™„Çã‰øùË®º„ÇÇË°å„Çè„Å™„ÅÑÔºé„Åæ„ÅüÔºåÊú¨„ÇΩ„Éï„Éà„Ç¶„Çß
+ *  „Ç¢„ÅÆÂà©Áî®„Å´„Çà„ÇäÁõ¥Êé•ÁöÑ„Åæ„Åü„ÅØÈñìÊé•ÁöÑ„Å´Áîü„Åò„Åü„ÅÑ„Åã„Å™„ÇãÊêçÂÆ≥„Å´Èñ¢„Åó„Å¶„ÇÇÔºå„Åù
+ *  „ÅÆË≤¨‰ªª„ÇíË≤†„Çè„Å™„ÅÑÔºé
  * 
- *  $Id: senderReceiverOperation.mtl 14527 2015-05-29 09:32:57Z m-umeda $
+ *  $Id: senderReceiverOperation.mtl 21654 2016-03-30 06:49:59Z m-umeda $
  */
 [/comment]
-[comment encoding = EUC-JP /]
+[comment encoding = UTF-8 /]
 [module senderReceiverOperation('http://nces.is.nagoya-u.ac.jp/a-rte/rte/module')]
 
 [import jp::ac::nagoya_u::is::nces::a_rte::codegen::rte::common::operationUtil /]
@@ -50,7 +50,7 @@
 
 [template public genSendOperation(aSendOperation : SendOperation) /]
 
-[comment RTE¡˜øÆ/]
+[comment RTEÈÄÅ‰ø°/]
 [template private genSendOperation(aSendOperation : RteBufferNonqueuedSendOperation) ]
 [let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
 	[aExcludeOperation.genExcludeOperationEnter()/]
@@ -75,24 +75,65 @@
 [else]
 	[aRteBufferSendOperation.accessVariable.valueVariable.symbolName/] = [aRteBufferSendOperation.sendValue.genValueAccess()/];
 [/if]
-
 [if (not aRteBufferSendOperation.accessVariable.statusVariable.oclIsUndefined())]
 	[aRteBufferSendOperation.accessVariable.statusVariable.symbolName/] = [aRteBufferSendOperation.sendStatus.genValueAccess()/];
 [/if]
+[for (anActivationFlag : LocalVariable | aRteBufferSendOperation.activationFlagOnRxSuccess)]
+	[anActivationFlag.symbolName/] = TRUE;
+[/for]
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteBufferWriteSendOperation) ]
-tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) [aSendOperation.sendValue.genPointerAccess()/]); [if (aSendOperation.sendValue.oclIsKindOf(Parameter) and aSendOperation.sendValue.oclAsType(Parameter).hasConst)]/* MISRA RULE 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */[/if]
-if (tmp_ercd != E_OK) {	
-	ercd = RTE_E_DEV_DEFECT;
-}
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_data')/] = (const void*) [aSendOperation.sendValue.genPointerAccess()/];
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType)[aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+	if ([aSendOperation.tempReturnVariable.genValueAccess()/] != E_OK) {
+		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+	}
+	[if (aSendOperation.activationFlagOnRxSuccess->notEmpty())]
+	else {
+		if ([aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_rx_res')/] == TRUE) {
+			[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+				[anActivationFlag.symbolName/] = TRUE;
+			[/for]
+		}
+	}
+	[/if]
 [/template]
 
 [template private genSendOperation(aSendOperation : TrustedFunctionRteBufferInvalidateSendOperation) ]
-tmp_ercd = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType) NULL_PTR);
-if (tmp_ercd != E_OK) {	
-	ercd = RTE_E_DEV_DEFECT;
-}
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_data')/] = NULL_PTR;
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], (TrustedFunctionParameterRefType)[aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+	if ([aSendOperation.tempReturnVariable.genValueAccess()/] != E_OK) {
+		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+	}
+	[if (aSendOperation.activationFlagOnRxSuccess->notEmpty())]
+	else {
+		if ([aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_rx_res')/] == TRUE) {
+			[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+				[anActivationFlag.symbolName/] = TRUE;
+			[/for]
+		}
+	}
+	[/if]
+[/template]
+
+[template private genSendOperation(aSendOperation : TrustedFunctionRteBufferSendSendOperation) ]
+[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_data')/] = p_data;
+[else]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_data')/] = (void*)data; /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
+[/if]
+	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] = RTE_E_OK;
+	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
+	if (tmp_ercd != E_OK) {
+		ercd = RTE_E_DEV_DEFECT;
+	}
+	else {
+		ercd = (ercd == RTE_E_OK) ? [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] : ercd;
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
+	}
 [/template]
 
 [template private genSendOperation(aSendOperation : IocNonqueuedSendOperation) ]
@@ -106,6 +147,13 @@ if (tmp_ercd != E_OK) {
 				[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
 		[/if]
 	}
+	[if (aSendOperation.activationFlagOnRxSuccess->notEmpty())]
+	else {
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
+	}
+	[/if]
 [/if]
 [/template]
 
@@ -121,24 +169,20 @@ if (tmp_ercd != E_OK) {
 		/* Nothing to do */
 	} else if ([aSendOperation.tempReturnVariable.symbolName/] == COM_SERVICE_NOT_AVAILABLE) {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_COM_STOPPED;
+		[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+			[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_COM_STOPPED;
+		[/if]
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
 	} else {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
-	}
-[/template]
-
-[template private genSendOperation(aSendOperation : TrustedFunctionRteSendOperation) ]
-[if not (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tfn_prm.tf_data = p_data;
-[else]
-	tfn_prm.tf_data = (void*)data; /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
-[/if]
-	tfn_prm.tf_ercd = RTE_E_OK;
-	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.srSendTfSymbolName/], (&tfn_prm));
-	if (tmp_ercd != E_OK) {
-		ercd = RTE_E_DEV_DEFECT;
-	}
-	else {
-		ercd = (ercd == RTE_E_OK) ? tfn_prm.tf_ercd : ercd;
+		[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+			[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+		[/if]
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
 	}
 [/template]
 
@@ -153,8 +197,24 @@ if (tmp_ercd != E_OK) {
 	[aSendOperation.tempReturnVariable.genValueAccess()/] = Rte_Call_Bsw_CallTrustedFunction([aSendOperation.accessTrustedFunction.trustedFunctionIndex/], [aSendOperation.trustedFunctionParamVariable.genPointerAccess()/]);
 	if (tmp_ercd != E_OK) {
 		ercd = RTE_E_DEV_DEFECT;
+		[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+			[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+		[/if]
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
 	} else {
 		ercd = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/];
+		[if ((not aSendOperation.tAckStatus.oclIsUndefined()) or (aSendOperation.activationFlagOnTxErr->notEmpty()))]
+		if(ercd != RTE_E_OK) {
+			[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+				[aSendOperation.tAckStatus.statusVariable.symbolName/] = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/];
+			[/if]
+			[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+				[anActivationFlag.symbolName/] = TRUE;
+			[/for]
+		}
+		[/if]
 	}
 [else]
 	[aSendOperation.trustedFunctionParamVariable.genMemberAccess('com_sig_id')/] = [aSendOperation.accessApi.comSignalSymbolName/];
@@ -174,77 +234,77 @@ if (tmp_ercd != E_OK) {
 [template private genTrustedReturn(aSendOperation : TrustedFunctionComSendOperation) ]
 if ([aSendOperation.tempReturnVariable.genValueAccess()/] != E_OK) {
 	[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
+	[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+		[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+	[/if]
+	[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+		[anActivationFlag.symbolName/] = TRUE;
+	[/for]
 }
 else {
-	[aSendOperation.returnVariable.genValueAccess()/] = ([aSendOperation.returnVariable.genValueAccess()/] == RTE_E_OK) ? tfn_prm.tf_ercd : [aSendOperation.returnVariable.genValueAccess()/];
+	[aSendOperation.returnVariable.genValueAccess()/] = ([aSendOperation.returnVariable.genValueAccess()/] == RTE_E_OK) ? [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] : [aSendOperation.returnVariable.genValueAccess()/];
+	[if ((not aSendOperation.tAckStatus.oclIsUndefined()) or (aSendOperation.activationFlagOnTxErr->notEmpty()))]
+	if([aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/] != RTE_E_OK) {
+		[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+			[aSendOperation.tAckStatus.statusVariable.symbolName/] = [aSendOperation.trustedFunctionParamVariable.genMemberAccess('tf_ercd')/];
+		[/if]
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
+	}
+	[/if]
 }
 [/template]
 
 [template private genSendOperation(aSendOperation : ImmediateProxyComSendOperation) ]
-[comment NOTE IOC API§Œ∑Î≤Ã§´§ÈCOM§Œæı¬÷§œ§Ô§´§È§ §§§ø§·°§Ã·§Í√Õ§œ ÷§µ§ §§/]
-[if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
-	if (tmp_ercd == IOC_E_OK) {
-		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
-	} else if (tmp_ercd == IOC_E_LIMIT) {
-		[if (aSendOperation.isWriteApi)]
-			ercd = RTE_E_DEV_DEFECT;
-		[else]
-			ercd = RTE_E_LIMIT;
-		[/if]
-	}
-	else {
-		ercd = RTE_E_SEG_FAULT;
-	}
-[else]
-	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
-	if (tmp_ercd == IOC_E_OK) {
-		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
-		(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
-	} else if (tmp_ercd == IOC_E_LIMIT) {
-		[if (aSendOperation.isWriteApi)]
-			ercd = RTE_E_DEV_DEFECT;
-		[else]
-			ercd = RTE_E_LIMIT;
-		[/if]
-	}
-	else {
-		ercd = RTE_E_SEG_FAULT;
-	}
-[/if]
+[comment NOTE IOC API„ÅÆÁµêÊûú„Åã„ÇâCOM„ÅÆÁä∂ÊÖã„ÅØ„Çè„Åã„Çâ„Å™„ÅÑ„Åü„ÇÅÔºåÊàª„ÇäÂÄ§„ÅØËøî„Åï„Å™„ÅÑ/]
+tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
+if (tmp_ercd == IOC_E_OK) {
+	(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
+	(void) [aSendOperation.activationApi.symbolName/]([aSendOperation.activationApi.osTaskId/], [aSendOperation.activationApi.osEventId/]);
+} else if (tmp_ercd == IOC_E_LIMIT) {
+	ercd = RTE_E_DEV_DEFECT;
+	[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+		[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+	[/if]
+	[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+		[anActivationFlag.symbolName/] = TRUE;
+	[/for]
+}
+else {
+	ercd = RTE_E_SEG_FAULT;
+	[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+		[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+	[/if]
+	[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+		[anActivationFlag.symbolName/] = TRUE;
+	[/for]
+}
 [/template]
 
 [template private genSendOperation(aSendOperation : PeriodicProxyComSendOperation) ]
-[comment NOTE IOC API§Œ∑Î≤Ã§´§ÈCOM§Œæı¬÷§œ§Ô§´§È§ §§§ø§·°§Ã·§Í√Õ§œ ÷§µ§ §§/]
-[if (aSendOperation.type.oclIsKindOf(PrimitiveType))]
-	tmp_ercd = [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.accessApi.comSignalSymbolName/], [aSendOperation.sendValue.genValueAccess()/]);
-	if (tmp_ercd == IOC_E_OK) {
-		/* Nothing to do */
-	} else if (tmp_ercd == IOC_E_LIMIT) {
-		[if (aSendOperation.isWriteApi)]
-			ercd = RTE_E_DEV_DEFECT;
-		[else]
-			ercd = RTE_E_LIMIT;
-		[/if]
-	}
-	else {
-		ercd = RTE_E_SEG_FAULT;
-	}
-[else]
-	tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/](p_data);
-	if (tmp_ercd == IOC_E_OK) {
-		(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
-	} else if (tmp_ercd == IOC_E_LIMIT) {
-		[if (aSendOperation.isWriteApi)]
-			ercd = RTE_E_DEV_DEFECT;
-		[else]
-			ercd = RTE_E_LIMIT;
-		[/if]
-	}
-	else {
-		ercd = RTE_E_SEG_FAULT;
-	}
-[/if]
+[comment NOTE IOC API„ÅÆÁµêÊûú„Åã„ÇâCOM„ÅÆÁä∂ÊÖã„ÅØ„Çè„Åã„Çâ„Å™„ÅÑ„Åü„ÇÅÔºåÊàª„ÇäÂÄ§„ÅØËøî„Åï„Å™„ÅÑ/]
+tmp_ercd = [aSendOperation.valueProxyIocApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
+if (tmp_ercd == IOC_E_OK) {
+	(void) [aSendOperation.requestProxyIocApi.symbolName/]([aSendOperation.proxyFunctionIndexConstantName/]);
+} else if (tmp_ercd == IOC_E_LIMIT) {
+	ercd = RTE_E_DEV_DEFECT;
+	[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+		[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+	[/if]
+	[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+		[anActivationFlag.symbolName/] = TRUE;
+	[/for]
+}
+else {
+	ercd = RTE_E_SEG_FAULT;
+	[if (not aSendOperation.tAckStatus.oclIsUndefined())]
+		[aSendOperation.tAckStatus.statusVariable.symbolName/] = RTE_E_DEV_DEFECT;
+	[/if]
+	[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnTxErr)]
+		[anActivationFlag.symbolName/] = TRUE;
+	[/for]
+}
 [/template]
 
 [template private genSendOperation(aSendOperation : RteBufferQueuedSendOperation) ]
@@ -284,32 +344,21 @@ else {
 	[aSendOperation.tempReturnVariable.genValueAccess()/] = [aSendOperation.accessApi.symbolName/]([aSendOperation.sendValue.genValueAccess()/]);
 	if ([aSendOperation.tempReturnVariable.genValueAccess()/] == IOC_E_LIMIT) {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_LIMIT;
+		[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+			[anActivationFlag.symbolName/] = TRUE;
+		[/for]
 	} else if ([aSendOperation.tempReturnVariable.genValueAccess()/] != IOC_E_OK) {
 		[aSendOperation.returnVariable.genValueAccess()/] = RTE_E_SEG_FAULT;
 	} else {
-		/* Nothing to do */
+		[if (aSendOperation.activationFlagOnRxSuccess->notEmpty())]
+			[for (anActivationFlag : LocalVariable | aSendOperation.activationFlagOnRxSuccess)]
+				[anActivationFlag.symbolName/] = TRUE;
+			[/for]
+		[else]
+			/* Nothing to do */
+		[/if]
 	}
 [/if]
-[/template]
-
-[template public genTrustedSendOperation(aSendOperation : SendOperation) /]
-
-[template private genTrustedSendOperation(aSendOperation : RteBufferQueuedSendOperation) ]
-[let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
-	[aExcludeOperation.genExcludeOperationEnter()/]
-[/let]
-[if (aSendOperation.type.oclIsKindOf(ArrayType))]
-	Rte_EnqueueArray([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
-[elseif aSendOperation.type.oclIsKindOf(StructType)]
-	Rte_EnqueueStruct([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
-[elseif aSendOperation.type.oclIsKindOf(UnionType)]
-	Rte_EnqueueUnion([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/] *) p_tfn_prm->tf_data, [aSendOperation.type.symbolName/], [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) [aSendOperation.returnVariable.genPointerAccess()/]); /* MISRA RULE 11.4, 11.5 VIOLATION : It is safe because the variable is managed by RTE codes */
-[else]
-	Rte_Enqueue([aSendOperation.accessVariable.genPointerAccess()/], ([aSendOperation.type.symbolName/]) p_tfn_prm->tf_data, [aSendOperation.accessVariable.queueType.maxLengthConstant.genValueAccess()/], (Std_ReturnType *) (&p_tfn_prm->tf_ercd)); /* MISRA RULE 3.1 11.3 VIOLATION: use cast for simplification */
-[/if]
-[let aExcludeOperation : ExcludeOperation = aSendOperation.excludeOperation]
-	[aExcludeOperation.genExcludeOperationExit()/]
-[/let]
 [/template]
 
 [template public genFilterOperation(aFilterOperation : FilterOperation, aValue : Value, aBody : String, aParamName : String)]
@@ -375,7 +424,7 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [/template]
 
 [template private genReadOperation(aReadOperation : IocNonqueuedReadOperation) ]
-[comment ¿µæÔ§ •≥•Û•’•£•Æ•Â•Ï°º•∑•Á•Û§¨π‘§ §Ô§Ï§∆§§§Ï§–…¨§∫¿Æ∏˘§π§Î§Œ§«°§Ã·§Í√Õ§Œ≥Œ«ß§œ…‘Õ◊ /]
+[comment Ê≠£Â∏∏„Å™„Ç≥„É≥„Éï„Ç£„ÇÆ„É•„É¨„Éº„Ç∑„Éß„É≥„ÅåË°å„Å™„Çè„Çå„Å¶„ÅÑ„Çå„Å∞ÂøÖ„ÅöÊàêÂäü„Åô„Çã„ÅÆ„ÅßÔºåÊàª„ÇäÂÄ§„ÅÆÁ¢∫Ë™ç„ÅØ‰∏çË¶Å /]
 [if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
 	(void) [aReadOperation.accessApi.symbolName/]([aReadOperation.readValueVariable.genPointerAccess()/]);
 	if ([aReadOperation.readValueVariable.genValueAccess()/] == [aReadOperation.invalidValueConstant.genValueAccess()/]) {
@@ -393,7 +442,7 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [/template]
 
 [template private genReadOperation(aReadOperation : ComReadOperation) ]
-[comment ¿µæÔ§ •≥•Û•’•£•Æ•Â•Ï°º•∑•Á•Û§¨π‘§ §Ô§Ï§∆§§§Ï§–…¨§∫√Õ§¨ºË∆¿§«§≠§Î§Œ§«°§Ã·§Í√Õ§Œ≥Œ«ß§œ…‘Õ◊ /]
+ercd = RTE_E_OK;
 [if (not aReadOperation.invalidValueConstant.oclIsUndefined())]
 	[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/]([aReadOperation.accessApi.comSignalSymbolName/], [aReadOperation.readValueVariable.genPointerAccess()/]);
 	if ([aReadOperation.tempReturnVariable.symbolName/] == E_OK) {
@@ -408,7 +457,6 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 		[aReadOperation.readStatusVariable.genValueAccess()/] = RTE_E_DEV_DEFECT;
 	}
 [else]
-	ercd = RTE_E_OK;
 	[if (aReadOperation.accessApi.isSignalGroup)]
 		[aReadOperation.tempReturnVariable.symbolName/] = [aReadOperation.accessApi.symbolName/](&[aReadOperation.accessApi.comSignalSymbolName/], (uint8*)[aReadOperation.readValueVariable.symbolName/]); /* MISRA RULE 11.4 VIOLATION : It is safe because the variable is managed by RTE codes */
 	[else]
@@ -425,7 +473,18 @@ if ([aFilterOperation.filterResultVariable.genValueAccess()/] == TRUE) {
 [/template]
 
 [template private genReadOperation(aReadOperation : NeverReadOperation) ]
-[aReadOperation.readValueVariable.genValueAccess()/] = [aReadOperation.initValueConstant.genValueAccess()/];
+[if aReadOperation.readValueVariable.type.oclIsKindOf(ArrayType)]
+	[aReadOperation.readValueVariable.type.originalTypeSymbolName/] value['['/][aReadOperation.readValueVariable.type.oclAsType(ArrayType).arraySize/][']'/] = [aReadOperation.initValueConstant.genValueAccess()/];
+	Rte_ArrayMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], value, [aReadOperation.readValueVariable.type.symbolName/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(StructType)]
+	[aReadOperation.readValueVariable.type.symbolName/] value = [aReadOperation.initValueConstant.genValueAccess()/];
+	Rte_StructMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], &value, [aReadOperation.readValueVariable.type.symbolName/]);
+[elseif aReadOperation.readValueVariable.type.oclIsKindOf(UnionType)]
+	[aReadOperation.readValueVariable.type.symbolName/] value = [aReadOperation.initValueConstant.genValueAccess()/];
+	Rte_UnionMemcpy([aReadOperation.readValueVariable.genSymbolAccess()/], &value, [aReadOperation.readValueVariable.type.symbolName/]);
+[else]
+	[aReadOperation.readValueVariable.genValueAccess()/] = [aReadOperation.initValueConstant.genValueAccess()/];
+[/if]
 [/template]
 
 [template private genReadOperation(aReadOperation : RteBufferQueuedReadOperation) ]

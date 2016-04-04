@@ -647,6 +647,29 @@ public class ExItemProviderAdapterFactory extends ExAdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExternalEcuReceiverExItemProvider externalEcuReceiverExItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExternalEcuReceiverEx}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExternalEcuReceiverExAdapter() {
+		if (externalEcuReceiverExItemProvider == null) {
+			externalEcuReceiverExItemProvider = new ExternalEcuReceiverExItemProvider(this);
+		}
+
+		return externalEcuReceiverExItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.EntityStarterEx} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -713,6 +736,29 @@ public class ExItemProviderAdapterFactory extends ExAdapterFactory implements Co
 		}
 
 		return modeDeclarationGroupPrototypeExItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RteEventExItemProvider rteEventExItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.RteEventEx}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRteEventExAdapter() {
+		if (rteEventExItemProvider == null) {
+			rteEventExItemProvider = new RteEventExItemProvider(this);
+		}
+
+		return rteEventExItemProvider;
 	}
 
 	/**
@@ -839,9 +885,11 @@ public class ExItemProviderAdapterFactory extends ExAdapterFactory implements Co
 		if (assemblyDataInstanceConnectorExItemProvider != null) assemblyDataInstanceConnectorExItemProvider.dispose();
 		if (receiverExItemProvider != null) receiverExItemProvider.dispose();
 		if (externalEcuSenderExItemProvider != null) externalEcuSenderExItemProvider.dispose();
+		if (externalEcuReceiverExItemProvider != null) externalEcuReceiverExItemProvider.dispose();
 		if (entityStarterExItemProvider != null) entityStarterExItemProvider.dispose();
 		if (bswSchedulableEntityExItemProvider != null) bswSchedulableEntityExItemProvider.dispose();
 		if (modeDeclarationGroupPrototypeExItemProvider != null) modeDeclarationGroupPrototypeExItemProvider.dispose();
+		if (rteEventExItemProvider != null) rteEventExItemProvider.dispose();
 	}
 
 }

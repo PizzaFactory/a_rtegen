@@ -164,66 +164,6 @@ public class RteBufferWriteTrustedFunctionItemProvider extends TrustedFunctionIt
 			(createChildParameter
 				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
 				 ModuleFactory.eINSTANCE.createRteBufferNonqueuedSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createIocSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createIocNonqueuedSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createDirectComSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferWriteSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionComSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createImmediateProxyComSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createPeriodicProxyComSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createRteBufferQueuedSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createIocQueuedSendOperation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModulePackage.Literals.RTE_BUFFER_WRITE_TRUSTED_FUNCTION__OPERATION,
-				 ModuleFactory.eINSTANCE.createTrustedFunctionRteBufferInvalidateSendOperation()));
 	}
 
 }

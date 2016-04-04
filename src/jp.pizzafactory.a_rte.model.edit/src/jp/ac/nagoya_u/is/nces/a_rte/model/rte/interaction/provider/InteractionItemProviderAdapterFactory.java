@@ -440,6 +440,29 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TAckStatusVariableImplementationItemProvider tAckStatusVariableImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TAckStatusVariableImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTAckStatusVariableImplementationAdapter() {
+		if (tAckStatusVariableImplementationItemProvider == null) {
+			tAckStatusVariableImplementationItemProvider = new TAckStatusVariableImplementationItemProvider(this);
+		}
+
+		return tAckStatusVariableImplementationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.FilterBufferImplementation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,6 +647,98 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExecutionContextItemProvider executionContextItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExecutionContextAdapter() {
+		if (executionContextItemProvider == null) {
+			executionContextItemProvider = new ExecutionContextItemProvider(this);
+		}
+
+		return executionContextItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InfiniteloopImplementationItemProvider infiniteloopImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInfiniteloopImplementationAdapter() {
+		if (infiniteloopImplementationItemProvider == null) {
+			infiniteloopImplementationItemProvider = new InfiniteloopImplementationItemProvider(this);
+		}
+
+		return infiniteloopImplementationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OneShootImplementationItemProvider oneShootImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOneShootImplementationAdapter() {
+		if (oneShootImplementationItemProvider == null) {
+			oneShootImplementationItemProvider = new OneShootImplementationItemProvider(this);
+		}
+
+		return oneShootImplementationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EventPoolingImplementationItemProvider eventPoolingImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEventPoolingImplementationAdapter() {
+		if (eventPoolingImplementationItemProvider == null) {
+			eventPoolingImplementationItemProvider = new EventPoolingImplementationItemProvider(this);
+		}
+
+		return eventPoolingImplementationItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,49 +785,26 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TimingTriggeringEntityStartImplementationItemProvider timingTriggeringEntityStartImplementationItemProvider;
+	protected TimingTriggeringEntityStartConditionItemProvider timingTriggeringEntityStartConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTimingTriggeringEntityStartImplementationAdapter() {
-		if (timingTriggeringEntityStartImplementationItemProvider == null) {
-			timingTriggeringEntityStartImplementationItemProvider = new TimingTriggeringEntityStartImplementationItemProvider(this);
+	public Adapter createTimingTriggeringEntityStartConditionAdapter() {
+		if (timingTriggeringEntityStartConditionItemProvider == null) {
+			timingTriggeringEntityStartConditionItemProvider = new TimingTriggeringEntityStartConditionItemProvider(this);
 		}
 
-		return timingTriggeringEntityStartImplementationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModeSwitchTriggeringEntityStartImplementationItemProvider modeSwitchTriggeringEntityStartImplementationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModeSwitchTriggeringEntityStartImplementationAdapter() {
-		if (modeSwitchTriggeringEntityStartImplementationItemProvider == null) {
-			modeSwitchTriggeringEntityStartImplementationItemProvider = new ModeSwitchTriggeringEntityStartImplementationItemProvider(this);
-		}
-
-		return modeSwitchTriggeringEntityStartImplementationItemProvider;
+		return timingTriggeringEntityStartConditionItemProvider;
 	}
 
 	/**
@@ -736,6 +828,75 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 		}
 
 		return runnableEntityStartInteractionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BswSchedulableEntityStartInteractionItemProvider bswSchedulableEntityStartInteractionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBswSchedulableEntityStartInteractionAdapter() {
+		if (bswSchedulableEntityStartInteractionItemProvider == null) {
+			bswSchedulableEntityStartInteractionItemProvider = new BswSchedulableEntityStartInteractionItemProvider(this);
+		}
+
+		return bswSchedulableEntityStartInteractionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimingTriggeringEntityStartImplementationItemProvider timingTriggeringEntityStartImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimingTriggeringEntityStartImplementationAdapter() {
+		if (timingTriggeringEntityStartImplementationItemProvider == null) {
+			timingTriggeringEntityStartImplementationItemProvider = new TimingTriggeringEntityStartImplementationItemProvider(this);
+		}
+
+		return timingTriggeringEntityStartImplementationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PlainEntityStartImplementationItemProvider plainEntityStartImplementationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPlainEntityStartImplementationAdapter() {
+		if (plainEntityStartImplementationItemProvider == null) {
+			plainEntityStartImplementationItemProvider = new PlainEntityStartImplementationItemProvider(this);
+		}
+
+		return plainEntityStartImplementationItemProvider;
 	}
 
 	/**
@@ -805,121 +966,6 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 		}
 
 		return generatedEcuConfigurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BswSchedulableEntityStartInteractionItemProvider bswSchedulableEntityStartInteractionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBswSchedulableEntityStartInteractionAdapter() {
-		if (bswSchedulableEntityStartInteractionItemProvider == null) {
-			bswSchedulableEntityStartInteractionItemProvider = new BswSchedulableEntityStartInteractionItemProvider(this);
-		}
-
-		return bswSchedulableEntityStartInteractionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EventToTaskMappingItemProvider eventToTaskMappingItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEventToTaskMappingAdapter() {
-		if (eventToTaskMappingItemProvider == null) {
-			eventToTaskMappingItemProvider = new EventToTaskMappingItemProvider(this);
-		}
-
-		return eventToTaskMappingItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EventItemProvider eventItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.Event}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEventAdapter() {
-		if (eventItemProvider == null) {
-			eventItemProvider = new EventItemProvider(this);
-		}
-
-		return eventItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TimingEventItemProvider timingEventItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTimingEventAdapter() {
-		if (timingEventItemProvider == null) {
-			timingEventItemProvider = new TimingEventItemProvider(this);
-		}
-
-		return timingEventItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModeSwitchEventItemProvider modeSwitchEventItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModeSwitchEventAdapter() {
-		if (modeSwitchEventItemProvider == null) {
-			modeSwitchEventItemProvider = new ModeSwitchEventItemProvider(this);
-		}
-
-		return modeSwitchEventItemProvider;
 	}
 
 	/**
@@ -1037,6 +1083,7 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 		if (trustedFunctionComSendImplementationItemProvider != null) trustedFunctionComSendImplementationItemProvider.dispose();
 		if (periodicProxyComSendImplementationItemProvider != null) periodicProxyComSendImplementationItemProvider.dispose();
 		if (immediateProxyComSendImplementationItemProvider != null) immediateProxyComSendImplementationItemProvider.dispose();
+		if (tAckStatusVariableImplementationItemProvider != null) tAckStatusVariableImplementationItemProvider.dispose();
 		if (filterBufferImplementationItemProvider != null) filterBufferImplementationItemProvider.dispose();
 		if (iocValueBufferImplementationItemProvider != null) iocValueBufferImplementationItemProvider.dispose();
 		if (comValueBufferImplementationItemProvider != null) comValueBufferImplementationItemProvider.dispose();
@@ -1045,19 +1092,20 @@ public class InteractionItemProviderAdapterFactory extends InteractionAdapterFac
 		if (comSendProxyInteractionItemProvider != null) comSendProxyInteractionItemProvider.dispose();
 		if (periodicComSendProxyItemProvider != null) periodicComSendProxyItemProvider.dispose();
 		if (immediateComSendProxyItemProvider != null) immediateComSendProxyItemProvider.dispose();
+		if (executionContextItemProvider != null) executionContextItemProvider.dispose();
+		if (infiniteloopImplementationItemProvider != null) infiniteloopImplementationItemProvider.dispose();
+		if (oneShootImplementationItemProvider != null) oneShootImplementationItemProvider.dispose();
+		if (eventPoolingImplementationItemProvider != null) eventPoolingImplementationItemProvider.dispose();
 		if (osTaskActivateEntityStarterItemProvider != null) osTaskActivateEntityStarterItemProvider.dispose();
 		if (osEventSetEntityStarterItemProvider != null) osEventSetEntityStarterItemProvider.dispose();
-		if (timingTriggeringEntityStartImplementationItemProvider != null) timingTriggeringEntityStartImplementationItemProvider.dispose();
-		if (modeSwitchTriggeringEntityStartImplementationItemProvider != null) modeSwitchTriggeringEntityStartImplementationItemProvider.dispose();
+		if (timingTriggeringEntityStartConditionItemProvider != null) timingTriggeringEntityStartConditionItemProvider.dispose();
 		if (runnableEntityStartInteractionItemProvider != null) runnableEntityStartInteractionItemProvider.dispose();
+		if (bswSchedulableEntityStartInteractionItemProvider != null) bswSchedulableEntityStartInteractionItemProvider.dispose();
+		if (timingTriggeringEntityStartImplementationItemProvider != null) timingTriggeringEntityStartImplementationItemProvider.dispose();
+		if (plainEntityStartImplementationItemProvider != null) plainEntityStartImplementationItemProvider.dispose();
 		if (startOffsetCounterImplementationItemProvider != null) startOffsetCounterImplementationItemProvider.dispose();
 		if (cycleCounterImplementationItemProvider != null) cycleCounterImplementationItemProvider.dispose();
 		if (generatedEcuConfigurationItemProvider != null) generatedEcuConfigurationItemProvider.dispose();
-		if (bswSchedulableEntityStartInteractionItemProvider != null) bswSchedulableEntityStartInteractionItemProvider.dispose();
-		if (eventToTaskMappingItemProvider != null) eventToTaskMappingItemProvider.dispose();
-		if (eventItemProvider != null) eventItemProvider.dispose();
-		if (timingEventItemProvider != null) timingEventItemProvider.dispose();
-		if (modeSwitchEventItemProvider != null) modeSwitchEventItemProvider.dispose();
 	}
 
 }

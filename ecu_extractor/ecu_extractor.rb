@@ -1,54 +1,54 @@
-#!ruby -Ke
+#!ruby -Ku
 #
 #  ECU Extractor
 #
-#  Copyright (C) 2013-2015 by Center for Embedded Computing Systems
+#  Copyright (C) 2013-2016 by Center for Embedded Computing Systems
 #              Graduate School of Information Science, Nagoya Univ., JAPAN
-#  Copyright (C) 2014-2015 by AISIN COMCRUISE Co., Ltd., JAPAN
-#  Copyright (C) 2013-2015 by FUJI SOFT INCORPORATED, JAPAN
-#  Copyright (C) 2014-2015 by NEC Communication Systems, Ltd., JAPAN
-#  Copyright (C) 2013-2015 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
+#  Copyright (C) 2014-2016 by AISIN COMCRUISE Co., Ltd., JAPAN
+#  Copyright (C) 2013-2016 by FUJI SOFT INCORPORATED, JAPAN
+#  Copyright (C) 2014-2016 by NEC Communication Systems, Ltd., JAPAN
+#  Copyright (C) 2013-2016 by Panasonic Advanced Technology Development Co., Ltd., JAPAN
 #  Copyright (C) 2013-2014 by Renesas Electronics Corporation, JAPAN
-#  Copyright (C) 2014-2015 by SCSK Corporation, JAPAN
-#  Copyright (C) 2013-2015 by Sunny Giken Inc., JAPAN
-#  Copyright (C) 2013-2015 by TOSHIBA CORPORATION, JAPAN
-#  Copyright (C) 2013-2015 by Witz Corporation
+#  Copyright (C) 2014-2016 by SCSK Corporation, JAPAN
+#  Copyright (C) 2013-2016 by Sunny Giken Inc., JAPAN
+#  Copyright (C) 2013-2016 by TOSHIBA CORPORATION, JAPAN
+#  Copyright (C) 2013-2016 by Witz Corporation
 #
-#  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
-#  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
-#  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
-#  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
-#      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
-#      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
-#  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
-#      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
-#      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
-#      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
-#  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
-#      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
-#      ¤È¡¥
-#    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
-#        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
-#    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
-#        Êó¹ğ¤¹¤ë¤³¤È¡¥
-#  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
-#      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
-#      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
-#      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
-#      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+#  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ï½(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+#  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+#  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+#  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+#      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+#      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+#  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+#      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+#      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+#      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+#  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+#      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+#      ã¨ï¼
+#    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+#        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+#    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+#        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+#  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+#      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+#      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+#      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+#      å…è²¬ã™ã‚‹ã“ã¨ï¼
 #
-#  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
-#  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
-#  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
-#  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+#  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+#  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+#  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+#  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
 #
-#  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
-#  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
-#  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
-#  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
-#  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+#  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+#  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+#  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+#  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+#  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
 #
-# $Id: ecu_extractor.rb 427 2015-03-23 12:38:40Z mtakada $
+# $Id: ecu_extractor.rb 651 2016-03-31 06:20:22Z mtakada $
 
 require "pp"
 require "rexml/document.rb"
@@ -58,30 +58,30 @@ if (ARGV.size() == 0)
   abort("Argument error !!")
 end
 
-# ÆşÎÏ¤µ¤ì¤¿Á´¤Æ¤Îarxml¤ò¥Ş¡¼¥¸¤¹¤ë
+# å…¥åŠ›ã•ã‚ŒãŸå…¨ã¦ã®arxmlã‚’ãƒãƒ¼ã‚¸ã™ã‚‹
 sOutputFilePrefix = nil
 cAllArxmlData = nil
 ARGV.each{|sFileName|
-  # ¥Õ¥¡¥¤¥ë¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç¥¨¥é¡¼
+  # ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆã‚¨ãƒ©ãƒ¼
   if (!File.exist?(sFileName))
     abort("Argument error !! [#{sFileName}]")
   end
 
-  # arxml¥Õ¥¡¥¤¥ë¤Ç¤Ê¤¤¾ì¹ç¥¨¥é¡¼
+  # arxmlãƒ•ã‚¡ã‚¤ãƒ«ã§ãªã„å ´åˆã‚¨ãƒ©ãƒ¼
   if (File.extname(sFileName) != ".arxml")
     abort("not ARXML file !! [#{sFileName}]")
   end
 
-  # ½ĞÎÏ¥Õ¥¡¥¤¥ëÌ¾¥×¥ì¥Õ¥£¥Ã¥¯¥¹ºîÀ®
+  # å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«åãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ä½œæˆ
   if (sOutputFilePrefix.nil?())
     sOutputFilePrefix = File.dirname(sFileName) + "/" + File.basename(sFileName, File.extname(sFileName)) + "_"
   end
 
-  # XML¥é¥¤¥Ö¥é¥ê¤Ç¤ÎÆÉ¤ß¹ş¤ß
+  # XMLãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã®èª­ã¿è¾¼ã¿
   if (cAllArxmlData.nil?())
     cAllArxmlData = REXML::Document.new(open(sFileName))
   else
-    # Ê£¿ô¤Îarxml¤ò¥Ş¡¼¥¸¤·¤Æ¤¤¤¯
+    # è¤‡æ•°ã®arxmlã‚’ãƒãƒ¼ã‚¸ã—ã¦ã„ã
     cTempXml = REXML::Document.new(open(sFileName))
     XPath.each(cTempXml, "//AUTOSAR/AR-PACKAGES/AR-PACKAGE"){|cElement|
       cAllArxmlData.elements["AUTOSAR/AR-PACKAGES"].add_element(cElement)
@@ -90,30 +90,30 @@ ARGV.each{|sFileName|
 }
 
 
-# ECU¥¤¥ó¥¹¥¿¥ó¥¹¤ò¸¡º÷
+# ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’æ¤œç´¢
 aEcuInstances = []
 XPath.each(cAllArxmlData, "//ECU-INSTANCE/SHORT-NAME"){|cElement|
   aEcuInstances.push(cElement.text())
 }
 
-# ECU¥¤¥ó¥¹¥¿¥ó¥¹¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç¥¨¥é¡¼
+# ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒå­˜åœ¨ã—ãªã„å ´åˆã‚¨ãƒ©ãƒ¼
 if (aEcuInstances.size() == 0)
   abort("ECU Instance not found !!")
 end
 
-# ECU¥¤¥ó¥¹¥¿¥ó¥¹Ëè¤ÎSW-C¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥Ï¥Ã¥·¥å
+# ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ¯ã®SW-Cæƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒã‚·ãƒ¥
 hSwcOfEcu = {}
 aEcuInstances.each{|sEcu|
   hSwcOfEcu[sEcu] = []
 }
 
-# ECU¥¤¥ó¥¹¥¿¥ó¥¹Ëè¤Î¥ë¡¼¥È¥³¥ó¥İ¥¸¥·¥ç¥ó¾ğÊó¤ò³ÊÇ¼¤¹¤ë¥Ï¥Ã¥·¥å
+# ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹æ¯ã®ãƒ«ãƒ¼ãƒˆã‚³ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒã‚·ãƒ¥
 hCompositionOfEcu = {}
 aEcuInstances.each{|sEcu|
   hCompositionOfEcu[sEcu] = nil
 }
 
-# ³ÆECU¥¤¥ó¥¹¥¿¥ó¥¹¤Ë½êÂ°¤¹¤ëSW-C¡¢¥³¥ó¥İ¥¸¥·¥ç¥ó¤ò¼èÆÀ
+# å„ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«æ‰€å±ã™ã‚‹SW-Cã€ã‚³ãƒ³ãƒã‚¸ã‚·ãƒ§ãƒ³ã‚’å–å¾—
 XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   sEcuName = File.basename(cElement.elements["ECU-INSTANCE-REF"].text())
   if (!hSwcOfEcu.has_key?(sEcuName))
@@ -131,77 +131,84 @@ XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   end
 }
 
-# ECU-INSTANCE¥³¥ó¥Æ¥Ê¤òºï½ü
+# ECU-INSTANCEã‚³ãƒ³ãƒ†ãƒŠã‚’å‰Šé™¤
 XPath.each(cAllArxmlData, "//ELEMENTS/ECU-INSTANCE"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
-# SWC-TO-ECU-MAPPING¥³¥ó¥Æ¥Ê¤òºï½ü
+# SWC-TO-ECU-MAPPINGã‚³ãƒ³ãƒ†ãƒŠã‚’å‰Šé™¤
 XPath.each(cAllArxmlData, "//SW-MAPPINGS/SWC-TO-ECU-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
-# SWC-BSW-MAPPING¥³¥ó¥Æ¥Ê¤òºï½ü
+# SWC-BSW-MAPPINGã‚³ãƒ³ãƒ†ãƒŠã‚’å‰Šé™¤
 XPath.each(cAllArxmlData, "//ELEMENTS/SWC-BSW-MAPPING"){|cElement|
   cElement.parent().delete_element(cElement)
 }
 
 cAllArxmlData.freeze()
 
-# ECUËè¤ËARXML¤òºîÀ®¤¹¤ë
+# ECUæ¯ã«ARXMLã‚’ä½œæˆã™ã‚‹
 hSwcOfEcu.each{|sEcu, aSwc|
   cTempXml = cAllArxmlData.deep_clone()
 
-  # ÂĞ¾İ³°¤ÎAPPLICATION-SW-COMPONENT-TYPE¤òºï½ü
+  # å¯¾è±¡å¤–ã®APPLICATION-SW-COMPONENT-TYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ELEMENTS/APPLICATION-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎCOMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE¤òºï½ü
+  # å¯¾è±¡å¤–ã®COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ELEMENTS/COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎSENSOR-ACTUATOR-SW-COMPONENT-TYPE¤òºï½ü
+  # å¯¾è±¡å¤–ã®SENSOR-ACTUATOR-SW-COMPONENT-TYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ELEMENTS/SENSOR-ACTUATOR-SW-COMPONENT-TYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎSENDER-RECEIVER-TO-SIGNAL-MAPPING¤òºï½ü
+  # å¯¾è±¡å¤–ã®SENDER-RECEIVER-TO-SIGNAL-MAPPINGã‚’å‰Šé™¤
   XPath.each(cTempXml, "//MAPPINGS/SYSTEM-MAPPING/DATA-MAPPINGS/SENDER-RECEIVER-TO-SIGNAL-MAPPING"){|cElement|
     if (!aSwc.include?(File.basename(cElement.elements["DATA-ELEMENT-IREF"].elements["CONTEXT-COMPONENT-REF"].text())))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎSW-COMPONENT-PROTOTYPE¤òºï½ü
+  # å¯¾è±¡å¤–ã®SENDER-RECEIVER-TO-SIGNAL-GROUP-MAPPINGã‚’å‰Šé™¤
+  XPath.each(cTempXml, "//MAPPINGS/SYSTEM-MAPPING/DATA-MAPPINGS/SENDER-RECEIVER-TO-SIGNAL-GROUP-MAPPING"){|cElement|
+    if (!aSwc.include?(File.basename(cElement.elements["DATA-ELEMENT-IREF"].elements["CONTEXT-COMPONENT-REF"].text())))
+      cElement.parent().delete_element(cElement)
+    end
+  }
+
+  # å¯¾è±¡å¤–ã®SW-COMPONENT-PROTOTYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/COMPONENTS/SW-COMPONENT-PROTOTYPE"){|cElement|
     if (!aSwc.include?(cElement.elements["SHORT-NAME"].text()))
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # SW-COMPONENT-PROTOTYPE¤¬Ìµ¤¯¤Ê¤ê¶õ¤Ë¤Ê¤Ã¤¿COMPOSITION-SW-COMPONENT-TYPE¤òºï½ü
+  # SW-COMPONENT-PROTOTYPEãŒç„¡ããªã‚Šç©ºã«ãªã£ãŸCOMPOSITION-SW-COMPONENT-TYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/"){|cElement|
     if (cElement.elements["COMPONENTS"].has_elements?() == false)
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎROOT-SW-COMPOSITION-PROTOTYPE¤òºï½ü
+  # å¯¾è±¡å¤–ã®ROOT-SW-COMPOSITION-PROTOTYPEã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ROOT-SOFTWARE-COMPOSITIONS/ROOT-SW-COMPOSITION-PROTOTYPE"){|cElement|
     if (hCompositionOfEcu[sEcu] != cElement.elements["SHORT-NAME"].text())
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÂĞ¾İ³°¤ÎASSEMBLY-SW-CONNECTOR¤òºï½ü
+  # å¯¾è±¡å¤–ã®ASSEMBLY-SW-CONNECTORã‚’å‰Šé™¤
   XPath.each(cTempXml, "//COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS/ASSEMBLY-SW-CONNECTOR"){|cElement|
     sProvider =  File.basename(cElement.elements["PROVIDER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
     sRequester =  File.basename(cElement.elements["REQUESTER-IREF"].elements["CONTEXT-COMPONENT-REF"].text())
@@ -210,22 +217,21 @@ hSwcOfEcu.each{|sEcu, aSwc|
     end
   }
 
-  # ASSEMBLY-SW-CONNECTOR¤¬Ìµ¤¯¤Ê¤ê¶õ¤Ë¤Ê¤Ã¤¿CONNECTORS¤òºï½ü
+  # ASSEMBLY-SW-CONNECTORãŒç„¡ããªã‚Šç©ºã«ãªã£ãŸCONNECTORSã‚’å‰Šé™¤
   XPath.each(cTempXml, "//ELEMENTS/COMPOSITION-SW-COMPONENT-TYPE/CONNECTORS"){|cElement|
     if (cElement.has_elements?() == false)
       cElement.parent().delete_element(cElement)
     end
   }
 
-  # ÀÚ¤ê½Ğ¤·¤¿XMLÊ¸»úÎóºîÀ®
+  # åˆ‡ã‚Šå‡ºã—ãŸXMLæ–‡å­—åˆ—ä½œæˆ
   sXmlCode = String.new()
   cTempXml.write(sXmlCode, 4, false)
   sXmlCode.gsub!("'", "\"")
   sXmlCode.gsub!(/>\n[\s]+([\w\.\[\]\(\)\+-\/\*~&;\s]*?)\n[\s]+</, ">\\1<")
   sXmlCode.gsub!("    ", "\t")
-  sXmlCode.gsub!("\n", "\r\n")
 
-  # ½ĞÎÏ¥Õ¥¡¥¤¥ëÌ¾¡§<ÀèÆ¬¤Î¥Õ¥¡¥¤¥ëÌ¾>_<ECU¥¤¥ó¥¹¥¿¥ó¥¹Ì¾>.arxml
+  # å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«åï¼š<å…ˆé ­ã®ãƒ•ã‚¡ã‚¤ãƒ«å>_<ECUã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹å>.arxml
   sOutputName = sOutputFilePrefix + sEcu + ".arxml"
   File.open(sOutputName, "w") {|io|
     io.print(sXmlCode)

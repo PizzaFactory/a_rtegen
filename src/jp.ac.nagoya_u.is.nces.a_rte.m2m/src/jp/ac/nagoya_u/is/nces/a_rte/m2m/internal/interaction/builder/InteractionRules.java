@@ -42,7 +42,7 @@ public class InteractionRules {
 		boolean isInterEcuExists = !sourceReceiver.getExternalEcuSenders().isEmpty();
 		boolean isInterPartitionExists = this.context.query.exists(sourceReceiveInteraction.getSendInteraction(), hasOp(SEND_INTERACTION___IS_INTER_PARTITION, true));
 
-		// ¥Õ¥£¥ë¥¿¡¿¼õ¿®¥¿¥¤¥à¥¢¥¦¥È¡¿Ìµ¸ú²½¤Î¤¤¤º¤ì¤«¤¬Í­¸ú¤Ç¤¢¤ì¤Ğ¡¢RTE¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ
+		// ãƒ•ã‚£ãƒ«ã‚¿ï¼å—ä¿¡ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆï¼ç„¡åŠ¹åŒ–ã®ã„ãšã‚Œã‹ãŒæœ‰åŠ¹ã§ã‚ã‚Œã°ã€RTEãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨
 		if (sourceDataInstance.isFilterEnabled()) {
 			return true;
 		}
@@ -54,10 +54,10 @@ public class InteractionRules {
 		}
 
 		if (isInterEcuExists) {
-			// ECU´ÖÏ¢·È¤ò´Ş¤à¾ì¹ç¡¢RTE¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ
+			// ECUé–“é€£æºã‚’å«ã‚€å ´åˆã€RTEãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨
 			return true;
 		} else if (isInterPartitionExists) {
-			// ECU´ÖÏ¢·È¤ò´Ş¤Ş¤º¡¢¥Ñ¡¼¥Æ¥£¥·¥ç¥ó´ÖÏ¢·È¤ò´Ş¤à¾ì¹ç¡¢untrusted¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Ë½êÂ°¤¹¤ëÁ÷¿®Â¦¤¬Â¸ºß¤·¤Ê¤±¤ì¤ĞRTE¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ¤¹¤ë
+			// ECUé–“é€£æºã‚’å«ã¾ãšã€ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³é–“é€£æºã‚’å«ã‚€å ´åˆã€untrustedãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã«æ‰€å±ã™ã‚‹é€ä¿¡å´ãŒå­˜åœ¨ã—ãªã‘ã‚Œã°RTEãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨ã™ã‚‹
 			for (SendInteraction sourceSendInteraction : sourceReceiveInteraction.getSendInteraction()) {
 				for (Sender sourceSender : sourceSendInteraction.getSender()) {
 					if (!sourceSender.getOwnerPartition().isTrusted()) {
@@ -67,7 +67,7 @@ public class InteractionRules {
 			}
 			return true;
 		} else {
-			// ECU´ÖÏ¢·È¡¦¥Ñ¡¼¥Æ¥£¥·¥ç¥ó´ÖÏ¢·È¤ò´Ş¤Ş¤Ê¤¤¾ì¹ç¡¢RTE¥Ğ¥Ã¥Õ¥¡¤ò»ÈÍÑ
+			// ECUé–“é€£æºãƒ»ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³é–“é€£æºã‚’å«ã¾ãªã„å ´åˆã€RTEãƒãƒƒãƒ•ã‚¡ã‚’ä½¿ç”¨
 			return true;
 		}
 	}
@@ -75,38 +75,38 @@ public class InteractionRules {
 	public boolean appliesSrComValueBufferOptimization(ReceiveInteraction sourceAndTargetReceiveInteraction, InternalEcuReceiver sourceReceiver) throws ModelException {
 		RVariableDataInstanceInSwc sourceDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 
-		// Receive RTE¥Ğ¥Ã¥Õ¥¡¤Ç¤Ê¤¤¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// Receive RTEãƒãƒƒãƒ•ã‚¡ã§ãªã„å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (!(sourceAndTargetReceiveInteraction.getValueBufferImplementation() instanceof RteValueBufferImplementation)) {
 			return false;
 		}
 
-		// ¥»¥Ş¥ó¥Æ¥£¥¯¥¹È½Äê:¥¤¥Ù¥ó¥È¤Î¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// ã‚»ãƒãƒ³ãƒ†ã‚£ã‚¯ã‚¹åˆ¤å®š:ã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (sourceDataInstanceInSwc.isEventSemantics()) {
 			return false;
 		}
 
-		// ¥¿¥¤¥à¥¢¥¦¥È¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (sourceDataInstanceInSwc.isAliveTimeoutEnabled()) {
 			return false;
 		}
 
-		// Á÷¿®¼Ô¤ÎExternalEcuSender¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// é€ä¿¡è€…ã®ExternalEcuSenderãŒå­˜åœ¨ã—ãªã„å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (sourceReceiver.getExternalEcuSenders().isEmpty()) {
 			return false;
 		}
 
-		// Á÷¿®¼Ô¤¬Ê£¿ô¤Î¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// é€ä¿¡è€…ãŒè¤‡æ•°ã®å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (sourceReceiver.hasMultipleSenders()) {
 			return false;
 		}
 
-		// RTE¤Ë¤è¤ëÌµ¸ú²½¡¤¤â¤·¤¯¤Ï¥Õ¥£¥ë¥¿¤¬É¬Í×¤Ê¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// RTEã«ã‚ˆã‚‹ç„¡åŠ¹åŒ–ï¼Œã‚‚ã—ãã¯ãƒ•ã‚£ãƒ«ã‚¿ãŒå¿…è¦ãªå ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		ExternalEcuSender sourceExternalEcuSender = sourceReceiver.getExternalEcuSenders().get(0);
 		if (sourceExternalEcuSender.getRequiresRteInvalidation() || sourceExternalEcuSender.getRequiresRteInitialization() || sourceExternalEcuSender.getRequiresRteFilter()) {
 			return false;
 		}
 
-		// A-COMÆÈ¼«»ÅÍÍ¥ª¥×¥·¥ç¥ó»ØÄê»ş°Ê³°¤Ï¥Ş¥¹¥¿¥³¥¢¤ÎBSWPartition¤Ç¤Ê¤¤¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+		// A-COMç‹¬è‡ªä»•æ§˜ã‚ªãƒ—ã‚·ãƒ§ãƒ³æŒ‡å®šæ™‚ä»¥å¤–ã¯ãƒã‚¹ã‚¿ã‚³ã‚¢ã®BSWPartitionã§ãªã„å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 		if (!this.context.options.comMultiCore) {
 			if (sourceReceiver.getOwnerPartition() != null) {
 				EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
@@ -117,7 +117,7 @@ public class InteractionRules {
 				}
 			}
 		} else {
-			// BSWPartition¤Ç¤Ê¤¤¾ì¹ç¤ÏºÇÅ¬²½ÂĞ¾İ³°
+			// BSWPartitionã§ãªã„å ´åˆã¯æœ€é©åŒ–å¯¾è±¡å¤–
 			if (sourceReceiver.getOwnerPartition() != null) {
 				EcucPartition bswPartition = this.context.query.findSingle(hasAttr(ECUC_PARTITION__ECUC_PARTITION_BSW_MODULE_EXECUTION, true).AND(
 						hasOp(ECUC_PARTITION___GET_OWNER_CORE, sourceReceiver.getOwnerCore())));
@@ -132,7 +132,7 @@ public class InteractionRules {
 
 	public boolean needsSpinlockForRteInternalExclusion() {
 
-		// ¥Ş¥ë¥Á¥³¥¢OSÈ½Äê
+		// ãƒãƒ«ãƒã‚³ã‚¢OSåˆ¤å®š
 		if (!this.context.cache.sourceOs.getOsOS().isMulticoreOs()) {
 			return false;
 		}
@@ -143,15 +143,15 @@ public class InteractionRules {
 				continue;
 			}
 
-			// ¥³¥¢¸Ù¤®È½Äê
-			// °Ê²¼¤Ï¡¢SenderReceiverImplementationModelBuilder:buildReceiveImplementations¤Ë¤ÆReceiveInteraction¤Ë¡Ö0¡×¤Î¤ß¤ËÀßÄê¤·¤Æ¤¤¤ë¤¿¤á¡¢Æ±ÍÍ¤Ë¼ÂÁõ
+			// ã‚³ã‚¢è·¨ãåˆ¤å®š
+			// ä»¥ä¸‹ã¯ã€SenderReceiverImplementationModelBuilder:buildReceiveImplementationsã«ã¦ReceiveInteractionã«ã€Œ0ã€ã®ã¿ã«è¨­å®šã—ã¦ã„ã‚‹ãŸã‚ã€åŒæ§˜ã«å®Ÿè£…
 			ReceiveInteraction sourceReceiveInteraction = sourceReceiver.getReceiveInteraction().get(0);
 			if (!sourceReceiveInteraction.receivesInterCore()) {
-				// ¥³¥¢¸Ù¤®¤Ç¤Ê¤¤¾ì¹ç¡¢¥¹¥Ô¥ó¥í¥Ã¥¯¤Ê¤·
+				// ã‚³ã‚¢è·¨ãã§ãªã„å ´åˆã€ã‚¹ãƒ”ãƒ³ãƒ­ãƒƒã‚¯ãªã—
 				continue;
 			}
 
-			// ¡Ö¥»¥Ş¥ó¥Æ¥£¥¯¥¹¡×¡Ö¥¿¥¤¥à¥¢¥¦¥È¡×¡Ö¥Õ¥£¥ë¥¿¡¼¡×È½Äê
+			// ã€Œã‚»ãƒãƒ³ãƒ†ã‚£ã‚¯ã‚¹ã€ã€Œã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã€ã€Œãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ã€åˆ¤å®š
 			RVariableDataInstanceInSwc sourceDataInstanceInSwc = (RVariableDataInstanceInSwc) sourceReceiver.getSource().getPrototype();
 			ImplementationDataType sourceDataType = sourceDataInstanceInSwc.getImplementationDataType();
 			if (!isNestedType(sourceDataType) &&
@@ -159,18 +159,18 @@ public class InteractionRules {
 				!(sourceDataInstanceInSwc.isAliveTimeoutEnabled()) &&
 				!(sourceDataInstanceInSwc.isFilterEnabled()))
 			{
-				// ¡ÖPrimitive¡× and ¡Ö¥Ç¡¼¥¿¥»¥Ş¥ó¥Æ¥£¥¯¥¹¡× and ¡Ö¥¿¥¤¥à¥¢¥¦¥ÈÌµ¸ú¡× and ¡Ö¥Õ¥£¥ë¥¿¡¼Ìµ¸ú¡×¤Î¾ì¹ç¡¢¥¹¥Ô¥ó¥í¥Ã¥¯¤Ê¤·
+				// ã€ŒPrimitiveã€ and ã€Œãƒ‡ãƒ¼ã‚¿ã‚»ãƒãƒ³ãƒ†ã‚£ã‚¯ã‚¹ã€ and ã€Œã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆç„¡åŠ¹ã€ and ã€Œãƒ•ã‚£ãƒ«ã‚¿ãƒ¼ç„¡åŠ¹ã€ã®å ´åˆã€ã‚¹ãƒ”ãƒ³ãƒ­ãƒƒã‚¯ãªã—
 				continue;
 			}
 
-			// ¼Â¸½Êı¼°È½Äê
+			// å®Ÿç¾æ–¹å¼åˆ¤å®š
 			ValueBufferImplementation sourceValueBufferImplementation = sourceReceiveInteraction.getValueBufferImplementation();
 			if (!isSrRteBufferImplementation(sourceValueBufferImplementation)) {
-				// ¼Â¸½Êı¼°¤¬RteValueBufferImplementation¤Ç¤Ê¤¤¾ì¹ç¡¢¥¹¥Ô¥ó¥í¥Ã¥¯¤Ê¤·
+				// å®Ÿç¾æ–¹å¼ãŒRteValueBufferImplementationã§ãªã„å ´åˆã€ã‚¹ãƒ”ãƒ³ãƒ­ãƒƒã‚¯ãªã—
 				continue;
 			}
 
-			// ¥¹¥Ô¥ó¥í¥Ã¥¯¤¢¤ê
+			// ã‚¹ãƒ”ãƒ³ãƒ­ãƒƒã‚¯ã‚ã‚Š
 			return true;
 		}
 
@@ -189,12 +189,12 @@ public class InteractionRules {
 		Optional<EcucPartition> sourceRPartition = tryGetREcucPartition(sourceOperationInstanceInSwc);
 		Optional<EcucPartition> sourcePPartition = tryGetPEcucPartition(sourceOperationInstanceInSwc);
 
-		// COVERAGE (ecucPartition¤¬!isPresent()¤Î¤È¤­¤ÏpEcucPartition¤â!isPresent()¤Ç¤¢¤ë¤¿¤á¥«¥Ğ¥ì¥Ã¥¸¤¬¥Ñ¥¹¤·¤Ê¤¤¡¥¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+		// COVERAGE (ecucPartitionãŒ!isPresent()ã®ã¨ãã¯pEcucPartitionã‚‚!isPresent()ã§ã‚ã‚‹ãŸã‚ã‚«ãƒãƒ¬ãƒƒã‚¸ãŒãƒ‘ã‚¹ã—ãªã„ï¼ã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 		return this.context.query.<Boolean> get(sourceOperationInstanceInSwc, ROPERATION_INSTANCE_IN_SWC_EX___PROVIDES_CALL_API__ROPERATIONINSTANCEINSWC) && sourceRPartition.isPresent()
 				&& sourcePPartition.isPresent() && !sourceRPartition.get().isTrusted() && sourcePPartition.get().isTrusted();
 	}
 
-	// NOTE ¤Ç¤­¤ì¤Ğex¥â¥Ç¥ë¤ËÄêµÁ¤·¤¿¤Û¤¦¤¬¤è¤¤
+	// NOTE ã§ãã‚Œã°exãƒ¢ãƒ‡ãƒ«ã«å®šç¾©ã—ãŸã»ã†ãŒã‚ˆã„
 	private Optional<EcucPartition> tryGetREcucPartition(ROperationInstanceInSwc rOperationInstanceInSwc) throws ModelException {
 		OperationInstanceInComposition rOpInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, rOperationInstanceInSwc));
 		PortInstanceInComposition rPortInComposition = rOpInComposition.getParent();
@@ -205,7 +205,7 @@ public class InteractionRules {
 		return Optional.of(rPortInComposition.getContextComponent().getInstance().get(0).getOwnerPartition().get(0));
 	}
 
-	// NOTE ¤Ç¤­¤ì¤Ğex¥â¥Ç¥ë¤ËÄêµÁ¤·¤¿¤Û¤¦¤¬¤è¤¤
+	// NOTE ã§ãã‚Œã°exãƒ¢ãƒ‡ãƒ«ã«å®šç¾©ã—ãŸã»ã†ãŒã‚ˆã„
 	private Optional<EcucPartition> tryGetPEcucPartition(ROperationInstanceInSwc rOperationInstanceInSwc) throws ModelException {
 		OperationInstanceInComposition rOpInComposition = this.context.query.<OperationInstanceInComposition> findSingle(ref(OPERATION_INSTANCE_IN_COMPOSITION__PROTOTYPE, rOperationInstanceInSwc));
 		Optional<AssemblyOperationInstanceConnector> connector = this.context.query.<AssemblyOperationInstanceConnector> tryFindSingle(ref(ASSEMBLY_OPERATION_INSTANCE_CONNECTOR__REQUESTER, rOpInComposition));

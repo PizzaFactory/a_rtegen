@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -64,28 +64,28 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ModelUtils;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ComSendProxyInteraction;
 
 /**
- * AUTOSAR����ե����졼�����μ��̻Ҥ��󶡡�
- * NOTE C����Υ���ܥ�̾�Ȥϰۤʤ뤳�Ȥ����ա�
+ * AUTOSARコンフィグレーションの識別子を提供．
+ * NOTE C言語のシンボル名とは異なることに注意。
  */
-public class Identifiers { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ��ʤ������桼�ƥ���ƥ��Ǥ��뤿������ʤ�)
+public class Identifiers { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 
-	// RTE��ͽ�󤵤�Ƥ��뼱�̻ҤΤ������Ƭ��
+	// RTEで予約されている識別子のための接頭辞
 	public static final String RTE_ID_PREFIX = "Rte_";
 
-	// ���եȥ��������ɥ�å��������μ��̡�������ݥꥷ�������饤����Ȥ����̾
+	// ソフトウェアアドレッシング方式の種別／初期化ポリシー／アラインメントの定数名
 	public static final String SECTION_TYPE_VAR = "VAR";
 	public static final String SECTION_TYPE_CODE = "CODE";
 	public static final String SECTION_INITIALIZATION_POLICY_INIT = "INIT";
 	public static final String ALIGNMENT_TYPE_UNSPECIFIED = "UNSPECIFIED";
 
-	// RTE�����Ѥ��ȹ�AUTOSAR��ե����
+	// RTE実装用の組込AUTOSARリファレンス
 	private static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE = M2ModelUtils.ID_PREFIX + "/Rte_InternalDataTypes/";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT8 = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "uint8";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT16 = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "uint16";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_UINT32 = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "uint32";
 	public static final String RTE_INTERNAL_DATA_TYPE_REFERENCE_COM_SIGNAL_ID_TYPE = RTE_INTERNAL_DATA_TYPE_REFERENCE_BASE + "Com_SignalIdType";
 
-	// �ǥե���ȤΥ��硼�ȥ͡���
+	// デフォルトのショートネーム
 	public static final String DEFAULT_OS_IOC_NAME = "osIoc";
 	public static final String DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME_PREFIX = "osIocSenderProperties";
 	public static final String DEFAULT_OS_IOC_RECEIVER_PROPERTIES_NAME = "osIocReceiverProperties";
@@ -105,20 +105,12 @@ public class Identifiers { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 		return RTE_ID_PREFIX + "Sr" + getImplExtension(dataInstanceInSwc);
 	}
 
-	public static String createPeriodicComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
+	public static String createPeriodicComProxyRequestOsIocCommunicationName(ComSendProxyInteraction proxyInteraction) {
+		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName();
 	}
 
-	public static String createImmediateComProxyRequestOsIocCommunicationNameForPrimitiveType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_" + proxyInteraction.getSignalDataType().getShortName();
-	}
-	
-	public static String createPeriodicComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyPeriodic_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
-	}
-
-	public static String createImmediateComProxyRequestOsIocCommunicationNameForComplexType(ComSendProxyInteraction proxyInteraction) {
-		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName() + "_ComplexDataType";
+	public static String createImmediateComProxyRequestOsIocCommunicationName(ComSendProxyInteraction proxyInteraction) {
+		return RTE_ID_PREFIX + "ComProxyImmediate_" + proxyInteraction.getRequesterPartition().getShortName();
 	}
 
 	public static String createPeriodicComProxyValueOsIocCommunicationName(VariableDataInstanceInSwc dataInstanceInSwc, EcucReferrable comSignalOrComSignalGroup) {
@@ -134,14 +126,14 @@ public class Identifiers { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	}
 
 	public static String createOsIocSenderPropertiesName(ComSignal comSignal) {
-		// COVERAGE ���̤ã(�Զ�纮�����Τ���ã���륳���ɤʤΤǡ�̤���Х�å�������ʤ�)
-		// S/R�μ¸��������������ˤ��ѹ��Ȥʤ�ECU�֤Ǥ�IOC�Хåե�����Ѥ��ʤ��ʤä��ط���,���᥽�åɤϻ��Ѥ���ʤ�.
+		// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+		// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった関係上,当メソッドは使用されない.
 		return DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME_PREFIX + "_" + comSignal.getShortName();
 	}
 
 	public static String createOsIocSenderPropertiesName(ComSignalGroup comSignalGroup) {
-		// COVERAGE ���̤ã(�Զ�纮�����Τ���ã���륳���ɤʤΤǡ�̤���Х�å�������ʤ�)
-		// S/R�μ¸��������������ˤ��ѹ��Ȥʤ�ECU�֤Ǥ�IOC�Хåե�����Ѥ��ʤ��ʤä��ط���,���᥽�åɤϻ��Ѥ���ʤ�.
+		// COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+		// S/Rの実現方式の選択方針が変更となりECU間ではIOCバッファを使用しなくなった関係上,当メソッドは使用されない.
 		return DEFAULT_OS_IOC_SENDER_PROPERTIES_NAME_PREFIX + "_" + comSignalGroup.getShortName();
 	}
 
@@ -200,10 +192,10 @@ public class Identifiers { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	public static String getImplExtension(OsTask osTask, Optional<OsEvent> osEvent, ExecutableEntity executableEntity) {
 		String implExtension = "";
 		if (executableEntity instanceof RunnableEntity) {
-			// NOTE ����ܥ�̾�ν�ʣ���򤱤뤿�ᡤ���ʥ֥�Υ��硼�ȥ͡���ǤϤʤ�������ܥ�̾����Ѥ��롥
+			// NOTE シンボル名の重複を避けるため，ランナブルのショートネームではなく，シンボル名を使用する．
 			implExtension = getImplExtension(osTask, osEvent) + "_" + ((RunnableEntity) executableEntity).getSymbol();
-		} else if (executableEntity instanceof BswSchedulableEntity) { // COVERAGE ���true(RunnableEntity, BswSchedulableEntity�Τ��о�)
-			// NOTE ModuleEntry�Υ��硼�ȥ͡������Ѥ��롥
+		} else if (executableEntity instanceof BswSchedulableEntity) { // COVERAGE 常にtrue(RunnableEntity, BswSchedulableEntityのみ対象)
+			// NOTE ModuleEntryのショートネームを使用する．
 			BswSchedulableEntity bswSchedulableEntity = (BswSchedulableEntity) executableEntity;
 			implExtension = getImplExtension(osTask, osEvent)
 							+ "_" + bswSchedulableEntity.getParent().getParent().getShortName()
@@ -225,8 +217,8 @@ public class Identifiers { // COVERAGE ���̤ã(���󥹥����������Ԥʤ��Ƥ���
 	}
 
 	public static String getBswSchedulerNamePrefix(BswModuleDescription sourceBswModuleDescription) {
-		// ��������ñ���BswModuleDescription�Υ��硼�ȥ͡����<bsnp>�Ȥ���.
-		// BswSchedulerNamePrefix���饹����Ѥ���<bsnp>�������б�������ϡ��ܴؿ��������뤳��.
+		// 現実装は単純にBswModuleDescriptionのショートネームを<bsnp>とする.
+		// BswSchedulerNamePrefixクラスを使用した<bsnp>生成に対応する場合は、本関数を修正すること.
 		return sourceBswModuleDescription.getShortName();
 	}
 }

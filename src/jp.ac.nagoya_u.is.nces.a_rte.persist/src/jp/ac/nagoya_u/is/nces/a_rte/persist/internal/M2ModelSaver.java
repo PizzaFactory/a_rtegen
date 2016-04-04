@@ -2,42 +2,42 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *  Copyright (C) 2016 by Monami-ya LLC, Japan
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -78,7 +78,7 @@ public class M2ModelSaver {
 
 	private static class Saver {
 		private static final String XML_VERSION = "1.0";
-		private static final Charset DEFAULT_ENCODING = Charset.forName("EUC-JP");
+		private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
 
 		private final M2Root m2Root;
 		private final XMLStreamWriter writer;
@@ -105,7 +105,7 @@ public class M2ModelSaver {
 				this.writer.writeEndDocument();
 				this.writer.flush();
 
-			} finally { // COVERAGE (¾ïÍÑ¥±¡¼¥¹¤Ç¤Ï¤Ê¤¤¤¿¤á¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼¤ÇÌäÂê¤Ê¤¤¤³¤È¤ò³ÎÇ§)
+			} finally { // COVERAGE (å¸¸ç”¨ã‚±ãƒ¼ã‚¹ã§ã¯ãªã„ãŸã‚ï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼ã§å•é¡Œãªã„ã“ã¨ã‚’ç¢ºèª)
 				this.writer.close();
 			}
 		}
@@ -121,23 +121,23 @@ public class M2ModelSaver {
 				case REFERENCE:
 					writeContentOfReference(eObject, eStructuralFeature);
 					break;
-				case REFERENCE_WRAPPER_AND_REFERENCE: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
-					// NOTE Ì¤¥µ¥İ¡¼¥È
+				case REFERENCE_WRAPPER_AND_REFERENCE: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
+					// NOTE æœªã‚µãƒãƒ¼ãƒˆ
 					break;
 				case ROLE:
 					writeContentOfRole(eObject, eStructuralFeature);
 					break;
-				case ROLE_AND_TYPE: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+				case ROLE_AND_TYPE: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 					writeContentOfRoleAndType(eObject, eStructuralFeature);
 					break;
-				case ROLE_WRAPPER_AND_ROLE: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+				case ROLE_WRAPPER_AND_ROLE: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 					writeContentOfRoleWrapperAndRole(eObject, eStructuralFeature);
 					break;
 				case ROLE_WRAPPER_AND_TYPE:
 					writeContentOfRoleWrapperAndType(eObject, eStructuralFeature);
 					break;
-				case TYPE_REFERENCE: // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
-					// NOTE Ì¤¥µ¥İ¡¼¥È
+				case TYPE_REFERENCE: // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
+					// NOTE æœªã‚µãƒãƒ¼ãƒˆ
 					break;
 				case UNKNOWN:
 				default:
@@ -150,7 +150,7 @@ public class M2ModelSaver {
 			return Iterables.filter(eClass.getEAllStructuralFeatures(), new Predicate<EStructuralFeature>() {
 				@Override
 				public boolean apply(EStructuralFeature input) {
-					return !input.isTransient() && !input.isDerived() && !isID(input) && !M2ModelUtils.isNonM2Feature(input); // (Ê¬´ôÌÖÍå¤Ï¤µ¤ì¤Æ¤¤¤ë¤Î¤Ç¥Æ¥¹¥ÈÍ×·ï¤òËş¤¿¤·¤Æ¤¤¤ë)
+					return !input.isTransient() && !input.isDerived() && !isID(input) && !M2ModelUtils.isNonM2Feature(input); // (åˆ†å²ç¶²ç¾…ã¯ã•ã‚Œã¦ã„ã‚‹ã®ã§ãƒ†ã‚¹ãƒˆè¦ä»¶ã‚’æº€ãŸã—ã¦ã„ã‚‹)
 				}
 			});
 		}
@@ -185,16 +185,16 @@ public class M2ModelSaver {
 		}
 
 		private void writeContentOfRoleWrapperAndRole(EObject eContainerObject, EStructuralFeature eStructuralFeature) throws XMLStreamException {
-			if (eStructuralFeature.getEType() instanceof EDataType) { // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			if (eStructuralFeature.getEType() instanceof EDataType) { // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 				writeValueRoleWrapperAndRoles(eStructuralFeature, EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature));
-			} else { // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			} else { // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 				List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature);
 				writeRoleWrapperAndRoles(eStructuralFeature, eObjects);
 			}
 		}
 
 		private void writeContentOfRoleAndType(EObject eContainerObject, EStructuralFeature eStructuralFeature) throws XMLStreamException {
-			List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 			writeRoleAndTypes(eStructuralFeature, eObjects);
 		}
 
@@ -205,14 +205,14 @@ public class M2ModelSaver {
 				} else {
 					writeValueRoles(eStructuralFeature, EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature));
 				}
-			} else { // COVERAGE ¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤ÏÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤
+			} else { // COVERAGE ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯é€šã‚‰ãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„
 				List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature);
 				writeRoles(eStructuralFeature, eObjects);
 			}
 		}
 
 		private void writeRoleWrapperAndRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException {
-			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 			this.writer.writeStartElement(roleWrapperName);
 			for (EObject eObject : eObjects) {
 				writeRole(eStructuralFeature, eObject);
@@ -220,13 +220,13 @@ public class M2ModelSaver {
 			this.writer.writeEndElement();
 		}
 
-		private void writeRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException { // COVERAGE ¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤ÏÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤
+		private void writeRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException { // COVERAGE ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯é€šã‚‰ãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„
 			for (EObject eObject : eObjects) {
 				writeRole(eStructuralFeature, eObject);
 			}
 		}
 
-		private void writeRole(EStructuralFeature eStructuralFeature, EObject eObject) throws XMLStreamException { // COVERAGE ¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤ÏÄÌ¤é¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤
+		private void writeRole(EStructuralFeature eStructuralFeature, EObject eObject) throws XMLStreamException { // COVERAGE ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯é€šã‚‰ãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„
 			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature);
 			this.writer.writeStartElement(roleName);
 			writeContent(eObject);
@@ -247,7 +247,7 @@ public class M2ModelSaver {
 		}
 
 		private void writeValueRoleWrapperAndRoles(EStructuralFeature eStructuralFeature, List<Object> values) throws XMLStreamException {
-			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 			this.writer.writeStartElement(roleWrapperName);
 			for (Object value : values) {
 				writeValueRole(eStructuralFeature, value);
@@ -259,15 +259,15 @@ public class M2ModelSaver {
 			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature);
 			this.writer.writeStartElement(roleName);
 
-			// NOTE definitionRef¤Î¤ßDESTÂ°À­¤Ï·è¤áÂÇ¤Á¤È¤¹¤ë
+			// NOTE definitionRefã®ã¿DESTå±æ€§ã¯æ±ºã‚æ‰“ã¡ã¨ã™ã‚‹
 			if (ECUC_MODULE_CONFIGURATION_VALUES__DEFINITION_REF.equals(eStructuralFeature)) {
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-MODULE-DEF");
 			} else if (ECUC_CONTAINER_VALUE__DEFINITION_REF.equals(eStructuralFeature)) {
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-CONTAINER-DEF");
 			} else if (ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature)) {
 				/*
-				 * NOTE¡§#91ÂĞ±ş
-				 * ËÜÍè¤Ï¥â¥Ç¥ë¤«¤é¤Î½¤Àµ¤¹¤ëÉ¬Í×¤¬¤¢¤ë¤¬¡¤2014/3Ëö¥ê¥ê¡¼¥¹¤Ë¸ş¤±¤Æ»ÃÄêÅª¤Ë°Ê²¼¤ÎÂĞ±ş¤È¤¹¤ë¡¥
+				 * NOTEï¼š#91å¯¾å¿œ
+				 * æœ¬æ¥ã¯ãƒ¢ãƒ‡ãƒ«ã‹ã‚‰ã®ä¿®æ­£ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ãŒï¼Œ2014/3æœ«ãƒªãƒªãƒ¼ã‚¹ã«å‘ã‘ã¦æš«å®šçš„ã«ä»¥ä¸‹ã®å¯¾å¿œã¨ã™ã‚‹ï¼
 				 */
 				if ("/AUTOSAR/EcucDefs/Os/OsApplication/OsApplicationTrustedFunction/OsTrustedFunctionName".equals(value)) {
 					this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-FUNCTION-NAME-DEF");
@@ -276,7 +276,7 @@ public class M2ModelSaver {
 				} else {
 					this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-PARAMETER-DEF");
 				}
-			} else if (ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF.equals(eStructuralFeature)) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤¥µ¥İ¡¼¥ÈÈÏ°ÏÆâ¤Ç¤Ï¡¤definitionRef¤ÎÉ¬Í×¤ÊÍ×ÁÇ¤Ï¡¤EcucModuleConfigurationValues,EcucContainerValue,EcucParameterValue,EcucAbstractReferenceValue¤Î¤¤¤º¤ì¤«¤Ç¤¢¤ë¤¿¤á)
+			} else if (ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF.equals(eStructuralFeature)) { // COVERAGE å¸¸ã«true(ç¾çŠ¶ï¼Œã‚µãƒãƒ¼ãƒˆç¯„å›²å†…ã§ã¯ï¼ŒdefinitionRefã®å¿…è¦ãªè¦ç´ ã¯ï¼ŒEcucModuleConfigurationValues,EcucContainerValue,EcucParameterValue,EcucAbstractReferenceValueã®ã„ãšã‚Œã‹ã§ã‚ã‚‹ãŸã‚)
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-ABSTRACT-REFERENCE-DEF");
 			}
 
@@ -314,7 +314,7 @@ public class M2ModelSaver {
 		}
 
 		private void writeRoleAndTypes(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException {
-			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature); // COVERAGE ¾ï¤ËÌ¤Ã£(¸½¾õ¤Î¥Ä¡¼¥ë¥ï¡¼¥¯¥Õ¥í¡¼¤Ç¤Ï»ÈÍÑ¤µ¤ì¤Ê¤¤¤¬¡¤¥³¡¼¥É¥ì¥Ó¥å¡¼ºÑ¤ß¤Ç¤¢¤ë¤¿¤áÌäÂê¤Ê¤¤)
+			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature); // COVERAGE å¸¸ã«æœªé”(ç¾çŠ¶ã®ãƒ„ãƒ¼ãƒ«ãƒ¯ãƒ¼ã‚¯ãƒ•ãƒ­ãƒ¼ã§ã¯ä½¿ç”¨ã•ã‚Œãªã„ãŒï¼Œã‚³ãƒ¼ãƒ‰ãƒ¬ãƒ“ãƒ¥ãƒ¼æ¸ˆã¿ã§ã‚ã‚‹ãŸã‚å•é¡Œãªã„)
 			this.writer.writeStartElement(roleName);
 			for (EObject eObject : eObjects) {
 				writeType(eObject);

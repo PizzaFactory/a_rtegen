@@ -276,7 +276,12 @@ public class FunctionItemProvider extends ModuleReferrableItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.FUNCTION__LOCAL_TYPE,
-				 ModuleFactory.eINSTANCE.createRteSendTrustedFunctionParamType()));
+				 ModuleFactory.eINSTANCE.createRteNonqueuedSendTrustedFunctionParamType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.FUNCTION__LOCAL_TYPE,
+				 ModuleFactory.eINSTANCE.createRteQueuedSendTrustedFunctionParamType()));
 
 		newChildDescriptors.add
 			(createChildParameter

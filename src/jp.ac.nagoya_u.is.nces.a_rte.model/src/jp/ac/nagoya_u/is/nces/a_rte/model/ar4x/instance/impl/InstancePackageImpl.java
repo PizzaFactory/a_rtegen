@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -614,6 +614,42 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__IsTAckEnabled() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent() {
+		return pVariableDataInstanceInSwcEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRVariableDataInstanceInSwc() {
 		return rVariableDataInstanceInSwcEClass;
 	}
@@ -668,7 +704,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetInvalidationPolicy() {
+	public EOperation getRVariableDataInstanceInSwc__IsInvalidationKeep() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(4);
 	}
 
@@ -677,7 +713,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetInitValue() {
+	public EOperation getRVariableDataInstanceInSwc__IsInvalidationReplace() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(5);
 	}
 
@@ -686,7 +722,7 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetQueueLength() {
+	public EOperation getRVariableDataInstanceInSwc__GetInvalidationPolicy() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(6);
 	}
 
@@ -695,8 +731,44 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRVariableDataInstanceInSwc__GetComSpec() {
+	public EOperation getRVariableDataInstanceInSwc__GetInitValue() {
 		return rVariableDataInstanceInSwcEClass.getEOperations().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetQueueLength() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetComSpec() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent() {
+		return rVariableDataInstanceInSwcEClass.getEOperations().get(11);
 	}
 
 	/**
@@ -1108,6 +1180,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY);
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE);
 		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_ACCESSED_BY_DATA_SEND_POINT);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_ENABLED);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___IS_TACK_TIMEOUT_ENABLED);
+		createEOperation(pVariableDataInstanceInSwcEClass, PVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_SEND_COMPLETED_EVENT);
 
 		rVariableDataInstanceInSwcEClass = createEClass(RVARIABLE_DATA_INSTANCE_IN_SWC);
 		createEReference(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC__CONTEXT_RPORT);
@@ -1115,10 +1191,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_FILTER);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_ALIVE_TIMEOUT_ENABLED);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_ENABLED);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_KEEP);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___IS_INVALIDATION_REPLACE);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INVALIDATION_POLICY);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_INIT_VALUE);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_QUEUE_LENGTH);
 		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_COM_SPEC);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVED_EVENT);
+		createEOperation(rVariableDataInstanceInSwcEClass, RVARIABLE_DATA_INSTANCE_IN_SWC___GET_RELATED_DATA_RECEIVE_ERROR_EVENT);
 
 		assemblyDataInstanceConnectorEClass = createEClass(ASSEMBLY_DATA_INSTANCE_CONNECTOR);
 		createEReference(assemblyDataInstanceConnectorEClass, ASSEMBLY_DATA_INSTANCE_CONNECTOR__PROVIDER);
@@ -1273,6 +1353,14 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getPVariableDataInstanceInSwc__GetComSpec(), theM2Package.getSenderComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
+		initEOperation(getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), ecorePackage.getEBoolean(), "isAccessedByDataSendPoint", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckEnabled(), ecorePackage.getEBoolean(), "isTAckEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), ecorePackage.getEBoolean(), "isTAckTimeoutEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), theM2Package.getDataSendCompletedEvent(), "getRelatedDataSendCompletedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(rVariableDataInstanceInSwcEClass, RVariableDataInstanceInSwc.class, "RVariableDataInstanceInSwc", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getRVariableDataInstanceInSwc_ContextRPort(), theM2Package.getRPortPrototype(), null, "contextRPort", null, 1, 1, RVariableDataInstanceInSwc.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
@@ -1284,6 +1372,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 
 		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationEnabled(), ecorePackage.getEBoolean(), "isInvalidationEnabled", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationKeep(), ecorePackage.getEBoolean(), "isInvalidationKeep", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getRVariableDataInstanceInSwc__IsInvalidationReplace(), ecorePackage.getEBoolean(), "isInvalidationReplace", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
 		initEOperation(getRVariableDataInstanceInSwc__GetInvalidationPolicy(), theM2Package.getInvalidationPolicy(), "getInvalidationPolicy", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getRVariableDataInstanceInSwc__GetInitValue(), theM2Package.getValueSpecification(), "getInitValue", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -1291,6 +1383,10 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		initEOperation(getRVariableDataInstanceInSwc__GetQueueLength(), theM2Package.getPositiveInteger(), "getQueueLength", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEOperation(getRVariableDataInstanceInSwc__GetComSpec(), theM2Package.getReceiverComSpec(), "getComSpec", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), theM2Package.getDataReceivedEvent(), "getRelatedDataReceivedEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
+
+		initEOperation(getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), theM2Package.getDataReceiveErrorEvent(), "getRelatedDataReceiveErrorEvent", 0, -1, IS_UNIQUE, !IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(assemblyDataInstanceConnectorEClass, AssemblyDataInstanceConnector.class, "AssemblyDataInstanceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getAssemblyDataInstanceConnector_Provider(), this.getVariableDataInstanceInComposition(), this.getVariableDataInstanceInComposition_RequesterConnection(), "provider", null, 1, 1, AssemblyDataInstanceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -1479,6 +1575,30 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "body", "let comSpec : m2::SenderComSpec = contextPPort.providedComSpec.oclAsType(m2::SenderComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsAccessedByDataSendPoint(), 
+		   source, 
+		   new String[] {
+			 "body", "getOwnerAtomicSwc().internalBehavior.runnable.dataSendPoint->exists(accessedVariable.autosarVariable = self)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsTAckEnabled(), 
+		   source, 
+		   new String[] {
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__IsTAckTimeoutEnabled(), 
+		   source, 
+		   new String[] {
+			 "body", "not getComSpec().transmissionAcknowledge.oclIsUndefined() and getComSpec().transmissionAcknowledge.timeout <> 0" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPVariableDataInstanceInSwc__GetRelatedDataSendCompletedEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataSendCompletedEvent.allInstances()->select(eventSourceData = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
 		  (getPVariableDataInstanceInSwc_ContextPPort(), 
 		   source, 
 		   new String[] {
@@ -1509,6 +1629,18 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationEnabled().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
+		  (getRVariableDataInstanceInSwc__IsInvalidationKeep(), 
+		   source, 
+		   new String[] {
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationKeep().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__IsInvalidationReplace(), 
+		   source, 
+		   new String[] {
+			 "body", "not getInvalidationPolicy().oclIsUndefined() and getInvalidationPolicy().isInvalidationReplace().oclAsType(Boolean)" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
 		  (getRVariableDataInstanceInSwc__GetInvalidationPolicy(), 
 		   source, 
 		   new String[] {
@@ -1531,6 +1663,18 @@ public class InstancePackageImpl extends EPackageImpl implements InstancePackage
 		   source, 
 		   new String[] {
 			 "body", "let comSpec : m2::ReceiverComSpec = contextRPort.requiredComSpec.oclAsType(m2::ReceiverComSpec)->any(dataElement = self.prototype)\n\t\t\t\t\t\t\t\tin if comSpec.oclIsUndefined()\n\t\t\t\t\t\t\t\t\tthen null\n\t\t\t\t\t\t\t\t\telse comSpec\n\t\t\t\t\t\t\t\tendif" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__GetRelatedDataReceivedEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataReceivedEvent.allInstances()->select(data = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRVariableDataInstanceInSwc__GetRelatedDataReceiveErrorEvent(), 
+		   source, 
+		   new String[] {
+			 "body", "ar4x::m2::DataReceiveErrorEvent.allInstances()->select(data = self)->asOrderedSet()" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getRVariableDataInstanceInSwc_ContextRPort(), 

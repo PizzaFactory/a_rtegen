@@ -183,7 +183,7 @@ public class AutosarVariableRefItemProvider extends M2ObjectItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(M2Package.Literals.AUTOSAR_VARIABLE_REF__AUTOSAR_VARIABLE_IREF,
-				 M2Factory.eINSTANCE.createVariableInAtomicSwcInstanceRef()));
+				 M2Factory.eINSTANCE.createVariableInAtomicSwcTypeInstanceRef()));
 	}
 
 }

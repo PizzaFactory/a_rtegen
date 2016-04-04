@@ -65,7 +65,7 @@ public class ModuleRules {
 			SendInteraction sendInteraction = sender.getSendInteraction().get(0);
 			if (sendInteraction.getImplementation() instanceof RteSendImplementation) {
 				ReceiveInteraction receiveInteraction = sendInteraction.getReceiveInteraction();
-				// 1:N¤Ï¥¤¥ó¥é¥¤¥óÂĞ¾İ³°¤Ê¤Î¤Ç¡¢0ÈÖÌÜ¸ÇÄê¤Ç³ÎÇ§¤¹¤ë
+				// 1:Nã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³å¯¾è±¡å¤–ãªã®ã§ã€0ç•ªç›®å›ºå®šã§ç¢ºèªã™ã‚‹
 				InternalEcuReceiver receiver = receiveInteraction.getInternalEcuReceivers().get(0);
 				RVariableDataInstanceInSwc rDataInstanceInSwc = (RVariableDataInstanceInSwc) receiver.getSource().getPrototype();
 				if (!rDataInstanceInSwc.isFilterEnabled()) {
@@ -90,34 +90,41 @@ public class ModuleRules {
 		}
 		ReceiveInteraction receiveInteraction = receiver.getReceiveInteraction().get(0);
 		if (receiveInteraction.getValueBufferImplementation() instanceof IocValueBufferImplementation
-		// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-		// IOC¤Ï¥¤¥ó¥é¥¤¥ó²½¤·¤Ê¤¤
+		// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+		// IOCã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã—ãªã„
 				|| receiveInteraction.getValueBufferImplementation() instanceof ComValueBufferImplementation) {
 			return false;
 		}
 		if (!receiver.getExternalEcuSenders().isEmpty()) {
-			// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// ECU´Ö¤Ï¥¤¥ó¥é¥¤¥ó²½¤·¤Ê¤¤
+			// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// ECUé–“ã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã—ãªã„
 			return false;
 		}
 		return true;
+	}
+
+	public boolean usesInlineFeedbackApi(PVariableDataInstanceInSwc dataInstanceInSwc) {
+		if (!canUseInlineApi()) {
+			return false;
+		}
+		return isEnableTakeAddressFalse(dataInstanceInSwc.getContextPort());
 	}
 
 	public boolean usesInlineCsApi(EcucPartition clientEcucPartition, EcucPartition serverPartition, ROperationInstanceInSwc rOperationInstanceInSwc) {
 		if (clientEcucPartition == null && serverPartition == null) {
 			return true;
 		} else if (clientEcucPartition == null || serverPartition == null) {
-			// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			// ecucPartition, pEcucPartition ¤Î¤¤¤º¤ì¤«¤¬null¤Î¤È¤­¤Ï¤¢¤ê¤¨¤Ê¤¤
+			// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+			// ecucPartition, pEcucPartition ã®ã„ãšã‚Œã‹ãŒnullã®ã¨ãã¯ã‚ã‚Šãˆãªã„
 			return false;
 		}
 
 		if (clientEcucPartition != serverPartition) {
 			if (!clientEcucPartition.isTrusted()) {
-				// ÊÌ¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤Î¾ì¹ç¤Ï¥¤¥ó¥é¥¤¥ó²½¤ò¹Ô¤ï¤Ê¤¤
+				// åˆ¥ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã®å ´åˆã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã‚’è¡Œã‚ãªã„
 				return false;
 			}
-			// ÊÌ¥Ñ¡¼¥Æ¥£¥·¥ç¥ó¤ÇÁ÷¿®¡¢¼õ¿®¤È¤â¤Ë¿®Íê¤Ç¤¢¤ë¾ì¹ç¡¢¥³¥Ş¥ó¥É¥é¥¤¥ó¥ª¥×¥·¥ç¥ó¤Ç¥¤¥ó¥é¥¤¥ó²½È½Äê¤ò¹Ô¤¦
+			// åˆ¥ãƒ‘ãƒ¼ãƒ†ã‚£ã‚·ãƒ§ãƒ³ã§é€ä¿¡ã€å—ä¿¡ã¨ã‚‚ã«ä¿¡é ¼ã§ã‚ã‚‹å ´åˆã€ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã§ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–åˆ¤å®šã‚’è¡Œã†
 		}
 
 		return usesInlineCsApi(rOperationInstanceInSwc);
@@ -139,12 +146,12 @@ public class ModuleRules {
 	}
 
 	private boolean canUseInlineApi() {
-		// generationPhase¤Ç¤Ê¤¤¾ì¹ç¤Ï¥¤¥ó¥é¥¤¥ó²½¤ò¹Ô¤ï¤Ê¤¤
+		// generationPhaseã§ãªã„å ´åˆã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã‚’è¡Œã‚ãªã„
 		if (!this.context.options.generationPhase) {
 			return false;
 		}
 
-		// ¥³¥Ş¥ó¥É¥é¥¤¥ó¥ª¥×¥·¥ç¥ó¤¬»ØÄê¤µ¤ì¤Æ¤¤¤¿¾ì¹ç¤Ï¥¤¥ó¥é¥¤¥ó²½¤ò¹Ô¤ï¤Ê¤¤
+		// ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒæŒ‡å®šã•ã‚Œã¦ã„ãŸå ´åˆã¯ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–ã‚’è¡Œã‚ãªã„
 		if (this.context.options.withoutStaticInline) {
 			return false;
 		}
@@ -153,7 +160,7 @@ public class ModuleRules {
 	}
 
 	private boolean isEnableTakeAddressFalse(PortPrototype portPrototype) {
-		// EnableTakeAddress¤¬false¤Î¾ì¹ç¥¤¥ó¥é¥¤¥ó²½ÂĞ¾İ
+		// EnableTakeAddressãŒfalseã®å ´åˆã‚¤ãƒ³ãƒ©ã‚¤ãƒ³åŒ–å¯¾è±¡
 		if (portPrototype.getPortApiOption().isEmpty()) {
 			return false;
 		}
@@ -175,41 +182,41 @@ public class ModuleRules {
 	}
 
 	/**
-	 * Í­¸ú¤Ê(È¯²Ğ¤¹¤ë²ÄÇ½À­¤Î¤¢¤ë)BSW¥¤¥Ù¥ó¥È¤«¤òÈ½Äê¤¹¤ë
-	 * @param sourceBswEvent È½ÄêÂĞ¾İ¤ÎBSW¥¤¥Ù¥ó¥È
-	 * @return Í­¸ú¤ÊBSW¥¤¥Ù¥ó¥È¤Î¾ì¹ç¡¢true¡£¤½¤ì°Ê³°¤Î¾ì¹ç¡¢false¡£
+	 * æœ‰åŠ¹ãª(ç™ºç«ã™ã‚‹å¯èƒ½æ€§ã®ã‚ã‚‹)BSWã‚¤ãƒ™ãƒ³ãƒˆã‹ã‚’åˆ¤å®šã™ã‚‹
+	 * @param sourceBswEvent åˆ¤å®šå¯¾è±¡ã®BSWã‚¤ãƒ™ãƒ³ãƒˆ
+	 * @return æœ‰åŠ¹ãªBSWã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆã€trueã€‚ãã‚Œä»¥å¤–ã®å ´åˆã€falseã€‚
 	 */
 	public boolean isEnabledBswEvent(BswEvent sourceBswEvent) {
-		// BSW¥¤¥Ù¥ó¥È¶¦ÄÌ¤ÎÍ­¸ú¡¿Ìµ¸úÈ½Äê
+		// BSWã‚¤ãƒ™ãƒ³ãƒˆå…±é€šã®æœ‰åŠ¹ï¼ç„¡åŠ¹åˆ¤å®š
 		if (!checksEnabledOfBswEventCommonPart(sourceBswEvent)) {
 			return false;
 		}
 
-		// ³ÆBSW¥¤¥Ù¥ó¥È¸ÇÍ­¤ÎÍ­¸ú¡¿Ìµ¸úÈ½Äê
+		// å„BSWã‚¤ãƒ™ãƒ³ãƒˆå›ºæœ‰ã®æœ‰åŠ¹ï¼ç„¡åŠ¹åˆ¤å®š
 		if (sourceBswEvent instanceof BswModeSwitchEvent) {
-			// ¥â¡¼¥ÉÀÚÂØ¥¤¥Ù¥ó¥È
+			// ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿ã‚¤ãƒ™ãƒ³ãƒˆ
 			return checksEnabledOfBswModeSwitchEventSpecificPart((BswModeSwitchEvent) sourceBswEvent);
 		} else {
-			// ¤½¤ÎÂ¾¥¤¥Ù¥ó¥È
-			return true; // ¸ÇÍ­¤Î¥Á¥§¥Ã¥¯¤Ê¤·
+			// ãã®ä»–ã‚¤ãƒ™ãƒ³ãƒˆ
+			return true; // å›ºæœ‰ã®ãƒã‚§ãƒƒã‚¯ãªã—
 		}
 	}
 
-	// BSW¥¤¥Ù¥ó¥È¤¬Í­¸ú¤Ç¤¢¤ë¤«¤ÎÈ½Äê(¥â¡¼¥ÉÀÚÂØ¥¤¥Ù¥ó¥È¸ÇÍ­¤ÎÉôÊ¬¤Î¤ß¥Á¥§¥Ã¥¯)
+	// BSWã‚¤ãƒ™ãƒ³ãƒˆãŒæœ‰åŠ¹ã§ã‚ã‚‹ã‹ã®åˆ¤å®š(ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿ã‚¤ãƒ™ãƒ³ãƒˆå›ºæœ‰ã®éƒ¨åˆ†ã®ã¿ãƒã‚§ãƒƒã‚¯)
 	private boolean checksEnabledOfBswModeSwitchEventSpecificPart(BswModeSwitchEvent sourceBswModeSwitchEvent) {
-		// NOTE ¸½¾õonEntry¤Î¤ß¥µ¥İ¡¼¥È¤·¤Æ¤¤¤ë¤¿¤á¡¢onEntry°Ê³°(onTransition¡¦onExit)¤ÏÌµ¸ú¤Ê¥¤¥Ù¥ó¥È¤ÈÈ½Äê¤¹¤ë
+		// NOTE ç¾çŠ¶onEntryã®ã¿ã‚µãƒãƒ¼ãƒˆã—ã¦ã„ã‚‹ãŸã‚ã€onEntryä»¥å¤–(onTransitionãƒ»onExit)ã¯ç„¡åŠ¹ãªã‚¤ãƒ™ãƒ³ãƒˆã¨åˆ¤å®šã™ã‚‹
 		if (!ModeActivationKind.ON_ENTRY.equals(sourceBswModeSwitchEvent.getActivation())) {
 			return false;
 		}
 
 		ModeInBswModuleDescriptionInstanceRef onEntryModeIref = sourceBswModeSwitchEvent.getModeIref().get(0);
 
-		// ¥¤¥Ù¥ó¥È¤ÎÈ¯²Ğ¸µ¤È¤Ê¤ë¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤Ë¥¢¥¯¥»¥¹¤¬¤Ê¤±¤ì¤Ğ¡¢Ìµ¸ú¤Ê¥¤¥Ù¥ó¥È¤ÈÈ½Äê
+		// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç«å…ƒã¨ãªã‚‹ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã«ã‚¢ã‚¯ã‚»ã‚¹ãŒãªã‘ã‚Œã°ã€ç„¡åŠ¹ãªã‚¤ãƒ™ãƒ³ãƒˆã¨åˆ¤å®š
 		if (!sourceBswModeSwitchEvent.getStartsOnEvent().getAccessedModeGroup().contains(onEntryModeIref.getContextModeDeclarationGroup())) {
 			return false;
 		}
 
-		// ¥¤¥Ù¥ó¥È¤ÎÈ¯²Ğ¸µ¤È¤Ê¤ë¥â¡¼¥É¤¬Ìµ¸ú²½¤µ¤ì¤Æ¤¤¤ì¤Ğ¡¢Ìµ¸ú¤Ê¥¤¥Ù¥ó¥È¤ÈÈ½Äê
+		// ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç«å…ƒã¨ãªã‚‹ãƒ¢ãƒ¼ãƒ‰ãŒç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚Œã°ã€ç„¡åŠ¹ãªã‚¤ãƒ™ãƒ³ãƒˆã¨åˆ¤å®š
 		for (ModeInBswModuleDescriptionInstanceRef disabledInModeIref : sourceBswModeSwitchEvent.getDisabledInMode()) {
 			if (onEntryModeIref.getContextModeDeclarationGroup() == disabledInModeIref.getContextModeDeclarationGroup() && onEntryModeIref.getTargetMode() == disabledInModeIref.getTargetMode()) {
 				return false;
@@ -219,33 +226,33 @@ public class ModuleRules {
 		return true;
 	}
 
-	// BSW¥¤¥Ù¥ó¥È¤¬Í­¸ú¤Ç¤¢¤ë¤«¤òÈ½Äê(Á´BSW¥¤¥Ù¥ó¥È¶¦ÄÌ¤ÎÉôÊ¬¤Î¤ß¥Á¥§¥Ã¥¯)
+	// BSWã‚¤ãƒ™ãƒ³ãƒˆãŒæœ‰åŠ¹ã§ã‚ã‚‹ã‹ã‚’åˆ¤å®š(å…¨BSWã‚¤ãƒ™ãƒ³ãƒˆå…±é€šã®éƒ¨åˆ†ã®ã¿ãƒã‚§ãƒƒã‚¯)
 	private boolean checksEnabledOfBswEventCommonPart(BswEvent bswEvent) {
 		return !isBswEventDisabledByMode(bswEvent);
 	}
 
-	// BSW¥¤¥Ù¥ó¥È¤¬¥â¡¼¥É°ÍÂ¸Ìµ¸ú²½À©¸æ¤Ë¤è¤êÌµ¸ú²½¤µ¤ì¤Æ¤¤¤ë¤«¤òÈ½Äê
+	// BSWã‚¤ãƒ™ãƒ³ãƒˆãŒãƒ¢ãƒ¼ãƒ‰ä¾å­˜ç„¡åŠ¹åŒ–åˆ¶å¾¡ã«ã‚ˆã‚Šç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’åˆ¤å®š
 	private boolean isBswEventDisabledByMode(BswEvent bswEvent) {
-		// ¥â¡¼¥É°ÍÂ¸Ìµ¸ú²½À©¸æ¤òÂĞ¾İ¤È¤Ê¤ë¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤ÎÃ±°Ì¤Ë¥°¥ë¡¼¥×²½
+		// ãƒ¢ãƒ¼ãƒ‰ä¾å­˜ç„¡åŠ¹åŒ–åˆ¶å¾¡ã‚’å¯¾è±¡ã¨ãªã‚‹ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã®å˜ä½ã«ã‚°ãƒ«ãƒ¼ãƒ—åŒ–
 		ListMultimap<ModeDeclarationGroupPrototype, ModeInBswModuleDescriptionInstanceRef> disabledInModeIrefsGroupByContextModeGroup = this.context.query.groupByKey(bswEvent.getDisabledInMode(),
 				MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__CONTEXT_MODE_DECLARATION_GROUP);
 
-		// ³Æ¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤Ë¤Ä¤¤¤Æ¡¢BSW¥¤¥Ù¥ó¥È¤¬¥â¡¼¥É°ÍÂ¸Ìµ¸ú²½À©¸æ¤Ë¤è¤êÌµ¸ú²½¤µ¤ì¤Æ¤¤¤ë¤«¤òÈ½Äê
+		// å„ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã«ã¤ã„ã¦ã€BSWã‚¤ãƒ™ãƒ³ãƒˆãŒãƒ¢ãƒ¼ãƒ‰ä¾å­˜ç„¡åŠ¹åŒ–åˆ¶å¾¡ã«ã‚ˆã‚Šç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚‹ã‹ã‚’åˆ¤å®š
 		for (ModeDeclarationGroupPrototype disabledInModeContextModeGroup : disabledInModeIrefsGroupByContextModeGroup.keySet()) {
 			List<ModeInBswModuleDescriptionInstanceRef> disabledInModeIrefs = disabledInModeIrefsGroupByContextModeGroup.get(disabledInModeContextModeGroup);
 			List<ModeDeclaration> disabledInModeTargetModes = this.context.query.collect(disabledInModeIrefs, MODE_IN_BSW_MODULE_DESCRIPTION_INSTANCE_REF__TARGET_MODE);
 
-			// Í­¸ú¤ÊÄó¶¡Â¦¤Ç¤¢¤ë¤«¡¢¤â¤·¤¯¤Ï¡¢ Í×µáÂ¦¤ò»²¾È¤·¤Æ¤¤¤ë¤È¤­¤Ë¡¢Í­¸ú¤ÊÄó¶¡Â¦¤¬¤¢¤ë¤«¤ò¥Á¥§¥Ã¥¯
+			// æœ‰åŠ¹ãªæä¾›å´ã§ã‚ã‚‹ã‹ã€ã‚‚ã—ãã¯ã€ è¦æ±‚å´ã‚’å‚ç…§ã—ã¦ã„ã‚‹ã¨ãã«ã€æœ‰åŠ¹ãªæä¾›å´ãŒã‚ã‚‹ã‹ã‚’ãƒã‚§ãƒƒã‚¯
 			ModeDeclarationGroupPrototype enabledProvidedPrototype = getEnableProvidedModeDeclarationGroupPrototype(disabledInModeContextModeGroup);
 			if (enabledProvidedPrototype == null) {
-				// Í­¸ú¤ÊÄó¶¡Â¦¤¬Â¸ºß¤·¤Ê¤¤¾ì¹ç
-				// NOTE Í­¸ú¤ÊÄó¶¡Â¦¤¬Â¸ºß¤·¤Ê¤±¤ì¤Ğ¥â¡¼¥É¤¬½é´ü¥â¡¼¥É°Ê³°¤ËÁ«°Ü¤¹¤ë¤³¤È¤Ï¤Ê¤¤¤Î¤Ç¡¢½é´ü¥â¡¼¥É¤¬Ìµ¸ú²½¤µ¤ì¤Æ¤¤¤ì¤Ğ¡¢BSW¥¤¥Ù¥ó¥È¤¬¥â¡¼¥É°ÍÂ¸Ìµ¸ú²½À©¸æ¤Ë¤è¤êÌµ¸ú²½¤µ¤ì¤Æ¤¤¤ë¤ÈÈ½Äê¤¹¤ë
+				// æœ‰åŠ¹ãªæä¾›å´ãŒå­˜åœ¨ã—ãªã„å ´åˆ
+				// NOTE æœ‰åŠ¹ãªæä¾›å´ãŒå­˜åœ¨ã—ãªã‘ã‚Œã°ãƒ¢ãƒ¼ãƒ‰ãŒåˆæœŸãƒ¢ãƒ¼ãƒ‰ä»¥å¤–ã«é·ç§»ã™ã‚‹ã“ã¨ã¯ãªã„ã®ã§ã€åˆæœŸãƒ¢ãƒ¼ãƒ‰ãŒç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚Œã°ã€BSWã‚¤ãƒ™ãƒ³ãƒˆãŒãƒ¢ãƒ¼ãƒ‰ä¾å­˜ç„¡åŠ¹åŒ–åˆ¶å¾¡ã«ã‚ˆã‚Šç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚‹ã¨åˆ¤å®šã™ã‚‹
 				if (disabledInModeTargetModes.contains(disabledInModeContextModeGroup.getType().getInitialMode())) {
 					return true;
 				}
 			} else {
-				// Í­¸ú¤ÊÄó¶¡Â¦¤¬Â¸ºß¤¹¤ë¾ì¹ç
-				// ¥â¡¼¥ÉÀë¸À¥°¥ë¡¼¥×¥×¥í¥È¥¿¥¤¥×¤ÎÁ´¥â¡¼¥É¤¬Ìµ¸ú²½¤µ¤ì¤Æ¤¤¤ì¤Ğ¡¢BSW¥¤¥Ù¥ó¥È¤¬¥â¡¼¥É°ÍÂ¸Ìµ¸ú²½À©¸æ¤Ë¤è¤êÌµ¸ú²½¤µ¤ì¤Æ¤¤¤ë¤ÈÈ½Äê¤¹¤ë
+				// æœ‰åŠ¹ãªæä¾›å´ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
+				// ãƒ¢ãƒ¼ãƒ‰å®£è¨€ã‚°ãƒ«ãƒ¼ãƒ—ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—ã®å…¨ãƒ¢ãƒ¼ãƒ‰ãŒç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚Œã°ã€BSWã‚¤ãƒ™ãƒ³ãƒˆãŒãƒ¢ãƒ¼ãƒ‰ä¾å­˜ç„¡åŠ¹åŒ–åˆ¶å¾¡ã«ã‚ˆã‚Šç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã‚‹ã¨åˆ¤å®šã™ã‚‹
 				if (disabledInModeTargetModes.containsAll(disabledInModeContextModeGroup.getType().getModeDeclaration())) {
 					return true;
 				}
@@ -256,13 +263,13 @@ public class ModuleRules {
 	}
 
 	private ModeDeclarationGroupPrototype getEnableProvidedModeDeclarationGroupPrototype(ModeDeclarationGroupPrototype prototype) {
-		// Í­¸ú¤ÊÄó¶¡Â¦¤Ç¤¢¤ì¤Ğ¡¢¤½¤ì¤òÊÖ¤¹
+		// æœ‰åŠ¹ãªæä¾›å´ã§ã‚ã‚Œã°ã€ãã‚Œã‚’è¿”ã™
 		Optional<ModeMachineInstance> providedInstance = this.context.builtQuery.tryFindDest(MODE_MACHINE_INSTANCE, prototype);
 		if (providedInstance.isPresent()) {
 			return prototype;
 		}
 
-		// Í×µáÂ¦¤Î¾ì¹ç¡¢Í­¸ú¤ÊÄó¶¡Â¦¤¬¤¢¤ì¤Ğ¤½¤ì¤òÊÖ¤¹
+		// è¦æ±‚å´ã®å ´åˆã€æœ‰åŠ¹ãªæä¾›å´ãŒã‚ã‚Œã°ãã‚Œã‚’è¿”ã™
 		Optional<RteBswRequiredModeGroupConnection> connection = this.context.query.tryFindSingle(isKindOf(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION)
 				.AND(ref(RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION__RTE_BSW_REQUIRED_MODE_GROUP, prototype)));
 		if (connection.isPresent()) { // 1:1(n)

@@ -5,6 +5,7 @@ package jp.pizzafactory.a_rte.model.rte.provider;
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.osgi.framework.BundleActivator;
 
 /**
@@ -85,7 +86,7 @@ public final class RteEditPlugin extends EMFPlugin {
 			//
 			plugin = this;
 		}
-
+	
 		/**
 		 * The actual implementation of the purely OSGi-compatible <b>Bundle Activator</b>.
 		 * <!-- begin-user-doc -->

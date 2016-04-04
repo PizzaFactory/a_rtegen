@@ -371,26 +371,26 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef} instances.
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcTypeInstanceRef} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected VariableInAtomicSwcInstanceRefItemProvider variableInAtomicSwcInstanceRefItemProvider;
+	protected VariableInAtomicSwcTypeInstanceRefItemProvider variableInAtomicSwcTypeInstanceRefItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcInstanceRef}.
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableInAtomicSwcTypeInstanceRef}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createVariableInAtomicSwcInstanceRefAdapter() {
-		if (variableInAtomicSwcInstanceRefItemProvider == null) {
-			variableInAtomicSwcInstanceRefItemProvider = new VariableInAtomicSwcInstanceRefItemProvider(this);
+	public Adapter createVariableInAtomicSwcTypeInstanceRefAdapter() {
+		if (variableInAtomicSwcTypeInstanceRefItemProvider == null) {
+			variableInAtomicSwcTypeInstanceRefItemProvider = new VariableInAtomicSwcTypeInstanceRefItemProvider(this);
 		}
 
-		return variableInAtomicSwcInstanceRefItemProvider;
+		return variableInAtomicSwcTypeInstanceRefItemProvider;
 	}
 
 	/**
@@ -414,6 +414,121 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 		}
 
 		return timingEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BackgroundEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BackgroundEventItemProvider backgroundEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BackgroundEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBackgroundEventAdapter() {
+		if (backgroundEventItemProvider == null) {
+			backgroundEventItemProvider = new BackgroundEventItemProvider(this);
+		}
+
+		return backgroundEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataSendCompletedEventItemProvider dataSendCompletedEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataSendCompletedEventAdapter() {
+		if (dataSendCompletedEventItemProvider == null) {
+			dataSendCompletedEventItemProvider = new DataSendCompletedEventItemProvider(this);
+		}
+
+		return dataSendCompletedEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataReceivedEventItemProvider dataReceivedEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceivedEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataReceivedEventAdapter() {
+		if (dataReceivedEventItemProvider == null) {
+			dataReceivedEventItemProvider = new DataReceivedEventItemProvider(this);
+		}
+
+		return dataReceivedEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataReceiveErrorEventItemProvider dataReceiveErrorEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataReceiveErrorEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataReceiveErrorEventAdapter() {
+		if (dataReceiveErrorEventItemProvider == null) {
+			dataReceiveErrorEventItemProvider = new DataReceiveErrorEventItemProvider(this);
+		}
+
+		return dataReceiveErrorEventItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RVariableInAtomicSwcInstanceRef} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RVariableInAtomicSwcInstanceRefItemProvider rVariableInAtomicSwcInstanceRefItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RVariableInAtomicSwcInstanceRef}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRVariableInAtomicSwcInstanceRefAdapter() {
+		if (rVariableInAtomicSwcInstanceRefItemProvider == null) {
+			rVariableInAtomicSwcInstanceRefItemProvider = new RVariableInAtomicSwcInstanceRefItemProvider(this);
+		}
+
+		return rVariableInAtomicSwcInstanceRefItemProvider;
 	}
 
 	/**
@@ -555,6 +670,29 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TransmissionAcknowledgementRequest} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TransmissionAcknowledgementRequestItemProvider transmissionAcknowledgementRequestItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TransmissionAcknowledgementRequest}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTransmissionAcknowledgementRequestAdapter() {
+		if (transmissionAcknowledgementRequestItemProvider == null) {
+			transmissionAcknowledgementRequestItemProvider = new TransmissionAcknowledgementRequestItemProvider(this);
+		}
+
+		return transmissionAcknowledgementRequestItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NonqueuedSenderComSpec} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,6 +713,29 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 		}
 
 		return nonqueuedSenderComSpecItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.QueuedSenderComSpec} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QueuedSenderComSpecItemProvider queuedSenderComSpecItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.QueuedSenderComSpec}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQueuedSenderComSpecAdapter() {
+		if (queuedSenderComSpecItemProvider == null) {
+			queuedSenderComSpecItemProvider = new QueuedSenderComSpecItemProvider(this);
+		}
+
+		return queuedSenderComSpecItemProvider;
 	}
 
 	/**
@@ -1958,6 +2119,29 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuConst} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompuConstItemProvider compuConstItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CompuConst}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCompuConstAdapter() {
+		if (compuConstItemProvider == null) {
+			compuConstItemProvider = new CompuConstItemProvider(this);
+		}
+
+		return compuConstItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AnyInstanceRef} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2418,6 +2602,29 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswBackgroundEvent} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BswBackgroundEventItemProvider bswBackgroundEventItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswBackgroundEvent}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBswBackgroundEventAdapter() {
+		if (bswBackgroundEventItemProvider == null) {
+			bswBackgroundEventItemProvider = new BswBackgroundEventItemProvider(this);
+		}
+
+		return bswBackgroundEventItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswCalledEntity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2759,15 +2966,22 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 		if (runnableEntityItemProvider != null) runnableEntityItemProvider.dispose();
 		if (variableAccessItemProvider != null) variableAccessItemProvider.dispose();
 		if (autosarVariableRefItemProvider != null) autosarVariableRefItemProvider.dispose();
-		if (variableInAtomicSwcInstanceRefItemProvider != null) variableInAtomicSwcInstanceRefItemProvider.dispose();
+		if (variableInAtomicSwcTypeInstanceRefItemProvider != null) variableInAtomicSwcTypeInstanceRefItemProvider.dispose();
 		if (timingEventItemProvider != null) timingEventItemProvider.dispose();
+		if (backgroundEventItemProvider != null) backgroundEventItemProvider.dispose();
+		if (dataSendCompletedEventItemProvider != null) dataSendCompletedEventItemProvider.dispose();
+		if (dataReceivedEventItemProvider != null) dataReceivedEventItemProvider.dispose();
+		if (dataReceiveErrorEventItemProvider != null) dataReceiveErrorEventItemProvider.dispose();
+		if (rVariableInAtomicSwcInstanceRefItemProvider != null) rVariableInAtomicSwcInstanceRefItemProvider.dispose();
 		if (ecucModuleConfigurationValuesItemProvider != null) ecucModuleConfigurationValuesItemProvider.dispose();
 		if (ecucContainerValueItemProvider != null) ecucContainerValueItemProvider.dispose();
 		if (ecucNumericalParamValueItemProvider != null) ecucNumericalParamValueItemProvider.dispose();
 		if (ecucTextualParamValueItemProvider != null) ecucTextualParamValueItemProvider.dispose();
 		if (ecucReferenceValueItemProvider != null) ecucReferenceValueItemProvider.dispose();
 		if (ecucInstanceReferenceValueItemProvider != null) ecucInstanceReferenceValueItemProvider.dispose();
+		if (transmissionAcknowledgementRequestItemProvider != null) transmissionAcknowledgementRequestItemProvider.dispose();
 		if (nonqueuedSenderComSpecItemProvider != null) nonqueuedSenderComSpecItemProvider.dispose();
+		if (queuedSenderComSpecItemProvider != null) queuedSenderComSpecItemProvider.dispose();
 		if (nonqueuedReceiverComSpecItemProvider != null) nonqueuedReceiverComSpecItemProvider.dispose();
 		if (portInterfaceItemProvider != null) portInterfaceItemProvider.dispose();
 		if (compositionSwComponentTypeItemProvider != null) compositionSwComponentTypeItemProvider.dispose();
@@ -2828,6 +3042,7 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 		if (compuItemProvider != null) compuItemProvider.dispose();
 		if (limitItemProvider != null) limitItemProvider.dispose();
 		if (compuScaleItemProvider != null) compuScaleItemProvider.dispose();
+		if (compuConstItemProvider != null) compuConstItemProvider.dispose();
 		if (anyInstanceRefItemProvider != null) anyInstanceRefItemProvider.dispose();
 		if (ecuAbstractionSwComponentTypeItemProvider != null) ecuAbstractionSwComponentTypeItemProvider.dispose();
 		if (nvBlockSwComponentTypeItemProvider != null) nvBlockSwComponentTypeItemProvider.dispose();
@@ -2848,6 +3063,7 @@ public class M2ItemProviderAdapterFactory extends M2AdapterFactory implements Co
 		if (bswModeSwitchEventItemProvider != null) bswModeSwitchEventItemProvider.dispose();
 		if (modeInBswModuleDescriptionInstanceRefItemProvider != null) modeInBswModuleDescriptionInstanceRefItemProvider.dispose();
 		if (bswTimingEventItemProvider != null) bswTimingEventItemProvider.dispose();
+		if (bswBackgroundEventItemProvider != null) bswBackgroundEventItemProvider.dispose();
 		if (bswCalledEntityItemProvider != null) bswCalledEntityItemProvider.dispose();
 		if (bswInterruptEntityItemProvider != null) bswInterruptEntityItemProvider.dispose();
 		if (systemSignalGroupItemProvider != null) systemSignalGroupItemProvider.dispose();

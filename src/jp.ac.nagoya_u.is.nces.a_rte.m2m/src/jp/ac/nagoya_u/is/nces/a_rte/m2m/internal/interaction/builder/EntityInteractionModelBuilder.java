@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  ¾åµ­Ãøºî¸¢¼Ô¤Ï¡¤°Ê²¼¤Î(1)¡Á(4)¤Î¾ò·ï¤òËş¤¿¤¹¾ì¹ç¤Ë¸Â¤ê¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¡ÊËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò²şÊÑ¤·¤¿¤â¤Î¤ò´Ş¤à¡¥°Ê²¼Æ±¤¸¡Ë¤ò»ÈÍÑ¡¦Ê£À½¡¦²ş
- *  ÊÑ¡¦ºÆÇÛÉÛ¡Ê°Ê²¼¡¤ÍøÍÑ¤È¸Æ¤Ö¡Ë¤¹¤ë¤³¤È¤òÌµ½ş¤ÇµöÂú¤¹¤ë¡¥
- *  (1) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¥½¡¼¥¹¥³¡¼¥É¤Î·Á¤ÇÍøÍÑ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¾åµ­¤ÎÃøºî
- *      ¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤¬¡¤¤½¤Î¤Ş¤Ş¤Î·Á¤Ç¥½¡¼
- *      ¥¹¥³¡¼¥ÉÃæ¤Ë´Ş¤Ş¤ì¤Æ¤¤¤ë¤³¤È¡¥
- *  (2) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤¥é¥¤¥Ö¥é¥ê·Á¼°¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤ë·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ
- *      ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃøºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­
- *      ¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *  (3) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ò¡¤µ¡´ï¤ËÁÈ¤ß¹ş¤à¤Ê¤É¡¤Â¾¤Î¥½¥Õ¥È¥¦¥§¥¢³«È¯¤Ë»È
- *      ÍÑ¤Ç¤­¤Ê¤¤·Á¤ÇºÆÇÛÉÛ¤¹¤ë¾ì¹ç¤Ë¤Ï¡¤¼¡¤Î¤¤¤º¤ì¤«¤Î¾ò·ï¤òËş¤¿¤¹¤³
- *      ¤È¡¥
- *    (a) ºÆÇÛÉÛ¤ËÈ¼¤¦¥É¥­¥å¥á¥ó¥È¡ÊÍøÍÑ¼Ô¥Ş¥Ë¥å¥¢¥ë¤Ê¤É¡Ë¤Ë¡¤¾åµ­¤ÎÃø
- *        ºî¸¢É½¼¨¡¤¤³¤ÎÍøÍÑ¾ò·ï¤ª¤è¤Ó²¼µ­¤ÎÌµÊİ¾Úµ¬Äê¤ò·ÇºÜ¤¹¤ë¤³¤È¡¥
- *    (b) ºÆÇÛÉÛ¤Î·ÁÂÖ¤ò¡¤ÊÌ¤ËÄê¤á¤ëÊıË¡¤Ë¤è¤Ã¤Æ¡¤TOPPERS¥×¥í¥¸¥§¥¯¥È¤Ë
- *        Êó¹ğ¤¹¤ë¤³¤È¡¥
- *  (4) ËÜ¥½¥Õ¥È¥¦¥§¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤ë¤¤¤«¤Ê¤ëÂ»
- *      ³²¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤òÌÈÀÕ¤¹¤ë¤³¤È¡¥
- *      ¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Î¥æ¡¼¥¶¤Ş¤¿¤Ï¥¨¥ó¥É¥æ¡¼¥¶¤«¤é¤Î¤¤¤«¤Ê¤ëÍı
- *      Í³¤Ë´ğ¤Å¤¯ÀÁµá¤«¤é¤â¡¤¾åµ­Ãøºî¸¢¼Ô¤ª¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤ò
- *      ÌÈÀÕ¤¹¤ë¤³¤È¡¥
+ *  ä¸Šè¨˜è‘—ä½œæ¨©è€…ã¯ï¼Œä»¥ä¸‹ã®(1)ã€œ(4)ã®æ¡ä»¶ã‚’æº€ãŸã™å ´åˆã«é™ã‚Šï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ï¼ˆæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’æ”¹å¤‰ã—ãŸã‚‚ã®ã‚’å«ã‚€ï¼ä»¥ä¸‹åŒã˜ï¼‰ã‚’ä½¿ç”¨ãƒ»è¤‡è£½ãƒ»æ”¹
+ *  å¤‰ãƒ»å†é…å¸ƒï¼ˆä»¥ä¸‹ï¼Œåˆ©ç”¨ã¨å‘¼ã¶ï¼‰ã™ã‚‹ã“ã¨ã‚’ç„¡å„Ÿã§è¨±è«¾ã™ã‚‹ï¼
+ *  (1) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å½¢ã§åˆ©ç”¨ã™ã‚‹å ´åˆã«ã¯ï¼Œä¸Šè¨˜ã®è‘—ä½œ
+ *      æ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šãŒï¼Œãã®ã¾ã¾ã®å½¢ã§ã‚½ãƒ¼
+ *      ã‚¹ã‚³ãƒ¼ãƒ‰ä¸­ã«å«ã¾ã‚Œã¦ã„ã‚‹ã“ã¨ï¼
+ *  (2) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œãƒ©ã‚¤ãƒ–ãƒ©ãƒªå½¢å¼ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ãã‚‹å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œå†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨
+ *      è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜
+ *      ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *  (3) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’ï¼Œæ©Ÿå™¨ã«çµ„ã¿è¾¼ã‚€ãªã©ï¼Œä»–ã®ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢é–‹ç™ºã«ä½¿
+ *      ç”¨ã§ããªã„å½¢ã§å†é…å¸ƒã™ã‚‹å ´åˆã«ã¯ï¼Œæ¬¡ã®ã„ãšã‚Œã‹ã®æ¡ä»¶ã‚’æº€ãŸã™ã“
+ *      ã¨ï¼
+ *    (a) å†é…å¸ƒã«ä¼´ã†ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆï¼ˆåˆ©ç”¨è€…ãƒãƒ‹ãƒ¥ã‚¢ãƒ«ãªã©ï¼‰ã«ï¼Œä¸Šè¨˜ã®è‘—
+ *        ä½œæ¨©è¡¨ç¤ºï¼Œã“ã®åˆ©ç”¨æ¡ä»¶ãŠã‚ˆã³ä¸‹è¨˜ã®ç„¡ä¿è¨¼è¦å®šã‚’æ²è¼‰ã™ã‚‹ã“ã¨ï¼
+ *    (b) å†é…å¸ƒã®å½¢æ…‹ã‚’ï¼Œåˆ¥ã«å®šã‚ã‚‹æ–¹æ³•ã«ã‚ˆã£ã¦ï¼ŒTOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«
+ *        å ±å‘Šã™ã‚‹ã“ã¨ï¼
+ *  (4) æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ã‚‹ã„ã‹ãªã‚‹æ
+ *      å®³ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’å…è²¬ã™ã‚‹ã“ã¨ï¼
+ *      ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã®ãƒ¦ãƒ¼ã‚¶ã¾ãŸã¯ã‚¨ãƒ³ãƒ‰ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ã„ã‹ãªã‚‹ç†
+ *      ç”±ã«åŸºã¥ãè«‹æ±‚ã‹ã‚‰ã‚‚ï¼Œä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’
+ *      å…è²¬ã™ã‚‹ã“ã¨ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤AUTOSAR¡ÊAUTomotive Open System ARchitecture¡Ë»Å
- *  ÍÍ¤Ë´ğ¤Å¤¤¤Æ¤¤¤ë¡¥¾åµ­¤ÎµöÂú¤Ï¡¤AUTOSAR¤ÎÃÎÅªºâ»º¸¢¤òµöÂú¤¹¤ë¤â¤Î¤Ç
- *  ¤Ï¤Ê¤¤¡¥AUTOSAR¤Ï¡¤AUTOSAR»ÅÍÍ¤Ë´ğ¤Å¤¤¤¿¥½¥Õ¥È¥¦¥§¥¢¤ò¾¦ÍÑÌÜÅª¤ÇÍø
- *  ÍÑ¤¹¤ë¼Ô¤ËÂĞ¤·¤Æ¡¤AUTOSAR¥Ñ¡¼¥È¥Ê¡¼¤Ë¤Ê¤ë¤³¤È¤òµá¤á¤Æ¤¤¤ë¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼ŒAUTOSARï¼ˆAUTomotive Open System ARchitectureï¼‰ä»•
+ *  æ§˜ã«åŸºã¥ã„ã¦ã„ã‚‹ï¼ä¸Šè¨˜ã®è¨±è«¾ã¯ï¼ŒAUTOSARã®çŸ¥çš„è²¡ç”£æ¨©ã‚’è¨±è«¾ã™ã‚‹ã‚‚ã®ã§
+ *  ã¯ãªã„ï¼AUTOSARã¯ï¼ŒAUTOSARä»•æ§˜ã«åŸºã¥ã„ãŸã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã‚’å•†ç”¨ç›®çš„ã§åˆ©
+ *  ç”¨ã™ã‚‹è€…ã«å¯¾ã—ã¦ï¼ŒAUTOSARãƒ‘ãƒ¼ãƒˆãƒŠãƒ¼ã«ãªã‚‹ã“ã¨ã‚’æ±‚ã‚ã¦ã„ã‚‹ï¼
  *
- *  ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ï¡¤ÌµÊİ¾Ú¤ÇÄó¶¡¤µ¤ì¤Æ¤¤¤ë¤â¤Î¤Ç¤¢¤ë¡¥¾åµ­Ãøºî¸¢¼Ô¤ª
- *  ¤è¤ÓTOPPERS¥×¥í¥¸¥§¥¯¥È¤Ï¡¤ËÜ¥½¥Õ¥È¥¦¥§¥¢¤Ë´Ø¤·¤Æ¡¤ÆÃÄê¤Î»ÈÍÑÌÜÅª
- *  ¤ËÂĞ¤¹¤ëÅ¬¹çÀ­¤â´Ş¤á¤Æ¡¤¤¤¤«¤Ê¤ëÊİ¾Ú¤â¹Ô¤ï¤Ê¤¤¡¥¤Ş¤¿¡¤ËÜ¥½¥Õ¥È¥¦¥§
- *  ¥¢¤ÎÍøÍÑ¤Ë¤è¤êÄ¾ÀÜÅª¤Ş¤¿¤Ï´ÖÀÜÅª¤ËÀ¸¤¸¤¿¤¤¤«¤Ê¤ëÂ»³²¤Ë´Ø¤·¤Æ¤â¡¤¤½
- *  ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê¤¤¡¥
+ *  æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ï¼Œç„¡ä¿è¨¼ã§æä¾›ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã§ã‚ã‚‹ï¼ä¸Šè¨˜è‘—ä½œæ¨©è€…ãŠ
+ *  ã‚ˆã³TOPPERSãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã¯ï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã«é–¢ã—ã¦ï¼Œç‰¹å®šã®ä½¿ç”¨ç›®çš„
+ *  ã«å¯¾ã™ã‚‹é©åˆæ€§ã‚‚å«ã‚ã¦ï¼Œã„ã‹ãªã‚‹ä¿è¨¼ã‚‚è¡Œã‚ãªã„ï¼ã¾ãŸï¼Œæœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§
+ *  ã‚¢ã®åˆ©ç”¨ã«ã‚ˆã‚Šç›´æ¥çš„ã¾ãŸã¯é–“æ¥çš„ã«ç”Ÿã˜ãŸã„ã‹ãªã‚‹æå®³ã«é–¢ã—ã¦ã‚‚ï¼Œã
+ *  ã®è²¬ä»»ã‚’è² ã‚ãªã„ï¼
  *
  *  $Id $
  */
@@ -53,6 +53,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.ENTIT
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage.Literals.OS_TASK_EX___GET_OWNER_PARTITION__OSTASK;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_STARTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.ENTITY_START_INTERACTION;
+import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.EXECUTION_CONTEXT;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.OS_EVENT_SET_ENTITY_STARTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.OS_TASK_ACTIVATE_ENTITY_STARTER;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION__CYCLE_PERIOD;
@@ -75,23 +76,26 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteEventToTaskMapping;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteUsedOsActivation;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModeSwitchEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BackgroundEvent;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswBackgroundEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswTimingEvent;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExecutableEntity;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimingEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.BswSchedulableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.CycleCounterImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EntityStarter;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventToTaskMapping;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.EventPoolingImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ExecutionContext;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InfiniteloopImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionRoot;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent;
-import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchTriggeringEntityStartImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OneShootImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsEventSetEntityStarter;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.OsTaskActivateEntityStarter;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.PlainEntityStartImplementation;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.RunnableEntityStartInteraction;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.StartOffsetCounterImplementation;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartCondition;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingTriggeringEntityStartImplementation;
 
 import com.google.common.collect.ImmutableSet;
@@ -105,50 +109,110 @@ public class EntityInteractionModelBuilder {
 	}
 
 	public void build() throws ModelException {
+		buildExecutionContext(this.context.cache.interactionRoot);
+		buildExecutionContextImplementation(this.context.cache.interactionRoot);
 		buildEntityStarters(this.context.cache.interactionRoot);
 		buildEntityStartInteractions(this.context.cache.interactionRoot);
 		buildEntityStartImplementations(this.context.cache.interactionRoot);
 		buildStarterCounterImplementations(this.context.cache.interactionRoot);
 	}
 
-	private void buildEntityStarters(InteractionRoot targetInteractionRoot) throws ModelException {
-		// ËÜÍè¤ÏÄ¾ÀÜ´Ø¿ôµ¯Æ°¤¹¤ë¥ª¥Ú¥ì¡¼¥·¥ç¥ó¸Æ½Ğ¤·¥¤¥Ù¥ó¥È¤Ë¤Ä¤¤¤Æ¤â¥¤¥ó¥¿¥é¥¯¥·¥ç¥ó¤òÀ¸À®¤¹¤Ù¤­¤À¤¬¡¤
-		// ¸½¾õ¤Ï¤½¤³¤Ş¤ÇÉ¬Í×¤Ê¤¤¤Î¤Ç¹½ÃÛ¤·¤Æ¤¤¤Ê¤¤¡¥
+	private void buildExecutionContext(InteractionRoot targetInteractionRoot) throws ModelException {
+		// æœ¬æ¥ã¯ç›´æ¥é–¢æ•°èµ·å‹•ã™ã‚‹ã‚ªãƒšãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³å‘¼å‡ºã—ã‚¤ãƒ™ãƒ³ãƒˆã«ã¤ã„ã¦ã‚‚ç”Ÿæˆã™ã¹ãã ãŒï¼Œ
+		// ç¾çŠ¶ã¯ãã“ã¾ã§å¿…è¦ãªã„ã®ã§æ§‹ç¯‰ã—ã¦ã„ãªã„ï¼
 		for (OsTask sourceOsTask : this.context.query.<OsTask> findByKind(OS_TASK)) {
 			if (sourceOsTask.getMappedRteEvent().isEmpty() && sourceOsTask.getMappedRteBswEvent().isEmpty()) {
 				continue;
 			}
+			targetInteractionRoot.getInteractionEnd().add(createExecutionContext(sourceOsTask));
+		}
+	}
 
-			// OS¥¤¥Ù¥ó¥È¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤«¤É¤¦¤«
-			List<OsEvent> sourceUsedOsEvents = getUsedOsEvents(sourceOsTask);
-			if (sourceUsedOsEvents.isEmpty()) {
-				// OS¥¿¥¹¥¯µ¯Æ°¤Ë¤è¤ë¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ëµ¯Æ°
-				targetInteractionRoot.getInteractionEnd().add(createOsTaskEntityStarter(sourceOsTask));
+	private ExecutionContext createExecutionContext(OsTask sourceOsTask) throws ModelException {
+		ExecutionContext executionContext = InteractionFactory.eINSTANCE.createExecutionContext();
+		executionContext.setSourceOsTask(sourceOsTask);
+		return executionContext;
+	}
+
+	private void buildExecutionContextImplementation(InteractionRoot targetInteractionRoot) throws ModelException {
+		for (ExecutionContext sourceAndTargetExecutionContext : this.context.query.<ExecutionContext> findByKind(EXECUTION_CONTEXT)) {
+			OsTask sourceOsTask = sourceAndTargetExecutionContext.getSourceOsTask();
+
+			if (isUsedInfiniteloopImplementation(sourceOsTask)) {
+				sourceAndTargetExecutionContext.setExecutionContextImplementation(createInfiniteloopImplementation());
 			} else {
-				// OS¥¤¥Ù¥ó¥ÈÀßÄê¤Ë¤è¤ë¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ëµ¯Æ°
-				for (OsEvent sourceUsedOsEvent : sourceUsedOsEvents) {
-					targetInteractionRoot.getInteractionEnd().add(createOsEventEntityStarter(sourceOsTask, sourceUsedOsEvent));
+				// OSã‚¤ãƒ™ãƒ³ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹
+				List<OsEvent> sourceUsedOsEvents = getUsedOsEvents(sourceOsTask);
+				if (sourceUsedOsEvents.isEmpty()) {
+					sourceAndTargetExecutionContext.setExecutionContextImplementation(createOneShootImplementation());
+				} else {
+					sourceAndTargetExecutionContext.setExecutionContextImplementation(createEventPoolingImplementation());
 				}
 			}
 		}
 	}
 
-	private OsTaskActivateEntityStarter createOsTaskEntityStarter(OsTask sourceOsTask) throws ModelException {
+	private boolean isUsedInfiniteloopImplementation(OsTask sourceOsTask) {
+		List<OsAlarm> sourceOsAlarms = getUsedOsAlarms(sourceOsTask);
+		if (sourceOsAlarms.isEmpty()) {
+			if (!sourceOsTask.getMappedRteEvent().isEmpty() && sourceOsTask.getMappedRteEvent().get(0).getRteEvent() instanceof BackgroundEvent) {
+				return true;
+			}
+			if (!sourceOsTask.getMappedRteBswEvent().isEmpty() && sourceOsTask.getMappedRteBswEvent().get(0).getRteBswEvent() instanceof BswBackgroundEvent) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private InfiniteloopImplementation createInfiniteloopImplementation() throws ModelException {
+		return InteractionFactory.eINSTANCE.createInfiniteloopImplementation();
+	}
+
+	private OneShootImplementation createOneShootImplementation() throws ModelException {
+		return InteractionFactory.eINSTANCE.createOneShootImplementation();
+	}
+
+	private EventPoolingImplementation createEventPoolingImplementation() throws ModelException {
+		return InteractionFactory.eINSTANCE.createEventPoolingImplementation();
+	}
+
+	private void buildEntityStarters(InteractionRoot targetInteractionRoot) throws ModelException {
+		for (ExecutionContext sourceAndTargetExecutionContext : this.context.query.<ExecutionContext> findByKind(EXECUTION_CONTEXT)) {
+			OsTask sourceOsTask = sourceAndTargetExecutionContext.getSourceOsTask();
+
+			// OSã‚¤ãƒ™ãƒ³ãƒˆãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ã‹ã©ã†ã‹
+			List<OsEvent> sourceUsedOsEvents = getUsedOsEvents(sourceOsTask);
+			if (sourceUsedOsEvents.isEmpty()) {
+				// OSã‚¿ã‚¹ã‚¯èµ·å‹•ã«ã‚ˆã‚‹ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«èµ·å‹•
+				targetInteractionRoot.getInteractionEnd().add(createOsTaskEntityStarter(sourceAndTargetExecutionContext, sourceOsTask));
+			} else {
+				// OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®šã«ã‚ˆã‚‹ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«èµ·å‹•
+				for (OsEvent sourceUsedOsEvent : sourceUsedOsEvents) {
+					targetInteractionRoot.getInteractionEnd().add(createOsEventEntityStarter(sourceAndTargetExecutionContext, sourceOsTask, sourceUsedOsEvent));
+				}
+			}
+		}
+	}
+
+	private OsTaskActivateEntityStarter createOsTaskEntityStarter(ExecutionContext sourceExecutionContext, OsTask sourceOsTask) throws ModelException {
 		List<OsAlarm> sourceOsAlarms = getUsedOsAlarms(sourceOsTask);
 		EcucPartition partition = this.context.query.get(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
 
 		OsTaskActivateEntityStarter destEntityStarter = InteractionFactory.eINSTANCE.createOsTaskActivateEntityStarter();
+		destEntityStarter.setExecutionContext(sourceExecutionContext);
 		destEntityStarter.setSourceOsTask(sourceOsTask);
 		destEntityStarter.setOwnerPartition(partition);
 		buildExpectedConfigOfEntityStarter(destEntityStarter, sourceOsAlarms);
 		return destEntityStarter;
 	}
 
-	private OsEventSetEntityStarter createOsEventEntityStarter(OsTask sourceOsTask, OsEvent sourceOsEvent) throws ModelException {
+	private OsEventSetEntityStarter createOsEventEntityStarter(ExecutionContext sourceExecutionContext, OsTask sourceOsTask, OsEvent sourceOsEvent) throws ModelException {
 		List<OsAlarm> sourceOsAlarms = getUsedOsAlarms(sourceOsTask, sourceOsEvent);
 		EcucPartition partition = this.context.query.get(sourceOsTask, OS_TASK_EX___GET_OWNER_PARTITION__OSTASK);
 
 		OsEventSetEntityStarter destEntityStarter = InteractionFactory.eINSTANCE.createOsEventSetEntityStarter();
+		destEntityStarter.setExecutionContext(sourceExecutionContext);
 		destEntityStarter.setSourceOsTask(sourceOsTask);
 		destEntityStarter.setSourceOsEvent(sourceOsEvent);
 		destEntityStarter.setOwnerPartition(partition);
@@ -165,23 +229,23 @@ public class EntityInteractionModelBuilder {
 	}
 
 	private void buildEntityStartInteractions(InteractionRoot targetInteractionRoot) {
-		// OS¥¿¥¹¥¯µ¯Æ°¤Ë¤è¤êµ¯Æ°¤¹¤ë¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ë¤Î³«»ÏÏ¢·È¤ò¹½ÃÛ
+		// OSã‚¿ã‚¹ã‚¯èµ·å‹•ã«ã‚ˆã‚Šèµ·å‹•ã™ã‚‹ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ã®é–‹å§‹é€£æºã‚’æ§‹ç¯‰
 		for (OsTaskActivateEntityStarter sourceAndTargetEntityStarter : this.context.query.<OsTaskActivateEntityStarter> findByKind(OS_TASK_ACTIVATE_ENTITY_STARTER)) {
 			for (RteEventToTaskMapping sourceRteEventConfig : sourceAndTargetEntityStarter.getSourceOsTask().getMappedRteEvent()) {
 				targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, sourceAndTargetEntityStarter));
 			}
 			
 			for (RteBswEventToTaskMapping sourceBswEventConfig : sourceAndTargetEntityStarter.getSourceOsTask().getMappedRteBswEvent()) {
-				// BswImplementation¤¬Â¸ºß¤·¤Æ¤¤¤ëBswInternalBehavior¤ËÂ°¤·¤Æ¤¤¤ëBswSchedulableEntity¤Î¤ßÀ¸À®¤ÎÂĞ¾İ¤È¤¹¤ë.
+				// BswImplementationãŒå­˜åœ¨ã—ã¦ã„ã‚‹BswInternalBehaviorã«å±ã—ã¦ã„ã‚‹BswSchedulableEntityã®ã¿ç”Ÿæˆã®å¯¾è±¡ã¨ã™ã‚‹.
 				if (!sourceBswEventConfig.getRteBswEvent().getStartsOnEvent().getParent().getImplementation().isEmpty()) {
-					// COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-					// BSW¥¤¥Ù¥ó¥È¤¬Í­¸ú¤Ç¤Ê¤¤(Í­¸ú¤ÊInternalBehavior)¤Ë´Ş¤Ş¤ì¤Æ¤¤¤Ê¤¤¾ì¹ç
+					// COVERAGE å¸¸ã«æœªé”(ä¸å…·åˆæ··å…¥æ™‚ã®ã¿åˆ°é”ã™ã‚‹ã‚³ãƒ¼ãƒ‰ãªã®ã§ï¼Œæœªã‚«ãƒãƒ¬ãƒƒã‚¸ã§å•é¡Œãªã„)
+					// BSWã‚¤ãƒ™ãƒ³ãƒˆãŒæœ‰åŠ¹ã§ãªã„(æœ‰åŠ¹ãªInternalBehavior)ã«å«ã¾ã‚Œã¦ã„ãªã„å ´åˆ
 					targetInteractionRoot.getInteraction().add(createBswSchedulableEntityStartInteraction(sourceBswEventConfig, sourceAndTargetEntityStarter));
 				}
 			}
 		}
 
-		// OS¥¤¥Ù¥ó¥ÈÀßÄê¤Ë¤è¤êµ¯Æ°¤¹¤ë¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ë¤Î³«»ÏÏ¢·È¤ò¹½ÃÛ
+		// OSã‚¤ãƒ™ãƒ³ãƒˆè¨­å®šã«ã‚ˆã‚Šèµ·å‹•ã™ã‚‹ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ã®é–‹å§‹é€£æºã‚’æ§‹ç¯‰
 		for (OsEventSetEntityStarter sourceAndTargetEntityStarter : this.context.query.<OsEventSetEntityStarter> findByKind(OS_EVENT_SET_ENTITY_STARTER)) {
 			for (RteEventToTaskMapping sourceRteEventConfig : getMappedRteEventConfigs(sourceAndTargetEntityStarter.getSourceOsTask(), sourceAndTargetEntityStarter.getSourceOsEvent())) {
 				targetInteractionRoot.getInteraction().add(createRunnableEntityStartInteraction(sourceRteEventConfig, sourceAndTargetEntityStarter));
@@ -225,107 +289,63 @@ public class EntityInteractionModelBuilder {
 	private RunnableEntityStartInteraction createRunnableEntityStartInteraction(RteEventToTaskMapping sourceRteEventConfig, EntityStarter entityStarter) {
 		RunnableEntityStartInteraction destStartInteraction = InteractionFactory.eINSTANCE.createRunnableEntityStartInteraction();
 		destStartInteraction.setStarter(entityStarter);
-		destStartInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteEventConfig));
+		destStartInteraction.setActivationOffset(sourceRteEventConfig.getRteActivationOffset());
+		destStartInteraction.setPositionInTask(sourceRteEventConfig.getRtePositionInTask());
+		destStartInteraction.setSourceEvent(sourceRteEventConfig.getRteEvent());
+		destStartInteraction.setStartOnEvent(sourceRteEventConfig.getRteEvent().getStartOnEvent());
+		if (sourceRteEventConfig.getRteEvent() instanceof TimingEvent) {
+			destStartInteraction.setTimingTriggeringEntityStartCondition(
+					createTimingTriggeringEntityStartCondition(((TimingEvent)sourceRteEventConfig.getRteEvent()).getPeriod()));
+		}
 		return destStartInteraction;
 	}
 
 	private BswSchedulableEntityStartInteraction createBswSchedulableEntityStartInteraction(RteBswEventToTaskMapping sourceRteBswEventConfig, EntityStarter entityStarter) {
 		BswSchedulableEntityStartInteraction destStartInteraction = InteractionFactory.eINSTANCE.createBswSchedulableEntityStartInteraction();
 		destStartInteraction.setStarter(entityStarter);
-		destStartInteraction.setEventToTaskMapping(createEventToTaskMapping(sourceRteBswEventConfig));
+		destStartInteraction.setActivationOffset(sourceRteBswEventConfig.getRteBswActivationOffset());
+		destStartInteraction.setPositionInTask(sourceRteBswEventConfig.getRteBswPositionInTask());
+		destStartInteraction.setSourceEvent(sourceRteBswEventConfig.getRteBswEvent());
+		destStartInteraction.setStartOnEvent(sourceRteBswEventConfig.getRteBswEvent().getStartsOnEvent());
+		if (sourceRteBswEventConfig.getRteBswEvent() instanceof BswTimingEvent) {
+			destStartInteraction.setTimingTriggeringEntityStartCondition(
+					createTimingTriggeringEntityStartCondition(((BswTimingEvent)sourceRteBswEventConfig.getRteBswEvent()).getPeriod()));
+		}
 		return destStartInteraction;
 	}
-	
-	private EventToTaskMapping createEventToTaskMapping(RteEventToTaskMapping sourceRteEventToTaskMapping) {
-		EventToTaskMapping destEventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
-		
-		destEventToTaskMapping.setActivationOffset(sourceRteEventToTaskMapping.getRteActivationOffset());
-		destEventToTaskMapping.setPositionInTask(sourceRteEventToTaskMapping.getRtePositionInTask());
 
-		if (sourceRteEventToTaskMapping.getRteEvent() instanceof TimingEvent) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			TimingEvent sourceRteTimingEvent = (TimingEvent)sourceRteEventToTaskMapping.getRteEvent();
-			destEventToTaskMapping.setEvent(createTimingEvent(sourceRteTimingEvent));
-		}
-		
-		return destEventToTaskMapping;
-	}
-
-	private EventToTaskMapping createEventToTaskMapping(RteBswEventToTaskMapping sourceRteBswEventToTaskMapping) {
-		EventToTaskMapping destEventToTaskMapping = InteractionFactory.eINSTANCE.createEventToTaskMapping();
-		
-		destEventToTaskMapping.setActivationOffset(sourceRteBswEventToTaskMapping.getRteBswActivationOffset());
-		destEventToTaskMapping.setPositionInTask(sourceRteBswEventToTaskMapping.getRteBswPositionInTask());
-
-		if (sourceRteBswEventToTaskMapping.getRteBswEvent() instanceof BswTimingEvent) {
-			BswTimingEvent sourceBswTimingEvent = (BswTimingEvent) sourceRteBswEventToTaskMapping.getRteBswEvent();
-			destEventToTaskMapping.setEvent(createTimingEvent(sourceBswTimingEvent));
-
-		} else if (sourceRteBswEventToTaskMapping.getRteBswEvent() instanceof BswModeSwitchEvent) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-			BswModeSwitchEvent sourceBswModeSwitchEvent = (BswModeSwitchEvent) sourceRteBswEventToTaskMapping.getRteBswEvent();
-			destEventToTaskMapping.setEvent(createModeSwitchEvent(sourceBswModeSwitchEvent, sourceBswModeSwitchEvent.getStartsOnEvent()));
-		}
-		
-		return destEventToTaskMapping;
-	}
-
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(TimingEvent sourceEvent) {
-		return createTimingEvent(sourceEvent.getStartOnEvent(), sourceEvent.getPeriod());
-	}
-
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(BswTimingEvent sourceEvent) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent destTimingEvent = createTimingEvent(sourceEvent.getStartsOnEvent(), sourceEvent.getPeriod());
-		destTimingEvent.setSourceBswEvent(sourceEvent);
-		return destTimingEvent;
+	private TimingTriggeringEntityStartCondition createTimingTriggeringEntityStartCondition(BigDecimal period) {
+		TimingTriggeringEntityStartCondition destStartCondition = InteractionFactory.eINSTANCE.createTimingTriggeringEntityStartCondition();
+		destStartCondition.setPeriod(period);
+		return destStartCondition;
 	}
 	
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent createTimingEvent(ExecutableEntity sourceExecutableEntity, BigDecimal sourcePeriod) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent destTimingEvent = InteractionFactory.eINSTANCE.createTimingEvent();
-		
-		destTimingEvent.setStartOnEvent(sourceExecutableEntity);
-		destTimingEvent.setPeriod(sourcePeriod);
-		
-		return destTimingEvent;
-	}
-	
-	private jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent createModeSwitchEvent(BswModeSwitchEvent sourceEvent, ExecutableEntity soureExecutableEntity) {
-		jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent destModeSwitchEvent = InteractionFactory.eINSTANCE.createModeSwitchEvent();
-		
-		destModeSwitchEvent.setStartOnEvent(soureExecutableEntity);
-		destModeSwitchEvent.setSourceBswEvent(sourceEvent);
-		
-		return destModeSwitchEvent;
-	}
-
 	private void buildEntityStartImplementations(InteractionRoot targetInteractionRoot) {
 		for (EntityStartInteraction sourceAndTargetStartInteraction : this.context.query.<EntityStartInteraction> findByKind(ENTITY_START_INTERACTION)) {
-			// ¸½¾õ¤Î¥µ¥İ¡¼¥ÈÈÏ°Ï¤Ç¤Ï¼ş´ü¥¤¥Ù¥ó¥È¤È¥ª¥Ú¥ì¡¼¥·¥ç¥ó¸Æ½Ğ¤·¥¤¥Ù¥ó¥È¤Î¤ß
-			if (sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) { // COVERAGE ¾ï¤Ëtrue(¸½¾õ¡¤EntityStartInteraction¤Ï¼ş´ü¥¤¥Ù¥ó¥È¤ËÂĞ¤·¤Æ¤Î¤ßÀ¸À®¤µ¤ì¤ë¤¿¤á)
-				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent sourceTimingEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent) sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent();
-				sourceAndTargetStartInteraction.setImplementation(createTimingTriggeringEntityStartImplementation(sourceAndTargetStartInteraction, sourceTimingEvent));
-
-			} else if (sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent() instanceof jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) { // COVERAGE ¾ï¤ËÌ¤Ã£(ÉÔ¶ñ¹çº®Æş»ş¤Î¤ßÅşÃ£¤¹¤ë¥³¡¼¥É¤Ê¤Î¤Ç¡¤Ì¤¥«¥Ğ¥ì¥Ã¥¸¤ÇÌäÂê¤Ê¤¤)
-				jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent sourceModeSwitchEvent = (jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.ModeSwitchEvent) sourceAndTargetStartInteraction.getEventToTaskMapping().getEvent();
-				sourceAndTargetStartInteraction.setImplementation(createModeSwitchTriggeringEntityStartImplementation(sourceAndTargetStartInteraction, sourceModeSwitchEvent));
+			if (sourceAndTargetStartInteraction.getTimingTriggeringEntityStartCondition() != null) {
+				sourceAndTargetStartInteraction.setImplementation(createTimingTriggeringEntityStartImplementation(sourceAndTargetStartInteraction));
+			} else {
+				sourceAndTargetStartInteraction.setImplementation(createPlainEntityStartImplementation(sourceAndTargetStartInteraction));
 			}
 		}
 	}
 
-	private TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction, jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.TimingEvent sourceTimingEvent) {
-		// NOTE ¼ş´ü¥¤¥Ù¥ó¥È¤Î¾ì¹ç¡¤É¬¤ºEntityStarter¤Ë¼ş´ü¾ğÊó¤¬ÀßÄê¤µ¤ì¤Æ¤¤¤ë¤¿¤á¡¢Â¸ºß¥Á¥§¥Ã¥¯¤Ï¹Ô¤ï¤Ê¤¤
+	private TimingTriggeringEntityStartImplementation createTimingTriggeringEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction) {
+		// NOTE å‘¨æœŸã‚¤ãƒ™ãƒ³ãƒˆã®å ´åˆï¼Œå¿…ãšEntityStarterã«å‘¨æœŸæƒ…å ±ãŒè¨­å®šã•ã‚Œã¦ã„ã‚‹ãŸã‚ã€å­˜åœ¨ãƒã‚§ãƒƒã‚¯ã¯è¡Œã‚ãªã„
 		RteUsedOsActivation sourceExpectedConfig = sourceAndTargetStartInteraction.getStarter().getExpectedConfig();
 		BigDecimal starterStartOffset = sourceExpectedConfig.getRteExpectedActivationOffset();
 		BigDecimal starterPeriod = sourceExpectedConfig.getRteExpectedTickDuration();
-		BigDecimal entityStartOffset = (sourceAndTargetStartInteraction.getEventToTaskMapping().getActivationOffset() == null) ? BigDecimal.ZERO : sourceAndTargetStartInteraction.getEventToTaskMapping().getActivationOffset();
+		BigDecimal entityStartOffset = (sourceAndTargetStartInteraction.getActivationOffset() == null) ? BigDecimal.ZERO : sourceAndTargetStartInteraction.getActivationOffset();
 
-		// Starter¤È¥¨¥¯¥¹¥­¥å¡¼¥¿¥Ö¥ë¤Î´Ö¤Î¼ş´ü¡¤¤ª¤è¤Ó¥ª¥Õ¥»¥Ã¥È¤Îº¹Ê¬¤ò»»½Ğ
+		// Starterã¨ã‚¨ã‚¯ã‚¹ã‚­ãƒ¥ãƒ¼ã‚¿ãƒ–ãƒ«ã®é–“ã®å‘¨æœŸï¼ŒãŠã‚ˆã³ã‚ªãƒ•ã‚»ãƒƒãƒˆã®å·®åˆ†ã‚’ç®—å‡º
 		TimingTriggeringEntityStartImplementation destStartImplementation = InteractionFactory.eINSTANCE.createTimingTriggeringEntityStartImplementation();
 		destStartImplementation.setStartOffset(entityStartOffset.subtract(starterStartOffset).divide(starterPeriod).intValue());
-		destStartImplementation.setCyclePeriod(sourceTimingEvent.getPeriod().divide(starterPeriod).intValue());
+		destStartImplementation.setCyclePeriod(sourceAndTargetStartInteraction.getTimingTriggeringEntityStartCondition().getPeriod().divide(starterPeriod).intValue());
 		return destStartImplementation;
 	}
 
-	private ModeSwitchTriggeringEntityStartImplementation createModeSwitchTriggeringEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction, ModeSwitchEvent sourceModeSwitchEvent) {
-		return InteractionFactory.eINSTANCE.createModeSwitchTriggeringEntityStartImplementation();
+	private PlainEntityStartImplementation createPlainEntityStartImplementation(EntityStartInteraction sourceAndTargetStartInteraction) {
+		return InteractionFactory.eINSTANCE.createPlainEntityStartImplementation();
 	}
 	
 	private void buildStarterCounterImplementations(InteractionRoot targetInteractionRoot) throws ModelException {
@@ -333,12 +353,12 @@ public class EntityInteractionModelBuilder {
 			List<TimingTriggeringEntityStartImplementation> startImplementations = this.context.query.get(sourceAndTargetEntityStarter,
 					ENTITY_STARTER_EX___GET_TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATIONS__ENTITYSTARTER);
 
-			// ¼ş´üÄ´À°¤¬É¬Í×¤Ê¾ì¹ç¡¤Ä´À°ÍÑ¥«¥¦¥ó¥¿¤òÍÑ°Õ¤¹¤ë
+			// å‘¨æœŸèª¿æ•´ãŒå¿…è¦ãªå ´åˆï¼Œèª¿æ•´ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ç”¨æ„ã™ã‚‹
 			if (this.context.query.exists(startImplementations, hasOp(TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_CYCLE_ADJUST, true))) {
 				sourceAndTargetEntityStarter.setCycleCounterImplementation(createCycleCounterImplementation(startImplementations, sourceAndTargetEntityStarter.getOwnerPartition()));
 			}
 
-			// ³«»Ï¥ª¥Õ¥»¥Ã¥ÈÄ´À°¤¬É¬Í×¤Ê¾ì¹ç¡¤Ä´À°ÍÑ¥«¥¦¥ó¥¿¤òÍÑ°Õ¤¹¤ë
+			// é–‹å§‹ã‚ªãƒ•ã‚»ãƒƒãƒˆèª¿æ•´ãŒå¿…è¦ãªå ´åˆï¼Œèª¿æ•´ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ç”¨æ„ã™ã‚‹
 			if (this.context.query.exists(startImplementations, hasOp(TIMING_TRIGGERING_ENTITY_START_IMPLEMENTATION___REQUIRES_START_OFFSET_ADJUST, true))) {
 				sourceAndTargetEntityStarter.setStartOffsetCounterImplementation(createStartOffsetCounterImplementation(startImplementations, sourceAndTargetEntityStarter.getOwnerPartition()));
 			}

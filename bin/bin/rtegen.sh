@@ -18,12 +18,12 @@ if [ "$PLATFORM_NAME" = "Cygwin" ]; then
 		array+=("$TMP_ARG_VALUE")
 	done
 
-	set "0"		#ºÇ½é¤Î°ú¿ô¤Ë"--"¤¬Æş¤Ã¤Æ¤¤¤¿¾ì¹ç,set¤Î¥ª¥×¥·¥ç¥ó¤È¤·¤ÆÆÉ¤ß¹ş¤Ş¤ì¤ë°Ù"0"¤òÀßÄê.
+	set "0"		#æœ€åˆã®å¼•æ•°ã«"--"ãŒå…¥ã£ã¦ã„ãŸå ´åˆ,setã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¨ã—ã¦èª­ã¿è¾¼ã¾ã‚Œã‚‹ç‚º"0"ã‚’è¨­å®š.
 	for i in "${array[@]}"
 	do
 		set "$@" "$i"
 	done
-	shift		#"0"¤ò¥¯¥ê¥¢.
+	shift		#"0"ã‚’ã‚¯ãƒªã‚¢.
 fi
 
 java -cp "$BASEDIR/../lib/*" -DA_RTE_HOME="$BASEDIR/.." -Djava.util.logging.config.file="$BASEDIR/logging.properties" jp.ac.nagoya_u.is.nces.a_rte.app.RteGeneratorApp "$@"

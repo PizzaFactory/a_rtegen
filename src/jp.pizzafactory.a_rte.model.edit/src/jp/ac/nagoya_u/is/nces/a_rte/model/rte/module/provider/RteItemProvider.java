@@ -77,7 +77,8 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 			childrenFeatures.add(ModulePackage.Literals.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE);
 			childrenFeatures.add(ModulePackage.Literals.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE);
 			childrenFeatures.add(ModulePackage.Literals.RTE__CS_TF_PARAM_TYPE);
-			childrenFeatures.add(ModulePackage.Literals.RTE__SR_RTE_SEND_TF_PARAM_TYPE);
+			childrenFeatures.add(ModulePackage.Literals.RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE);
+			childrenFeatures.add(ModulePackage.Literals.RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE);
 			childrenFeatures.add(ModulePackage.Literals.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT);
 			childrenFeatures.add(ModulePackage.Literals.RTE__SR_RTE_BUFFER_QUEUE_TYPE);
 			childrenFeatures.add(ModulePackage.Literals.RTE__IMMEDIATE_CONSTANT);
@@ -160,7 +161,8 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 			case ModulePackage.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE:
 			case ModulePackage.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE:
 			case ModulePackage.RTE__CS_TF_PARAM_TYPE:
-			case ModulePackage.RTE__SR_RTE_SEND_TF_PARAM_TYPE:
+			case ModulePackage.RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE:
+			case ModulePackage.RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE:
 			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_MAX_LENGTH_CONSTANT:
 			case ModulePackage.RTE__SR_RTE_BUFFER_QUEUE_TYPE:
 			case ModulePackage.RTE__IMMEDIATE_CONSTANT:
@@ -268,7 +270,12 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.RTE__DEPENDENT_TYPE,
-				 ModuleFactory.eINSTANCE.createRteSendTrustedFunctionParamType()));
+				 ModuleFactory.eINSTANCE.createRteNonqueuedSendTrustedFunctionParamType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__DEPENDENT_TYPE,
+				 ModuleFactory.eINSTANCE.createRteQueuedSendTrustedFunctionParamType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -314,6 +321,11 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 			(createChildParameter
 				(ModulePackage.Literals.RTE__DEPENDENT_OS_API,
 				 ModuleFactory.eINSTANCE.createOsGetSpinlockApi()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__DEPENDENT_OS_API,
+				 ModuleFactory.eINSTANCE.createOsActivateTaskApi()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -423,7 +435,12 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.RTE__IMPLEMENTATION_DATA_TYPE,
-				 ModuleFactory.eINSTANCE.createRteSendTrustedFunctionParamType()));
+				 ModuleFactory.eINSTANCE.createRteNonqueuedSendTrustedFunctionParamType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__IMPLEMENTATION_DATA_TYPE,
+				 ModuleFactory.eINSTANCE.createRteQueuedSendTrustedFunctionParamType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -462,8 +479,13 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModulePackage.Literals.RTE__SR_RTE_SEND_TF_PARAM_TYPE,
-				 ModuleFactory.eINSTANCE.createRteSendTrustedFunctionParamType()));
+				(ModulePackage.Literals.RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE,
+				 ModuleFactory.eINSTANCE.createRteNonqueuedSendTrustedFunctionParamType()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE,
+				 ModuleFactory.eINSTANCE.createRteQueuedSendTrustedFunctionParamType()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -513,17 +535,32 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.RTE__COM_CALLBACK,
-				 ModuleFactory.eINSTANCE.createComReceiveCallback()));
+				 ModuleFactory.eINSTANCE.createComRxCallback()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.RTE__COM_CALLBACK,
-				 ModuleFactory.eINSTANCE.createComReceiveTimeoutCallback()));
+				 ModuleFactory.eINSTANCE.createComRxTOutCallback()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ModulePackage.Literals.RTE__COM_CALLBACK,
-				 ModuleFactory.eINSTANCE.createComInvalidateCallback()));
+				 ModuleFactory.eINSTANCE.createComInvCallback()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__COM_CALLBACK,
+				 ModuleFactory.eINSTANCE.createComTxTOutCallback()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__COM_CALLBACK,
+				 ModuleFactory.eINSTANCE.createComTAckCallback()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModulePackage.Literals.RTE__COM_CALLBACK,
+				 ModuleFactory.eINSTANCE.createComTErrCallback()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -581,7 +618,8 @@ public class RteItemProvider extends LogicalCompartmentItemProvider {
 			childFeature == ModulePackage.Literals.RTE__DEPENDENT_TYPE ||
 			childFeature == ModulePackage.Literals.RTE__IMPLEMENTATION_DATA_TYPE ||
 			childFeature == ModulePackage.Literals.RTE__SR_RTE_BUFFER_QUEUE_TYPE ||
-			childFeature == ModulePackage.Literals.RTE__SR_RTE_SEND_TF_PARAM_TYPE ||
+			childFeature == ModulePackage.Literals.RTE__SR_RTE_NONQUEUED_SEND_TF_PARAM_TYPE ||
+			childFeature == ModulePackage.Literals.RTE__SR_RTE_QUEUED_SEND_TF_PARAM_TYPE ||
 			childFeature == ModulePackage.Literals.RTE__COM_SEND_SIGNAL_TF_PARAM_TYPE ||
 			childFeature == ModulePackage.Literals.RTE__COM_SEND_SIGNAL_GROUP_TF_PARAM_TYPE ||
 			childFeature == ModulePackage.Literals.RTE__CS_TF_PARAM_TYPE ||

@@ -2,7 +2,7 @@
 <feature
       id="jp.pizzafactory.a_rte"
       label="A-RTE for PizzaFactory"
-      version="1.2.2.qualifier"
+      version="1.3.0.qualifier"
       provider-name="Monami-ya LLC, JAPAN">
 
    <description>

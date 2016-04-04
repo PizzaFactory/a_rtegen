@@ -2,41 +2,41 @@
  *  TOPPERS/A-RTEGEN
  *      Automotive Runtime Environment Generator
  *
- *  Copyright (C) 2013-2015 by Eiwa System Management, Inc., JAPAN
+ *  Copyright (C) 2013-2016 by Eiwa System Management, Inc., JAPAN
  *
- *  �嵭����Ԥϡ��ʲ���(1)��(4)�ξ������������˸¤ꡤ�ܥ��եȥ���
- *  �����ܥ��եȥ���������Ѥ�����Τ�ޤࡥ�ʲ�Ʊ���ˤ���ѡ�ʣ������
- *  �ѡ������ۡʰʲ������ѤȸƤ֡ˤ��뤳�Ȥ�̵���ǵ������롥
- *  (1) �ܥ��եȥ������򥽡��������ɤη������Ѥ�����ˤϡ��嵭������
- *      ��ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ��꤬�����Τޤޤη��ǥ���
- *      ����������˴ޤޤ�Ƥ��뤳�ȡ�
- *  (2) �ܥ��եȥ������򡤥饤�֥������ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ�����Ǻ����ۤ�����ˤϡ������ۤ�ȼ���ɥ�����ȡ�����
- *      �ԥޥ˥奢��ʤɡˤˡ��嵭�����ɽ�����������Ѿ�浪��Ӳ���
- *      ��̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *  (3) �ܥ��եȥ������򡤵�����Ȥ߹���ʤɡ�¾�Υ��եȥ�������ȯ�˻�
- *      �ѤǤ��ʤ����Ǻ����ۤ�����ˤϡ����Τ����줫�ξ�����������
- *      �ȡ�
- *    (a) �����ۤ�ȼ���ɥ�����ȡ����Ѽԥޥ˥奢��ʤɡˤˡ��嵭����
- *        �ɽ�����������Ѿ�浪��Ӳ�����̵�ݾڵ����Ǻܤ��뤳�ȡ�
- *    (b) �����ۤη��֤��̤�������ˡ�ˤ�äơ�TOPPERS�ץ��������Ȥ�
- *        ��𤹤뤳�ȡ�
- *  (4) �ܥ��եȥ����������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������뤤���ʤ�»
- *      ������⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ����դ��뤳�ȡ�
- *      �ޤ����ܥ��եȥ������Υ桼���ޤ��ϥ���ɥ桼������Τ����ʤ���
- *      ͳ�˴�Ť����ᤫ��⡤�嵭����Ԥ����TOPPERS�ץ��������Ȥ�
- *      ���դ��뤳�ȡ�
+ *  上記著作権者は，以下の(1)〜(4)の条件を満たす場合に限り，本ソフトウェ
+ *  ア（本ソフトウェアを改変したものを含む．以下同じ）を使用・複製・改
+ *  変・再配布（以下，利用と呼ぶ）することを無償で許諾する．
+ *  (1) 本ソフトウェアをソースコードの形で利用する場合には，上記の著作
+ *      権表示，この利用条件および下記の無保証規定が，そのままの形でソー
+ *      スコード中に含まれていること．
+ *  (2) 本ソフトウェアを，ライブラリ形式など，他のソフトウェア開発に使
+ *      用できる形で再配布する場合には，再配布に伴うドキュメント（利用
+ *      者マニュアルなど）に，上記の著作権表示，この利用条件および下記
+ *      の無保証規定を掲載すること．
+ *  (3) 本ソフトウェアを，機器に組み込むなど，他のソフトウェア開発に使
+ *      用できない形で再配布する場合には，次のいずれかの条件を満たすこ
+ *      と．
+ *    (a) 再配布に伴うドキュメント（利用者マニュアルなど）に，上記の著
+ *        作権表示，この利用条件および下記の無保証規定を掲載すること．
+ *    (b) 再配布の形態を，別に定める方法によって，TOPPERSプロジェクトに
+ *        報告すること．
+ *  (4) 本ソフトウェアの利用により直接的または間接的に生じるいかなる損
+ *      害からも，上記著作権者およびTOPPERSプロジェクトを免責すること．
+ *      また，本ソフトウェアのユーザまたはエンドユーザからのいかなる理
+ *      由に基づく請求からも，上記著作権者およびTOPPERSプロジェクトを
+ *      免責すること．
  *
- *  �ܥ��եȥ������ϡ�AUTOSAR��AUTomotive Open System ARchitecture�˻�
- *  �ͤ˴�Ť��Ƥ��롥�嵭�ε����ϡ�AUTOSAR����Ū�⻺������������Τ�
- *  �Ϥʤ���AUTOSAR�ϡ�AUTOSAR���ͤ˴�Ť������եȥ�����������Ū����
- *  �Ѥ���Ԥ��Ф��ơ�AUTOSAR�ѡ��ȥʡ��ˤʤ뤳�Ȥ���Ƥ��롥
+ *  本ソフトウェアは，AUTOSAR（AUTomotive Open System ARchitecture）仕
+ *  様に基づいている．上記の許諾は，AUTOSARの知的財産権を許諾するもので
+ *  はない．AUTOSARは，AUTOSAR仕様に基づいたソフトウェアを商用目的で利
+ *  用する者に対して，AUTOSARパートナーになることを求めている．
  *
- *  �ܥ��եȥ������ϡ�̵�ݾڤ��󶡤���Ƥ����ΤǤ��롥�嵭����Ԥ�
- *  ���TOPPERS�ץ��������Ȥϡ��ܥ��եȥ������˴ؤ��ơ�����λ�����Ū
- *  ���Ф���Ŭ������ޤ�ơ������ʤ��ݾڤ�Ԥ�ʤ����ޤ����ܥ��եȥ���
- *  �������Ѥˤ��ľ��Ū�ޤ��ϴ���Ū�������������ʤ�»���˴ؤ��Ƥ⡤��
- *  ����Ǥ�����ʤ���
+ *  本ソフトウェアは，無保証で提供されているものである．上記著作権者お
+ *  よびTOPPERSプロジェクトは，本ソフトウェアに関して，特定の使用目的
+ *  に対する適合性も含めて，いかなる保証も行わない．また，本ソフトウェ
+ *  アの利用により直接的または間接的に生じたいかなる損害に関しても，そ
+ *  の責任を負わない．
  *
  *  $Id $
  */
@@ -123,7 +123,7 @@ public class EcucToM2Mapper {
 		ArPackage parentPackage = makeParentPackages(this.autosar, ecucModule.getReference());
 
 		EcucModuleConfigurationValues m2Module;
-		if (ecucModule.getSource() == null) { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		if (ecucModule.getSource() == null) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			m2Module = M2Factory.eINSTANCE.createEcucModuleConfigurationValues();
 			m2Module.setDefinitionRef(EcucModelUtils.DEFAULT_ECUC_DEFINITION_REFERENCE_PREFIX + ecucModule.eClass().getName());
 			m2Module.setShortName(ecucModule.getShortName());
@@ -180,11 +180,11 @@ public class EcucToM2Mapper {
 
 	private void mapEcucContainer(EcucContainerValue m2ParentContainer, EcucContainer ecucContainer) {
 		EcucContainerValue m2Container;
-		if (ecucContainer.getSource() == null) { // COVERAGE ���true(�����Υġ������ե����Ǥ�false���̤�ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		if (ecucContainer.getSource() == null) { // COVERAGE 常にtrue(現状のツールワークフローではfalseを通らないが，コードレビュー済みであるため問題ない)
 			m2Container = M2Factory.eINSTANCE.createEcucContainerValue();
 			m2Container.setDefinitionRef(m2ParentContainer.getDefinitionRef() + M2ModelUtils.REFERENCE_SEPARATOR + ecucContainer.eClass().getName());
 			m2Container.setShortName(ecucContainer.getShortName());
-		} else { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		} else { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			m2Container = EmfUtils.copyItself((EcucContainerValue) ecucContainer.getSource());
 		}
 		m2ParentContainer.getSubContainer().add(m2Container);
@@ -226,7 +226,7 @@ public class EcucToM2Mapper {
 		return Iterables.filter(ecucContainer.eClass().getEAllReferences(), new Predicate<EReference>() {
 			@Override
 			public boolean apply(EReference input) {
-				return input.isContainment() && !input.isDerived() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // COVERAGE (ʬ������Ϥ���Ƥ���Τǥƥ����׷���������Ƥ���)
+				return input.isContainment() && !input.isDerived() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // COVERAGE (分岐網羅はされているのでテスト要件を満たしている)
 			}
 		});
 	}
@@ -235,7 +235,7 @@ public class EcucToM2Mapper {
 		return Iterables.filter(ecucContainer.eClass().getEAllAttributes(), new Predicate<EAttribute>() {
 			@Override
 			public boolean apply(EAttribute input) {
-				return !input.isDerived() && !input.isID() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // COVERAGE (ʬ������Ϥ���Ƥ���Τǥƥ����׷���������Ƥ���)
+				return !input.isDerived() && !input.isID() && !EcucModelUtils.isNonEcucFeature(input) && ecucContainer.eGet(input) != null; // COVERAGE (分岐網羅はされているのでテスト要件を満たしている)
 			}
 		});
 	}
@@ -248,7 +248,7 @@ public class EcucToM2Mapper {
 				mapEcucReferenceValue(m2Container, eReference, identifiable);
 			}
 
-		} else if (ECUC_REFERRABLE.isSuperTypeOf(eReference.getEReferenceType())) { // COVERAGE ���true(��ե���󥹤�Identifiable���⤷����EcucReferrable�Τ����줫�Ǥ��뤿��)
+		} else if (ECUC_REFERRABLE.isSuperTypeOf(eReference.getEReferenceType())) { // COVERAGE 常にtrue(リファレンスはIdentifiable，もしくはEcucReferrableのいずれかであるため)
 			List<EcucReferrable> ecucReferrables = EmfUtils.getFeatureValues(ecucContainer, eReference);
 			for (EcucReferrable ecucReferrable : ecucReferrables) {
 				mapEcucReferenceValue(m2Container, eReference, ecucReferrable);
@@ -319,35 +319,35 @@ public class EcucToM2Mapper {
 
 	private ArPackage makeParentPackages(Autosar targetAutosar, String reference) {
 		List<String> referenceSegments = Arrays.asList(reference.split(M2ModelUtils.REFERENCE_SEPARATOR));
-		Preconditions.checkArgument(referenceSegments.size() >= 2); // COVERAGE ���true(false�Ȥʤ�Τ��Զ�纮�����ΤߤʤΤǡ�̤���Х�å�������ʤ�)
+		Preconditions.checkArgument(referenceSegments.size() >= 2); // COVERAGE 常にtrue(falseとなるのは不具合混入時のみなので，未カバレッジで問題ない)
 
-		List<String> shortNames = referenceSegments.subList(1, referenceSegments.size()); // ���硼�ȥ͡���Τ߼��Ф�
+		List<String> shortNames = referenceSegments.subList(1, referenceSegments.size()); // ショートネームのみ取り出す
 
 		String rootPackageShortName = shortNames.get(0);
-		List<String> subPackageShortNames = shortNames.size() < 2 ? Collections.<String> emptyList() : shortNames.subList(1, shortNames.size() - 1); // COVERAGE ���false(�����Υġ������ե����Ǥ�true���̤�ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		List<String> subPackageShortNames = shortNames.size() < 2 ? Collections.<String> emptyList() : shortNames.subList(1, shortNames.size() - 1); // COVERAGE 常にfalse(現状のツールワークフローではtrueを通らないが，コードレビュー済みであるため問題ない)
 
-		// �롼�ȥѥå������ι���
+		// ルートパッケージの構築
 		ArPackage rootPackage;
 		Optional<ArPackage> foundRootPackage = this.query.trySelectSingle(targetAutosar.getArPackage(), hasAttr(REFERRABLE__SHORT_NAME, rootPackageShortName));
-		if (!foundRootPackage.isPresent()) { // COVERAGE ���true(�����Υġ������ե����Ǥ�false���̤�ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		if (!foundRootPackage.isPresent()) { // COVERAGE 常にtrue(現状のツールワークフローではfalseを通らないが，コードレビュー済みであるため問題ない)
 			rootPackage = M2Factory.eINSTANCE.createArPackage();
 			rootPackage.setShortName(rootPackageShortName);
 			targetAutosar.getArPackage().add(rootPackage);
-		} else { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		} else { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			rootPackage = foundRootPackage.get();
 		}
 
-		// ���֥ѥå������ι���
+		// サブパッケージの構築
 		ArPackage currentPackage = rootPackage;
-		for (String shortName : subPackageShortNames) { // COVERAGE ������̤ã(�����Υġ������ե����Ǥ��̤�ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+		for (String shortName : subPackageShortNames) { // COVERAGE 内部に未達(現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない)
 			Optional<ArPackage> foundSubPackage = this.query.trySelectSingle(currentPackage.getArPackage(), hasAttr(REFERRABLE__SHORT_NAME, shortName));
 
-			if (!foundSubPackage.isPresent()) { // COVERAGE ���true(�����Υġ������ե����Ǥ��̤�ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+			if (!foundSubPackage.isPresent()) { // COVERAGE 常にtrue(現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない)
 				ArPackage subPackage = M2Factory.eINSTANCE.createArPackage();
 				subPackage.setShortName(shortName);
 				currentPackage.getArPackage().add(subPackage);
 				currentPackage = subPackage;
-			} else { // COVERAGE ���̤ã(�����Υġ������ե����Ǥϻ��Ѥ���ʤ����������ɥ�ӥ塼�ѤߤǤ��뤿������ʤ�)
+			} else { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 				currentPackage = foundSubPackage.get();
 			}
 		}
