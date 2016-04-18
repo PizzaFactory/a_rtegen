@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='jp.pizzafactory.mwe.utils' version='0.0.1.v20160227-0610' singleton='false'>
+    <update id='jp.pizzafactory.mwe.utils' range='[0.0.0,0.0.1.v20160227-0610)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='MWE2 Utils used for PizzaFactory'/>
+      <property name='org.eclipse.equinox.p2.provider' value='PizzaFactory Project.'/>
+      <property name='maven-groupId' value='jp.pizzafactory.mwe'/>
+      <property name='maven-artifactId' value='jp.pizzafactory.mwe.utils'/>
+      <property name='maven-version' value='0.0.1-SNAPSHOT'/>
+    </properties>
+    <provides size='4'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='jp.pizzafactory.mwe.utils' version='0.0.1.v20160227-0610'/>
+      <provided namespace='osgi.bundle' name='jp.pizzafactory.mwe.utils' version='0.0.1.v20160227-0610'/>
+      <provided namespace='java.package' name='jp.pizzafactory.mwe.utils' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='7'>
+      <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.codegen' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.mwe.core' range='1.3.4'/>
+      <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='3.10.2'/>
+      <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.9.1'/>
+      <required namespace='osgi.bundle' name='org.eclipse.text' range='3.5.300'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='jp.pizzafactory.mwe.utils' version='0.0.1.v20160227-0610'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: jp.pizzafactory.mwe.utils&#xA;Bundle-Version: 0.0.1.v20160227-0610&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>
