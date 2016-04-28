@@ -43,15 +43,14 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
+import java.io.IOException;
+
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.Activator;
-import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.InstanceModelBuilder;
-import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelLoader;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelMerger;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelReferenceResolver;
-import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ToEcucMapper;
+import jp.pizzafactory.a_rte.core.resource.M2ResourceFactoryImpl;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -60,13 +59,11 @@ import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelLoader {
 	private final M2ModelMerger m2ModelMerger;
-
-	private IFile schemaFile;
-	private M2ModelLoader m2ModelLoader;
 
 	/**
 	 * ジェネレートフェーズ用のAutosarModelLoaderを生成する．
@@ -90,11 +87,6 @@ public class AutosarModelLoader {
 		this.m2ModelMerger = new M2ModelMerger();
 	}
 
-	public void setSchemaFile(IFile schemaFile) {
-		this.schemaFile = schemaFile;
-		this.m2ModelLoader = null;
-	}
-
 	public void loadM2(IProject project, Resource eResource, Iterable<String> files) throws CoreException {
 		Autosar mergedAutosar = M2Factory.eINSTANCE.createAutosar();
 		final ILog logger = Activator.getDefault().getLog();
@@ -103,13 +95,17 @@ public class AutosarModelLoader {
 			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + filePath);
 			logger.log(status1);
 			IFile file = project.getFile(filePath);
+			M2ResourceFactoryImpl factory = new M2ResourceFactoryImpl();
+			URI uri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+			Resource resource = factory.createResource(uri);
 			try {
-				M2Root m2Root = getM2ModelLoader().load(file.getContents());
-
+				resource.load(null);
+				Autosar autosar = (Autosar)resource.getContents();
+			
 				final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + filePath);
 				logger.log(status2);
-				this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
-			} catch (CoreException | PersistException e) {
+				this.m2ModelMerger.merge(mergedAutosar, autosar);
+			} catch (IOException e) {
 				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, filePath, e);
 				multiStatus.add(status);
 			}
@@ -118,32 +114,14 @@ public class AutosarModelLoader {
 			throw new CoreException(multiStatus);
 		}
 
-		M2Root m2Root = M2Factory.eINSTANCE.createM2Root();
-		m2Root.setAutosar(mergedAutosar);
-		eResource.getContents().add(m2Root);
+		eResource.getContents().add(mergedAutosar);
 
 		M2ModelReferenceResolver referenceResolver = new M2ModelReferenceResolver();
 		try {
-			referenceResolver.resolve(m2Root.getAutosar());
+			referenceResolver.resolve(mergedAutosar);
 		} catch (PersistException e) {
 			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e);
 			throw new CoreException(status);
 		}
-	}
-
-	public void loadInstance(Resource eResource) throws PersistException {
-		// インスタンスモデルの構築
-		InstanceModelBuilder builder = new InstanceModelBuilder(eResource);
-		builder.build();
-
-		// M2モデル情報のECUCモデルへのマッピング
-		M2ToEcucMapper mapper = new M2ToEcucMapper(eResource);
-		mapper.map();
-	}
-	private M2ModelLoader getM2ModelLoader() throws PersistException {
-		if (this.m2ModelLoader == null) {
-			this.m2ModelLoader = new M2ModelLoader(this.schemaFile);
-		}
-		return this.m2ModelLoader;
 	}
 }

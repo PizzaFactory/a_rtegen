@@ -17,6 +17,7 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="3.9.1",
  jp.ac.nagoya_u.is.nces.a_rte.persist;bundle-version="1.2.2",
  jp.ac.nagoya_u.is.nces.a_rte.m2m;bundle-version="1.2.2",
  jp.ac.nagoya_u.is.nces.a_rte.codegen;bundle-version="1.2.2",
- jp.ac.nagoya_u.is.nces.a_rte.validation;bundle-version="1.2.2"
+ jp.ac.nagoya_u.is.nces.a_rte.validation;bundle-version="1.2.2",
+ jp.pizzafactory.a_rte.core;bundle-version="1.0.0"
 Export-Package: jp.ac.nagoya_u.is.nces.a_rte.app
 Bundle-Activator: jp.ac.nagoya_u.is.nces.a_rte.app.internal.Activator

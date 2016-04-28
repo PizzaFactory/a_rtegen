@@ -43,7 +43,6 @@
 
 package jp.ac.nagoya_u.is.nces.a_rte.validation;
 
-import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.internal.ValidationResourceLocator;

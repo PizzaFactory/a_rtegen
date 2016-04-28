@@ -84,7 +84,7 @@ public interface M2Package extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2";
+	String eNS_URI = "http://autosar.org/schema/r4.0";
 
 	/**
 	 * The package namespace name.

@@ -47,6 +47,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.BSW_
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ROOT_SW_COMPOSITION_PROTOTYPE;
 import static jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage.Literals.INTERACTION_ROOT;
 
+import java.io.IOException;
 import java.io.PrintStream;
 
 import jp.ac.nagoya_u.is.nces.a_rte.app.AppException;
@@ -74,20 +75,24 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestModule;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestPackage;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelLoader;
-import jp.ac.nagoya_u.is.nces.a_rte.persist.AutosarModelSaver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidator;
+import jp.pizzafactory.a_rte.core.resource.M2ResourceFactoryImpl;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.XMIResource;
+import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.osgi.util.NLS;
 
@@ -111,7 +116,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 	private final RteModuleModelBuilder moduleModelBuilder;
 	private final RteCodeGenerator codeGenerator;
 	private final GeneratedEcucModelExtractor ecucModelExtractor;
-	private final AutosarModelSaver saver;
 
 	// テストコード生成用
 	private final RteTestModuleModelBuilder testModuleModelBuilder;
@@ -128,7 +132,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		this.stdout = stdout;
 		try {
 			this.loader = AutosarModelLoader.forGeneratePhase();
-			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
 
 			this.rteValidatorM2 = ModelValidator.forRteGeneratePhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteGeneratePhaseInstance();
@@ -140,7 +143,6 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			this.moduleModelBuilder = RteModuleModelBuilder.forGeneratePhase();
 			this.codeGenerator = RteCodeGenerator.forGeneratePhase();
 			this.ecucModelExtractor = new GeneratedEcucModelExtractor();
-			this.saver = new AutosarModelSaver();
 
 			this.testModuleModelBuilder = RteTestModuleModelBuilder.forGeneratePhase();
 			this.testCodeGenerator = RteTestCodeGenerator.forGeneratePhase();
@@ -165,7 +167,15 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		XMIResource eGenSourceResource = new XMIResourceImpl();
 		eResourceSet.getResources().add(eGenSourceResource);
 
-		XMIResource eGeneratedEcucResource = new XMIResourceImpl();
+		final M2ResourceFactoryImpl impl = new M2ResourceFactoryImpl();
+		final IContainer container;
+		if (".".equals(options.outputDirectory)) {
+			container = options.project;
+		} else {
+			container = options.project.getFolder(options.outputDirectory);
+		}
+		IFile generatedEcucFile = container.getFile(new Path(GENERATED_ECUC_ARXML_FILE_NAME));
+		XMLResource eGeneratedEcucResource = impl.createResource(URI.createPlatformResourceURI(generatedEcucFile.getFullPath().toString(), true));
 		eResourceSet.getResources().add(eGeneratedEcucResource);
 
 		try {
@@ -202,7 +212,7 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 			this.commonValidatorM2.validate(eGenSourceResource, diagnostics);
 
 			// AUTOSAR Instanceモデルの読み込み
-			this.loader.loadInstance(eGenSourceResource);
+//TODO			this.loader.loadInstance(eGenSourceResource);
 
 			// AUTOSAR Instanceモデル検証
 			if (hasRteConfig || validatesRte) {
@@ -257,18 +267,17 @@ public class GeneratePhaseRteGenerator implements IRteGenerator {
 		}
 	}
 
-	private void generateInsufficientArxmls(XMIResource eGeneratedEcucResource, XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, PersistException {
+	private void generateInsufficientArxmls(XMLResource eGeneratedEcucResource, XMIResource eGenSourceResource, GeneratorOptions options) throws M2MException, PersistException {
 		stdout.println("There are some insufficient configurations for RTE.");
 		stdout.println("Generating AUTOSAR XMLs to complement the insufficient configurations... ");
 
-		IFolder outputDir = options.project.getFolder(options.outputDirectory);
-
-		// ECUC ARXMLの出力
-		IFile generatedEcucFile = outputDir.getFile(GENERATED_ECUC_ARXML_FILE_NAME);
-
-		stdout.println(NLS.bind("Generating {{0}} ...", generatedEcucFile.getFullPath()));
+		stdout.println(NLS.bind("Generating {0} {1} ...", options.outputDirectory, GENERATED_ECUC_ARXML_FILE_NAME));
 		this.ecucModelExtractor.extract(eGeneratedEcucResource, eGenSourceResource);
-		this.saver.save(eGeneratedEcucResource, generatedEcucFile);
+		try {
+			eGeneratedEcucResource.save(null);
+		} catch (IOException e) {
+			throw new PersistException(e.getMessage(), e);
+		}
 
 		stdout.println("Generation done.");
 	}

@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore2xml:XMLMap
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:ecore2xml="http://www.eclipse.org/emf/2005/Ecore2XML"
+    iDAttributeName="">
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Autosar"/>
+    <value name="AUTOSAR"
+        targetNamespace="ar4x"
+        xMLRepresentation="1"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ArPackage"/>
+    <value name="AR-PACKAGE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ArElement"/>
+    <value name="AR-ELEMENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Identifiable"/>
+    <value name="IDENTIFIABLE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwBaseType"/>
+    <value name="SW-BASE-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderReceiverInterface"/>
+    <value name="SENDER-RECEIVER-INTERFACE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/VariableDataPrototype"/>
+    <value name="VARIABLE-DATA-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Referrable"/>
+    <value name="REFERRABLE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwComponentType"/>
+    <value name="SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortPrototype"/>
+    <value name="PORT-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AtomicSwComponentType"/>
+    <value name="ATOMIC-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ApplicationSwComponentType"/>
+    <value name="APPLICATION-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RPortPrototype"/>
+    <value name="R-PORT-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PPortPrototype"/>
+    <value name="P-PORT-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwcInternalBehavior"/>
+    <value name="SWC-INTERNAL-BEHAVIOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ExecutableEntity"/>
+    <value name="EXECUTABLE-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RunnableEntity"/>
+    <value name="RUNNABLE-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/VariableAccess"/>
+    <value name="VARIABLE-ACCESS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AutosarVariableRef"/>
+    <value name="AUTOSAR-VARIABLE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/VariableInAtomicSwcInstanceRef"/>
+    <value name="VARIABLE-IN-ATOMIC-SWC-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RteEvent"/>
+    <value name="RTE-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/TimingEvent"/>
+    <value name="TIMING-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucModuleConfigurationValues"/>
+    <value name="ECUC-MODULE-CONFIGURATION-VALUES"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucContainerValue"/>
+    <value name="ECUC-CONTAINER-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucParameterValue"/>
+    <value name="ECUC-PARAMETER-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucNumericalParamValue"/>
+    <value name="ECUC-NUMERICAL-PARAM-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucTextualParamValue"/>
+    <value name="ECUC-TEXTUAL-PARAM-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucAbstractReferenceValue"/>
+    <value name="ECUC-ABSTRACT-REFERENCE-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucReferenceValue"/>
+    <value name="ECUC-REFERENCE-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucInstanceReferenceValue"/>
+    <value name="ECUC-INSTANCE-REFERENCE-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RPortComSpec"/>
+    <value name="R-PORT-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PPortComSpec"/>
+    <value name="P-PORT-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ReceiverComSpec"/>
+    <value name="RECEIVER-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderComSpec"/>
+    <value name="SENDER-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/NonqueuedSenderComSpec"/>
+    <value name="NONQUEUED-SENDER-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/NonqueuedReceiverComSpec"/>
+    <value name="NONQUEUED-RECEIVER-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortInterface"/>
+    <value name="PORT-INTERFACE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/CompositionSwComponentType"/>
+    <value name="COMPOSITION-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwConnector"/>
+    <value name="SW-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AssemblySwConnector"/>
+    <value name="ASSEMBLY-SW-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DelegationSwConnector"/>
+    <value name="DELEGATION-SW-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortPrototypeInCompositionInstanceRef"/>
+    <value name="PORT-PROTOTYPE-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RPortPrototypeInCompositionInstanceRef"/>
+    <value name="R-PORT-PROTOTYPE-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PPortPrototypeInCompositionInstanceRef"/>
+    <value name="P-PORT-PROTOTYPE-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwComponentPrototype"/>
+    <value name="SW-COMPONENT-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ValueSpecification"/>
+    <value name="VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AutosarDataType"/>
+    <value name="AUTOSAR-DATA-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ApplicationDataType"/>
+    <value name="APPLICATION-DATA-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ImplementationDataType"/>
+    <value name="IMPLEMENTATION-DATA-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ImplementationDataTypeElement"/>
+    <value name="IMPLEMENTATION-DATA-TYPE-ELEMENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/ArraySizeSemanticsEnum"/>
+    <value name="ARRAY-SIZE-SEMANTICS-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwDataDefProps"/>
+    <value name="SW-DATA-DEF-PROPS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataTypeMap"/>
+    <value name="DATA-TYPE-MAP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataTypeMappingSet"/>
+    <value name="DATA-TYPE-MAPPING-SET"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ModeDeclarationGroupPrototype"/>
+    <value name="MODE-DECLARATION-GROUP-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ModeRequestTypeMap"/>
+    <value name="MODE-REQUEST-TYPE-MAP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ModeDeclaration"/>
+    <value name="MODE-DECLARATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ModeDeclarationGroup"/>
+    <value name="MODE-DECLARATION-GROUP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ApplicationPrimitiveDataType"/>
+    <value name="APPLICATION-PRIMITIVE-DATA-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AutosarDataPrototype"/>
+    <value name="AUTOSAR-DATA-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataPrototype"/>
+    <value name="DATA-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ExclusiveArea"/>
+    <value name="EXCLUSIVE-AREA"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/NumericalValueSpecification"/>
+    <value name="NUMERICAL-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/TextValueSpecification"/>
+    <value name="TEXT-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ConstantReference"/>
+    <value name="CONSTANT-REFERENCE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ReferenceValueSpecification"/>
+    <value name="REFERENCE-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ArrayValueSpecification"/>
+    <value name="ARRAY-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RecordValueSpecification"/>
+    <value name="RECORD-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ApplicationValueSpecification"/>
+    <value name="APPLICATION-VALUE-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ConstantSpecification"/>
+    <value name="CONSTANT-SPECIFICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/OperationInvokedEvent"/>
+    <value name="OPERATION-INVOKED-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/POperationInAtomicSwcInstanceRef"/>
+    <value name="P-OPERATION-IN-ATOMIC-SWC-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ClientServerInterface"/>
+    <value name="CLIENT-SERVER-INTERFACE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ClientServerOperation"/>
+    <value name="CLIENT-SERVER-OPERATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ApplicationError"/>
+    <value name="APPLICATION-ERROR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ArgumentDataPrototype"/>
+    <value name="ARGUMENT-DATA-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/ArgumentDirectionEnum"/>
+    <value name="ARGUMENT-DIRECTION-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/DataFilterTypeEnum"/>
+    <value name="DATA-FILTER-TYPE-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataFilter"/>
+    <value name="DATA-FILTER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/QueuedReceiverComSpec"/>
+    <value name="QUEUED-RECEIVER-COM-SPEC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Numerical"/>
+    <value name="NUMERICAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Integer"/>
+    <value name="INTEGER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/UnlimitedInteger"/>
+    <value name="UNLIMITED-INTEGER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/PositiveInteger"/>
+    <value name="POSITIVE-INTEGER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/TimeValue"/>
+    <value name="TIME-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Ref"/>
+    <value name="REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/CIdentifier"/>
+    <value name="C-IDENTIFIER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Identifier"/>
+    <value name="IDENTIFIER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/VerbatimString"/>
+    <value name="VERBATIM-STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Float"/>
+    <value name="FLOAT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/InvalidationPolicy"/>
+    <value name="INVALIDATION-POLICY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/HandleInvalidEnum"/>
+    <value name="HANDLE-INVALID-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortApiOption"/>
+    <value name="PORT-API-OPTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortDefinedArgumentValue"/>
+    <value name="PORT-DEFINED-ARGUMENT-VALUE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/IncludedDataTypeSet"/>
+    <value name="INCLUDED-DATA-TYPE-SET"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/System"/>
+    <value name="SYSTEM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RootSwCompositionPrototype"/>
+    <value name="ROOT-SW-COMPOSITION-PROTOTYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SystemMapping"/>
+    <value name="SYSTEM-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataMapping"/>
+    <value name="DATA-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SystemSignal"/>
+    <value name="SYSTEM-SIGNAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ISignal"/>
+    <value name="I-SIGNAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ISignalIPdu"/>
+    <value name="I-SIGNAL-I-PDU"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ISignalToIPduMapping"/>
+    <value name="I-SIGNAL-TO-I-PDU-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderReceiverToSignalMapping"/>
+    <value name="SENDER-RECEIVER-TO-SIGNAL-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderReceiverToSignalGroupMapping"/>
+    <value name="SENDER-RECEIVER-TO-SIGNAL-GROUP-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/VariableDataPrototypeInSystemInstanceRef"/>
+    <value name="VARIABLE-DATA-PROTOTYPE-IN-SYSTEM-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcucValueCollection"/>
+    <value name="ECUC-VALUE-COLLECTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/NativeDeclarationString"/>
+    <value name="NATIVE-DECLARATION-STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ServerCallPoint"/>
+    <value name="SERVER-CALL-POINT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SynchronousServerCallPoint"/>
+    <value name="SYNCHRONOUS-SERVER-CALL-POINT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/IInstanceRef"/>
+    <value name="I-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ROperationInAtomicSwcInstanceRef"/>
+    <value name="R-OPERATION-IN-ATOMIC-SWC-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/SwImplPolicyEnum"/>
+    <value name="SW-IMPL-POLICY-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/Boolean"/>
+    <value name="BOOLEAN"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/MemoryAllocationKeywordPolicyType"/>
+    <value name="MEMORY-ALLOCATION-KEYWORD-POLICY-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwAddrMethod"/>
+    <value name="SW-ADDR-METHOD"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/CompuMethod"/>
+    <value name="COMPU-METHOD"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataConstr"/>
+    <value name="DATA-CONSTR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/SectionInitializationPolicyType"/>
+    <value name="SECTION-INITIALIZATION-POLICY-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/DataConstrRule"/>
+    <value name="DATA-CONSTR-RULE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/InternalConstrs"/>
+    <value name="INTERNAL-CONSTRS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Compu"/>
+    <value name="COMPU"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Limit"/>
+    <value name="LIMIT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/CompuScale"/>
+    <value name="COMPU-SCALE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/AnyInstanceRef"/>
+    <value name="ANY-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/CategoryString"/>
+    <value name="CATEGORY-STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/String"/>
+    <value name="STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/BaseTypeEncodingString"/>
+    <value name="BASE-TYPE-ENCODING-STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/RevisionLabelString"/>
+    <value name="REVISION-LABEL-STRING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/EcucConfigurationVariantEnum"/>
+    <value name="ECUC-CONFIGURATION-VARIANT-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EDataType"
+        href="ar4x.ecore#//m2/AlignmentType"/>
+    <value name="ALIGNMENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/EcuAbstractionSwComponentType"/>
+    <value name="ECU-ABSTRACTION-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/NvBlockSwComponentType"/>
+    <value name="NV-BLOCK-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SensorActuatorSwComponentType"/>
+    <value name="SENSOR-ACTUATOR-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ComplexDeviceDriverSwComponentType"/>
+    <value name="COMPLEX-DEVICE-DRIVER-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ServiceProxySwComponentType"/>
+    <value name="SERVICE-PROXY-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ServiceSwComponentType"/>
+    <value name="SERVICE-SW-COMPONENT-TYPE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PortInCompositionInstanceRef"/>
+    <value name="PORT-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/PPortInCompositionInstanceRef"/>
+    <value name="P-PORT-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/RPortInCompositionInstanceRef"/>
+    <value name="R-PORT-IN-COMPOSITION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/InternalBehavior"/>
+    <value name="INTERNAL-BEHAVIOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwcBswRunnableMapping"/>
+    <value name="SWC-BSW-RUNNABLE-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwcBswMapping"/>
+    <value name="SWC-BSW-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswInternalBehavior"/>
+    <value name="BSW-INTERNAL-BEHAVIOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswModeSenderPolicy"/>
+    <value name="BSW-MODE-SENDER-POLICY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/Implementation"/>
+    <value name="IMPLEMENTATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswImplementation"/>
+    <value name="BSW-IMPLEMENTATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswModuleDescription"/>
+    <value name="BSW-MODULE-DESCRIPTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswModuleEntry"/>
+    <value name="BSW-MODULE-ENTRY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswModuleEntity"/>
+    <value name="BSW-MODULE-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswSchedulableEntity"/>
+    <value name="BSW-SCHEDULABLE-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswEvent"/>
+    <value name="BSW-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswModeSwitchEvent"/>
+    <value name="BSW-MODE-SWITCH-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ModeInBswModuleDescriptionInstanceRef"/>
+    <value name="MODE-IN-BSW-MODULE-DESCRIPTION-INSTANCE-REF"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/ModeActivationKind"/>
+    <value name="MODE-ACTIVATION-KIND"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswTimingEvent"/>
+    <value name="BSW-TIMING-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/BswCallTypeEnum"/>
+    <value name="BSW-CALL-TYPE-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//m2/BswExecutionContextEnum"/>
+    <value name="BSW-EXECUTION-CONTEXT-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswCalledEntity"/>
+    <value name="BSW-CALLED-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/BswInterruptEntity"/>
+    <value name="BSW-INTERRUPT-ENTITY"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SystemSignalGroup"/>
+    <value name="SYSTEM-SIGNAL-GROUP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/ISignalGroup"/>
+    <value name="I-SIGNAL-GROUP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderRecCompositeTypeMapping"/>
+    <value name="SENDER-REC-COMPOSITE-TYPE-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderRecRecordTypeMapping"/>
+    <value name="SENDER-REC-RECORD-TYPE-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderRecRecordElementMapping"/>
+    <value name="SENDER-REC-RECORD-ELEMENT-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderRecArrayTypeMapping"/>
+    <value name="SENDER-REC-ARRAY-TYPE-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/IndexedArrayElement"/>
+    <value name="INDEXED-ARRAY-ELEMENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SenderRecArrayElementMapping"/>
+    <value name="SENDER-REC-ARRAY-ELEMENT-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//m2/SwPointerTargetProps"/>
+    <value name="SW-POINTER-TARGET-PROPS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucObject"/>
+    <value name="ECUC-OBJECT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucReferrable"/>
+    <value name="ECUC-REFERRABLE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucModule"/>
+    <value name="ECUC-MODULE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucContainer"/>
+    <value name="ECUC-CONTAINER"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/Rte"/>
+    <value name="RTE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswGeneral"/>
+    <value name="RTE-GENERATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswGeneral"/>
+    <value name="RTE-BSW-GENERAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucRoot"/>
+    <value name="ECUC-ROOT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteSwComponentInstance"/>
+    <value name="RTE-SW-COMPONENT-INSTANCE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteEventToTaskMapping"/>
+    <value name="RTE-EVENT-TO-TASK-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/Os"/>
+    <value name="OS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//ecuc/OsTaskScheduleEnum"/>
+    <value name="OS-TASK-SCHEDULE-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsTask"/>
+    <value name="OS-TASK"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteExclusiveAreaImplementation"/>
+    <value name="RTE-EXCLUSIVE-AREA-IMPLEMENTATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//ecuc/RteExclusiveAreaImplMechanismEnum"/>
+    <value name="RTE-EXCLUSIVE-AREA-IMPL-MECHANISM-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsEvent"/>
+    <value name="OS-EVENT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/Com"/>
+    <value name="COM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//ecuc/ComTransferPropertyEnum"/>
+    <value name="COM-TRANSFER-PROPERTY-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/ComSignalGroup"/>
+    <value name="COM-SIGNAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/ComSignalGroup"/>
+    <value name="COM-SIGNAL-GROUP"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/ComGroupSignal"/>
+    <value name="COM-GROUP-SIGNAL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsAlarm"/>
+    <value name="OS-ALARM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsResource"/>
+    <value name="OS-RESOURCE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsApplication"/>
+    <value name="OS-APPLICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcuC"/>
+    <value name="ECU-C"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucPartitionCollection"/>
+    <value name="ECUC-PARTITION-COLLECTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/EcucPartition"/>
+    <value name="ECUC-PARTITION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//ecuc/OsSpinlockLockMethodEnum"/>
+    <value name="OS-SPINLOCK-LOCK-METHOD-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsSpinlock"/>
+    <value name="OS-SPINLOCK"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteOsInteraction"/>
+    <value name="RTE-OS-INTERACTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteUsedOsActivation"/>
+    <value name="RTE-USED-OS-ACTIVATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteInitializationBehavior"/>
+    <value name="RTE-INITIALIZATION-BEHAVIOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EEnum"
+        href="ar4x.ecore#//ecuc/RteInitializationStrategyEnum"/>
+    <value name="RTE-INITIALIZATION-STRATEGY-ENUM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsIoc"/>
+    <value name="OS-IOC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsIocCommunication"/>
+    <value name="OS-IOC-COMMUNICATION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsIocSenderProperties"/>
+    <value name="OS-IOC-SENDER-PROPERTIES"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsIocReceiverProperties"/>
+    <value name="OS-IOC-RECEIVER-PROPERTIES"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsIocDataProperties"/>
+    <value name="OS-IOC-DATA-PROPERTIES"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsApplicationTrustedFunction"/>
+    <value name="OS-APPLICATION-TRUSTED-FUNCTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/OsOS"/>
+    <value name="OS-OS"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswEventToTaskMapping"/>
+    <value name="RTE-BSW-EVENT-TO-TASK-MAPPING"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswRequiredModeGroupConnection"/>
+    <value name="RTE-BSW-REQUIRED-MODE-GROUP-CONNECTION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswModuleInstance"/>
+    <value name="RTE-BSW-MODULE-INSTANCE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//ecuc/RteBswExclusiveAreaImpl"/>
+    <value name="RTE-BSW-EXCLUSIVE-AREA-IMPL"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/InstanceReferrable"/>
+    <value name="INSTANCE-REFERRABLE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/PortInstanceInComposition"/>
+    <value name="PORT-INSTANCE-IN-COMPOSITION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/VariableDataInstanceInSwc"/>
+    <value name="VARIABLE-DATA-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/VariableDataInstanceInComposition"/>
+    <value name="VARIABLE-DATA-INSTANCE-IN-COMPOSITION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/PVariableDataInstanceInSwc"/>
+    <value name="P-VARIABLE-DATA-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/RVariableDataInstanceInSwc"/>
+    <value name="R-VARIABLE-DATA-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/AssemblyDataInstanceConnector"/>
+    <value name="ASSEMBLY-DATA-INSTANCE-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/DelegationDataInstanceConnector"/>
+    <value name="DELEGATION-DATA-INSTANCE-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/OperationInstanceInSwc"/>
+    <value name="OPERATION-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/ROperationInstanceInSwc"/>
+    <value name="R-OPERATION-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/POperationInstanceInSwc"/>
+    <value name="P-OPERATION-INSTANCE-IN-SWC"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/OperationInstanceInComposition"/>
+    <value name="OPERATION-INSTANCE-IN-COMPOSITION"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/AssemblyOperationInstanceConnector"/>
+    <value name="ASSEMBLY-OPERATION-INSTANCE-CONNECTOR"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/IInstanceObject"/>
+    <value name="I-INSTANCE-OBJECT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/SwComponentInstanceInSystem"/>
+    <value name="SW-COMPONENT-INSTANCE-IN-SYSTEM"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/InstanceRoot"/>
+    <value name="INSTANCE-ROOT"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+  <ecoreToXMLInfo>
+    <key xsi:type="ecore:EClass"
+        href="ar4x.ecore#//instance/VariableDataInstance"/>
+    <value name="VARIABLE-DATA-INSTANCE"
+        targetNamespace="ar4x"/>
+  </ecoreToXMLInfo>
+</ecore2xml:XMLMap>

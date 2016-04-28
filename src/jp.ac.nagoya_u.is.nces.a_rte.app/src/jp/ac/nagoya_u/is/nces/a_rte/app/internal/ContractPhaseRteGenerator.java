@@ -99,7 +99,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 	public ContractPhaseRteGenerator(GeneratorInitOptions generatorInitOptions) throws AppException {
 		try {
 			this.loader = AutosarModelLoader.forContractPhase();
-			this.loader.setSchemaFile(generatorInitOptions.schemaFile);
 
 			this.rteValidatorM2 = ModelValidator.forRteContractPhaseM2();
 			this.rteValidatorInstance = ModelValidator.forRteContractPhaseInstance();
@@ -163,7 +162,7 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			this.commonValidatorM2.validate(eResource, diagnostics);
 
 			// AUTOSAR Instanceモデルの読み込み
-			this.loader.loadInstance(eResource);
+//TODO:			this.loader.loadInstance(eResource);
 
 			// AUTOSAR Instanceモデル検証
 			if (hasRteConfig || validatesRte) {
@@ -187,9 +186,6 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 
 			// RTE生成
 			generateRte(options, eResource);
-
-		} catch (PersistException e) {
-			throw new AppException(e);
 
 		} catch (M2MException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new AppException(e);
