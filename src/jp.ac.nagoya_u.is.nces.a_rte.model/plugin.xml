@@ -6,7 +6,7 @@
 
 <plugin>
 
-   <extension point="org.eclipse.core.runtime.contentTypes">
+   <extension point="org.eclipse.core.contenttype.contentTypes">
       <content-type
             id="atk2arxml"
             name="%arxmlContentTypeName"
@@ -62,12 +62,26 @@
             genModel="model/rte.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated rte -->
+      <parser
+            type="m2"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.util.M2ResourceFactoryImpl"/>
+   </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated rte -->
       <package
             uri="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc"
             class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage"
             genModel="model/rte.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated rte -->
+      <parser
+            type="ecuc"
+            class="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util.EcucResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">

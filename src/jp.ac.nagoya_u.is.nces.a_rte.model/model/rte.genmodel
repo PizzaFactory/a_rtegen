@@ -1788,7 +1788,7 @@
       ecorePackage="ar4x.ecore#/">
     <genClasses ecoreClass="ar4x.ecore#//Ar4xRoot"/>
     <nestedGenPackages prefix="M2" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x"
-        disposableProviderFactory="true" ecorePackage="ar4x.ecore#//m2">
+        disposableProviderFactory="true" resource="XML" ecorePackage="ar4x.ecore#//m2">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="ar4x.ecore#//m2/ArraySizeSemanticsEnum">
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//m2/ArraySizeSemanticsEnum/fixedSize"/>
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//m2/ArraySizeSemanticsEnum/variableSize"/>
@@ -2584,7 +2584,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Ecuc" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x"
-        disposableProviderFactory="true" ecorePackage="ar4x.ecore#//ecuc">
+        disposableProviderFactory="true" resource="XML" ecorePackage="ar4x.ecore#//ecuc">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="ar4x.ecore#//ecuc/OsTaskScheduleEnum">
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/OsTaskScheduleEnum/FULL"/>
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/OsTaskScheduleEnum/NON"/>
