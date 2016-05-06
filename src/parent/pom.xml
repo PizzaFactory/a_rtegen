@@ -25,14 +25,14 @@
 	</modules>
 
 	<properties>
-		<project.build.sourceEncoding>euc-jp</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<tycho-version>0.24.0</tycho-version>
 		<tycho-extras-version>0.24.0</tycho-extras-version>
 		<tycho-groupid>org.eclipse.tycho</tycho-groupid>
 		<pizzafactory-version>8.5</pizzafactory-version>
 		<github.global.oauth2Token>${env.GH_TOKEN}</github.global.oauth2Token>
 		<jacoco.destFile>${basedir}/../build-target/target/jacoco.exec</jacoco.destFile>
-		<sonar.sourceEncoding>euc-jp</sonar.sourceEncoding>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
 	</properties>
 	<repositories>
 		<repository>
@@ -177,7 +177,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
-            <encoding>euc-jp</encoding>
+            <encoding>UTF-8</encoding>
           </configuration>
         </plugin>
         <plugin>
