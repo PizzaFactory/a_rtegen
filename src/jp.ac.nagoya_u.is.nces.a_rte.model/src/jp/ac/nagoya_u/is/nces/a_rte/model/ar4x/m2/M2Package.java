@@ -113,13 +113,40 @@ public interface M2Package extends EPackage {
 	int M2_ROOT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int M2_ROOT__MIXED = 0;
+
+	/**
+	 * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int M2_ROOT__XMLNS_PREFIX_MAP = 1;
+
+	/**
+	 * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int M2_ROOT__XSI_SCHEMA_LOCATION = 2;
+
+	/**
 	 * The feature id for the '<em><b>Autosar</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int M2_ROOT__AUTOSAR = 0;
+	int M2_ROOT__AUTOSAR = 3;
 
 	/**
 	 * The number of structural features of the '<em>Root</em>' class.
@@ -128,7 +155,7 @@ public interface M2Package extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int M2_ROOT_FEATURE_COUNT = 1;
+	int M2_ROOT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -12272,6 +12299,39 @@ public interface M2Package extends EPackage {
 	EClass getM2Root();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getMixed()
+	 * @see #getM2Root()
+	 * @generated
+	 */
+	EAttribute getM2Root_Mixed();
+
+	/**
+	 * Returns the meta object for the map '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getXMLNSPrefixMap()
+	 * @see #getM2Root()
+	 * @generated
+	 */
+	EReference getM2Root_XMLNSPrefixMap();
+
+	/**
+	 * Returns the meta object for the map '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getXSISchemaLocation <em>XSI Schema Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getXSISchemaLocation()
+	 * @see #getM2Root()
+	 * @generated
+	 */
+	EReference getM2Root_XSISchemaLocation();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root#getAutosar <em>Autosar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17457,6 +17517,30 @@ public interface M2Package extends EPackage {
 		 * @generated
 		 */
 		EClass M2_ROOT = eINSTANCE.getM2Root();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute M2_ROOT__MIXED = eINSTANCE.getM2Root_Mixed();
+
+		/**
+		 * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference M2_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getM2Root_XMLNSPrefixMap();
+
+		/**
+		 * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference M2_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getM2Root_XSISchemaLocation();
 
 		/**
 		 * The meta object literal for the '<em><b>Autosar</b></em>' containment reference feature.
