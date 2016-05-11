@@ -76,6 +76,7 @@ public interface BswModuleEntry extends ArElement {
 	 * @see #setServiceId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntry_ServiceId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger"
+	 *        annotation="tags xml.name='SERVICE-ID'"
 	 * @generated
 	 */
 	Integer getServiceId();
@@ -104,6 +105,7 @@ public interface BswModuleEntry extends ArElement {
 	 * @see #setCallType(BswCallTypeEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntry_CallType()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CALL-TYPE'"
 	 * @generated
 	 */
 	BswCallTypeEnum getCallType();
@@ -133,6 +135,7 @@ public interface BswModuleEntry extends ArElement {
 	 * @see #setExecutionContext(BswExecutionContextEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntry_ExecutionContext()
 	 * @model required="true"
+	 *        annotation="tags xml.name='EXECUTION-CONTEXT'"
 	 * @generated
 	 */
 	BswExecutionContextEnum getExecutionContext();

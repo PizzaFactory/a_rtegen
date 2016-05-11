@@ -79,6 +79,7 @@ public interface PortApiOption extends M2Object {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortApiOption_PortArgValue()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortDefinedArgumentValue#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='PORT-ARG-VALUE' xml.namePlural='PORT-ARG-VALUES'"
 	 * @generated
 	 */
 	EList<PortDefinedArgumentValue> getPortArgValue();
@@ -97,6 +98,7 @@ public interface PortApiOption extends M2Object {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortApiOption_Port()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortPrototype#getPortApiOption
 	 * @model opposite="portApiOption" required="true"
+	 *        annotation="tags xml.name='PORT-REF'"
 	 * @generated
 	 */
 	PortPrototype getPort();
@@ -123,6 +125,7 @@ public interface PortApiOption extends M2Object {
 	 * @see #setEnableTakeAddress(Boolean)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortApiOption_EnableTakeAddress()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 *        annotation="tags xml.name='ENABLE-TAKE-ADDRESS'"
 	 * @generated
 	 */
 	Boolean getEnableTakeAddress();

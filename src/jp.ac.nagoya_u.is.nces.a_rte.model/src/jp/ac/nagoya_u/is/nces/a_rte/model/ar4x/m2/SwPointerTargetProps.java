@@ -75,6 +75,7 @@ public interface SwPointerTargetProps extends M2Object {
 	 * @see #setTargetCategory(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwPointerTargetProps_TargetCategory()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Identifier"
+	 *        annotation="tags xml.name='TARGET-CATEGORY'"
 	 * @generated
 	 */
 	String getTargetCategory();
@@ -101,6 +102,7 @@ public interface SwPointerTargetProps extends M2Object {
 	 * @see #setSwDataDefProps(SwDataDefProps)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwPointerTargetProps_SwDataDefProps()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='SW-DATA-DEF-PROPS'"
 	 * @generated
 	 */
 	SwDataDefProps getSwDataDefProps();

@@ -75,6 +75,7 @@ public interface SenderComSpec extends PPortComSpec {
 	 * @see #setDataElement(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderComSpec_DataElement()
 	 * @model required="true"
+	 *        annotation="tags xml.name='DATA-ELEMENT-REF'"
 	 * @generated
 	 */
 	VariableDataPrototype getDataElement();
@@ -101,6 +102,7 @@ public interface SenderComSpec extends PPortComSpec {
 	 * @see #setTransmissionAcknowledge(TransmissionAcknowledgementRequest)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderComSpec_TransmissionAcknowledge()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='TRANSMISSION-ACKNOWLEDGE'"
 	 * @generated
 	 */
 	TransmissionAcknowledgementRequest getTransmissionAcknowledge();

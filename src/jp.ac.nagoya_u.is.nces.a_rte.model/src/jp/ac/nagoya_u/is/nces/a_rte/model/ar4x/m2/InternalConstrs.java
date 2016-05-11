@@ -75,6 +75,7 @@ public interface InternalConstrs extends M2Object {
 	 * @see #setLowerLimit(Limit)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getInternalConstrs_LowerLimit()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='LOWER-LIMIT'"
 	 * @generated
 	 */
 	Limit getLowerLimit();
@@ -101,6 +102,7 @@ public interface InternalConstrs extends M2Object {
 	 * @see #setUpperLimit(Limit)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getInternalConstrs_UpperLimit()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='UPPER-LIMIT'"
 	 * @generated
 	 */
 	Limit getUpperLimit();

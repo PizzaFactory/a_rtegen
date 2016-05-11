@@ -78,6 +78,7 @@ public interface TimingEvent extends RteEvent {
 	 * @see #setPeriod(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getTimingEvent_Period()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue"
+	 *        annotation="tags xml.name='PERIOD'"
 	 * @generated
 	 */
 	BigDecimal getPeriod();

@@ -75,6 +75,7 @@ public interface Identifiable extends Referrable {
 	 * @see #setCategory(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getIdentifiable_Category()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CategoryString"
+	 *        annotation="tags xml.name='CATEGORY'"
 	 * @generated
 	 */
 	String getCategory();

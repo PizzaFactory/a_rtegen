@@ -76,6 +76,7 @@ public interface NumericalValueSpecification extends ValueSpecification {
 	 * @see #setValue(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getNumericalValueSpecification_Value()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Numerical" required="true"
+	 *        annotation="tags xml.name='VALUE'"
 	 * @generated
 	 */
 	BigDecimal getValue();

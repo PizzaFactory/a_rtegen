@@ -77,6 +77,7 @@ public interface SenderReceiverToSignalMapping extends DataMapping {
 	 * @see #setSystemSignal(SystemSignal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalMapping_SystemSignal()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SYSTEM-SIGNAL-REF'"
 	 * @generated
 	 */
 	SystemSignal getSystemSignal();
@@ -103,6 +104,7 @@ public interface SenderReceiverToSignalMapping extends DataMapping {
 	 * @see #setDataElementIref(VariableDataPrototypeInSystemInstanceRef)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalMapping_DataElementIref()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='DATA-ELEMENT-IREF'"
 	 * @generated
 	 */
 	VariableDataPrototypeInSystemInstanceRef getDataElementIref();

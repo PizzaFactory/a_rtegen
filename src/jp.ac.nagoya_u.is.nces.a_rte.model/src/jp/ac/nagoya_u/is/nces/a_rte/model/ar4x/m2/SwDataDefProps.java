@@ -136,7 +136,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwImplPolicyEnum
 	 * @see #setSwImplPolicy(SwImplPolicyEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_SwImplPolicy()
-	 * @model
+	 * @model annotation="tags xml.name='SW-IMPL-POLICY'"
 	 * @generated
 	 */
 	SwImplPolicyEnum getSwImplPolicy();
@@ -163,7 +163,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @return the value of the '<em>Sw Addr Method</em>' reference.
 	 * @see #setSwAddrMethod(SwAddrMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_SwAddrMethod()
-	 * @model
+	 * @model annotation="tags xml.name='SW-ADDR-METHOD-REF'"
 	 * @generated
 	 */
 	SwAddrMethod getSwAddrMethod();
@@ -190,6 +190,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @see #setSwAlignment(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_SwAlignment()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AlignmentType"
+	 *        annotation="tags xml.name='SW-ALIGNMENT'"
 	 * @generated
 	 */
 	String getSwAlignment();
@@ -215,7 +216,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @return the value of the '<em>Compu Method</em>' reference.
 	 * @see #setCompuMethod(CompuMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_CompuMethod()
-	 * @model
+	 * @model annotation="tags xml.name='COMPU-METHOD-REF'"
 	 * @generated
 	 */
 	CompuMethod getCompuMethod();
@@ -241,7 +242,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @return the value of the '<em>Data Constr</em>' reference.
 	 * @see #setDataConstr(DataConstr)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_DataConstr()
-	 * @model
+	 * @model annotation="tags xml.name='DATA-CONSTR-REF'"
 	 * @generated
 	 */
 	DataConstr getDataConstr();
@@ -267,7 +268,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @return the value of the '<em>Implementation Data Type</em>' reference.
 	 * @see #setImplementationDataType(ImplementationDataType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_ImplementationDataType()
-	 * @model
+	 * @model annotation="tags xml.name='IMPLEMENTATION-DATA-TYPE-REF'"
 	 * @generated
 	 */
 	ImplementationDataType getImplementationDataType();
@@ -294,6 +295,7 @@ public interface SwDataDefProps extends M2Object {
 	 * @see #setSwPointerTargetProps(SwPointerTargetProps)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwDataDefProps_SwPointerTargetProps()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='SW-POINTER-TARGET-PROPS'"
 	 * @generated
 	 */
 	SwPointerTargetProps getSwPointerTargetProps();

@@ -79,7 +79,7 @@ public interface AtomicSwComponentType extends SwComponentType {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAtomicSwComponentType_InternalBehavior()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwcInternalBehavior#getParent
 	 * @model opposite="parent" containment="true"
-	 *        annotation="tags xml.roleWrapperElement='true'"
+	 *        annotation="tags xml.roleWrapperElement='true' xml.name='SWC-INTERNAL-BEHAVIOR'"
 	 * @generated
 	 */
 	SwcInternalBehavior getInternalBehavior();

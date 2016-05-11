@@ -76,6 +76,7 @@ public interface IncludedDataTypeSet extends M2Object {
 	 * @see #setLiteralPrefix(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getIncludedDataTypeSet_LiteralPrefix()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Identifier"
+	 *        annotation="tags xml.name='LITERAL-PREFIX'"
 	 * @generated
 	 */
 	String getLiteralPrefix();
@@ -102,6 +103,7 @@ public interface IncludedDataTypeSet extends M2Object {
 	 * @return the value of the '<em>Data Type</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getIncludedDataTypeSet_DataType()
 	 * @model required="true"
+	 *        annotation="tags xml.namePlural='DATA-TYPE-REFS' xml.name='DATA-TYPE-REF'"
 	 * @generated
 	 */
 	EList<AutosarDataType> getDataType();

@@ -75,7 +75,7 @@ public interface AnyInstanceRef extends M2Object, IInstanceRef {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Context Element</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAnyInstanceRef_ContextElement()
-	 * @model annotation="tags xml.roleWrapperElement='false'"
+	 * @model annotation="tags xml.roleWrapperElement='false' xml.name='CONTEXT-ELEMENT-REF'"
 	 * @generated
 	 */
 	EList<Identifiable> getContextElement();

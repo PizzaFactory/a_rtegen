@@ -84,6 +84,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setDataFilterType(DataFilterTypeEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_DataFilterType()
 	 * @model required="true"
+	 *        annotation="tags xml.name='DATA-FILTER-TYPE'"
 	 * @generated
 	 */
 	DataFilterTypeEnum getDataFilterType();
@@ -111,6 +112,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setMask(BigInteger)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_Mask()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.UnlimitedInteger"
+	 *        annotation="tags xml.name='MASK'"
 	 * @generated
 	 */
 	BigInteger getMask();
@@ -137,6 +139,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setMax(BigInteger)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_Max()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.UnlimitedInteger"
+	 *        annotation="tags xml.name='MAX'"
 	 * @generated
 	 */
 	BigInteger getMax();
@@ -163,6 +166,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setMin(BigInteger)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_Min()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.UnlimitedInteger"
+	 *        annotation="tags xml.name='MIN'"
 	 * @generated
 	 */
 	BigInteger getMin();
@@ -189,6 +193,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setOffset(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_Offset()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger"
+	 *        annotation="tags xml.name='OFFSET'"
 	 * @generated
 	 */
 	Integer getOffset();
@@ -215,6 +220,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setPeriod(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_Period()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger"
+	 *        annotation="tags xml.name='PERIOD'"
 	 * @generated
 	 */
 	Integer getPeriod();
@@ -241,6 +247,7 @@ public interface DataFilter extends M2Object {
 	 * @see #setX(BigInteger)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataFilter_X()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.UnlimitedInteger"
+	 *        annotation="tags xml.name='X'"
 	 * @generated
 	 */
 	BigInteger getX();

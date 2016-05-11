@@ -75,6 +75,7 @@ public interface SwcBswRunnableMapping extends M2Object {
 	 * @see #setSwcRunnable(RunnableEntity)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcBswRunnableMapping_SwcRunnable()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SWC-RUNNABLE-REF'"
 	 * @generated
 	 */
 	RunnableEntity getSwcRunnable();
@@ -101,6 +102,7 @@ public interface SwcBswRunnableMapping extends M2Object {
 	 * @see #setBswEntity(BswModuleEntity)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcBswRunnableMapping_BswEntity()
 	 * @model required="true"
+	 *        annotation="tags xml.name='BSW-ENTITY-REF'"
 	 * @generated
 	 */
 	BswModuleEntity getBswEntity();

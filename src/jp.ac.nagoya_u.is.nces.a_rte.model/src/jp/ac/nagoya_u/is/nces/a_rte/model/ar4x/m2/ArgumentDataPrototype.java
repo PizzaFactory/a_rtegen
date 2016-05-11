@@ -76,6 +76,7 @@ public interface ArgumentDataPrototype extends AutosarDataPrototype {
 	 * @see #setDirection(ArgumentDirectionEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getArgumentDataPrototype_Direction()
 	 * @model required="true"
+	 *        annotation="tags xml.name='DIRECTION'"
 	 * @generated
 	 */
 	ArgumentDirectionEnum getDirection();

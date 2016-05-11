@@ -76,7 +76,7 @@ public interface EcucValueCollection extends ArElement {
 	 * @return the value of the '<em>Ecuc Value</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucValueCollection_EcucValue()
 	 * @model required="true"
-	 *        annotation="tags xml.name='ECUC-MODULE-CONFIGURATION-VALUES-REF' xml.namePlural='ECUC-VALUES'"
+	 *        annotation="tags xml.name='ECUC-VALUE' xml.namePlural='ECUC-VALUES'"
 	 * @generated
 	 */
 	EList<EcucModuleConfigurationValues> getEcucValue();
@@ -93,6 +93,7 @@ public interface EcucValueCollection extends ArElement {
 	 * @see #setEcuExtract(jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucValueCollection_EcuExtract()
 	 * @model required="true"
+	 *        annotation="tags xml.name='ECU-EXTRACT-REF'"
 	 * @generated
 	 */
 	jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.System getEcuExtract();

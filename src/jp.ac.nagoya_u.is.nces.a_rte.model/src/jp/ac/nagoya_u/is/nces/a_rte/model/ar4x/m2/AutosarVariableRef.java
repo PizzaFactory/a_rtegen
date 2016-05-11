@@ -78,6 +78,7 @@ public interface AutosarVariableRef extends M2Object {
 	 * @see #setAutosarVariableIref(VariableInAtomicSwcTypeInstanceRef)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarVariableRef_AutosarVariableIref()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='AUTOSAR-VARIABLE-IREF'"
 	 * @generated
 	 */
 	VariableInAtomicSwcTypeInstanceRef getAutosarVariableIref();
@@ -103,7 +104,7 @@ public interface AutosarVariableRef extends M2Object {
 	 * @return the value of the '<em>Autosar Variable</em>' reference.
 	 * @see #setAutosarVariable(VariableDataInstanceInSwc)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarVariableRef_AutosarVariable()
-	 * @model
+	 * @model annotation="tags xml.name='AUTOSAR-VARIABLE-REF'"
 	 * @generated
 	 */
 	VariableDataInstanceInSwc getAutosarVariable();
@@ -129,7 +130,7 @@ public interface AutosarVariableRef extends M2Object {
 	 * @return the value of the '<em>Local Variable</em>' reference.
 	 * @see #setLocalVariable(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarVariableRef_LocalVariable()
-	 * @model
+	 * @model annotation="tags xml.name='LOCAL-VARIABLE-REF'"
 	 * @generated
 	 */
 	VariableDataPrototype getLocalVariable();

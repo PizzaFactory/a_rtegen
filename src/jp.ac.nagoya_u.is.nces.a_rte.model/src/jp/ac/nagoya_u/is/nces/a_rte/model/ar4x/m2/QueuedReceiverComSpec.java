@@ -74,6 +74,7 @@ public interface QueuedReceiverComSpec extends ReceiverComSpec {
 	 * @see #setQueueLength(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getQueuedReceiverComSpec_QueueLength()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger" required="true"
+	 *        annotation="tags xml.name='QUEUE-LENGTH'"
 	 * @generated
 	 */
 	Integer getQueueLength();

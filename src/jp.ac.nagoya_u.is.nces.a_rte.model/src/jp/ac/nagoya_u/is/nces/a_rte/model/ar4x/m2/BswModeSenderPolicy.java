@@ -76,6 +76,7 @@ public interface BswModeSenderPolicy extends M2Object {
 	 * @see #setProvidedModeGroup(ModeDeclarationGroupPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModeSenderPolicy_ProvidedModeGroup()
 	 * @model required="true"
+	 *        annotation="tags xml.name='PROVIDED-MODE-GROUP-REF'"
 	 * @generated
 	 */
 	ModeDeclarationGroupPrototype getProvidedModeGroup();
@@ -102,6 +103,7 @@ public interface BswModeSenderPolicy extends M2Object {
 	 * @see #setQueueLength(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModeSenderPolicy_QueueLength()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger" required="true"
+	 *        annotation="tags xml.name='QUEUE-LENGTH'"
 	 * @generated
 	 */
 	Integer getQueueLength();

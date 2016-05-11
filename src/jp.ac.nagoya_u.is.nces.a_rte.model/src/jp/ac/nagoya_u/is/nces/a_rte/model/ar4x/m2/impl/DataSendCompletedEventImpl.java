@@ -48,14 +48,10 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.VariableDataInstanceInSw
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.DataSendCompletedEvent;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VariableAccess;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -82,16 +78,6 @@ public class DataSendCompletedEventImpl extends RteEventImpl implements DataSend
 	 * @ordered
 	 */
 	protected VariableAccess eventSource;
-
-	/**
-	 * The cached setting delegate for the '{@link #getEventSourceData() <em>Event Source Data</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEventSourceData()
-	 * @generated
-	 * @ordered
-	 */
-	protected EStructuralFeature.Internal.SettingDelegate EVENT_SOURCE_DATA__ESETTING_DELEGATE = ((EStructuralFeature.Internal)M2Package.Literals.DATA_SEND_COMPLETED_EVENT__EVENT_SOURCE_DATA).getSettingDelegate();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -156,7 +142,9 @@ public class DataSendCompletedEventImpl extends RteEventImpl implements DataSend
 	 * @generated
 	 */
 	public VariableDataInstanceInSwc getEventSourceData() {
-		return (VariableDataInstanceInSwc)EVENT_SOURCE_DATA__ESETTING_DELEGATE.dynamicGet(this, null, 0, true, false);
+		// TODO: implement this method to return the 'Event Source Data' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -217,7 +205,7 @@ public class DataSendCompletedEventImpl extends RteEventImpl implements DataSend
 			case M2Package.DATA_SEND_COMPLETED_EVENT__EVENT_SOURCE:
 				return eventSource != null;
 			case M2Package.DATA_SEND_COMPLETED_EVENT__EVENT_SOURCE_DATA:
-				return EVENT_SOURCE_DATA__ESETTING_DELEGATE.dynamicIsSet(this, null, 0);
+				return getEventSourceData() != null;
 		}
 		return super.eIsSet(featureID);
 	}

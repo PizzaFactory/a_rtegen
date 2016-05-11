@@ -80,6 +80,7 @@ public interface BswModuleDescription extends ArElement {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_InternalBehavior()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='INTERNAL-BEHAVIOR'"
 	 * @generated
 	 */
 	EList<BswInternalBehavior> getInternalBehavior();
@@ -95,7 +96,7 @@ public interface BswModuleDescription extends ArElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Entry</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_ProvidedEntry()
-	 * @model
+	 * @model annotation="tags xml.name='PROVIDED-ENTRY' xml.namePlural='PROVIDED-ENTRYS'"
 	 * @generated
 	 */
 	EList<BswModuleEntry> getProvidedEntry();
@@ -112,6 +113,7 @@ public interface BswModuleDescription extends ArElement {
 	 * @return the value of the '<em>Provided Mode Group</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_ProvidedModeGroup()
 	 * @model containment="true" ordered="false"
+	 *        annotation="tags xml.name='PROVIDED-MODE-GROUP' xml.namePlural='PROVIDED-MODE-GROUPS'"
 	 * @generated
 	 */
 	EList<ModeDeclarationGroupPrototype> getProvidedModeGroup();
@@ -128,6 +130,7 @@ public interface BswModuleDescription extends ArElement {
 	 * @return the value of the '<em>Required Mode Group</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleDescription_RequiredModeGroup()
 	 * @model containment="true" ordered="false"
+	 *        annotation="tags xml.name='REQUIRED-MODE-GROUP' xml.namePlural='REQUIRED-MODE-GROUPS'"
 	 * @generated
 	 */
 	EList<ModeDeclarationGroupPrototype> getRequiredModeGroup();

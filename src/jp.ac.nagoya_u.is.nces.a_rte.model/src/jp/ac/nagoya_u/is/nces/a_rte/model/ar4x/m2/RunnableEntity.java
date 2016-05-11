@@ -82,6 +82,7 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @return the value of the '<em>Data Send Point</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_DataSendPoint()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='DATA-SEND-POINT' xml.namePlural='DATA-SEND-POINTS'"
 	 * @generated
 	 */
 	EList<VariableAccess> getDataSendPoint();
@@ -98,6 +99,7 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @return the value of the '<em>Data Receive Point By Argument</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_DataReceivePointByArgument()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='DATA-RECEIVE-POINT-BY-ARGUMENT' xml.namePlural='DATA-RECEIVE-POINT-BY-ARGUMENTS'"
 	 * @generated
 	 */
 	EList<VariableAccess> getDataReceivePointByArgument();
@@ -114,6 +116,7 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @see #setSymbol(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_Symbol()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CIdentifier"
+	 *        annotation="tags xml.name='SYMBOL'"
 	 * @generated
 	 */
 	String getSymbol();
@@ -140,6 +143,7 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @return the value of the '<em>Written Local Variable</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_WrittenLocalVariable()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='WRITTEN-LOCAL-VARIABLE' xml.namePlural='WRITTEN-LOCAL-VARIABLES'"
 	 * @generated
 	 */
 	EList<VariableAccess> getWrittenLocalVariable();
@@ -156,6 +160,7 @@ public interface RunnableEntity extends ExecutableEntity {
 	 * @return the value of the '<em>Read Local Variable</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRunnableEntity_ReadLocalVariable()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='READ-LOCAL-VARIABLE' xml.namePlural='READ-LOCAL-VARIABLES'"
 	 * @generated
 	 */
 	EList<VariableAccess> getReadLocalVariable();

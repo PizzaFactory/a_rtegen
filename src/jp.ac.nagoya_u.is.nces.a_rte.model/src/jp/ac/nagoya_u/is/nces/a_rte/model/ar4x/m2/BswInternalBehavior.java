@@ -110,6 +110,7 @@ public interface BswInternalBehavior extends InternalBehavior {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_Entity()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswModuleEntity#getParent
 	 * @model opposite="parent" containment="true" required="true"
+	 *        annotation="tags xml.name='ENTITY' xml.namePlural='ENTITYS'"
 	 * @generated
 	 */
 	EList<BswModuleEntity> getEntity();
@@ -128,6 +129,7 @@ public interface BswInternalBehavior extends InternalBehavior {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_Event()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='EVENT' xml.namePlural='EVENTS'"
 	 * @generated
 	 */
 	EList<BswEvent> getEvent();
@@ -146,6 +148,7 @@ public interface BswInternalBehavior extends InternalBehavior {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_Implementation()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswImplementation#getBehavior
 	 * @model opposite="behavior"
+	 *        annotation="tags xml.name='BSW-TRIGGER-DIRECT-IMPLEMENTATION' xml.namePlural='BSW-TRIGGER-DIRECT-IMPLEMENTATIONS'"
 	 * @generated
 	 */
 	EList<BswImplementation> getImplementation();
@@ -162,6 +165,7 @@ public interface BswInternalBehavior extends InternalBehavior {
 	 * @return the value of the '<em>Mode Sender Policy</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInternalBehavior_ModeSenderPolicy()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='BSW-MODE-SENDER-POLICY'"
 	 * @generated
 	 */
 	EList<BswModeSenderPolicy> getModeSenderPolicy();

@@ -76,6 +76,7 @@ public interface ArPackage extends Identifiable {
 	 * @return the value of the '<em>Element</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getArPackage_Element()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='ELEMENTS' xml.namePlural='ELEMENTS'"
 	 * @generated
 	 */
 	EList<ArElement> getElement();
@@ -92,6 +93,7 @@ public interface ArPackage extends Identifiable {
 	 * @return the value of the '<em>Ar Package</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getArPackage_ArPackage()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='AR-PACKAGE' xml.namePlural='AR-PACKAGES'"
 	 * @generated
 	 */
 	EList<ArPackage> getArPackage();

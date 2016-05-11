@@ -76,6 +76,7 @@ public interface CompositionSwComponentType extends SwComponentType {
 	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompositionSwComponentType_Component()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='COMPONENTS'"
 	 * @generated
 	 */
 	EList<SwComponentPrototype> getComponent();
@@ -92,6 +93,7 @@ public interface CompositionSwComponentType extends SwComponentType {
 	 * @return the value of the '<em>Connector</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompositionSwComponentType_Connector()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='CONNECTORS'"
 	 * @generated
 	 */
 	EList<SwConnector> getConnector();

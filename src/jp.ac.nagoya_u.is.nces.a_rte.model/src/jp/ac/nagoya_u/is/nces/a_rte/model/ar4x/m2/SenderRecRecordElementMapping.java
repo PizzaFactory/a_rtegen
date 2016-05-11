@@ -75,7 +75,7 @@ public interface SenderRecRecordElementMapping extends M2Object {
 	 * @return the value of the '<em>Implementation Record Element</em>' reference.
 	 * @see #setImplementationRecordElement(ImplementationDataTypeElement)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecRecordElementMapping_ImplementationRecordElement()
-	 * @model
+	 * @model annotation="tags xml.name='IMPLEMENTATION-RECORD-ELEMENT-REF'"
 	 * @generated
 	 */
 	ImplementationDataTypeElement getImplementationRecordElement();
@@ -102,6 +102,7 @@ public interface SenderRecRecordElementMapping extends M2Object {
 	 * @see #setComplexTypeMapping(SenderRecCompositeTypeMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecRecordElementMapping_ComplexTypeMapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='COMPLEX-TYPE-MAPPING'"
 	 * @generated
 	 */
 	SenderRecCompositeTypeMapping getComplexTypeMapping();
@@ -127,7 +128,7 @@ public interface SenderRecRecordElementMapping extends M2Object {
 	 * @return the value of the '<em>System Signal</em>' reference.
 	 * @see #setSystemSignal(SystemSignal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecRecordElementMapping_SystemSignal()
-	 * @model
+	 * @model annotation="tags xml.name='SYSTEM-SIGNAL-REF'"
 	 * @generated
 	 */
 	SystemSignal getSystemSignal();

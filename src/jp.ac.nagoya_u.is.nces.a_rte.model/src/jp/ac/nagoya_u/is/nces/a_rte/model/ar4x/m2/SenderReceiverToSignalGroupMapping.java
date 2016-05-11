@@ -78,6 +78,7 @@ public interface SenderReceiverToSignalGroupMapping extends DataMapping {
 	 * @see #setSignalGroup(SystemSignalGroup)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalGroupMapping_SignalGroup()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SIGNAL-GROUP-REF'"
 	 * @generated
 	 */
 	SystemSignalGroup getSignalGroup();
@@ -104,6 +105,7 @@ public interface SenderReceiverToSignalGroupMapping extends DataMapping {
 	 * @see #setDataElementIref(VariableDataPrototypeInSystemInstanceRef)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalGroupMapping_DataElementIref()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='DATA-ELEMENT-IREF'"
 	 * @generated
 	 */
 	VariableDataPrototypeInSystemInstanceRef getDataElementIref();
@@ -130,6 +132,7 @@ public interface SenderReceiverToSignalGroupMapping extends DataMapping {
 	 * @see #setDataElement(VariableDataInstance)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalGroupMapping_DataElement()
 	 * @model required="true"
+	 *        annotation="tags xml.name='ECUC-MODULE-CONFIGURATION-VALUES-REF' xml.namePlural='ECUC-VALUES'"
 	 * @generated
 	 */
 	VariableDataInstance getDataElement();
@@ -156,6 +159,7 @@ public interface SenderReceiverToSignalGroupMapping extends DataMapping {
 	 * @see #setTypeMapping(SenderRecCompositeTypeMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverToSignalGroupMapping_TypeMapping()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='ECUC-MODULE-CONFIGURATION-VALUES-REF' xml.namePlural='ECUC-VALUES'"
 	 * @generated
 	 */
 	SenderRecCompositeTypeMapping getTypeMapping();
