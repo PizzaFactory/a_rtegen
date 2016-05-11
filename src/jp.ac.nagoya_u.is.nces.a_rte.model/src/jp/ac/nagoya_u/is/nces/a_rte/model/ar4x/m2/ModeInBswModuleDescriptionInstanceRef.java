@@ -75,6 +75,7 @@ public interface ModeInBswModuleDescriptionInstanceRef extends M2Object, IInstan
 	 * @see #setContextModeDeclarationGroup(ModeDeclarationGroupPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-MODE-DECLARATION-GROUP-REF'"
 	 * @generated
 	 */
 	ModeDeclarationGroupPrototype getContextModeDeclarationGroup();
@@ -101,6 +102,7 @@ public interface ModeInBswModuleDescriptionInstanceRef extends M2Object, IInstan
 	 * @see #setTargetMode(ModeDeclaration)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeInBswModuleDescriptionInstanceRef_TargetMode()
 	 * @model required="true"
+	 *        annotation="tags xml.name='TARGET-MODE-REF'"
 	 * @generated
 	 */
 	ModeDeclaration getTargetMode();

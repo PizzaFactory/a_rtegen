@@ -76,6 +76,7 @@ public interface BswImplementation extends Implementation {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswImplementation_Behavior()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswInternalBehavior#getImplementation
 	 * @model opposite="implementation" required="true"
+	 *        annotation="tags xml.name='BEHAVIOR-REF'"
 	 * @generated
 	 */
 	BswInternalBehavior getBehavior();

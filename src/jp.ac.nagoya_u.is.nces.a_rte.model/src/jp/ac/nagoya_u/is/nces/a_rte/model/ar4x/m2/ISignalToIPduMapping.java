@@ -74,7 +74,7 @@ public interface ISignalToIPduMapping extends Identifiable {
 	 * @return the value of the '<em>ISignal</em>' reference.
 	 * @see #setISignal(ISignal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalToIPduMapping_ISignal()
-	 * @model
+	 * @model annotation="tags xml.name='I-SIGNAL-REF'"
 	 * @generated
 	 */
 	ISignal getISignal();
@@ -100,7 +100,7 @@ public interface ISignalToIPduMapping extends Identifiable {
 	 * @return the value of the '<em>ISignal Group</em>' reference.
 	 * @see #setISignalGroup(ISignalGroup)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalToIPduMapping_ISignalGroup()
-	 * @model
+	 * @model annotation="tags xml.name='ISIGNAL-GROUP-REF'"
 	 * @generated
 	 */
 	ISignalGroup getISignalGroup();

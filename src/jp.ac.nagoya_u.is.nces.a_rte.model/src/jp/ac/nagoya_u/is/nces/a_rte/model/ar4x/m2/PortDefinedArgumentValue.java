@@ -76,6 +76,7 @@ public interface PortDefinedArgumentValue extends M2Object {
 	 * @see #setValue(ValueSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortDefinedArgumentValue_Value()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='VALUE'"
 	 * @generated
 	 */
 	ValueSpecification getValue();
@@ -103,6 +104,7 @@ public interface PortDefinedArgumentValue extends M2Object {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortDefinedArgumentValue_ValueType()
 	 * @model required="true"
 	 *        annotation="stereotypes isOfType='true'"
+	 *        annotation="tags xml.name='VALUE-TYPE-TREF'"
 	 * @generated
 	 */
 	ImplementationDataType getValueType();

@@ -74,6 +74,7 @@ public interface ReceiverComSpec extends RPortComSpec {
 	 * @see #setDataElement(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getReceiverComSpec_DataElement()
 	 * @model required="true"
+	 *        annotation="tags xml.name='DATA-ELEMENT-REF'"
 	 * @generated
 	 */
 	VariableDataPrototype getDataElement();

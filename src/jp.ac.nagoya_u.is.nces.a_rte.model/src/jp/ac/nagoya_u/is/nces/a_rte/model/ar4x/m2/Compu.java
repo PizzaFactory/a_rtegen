@@ -75,6 +75,7 @@ public interface Compu extends M2Object {
 	 * @return the value of the '<em>Compu Scale</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompu_CompuScale()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='COMPU-SCALE' xml.namePlural='COMPU-SCALES'"
 	 * @generated
 	 */
 	EList<CompuScale> getCompuScale();

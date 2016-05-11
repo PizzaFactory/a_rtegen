@@ -82,6 +82,7 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_Runnable()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getParent
 	 * @model opposite="parent" containment="true" required="true"
+	 *        annotation="tags xml.name='RUNNABLE-ENTITY' xml.namePlural='RUNNABLES'"
 	 * @generated
 	 */
 	EList<RunnableEntity> getRunnable();
@@ -114,6 +115,7 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @return the value of the '<em>Port Api Option</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_PortApiOption()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='PORT-API-OPTION' xml.namePlural='PORT-API-OPTIONS'"
 	 * @generated
 	 */
 	EList<PortApiOption> getPortApiOption();
@@ -130,6 +132,7 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @return the value of the '<em>Included Data Type Set</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_IncludedDataTypeSet()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='INCLUDED-DATA-TYPE-SET' xml.namePlural='INCLUDED-DATA-TYPE-SETS'"
 	 * @generated
 	 */
 	EList<IncludedDataTypeSet> getIncludedDataTypeSet();
@@ -148,6 +151,7 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_Parent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.AtomicSwComponentType#getInternalBehavior
 	 * @model opposite="internalBehavior" required="true" transient="false" derived="true"
+	 *        annotation="tags xml.name='ATOMIC-SW-COMPONENT-TYPE'"
 	 * @generated
 	 */
 	AtomicSwComponentType getParent();
@@ -174,6 +178,7 @@ public interface SwcInternalBehavior extends Identifiable, InternalBehavior {
 	 * @return the value of the '<em>Explicit Inter Runnable Variable</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcInternalBehavior_ExplicitInterRunnableVariable()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='EXPLICIT-INTER-RUNNABLE-VARIABLE' xml.namePlural='EXPLICIT-INTER-RUNNABLE-VARIABLES'"
 	 * @generated
 	 */
 	EList<VariableDataPrototype> getExplicitInterRunnableVariable();

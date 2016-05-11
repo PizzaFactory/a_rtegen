@@ -79,6 +79,7 @@ public interface BswModuleEntity extends ExecutableEntity {
 	 * @see #setImplementedEntry(BswModuleEntry)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntity_ImplementedEntry()
 	 * @model required="true"
+	 *        annotation="tags xml.name='IMPLEMENTED-ENTRY-REF'"
 	 * @generated
 	 */
 	BswModuleEntry getImplementedEntry();
@@ -132,7 +133,7 @@ public interface BswModuleEntity extends ExecutableEntity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Accessed Mode Group</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntity_AccessedModeGroup()
-	 * @model annotation="tags xml.namePlural='ACCESSED-MODE-GROUPS' xml.name='MODE-DECLARATION-GROUP-PROTOTYPE-REF'"
+	 * @model annotation="tags xml.namePlural='ACCESSED-MODE-GROUPS' xml.name='ACCESSED-MODE-GROUP'"
 	 * @generated
 	 */
 	EList<ModeDeclarationGroupPrototype> getAccessedModeGroup();
@@ -148,7 +149,7 @@ public interface BswModuleEntity extends ExecutableEntity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Managed Mode Group</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModuleEntity_ManagedModeGroup()
-	 * @model annotation="tags xml.namePlural='MANAGED-MODE-GROUPS' xml.name='MODE-DECLARATION-GROUP-PROTOTYPE-REF'"
+	 * @model annotation="tags xml.namePlural='MANAGED-MODE-GROUPS' xml.name='MANAGED-MODE-GROUP'"
 	 * @generated
 	 */
 	EList<ModeDeclarationGroupPrototype> getManagedModeGroup();

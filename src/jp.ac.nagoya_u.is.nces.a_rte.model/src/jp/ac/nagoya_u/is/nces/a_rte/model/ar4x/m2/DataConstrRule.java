@@ -74,6 +74,7 @@ public interface DataConstrRule extends M2Object {
 	 * @see #setInternalConstrs(InternalConstrs)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataConstrRule_InternalConstrs()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='INTERNAL-CONSTRS'"
 	 * @generated
 	 */
 	InternalConstrs getInternalConstrs();

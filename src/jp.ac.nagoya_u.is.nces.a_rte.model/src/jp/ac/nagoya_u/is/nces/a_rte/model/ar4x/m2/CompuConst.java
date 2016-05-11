@@ -74,6 +74,7 @@ public interface CompuConst extends M2Object {
 	 * @see #setVt(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuConst_Vt()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VerbatimString"
+	 *        annotation="tags xml.name='VT'"
 	 * @generated
 	 */
 	String getVt();

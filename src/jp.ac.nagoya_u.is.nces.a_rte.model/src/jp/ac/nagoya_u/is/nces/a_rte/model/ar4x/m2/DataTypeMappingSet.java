@@ -76,6 +76,7 @@ public interface DataTypeMappingSet extends ArElement {
 	 * @return the value of the '<em>Data Type Map</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataTypeMappingSet_DataTypeMap()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='DATA-TYPE-MAP' xml.namePlural='DATA-TYPE-MAPS'"
 	 * @generated
 	 */
 	EList<DataTypeMap> getDataTypeMap();
@@ -92,6 +93,7 @@ public interface DataTypeMappingSet extends ArElement {
 	 * @return the value of the '<em>Mode Request Type Map</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataTypeMappingSet_ModeRequestTypeMap()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='MODE-REQUEST-TYPE-MAP' xml.namePlural='MODE-REQUEST-TYPE-MAPS'"
 	 * @generated
 	 */
 	EList<ModeRequestTypeMap> getModeRequestTypeMap();

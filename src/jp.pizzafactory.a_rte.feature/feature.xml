@@ -159,14 +159,14 @@ com.google.guava is licensed under APL2.
          unpack="false"/>
 
    <plugin
-         id="jp.pizzafactory.a_rte.model.edit"
+         id="jp.ac.nagoya_u.is.nces.a_rte.model.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="jp.pizzafactory.a_rte.model.editor"
+         id="jp.ac.nagoya_u.is.nces.a_rte.model.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
