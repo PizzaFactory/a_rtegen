@@ -2618,6 +2618,12 @@
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/RteInitializationStrategyEnum/RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"/>
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/RteInitializationStrategyEnum/RTE_INITIALIZATION_STRATEGY_NONE"/>
       </genEnums>
+      <genClasses ecoreClass="ar4x.ecore#//ecuc/DocumentRoot">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//ecuc/DocumentRoot/mixed"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ar4x.ecore#//ecuc/DocumentRoot/xMLNSPrefixMap"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ar4x.ecore#//ecuc/DocumentRoot/xSISchemaLocation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ar4x.ecore#//ecuc/DocumentRoot/ecucRoot"/>
+      </genClasses>
       <genClasses ecoreClass="ar4x.ecore#//ecuc/EcucObject"/>
       <genClasses ecoreClass="ar4x.ecore#//ecuc/EcucReferrable">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ar4x.ecore#//ecuc/EcucReferrable/id"/>

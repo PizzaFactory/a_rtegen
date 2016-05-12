@@ -1296,22 +1296,100 @@
       <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
       <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="EcucObject" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EcucReferrable" abstract="true" eSuperTypes="#//ecuc/EcucObject">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//m2/String"
-          derived="true" iD="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" lowerBound="1"
+    <eClassifiers
+        xsi:type="ecore:EClass"
+        name="DocumentRoot">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="name" value=""/>
+        <details key="kind" value="mixed"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="elementWildcard"/>
+          <details key="name" value=":mixed"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="attribute"/>
+          <details key="name" value="xmlns:prefix"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="attribute"/>
+          <details key="name" value="xsi:schemaLocation"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures
+          xsi:type="ecore:EReference"
+          name="ecucRoot"
+          lowerBound="1"
+          eType="#//ecuc/EcucRoot"
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ARteEcuConfiguration"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers
+        xsi:type="ecore:EClass"
+        name="EcucObject"
+        abstract="true"/>
+    <eClassifiers
+        xsi:type="ecore:EClass"
+        name="EcucReferrable"
+        abstract="true"
+        eSuperTypes="#//ecuc/EcucObject">
+      <eStructuralFeatures
+          xsi:type="ecore:EAttribute"
+          name="id"
+          lowerBound="1"
+          eType="#//m2/String"
+          derived="true"
+          iD="true"/>
+      <eStructuralFeatures
+          xsi:type="ecore:EAttribute"
+          name="shortName"
+          lowerBound="1"
           eType="#//m2/Identifier">
         <eAnnotations source="stereotypes">
           <details key="nonEcuc" value="true"/>
         </eAnnotations>
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ShortName"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" lowerBound="1"
-          eType="#//m2/Ref" transient="true" derived="true"/>
+          eType="#//m2/Ref" transient="true" derived="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Reference"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
           eType="#//m2/Identifiable">
         <eAnnotations source="stereotypes">
           <details key="nonEcuc" value="true"/>
+        </eAnnotations>
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Source"/>
+          <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -1326,70 +1404,266 @@
     <eClassifiers xsi:type="ecore:EClass" name="EcucContainer" abstract="true" eSuperTypes="#//ecuc/EcucReferrable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Rte" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteGeneration" lowerBound="1"
-          eType="#//ecuc/RteGeneration" containment="true"/>
+          eType="#//ecuc/RteGeneration" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteGeneration"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswGeneral" lowerBound="1"
-          eType="#//ecuc/RteBswGeneral" containment="true"/>
+          eType="#//ecuc/RteBswGeneral" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswGeneral"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteSwComponentInstance"
-          upperBound="-1" eType="#//ecuc/RteSwComponentInstance" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteSwComponentInstance" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteSwComponentInstance"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteOsInteraction" lowerBound="1"
-          upperBound="-1" eType="#//ecuc/RteOsInteraction" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteOsInteraction" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteOsInteraction"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteInitializationBehavior"
           lowerBound="1" upperBound="-1" eType="#//ecuc/RteInitializationBehavior"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteInitializationBehavior"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswModuleInstance"
-          upperBound="-1" eType="#//ecuc/RteBswModuleInstance" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteBswModuleInstance" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswModuleInstance"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteGeneration" eSuperTypes="#//ecuc/EcucContainer"/>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswGeneral" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteUseComShadowSignalApi"
-          lowerBound="1" eType="#//m2/Boolean"/>
+          lowerBound="1" eType="#//m2/Boolean">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteUseComShadowSignalApi"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucRoot">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rte" eType="#//ecuc/Rte"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Rte"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="os" eType="#//ecuc/Os"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Os"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="com" eType="#//ecuc/Com"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Com"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecuC" eType="#//ecuc/EcuC"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="EcuC"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteSwComponentInstance" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteEventToTaskMapping"
-          upperBound="-1" eType="#//ecuc/RteEventToTaskMapping" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteEventToTaskMapping" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteEventToTaskMapping"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaImplementation"
-          upperBound="-1" eType="#//ecuc/RteExclusiveAreaImplementation" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteExclusiveAreaImplementation" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveAreaImplementation"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteSoftwareComponentInstance"
-          eType="#//m2/SwComponentPrototype"/>
+          eType="#//m2/SwComponentPrototype">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteSoftwareComponentInstance"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteEventToTaskMapping" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteEvent" lowerBound="1"
-          eType="#//m2/RteEvent" eOpposite="#//m2/RteEvent/config"/>
+          eType="#//m2/RteEvent" eOpposite="#//m2/RteEvent/config">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteActivationOffset"
-          eType="#//m2/TimeValue"/>
+          eType="#//m2/TimeValue">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteActivationOffset"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteMappedToTask" eType="#//ecuc/OsTask"
-          eOpposite="#//ecuc/OsTask/mappedRteEvent"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtePositionInTask" eType="#//m2/Integer"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsAlarm" eType="#//ecuc/OsAlarm"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsEvent" eType="#//ecuc/OsEvent"/>
+          eOpposite="#//ecuc/OsTask/mappedRteEvent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteMappedToTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtePositionInTask" eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RtePositionInTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsAlarm" eType="#//ecuc/OsAlarm">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteUsedOsAlarm"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsEvent" eType="#//ecuc/OsEvent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteUsedOsEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Os" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osTask" upperBound="-1"
-          eType="#//ecuc/OsTask" containment="true"/>
+          eType="#//ecuc/OsTask" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osEvent" upperBound="-1"
-          eType="#//ecuc/OsEvent" containment="true"/>
+          eType="#//ecuc/OsEvent" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osApplication" upperBound="-1"
-          eType="#//ecuc/OsApplication" containment="true"/>
+          eType="#//ecuc/OsApplication" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAlarm" upperBound="-1"
-          eType="#//ecuc/OsAlarm" containment="true"/>
+          eType="#//ecuc/OsAlarm" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsAlarm"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osResource" upperBound="-1"
-          eType="#//ecuc/OsResource" containment="true"/>
+          eType="#//ecuc/OsResource" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsResource"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osSpinlock" upperBound="-1"
-          eType="#//ecuc/OsSpinlock" containment="true"/>
+          eType="#//ecuc/OsSpinlock" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsSpinlock"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIoc" eType="#//ecuc/OsIoc"
-          containment="true"/>
+          containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIoc"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osOS" lowerBound="1"
-          eType="#//ecuc/OsOS" containment="true"/>
+          eType="#//ecuc/OsOS" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsOS"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="OsTaskScheduleEnum">
       <eLiterals name="FULL"/>
@@ -1397,35 +1671,118 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsTask" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskActivation" lowerBound="1"
-          eType="#//m2/PositiveInteger"/>
+          eType="#//m2/PositiveInteger">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTaskActivation"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskPriority" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTaskPriority"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskSchedule" lowerBound="1"
-          eType="#//ecuc/OsTaskScheduleEnum"/>
+          eType="#//ecuc/OsTaskScheduleEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTaskSchedule"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osTaskAccessingApplication"
           ordered="false" upperBound="-1" eType="#//ecuc/OsApplication">
         <eAnnotations source="tags">
           <details key="ecuc.definitionShortName" value="OsTaskAccessingApplication"/>
         </eAnnotations>
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTaskAccessingApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osTaskEvent" ordered="false"
-          upperBound="-1" eType="#//ecuc/OsEvent"/>
+          upperBound="-1" eType="#//ecuc/OsEvent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTaskEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappedRteEvent" upperBound="-1"
-          eType="#//ecuc/RteEventToTaskMapping" derived="true" eOpposite="#//ecuc/RteEventToTaskMapping/rteMappedToTask"/>
+          eType="#//ecuc/RteEventToTaskMapping" derived="true" eOpposite="#//ecuc/RteEventToTaskMapping/rteMappedToTask">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="MappedRteEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownerApplication" ordered="false"
-          upperBound="-1" eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppTask"/>
+          upperBound="-1" eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppTask">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OwnerApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappedRteBswEvent" upperBound="-1"
-          eType="#//ecuc/RteBswEventToTaskMapping" eOpposite="#//ecuc/RteBswEventToTaskMapping/rteBswMappedToTask"/>
+          eType="#//ecuc/RteBswEventToTaskMapping" eOpposite="#//ecuc/RteBswEventToTaskMapping/rteBswMappedToTask">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="MappedRteBswEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteExclusiveAreaImplementation" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExclusiveAreaImplMechanism"
-          eType="#//ecuc/RteExclusiveAreaImplMechanismEnum"/>
+          eType="#//ecuc/RteExclusiveAreaImplMechanismEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveAreaImplMechanism"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveArea" lowerBound="1"
-          eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/swcConfig"/>
+          eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/swcConfig">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveArea"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaOsResource"
-          eType="#//ecuc/OsResource"/>
+          eType="#//ecuc/OsResource">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveAreaOsResource"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaOsSpinlock"
-          eType="#//ecuc/OsSpinlock"/>
+          eType="#//ecuc/OsSpinlock">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveAreaOsSpinlock"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="RteExclusiveAreaImplMechanismEnum">
       <eLiterals name="ALL_INTERRUPT_BLOCKING"/>
@@ -1436,17 +1793,45 @@
       <eLiterals name="NONE" value="5"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsEvent" eSuperTypes="#//ecuc/EcucContainer">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osEventMask" eType="#//m2/UnlimitedInteger"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osEventMask" eType="#//m2/UnlimitedInteger">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsEventMask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Com" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comConfig" lowerBound="1"
-          eType="#//ecuc/ComConfig" containment="true"/>
+          eType="#//ecuc/ComConfig" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComConfig"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComConfig" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSignal" upperBound="-1"
-          eType="#//ecuc/ComSignal" containment="true"/>
+          eType="#//ecuc/ComSignal" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComSignal"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSignalGroup" upperBound="-1"
-          eType="#//ecuc/ComSignalGroup" containment="true"/>
+          eType="#//ecuc/ComSignalGroup" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComSignalGroup"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ComTransferPropertyEnum">
       <eLiterals name="PENDING"/>
@@ -1462,11 +1847,32 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSystemSignal"
-          eType="#//m2/ISignalToIPduMapping"/>
+          eType="#//m2/ISignalToIPduMapping">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComSystemTemplateSystemSignal"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComHandleId"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comTransferProperty"
-          eType="#//ecuc/ComTransferPropertyEnum"/>
+          eType="#//ecuc/ComTransferPropertyEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComTransferProperty"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComSignalGroup" eSuperTypes="#//ecuc/EcucContainer">
       <eOperations name="transfersImmediately" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1475,41 +1881,132 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comGroupSignal" upperBound="-1"
-          eType="#//ecuc/ComGroupSignal" containment="true"/>
+          eType="#//ecuc/ComGroupSignal" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComGroupSignal"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSignalGroup"
-          eType="#//m2/ISignalToIPduMapping"/>
+          eType="#//m2/ISignalToIPduMapping">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComSystemTemplateSignalGroup"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComHandleId"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comTransferProperty"
-          eType="#//ecuc/ComTransferPropertyEnum"/>
+          eType="#//ecuc/ComTransferPropertyEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComTransferProperty"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComGroupSignal" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSystemSignal"
-          eType="#//m2/ISignalToIPduMapping"/>
+          eType="#//m2/ISignalToIPduMapping">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComSystemTemplateSystemSignal"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ComHandleId"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsAlarm" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedConfig" upperBound="-1"
-          eType="#//ecuc/RteUsedOsActivation" derived="true" eOpposite="#//ecuc/RteUsedOsActivation/rteActivationOsAlarm"/>
+          eType="#//ecuc/RteUsedOsActivation" derived="true" eOpposite="#//ecuc/RteUsedOsActivation/rteActivationOsAlarm">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ExpectedConfig"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsResource" eSuperTypes="#//ecuc/EcucContainer"/>
     <eClassifiers xsi:type="ecore:EClass" name="OsApplication" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osApplicationCoreAssignment"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsApplicationCoreAssignment"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTrusted" lowerBound="1"
-          eType="#//m2/Boolean"/>
+          eType="#//m2/Boolean">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTrusted"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAppEcucPartition" eType="#//ecuc/EcucPartition"
-          eOpposite="#//ecuc/EcucPartition/implOsApplication"/>
+          eOpposite="#//ecuc/EcucPartition/implOsApplication">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsAppEcucPartition"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osApplicationTrustedFunction"
           upperBound="-1" eType="#//ecuc/OsApplicationTrustedFunction" containment="true"
-          eOpposite="#//ecuc/OsApplicationTrustedFunction/parent"/>
+          eOpposite="#//ecuc/OsApplicationTrustedFunction/parent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsApplicationTrustedFunction"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAppTask" upperBound="-1"
-          eType="#//ecuc/OsTask" eOpposite="#//ecuc/OsTask/ownerApplication"/>
+          eType="#//ecuc/OsTask" eOpposite="#//ecuc/OsTask/ownerApplication">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsAppTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcuC" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartitionCollection"
-          eType="#//ecuc/EcucPartitionCollection" containment="true"/>
+          eType="#//ecuc/EcucPartitionCollection" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="EcucPartitionCollection"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucPartitionCollection" eSuperTypes="#//ecuc/EcucContainer">
       <eOperations name="getAssignedCores" ordered="false" upperBound="-1" eType="#//m2/Integer">
@@ -1518,7 +2015,14 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartition" upperBound="-1"
-          eType="#//ecuc/EcucPartition" containment="true"/>
+          eType="#//ecuc/EcucPartition" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="EcucPartition"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucPartition" eSuperTypes="#//ecuc/EcucContainer">
       <eOperations name="isTrusted" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1532,13 +2036,41 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ecucPartitionBswModuleExecution"
-          lowerBound="1" eType="#//m2/Boolean"/>
+          lowerBound="1" eType="#//m2/Boolean">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="EcucPartitionBswModuleExecution"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="partitionCanBeRestarted"
-          lowerBound="1" eType="#//m2/Boolean"/>
+          lowerBound="1" eType="#//m2/Boolean">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="PartitionCanBeRestarted"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartitionSoftwareComponent"
-          upperBound="-1" eType="#//instance/SwComponentInstanceInSystem" eOpposite="#//instance/SwComponentInstanceInSystem/ownerPartition"/>
+          upperBound="-1" eType="#//instance/SwComponentInstanceInSystem" eOpposite="#//instance/SwComponentInstanceInSystem/ownerPartition">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="EcucPartitionSoftwareComponent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implOsApplication" upperBound="-1"
-          eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppEcucPartition"/>
+          eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppEcucPartition">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="ImplOsApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="OsSpinlockLockMethodEnum">
       <eLiterals name="LOCK_NOTHING"/>
@@ -1551,27 +2083,82 @@
         <eAnnotations source="tags">
           <details key="ecuc.definitionShortName" value="OsSpinlockAccessingApplication"/>
         </eAnnotations>
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsSpinlockAccessingApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osSpinlockLockMethod"
-          lowerBound="1" eType="#//ecuc/OsSpinlockLockMethodEnum"/>
+          lowerBound="1" eType="#//ecuc/OsSpinlockLockMethodEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsSpinlockLockMethod"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteOsInteraction" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsActivation"
-          upperBound="-1" eType="#//ecuc/RteUsedOsActivation" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteUsedOsActivation" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteUsedOsActivation"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteUsedOsActivation" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExpectedTickDuration"
-          lowerBound="1" eType="#//m2/TimeValue"/>
+          lowerBound="1" eType="#//m2/TimeValue">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExcpectedTickDuration"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExpectedActivationOffset"
-          lowerBound="1" eType="#//m2/TimeValue"/>
+          lowerBound="1" eType="#//m2/TimeValue">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExpectedActivationOffset"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteActivationOsAlarm"
-          eType="#//ecuc/OsAlarm" eOpposite="#//ecuc/OsAlarm/expectedConfig"/>
+          eType="#//ecuc/OsAlarm" eOpposite="#//ecuc/OsAlarm/expectedConfig">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteActivationOsAlarm"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteInitializationBehavior" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteInitializationStrategy"
-          lowerBound="1" eType="#//ecuc/RteInitializationStrategyEnum"/>
+          lowerBound="1" eType="#//ecuc/RteInitializationStrategyEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteInitializationStrategy"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteSectionInitializationPolicy"
-          lowerBound="1" upperBound="-1" eType="#//m2/SectionInitializationPolicyType"/>
+          lowerBound="1" upperBound="-1" eType="#//m2/SectionInitializationPolicyType">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteSectionInitializationPolicy"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="RteInitializationStrategyEnum">
       <eLiterals name="RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION"/>
@@ -1584,7 +2171,14 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsIoc" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocCommunication" ordered="false"
-          upperBound="-1" eType="#//ecuc/OsIocCommunication" containment="true"/>
+          upperBound="-1" eType="#//ecuc/OsIocCommunication" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocCommunication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsIocCommunication" eSuperTypes="#//ecuc/EcucContainer">
       <eOperations name="getLoopbackSenderProperties" lowerBound="1" eType="#//ecuc/OsIocSenderProperties">
@@ -1594,36 +2188,127 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocSenderProperties"
           lowerBound="1" upperBound="-1" eType="#//ecuc/OsIocSenderProperties" containment="true"
-          eOpposite="#//ecuc/OsIocSenderProperties/parent"/>
+          eOpposite="#//ecuc/OsIocSenderProperties/parent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocSenderProperties"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocReceiverProperties"
-          lowerBound="1" eType="#//ecuc/OsIocReceiverProperties" containment="true"/>
+          lowerBound="1" eType="#//ecuc/OsIocReceiverProperties" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocReceiverProperties"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocDataProperties"
-          lowerBound="1" upperBound="-1" eType="#//ecuc/OsIocDataProperties" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocBufferLength" eType="#//m2/Integer"/>
+          lowerBound="1" upperBound="-1" eType="#//ecuc/OsIocDataProperties" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocDataProperties"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocBufferLength" eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocBufferLength"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsIocSenderProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocSendingOsApplication"
-          lowerBound="1" eType="#//ecuc/OsApplication"/>
+          lowerBound="1" eType="#//ecuc/OsApplication">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocSendingOsApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-          eType="#//ecuc/OsIocCommunication" derived="true" eOpposite="#//ecuc/OsIocCommunication/osIocSenderProperties"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocSenderId" eType="#//m2/Integer"/>
+          eType="#//ecuc/OsIocCommunication" derived="true" eOpposite="#//ecuc/OsIocCommunication/osIocSenderProperties">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocCommunication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocSenderId" eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocSenderId"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsIocReceiverProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocReceivingOsApplication"
-          lowerBound="1" eType="#//ecuc/OsApplication"/>
+          lowerBound="1" eType="#//ecuc/OsApplication">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocReceivingOsApplication"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsIocDataProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocDataPropertyIndex"
-          eType="#//m2/Integer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocInitValue" eType="#//m2/VerbatimString"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocDataPropertyIndex"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocInitValue" eType="#//m2/VerbatimString">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocInitValue"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocDataType" lowerBound="1"
-          eType="#//m2/ImplementationDataType"/>
+          eType="#//m2/ImplementationDataType">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsIocDataType"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsApplicationTrustedFunction" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTrustedFunctionName"
-          lowerBound="1" eType="#//m2/CIdentifier"/>
+          lowerBound="1" eType="#//m2/CIdentifier">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsTrustedFunctionName"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-          eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osApplicationTrustedFunction"/>
+          eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osApplicationTrustedFunction">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Parent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsOS" eSuperTypes="#//ecuc/EcucContainer">
       <eOperations name="isMulticoreOs" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -1631,50 +2316,183 @@
           <details key="body" value="not self.osNumberOfCores.oclIsUndefined()"/>
         </eAnnotations>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osNumberOfCores" eType="#//m2/Integer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osMasterCoreId" eType="#//m2/Integer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osNumberOfCores" eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsNumberOfCores"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="osMasterCoreId" eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="OsMasterCoreId"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswEventToTaskMapping" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteBswActivationOffset"
-          eType="#//m2/TimeValue"/>
+          eType="#//m2/TimeValue">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswEventToTaskMapping"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswEvent" lowerBound="1"
-          eType="#//m2/BswEvent" eOpposite="#//m2/BswEvent/config"/>
+          eType="#//m2/BswEvent" eOpposite="#//m2/BswEvent/config">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteBswPositionInTask"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswPositionInTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswMappedToTask" eType="#//ecuc/OsTask"
-          eOpposite="#//ecuc/OsTask/mappedRteBswEvent"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsAlarm" eType="#//ecuc/OsAlarm"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsEvent" eType="#//ecuc/OsEvent"/>
+          eOpposite="#//ecuc/OsTask/mappedRteBswEvent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswMappedToTask"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsAlarm" eType="#//ecuc/OsAlarm">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswUsedOsAlarm"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsEvent" eType="#//ecuc/OsEvent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswUsedOsEvent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswRequiredModeGroupConnection"
         eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-          eType="#//ecuc/RteBswModuleInstance" derived="true" eOpposite="#//ecuc/RteBswModuleInstance/rteBswRequiredModeGroupConnection"/>
+          eType="#//ecuc/RteBswModuleInstance" derived="true" eOpposite="#//ecuc/RteBswModuleInstance/rteBswRequiredModeGroupConnection">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="Parent"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswProvidedModeGroup"
-          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype"/>
+          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswProvidedModeGroup"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroup"
-          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype"/>
+          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswRequiredModeGroup"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswModuleInstance" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswEventToTaskMapping"
-          upperBound="-1" eType="#//ecuc/RteBswEventToTaskMapping" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteBswEventToTaskMapping" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswEventToTaskMapping"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaImpl"
-          upperBound="-1" eType="#//ecuc/RteBswExclusiveAreaImpl" containment="true"/>
+          upperBound="-1" eType="#//ecuc/RteBswExclusiveAreaImpl" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswExclusiveAreaImpl"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswImplementation"
-          lowerBound="1" eType="#//m2/BswImplementation" containment="true"/>
+          lowerBound="1" eType="#//m2/BswImplementation" containment="true">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswImplementation"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroupConnection"
           ordered="false" upperBound="-1" eType="#//ecuc/RteBswRequiredModeGroupConnection"
-          containment="true" eOpposite="#//ecuc/RteBswRequiredModeGroupConnection/parent"/>
+          containment="true" eOpposite="#//ecuc/RteBswRequiredModeGroupConnection/parent">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswRequiredModeGroupConnection"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteBswExclusiveAreaImpl" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveArea"
-          lowerBound="1" eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/bswConfig"/>
+          lowerBound="1" eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/bswConfig">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswExclusiveArea"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaOsResource"
-          eType="#//ecuc/OsResource"/>
+          eType="#//ecuc/OsResource">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswExclusiveAreaOsResource"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExclusiveAreaImplMechanism"
-          eType="#//ecuc/RteExclusiveAreaImplMechanismEnum"/>
+          eType="#//ecuc/RteExclusiveAreaImplMechanismEnum">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteExclusiveAreaImplMechanism"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaOsSpinlock"
-          eType="#//ecuc/OsSpinlock"/>
+          eType="#//ecuc/OsSpinlock">
+        <eAnnotations
+            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+          <details key="kind" value="element"/>
+          <details key="name" value="RteBswExclusiveAreaOsSpinlock"/>
+          <details key="namespace" value="##targetNamespace"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="instance" nsURI="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/instance"
