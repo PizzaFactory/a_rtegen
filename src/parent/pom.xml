@@ -16,10 +16,11 @@
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.model</module>
+		<module>../jp.ac.nagoya_u.is.nces.a_rte.model.edit</module>
+		<module>../jp.ac.nagoya_u.is.nces.a_rte.model.editor</module>
+		<module>../jp.ac.nagoya_u.is.nces.a_rte.model.tests</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.persist</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.validation</module>
-		<module>../jp.pizzafactory.a_rte.model.edit</module>
-		<module>../jp.pizzafactory.a_rte.model.editor</module>
 		<module>../p2update</module>
 		<module>../jp.pizzafactory.a_rte.headless</module>
 	</modules>

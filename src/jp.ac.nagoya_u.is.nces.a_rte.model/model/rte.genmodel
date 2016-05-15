@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jp.ac.nagoya_u.is.nces.a_rte.model/src" editDirectory="/jp.pizzafactory.a_rte.model.edit/src"
-    editorDirectory="/jp.pizzafactory.a_rte.model.editor/src" modelPluginID="jp.ac.nagoya_u.is.nces.a_rte.model"
-    modelName="Rte" modelPluginClass="" editPluginClass="jp.pizzafactory.a_rte.model.rte.provider.RteEditPlugin"
-    editorPluginClass="jp.pizzafactory.a_rte.model.rte.presentation.RteEditorPlugin"
-    nonNLSMarkers="true" rootExtendsInterface="jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject"
-    rootExtendsClass="jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl" testsDirectory=""
-    importerID="org.eclipse.emf.importer.ecore" bundleManifest="false" complianceLevel="6.0"
-    copyrightFields="false" editPluginID="jp.pizzafactory.a_rte.model.edit" editorPluginID="jp.pizzafactory.a_rte.model.editor"
-    operationReflection="true" runtimePlatform="RCP" importOrganizing="true" oSGiCompatible="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jp.ac.nagoya_u.is.nces.a_rte.model/src" creationSubmenus="true"
+    editDirectory="/jp.ac.nagoya_u.is.nces.a_rte.model.edit/src" editorDirectory="/jp.ac.nagoya_u.is.nces.a_rte.model.editor/src"
+    modelPluginID="jp.ac.nagoya_u.is.nces.a_rte.model" modelName="Rte" modelPluginClass=""
+    editPluginClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.provider.RteEditPlugin"
+    editorPluginClass="jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteEditorPlugin"
+    updateClasspath="false" generateSchema="true" nonNLSMarkers="true" rootExtendsInterface="jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObject"
+    rootExtendsClass="jp.ac.nagoya_u.is.nces.a_rte.model.ExtendedEObjectImpl" testsDirectory="/jp.ac.nagoya_u.is.nces.a_rte.model.tests/src"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
+    editPluginID="jp.ac.nagoya_u.is.nces.a_rte.model.edit" editorPluginID="jp.ac.nagoya_u.is.nces.a_rte.model.editor"
+    tableProviders="true" fontProviders="true" operationReflection="true" runtimePlatform="RCP"
+    importOrganizing="true" decoration="Live" styleProviders="true" oSGiCompatible="true">
   <foreignModel>rte.ecore</foreignModel>
   <genPackages prefix="Rte" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model" disposableProviderFactory="true"
       ecorePackage="rte.ecore#/">
@@ -1788,7 +1790,7 @@
       ecorePackage="ar4x.ecore#/">
     <genClasses ecoreClass="ar4x.ecore#//Ar4xRoot"/>
     <nestedGenPackages prefix="M2" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x"
-        disposableProviderFactory="true" resource="XML" ecorePackage="ar4x.ecore#//m2">
+        resource="XML" disposableProviderFactory="true" ecorePackage="ar4x.ecore#//m2">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="ar4x.ecore#//m2/ArraySizeSemanticsEnum">
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//m2/ArraySizeSemanticsEnum/fixedSize"/>
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//m2/ArraySizeSemanticsEnum/variableSize"/>
@@ -2584,7 +2586,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Ecuc" basePackage="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x"
-        disposableProviderFactory="true" resource="XML" ecorePackage="ar4x.ecore#//ecuc">
+        resource="XML" disposableProviderFactory="true" ecorePackage="ar4x.ecore#//ecuc">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="ar4x.ecore#//ecuc/OsTaskScheduleEnum">
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/OsTaskScheduleEnum/FULL"/>
         <genEnumLiterals ecoreEnumLiteral="ar4x.ecore#//ecuc/OsTaskScheduleEnum/NON"/>

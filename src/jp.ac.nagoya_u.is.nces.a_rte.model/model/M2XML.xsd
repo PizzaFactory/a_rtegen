@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:m2="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2">
+  <xsd:simpleType name="ArraySizeSemanticsEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="fixedSize"/>
+      <xsd:enumeration value="variableSize"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ArgumentDirectionEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="in"/>
+      <xsd:enumeration value="out"/>
+      <xsd:enumeration value="inout"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DataFilterTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="always"/>
+      <xsd:enumeration value="maskedNewEqualsX"/>
+      <xsd:enumeration value="maskedNewDiffersMaskedOld"/>
+      <xsd:enumeration value="maskedNewDiffersX"/>
+      <xsd:enumeration value="never"/>
+      <xsd:enumeration value="newIsWithin"/>
+      <xsd:enumeration value="newIsOutside"/>
+      <xsd:enumeration value="oneEveryN"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HandleInvalidEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="dontInvalidate"/>
+      <xsd:enumeration value="keep"/>
+      <xsd:enumeration value="replace"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SwImplPolicyEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="unspecified"/>
+      <xsd:enumeration value="standard"/>
+      <xsd:enumeration value="const"/>
+      <xsd:enumeration value="fixed"/>
+      <xsd:enumeration value="measurementPoint"/>
+      <xsd:enumeration value="queued"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MemoryAllocationKeywordPolicyType">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="addrMethodShortName"/>
+      <xsd:enumeration value="addrMethodShortNameAndAlignment"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EcucConfigurationVariantEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="variantPostBuildSelectable"/>
+      <xsd:enumeration value="variantPreCompile"/>
+      <xsd:enumeration value="preconfiguredConfiguration"/>
+      <xsd:enumeration value="variantPostBuildLoadable"/>
+      <xsd:enumeration value="variantPostBuild"/>
+      <xsd:enumeration value="variantLinkTime"/>
+      <xsd:enumeration value="recommendedConfiguration"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ModeActivationKind">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="onEntry"/>
+      <xsd:enumeration value="onExit"/>
+      <xsd:enumeration value="onTransition"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BswCallTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="regular"/>
+      <xsd:enumeration value="callback"/>
+      <xsd:enumeration value="interrupt"/>
+      <xsd:enumeration value="scheduled"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BswExecutionContextEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="task"/>
+      <xsd:enumeration value="interruptCat1"/>
+      <xsd:enumeration value="interruptCat2"/>
+      <xsd:enumeration value="hook"/>
+      <xsd:enumeration value="unspecified"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="M2Root">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="autosar" type="m2:Autosar"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="M2Root" type="m2:M2Root"/>
+  <xsd:complexType name="Autosar">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="arPackage" type="m2:ArPackage"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>モデル要素識別のための内部ID</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Autosar" type="m2:Autosar"/>
+  <xsd:complexType name="ArPackage">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="element" type="m2:ArElement"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="arPackage" type="m2:ArPackage"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ArPackage" type="m2:ArPackage"/>
+  <xsd:complexType abstract="true" name="ArElement">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="Identifiable">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Referrable">
+        <xsd:attribute name="category" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="M2Object"/>
+  <xsd:complexType name="SwBaseType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="baseTypeEncoding" type="xsd:string" use="required"/>
+        <xsd:attribute name="baseTypeSize" type="xsd:string"/>
+        <xsd:attribute name="nativeDeclaration" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwBaseType" type="m2:SwBaseType"/>
+  <xsd:complexType name="SenderReceiverInterface">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortInterface">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataElement" type="m2:VariableDataPrototype"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="invalidationPolicy" type="m2:InvalidationPolicy"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderReceiverInterface" type="m2:SenderReceiverInterface"/>
+  <xsd:complexType name="VariableDataPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AutosarDataPrototype">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="initValue" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableDataPrototype" type="m2:VariableDataPrototype"/>
+  <xsd:complexType abstract="true" name="Referrable">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="id" type="xsd:string" use="required">
+          <xsd:annotation>
+            <xsd:documentation>モデル要素識別のための内部ID</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="shortName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="SwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="port" type="m2:PortPrototype"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="PortPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="portApiOption" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AtomicSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SwComponentType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="internalBehavior" type="m2:SwcInternalBehavior"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ApplicationSwComponentType" type="m2:ApplicationSwComponentType"/>
+  <xsd:complexType name="RPortPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortPrototype">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="requiredComSpec" type="m2:RPortComSpec"/>
+        </xsd:sequence>
+        <xsd:attribute name="requiredInterface" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RPortPrototype" type="m2:RPortPrototype"/>
+  <xsd:complexType name="PPortPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortPrototype">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="providedComSpec" type="m2:PPortComSpec"/>
+        </xsd:sequence>
+        <xsd:attribute name="providedInterface" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PPortPrototype" type="m2:PPortPrototype"/>
+  <xsd:complexType name="SwcInternalBehavior">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="exclusiveArea" type="m2:ExclusiveArea"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="runnable" type="m2:RunnableEntity"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="event" type="m2:RteEvent"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="portApiOption" type="m2:PortApiOption"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="includedDataTypeSet" type="m2:IncludedDataTypeSet"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="explicitInterRunnableVariable" type="m2:VariableDataPrototype"/>
+        </xsd:sequence>
+        <xsd:attribute name="dataTypeMapping" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwcInternalBehavior" type="m2:SwcInternalBehavior"/>
+  <xsd:complexType abstract="true" name="ExecutableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="canEnterExclusiveArea" type="xsd:string"/>
+        <xsd:attribute name="runsInsideExclusiveArea" type="xsd:string"/>
+        <xsd:attribute name="swAddrMethod" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="RunnableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ExecutableEntity">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataSendPoint" type="m2:VariableAccess"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataReceivePointByArgument" type="m2:VariableAccess"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="serverCallPoint" type="m2:ServerCallPoint"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="writtenLocalVariable" type="m2:VariableAccess"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="readLocalVariable" type="m2:VariableAccess"/>
+        </xsd:sequence>
+        <xsd:attribute name="symbol" type="xsd:string"/>
+        <xsd:attribute name="event" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RunnableEntity" type="m2:RunnableEntity"/>
+  <xsd:complexType name="VariableAccess">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="accessedVariable" type="m2:AutosarVariableRef"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableAccess" type="m2:VariableAccess"/>
+  <xsd:complexType name="AutosarVariableRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="autosarVariableIref" type="m2:VariableInAtomicSwcTypeInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="autosarVariable" type="xsd:string"/>
+        <xsd:attribute name="localVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AutosarVariableRef" type="m2:AutosarVariableRef"/>
+  <xsd:complexType name="VariableInAtomicSwcTypeInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="portPrototype" type="xsd:string"/>
+        <xsd:attribute name="targetDataPrototype" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableInAtomicSwcTypeInstanceRef" type="m2:VariableInAtomicSwcTypeInstanceRef"/>
+  <xsd:complexType abstract="true" name="RteEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="startOnEvent" type="xsd:string"/>
+        <xsd:attribute name="config" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TimingEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent">
+        <xsd:attribute name="period" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TimingEvent" type="m2:TimingEvent"/>
+  <xsd:complexType name="BackgroundEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BackgroundEvent" type="m2:BackgroundEvent"/>
+  <xsd:complexType name="DataSendCompletedEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent">
+        <xsd:attribute name="eventSource" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataSendCompletedEvent" type="m2:DataSendCompletedEvent"/>
+  <xsd:complexType name="DataReceivedEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="dataIref" type="m2:RVariableInAtomicSwcInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="data" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataReceivedEvent" type="m2:DataReceivedEvent"/>
+  <xsd:complexType name="DataReceiveErrorEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="dataIref" type="m2:RVariableInAtomicSwcInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="data" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataReceiveErrorEvent" type="m2:DataReceiveErrorEvent"/>
+  <xsd:complexType name="RVariableInAtomicSwcInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextRPort" type="xsd:string"/>
+        <xsd:attribute name="targetDataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RVariableInAtomicSwcInstanceRef" type="m2:RVariableInAtomicSwcInstanceRef"/>
+  <xsd:complexType name="EcucModuleConfigurationValues">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="container" type="m2:EcucContainerValue"/>
+        </xsd:sequence>
+        <xsd:attribute name="definitionRef" type="xsd:string" use="required"/>
+        <xsd:attribute name="ecucDefEdition" type="xsd:string" use="required"/>
+        <xsd:attribute name="implementationConfigVariant" type="m2:EcucConfigurationVariantEnum" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucModuleConfigurationValues" type="m2:EcucModuleConfigurationValues"/>
+  <xsd:complexType name="EcucContainerValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="parameterValue" type="m2:EcucParameterValue"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="referenceValue" type="m2:EcucAbstractReferenceValue"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="subContainer" type="m2:EcucContainerValue"/>
+        </xsd:sequence>
+        <xsd:attribute name="definitionRef" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucContainerValue" type="m2:EcucContainerValue"/>
+  <xsd:complexType abstract="true" name="EcucParameterValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="definitionRef" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EcucNumericalParamValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:EcucParameterValue">
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucNumericalParamValue" type="m2:EcucNumericalParamValue"/>
+  <xsd:complexType name="EcucTextualParamValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:EcucParameterValue">
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucTextualParamValue" type="m2:EcucTextualParamValue"/>
+  <xsd:complexType abstract="true" name="EcucAbstractReferenceValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="definitionRef" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EcucReferenceValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:EcucAbstractReferenceValue">
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucReferenceValue" type="m2:EcucReferenceValue"/>
+  <xsd:complexType name="EcucInstanceReferenceValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:EcucAbstractReferenceValue">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="valueIref" type="m2:AnyInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucInstanceReferenceValue" type="m2:EcucInstanceReferenceValue"/>
+  <xsd:complexType abstract="true" name="RPortComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="PPortComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ReceiverComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RPortComSpec">
+        <xsd:attribute name="dataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="SenderComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PPortComSpec">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="transmissionAcknowledge" type="m2:TransmissionAcknowledgementRequest"/>
+        </xsd:sequence>
+        <xsd:attribute name="dataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TransmissionAcknowledgementRequest">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="timeout" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TransmissionAcknowledgementRequest" type="m2:TransmissionAcknowledgementRequest"/>
+  <xsd:complexType name="NonqueuedSenderComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SenderComSpec">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="initValue" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NonqueuedSenderComSpec" type="m2:NonqueuedSenderComSpec"/>
+  <xsd:complexType name="QueuedSenderComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SenderComSpec"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueuedSenderComSpec" type="m2:QueuedSenderComSpec"/>
+  <xsd:complexType name="NonqueuedReceiverComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ReceiverComSpec">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="initValue" type="m2:ValueSpecification"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="filter" type="m2:DataFilter"/>
+        </xsd:sequence>
+        <xsd:attribute name="aliveTimeout" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NonqueuedReceiverComSpec" type="m2:NonqueuedReceiverComSpec"/>
+  <xsd:complexType name="PortInterface">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PortInterface" type="m2:PortInterface"/>
+  <xsd:complexType name="CompositionSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SwComponentType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="component" type="m2:SwComponentPrototype"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="connector" type="m2:SwConnector"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CompositionSwComponentType" type="m2:CompositionSwComponentType"/>
+  <xsd:complexType abstract="true" name="SwConnector">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AssemblySwConnector">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SwConnector">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="providerIref" type="m2:PPortPrototypeInCompositionInstanceRef"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="requesterIref" type="m2:RPortPrototypeInCompositionInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="requester" type="xsd:string"/>
+        <xsd:attribute name="provider" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AssemblySwConnector" type="m2:AssemblySwConnector"/>
+  <xsd:complexType name="DelegationSwConnector">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SwConnector">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="innerPortIref" type="m2:PortInCompositionInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="innerPort" type="xsd:string"/>
+        <xsd:attribute name="outerPort" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DelegationSwConnector" type="m2:DelegationSwConnector"/>
+  <xsd:complexType abstract="true" name="PortPrototypeInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextComponent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="RPortPrototypeInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortPrototypeInCompositionInstanceRef">
+        <xsd:attribute name="targetRPort" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RPortPrototypeInCompositionInstanceRef" type="m2:RPortPrototypeInCompositionInstanceRef"/>
+  <xsd:complexType name="PPortPrototypeInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortPrototypeInCompositionInstanceRef">
+        <xsd:attribute name="targetPPort" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PPortPrototypeInCompositionInstanceRef" type="m2:PPortPrototypeInCompositionInstanceRef"/>
+  <xsd:complexType name="SwComponentPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="instance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwComponentPrototype" type="m2:SwComponentPrototype"/>
+  <xsd:complexType abstract="true" name="ValueSpecification">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="AutosarDataType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="swDataDefProps" type="m2:SwDataDefProps"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="ApplicationDataType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AutosarDataType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ImplementationDataType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AutosarDataType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="subElement" type="m2:ImplementationDataTypeElement"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImplementationDataType" type="m2:ImplementationDataType"/>
+  <xsd:complexType name="ImplementationDataTypeElement">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="subElement" type="m2:ImplementationDataTypeElement"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="swDataDefProps" type="m2:SwDataDefProps"/>
+        </xsd:sequence>
+        <xsd:attribute name="arraySize" type="xsd:string"/>
+        <xsd:attribute name="arraySizeSemantics" type="m2:ArraySizeSemanticsEnum"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImplementationDataTypeElement" type="m2:ImplementationDataTypeElement"/>
+  <xsd:complexType name="SwDataDefProps">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="invalidValue" type="m2:ValueSpecification"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="swPointerTargetProps" type="m2:SwPointerTargetProps"/>
+        </xsd:sequence>
+        <xsd:attribute name="swImplPolicy" type="m2:SwImplPolicyEnum"/>
+        <xsd:attribute name="swAlignment" type="xsd:string"/>
+        <xsd:attribute name="baseType" type="xsd:string"/>
+        <xsd:attribute name="swAddrMethod" type="xsd:string"/>
+        <xsd:attribute name="compuMethod" type="xsd:string"/>
+        <xsd:attribute name="dataConstr" type="xsd:string"/>
+        <xsd:attribute name="implementationDataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwDataDefProps" type="m2:SwDataDefProps"/>
+  <xsd:complexType name="DataTypeMap">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="implementationDataType" type="xsd:string"/>
+        <xsd:attribute name="applicationDataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataTypeMap" type="m2:DataTypeMap"/>
+  <xsd:complexType name="DataTypeMappingSet">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataTypeMap" type="m2:DataTypeMap"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="modeRequestTypeMap" type="m2:ModeRequestTypeMap"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataTypeMappingSet" type="m2:DataTypeMappingSet"/>
+  <xsd:complexType name="ModeDeclarationGroupPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeDeclarationGroupPrototype" type="m2:ModeDeclarationGroupPrototype"/>
+  <xsd:complexType name="ModeRequestTypeMap">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="implementationDataType" type="xsd:string"/>
+        <xsd:attribute name="modeGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeRequestTypeMap" type="m2:ModeRequestTypeMap"/>
+  <xsd:complexType name="ModeDeclaration">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeDeclaration" type="m2:ModeDeclaration"/>
+  <xsd:complexType name="ModeDeclarationGroup">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="modeDeclaration" type="m2:ModeDeclaration"/>
+        </xsd:sequence>
+        <xsd:attribute name="initialMode" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeDeclarationGroup" type="m2:ModeDeclarationGroup"/>
+  <xsd:complexType name="ApplicationPrimitiveDataType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ApplicationDataType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ApplicationPrimitiveDataType" type="m2:ApplicationPrimitiveDataType"/>
+  <xsd:complexType abstract="true" name="AutosarDataPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:DataPrototype"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="DataPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="swDataDefProps" type="m2:SwDataDefProps"/>
+        </xsd:sequence>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ExclusiveArea">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="swcConfig" type="xsd:string"/>
+        <xsd:attribute name="bswConfig" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="enterExecutableEntity" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExclusiveArea" type="m2:ExclusiveArea"/>
+  <xsd:complexType name="NumericalValueSpecification">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification">
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NumericalValueSpecification" type="m2:NumericalValueSpecification"/>
+  <xsd:complexType name="TextValueSpecification">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification">
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TextValueSpecification" type="m2:TextValueSpecification"/>
+  <xsd:complexType name="ConstantReference">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification">
+        <xsd:attribute name="constant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ConstantReference" type="m2:ConstantReference"/>
+  <xsd:complexType name="ReferenceValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReferenceValueSpecification" type="m2:ReferenceValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ArrayValueSpecification">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="element" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ArrayValueSpecification" type="m2:ArrayValueSpecification"/>
+  <xsd:complexType name="RecordValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="field" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RecordValueSpecification" type="m2:RecordValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ApplicationValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="m2:ValueSpecification"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ApplicationValueSpecification" type="m2:ApplicationValueSpecification">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 未サポートのため，属性は定義しない．</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ConstantSpecification">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="valueSpec" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ConstantSpecification" type="m2:ConstantSpecification"/>
+  <xsd:complexType name="OperationInvokedEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:RteEvent">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="operationIref" type="m2:POperationInAtomicSwcInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="operation" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OperationInvokedEvent" type="m2:OperationInvokedEvent"/>
+  <xsd:complexType name="POperationInAtomicSwcInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextPPort" type="xsd:string"/>
+        <xsd:attribute name="targetProvidedOperation" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="POperationInAtomicSwcInstanceRef" type="m2:POperationInAtomicSwcInstanceRef"/>
+  <xsd:complexType name="ClientServerInterface">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortInterface">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="operation" type="m2:ClientServerOperation"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="possibleError" type="m2:ApplicationError"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ClientServerInterface" type="m2:ClientServerInterface"/>
+  <xsd:complexType name="ClientServerOperation">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="argument" type="m2:ArgumentDataPrototype"/>
+        </xsd:sequence>
+        <xsd:attribute name="possibleError" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ClientServerOperation" type="m2:ClientServerOperation"/>
+  <xsd:complexType name="ApplicationError">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="errorCode" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ApplicationError" type="m2:ApplicationError"/>
+  <xsd:complexType name="ArgumentDataPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AutosarDataPrototype">
+        <xsd:attribute name="direction" type="m2:ArgumentDirectionEnum" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ArgumentDataPrototype" type="m2:ArgumentDataPrototype"/>
+  <xsd:complexType name="DataFilter">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="dataFilterType" type="m2:DataFilterTypeEnum" use="required"/>
+        <xsd:attribute name="mask" type="xsd:string"/>
+        <xsd:attribute name="max" type="xsd:string"/>
+        <xsd:attribute name="min" type="xsd:string"/>
+        <xsd:attribute name="offset" type="xsd:string"/>
+        <xsd:attribute name="period" type="xsd:string"/>
+        <xsd:attribute name="x" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataFilter" type="m2:DataFilter"/>
+  <xsd:complexType name="QueuedReceiverComSpec">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ReceiverComSpec">
+        <xsd:attribute name="queueLength" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="QueuedReceiverComSpec" type="m2:QueuedReceiverComSpec"/>
+  <xsd:complexType name="InvalidationPolicy">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="handleInvalid" type="m2:HandleInvalidEnum"/>
+        <xsd:attribute name="dataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InvalidationPolicy" type="m2:InvalidationPolicy"/>
+  <xsd:complexType name="PortApiOption">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="portArgValue" type="m2:PortDefinedArgumentValue"/>
+        </xsd:sequence>
+        <xsd:attribute name="enableTakeAddress" type="xsd:string" use="required"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PortApiOption" type="m2:PortApiOption"/>
+  <xsd:complexType name="PortDefinedArgumentValue">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="value" type="m2:ValueSpecification"/>
+        </xsd:sequence>
+        <xsd:attribute name="valueType" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PortDefinedArgumentValue" type="m2:PortDefinedArgumentValue"/>
+  <xsd:complexType name="IncludedDataTypeSet">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="literalPrefix" type="xsd:string"/>
+        <xsd:attribute name="dataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IncludedDataTypeSet" type="m2:IncludedDataTypeSet"/>
+  <xsd:complexType name="System">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="rootSoftwareComposition" type="m2:RootSwCompositionPrototype"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="mapping" type="m2:SystemMapping"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="System" type="m2:System"/>
+  <xsd:complexType name="RootSwCompositionPrototype">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="softwareComposition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RootSwCompositionPrototype" type="m2:RootSwCompositionPrototype"/>
+  <xsd:complexType name="SystemMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataMapping" type="m2:DataMapping"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SystemMapping" type="m2:SystemMapping"/>
+  <xsd:complexType abstract="true" name="DataMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SystemSignal">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SystemSignal" type="m2:SystemSignal"/>
+  <xsd:complexType name="ISignal">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="systemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ISignal" type="m2:ISignal"/>
+  <xsd:complexType name="ISignalIPdu">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="iSignalToPduMapping" type="m2:ISignalToIPduMapping"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ISignalIPdu" type="m2:ISignalIPdu"/>
+  <xsd:complexType name="ISignalToIPduMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:attribute name="iSignal" type="xsd:string"/>
+        <xsd:attribute name="iSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ISignalToIPduMapping" type="m2:ISignalToIPduMapping"/>
+  <xsd:complexType name="SenderReceiverToSignalMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:DataMapping">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="dataElementIref" type="m2:VariableDataPrototypeInSystemInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="systemSignal" type="xsd:string"/>
+        <xsd:attribute name="dataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderReceiverToSignalMapping" type="m2:SenderReceiverToSignalMapping"/>
+  <xsd:complexType name="SenderReceiverToSignalGroupMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:DataMapping">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="dataElementIref" type="m2:VariableDataPrototypeInSystemInstanceRef"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="typeMapping" type="m2:SenderRecCompositeTypeMapping"/>
+        </xsd:sequence>
+        <xsd:attribute name="signalGroup" type="xsd:string"/>
+        <xsd:attribute name="dataElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderReceiverToSignalGroupMapping" type="m2:SenderReceiverToSignalGroupMapping"/>
+  <xsd:complexType name="VariableDataPrototypeInSystemInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextComponent" type="xsd:string"/>
+        <xsd:attribute name="contextPort" type="xsd:string"/>
+        <xsd:attribute name="targetDataPrototype" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableDataPrototypeInSystemInstanceRef" type="m2:VariableDataPrototypeInSystemInstanceRef"/>
+  <xsd:complexType name="EcucValueCollection">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="ecucValue" type="xsd:string"/>
+        <xsd:attribute name="ecuExtract" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucValueCollection" type="m2:EcucValueCollection"/>
+  <xsd:complexType abstract="true" name="ServerCallPoint">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="operationIref" type="m2:ROperationInAtomicSwcInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="operation" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SynchronousServerCallPoint">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ServerCallPoint"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SynchronousServerCallPoint" type="m2:SynchronousServerCallPoint"/>
+  <xsd:complexType abstract="true" name="IInstanceRef"/>
+  <xsd:complexType name="ROperationInAtomicSwcInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextRPort" type="xsd:string"/>
+        <xsd:attribute name="targetRequiredOperation" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ROperationInAtomicSwcInstanceRef" type="m2:ROperationInAtomicSwcInstanceRef"/>
+  <xsd:complexType name="SwAddrMethod">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="memoryAllocationKeywordPolicy" type="m2:MemoryAllocationKeywordPolicyType"/>
+        <xsd:attribute name="sectionInitializationPolicy" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwAddrMethod" type="m2:SwAddrMethod"/>
+  <xsd:complexType name="CompuMethod">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="compuInternalToPhys" type="m2:Compu"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CompuMethod" type="m2:CompuMethod"/>
+  <xsd:complexType name="DataConstr">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="dataConstrRule" type="m2:DataConstrRule"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataConstr" type="m2:DataConstr"/>
+  <xsd:complexType name="DataConstrRule">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="internalConstrs" type="m2:InternalConstrs"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DataConstrRule" type="m2:DataConstrRule"/>
+  <xsd:complexType name="InternalConstrs">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lowerLimit" type="m2:Limit"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="upperLimit" type="m2:Limit"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InternalConstrs" type="m2:InternalConstrs"/>
+  <xsd:complexType name="Compu">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="compuScale" type="m2:CompuScale"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Compu" type="m2:Compu"/>
+  <xsd:complexType name="Limit">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="value" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Limit" type="m2:Limit"/>
+  <xsd:complexType name="CompuScale">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="lowerLimit" type="m2:Limit"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="upperLimit" type="m2:Limit"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="compuConst" type="m2:CompuConst"/>
+        </xsd:sequence>
+        <xsd:attribute name="shortLabel" type="xsd:string"/>
+        <xsd:attribute name="symbol" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CompuScale" type="m2:CompuScale"/>
+  <xsd:complexType name="CompuConst">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="vt" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CompuConst" type="m2:CompuConst"/>
+  <xsd:complexType name="AnyInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextElement" type="xsd:string"/>
+        <xsd:attribute name="target" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AnyInstanceRef" type="m2:AnyInstanceRef"/>
+  <xsd:complexType name="EcuAbstractionSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcuAbstractionSwComponentType" type="m2:EcuAbstractionSwComponentType"/>
+  <xsd:complexType name="NvBlockSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NvBlockSwComponentType" type="m2:NvBlockSwComponentType"/>
+  <xsd:complexType name="SensorActuatorSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SensorActuatorSwComponentType" type="m2:SensorActuatorSwComponentType"/>
+  <xsd:complexType name="ComplexDeviceDriverSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComplexDeviceDriverSwComponentType" type="m2:ComplexDeviceDriverSwComponentType"/>
+  <xsd:complexType name="ServiceProxySwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ServiceProxySwComponentType" type="m2:ServiceProxySwComponentType"/>
+  <xsd:complexType name="ServiceSwComponentType">
+    <xsd:complexContent>
+      <xsd:extension base="m2:AtomicSwComponentType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ServiceSwComponentType" type="m2:ServiceSwComponentType"/>
+  <xsd:complexType abstract="true" name="PortInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextComponent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="PPortInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortInCompositionInstanceRef">
+        <xsd:attribute name="targetPPort" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PPortInCompositionInstanceRef" type="m2:PPortInCompositionInstanceRef"/>
+  <xsd:complexType name="RPortInCompositionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:PortInCompositionInstanceRef">
+        <xsd:attribute name="targetRPort" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RPortInCompositionInstanceRef" type="m2:RPortInCompositionInstanceRef"/>
+  <xsd:complexType abstract="true" name="InternalBehavior">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="exclusiveArea" type="m2:ExclusiveArea"/>
+        </xsd:sequence>
+        <xsd:attribute name="dataTypeMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="SwcBswRunnableMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="swcRunnable" type="xsd:string"/>
+        <xsd:attribute name="bswEntity" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwcBswRunnableMapping" type="m2:SwcBswRunnableMapping"/>
+  <xsd:complexType name="SwcBswMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="runnableMapping" type="m2:SwcBswRunnableMapping"/>
+        </xsd:sequence>
+        <xsd:attribute name="swcBehavior" type="xsd:string"/>
+        <xsd:attribute name="bswBehavior" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwcBswMapping" type="m2:SwcBswMapping"/>
+  <xsd:complexType name="BswInternalBehavior">
+    <xsd:complexContent>
+      <xsd:extension base="m2:InternalBehavior">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="entity" type="m2:BswModuleEntity"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="event" type="m2:BswEvent"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="modeSenderPolicy" type="m2:BswModeSenderPolicy"/>
+        </xsd:sequence>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="implementation" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswInternalBehavior" type="m2:BswInternalBehavior"/>
+  <xsd:complexType name="BswModeSenderPolicy">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="queueLength" type="xsd:string" use="required"/>
+        <xsd:attribute name="providedModeGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswModeSenderPolicy" type="m2:BswModeSenderPolicy"/>
+  <xsd:complexType abstract="true" name="Implementation">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="swcBswMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BswImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Implementation">
+        <xsd:attribute name="behavior" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswImplementation" type="m2:BswImplementation"/>
+  <xsd:complexType name="BswModuleDescription">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="internalBehavior" type="m2:BswInternalBehavior"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="providedModeGroup" type="m2:ModeDeclarationGroupPrototype"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="requiredModeGroup" type="m2:ModeDeclarationGroupPrototype"/>
+        </xsd:sequence>
+        <xsd:attribute name="providedEntry" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswModuleDescription" type="m2:BswModuleDescription"/>
+  <xsd:complexType name="BswModuleEntry">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="serviceId" type="xsd:string"/>
+        <xsd:attribute name="callType" type="m2:BswCallTypeEnum" use="required"/>
+        <xsd:attribute name="executionContext" type="m2:BswExecutionContextEnum" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswModuleEntry" type="m2:BswModuleEntry"/>
+  <xsd:complexType abstract="true" name="BswModuleEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ExecutableEntity">
+        <xsd:attribute name="implementedEntry" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="accessedModeGroup" type="xsd:string"/>
+        <xsd:attribute name="managedModeGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BswSchedulableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswModuleEntity">
+        <xsd:attribute name="event" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswSchedulableEntity" type="m2:BswSchedulableEntity"/>
+  <xsd:complexType abstract="true" name="BswEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:Identifiable">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="disabledInMode" type="m2:ModeInBswModuleDescriptionInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="startsOnEvent" type="xsd:string"/>
+        <xsd:attribute name="config" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="BswModeSwitchEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswEvent">
+        <xsd:sequence>
+          <xsd:element maxOccurs="2" minOccurs="1" name="modeIref" type="m2:ModeInBswModuleDescriptionInstanceRef"/>
+        </xsd:sequence>
+        <xsd:attribute name="activation" type="m2:ModeActivationKind" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswModeSwitchEvent" type="m2:BswModeSwitchEvent"/>
+  <xsd:complexType name="ModeInBswModuleDescriptionInstanceRef">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="contextModeDeclarationGroup" type="xsd:string"/>
+        <xsd:attribute name="targetMode" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeInBswModuleDescriptionInstanceRef" type="m2:ModeInBswModuleDescriptionInstanceRef"/>
+  <xsd:complexType name="BswTimingEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswEvent">
+        <xsd:attribute name="period" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswTimingEvent" type="m2:BswTimingEvent"/>
+  <xsd:complexType name="BswBackgroundEvent">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswEvent"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswBackgroundEvent" type="m2:BswBackgroundEvent"/>
+  <xsd:complexType name="BswCalledEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswModuleEntity"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswCalledEntity" type="m2:BswCalledEntity"/>
+  <xsd:complexType name="BswInterruptEntity">
+    <xsd:complexContent>
+      <xsd:extension base="m2:BswModuleEntity">
+        <xsd:attribute name="interruptSource" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswInterruptEntity" type="m2:BswInterruptEntity"/>
+  <xsd:complexType name="SystemSignalGroup">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="systemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SystemSignalGroup" type="m2:SystemSignalGroup"/>
+  <xsd:complexType name="ISignalGroup">
+    <xsd:complexContent>
+      <xsd:extension base="m2:ArElement">
+        <xsd:attribute name="systemSignalGroup" type="xsd:string"/>
+        <xsd:attribute name="iSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ISignalGroup" type="m2:ISignalGroup"/>
+  <xsd:complexType abstract="true" name="SenderRecCompositeTypeMapping"/>
+  <xsd:complexType name="SenderRecRecordTypeMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SenderRecCompositeTypeMapping">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="recordElementMapping" type="m2:SenderRecRecordElementMapping"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderRecRecordTypeMapping" type="m2:SenderRecRecordTypeMapping"/>
+  <xsd:complexType name="SenderRecRecordElementMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="complexTypeMapping" type="m2:SenderRecCompositeTypeMapping"/>
+        </xsd:sequence>
+        <xsd:attribute name="implementationRecordElement" type="xsd:string"/>
+        <xsd:attribute name="systemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderRecRecordElementMapping" type="m2:SenderRecRecordElementMapping"/>
+  <xsd:complexType name="SenderRecArrayTypeMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:SenderRecCompositeTypeMapping">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="arrayElementMapping" type="m2:SenderRecArrayElementMapping"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderRecArrayTypeMapping" type="m2:SenderRecArrayTypeMapping"/>
+  <xsd:complexType name="IndexedArrayElement">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:attribute name="index" type="xsd:string" use="required"/>
+        <xsd:attribute name="implementationArrayElement" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IndexedArrayElement" type="m2:IndexedArrayElement"/>
+  <xsd:complexType name="SenderRecArrayElementMapping">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="indexedArrayElement" type="m2:IndexedArrayElement"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="complexTypeMapping" type="m2:SenderRecCompositeTypeMapping"/>
+        </xsd:sequence>
+        <xsd:attribute name="systemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SenderRecArrayElementMapping" type="m2:SenderRecArrayElementMapping"/>
+  <xsd:complexType name="SwPointerTargetProps">
+    <xsd:complexContent>
+      <xsd:extension base="m2:M2Object">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="swDataDefProps" type="m2:SwDataDefProps"/>
+        </xsd:sequence>
+        <xsd:attribute name="targetCategory" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwPointerTargetProps" type="m2:SwPointerTargetProps"/>
+</xsd:schema>
