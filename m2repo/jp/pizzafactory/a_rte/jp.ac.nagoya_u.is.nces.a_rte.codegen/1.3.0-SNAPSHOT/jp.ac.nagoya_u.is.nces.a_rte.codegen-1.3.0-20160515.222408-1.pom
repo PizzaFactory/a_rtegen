@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <relativePath>../parent</relativePath>
+    <groupId>jp.pizzafactory.a_rte</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.3.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <artifactId>jp.ac.nagoya_u.is.nces.a_rte.codegen</artifactId>
+  <packaging>eclipse-plugin</packaging>
+
+  <repositories>
+    <repository>
+      <id>Eclipse - Acceleo Snapshots</id>
+      <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+    </repository>
+    <repository>
+      <id>Eclipse - Acceleo Release</id>
+      <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>Eclipse - Acceleo Snapshots</id>
+      <url>https://repo.eclipse.org/content/repositories/acceleo-snapshots</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>Eclipse - Acceleo Release</id>
+      <url>https://repo.eclipse.org/content/repositories/acceleo-releases</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.acceleo</groupId>
+        <artifactId>org.eclipse.acceleo.maven</artifactId>
+        <version>3.5.2</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>acceleo-compile</goal>
+            </goals>
+            <configuration>
+              <useBinaryResources>false</useBinaryResources>
+              <usePlatformResourcePath>true</usePlatformResourcePath>
+              <acceleoProject>
+                <root>${project.basedir}</root>
+                <entries>
+                  <entry>
+                    <input>src</input>
+                    <output>target/classes</output>
+                  </entry>
+                </entries>
+              </acceleoProject>
+                <packagesToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.InstancePackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.Ar4xPackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.rte_test.RteTestPackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.rte.interaction.InteractionPackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.rte.ex.ExPackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.rte.RtePackage</packageToRegister>
+                  <packageToRegister>jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModulePackage</packageToRegister>
+                </packagesToRegister>
+              <uriHandler>org.eclipse.acceleo.maven.AcceleoURIHandler</uriHandler>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+      <groupId>org.eclipse.tycho</groupId>
+      <artifactId>tycho-source-plugin</artifactId>
+      <version>${tycho-version}</version>
+      <executions>
+        <execution>
+          <id>plugin-source</id>
+          <goals>
+            <goal>plugin-source</goal>
+          </goals>
+        </execution>
+      </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.eclipse.acceleo</groupId>
+      <artifactId>org.eclipse.acceleo.maven</artifactId>
+      <version>3.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.acceleo</groupId>
+      <artifactId>org.eclipse.acceleo.engine</artifactId>
+      <version>3.6.2-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>org.eclipse.uml2.uml</artifactId>
+      <version>4.1.1.v20130902-0826</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>org.eclipse.uml2.types</artifactId>
+      <version>1.1.0.v20130902-0826</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>org.eclipse.uml2.common</artifactId>
+      <version>1.8.1.v20130902-0826</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.4</version>
+    </dependency>
+  </dependencies>
+</project> 
