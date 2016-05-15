@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecuc="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc" xmlns:instance="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/instance" xmlns:m2="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/instance">
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc" schemaLocation="ecuc.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" schemaLocation="m2.xsd"/>
+  <xsd:complexType abstract="true" name="InstanceReferrable">
+    <xsd:complexContent>
+      <xsd:extension base="instance:IInstanceObject">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InstanceReferrable" type="instance:InstanceReferrable"/>
+  <xsd:complexType name="PortInstanceInComposition">
+    <xsd:complexContent>
+      <xsd:extension base="instance:InstanceReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="contextComponent" type="m2:SwComponentPrototype"/>
+          <xsd:element name="prototype" type="m2:PortPrototype"/>
+          <xsd:element name="dataElement" type="instance:VariableDataInstanceInComposition"/>
+          <xsd:element name="operation" type="instance:OperationInstanceInComposition"/>
+        </xsd:choice>
+        <xsd:attribute name="contextComponent" type="xsd:string"/>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PortInstanceInComposition" type="instance:PortInstanceInComposition"/>
+  <xsd:complexType abstract="true" name="VariableDataInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:VariableDataInstance">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="prototype" type="m2:VariableDataPrototype"/>
+          <xsd:element name="contextPort" type="m2:PortPrototype"/>
+          <xsd:element name="instance" type="instance:VariableDataInstanceInComposition"/>
+        </xsd:choice>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+        <xsd:attribute name="contextPort" type="xsd:string"/>
+        <xsd:attribute name="instance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableDataInstanceInSwc" type="instance:VariableDataInstanceInSwc"/>
+  <xsd:complexType name="VariableDataInstanceInComposition">
+    <xsd:complexContent>
+      <xsd:extension base="instance:VariableDataInstance">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="prototype" type="instance:VariableDataInstanceInSwc"/>
+          <xsd:element name="parent" type="instance:PortInstanceInComposition"/>
+          <xsd:element name="requesterConnection" type="instance:AssemblyDataInstanceConnector"/>
+          <xsd:element name="providerConnection" type="instance:AssemblyDataInstanceConnector"/>
+        </xsd:choice>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="requesterConnection" type="xsd:string"/>
+        <xsd:attribute name="providerConnection" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableDataInstanceInComposition" type="instance:VariableDataInstanceInComposition"/>
+  <xsd:complexType name="PVariableDataInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:VariableDataInstanceInSwc"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PVariableDataInstanceInSwc" type="instance:PVariableDataInstanceInSwc"/>
+  <xsd:complexType name="RVariableDataInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:VariableDataInstanceInSwc"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RVariableDataInstanceInSwc" type="instance:RVariableDataInstanceInSwc"/>
+  <xsd:complexType name="AssemblyDataInstanceConnector">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="provider" type="instance:VariableDataInstanceInComposition"/>
+      <xsd:element name="requester" type="instance:VariableDataInstanceInComposition"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="provider" type="xsd:string"/>
+    <xsd:attribute name="requester" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="AssemblyDataInstanceConnector" type="instance:AssemblyDataInstanceConnector"/>
+  <xsd:complexType name="DelegationDataInstanceConnector">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="outer" type="instance:VariableDataInstanceInSwc"/>
+      <xsd:element name="inner" type="instance:VariableDataInstanceInComposition"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="outer" type="xsd:string"/>
+    <xsd:attribute name="inner" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="DelegationDataInstanceConnector" type="instance:DelegationDataInstanceConnector"/>
+  <xsd:complexType abstract="true" name="OperationInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:InstanceReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="prototype" type="m2:ClientServerOperation"/>
+          <xsd:element name="contextPort" type="m2:PortPrototype"/>
+          <xsd:element name="instance" type="instance:OperationInstanceInComposition"/>
+        </xsd:choice>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+        <xsd:attribute name="contextPort" type="xsd:string"/>
+        <xsd:attribute name="instance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OperationInstanceInSwc" type="instance:OperationInstanceInSwc"/>
+  <xsd:complexType name="ROperationInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:OperationInstanceInSwc"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ROperationInstanceInSwc" type="instance:ROperationInstanceInSwc"/>
+  <xsd:complexType name="POperationInstanceInSwc">
+    <xsd:complexContent>
+      <xsd:extension base="instance:OperationInstanceInSwc">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operationInvokedEvent" type="m2:OperationInvokedEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="operationInvokedEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="POperationInstanceInSwc" type="instance:POperationInstanceInSwc"/>
+  <xsd:complexType name="OperationInstanceInComposition">
+    <xsd:complexContent>
+      <xsd:extension base="instance:InstanceReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="prototype" type="instance:OperationInstanceInSwc"/>
+          <xsd:element name="parent" type="instance:PortInstanceInComposition"/>
+          <xsd:element name="requesterConnection" type="instance:AssemblyOperationInstanceConnector"/>
+          <xsd:element name="providerConnection" type="instance:AssemblyOperationInstanceConnector"/>
+        </xsd:choice>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="requesterConnection" type="xsd:string"/>
+        <xsd:attribute name="providerConnection" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OperationInstanceInComposition" type="instance:OperationInstanceInComposition"/>
+  <xsd:complexType name="AssemblyOperationInstanceConnector">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="requester" type="instance:OperationInstanceInComposition"/>
+      <xsd:element name="provider" type="instance:OperationInstanceInComposition"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="requester" type="xsd:string"/>
+    <xsd:attribute name="provider" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="AssemblyOperationInstanceConnector" type="instance:AssemblyOperationInstanceConnector"/>
+  <xsd:complexType abstract="true" name="IInstanceObject">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="IInstanceObject" type="instance:IInstanceObject"/>
+  <xsd:complexType name="SwComponentInstanceInSystem">
+    <xsd:complexContent>
+      <xsd:extension base="instance:InstanceReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="contextRootComposition" type="m2:RootSwCompositionPrototype"/>
+          <xsd:element name="prototype" type="m2:SwComponentPrototype"/>
+          <xsd:element name="ownerPartition" type="ecuc:EcucPartition"/>
+        </xsd:choice>
+        <xsd:attribute name="contextRootComposition" type="xsd:string"/>
+        <xsd:attribute name="prototype" type="xsd:string"/>
+        <xsd:attribute name="ownerPartition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwComponentInstanceInSystem" type="instance:SwComponentInstanceInSystem"/>
+  <xsd:complexType name="InstanceRoot">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="assemblyDataInstanceConnector" type="instance:AssemblyDataInstanceConnector"/>
+      <xsd:element name="delegationDataInstanceConnector" type="instance:DelegationDataInstanceConnector"/>
+      <xsd:element name="swComponentInstanceInSystem" type="instance:SwComponentInstanceInSystem"/>
+      <xsd:element name="portInstanceInComposition" type="instance:PortInstanceInComposition"/>
+      <xsd:element name="variableDataInstanceInSwc" type="instance:VariableDataInstanceInSwc"/>
+      <xsd:element name="operationInstanceInSwc" type="instance:OperationInstanceInSwc"/>
+      <xsd:element name="assemblyOperationInstanceConnector" type="instance:AssemblyOperationInstanceConnector"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="InstanceRoot" type="instance:InstanceRoot"/>
+  <xsd:complexType abstract="true" name="VariableDataInstance">
+    <xsd:complexContent>
+      <xsd:extension base="instance:InstanceReferrable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableDataInstance" type="instance:VariableDataInstance"/>
+</xsd:schema>

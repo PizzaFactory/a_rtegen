@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecuc="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc" xmlns:m2="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc">
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" schemaLocation="m2.xsd"/>
+  <xsd:simpleType name="OsTaskScheduleEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="FULL"/>
+      <xsd:enumeration value="NON"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RteExclusiveAreaImplMechanismEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="ALL_INTERRUPT_BLOCKING"/>
+      <xsd:enumeration value="COOPERATIVE_RUNNABLE_PLACEMENT"/>
+      <xsd:enumeration value="OS_INTERRUPT_BLOCKING"/>
+      <xsd:enumeration value="OS_RESOURCE"/>
+      <xsd:enumeration value="OS_SPINLOCK"/>
+      <xsd:enumeration value="NONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ComTransferPropertyEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="PENDING"/>
+      <xsd:enumeration value="TRIGGERED"/>
+      <xsd:enumeration value="TRIGGERED_ON_CHANGE"/>
+      <xsd:enumeration value="TRIGGERED_ON_CHANGE_WITHOUT_REPETITION"/>
+      <xsd:enumeration value="TRIGGERED_WITHOUT_REPETITION"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OsSpinlockLockMethodEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="LOCK_NOTHING"/>
+      <xsd:enumeration value="LOCK_CAT2_INTERRUPTS"/>
+      <xsd:enumeration value="LOCK_ALL_INTERRUPTS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RteInitializationStrategyEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION"/>
+      <xsd:enumeration value="RTE_INITIALIZATION_STRATEGY_AT_DATA_DECLARATION_AND_PARTITION_RESTART"/>
+      <xsd:enumeration value="RTE_INITIALIZATION_STRATEGY_AT_RTE_START"/>
+      <xsd:enumeration value="RTE_INITIALIZATION_STRATEGY_AT_RTE_START_AND_PARTITION_RESTART"/>
+      <xsd:enumeration value="RTE_INITIALIZATION_STRATEGY_NONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="EcucObject"/>
+  <xsd:complexType abstract="true" name="EcucReferrable">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucObject">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="shortName" type="xsd:string" use="required"/>
+        <xsd:attribute name="source" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="EcucModule">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucReferrable">
+        <xsd:attribute name="referenceBase" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="EcucContainer">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucReferrable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="Rte">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucModule">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="rteGeneration" type="ecuc:RteGeneration"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="rteBswGeneral" type="ecuc:RteBswGeneral"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteSwComponentInstance" type="ecuc:RteSwComponentInstance"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="rteOsInteraction" type="ecuc:RteOsInteraction"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="rteInitializationBehavior" type="ecuc:RteInitializationBehavior"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteBswModuleInstance" type="ecuc:RteBswModuleInstance"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Rte" type="ecuc:Rte"/>
+  <xsd:complexType name="RteGeneration">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteGeneration" type="ecuc:RteGeneration"/>
+  <xsd:complexType name="RteBswGeneral">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteUseComShadowSignalApi" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswGeneral" type="ecuc:RteBswGeneral"/>
+  <xsd:complexType name="EcucRoot">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="rte" type="ecuc:Rte"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="os" type="ecuc:Os"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="com" type="ecuc:Com"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="ecuC" type="ecuc:EcuC"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="EcucRoot" type="ecuc:EcucRoot"/>
+  <xsd:complexType name="RteSwComponentInstance">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteEventToTaskMapping" type="ecuc:RteEventToTaskMapping"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteExclusiveAreaImplementation" type="ecuc:RteExclusiveAreaImplementation"/>
+        </xsd:sequence>
+        <xsd:attribute name="rteSoftwareComponentInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteSwComponentInstance" type="ecuc:RteSwComponentInstance"/>
+  <xsd:complexType name="RteEventToTaskMapping">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteActivationOffset" type="xsd:string"/>
+        <xsd:attribute name="rtePositionInTask" type="xsd:string"/>
+        <xsd:attribute name="rteEvent" type="xsd:string"/>
+        <xsd:attribute name="rteMappedToTask" type="xsd:string"/>
+        <xsd:attribute name="rteUsedOsAlarm" type="xsd:string"/>
+        <xsd:attribute name="rteUsedOsEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteEventToTaskMapping" type="ecuc:RteEventToTaskMapping"/>
+  <xsd:complexType name="Os">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucModule">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osTask" type="ecuc:OsTask"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osEvent" type="ecuc:OsEvent"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osApplication" type="ecuc:OsApplication"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osAlarm" type="ecuc:OsAlarm"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osResource" type="ecuc:OsResource"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osSpinlock" type="ecuc:OsSpinlock"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="osIoc" type="ecuc:OsIoc"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="osOS" type="ecuc:OsOS"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Os" type="ecuc:Os"/>
+  <xsd:complexType name="OsTask">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osTaskActivation" type="xsd:string" use="required"/>
+        <xsd:attribute name="osTaskPriority" type="xsd:string" use="required"/>
+        <xsd:attribute name="osTaskSchedule" type="ecuc:OsTaskScheduleEnum" use="required"/>
+        <xsd:attribute name="osTaskAccessingApplication" type="xsd:string"/>
+        <xsd:attribute name="osTaskEvent" type="xsd:string"/>
+        <xsd:attribute name="mappedRteEvent" type="xsd:string"/>
+        <xsd:attribute name="ownerApplication" type="xsd:string"/>
+        <xsd:attribute name="mappedRteBswEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTask" type="ecuc:OsTask"/>
+  <xsd:complexType name="RteExclusiveAreaImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteExclusiveAreaImplMechanism" type="ecuc:RteExclusiveAreaImplMechanismEnum"/>
+        <xsd:attribute name="rteExclusiveArea" type="xsd:string"/>
+        <xsd:attribute name="rteExclusiveAreaOsResource" type="xsd:string"/>
+        <xsd:attribute name="rteExclusiveAreaOsSpinlock" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteExclusiveAreaImplementation" type="ecuc:RteExclusiveAreaImplementation"/>
+  <xsd:complexType name="OsEvent">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osEventMask" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsEvent" type="ecuc:OsEvent"/>
+  <xsd:complexType name="Com">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucModule">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="comConfig" type="ecuc:ComConfig"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Com" type="ecuc:Com"/>
+  <xsd:complexType name="ComConfig">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="comSignal" type="ecuc:ComSignal"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="comSignalGroup" type="ecuc:ComSignalGroup"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComConfig" type="ecuc:ComConfig"/>
+  <xsd:complexType name="ComSignal">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="comHandleId" type="xsd:string" use="required"/>
+        <xsd:attribute name="comTransferProperty" type="ecuc:ComTransferPropertyEnum"/>
+        <xsd:attribute name="comSystemTemplateSystemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSignal" type="ecuc:ComSignal"/>
+  <xsd:complexType name="ComSignalGroup">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="comGroupSignal" type="ecuc:ComGroupSignal"/>
+        </xsd:sequence>
+        <xsd:attribute name="comHandleId" type="xsd:string" use="required"/>
+        <xsd:attribute name="comTransferProperty" type="ecuc:ComTransferPropertyEnum"/>
+        <xsd:attribute name="comSystemTemplateSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSignalGroup" type="ecuc:ComSignalGroup"/>
+  <xsd:complexType name="ComGroupSignal">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="comHandleId" type="xsd:string" use="required"/>
+        <xsd:attribute name="comSystemTemplateSystemSignal" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComGroupSignal" type="ecuc:ComGroupSignal"/>
+  <xsd:complexType name="OsAlarm">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="expectedConfig" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsAlarm" type="ecuc:OsAlarm"/>
+  <xsd:complexType name="OsResource">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsResource" type="ecuc:OsResource"/>
+  <xsd:complexType name="OsApplication">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osApplicationTrustedFunction" type="ecuc:OsApplicationTrustedFunction"/>
+        </xsd:sequence>
+        <xsd:attribute name="osApplicationCoreAssignment" type="xsd:string"/>
+        <xsd:attribute name="osTrusted" type="xsd:string" use="required"/>
+        <xsd:attribute name="osAppEcucPartition" type="xsd:string"/>
+        <xsd:attribute name="osAppTask" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsApplication" type="ecuc:OsApplication"/>
+  <xsd:complexType name="EcuC">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucModule">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ecucPartitionCollection" type="ecuc:EcucPartitionCollection"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcuC" type="ecuc:EcuC"/>
+  <xsd:complexType name="EcucPartitionCollection">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ecucPartition" type="ecuc:EcucPartition"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucPartitionCollection" type="ecuc:EcucPartitionCollection"/>
+  <xsd:complexType name="EcucPartition">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="ecucPartitionBswModuleExecution" type="xsd:string" use="required"/>
+        <xsd:attribute name="partitionCanBeRestarted" type="xsd:string" use="required"/>
+        <xsd:attribute name="ecucPartitionSoftwareComponent" type="xsd:string"/>
+        <xsd:attribute name="implOsApplication" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EcucPartition" type="ecuc:EcucPartition"/>
+  <xsd:complexType name="OsSpinlock">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osSpinlockLockMethod" type="ecuc:OsSpinlockLockMethodEnum" use="required"/>
+        <xsd:attribute name="osSpinlockAccessingApplication" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsSpinlock" type="ecuc:OsSpinlock"/>
+  <xsd:complexType name="RteOsInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteUsedOsActivation" type="ecuc:RteUsedOsActivation"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteOsInteraction" type="ecuc:RteOsInteraction"/>
+  <xsd:complexType name="RteUsedOsActivation">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteExpectedTickDuration" type="xsd:string" use="required"/>
+        <xsd:attribute name="rteExpectedActivationOffset" type="xsd:string" use="required"/>
+        <xsd:attribute name="rteActivationOsAlarm" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteUsedOsActivation" type="ecuc:RteUsedOsActivation"/>
+  <xsd:complexType name="RteInitializationBehavior">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteSectionInitializationPolicy" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+        <xsd:attribute name="rteInitializationStrategy" type="ecuc:RteInitializationStrategyEnum" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteInitializationBehavior" type="ecuc:RteInitializationBehavior"/>
+  <xsd:complexType name="OsIoc">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="osIocCommunication" type="ecuc:OsIocCommunication"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsIoc" type="ecuc:OsIoc"/>
+  <xsd:complexType name="OsIocCommunication">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="osIocSenderProperties" type="ecuc:OsIocSenderProperties"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="osIocReceiverProperties" type="ecuc:OsIocReceiverProperties"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="osIocDataProperties" type="ecuc:OsIocDataProperties"/>
+        </xsd:sequence>
+        <xsd:attribute name="osIocBufferLength" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsIocCommunication" type="ecuc:OsIocCommunication"/>
+  <xsd:complexType name="OsIocSenderProperties">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osIocSenderId" type="xsd:string"/>
+        <xsd:attribute name="osIocSendingOsApplication" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsIocSenderProperties" type="ecuc:OsIocSenderProperties"/>
+  <xsd:complexType name="OsIocReceiverProperties">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osIocReceivingOsApplication" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsIocReceiverProperties" type="ecuc:OsIocReceiverProperties"/>
+  <xsd:complexType name="OsIocDataProperties">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osIocDataPropertyIndex" type="xsd:string"/>
+        <xsd:attribute name="osIocInitValue" type="xsd:string"/>
+        <xsd:attribute name="osIocDataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsIocDataProperties" type="ecuc:OsIocDataProperties"/>
+  <xsd:complexType name="OsApplicationTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osTrustedFunctionName" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsApplicationTrustedFunction" type="ecuc:OsApplicationTrustedFunction"/>
+  <xsd:complexType name="OsOS">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="osNumberOfCores" type="xsd:string"/>
+        <xsd:attribute name="osMasterCoreId" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsOS" type="ecuc:OsOS"/>
+  <xsd:complexType name="RteBswEventToTaskMapping">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteBswActivationOffset" type="xsd:string"/>
+        <xsd:attribute name="rteBswPositionInTask" type="xsd:string"/>
+        <xsd:attribute name="rteBswEvent" type="xsd:string"/>
+        <xsd:attribute name="rteBswMappedToTask" type="xsd:string"/>
+        <xsd:attribute name="rteBswUsedOsAlarm" type="xsd:string"/>
+        <xsd:attribute name="rteBswUsedOsEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswEventToTaskMapping" type="ecuc:RteBswEventToTaskMapping"/>
+  <xsd:complexType name="RteBswRequiredModeGroupConnection">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="rteBswProvidedModeGroup" type="xsd:string"/>
+        <xsd:attribute name="rteBswRequiredModeGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswRequiredModeGroupConnection" type="ecuc:RteBswRequiredModeGroupConnection"/>
+  <xsd:complexType name="RteBswModuleInstance">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteBswEventToTaskMapping" type="ecuc:RteBswEventToTaskMapping"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteBswExclusiveAreaImpl" type="ecuc:RteBswExclusiveAreaImpl"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="rteBswImplementation" type="m2:BswImplementation"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="rteBswRequiredModeGroupConnection" type="ecuc:RteBswRequiredModeGroupConnection"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswModuleInstance" type="ecuc:RteBswModuleInstance"/>
+  <xsd:complexType name="RteBswExclusiveAreaImpl">
+    <xsd:complexContent>
+      <xsd:extension base="ecuc:EcucContainer">
+        <xsd:attribute name="rteExclusiveAreaImplMechanism" type="ecuc:RteExclusiveAreaImplMechanismEnum"/>
+        <xsd:attribute name="rteBswExclusiveArea" type="xsd:string"/>
+        <xsd:attribute name="rteBswExclusiveAreaOsResource" type="xsd:string"/>
+        <xsd:attribute name="rteBswExclusiveAreaOsSpinlock" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswExclusiveAreaImpl" type="ecuc:RteBswExclusiveAreaImpl"/>
+</xsd:schema>

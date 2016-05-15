@@ -1,0 +1,70 @@
+/**
+ */
+package jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.tests;
+
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.ModuleFactory;
+import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.NewIsWithinFilterOperation;
+
+import junit.textui.TestRunner;
+
+/**
+ * <!-- begin-user-doc -->
+ * A test case for the model object '<em><b>New Is Within Filter Operation</b></em>'.
+ * <!-- end-user-doc -->
+ * @generated
+ */
+public class NewIsWithinFilterOperationTest extends FilterOperationTest {
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static void main(String[] args) {
+		TestRunner.run(NewIsWithinFilterOperationTest.class);
+	}
+
+	/**
+	 * Constructs a new New Is Within Filter Operation test case with the given name.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NewIsWithinFilterOperationTest(String name) {
+		super(name);
+	}
+
+	/**
+	 * Returns the fixture for this New Is Within Filter Operation test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected NewIsWithinFilterOperation getFixture() {
+		return (NewIsWithinFilterOperation)fixture;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#setUp()
+	 * @generated
+	 */
+	@Override
+	protected void setUp() throws Exception {
+		setFixture(ModuleFactory.eINSTANCE.createNewIsWithinFilterOperation());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see junit.framework.TestCase#tearDown()
+	 * @generated
+	 */
+	@Override
+	protected void tearDown() throws Exception {
+		setFixture(null);
+	}
+
+} //NewIsWithinFilterOperationTest

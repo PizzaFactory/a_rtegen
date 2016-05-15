@@ -1,0 +1,2690 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:module="http://nces.is.nagoya-u.ac.jp/a-rte/rte/module" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/rte/module">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+  <xsd:simpleType name="ParameterPassTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="value"/>
+      <xsd:enumeration value="reference"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ParameterDirectionEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="in"/>
+      <xsd:enumeration value="out"/>
+      <xsd:enumeration value="inout"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SignednessEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="signed"/>
+      <xsd:enumeration value="unsigned"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ConstantValueTypeEnum">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="numericalValue"/>
+      <xsd:enumeration value="textValue"/>
+      <xsd:enumeration value="unknownValue"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType abstract="true" name="ModuleObject">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="source" type="ecore:EObject"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="roleName" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>モジュールオブジェクトのロール名．（例：フィルタ過去値用の定数であることを示すために，"filterOldValue"を設定する）</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="source" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ModuleObject" type="module:ModuleObject"/>
+  <xsd:complexType abstract="true" name="ModuleReferrable">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModuleReferrable" type="module:ModuleReferrable"/>
+  <xsd:complexType abstract="true" name="Operation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Operation" type="module:Operation"/>
+  <xsd:complexType abstract="true" name="ExecutableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="roleParam" type="module:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="isNoMock" type="xsd:string" use="required"/>
+        <xsd:attribute name="roleParam" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecutableEntity" type="module:ExecutableEntity"/>
+  <xsd:complexType name="BswSchedulableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableEntity">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parentPartedBswm" type="module:PartedBswm"/>
+        </xsd:choice>
+        <xsd:attribute name="parentPartedBswm" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswSchedulableEntity" type="module:BswSchedulableEntity"/>
+  <xsd:complexType name="RunnableEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableEntity">
+        <xsd:attribute name="hasReturnValue" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RunnableEntity" type="module:RunnableEntity"/>
+  <xsd:complexType abstract="true" name="RteApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Swc"/>
+          <xsd:element name="returnValue" type="module:Value"/>
+          <xsd:element name="inlineConstant" type="module:Constant"/>
+          <xsd:element name="inlineGlobalVariable" type="module:GlobalVariable"/>
+          <xsd:element name="inlineRunnableEntity" type="module:RunnableEntity"/>
+        </xsd:choice>
+        <xsd:attribute name="apiMappingName" type="xsd:string" use="required"/>
+        <xsd:attribute name="isConnected" type="xsd:string" use="required"/>
+        <xsd:attribute name="isInline" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="returnValue" type="xsd:string"/>
+        <xsd:attribute name="inlineConstant" type="xsd:string"/>
+        <xsd:attribute name="inlineGlobalVariable" type="xsd:string"/>
+        <xsd:attribute name="inlineRunnableEntity" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteApi" type="module:RteApi"/>
+  <xsd:complexType name="WriteApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="needsCheckArg" type="xsd:string" use="required"/>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="WriteApi" type="module:WriteApi"/>
+  <xsd:complexType abstract="true" name="SendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sendValue" type="module:Value"/>
+          <xsd:element name="sendStatus" type="module:Value"/>
+          <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+          <xsd:element name="returnVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="isWriteApi" type="xsd:string" use="required"/>
+        <xsd:attribute name="sendValue" type="xsd:string"/>
+        <xsd:attribute name="sendStatus" type="xsd:string"/>
+        <xsd:attribute name="returnVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SendOperation" type="module:SendOperation"/>
+  <xsd:complexType name="RteBufferNonqueuedSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:SendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferVariableSet"/>
+          <xsd:element name="filterOperation" type="module:FilterOperation"/>
+          <xsd:element name="activationFlagOnRxSuccess" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+        <xsd:attribute name="activationFlagOnRxSuccess" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferNonqueuedSendOperation" type="module:RteBufferNonqueuedSendOperation"/>
+  <xsd:complexType name="RteBufferNonqueuedReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferVariableSet"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferNonqueuedReadOperation" type="module:RteBufferNonqueuedReadOperation"/>
+  <xsd:complexType abstract="true" name="ReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="invalidValueConstant" type="module:Constant"/>
+          <xsd:element name="readValueVariable" type="module:Variable"/>
+          <xsd:element name="readStatusVariable" type="module:Variable"/>
+          <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="invalidValueConstant" type="xsd:string"/>
+        <xsd:attribute name="readValueVariable" type="xsd:string"/>
+        <xsd:attribute name="readStatusVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReadOperation" type="module:ReadOperation"/>
+  <xsd:complexType name="ReadApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ReadOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReadApi" type="module:ReadApi"/>
+  <xsd:complexType name="IrvReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferVariableSet"/>
+          <xsd:element name="readValueVariable" type="module:Variable"/>
+          <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+        <xsd:attribute name="readValueVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IrvReadOperation" type="module:IrvReadOperation"/>
+  <xsd:complexType name="IrvReadApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:IrvReadOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IrvReadApi" type="module:IrvReadApi"/>
+  <xsd:complexType name="IrvWriteOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferVariableSet"/>
+          <xsd:element name="writeValueVariable" type="module:Variable"/>
+          <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+        <xsd:attribute name="writeValueVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IrvWriteOperation" type="module:IrvWriteOperation"/>
+  <xsd:complexType name="IrvWriteApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:IrvWriteOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+        </xsd:choice>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IrvWriteApi" type="module:IrvWriteApi"/>
+  <xsd:complexType name="RteBufferVariableSet">
+    <xsd:complexContent>
+      <xsd:extension base="module:GlobalVariable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="valueVariable" type="module:GlobalVariable"/>
+          <xsd:element name="statusVariable" type="module:GlobalVariable"/>
+          <xsd:element name="initValueVariable" type="module:GlobalVariable"/>
+          <xsd:element name="complexVariable" type="module:GlobalVariable"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferVariableSet" type="module:RteBufferVariableSet"/>
+  <xsd:complexType name="GlobalVariableSet">
+    <xsd:complexContent>
+      <xsd:extension base="module:GlobalVariable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="globalVariable" type="module:GlobalVariable"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GlobalVariableSet" type="module:GlobalVariableSet"/>
+  <xsd:complexType name="ComProxyFunctionTableVariable">
+    <xsd:complexContent>
+      <xsd:extension base="module:GlobalVariable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComProxyFunctionTableVariable" type="module:ComProxyFunctionTableVariable"/>
+  <xsd:complexType name="RteSource">
+    <xsd:complexContent>
+      <xsd:extension base="module:SourceFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="globalVariableGroup" type="module:GlobalVariableFileContentsGroup"/>
+          <xsd:element name="dependentExternalExecutableEntityGroup" type="module:ExecutableEntityFileContentsGroup"/>
+          <xsd:element name="bswSchedulableEntityGroup" type="module:BswSchedulableEntityFileContentsGroup"/>
+          <xsd:element name="rteApiGroup" type="module:RteApiFileContentsGroup"/>
+          <xsd:element name="rteLifecycleApiGroup" type="module:RteLifecycleApiFileContentsGroup"/>
+          <xsd:element name="taskBodyGroup" type="module:TaskBodyFileContentsGroup"/>
+          <xsd:element name="comCallbackGroup" type="module:ComCallbackFileContentsGroup"/>
+          <xsd:element name="trustedFunctionGroup" type="module:TrustedFunctionFileContentsGroup"/>
+          <xsd:element name="sourceMacro" type="module:Macro"/>
+          <xsd:element name="schmLifecycleApiGroup" type="module:SchmLifecycleApiFileContentsGroup"/>
+          <xsd:element name="schmApiGroup" type="module:SchmApiFileContentsGroup"/>
+          <xsd:element name="comSignalApiWrapperGroup" type="module:ComSignalApiWrapperFileContentsGroup"/>
+          <xsd:element name="comProxyFunctionGroup" type="module:ComProxyFunctionFileContentsGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceMacro" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteSource" type="module:RteSource"/>
+  <xsd:complexType name="RteModule">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="dependentHeader" type="module:HeaderFile"/>
+      <xsd:element name="bswMemoryMappingHeader" type="module:BswMemoryMappingHeader"/>
+      <xsd:element name="swcMemoryMappingHeader" type="module:SwcMemoryMappingHeader"/>
+      <xsd:element name="rteHeader" type="module:RteHeader"/>
+      <xsd:element name="rteTypeHeader" type="module:RteTypeHeader"/>
+      <xsd:element name="rteApplicationTypeHeader" type="module:RteApplicationTypeHeader"/>
+      <xsd:element name="rteApplicationHeader" type="module:RteApplicationHeader"/>
+      <xsd:element name="moduleInterlinkTypeHeader" type="module:ModuleInterlinkTypeHeader"/>
+      <xsd:element name="moduleInterlinkHeader" type="module:ModuleInterlinkHeader"/>
+      <xsd:element name="rteLifecycleHeader" type="module:RteLifecycleHeader"/>
+      <xsd:element name="rteConfigurationHeader" type="module:RteConfigurationHeader"/>
+      <xsd:element name="rteVfbTraceHeader" type="module:RteVfbTraceHeader"/>
+      <xsd:element name="rteCallbackHeader" type="module:RteCallbackHeader"/>
+      <xsd:element name="rteUtilityHeader" type="module:RteUtilityHeader"/>
+      <xsd:element name="rteBswApiHeader" type="module:RteBswApiHeader"/>
+      <xsd:element name="rteCommonHeader" type="module:RteInternalHeader"/>
+      <xsd:element name="rtePartitionHeader" type="module:RteInternalHeader"/>
+      <xsd:element name="rteCommonSource" type="module:RteSource"/>
+      <xsd:element name="rtePartitionSource" type="module:RteSource"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="RteModule" type="module:RteModule"/>
+  <xsd:complexType name="GlobalVariable">
+    <xsd:complexContent>
+      <xsd:extension base="module:Variable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initValueConstant" type="module:Constant"/>
+          <xsd:element name="memoryMapping" type="module:MemoryMapping"/>
+        </xsd:choice>
+        <xsd:attribute name="initAtDefinition" type="xsd:string" use="required"/>
+        <xsd:attribute name="initWithConstantValue" type="xsd:string" use="required"/>
+        <xsd:attribute name="hasConst" type="xsd:string" use="required"/>
+        <xsd:attribute name="hasStatic" type="xsd:string" use="required"/>
+        <xsd:attribute name="initValueConstant" type="xsd:string"/>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GlobalVariable" type="module:GlobalVariable"/>
+  <xsd:complexType abstract="true" name="File">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="generationInfo" type="module:GenerationInfo"/>
+        </xsd:choice>
+        <xsd:attribute name="fileName" type="xsd:string" use="required"/>
+        <xsd:attribute name="generationInfo" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="File" type="module:File"/>
+  <xsd:complexType name="Parameter">
+    <xsd:complexContent>
+      <xsd:extension base="module:Variable">
+        <xsd:attribute name="passType" type="module:ParameterPassTypeEnum" use="required"/>
+        <xsd:attribute name="direction" type="module:ParameterDirectionEnum" use="required"/>
+        <xsd:attribute name="hasConst" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Parameter" type="module:Parameter"/>
+  <xsd:complexType abstract="true" name="Type">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="isAnonymous" type="xsd:string" use="required"/>
+        <xsd:attribute name="signedness" type="module:SignednessEnum" use="required"/>
+        <xsd:attribute name="originalTypeSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="size" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Type" type="module:Type"/>
+  <xsd:complexType name="LocalVariable">
+    <xsd:complexContent>
+      <xsd:extension base="module:Variable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initValueConstant" type="module:Constant"/>
+          <xsd:element name="parent" type="module:Function"/>
+        </xsd:choice>
+        <xsd:attribute name="initValueConstant" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="LocalVariable" type="module:LocalVariable"/>
+  <xsd:complexType name="RteApplicationHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceMacro" type="module:Macro"/>
+          <xsd:element name="globalVariableGroup" type="module:GlobalVariableFileContentsGroup"/>
+          <xsd:element name="rteApiGroup" type="module:RteApiFileContentsGroup"/>
+          <xsd:element name="DeclarationsRteApiGroup" type="module:RteApiFileContentsGroup"/>
+          <xsd:element name="constant" type="module:Constant"/>
+          <xsd:element name="dependentExecutableEntityGroup" type="module:ExecutableEntityFileContentsGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="hasInlineApi" type="xsd:string" use="required"/>
+        <xsd:attribute name="sourceMacro" type="xsd:string"/>
+        <xsd:attribute name="constant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteApplicationHeader" type="module:RteApplicationHeader"/>
+  <xsd:complexType abstract="true" name="Function">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="returnType" type="module:Type"/>
+          <xsd:element name="param" type="module:Parameter"/>
+          <xsd:element name="localVariable" type="module:LocalVariable"/>
+          <xsd:element name="localType" type="module:Type"/>
+          <xsd:element name="memoryMapping" type="module:MemoryMapping"/>
+        </xsd:choice>
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="returnType" type="xsd:string"/>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Function" type="module:Function"/>
+  <xsd:complexType abstract="true" name="LogicalCompartment">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:attribute name="compartmentName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="LogicalCompartment" type="module:LogicalCompartment"/>
+  <xsd:complexType name="Rte">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="core" type="module:Core"/>
+          <xsd:element name="bswm" type="module:Bswm"/>
+          <xsd:element name="generationInfo" type="module:GenerationInfo"/>
+          <xsd:element name="dependentType" type="module:Type"/>
+          <xsd:element name="dependentConstant" type="module:Constant"/>
+          <xsd:element name="dependentOsApi" type="module:OsApi"/>
+          <xsd:element name="dependentIocCommunication" type="module:IocCommunication"/>
+          <xsd:element name="dependentComApi" type="module:ComApi"/>
+          <xsd:element name="iocInitValueConstant" type="module:Constant"/>
+          <xsd:element name="iocInitValueVariableSet" type="module:RteBufferVariableSet"/>
+          <xsd:element name="rteMemoryMapping" type="module:BswMemoryMapping"/>
+          <xsd:element name="implementationDataType" type="module:Type"/>
+          <xsd:element name="comSendSignalTfParamType" type="module:ComSendTrustedFunctionParamType"/>
+          <xsd:element name="comSendSignalGroupTfParamType" type="module:ComSendTrustedFunctionParamType"/>
+          <xsd:element name="csTfParamType" type="module:CsTrustedFunctionParamType"/>
+          <xsd:element name="srRteNonqueuedSendTfParamType" type="module:RteNonqueuedSendTrustedFunctionParamType"/>
+          <xsd:element name="srRteQueuedSendTfParamType" type="module:RteQueuedSendTrustedFunctionParamType"/>
+          <xsd:element name="srRteBufferQueueMaxLengthConstant" type="module:Constant"/>
+          <xsd:element name="srRteBufferQueueType" type="module:RteBufferQueueType"/>
+          <xsd:element name="immediateConstant" type="module:Constant"/>
+          <xsd:element name="comSendSignalTrustedFunction" type="module:ComSendSignalTrustedFunction"/>
+          <xsd:element name="comSendSignalPeriodicEntity" type="module:ComSendSignalPeriodicEntity"/>
+          <xsd:element name="comSendSignalImmediateEntity" type="module:ComSendSignalImmediateEntity"/>
+          <xsd:element name="comSendSignalImmediateTaskBody" type="module:ComSendSignalImmediateTaskBody"/>
+          <xsd:element name="comCallback" type="module:ComCallback"/>
+          <xsd:element name="rteStartApi" type="module:RteStartApi"/>
+          <xsd:element name="rteStopApi" type="module:RteStopApi"/>
+          <xsd:element name="schmInitApi" type="module:SchmInitApi"/>
+          <xsd:element name="schmDeinitApi" type="module:SchmDeinitApi"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Rte" type="module:Rte"/>
+  <xsd:complexType name="Core">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="partition" type="module:Partition"/>
+          <xsd:element name="rteCoreStartApiImpl" type="module:RteCoreStartApiImpl"/>
+          <xsd:element name="schmCoreInitApiImpl" type="module:SchmCoreInitApiImpl"/>
+        </xsd:choice>
+        <xsd:attribute name="coreId" type="xsd:string" use="required"/>
+        <xsd:attribute name="isMasterCore" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Core" type="module:Core"/>
+  <xsd:complexType name="Partition">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Core"/>
+          <xsd:element name="swc" type="module:Swc"/>
+          <xsd:element name="partedBswm" type="module:PartedBswm"/>
+          <xsd:element name="osTrustedMacro" type="module:Macro"/>
+          <xsd:element name="comReceiveBufferVariableSet" type="module:RteBufferVariableSet"/>
+          <xsd:element name="comSignalApiWrapper" type="module:ComSignalApiWrapper"/>
+          <xsd:element name="comSignalApiAlias" type="module:FunctionMacro"/>
+          <xsd:element name="comMetaDataVariableSet" type="module:GlobalVariableSet"/>
+          <xsd:element name="comProxyFunction" type="module:ComProxyFunction"/>
+          <xsd:element name="comProxyFunctionTableIndexConstant" type="module:Constant"/>
+          <xsd:element name="comProxyFunctionTableSizeConstant" type="module:Constant"/>
+          <xsd:element name="comProxyFunctionTableVariable" type="module:GlobalVariable"/>
+          <xsd:element name="comProxyBufferVariableSet" type="module:RteBufferVariableSet"/>
+          <xsd:element name="srRteBufferInitValueConstant" type="module:Constant"/>
+          <xsd:element name="srRteBufferVariableSet" type="module:RteBufferVariableSet"/>
+          <xsd:element name="srRteBufferQueuedVariable" type="module:RteBufferQueuedVariable"/>
+          <xsd:element name="rteBufferSendTrustedFunction" type="module:TrustedFunction"/>
+          <xsd:element name="srFilterConstant" type="module:Constant"/>
+          <xsd:element name="srFilterOldValueVariable" type="module:GlobalVariable"/>
+          <xsd:element name="srFilterOccurrenceVariable" type="module:GlobalVariable"/>
+          <xsd:element name="csTfArgcConstant" type="module:Constant"/>
+          <xsd:element name="csTfOpidConstant" type="module:Constant"/>
+          <xsd:element name="csTrustedFunction" type="module:CsTrustedFunction"/>
+          <xsd:element name="entityStartVariable" type="module:GlobalVariable"/>
+          <xsd:element name="entityStartConstant" type="module:Constant"/>
+          <xsd:element name="taskBody" type="module:TaskBody"/>
+          <xsd:element name="restartPartitionApi" type="module:RestartPartitionApi"/>
+          <xsd:element name="partitionTerminatedApi" type="module:PartitionTerminatedApi"/>
+          <xsd:element name="partitionRestartingApi" type="module:PartitionRestartingApi"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="isBswPartition" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Partition" type="module:Partition"/>
+  <xsd:complexType name="Swc">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Partition"/>
+          <xsd:element name="swcMemoryMapping" type="module:SwcMemoryMapping"/>
+          <xsd:element name="dependentRunnableEntity" type="module:RunnableEntity"/>
+          <xsd:element name="dependentExternalRunnableEntity" type="module:RunnableEntity"/>
+          <xsd:element name="rteApi" type="module:RteApi"/>
+          <xsd:element name="apiEnumConstant" type="module:Constant"/>
+          <xsd:element name="apiUpperLowerLimitConstant" type="module:Constant"/>
+          <xsd:element name="srApiInitValueConstant" type="module:Constant">
+            <xsd:annotation>
+              <xsd:documentation>S/Rデータ要素の初期値定数(API)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="srImplInitValueConstant" type="module:Constant">
+            <xsd:annotation>
+              <xsd:documentation>S/Rデータ要素の初期値定数(内部実装用)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="srImplInvalidValueConstant" type="module:Constant">
+            <xsd:annotation>
+              <xsd:documentation>S/Rデータ要素の無効値(内部実装用)</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="srFilterConstant" type="module:Constant"/>
+          <xsd:element name="csApiApplicationErrorConstant" type="module:Constant"/>
+          <xsd:element name="csPortArgValueConstant" type="module:Constant"/>
+          <xsd:element name="csPortArgValueVariable" type="module:GlobalVariable"/>
+          <xsd:element name="irvBufferInitValueConstant" type="module:Constant"/>
+          <xsd:element name="irvBufferVariableSet" type="module:RteBufferVariableSet"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="dependentExternalRunnableEntity" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Swc" type="module:Swc"/>
+  <xsd:complexType name="RteHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteHeader" type="module:RteHeader"/>
+  <xsd:complexType name="RteBswApiHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="iocApi" type="module:IocApi"/>
+        </xsd:choice>
+        <xsd:attribute name="iocApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBswApiHeader" type="module:RteBswApiHeader"/>
+  <xsd:complexType name="RteLifecycleHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="rteLifecycleApiGroup" type="module:RteLifecycleApiFileContentsGroup"/>
+          <xsd:element name="schmLifecycleApiGroup" type="module:SchmLifecycleApiFileContentsGroup"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteLifecycleHeader" type="module:RteLifecycleHeader"/>
+  <xsd:complexType name="RteApplicationTypeHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="constant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="constant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteApplicationTypeHeader" type="module:RteApplicationTypeHeader"/>
+  <xsd:complexType name="RteVfbTraceHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteVfbTraceHeader" type="module:RteVfbTraceHeader"/>
+  <xsd:complexType name="RteConfigurationHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteConfigurationHeader" type="module:RteConfigurationHeader"/>
+  <xsd:complexType name="RteCallbackHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="comCallbackGroup" type="module:ComCallbackFileContentsGroup"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteCallbackHeader" type="module:RteCallbackHeader"/>
+  <xsd:complexType name="RteTypeHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="rteType" type="module:Type"/>
+          <xsd:element name="rteTypeConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="providesSignalGroupTransmission" type="xsd:string" use="required"/>
+        <xsd:attribute name="rteType" type="xsd:string"/>
+        <xsd:attribute name="rteTypeConstant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteTypeHeader" type="module:RteTypeHeader"/>
+  <xsd:complexType name="InvalidateApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InvalidateApi" type="module:InvalidateApi"/>
+  <xsd:complexType name="IocNonqueuedSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocSendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:IocWriteApi"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocNonqueuedSendOperation" type="module:IocNonqueuedSendOperation"/>
+  <xsd:complexType name="DirectComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSendOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DirectComSendOperation" type="module:DirectComSendOperation"/>
+  <xsd:complexType name="TrustedFunctionRteOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:SendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+          <xsd:element name="trustedFunctionParamVariable" type="module:LocalVariable"/>
+          <xsd:element name="activationFlagOnRxSuccess" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+        <xsd:attribute name="trustedFunctionParamVariable" type="xsd:string"/>
+        <xsd:attribute name="activationFlagOnRxSuccess" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionRteOperation" type="module:TrustedFunctionRteOperation"/>
+  <xsd:complexType name="TrustedFunctionRteBufferWriteSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunctionRteOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessTrustedFunction" type="module:RteBufferWriteTrustedFunction"/>
+        </xsd:choice>
+        <xsd:attribute name="accessTrustedFunction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionRteBufferWriteSendOperation" type="module:TrustedFunctionRteBufferWriteSendOperation"/>
+  <xsd:complexType name="TrustedFunctionRteBufferSendSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunctionRteOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessTrustedFunction" type="module:RteBufferSendTrustedFunction"/>
+        </xsd:choice>
+        <xsd:attribute name="accessTrustedFunction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionRteBufferSendSendOperation" type="module:TrustedFunctionRteBufferSendSendOperation"/>
+  <xsd:complexType name="TrustedFunctionRteBufferInvalidateSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunctionRteOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessTrustedFunction" type="module:RteBufferInvalidateTrustedFunction"/>
+        </xsd:choice>
+        <xsd:attribute name="accessTrustedFunction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionRteBufferInvalidateSendOperation" type="module:TrustedFunctionRteBufferInvalidateSendOperation"/>
+  <xsd:complexType name="RteBufferInvalidateTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:RteBufferNonqueuedSendOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferInvalidateTrustedFunction" type="module:RteBufferInvalidateTrustedFunction"/>
+  <xsd:complexType name="TrustedFunctionComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="accessTrustedFunction" type="module:ComSendSignalTrustedFunction"/>
+          <xsd:element name="trustedFunctionParamVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="isGroup" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="accessTrustedFunction" type="xsd:string"/>
+        <xsd:attribute name="trustedFunctionParamVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionComSendOperation" type="module:TrustedFunctionComSendOperation"/>
+  <xsd:complexType name="ImmediateProxyComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ProxyComSendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="activationApi" type="module:OsSetEventApi"/>
+        </xsd:choice>
+        <xsd:attribute name="activationApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImmediateProxyComSendOperation" type="module:ImmediateProxyComSendOperation"/>
+  <xsd:complexType name="PeriodicProxyComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ProxyComSendOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PeriodicProxyComSendOperation" type="module:PeriodicProxyComSendOperation"/>
+  <xsd:complexType name="IocNonqueuedReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:IocReadApi"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocNonqueuedReadOperation" type="module:IocNonqueuedReadOperation"/>
+  <xsd:complexType name="ComReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:ComReceiveSignalApi"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComReadOperation" type="module:ComReadOperation"/>
+  <xsd:complexType name="IocNonqueuedCommunication">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocCommunication">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="writeApi" type="module:IocWriteApi"/>
+          <xsd:element name="readApi" type="module:IocReadApi"/>
+          <xsd:element name="initValue" type="module:Constant"/>
+          <xsd:element name="initValueVariable" type="module:GlobalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="initValue" type="xsd:string"/>
+        <xsd:attribute name="initValueVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocNonqueuedCommunication" type="module:IocNonqueuedCommunication"/>
+  <xsd:complexType name="IocWriteApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:IocNonqueuedCommunication"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocWriteApi" type="module:IocWriteApi"/>
+  <xsd:complexType name="IocReadApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocReadApi" type="module:IocReadApi"/>
+  <xsd:complexType name="ComSendSignalApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalApi" type="module:ComSendSignalApi"/>
+  <xsd:complexType name="ComReceiveSignalApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComReceiveSignalApi" type="module:ComReceiveSignalApi"/>
+  <xsd:complexType name="ComRxCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="dataVariable" type="module:Variable"/>
+          <xsd:element name="accessApi" type="module:ComReceiveSignalApi"/>
+        </xsd:choice>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="dataVariable" type="xsd:string"/>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComRxCallback" type="module:ComRxCallback"/>
+  <xsd:complexType abstract="true" name="ComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:SendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:ComSendSignalApi"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+          <xsd:element name="activationFlagOnTxErr" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+        <xsd:attribute name="activationFlagOnTxErr" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendOperation" type="module:ComSendOperation"/>
+  <xsd:complexType abstract="true" name="ComCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComCallback" type="module:ComCallback"/>
+  <xsd:complexType name="ComRxTOutCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="dataVariable" type="module:Variable"/>
+          <xsd:element name="accessApi" type="module:ComReceiveSignalApi"/>
+        </xsd:choice>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="dataVariable" type="xsd:string"/>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComRxTOutCallback" type="module:ComRxTOutCallback"/>
+  <xsd:complexType name="ComInvCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="filterResultVariable" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="filterResultVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComInvCallback" type="module:ComInvCallback"/>
+  <xsd:complexType name="ComSendSignalProxyEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:BswSchedulableEntity">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ComSendProxyOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalProxyEntity" type="module:ComSendSignalProxyEntity"/>
+  <xsd:complexType name="ComSendSignalImmediateEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSendSignalProxyEntity"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalImmediateEntity" type="module:ComSendSignalImmediateEntity"/>
+  <xsd:complexType name="ComSendSignalPeriodicEntity">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSendSignalProxyEntity"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalPeriodicEntity" type="module:ComSendSignalPeriodicEntity"/>
+  <xsd:complexType name="TAckNotifyOperation">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+      <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="tAckStatus" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TAckNotifyOperation" type="module:TAckNotifyOperation"/>
+  <xsd:complexType name="ComTxTOutCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="tAckNotifyOperation" type="module:TAckNotifyOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComTxTOutCallback" type="module:ComTxTOutCallback"/>
+  <xsd:complexType name="ComTAckCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="tAckNotifyOperation" type="module:TAckNotifyOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComTAckCallback" type="module:ComTAckCallback"/>
+  <xsd:complexType name="ComTErrCallback">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComCallback">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="tAckNotifyOperation" type="module:TAckNotifyOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComTErrCallback" type="module:ComTErrCallback"/>
+  <xsd:complexType abstract="true" name="FilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="filterResultVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="filterResultVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FilterOperation" type="module:FilterOperation"/>
+  <xsd:complexType name="MaskedNewDiffersMaskedOldFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="oldValueVariable" type="module:GlobalVariable"/>
+          <xsd:element name="mask" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="oldValueVariable" type="xsd:string"/>
+        <xsd:attribute name="mask" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MaskedNewDiffersMaskedOldFilterOperation" type="module:MaskedNewDiffersMaskedOldFilterOperation"/>
+  <xsd:complexType name="MaskedNewDiffersXFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="mask" type="module:Constant"/>
+          <xsd:element name="x" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="mask" type="xsd:string"/>
+        <xsd:attribute name="x" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MaskedNewDiffersXFilterOperation" type="module:MaskedNewDiffersXFilterOperation"/>
+  <xsd:complexType name="NewIsWithinFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="min" type="module:Constant"/>
+          <xsd:element name="max" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="min" type="xsd:string"/>
+        <xsd:attribute name="max" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NewIsWithinFilterOperation" type="module:NewIsWithinFilterOperation"/>
+  <xsd:complexType name="NewIsOutsideFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="min" type="module:Constant"/>
+          <xsd:element name="max" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="min" type="xsd:string"/>
+        <xsd:attribute name="max" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NewIsOutsideFilterOperation" type="module:NewIsOutsideFilterOperation"/>
+  <xsd:complexType name="MaskedNewEqualsXFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="mask" type="module:Constant"/>
+          <xsd:element name="x" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="mask" type="xsd:string"/>
+        <xsd:attribute name="x" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MaskedNewEqualsXFilterOperation" type="module:MaskedNewEqualsXFilterOperation"/>
+  <xsd:complexType name="OneEveryNFilterOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:FilterOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="occurrenceVariable" type="module:GlobalVariable"/>
+          <xsd:element name="period" type="module:Constant"/>
+          <xsd:element name="offset" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="occurrenceVariable" type="xsd:string"/>
+        <xsd:attribute name="period" type="xsd:string"/>
+        <xsd:attribute name="offset" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OneEveryNFilterOperation" type="module:OneEveryNFilterOperation"/>
+  <xsd:complexType name="RteCoreStartApiImpl">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:InitializeOperation"/>
+          <xsd:element name="parent" type="module:Core"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteCoreStartApiImpl" type="module:RteCoreStartApiImpl"/>
+  <xsd:complexType name="RteStopApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteStopApi" type="module:RteStopApi"/>
+  <xsd:complexType name="RestartPartitionApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:InitializeOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RestartPartitionApi" type="module:RestartPartitionApi"/>
+  <xsd:complexType name="PartitionRestartingApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="srInterPartitionTimeoutOperation" type="module:InterPartitionTimeoutOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PartitionRestartingApi" type="module:PartitionRestartingApi"/>
+  <xsd:complexType name="PartitionTerminatedApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="srInterPartitionTimeoutOperation" type="module:InterPartitionTimeoutOperation"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PartitionTerminatedApi" type="module:PartitionTerminatedApi"/>
+  <xsd:complexType abstract="true" name="RteLifecycleApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteLifecycleApi" type="module:RteLifecycleApi"/>
+  <xsd:complexType name="SendApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:SendOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+          <xsd:element name="statusVariable" type="module:LocalVariable"/>
+          <xsd:element name="trustedFunctionParamVariable" type="module:LocalVariable"/>
+          <xsd:element name="filterResultVariable" type="module:LocalVariable"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="needsCheckArg" type="xsd:string" use="required"/>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+        <xsd:attribute name="statusVariable" type="xsd:string"/>
+        <xsd:attribute name="trustedFunctionParamVariable" type="xsd:string"/>
+        <xsd:attribute name="filterResultVariable" type="xsd:string"/>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SendApi" type="module:SendApi"/>
+  <xsd:complexType name="ReceiveApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ReadOperation"/>
+          <xsd:element name="dataParam" type="module:Parameter"/>
+          <xsd:element name="statusVariable" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+        <xsd:attribute name="statusVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReceiveApi" type="module:ReceiveApi"/>
+  <xsd:complexType name="RteBufferQueuedSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:SendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferQueuedVariable"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+          <xsd:element name="type" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferQueuedSendOperation" type="module:RteBufferQueuedSendOperation"/>
+  <xsd:complexType name="RteBufferQueuedVariable">
+    <xsd:complexContent>
+      <xsd:extension base="module:GlobalVariable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferQueuedVariable" type="module:RteBufferQueuedVariable"/>
+  <xsd:complexType name="RteBufferQueuedReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessVariable" type="module:RteBufferQueuedVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferQueuedReadOperation" type="module:RteBufferQueuedReadOperation"/>
+  <xsd:complexType name="IocQueuedCommunication">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocCommunication">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sendApi" type="module:IocSendApi"/>
+          <xsd:element name="receiveApi" type="module:IocReceiveApi"/>
+          <xsd:element name="IocEmptyQueueApi" type="module:IocEmptyQueueApi"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocQueuedCommunication" type="module:IocQueuedCommunication"/>
+  <xsd:complexType name="IocReceiveApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocReceiveApi" type="module:IocReceiveApi"/>
+  <xsd:complexType name="IocSendApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocSendApi" type="module:IocSendApi"/>
+  <xsd:complexType name="IocSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:SendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="activationFlagOnRxSuccess" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="activationFlagOnRxSuccess" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocSendOperation" type="module:IocSendOperation"/>
+  <xsd:complexType name="IocQueuedSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocSendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:IocSendApi"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocQueuedSendOperation" type="module:IocQueuedSendOperation"/>
+  <xsd:complexType name="IocQueuedReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:IocReceiveApi"/>
+          <xsd:element name="tempReturnVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+        <xsd:attribute name="tempReturnVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocQueuedReadOperation" type="module:IocQueuedReadOperation"/>
+  <xsd:complexType name="CallApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ServerRunnableStartOperation"/>
+          <xsd:element name="operationParam" type="module:Parameter"/>
+          <xsd:element name="portArgValue" type="module:Value"/>
+          <xsd:element name="returnVariable" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="operationParam" type="xsd:string"/>
+        <xsd:attribute name="portArgValue" type="xsd:string"/>
+        <xsd:attribute name="returnVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CallApi" type="module:CallApi"/>
+  <xsd:complexType name="TfCallApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:CallApi">
+        <xsd:attribute name="csTfParamTypeName" type="xsd:string" use="required"/>
+        <xsd:attribute name="csTfArgcConstantName" type="xsd:string" use="required"/>
+        <xsd:attribute name="csTfOpidConstantName" type="xsd:string" use="required"/>
+        <xsd:attribute name="csTfName" type="xsd:string" use="required"/>
+        <xsd:attribute name="needsCheckArg" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TfCallApi" type="module:TfCallApi"/>
+  <xsd:complexType abstract="true" name="ExecutableStartOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="startExecutable" type="module:ExecutableEntity"/>
+          <xsd:element name="rieaExcludeOperation" type="module:ExcludeOperation">
+            <xsd:annotation>
+              <xsd:documentation>エクスキュータブル実行時に行う排他処理</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="disabledInMode" type="module:DisabledInMode"/>
+        </xsd:choice>
+        <xsd:attribute name="startExecutable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecutableStartOperation" type="module:ExecutableStartOperation"/>
+  <xsd:complexType name="DisabledInMode">
+    <xsd:annotation>
+      <xsd:documentation>モード依存無効化制御処理</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="disabledMode" type="module:Constant"/>
+          <xsd:element name="modeMachineInstance" type="module:ModeMachineInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="disabledMode" type="xsd:string"/>
+        <xsd:attribute name="modeMachineInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DisabledInMode" type="module:DisabledInMode">
+    <xsd:annotation>
+      <xsd:documentation>モード依存無効化制御処理</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="ExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExcludeOperation" type="module:ExcludeOperation"/>
+  <xsd:complexType name="AllInterruptBlockExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExcludeOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="AllInterruptBlockExcludeOperation" type="module:AllInterruptBlockExcludeOperation"/>
+  <xsd:complexType name="OsInterruptBlockExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExcludeOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsInterruptBlockExcludeOperation" type="module:OsInterruptBlockExcludeOperation"/>
+  <xsd:complexType name="OsSpinlockExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExcludeOperation">
+        <xsd:attribute name="osSpinlockId" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsSpinlockExcludeOperation" type="module:OsSpinlockExcludeOperation"/>
+  <xsd:complexType name="OsResourceExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExcludeOperation">
+        <xsd:attribute name="osResourceId" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsResourceExcludeOperation" type="module:OsResourceExcludeOperation"/>
+  <xsd:complexType name="NoneExcludeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExcludeOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NoneExcludeOperation" type="module:NoneExcludeOperation"/>
+  <xsd:complexType name="Constant">
+    <xsd:complexContent>
+      <xsd:extension base="module:Value">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="member" type="module:ConstantMember"/>
+        </xsd:choice>
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="externalSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="value" type="xsd:string" use="required"/>
+        <xsd:attribute name="constantValueType" type="module:ConstantValueTypeEnum" use="required"/>
+        <xsd:attribute name="representedVariableName" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Constant" type="module:Constant"/>
+  <xsd:complexType name="ConstantMember">
+    <xsd:complexContent>
+      <xsd:extension base="module:Constant">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ConstantMember" type="module:ConstantMember"/>
+  <xsd:complexType name="RteEnterApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="isNoneExclude" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteEnterApi" type="module:RteEnterApi"/>
+  <xsd:complexType name="RteExitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="isNoneExclude" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteExitApi" type="module:RteExitApi"/>
+  <xsd:complexType name="OsBackgroundTaskActivationExecutableTaskBody">
+    <xsd:complexContent>
+      <xsd:extension base="module:TaskBody">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:OsTaskActivationOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsBackgroundTaskActivationExecutableTaskBody" type="module:OsBackgroundTaskActivationExecutableTaskBody"/>
+  <xsd:complexType name="OsTaskActivationExecutableTaskBody">
+    <xsd:complexContent>
+      <xsd:extension base="module:TaskBody">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:OsTaskActivationOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTaskActivationExecutableTaskBody" type="module:OsTaskActivationExecutableTaskBody"/>
+  <xsd:complexType name="OsEventSetExecutableTaskBody">
+    <xsd:complexContent>
+      <xsd:extension base="module:TaskBody">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="osEventId" nillable="true" type="xsd:string"/>
+          <xsd:element name="operation" type="module:OsEventSetActivationOperation"/>
+          <xsd:element name="eventVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="checksOsEventId" type="xsd:string" use="required"/>
+        <xsd:attribute name="eventVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsEventSetExecutableTaskBody" type="module:OsEventSetExecutableTaskBody"/>
+  <xsd:complexType name="OsTaskActivationOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ContextActivationOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTaskActivationOperation" type="module:OsTaskActivationOperation"/>
+  <xsd:complexType name="OsEventSetActivationOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ContextActivationOperation">
+        <xsd:attribute name="activationOsEventId" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsEventSetActivationOperation" type="module:OsEventSetActivationOperation"/>
+  <xsd:complexType abstract="true" name="ContextActivationOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="executableStartOperation" type="module:ExecutableStartOperation"/>
+          <xsd:element name="cycleCountupOperation" type="module:CycleCountupOperation"/>
+          <xsd:element name="startOffsetCountupOperation" type="module:StartOffsetCountupOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ContextActivationOperation" type="module:ContextActivationOperation"/>
+  <xsd:complexType name="TimingTriggeringExecutableStartOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableStartOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="cyclePeriodConstant" type="module:Constant"/>
+          <xsd:element name="cycleOffsetConstant" type="module:Constant"/>
+          <xsd:element name="startOffsetConstant" type="module:Constant"/>
+          <xsd:element name="startOffsetCounterVariable" type="module:GlobalVariable"/>
+          <xsd:element name="cycleCounterVariable" type="module:GlobalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="cyclePeriodConstant" type="xsd:string"/>
+        <xsd:attribute name="cycleOffsetConstant" type="xsd:string"/>
+        <xsd:attribute name="startOffsetConstant" type="xsd:string"/>
+        <xsd:attribute name="startOffsetCounterVariable" type="xsd:string"/>
+        <xsd:attribute name="cycleCounterVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TimingTriggeringExecutableStartOperation" type="module:TimingTriggeringExecutableStartOperation"/>
+  <xsd:complexType name="PlainExecutableStartOperation">
+    <xsd:annotation>
+      <xsd:documentation>エクスキュータブル開始の素のオペレーション</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableStartOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlainExecutableStartOperation" type="module:PlainExecutableStartOperation">
+    <xsd:annotation>
+      <xsd:documentation>エクスキュータブル開始の素のオペレーション</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ModeSwitchTriggeringExecutableStartOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableStartOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="startMode" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="startMode" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeSwitchTriggeringExecutableStartOperation" type="module:ModeSwitchTriggeringExecutableStartOperation"/>
+  <xsd:complexType name="CycleCountupOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="counterVariable" type="module:GlobalVariable"/>
+          <xsd:element name="maxConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="counterVariable" type="xsd:string"/>
+        <xsd:attribute name="maxConstant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CycleCountupOperation" type="module:CycleCountupOperation"/>
+  <xsd:complexType name="StartOffsetCountupOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="counterVariable" type="module:GlobalVariable"/>
+          <xsd:element name="maxConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="counterVariable" type="xsd:string"/>
+        <xsd:attribute name="maxConstant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StartOffsetCountupOperation" type="module:StartOffsetCountupOperation"/>
+  <xsd:complexType abstract="true" name="TaskBody">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:attribute name="osTaskId" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TaskBody" type="module:TaskBody"/>
+  <xsd:complexType name="IocEmptyQueueApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocEmptyQueueApi" type="module:IocEmptyQueueApi"/>
+  <xsd:complexType abstract="true" name="ComApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:attribute name="isSignalGroup" type="xsd:string" use="required"/>
+        <xsd:attribute name="comSignalSymbolName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComApi" type="module:ComApi"/>
+  <xsd:complexType abstract="true" name="IocApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:attribute name="mappingName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocApi" type="module:IocApi"/>
+  <xsd:complexType abstract="true" name="Value">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Value" type="module:Value"/>
+  <xsd:complexType abstract="true" name="TrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:attribute name="trustedFunctionIndex" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunction" type="module:TrustedFunction"/>
+  <xsd:complexType name="ComSendSignalTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunction">
+        <xsd:attribute name="isGroup" type="xsd:string" use="required"/>
+        <xsd:attribute name="signalGroupSymbolName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalTrustedFunction" type="module:ComSendSignalTrustedFunction"/>
+  <xsd:complexType name="OsSetEventApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:OsApi">
+        <xsd:attribute name="osTaskId" type="xsd:string" use="required"/>
+        <xsd:attribute name="osEventId" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsSetEventApi" type="module:OsSetEventApi"/>
+  <xsd:complexType abstract="true" name="OsApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsApi" type="module:OsApi"/>
+  <xsd:complexType name="ComSendSignalImmediateTaskBody">
+    <xsd:complexContent>
+      <xsd:extension base="module:TaskBody">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="startEntity" type="module:ComSendSignalImmediateEntity"/>
+        </xsd:choice>
+        <xsd:attribute name="osEventId" type="xsd:string" use="required"/>
+        <xsd:attribute name="startEntity" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalImmediateTaskBody" type="module:ComSendSignalImmediateTaskBody"/>
+  <xsd:complexType abstract="true" name="Variable">
+    <xsd:complexContent>
+      <xsd:extension base="module:Value">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="member" type="module:VariableMember"/>
+        </xsd:choice>
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Variable" type="module:Variable"/>
+  <xsd:complexType name="ComSendProxyOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="accessApi" type="module:IocReceiveApi"/>
+          <xsd:element name="tableIndexVariable" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="functionTableSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="accessApi" type="xsd:string"/>
+        <xsd:attribute name="tableIndexVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendProxyOperation" type="module:ComSendProxyOperation"/>
+  <xsd:complexType name="IocReceiveGroupApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocReceiveApi">
+        <xsd:attribute name="comSendSignalSymbolName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocReceiveGroupApi" type="module:IocReceiveGroupApi"/>
+  <xsd:complexType name="ModuleRoot">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="rteModule" type="module:RteModule"/>
+      <xsd:element name="rte" type="module:Rte"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ModuleRoot" type="module:ModuleRoot"/>
+  <xsd:complexType name="InterPartitionTimeoutOperation">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="timeoutVariable" type="module:RteBufferVariableSet"/>
+      <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="timeoutVariable" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="InterPartitionTimeoutOperation" type="module:InterPartitionTimeoutOperation"/>
+  <xsd:complexType abstract="true" name="InitializeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InitializeOperation" type="module:InitializeOperation"/>
+  <xsd:complexType name="VariableInitializeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:InitializeOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initVariable" type="module:GlobalVariable"/>
+          <xsd:element name="excludeOperation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="initVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableInitializeOperation" type="module:VariableInitializeOperation"/>
+  <xsd:complexType name="IocInitializeOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:InitializeOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initIocApi" type="module:IocApi"/>
+        </xsd:choice>
+        <xsd:attribute name="initIocApi" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocInitializeOperation" type="module:IocInitializeOperation"/>
+  <xsd:complexType name="OsSuspendAllInterruptsApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:OsApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsSuspendAllInterruptsApi" type="module:OsSuspendAllInterruptsApi"/>
+  <xsd:complexType name="OsGetSpinlockApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:OsApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsGetSpinlockApi" type="module:OsGetSpinlockApi"/>
+  <xsd:complexType name="MulticoreRteStartApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="coreStartApiImpl" type="module:RteCoreStartApiImpl"/>
+        </xsd:choice>
+        <xsd:attribute name="coreStartApiImpl" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MulticoreRteStartApi" type="module:MulticoreRteStartApi"/>
+  <xsd:complexType name="RteBufferWriteTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:RteBufferNonqueuedSendOperation"/>
+          <xsd:element name="dataVariable" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="dataVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferWriteTrustedFunction" type="module:RteBufferWriteTrustedFunction"/>
+  <xsd:complexType name="RteBufferSendTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:RteBufferQueuedSendOperation"/>
+          <xsd:element name="dataVariable" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="dataVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferSendTrustedFunction" type="module:RteBufferSendTrustedFunction"/>
+  <xsd:complexType name="CsTrustedFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:TrustedFunction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="dataVariable" type="module:LocalVariable"/>
+          <xsd:element name="csTfCalledRunnable" type="module:CsTfCalledRunnable"/>
+        </xsd:choice>
+        <xsd:attribute name="csTfParamTypeName" type="xsd:string" use="required"/>
+        <xsd:attribute name="dataVariable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CsTrustedFunction" type="module:CsTrustedFunction"/>
+  <xsd:complexType name="CsTfCalledRunnable">
+    <xsd:annotation>
+      <xsd:documentation>CsTrustedFunctionと呼び出されるRunnableEntityの間の関連を表す。</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="startOperation" type="module:ServerRunnableStartOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="csTfOpidConstantName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CsTfCalledRunnable" type="module:CsTfCalledRunnable">
+    <xsd:annotation>
+      <xsd:documentation>CsTrustedFunctionと呼び出されるRunnableEntityの間の関連を表す。</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ServerRunnableStartOperation">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 本モデル要素のstartExecutableは、必ずRunnableEntityのインスタンスとすること</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:ExecutableStartOperation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ServerRunnableStartOperation" type="module:ServerRunnableStartOperation">
+    <xsd:annotation>
+      <xsd:documentation>NOTE 本モデル要素のstartExecutableは、必ずRunnableEntityのインスタンスとすること</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType abstract="true" name="IocCommunication">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="IocCommunication" type="module:IocCommunication"/>
+  <xsd:complexType abstract="true" name="ProxyComSendOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSendOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+          <xsd:element name="requestProxyIocApi" type="module:IocSendApi">
+            <xsd:annotation>
+              <xsd:documentation>プロキシへの要求伝搬用IOC API。</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="valueProxyIocApi" type="module:IocSendApi">
+            <xsd:annotation>
+              <xsd:documentation>プロキシへの値伝搬用IOC API。
+NOTE プリミティブ型の送信処理では使用されないため、nullが設定される。</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:choice>
+        <xsd:attribute name="proxyFunctionIndexConstantName" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>プロキシ関数の識別インデックス定数名。
+NOTE プリミティブ型の送信処理では使用されないため、nullが設定される。</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="type" type="xsd:string"/>
+        <xsd:attribute name="requestProxyIocApi" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>プロキシへの要求伝搬用IOC API。</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="valueProxyIocApi" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>プロキシへの値伝搬用IOC API。
+NOTE プリミティブ型の送信処理では使用されないため、nullが設定される。</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ProxyComSendOperation" type="module:ProxyComSendOperation"/>
+  <xsd:complexType name="IocSendGroupApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocSendApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocSendGroupApi" type="module:IocSendGroupApi"/>
+  <xsd:complexType name="IocQueuedGroupCommunication">
+    <xsd:complexContent>
+      <xsd:extension base="module:IocCommunication">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="receiveApi" type="module:IocReceiveGroupApi"/>
+          <xsd:element name="sendApi" type="module:IocSendGroupApi"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocQueuedGroupCommunication" type="module:IocQueuedGroupCommunication"/>
+  <xsd:complexType name="SinglecoreRteStartApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteStartApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:InitializeOperation"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SinglecoreRteStartApi" type="module:SinglecoreRteStartApi"/>
+  <xsd:complexType abstract="true" name="RteStartApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteLifecycleApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteStartApi" type="module:RteStartApi"/>
+  <xsd:complexType abstract="true" name="HeaderFile">
+    <xsd:complexContent>
+      <xsd:extension base="module:File">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="includeHeader" type="module:HeaderFile"/>
+        </xsd:choice>
+        <xsd:attribute name="guardName" type="xsd:string" use="required"/>
+        <xsd:attribute name="includeHeader" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="HeaderFile" type="module:HeaderFile"/>
+  <xsd:complexType abstract="true" name="SourceFile">
+    <xsd:complexContent>
+      <xsd:extension base="module:File">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="includeHeader" type="module:HeaderFile"/>
+        </xsd:choice>
+        <xsd:attribute name="includeHeader" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SourceFile" type="module:SourceFile"/>
+  <xsd:complexType name="RteInternalHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="constant" type="module:Constant"/>
+          <xsd:element name="globalVariableGroup" type="module:GlobalVariableFileContentsGroup"/>
+          <xsd:element name="trustedFunctionGroup" type="module:TrustedFunctionFileContentsGroup"/>
+          <xsd:element name="bswSchedulableEntityGroup" type="module:BswSchedulableEntityFileContentsGroup"/>
+          <xsd:element name="rteCoreStartApiImpl" type="module:RteCoreStartApiImpl"/>
+          <xsd:element name="dependentExecutableEntityGroup" type="module:ExecutableEntityFileContentsGroup"/>
+          <xsd:element name="schmCoreInitApiImpl" type="module:SchmCoreInitApiImpl"/>
+          <xsd:element name="functionMacro" type="module:FunctionMacro"/>
+          <xsd:element name="comProxyFunctionTableGroup" type="module:ComProxyFunctionTableFileContentsGroup"/>
+          <xsd:element name="comSignalApiWrapperGroup" type="module:ComSignalApiWrapperFileContentsGroup"/>
+          <xsd:element name="modeType" type="module:ModeType"/>
+          <xsd:element name="modeDeclarationGroup" type="module:ModeDeclarationGroup"/>
+          <xsd:element name="modeMachineInstance" type="module:ModeMachineInstance"/>
+          <xsd:element name="rteApiGroup" type="module:RteApiFileContentsGroup"/>
+          <xsd:element name="schmApiGroup" type="module:SchmApiFileContentsGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="constant" type="xsd:string"/>
+        <xsd:attribute name="rteCoreStartApiImpl" type="xsd:string"/>
+        <xsd:attribute name="schmCoreInitApiImpl" type="xsd:string"/>
+        <xsd:attribute name="modeType" type="xsd:string"/>
+        <xsd:attribute name="modeDeclarationGroup" type="xsd:string"/>
+        <xsd:attribute name="modeMachineInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteInternalHeader" type="module:RteInternalHeader"/>
+  <xsd:complexType name="ModeType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="implementationDataType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="guardName" type="xsd:string" use="required"/>
+        <xsd:attribute name="implementationDataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeType" type="module:ModeType"/>
+  <xsd:complexType name="ModeDeclarationGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="modeType" type="module:ModeType"/>
+          <xsd:element name="implementationDataType" type="module:Type"/>
+          <xsd:element name="modeConstant" type="module:Constant"/>
+          <xsd:element name="modeTransitionStatusConstant" type="module:Constant"/>
+          <xsd:element name="initModeConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="implementationDataType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeDeclarationGroup" type="module:ModeDeclarationGroup"/>
+  <xsd:complexType name="ModeQueueType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="maxLengthConstant" type="module:Constant"/>
+          <xsd:element name="elementType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="elementType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeQueueType" type="module:ModeQueueType"/>
+  <xsd:complexType name="ModeQueuedVariable">
+    <xsd:complexContent>
+      <xsd:extension base="module:GlobalVariable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeQueuedVariable" type="module:ModeQueuedVariable"/>
+  <xsd:complexType name="ModeMachineInstance">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="requestModeQueueType" type="module:ModeQueueType"/>
+          <xsd:element name="requestModeQueue" type="module:ModeQueuedVariable"/>
+          <xsd:element name="currentModeVariable" type="module:GlobalVariable"/>
+          <xsd:element name="nextModeVariable" type="module:GlobalVariable"/>
+          <xsd:element name="initModeConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="initModeConstant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModeMachineInstance" type="module:ModeMachineInstance"/>
+  <xsd:complexType name="FunctionMacro">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="functionName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FunctionMacro" type="module:FunctionMacro"/>
+  <xsd:complexType name="ComProxyFunctionTableFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="srWriteProxyName" nillable="true" type="xsd:string"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComProxyFunctionTableFileContentsGroup" type="module:ComProxyFunctionTableFileContentsGroup"/>
+  <xsd:complexType name="PrimitiveType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PrimitiveType" type="module:PrimitiveType"/>
+  <xsd:complexType name="RedefinitionPrimitiveType">
+    <xsd:complexContent>
+      <xsd:extension base="module:PrimitiveType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionPrimitiveType" type="module:RedefinitionPrimitiveType"/>
+  <xsd:complexType name="ArrayType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:attribute name="arraySize" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ArrayType" type="module:ArrayType"/>
+  <xsd:complexType name="RedefinitionArrayType">
+    <xsd:complexContent>
+      <xsd:extension base="module:ArrayType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionArrayType" type="module:RedefinitionArrayType"/>
+  <xsd:complexType name="UnionType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="member" type="module:UnionMember"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UnionType" type="module:UnionType"/>
+  <xsd:complexType name="RedefinitionUnionType">
+    <xsd:complexContent>
+      <xsd:extension base="module:UnionType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionUnionType" type="module:RedefinitionUnionType"/>
+  <xsd:complexType name="StructType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="member" type="module:StructMember"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StructType" type="module:StructType"/>
+  <xsd:complexType name="RedefinitionStructType">
+    <xsd:complexContent>
+      <xsd:extension base="module:StructType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionStructType" type="module:RedefinitionStructType"/>
+  <xsd:complexType name="BlackboxType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BlackboxType" type="module:BlackboxType"/>
+  <xsd:complexType name="UnionMember">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="memberName" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UnionMember" type="module:UnionMember"/>
+  <xsd:complexType name="StructMember">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="memberName" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StructMember" type="module:StructMember"/>
+  <xsd:complexType name="VariableMember">
+    <xsd:complexContent>
+      <xsd:extension base="module:Variable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Variable"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableMember" type="module:VariableMember"/>
+  <xsd:complexType name="RteUtilityHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteUtilityHeader" type="module:RteUtilityHeader"/>
+  <xsd:complexType name="BlackboxHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BlackboxHeader" type="module:BlackboxHeader"/>
+  <xsd:complexType name="RteBufferQueueType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="maxLengthConstant" type="module:Constant"/>
+          <xsd:element name="elementType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="maxLengthConstant" type="xsd:string"/>
+        <xsd:attribute name="elementType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteBufferQueueType" type="module:RteBufferQueueType"/>
+  <xsd:complexType name="RteNonqueuedSendTrustedFunctionParamType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteNonqueuedSendTrustedFunctionParamType" type="module:RteNonqueuedSendTrustedFunctionParamType"/>
+  <xsd:complexType name="RteQueuedSendTrustedFunctionParamType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteQueuedSendTrustedFunctionParamType" type="module:RteQueuedSendTrustedFunctionParamType"/>
+  <xsd:complexType name="ComSendTrustedFunctionParamType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:attribute name="isGroup" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendTrustedFunctionParamType" type="module:ComSendTrustedFunctionParamType"/>
+  <xsd:complexType name="CsTrustedFunctionParamType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CsTrustedFunctionParamType" type="module:CsTrustedFunctionParamType"/>
+  <xsd:complexType name="NeverReadOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:ReadOperation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="initValueConstant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="initValueConstant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NeverReadOperation" type="module:NeverReadOperation"/>
+  <xsd:complexType abstract="true" name="MemoryMapping">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:attribute name="prefix" type="xsd:string" use="required"/>
+        <xsd:attribute name="memorySectionSymbolName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MemoryMapping" type="module:MemoryMapping"/>
+  <xsd:complexType name="SwcMemoryMapping">
+    <xsd:complexContent>
+      <xsd:extension base="module:MemoryMapping"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwcMemoryMapping" type="module:SwcMemoryMapping"/>
+  <xsd:complexType name="BswMemoryMapping">
+    <xsd:complexContent>
+      <xsd:extension base="module:MemoryMapping"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswMemoryMapping" type="module:BswMemoryMapping"/>
+  <xsd:complexType name="GlobalVariableFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="globalVariable" type="module:GlobalVariable"/>
+          <xsd:element name="memoryMapping" type="module:MemoryMapping"/>
+        </xsd:choice>
+        <xsd:attribute name="globalVariable" type="xsd:string"/>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GlobalVariableFileContentsGroup" type="module:GlobalVariableFileContentsGroup"/>
+  <xsd:complexType abstract="true" name="FunctionFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="memoryMapping" type="module:MemoryMapping"/>
+          <xsd:element name="function" type="module:Function"/>
+        </xsd:choice>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+        <xsd:attribute name="function" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FunctionFileContentsGroup" type="module:FunctionFileContentsGroup"/>
+  <xsd:complexType name="RteApiFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteApiFileContentsGroup" type="module:RteApiFileContentsGroup"/>
+  <xsd:complexType name="RteLifecycleApiFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteLifecycleApiFileContentsGroup" type="module:RteLifecycleApiFileContentsGroup"/>
+  <xsd:complexType name="TaskBodyFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TaskBodyFileContentsGroup" type="module:TaskBodyFileContentsGroup"/>
+  <xsd:complexType name="BswSchedulableEntityFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswSchedulableEntityFileContentsGroup" type="module:BswSchedulableEntityFileContentsGroup"/>
+  <xsd:complexType name="ComCallbackFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComCallbackFileContentsGroup" type="module:ComCallbackFileContentsGroup"/>
+  <xsd:complexType name="TrustedFunctionFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionFileContentsGroup" type="module:TrustedFunctionFileContentsGroup"/>
+  <xsd:complexType name="ExecutableEntityFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecutableEntityFileContentsGroup" type="module:ExecutableEntityFileContentsGroup"/>
+  <xsd:complexType name="BswMemoryMappingHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="memoryMapping" type="module:BswMemoryMapping"/>
+        </xsd:choice>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswMemoryMappingHeader" type="module:BswMemoryMappingHeader"/>
+  <xsd:complexType name="SwcMemoryMappingHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="memoryMapping" type="module:SwcMemoryMapping"/>
+        </xsd:choice>
+        <xsd:attribute name="memoryMapping" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SwcMemoryMappingHeader" type="module:SwcMemoryMappingHeader"/>
+  <xsd:complexType name="GenerationInfo">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:attribute name="generatorName" type="xsd:string" use="required"/>
+        <xsd:attribute name="generatorVersion" type="xsd:string" use="required"/>
+        <xsd:attribute name="generationDate" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GenerationInfo" type="module:GenerationInfo"/>
+  <xsd:complexType name="Macro">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable">
+        <xsd:attribute name="symbolName" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Macro" type="module:Macro"/>
+  <xsd:complexType abstract="true" name="SchmApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="returnValue" type="module:Value"/>
+          <xsd:element name="parent" type="module:PartedBswm"/>
+        </xsd:choice>
+        <xsd:attribute name="isInline" type="xsd:string" use="required"/>
+        <xsd:attribute name="returnValue" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmApi" type="module:SchmApi"/>
+  <xsd:complexType abstract="true" name="ComSignalApiWrapper">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="dataParam" type="module:Parameter"/>
+          <xsd:element name="parent" type="module:Partition"/>
+        </xsd:choice>
+        <xsd:attribute name="signalSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="signalGroupSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="dataParam" type="xsd:string"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSignalApiWrapper" type="module:ComSignalApiWrapper"/>
+  <xsd:complexType name="ComProxyFunction">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Partition"/>
+          <xsd:element name="bufferVariable" type="module:Variable"/>
+          <xsd:element name="activationOperation" type="module:ActivationOperation"/>
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="iocReceiveSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="sendSignalFunctionSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="signalInformationSymbolName" type="xsd:string" use="required"/>
+        <xsd:attribute name="isGroup" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="bufferVariable" type="xsd:string"/>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComProxyFunction" type="module:ComProxyFunction"/>
+  <xsd:complexType name="ComSendSignalApiWrapper">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSignalApiWrapper"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendSignalApiWrapper" type="module:ComSendSignalApiWrapper"/>
+  <xsd:complexType name="ComReceiveSignalApiWrapper">
+    <xsd:complexContent>
+      <xsd:extension base="module:ComSignalApiWrapper"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComReceiveSignalApiWrapper" type="module:ComReceiveSignalApiWrapper"/>
+  <xsd:complexType abstract="true" name="SchmLifecycleApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:Function"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmLifecycleApi" type="module:SchmLifecycleApi"/>
+  <xsd:complexType name="SchmEnterApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="isNoneExclude" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmEnterApi" type="module:SchmEnterApi"/>
+  <xsd:complexType name="SchmExitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:ExcludeOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="isNoneExclude" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmExitApi" type="module:SchmExitApi"/>
+  <xsd:complexType name="SchmModeApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="modeDeclarationGroup" type="module:ModeDeclarationGroup"/>
+          <xsd:element name="modeMachineInstance" type="module:ModeMachineInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="modeDeclarationGroup" type="xsd:string"/>
+        <xsd:attribute name="modeMachineInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmModeApi" type="module:SchmModeApi"/>
+  <xsd:complexType name="SchmSwitchApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="modeMachineInstance" type="module:ModeMachineInstance"/>
+          <xsd:element name="osTaskEventTriggeredByMode" type="module:OsTaskEventsTriggeredByMode"/>
+          <xsd:element name="executableStartOperation" type="module:ModeSwitchTriggeringExecutableStartOperation"/>
+        </xsd:choice>
+        <xsd:attribute name="modeMachineInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmSwitchApi" type="module:SchmSwitchApi"/>
+  <xsd:complexType name="OsTaskEventsTriggeredByMode">
+    <xsd:annotation>
+      <xsd:documentation>SchmSwitchApiと、モードにより起動するOSタスク・OSイベントとの関連を表す。</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="startMode" type="module:Constant"/>
+          <xsd:element name="osTaskEvent" type="module:OsTaskEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="startMode" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTaskEventsTriggeredByMode" type="module:OsTaskEventsTriggeredByMode">
+    <xsd:annotation>
+      <xsd:documentation>SchmSwitchApiと、モードにより起動するOSタスク・OSイベントとの関連を表す。</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="OsTaskEvent">
+    <xsd:annotation>
+      <xsd:documentation>
+        <p>OSタスク起動・OSイベント設定に使用する識別子(OSタスクID、もしくはOSタスクIDとOSイベントIDのペア)を表す。</p>
+<p>NOTE OsTaskEventに復数のOSイベントが指定される場合があることに注意。</p>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="osEventId" nillable="true" type="xsd:string"/>
+        </xsd:choice>
+        <xsd:attribute name="osTaskId" type="xsd:string" use="required"/>
+        <xsd:attribute name="osTaskPriority" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTaskEvent" type="module:OsTaskEvent">
+    <xsd:annotation>
+      <xsd:documentation>
+        <p>OSタスク起動・OSイベント設定に使用する識別子(OSタスクID、もしくはOSタスクIDとOSイベントIDのペア)を表す。</p>
+<p>NOTE OsTaskEventに復数のOSイベントが指定される場合があることに注意。</p>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="ModuleInterlinkHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="globalVariableGroup" type="module:GlobalVariableFileContentsGroup"/>
+          <xsd:element name="schmApiGroup" type="module:SchmApiFileContentsGroup"/>
+          <xsd:element name="dependentExecutableEntityGroup" type="module:ExecutableEntityFileContentsGroup"/>
+          <xsd:element name="constant" type="module:Constant"/>
+        </xsd:choice>
+        <xsd:attribute name="constant" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModuleInterlinkHeader" type="module:ModuleInterlinkHeader"/>
+  <xsd:complexType name="SchmApiFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmApiFileContentsGroup" type="module:SchmApiFileContentsGroup"/>
+  <xsd:complexType name="ComSignalApiWrapperFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSignalApiWrapperFileContentsGroup" type="module:ComSignalApiWrapperFileContentsGroup"/>
+  <xsd:complexType name="ComProxyFunctionFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComProxyFunctionFileContentsGroup" type="module:ComProxyFunctionFileContentsGroup"/>
+  <xsd:complexType name="ModuleInterlinkTypeHeader">
+    <xsd:complexContent>
+      <xsd:extension base="module:HeaderFile">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="constant" type="module:Constant"/>
+          <xsd:element name="modeType" type="module:ModeType"/>
+          <xsd:element name="modeDeclarationGroup" type="module:ModeDeclarationGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="constant" type="xsd:string"/>
+        <xsd:attribute name="modeType" type="xsd:string"/>
+        <xsd:attribute name="modeDeclarationGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ModuleInterlinkTypeHeader" type="module:ModuleInterlinkTypeHeader"/>
+  <xsd:complexType name="SchmLifecycleApiFileContentsGroup">
+    <xsd:complexContent>
+      <xsd:extension base="module:FunctionFileContentsGroup"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmLifecycleApiFileContentsGroup" type="module:SchmLifecycleApiFileContentsGroup"/>
+  <xsd:complexType name="PartedBswm">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Partition"/>
+          <xsd:element name="bswm" type="module:Bswm"/>
+          <xsd:element name="bswMemoryMapping" type="module:BswMemoryMapping"/>
+          <xsd:element name="dependentBswSchedulableEntity" type="module:BswSchedulableEntity"/>
+          <xsd:element name="modeMachineInstance" type="module:ModeMachineInstance"/>
+          <xsd:element name="schmApi" type="module:SchmApi"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+        <xsd:attribute name="bswm" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PartedBswm" type="module:PartedBswm"/>
+  <xsd:complexType name="Bswm">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalCompartment">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="partedBswm" type="module:PartedBswm"/>
+          <xsd:element name="modeDeclarationGroup" type="module:ModeDeclarationGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="partedBswm" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Bswm" type="module:Bswm"/>
+  <xsd:complexType name="SchmDeinitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmLifecycleApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmDeinitApi" type="module:SchmDeinitApi"/>
+  <xsd:complexType name="SchmInitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmLifecycleApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="operation" type="module:InitializeOperation"/>
+          <xsd:element name="initialExecutableStartOperation" type="module:ModeSwitchTriggeringExecutableStartOperation"/>
+          <xsd:element name="initialExecutableOsTaskEvent" type="module:OsTaskEvent"/>
+          <xsd:element name="initTargetModeMachineInstance" type="module:ModeMachineInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="initTargetModeMachineInstance" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmInitApi" type="module:SchmInitApi"/>
+  <xsd:complexType name="SinglecoreSchmInitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmInitApi"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SinglecoreSchmInitApi" type="module:SinglecoreSchmInitApi"/>
+  <xsd:complexType name="MulticoreSchmInitApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmInitApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="coreInitApiImpl" type="module:SchmCoreInitApiImpl"/>
+        </xsd:choice>
+        <xsd:attribute name="coreInitApiImpl" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="MulticoreSchmInitApi" type="module:MulticoreSchmInitApi"/>
+  <xsd:complexType name="SchmCoreInitApiImpl">
+    <xsd:complexContent>
+      <xsd:extension base="module:SchmInitApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="module:Core"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SchmCoreInitApiImpl" type="module:SchmCoreInitApiImpl"/>
+  <xsd:complexType name="PointerType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="type" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="isConstPointer" type="xsd:string" use="required"/>
+        <xsd:attribute name="isConstTarget" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PointerType" type="module:PointerType"/>
+  <xsd:complexType name="RedefinitionPointerType">
+    <xsd:complexContent>
+      <xsd:extension base="module:PointerType">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionPointerType" type="module:RedefinitionPointerType"/>
+  <xsd:complexType abstract="true" name="RedefinitionType">
+    <xsd:complexContent>
+      <xsd:extension base="module:Type">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceType" type="module:Type"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RedefinitionType" type="module:RedefinitionType"/>
+  <xsd:complexType name="ActivationOperation">
+    <xsd:complexContent>
+      <xsd:extension base="module:Operation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="activationApi" type="module:OsApi"/>
+          <xsd:element name="activationFlag" type="module:LocalVariable"/>
+        </xsd:choice>
+        <xsd:attribute name="osTaskPriority" type="xsd:string" use="required"/>
+        <xsd:attribute name="activationApi" type="xsd:string"/>
+        <xsd:attribute name="activationFlag" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ActivationOperation" type="module:ActivationOperation"/>
+  <xsd:complexType name="OsActivateTaskApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:OsApi">
+        <xsd:attribute name="osTaskId" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsActivateTaskApi" type="module:OsActivateTaskApi"/>
+  <xsd:complexType name="FeedbackApi">
+    <xsd:complexContent>
+      <xsd:extension base="module:RteApi">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="tAckStatus" type="module:TAckStatus"/>
+        </xsd:choice>
+        <xsd:attribute name="tAckStatus" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FeedbackApi" type="module:FeedbackApi"/>
+  <xsd:complexType abstract="true" name="LogicalBlock">
+    <xsd:complexContent>
+      <xsd:extension base="module:ModuleReferrable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="LogicalBlock" type="module:LogicalBlock"/>
+  <xsd:complexType name="TAckStatus">
+    <xsd:complexContent>
+      <xsd:extension base="module:LogicalBlock">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="statusVariable" type="module:GlobalVariable"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TAckStatus" type="module:TAckStatus"/>
+</xsd:schema>

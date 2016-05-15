@@ -8,7 +8,7 @@ before_script:
 script:
 - if [[ "x$TRAVIS_BRANCH" == "xmaster" && "x$TRAVIS_PULL_REQUEST" == "xfalse" ]]; then GOAL=deploy; else GOAL=install; fi
 - echo "Goal is " $GOAL
-- mvn -f src/parent/pom.xml clean $GOAL
+- mvn -f src/parent/pom.xml clean $GOAL -DskipTests
 after_success:
 - git clone --depth=1 -b gh-pages https://${GH_TOKEN}@github.com/PizzaFactory/a_rtegen.git gh-pages
 - cd gh-pages

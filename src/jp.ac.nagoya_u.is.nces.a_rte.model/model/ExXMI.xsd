@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ex="http://nces.is.nagoya-u.ac.jp/a-rte/rte/ex" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/rte/ex">
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="TimeValueEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="TimeValueEx" type="ex:TimeValueEx"/>
+  <xsd:complexType name="AlignmentTypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AlignmentTypeEx" type="ex:AlignmentTypeEx"/>
+  <xsd:complexType name="AtomicSwComponentTypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="AtomicSwComponentTypeEx" type="ex:AtomicSwComponentTypeEx"/>
+  <xsd:complexType name="ValueSpecificationEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ValueSpecificationEx" type="ex:ValueSpecificationEx"/>
+  <xsd:complexType name="NonqueuedSenderComSpecEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="NonqueuedSenderComSpecEx" type="ex:NonqueuedSenderComSpecEx"/>
+  <xsd:complexType name="CompuMethodEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="CompuMethodEx" type="ex:CompuMethodEx"/>
+  <xsd:complexType name="CompuScaleEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="CompuScaleEx" type="ex:CompuScaleEx"/>
+  <xsd:complexType name="ApplicationDataTypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ApplicationDataTypeEx" type="ex:ApplicationDataTypeEx"/>
+  <xsd:complexType name="ImplementationDataTypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="compuMethodEx" type="ex:CompuMethodEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="compuMethodEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ImplementationDataTypeEx" type="ex:ImplementationDataTypeEx"/>
+  <xsd:complexType name="ExclusiveAreaEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="bswSchedulableEntityEx" type="ex:BswSchedulableEntityEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="bswSchedulableEntityEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ExclusiveAreaEx" type="ex:ExclusiveAreaEx"/>
+  <xsd:complexType name="SenderReceiverToSignalMappingEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="SenderReceiverToSignalMappingEx" type="ex:SenderReceiverToSignalMappingEx"/>
+  <xsd:complexType name="SenderReceiverToSignalGroupMappingEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="SenderReceiverToSignalGroupMappingEx" type="ex:SenderReceiverToSignalGroupMappingEx"/>
+  <xsd:complexType name="OsTaskEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="OsTaskEx" type="ex:OsTaskEx"/>
+  <xsd:complexType name="ComSignalEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="senderReceiverToSignalMappingEx" type="ex:SenderReceiverToSignalMappingEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="senderReceiverToSignalMappingEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ComSignalEx" type="ex:ComSignalEx"/>
+  <xsd:complexType name="ComSignalGroupEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="senderReceiverToSignalGroupMappingEx" type="ex:SenderReceiverToSignalGroupMappingEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="senderReceiverToSignalGroupMappingEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ComSignalGroupEx" type="ex:ComSignalGroupEx"/>
+  <xsd:complexType name="EcucPartitionEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="EcucPartitionEx" type="ex:EcucPartitionEx"/>
+  <xsd:complexType name="VariableDataPrototypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="VariableDataPrototypeEx" type="ex:VariableDataPrototypeEx"/>
+  <xsd:complexType name="VariableDataInstanceInCompositionEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="valueSpecificationEx" type="ex:ValueSpecificationEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="valueSpecificationEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="VariableDataInstanceInCompositionEx" type="ex:VariableDataInstanceInCompositionEx"/>
+  <xsd:complexType name="VariableDataInstanceInSwcEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="alignmentTypeEx" type="ex:AlignmentTypeEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="alignmentTypeEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="VariableDataInstanceInSwcEx" type="ex:VariableDataInstanceInSwcEx"/>
+  <xsd:complexType name="PVariableDataInstanceInSwcEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="PVariableDataInstanceInSwcEx" type="ex:PVariableDataInstanceInSwcEx"/>
+  <xsd:complexType name="RVariableDataInstanceInSwcEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="RVariableDataInstanceInSwcEx" type="ex:RVariableDataInstanceInSwcEx"/>
+  <xsd:complexType name="ROperationInstanceInSwcEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ROperationInstanceInSwcEx" type="ex:ROperationInstanceInSwcEx"/>
+  <xsd:complexType name="AssemblyDataInstanceConnectorEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="variableDataInstanceInCompositionEx" type="ex:VariableDataInstanceInCompositionEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="variableDataInstanceInCompositionEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="AssemblyDataInstanceConnectorEx" type="ex:AssemblyDataInstanceConnectorEx"/>
+  <xsd:complexType name="ReceiverEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ReceiverEx" type="ex:ReceiverEx"/>
+  <xsd:complexType name="ExternalEcuSenderEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="variableDataInstanceInCompositionEx" type="ex:VariableDataInstanceInCompositionEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="variableDataInstanceInCompositionEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ExternalEcuSenderEx" type="ex:ExternalEcuSenderEx"/>
+  <xsd:complexType name="ExternalEcuReceiverEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="ExternalEcuReceiverEx" type="ex:ExternalEcuReceiverEx"/>
+  <xsd:complexType name="EntityStarterEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="EntityStarterEx" type="ex:EntityStarterEx"/>
+  <xsd:complexType name="BswSchedulableEntityEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="modeDeclarationGroupPrototypeEx" type="ex:ModeDeclarationGroupPrototypeEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="modeDeclarationGroupPrototypeEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="BswSchedulableEntityEx" type="ex:BswSchedulableEntityEx"/>
+  <xsd:complexType name="ModeDeclarationGroupPrototypeEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="bswSchedulableEntityEx" type="ex:BswSchedulableEntityEx"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="bswSchedulableEntityEx" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="ModeDeclarationGroupPrototypeEx" type="ex:ModeDeclarationGroupPrototypeEx"/>
+  <xsd:complexType name="RteEventEx">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="RteEventEx" type="ex:RteEventEx"/>
+</xsd:schema>

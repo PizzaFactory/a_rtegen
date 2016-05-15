@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:ecuc="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc" xmlns:instance="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/instance" xmlns:interaction="http://nces.is.nagoya-u.ac.jp/a-rte/rte/interaction" xmlns:m2="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nces.is.nagoya-u.ac.jp/a-rte/rte/interaction">
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/m2" schemaLocation="m2.xsd"/>
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc" schemaLocation="ecuc.xsd"/>
+  <xsd:import namespace="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/instance" schemaLocation="instance.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="InteractionObject">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="InteractionObject" type="interaction:InteractionObject"/>
+  <xsd:complexType name="InteractionReferrable">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionObject">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InteractionReferrable" type="interaction:InteractionReferrable"/>
+  <xsd:complexType abstract="true" name="Sender">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionEnd">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sendInteraction" type="interaction:SendInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="sendInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Sender" type="interaction:Sender"/>
+  <xsd:complexType name="InternalEcuSender">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Sender">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="source" type="instance:VariableDataInstanceInComposition"/>
+          <xsd:element name="tAckStatusVariableImplementation" type="interaction:TAckStatusVariableImplementation"/>
+          <xsd:element name="activatesOnSendCompleted" type="interaction:EntityStarter"/>
+        </xsd:choice>
+        <xsd:attribute name="source" type="xsd:string"/>
+        <xsd:attribute name="activatesOnSendCompleted" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InternalEcuSender" type="interaction:InternalEcuSender"/>
+  <xsd:complexType name="ExternalEcuSender">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Sender">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceSignal" type="ecuc:ComSignal"/>
+          <xsd:element name="sourceSignalGroup" type="ecuc:ComSignalGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="requiresRteFilter" type="xsd:string" use="required"/>
+        <xsd:attribute name="requiresRteInvalidation" type="xsd:string" use="required"/>
+        <xsd:attribute name="requiresRteInitialization" type="xsd:string" use="required"/>
+        <xsd:attribute name="sourceSignal" type="xsd:string"/>
+        <xsd:attribute name="sourceSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExternalEcuSender" type="interaction:ExternalEcuSender"/>
+  <xsd:complexType name="SendInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Interaction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sender" type="interaction:Sender"/>
+          <xsd:element name="receiveInteraction" type="interaction:ReceiveInteraction"/>
+          <xsd:element name="implementation" type="interaction:SendImplementation"/>
+        </xsd:choice>
+        <xsd:attribute name="sender" type="xsd:string"/>
+        <xsd:attribute name="receiveInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SendInteraction" type="interaction:SendInteraction"/>
+  <xsd:complexType name="ReceiveInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Interaction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="receiver" type="interaction:Receiver"/>
+          <xsd:element name="sendInteraction" type="interaction:SendInteraction"/>
+          <xsd:element name="valueBufferImplementation" type="interaction:ValueBufferImplementation"/>
+          <xsd:element name="filterBufferImplementation" type="interaction:FilterBufferImplementation"/>
+        </xsd:choice>
+        <xsd:attribute name="receiver" type="xsd:string"/>
+        <xsd:attribute name="sendInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ReceiveInteraction" type="interaction:ReceiveInteraction"/>
+  <xsd:complexType name="Receiver">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionEnd">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="receiveInteraction" type="interaction:ReceiveInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="receiveInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Receiver" type="interaction:Receiver"/>
+  <xsd:complexType name="InternalEcuReceiver">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Receiver">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="source" type="instance:VariableDataInstanceInComposition"/>
+          <xsd:element name="activatesOnReceived" type="interaction:EntityStarter"/>
+          <xsd:element name="activatesOnReceiveError" type="interaction:EntityStarter"/>
+        </xsd:choice>
+        <xsd:attribute name="source" type="xsd:string"/>
+        <xsd:attribute name="activatesOnReceived" type="xsd:string"/>
+        <xsd:attribute name="activatesOnReceiveError" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InternalEcuReceiver" type="interaction:InternalEcuReceiver"/>
+  <xsd:complexType abstract="true" name="ValueBufferImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:VariableImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:ReceiveInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="hasStatus" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ValueBufferImplementation" type="interaction:ValueBufferImplementation"/>
+  <xsd:complexType name="RteValueBufferImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ValueBufferImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteValueBufferImplementation" type="interaction:RteValueBufferImplementation"/>
+  <xsd:complexType name="ExternalEcuReceiver">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Receiver">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceSignal" type="ecuc:ComSignal"/>
+          <xsd:element name="sourceSignalGroup" type="ecuc:ComSignalGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceSignal" type="xsd:string"/>
+        <xsd:attribute name="sourceSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExternalEcuReceiver" type="interaction:ExternalEcuReceiver"/>
+  <xsd:complexType abstract="true" name="SendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:SendInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="SendImplementation" type="interaction:SendImplementation"/>
+  <xsd:complexType name="RteSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:SendImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RteSendImplementation" type="interaction:RteSendImplementation"/>
+  <xsd:complexType name="IocSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:SendImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="osIocSenderProperties" type="ecuc:OsIocSenderProperties"/>
+        </xsd:choice>
+        <xsd:attribute name="osIocSenderProperties" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocSendImplementation" type="interaction:IocSendImplementation"/>
+  <xsd:complexType name="DirectComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ComSendImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DirectComSendImplementation" type="interaction:DirectComSendImplementation"/>
+  <xsd:complexType name="TrustedFunctionComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ComSendImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionComSendImplementation" type="interaction:TrustedFunctionComSendImplementation"/>
+  <xsd:complexType name="PeriodicProxyComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ProxyComSendImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PeriodicProxyComSendImplementation" type="interaction:PeriodicProxyComSendImplementation"/>
+  <xsd:complexType name="ImmediateProxyComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ProxyComSendImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImmediateProxyComSendImplementation" type="interaction:ImmediateProxyComSendImplementation"/>
+  <xsd:complexType name="TAckStatusVariableImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:VariableImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:InternalEcuSender"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TAckStatusVariableImplementation" type="interaction:TAckStatusVariableImplementation"/>
+  <xsd:complexType name="FilterBufferImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:VariableImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:ReceiveInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FilterBufferImplementation" type="interaction:FilterBufferImplementation"/>
+  <xsd:complexType name="IocValueBufferImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ValueBufferImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="osIocCommunication" type="ecuc:OsIocCommunication"/>
+        </xsd:choice>
+        <xsd:attribute name="osIocCommunication" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="IocValueBufferImplementation" type="interaction:IocValueBufferImplementation"/>
+  <xsd:complexType name="ComValueBufferImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ValueBufferImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="comSignal" type="ecuc:ComSignal"/>
+          <xsd:element name="comSignalGroup" type="ecuc:ComSignalGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="comSignal" type="xsd:string"/>
+        <xsd:attribute name="comSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComValueBufferImplementation" type="interaction:ComValueBufferImplementation"/>
+  <xsd:complexType abstract="true" name="VariableImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="ownerPartition" type="ecuc:EcucPartition"/>
+        </xsd:choice>
+        <xsd:attribute name="ownerPartition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="VariableImplementation" type="interaction:VariableImplementation"/>
+  <xsd:complexType abstract="true" name="InteractionEnd">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionReferrable">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="ownerPartition" type="ecuc:EcucPartition"/>
+        </xsd:choice>
+        <xsd:attribute name="ownerPartition" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InteractionEnd" type="interaction:InteractionEnd"/>
+  <xsd:complexType abstract="true" name="ComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:SendImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="comSignal" type="ecuc:ComSignal"/>
+          <xsd:element name="comSignalGroup" type="ecuc:ComSignalGroup"/>
+        </xsd:choice>
+        <xsd:attribute name="comSignal" type="xsd:string"/>
+        <xsd:attribute name="comSignalGroup" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendImplementation" type="interaction:ComSendImplementation"/>
+  <xsd:complexType name="InteractionRoot">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="interactionEnd" type="interaction:InteractionEnd"/>
+      <xsd:element name="interaction" type="interaction:Interaction"/>
+      <xsd:element name="generatedEcuConfiguration" type="interaction:GeneratedEcuConfiguration"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="InteractionRoot" type="interaction:InteractionRoot"/>
+  <xsd:complexType name="TrustedFunctionRteSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:SendImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="writeOsTrustedFunction" type="ecuc:OsApplicationTrustedFunction"/>
+          <xsd:element name="invalidateOsTrustedFunction" type="ecuc:OsApplicationTrustedFunction"/>
+        </xsd:choice>
+        <xsd:attribute name="writeOsTrustedFunction" type="xsd:string"/>
+        <xsd:attribute name="invalidateOsTrustedFunction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TrustedFunctionRteSendImplementation" type="interaction:TrustedFunctionRteSendImplementation"/>
+  <xsd:complexType abstract="true" name="ProxyComSendImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ComSendImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="proxyInteraction" type="interaction:ComSendProxyInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="proxyInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ProxyComSendImplementation" type="interaction:ProxyComSendImplementation"/>
+  <xsd:complexType name="ComSendProxyInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Interaction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="requesterPartition" type="ecuc:EcucPartition"/>
+          <xsd:element name="signalDataType" type="m2:ImplementationDataType"/>
+          <xsd:element name="requestOsIocCommunication" type="ecuc:OsIocCommunication">
+            <xsd:annotation>
+              <xsd:documentation>送信要求用IOC通信</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="valueOsIocCommunication" type="ecuc:OsIocCommunication">
+            <xsd:annotation>
+              <xsd:documentation>値伝搬用IOC通信</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="proxy" type="interaction:ComSendProxy"/>
+        </xsd:choice>
+        <xsd:attribute name="requesterPartition" type="xsd:string"/>
+        <xsd:attribute name="signalDataType" type="xsd:string"/>
+        <xsd:attribute name="requestOsIocCommunication" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>送信要求用IOC通信</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="valueOsIocCommunication" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>値伝搬用IOC通信</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="proxy" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendProxyInteraction" type="interaction:ComSendProxyInteraction"/>
+  <xsd:complexType abstract="true" name="ComSendProxy">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionEnd">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="interaction" type="interaction:ComSendProxyInteraction"/>
+        </xsd:choice>
+        <xsd:attribute name="interaction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ComSendProxy" type="interaction:ComSendProxy"/>
+  <xsd:complexType name="PeriodicComSendProxy">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ComSendProxy"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PeriodicComSendProxy" type="interaction:PeriodicComSendProxy"/>
+  <xsd:complexType name="ImmediateComSendProxy">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ComSendProxy">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="osEvent" type="ecuc:OsEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="osEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImmediateComSendProxy" type="interaction:ImmediateComSendProxy"/>
+  <xsd:complexType abstract="true" name="Interaction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionReferrable"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Interaction" type="interaction:Interaction"/>
+  <xsd:complexType name="ExecutionContext">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionEnd">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceOsTask" type="ecuc:OsTask"/>
+          <xsd:element name="executionContextImplementation" type="interaction:ExecutionContextImplementation"/>
+          <xsd:element name="entityStarter" type="interaction:EntityStarter"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceOsTask" type="xsd:string"/>
+        <xsd:attribute name="entityStarter" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecutionContext" type="interaction:ExecutionContext"/>
+  <xsd:complexType abstract="true" name="ExecutionContextImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionObject"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ExecutionContextImplementation" type="interaction:ExecutionContextImplementation"/>
+  <xsd:complexType name="InfiniteloopImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ExecutionContextImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="InfiniteloopImplementation" type="interaction:InfiniteloopImplementation"/>
+  <xsd:complexType name="OneShootImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ExecutionContextImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OneShootImplementation" type="interaction:OneShootImplementation"/>
+  <xsd:complexType name="EventPoolingImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:ExecutionContextImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EventPoolingImplementation" type="interaction:EventPoolingImplementation"/>
+  <xsd:complexType abstract="true" name="EntityStarter">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionEnd">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="executionContext" type="interaction:ExecutionContext"/>
+          <xsd:element name="expectedConfig" type="ecuc:RteUsedOsActivation"/>
+          <xsd:element name="startInteraction" type="interaction:EntityStartInteraction"/>
+          <xsd:element name="startOffsetCounterImplementation" type="interaction:StartOffsetCounterImplementation"/>
+          <xsd:element name="cycleCounterImplementation" type="interaction:CycleCounterImplementation"/>
+        </xsd:choice>
+        <xsd:attribute name="executionContext" type="xsd:string"/>
+        <xsd:attribute name="expectedConfig" type="xsd:string"/>
+        <xsd:attribute name="startInteraction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EntityStarter" type="interaction:EntityStarter"/>
+  <xsd:complexType name="OsTaskActivateEntityStarter">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStarter">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceOsTask" type="ecuc:OsTask"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceOsTask" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsTaskActivateEntityStarter" type="interaction:OsTaskActivateEntityStarter"/>
+  <xsd:complexType name="OsEventSetEntityStarter">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStarter">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceOsTask" type="ecuc:OsTask"/>
+          <xsd:element name="sourceOsEvent" type="ecuc:OsEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceOsTask" type="xsd:string"/>
+        <xsd:attribute name="sourceOsEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="OsEventSetEntityStarter" type="interaction:OsEventSetEntityStarter"/>
+  <xsd:complexType abstract="true" name="EntityStartInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:Interaction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="starter" type="interaction:EntityStarter"/>
+          <xsd:element name="implementation" type="interaction:EntityStartImplementation"/>
+          <xsd:element name="startOnEvent" type="m2:ExecutableEntity"/>
+          <xsd:element name="timingTriggeringEntityStartCondition" type="interaction:TimingTriggeringEntityStartCondition"/>
+        </xsd:choice>
+        <xsd:attribute name="activationOffset" type="xsd:string"/>
+        <xsd:attribute name="positionInTask" type="xsd:string"/>
+        <xsd:attribute name="starter" type="xsd:string"/>
+        <xsd:attribute name="startOnEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EntityStartInteraction" type="interaction:EntityStartInteraction"/>
+  <xsd:complexType name="TimingTriggeringEntityStartCondition">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionObject">
+        <xsd:attribute name="period" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TimingTriggeringEntityStartCondition" type="interaction:TimingTriggeringEntityStartCondition"/>
+  <xsd:complexType name="RunnableEntityStartInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStartInteraction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceEvent" type="m2:RteEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="RunnableEntityStartInteraction" type="interaction:RunnableEntityStartInteraction"/>
+  <xsd:complexType name="BswSchedulableEntityStartInteraction">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStartInteraction">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="sourceEvent" type="m2:BswEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="sourceEvent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="BswSchedulableEntityStartInteraction" type="interaction:BswSchedulableEntityStartInteraction"/>
+  <xsd:complexType abstract="true" name="EntityStartImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionObject"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="EntityStartImplementation" type="interaction:EntityStartImplementation"/>
+  <xsd:complexType name="TimingTriggeringEntityStartImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStartImplementation">
+        <xsd:attribute name="cyclePeriod" type="xsd:string" use="required"/>
+        <xsd:attribute name="startOffset" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TimingTriggeringEntityStartImplementation" type="interaction:TimingTriggeringEntityStartImplementation"/>
+  <xsd:complexType name="PlainEntityStartImplementation">
+    <xsd:annotation>
+      <xsd:documentation>エンティティ開始の素の実装</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="interaction:EntityStartImplementation"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PlainEntityStartImplementation" type="interaction:PlainEntityStartImplementation">
+    <xsd:annotation>
+      <xsd:documentation>エンティティ開始の素の実装</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="StartOffsetCounterImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:VariableImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:EntityStarter"/>
+        </xsd:choice>
+        <xsd:attribute name="maxCount" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="StartOffsetCounterImplementation" type="interaction:StartOffsetCounterImplementation"/>
+  <xsd:complexType name="CycleCounterImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:VariableImplementation">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="parent" type="interaction:EntityStarter"/>
+        </xsd:choice>
+        <xsd:attribute name="maxCount" type="xsd:string" use="required"/>
+        <xsd:attribute name="parent" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CycleCounterImplementation" type="interaction:CycleCounterImplementation"/>
+  <xsd:complexType name="GeneratedEcuConfiguration">
+    <xsd:complexContent>
+      <xsd:extension base="interaction:InteractionObject">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="generatedOsTask" type="ecuc:OsTask"/>
+          <xsd:element name="generatedOsEvent" type="ecuc:OsEvent"/>
+          <xsd:element name="generatedOsSpinlock" type="ecuc:OsSpinlock"/>
+          <xsd:element name="generatedOsIocCommunication" type="ecuc:OsIocCommunication"/>
+          <xsd:element name="generatedOsTrustedFunction" type="ecuc:OsApplicationTrustedFunction"/>
+        </xsd:choice>
+        <xsd:attribute name="generatedOsTask" type="xsd:string"/>
+        <xsd:attribute name="generatedOsEvent" type="xsd:string"/>
+        <xsd:attribute name="generatedOsSpinlock" type="xsd:string"/>
+        <xsd:attribute name="generatedOsIocCommunication" type="xsd:string"/>
+        <xsd:attribute name="generatedOsTrustedFunction" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GeneratedEcuConfiguration" type="interaction:GeneratedEcuConfiguration"/>
+</xsd:schema>
