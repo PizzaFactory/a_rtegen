@@ -82,6 +82,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @see #setRteBswActivationOffset(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswActivationOffset()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue"
+	 *        extendedMetaData="kind='element' name='RteBswEventToTaskMapping' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BigDecimal getRteBswActivationOffset();
@@ -110,6 +111,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswEvent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getConfig
 	 * @model opposite="config" required="true"
+	 *        extendedMetaData="kind='element' name='RteBswEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BswEvent getRteBswEvent();
@@ -136,6 +138,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @see #setRteBswPositionInTask(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswPositionInTask()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='RteBswPositionInTask' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getRteBswPositionInTask();
@@ -164,6 +167,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswMappedToTask()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask#getMappedRteBswEvent
 	 * @model opposite="mappedRteBswEvent"
+	 *        extendedMetaData="kind='element' name='RteBswMappedToTask' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsTask getRteBswMappedToTask();
@@ -189,7 +193,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Used Os Alarm</em>' reference.
 	 * @see #setRteBswUsedOsAlarm(OsAlarm)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswUsedOsAlarm()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteBswUsedOsAlarm' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsAlarm getRteBswUsedOsAlarm();
@@ -215,7 +219,7 @@ public interface RteBswEventToTaskMapping extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Used Os Event</em>' reference.
 	 * @see #setRteBswUsedOsEvent(OsEvent)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswEventToTaskMapping_RteBswUsedOsEvent()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteBswUsedOsEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsEvent getRteBswUsedOsEvent();

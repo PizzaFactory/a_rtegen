@@ -74,6 +74,7 @@ public interface EcuC extends EcucModule {
 	 * @see #setEcucPartitionCollection(EcucPartitionCollection)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcuC_EcucPartitionCollection()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EcucPartitionCollection' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EcucPartitionCollection getEcucPartitionCollection();

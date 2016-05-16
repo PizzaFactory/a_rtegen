@@ -102,6 +102,70 @@ public interface EcucPackage extends EPackage {
 	EcucPackage eINSTANCE = jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.DocumentRootImpl <em>Document Root</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.DocumentRootImpl
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getDocumentRoot()
+	 * @generated
+	 */
+	int DOCUMENT_ROOT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__MIXED = 0;
+
+	/**
+	 * The feature id for the '<em><b>XMLNS Prefix Map</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__XMLNS_PREFIX_MAP = 1;
+
+	/**
+	 * The feature id for the '<em><b>XSI Schema Location</b></em>' map.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Ecuc Root</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT__ECUC_ROOT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Document Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Document Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DOCUMENT_ROOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucObjectImpl <em>Object</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -109,7 +173,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucObject()
 	 * @generated
 	 */
-	int ECUC_OBJECT = 0;
+	int ECUC_OBJECT = 1;
 
 	/**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -137,7 +201,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucReferrable()
 	 * @generated
 	 */
-	int ECUC_REFERRABLE = 1;
+	int ECUC_REFERRABLE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -201,7 +265,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucModule()
 	 * @generated
 	 */
-	int ECUC_MODULE = 2;
+	int ECUC_MODULE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -274,7 +338,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucContainer()
 	 * @generated
 	 */
-	int ECUC_CONTAINER = 3;
+	int ECUC_CONTAINER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -338,7 +402,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRte()
 	 * @generated
 	 */
-	int RTE = 4;
+	int RTE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -465,7 +529,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteGeneration()
 	 * @generated
 	 */
-	int RTE_GENERATION = 5;
+	int RTE_GENERATION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -529,7 +593,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswGeneral()
 	 * @generated
 	 */
-	int RTE_BSW_GENERAL = 6;
+	int RTE_BSW_GENERAL = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -602,7 +666,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucRoot()
 	 * @generated
 	 */
-	int ECUC_ROOT = 7;
+	int ECUC_ROOT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Rte</b></em>' containment reference.
@@ -666,7 +730,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteSwComponentInstance()
 	 * @generated
 	 */
-	int RTE_SW_COMPONENT_INSTANCE = 8;
+	int RTE_SW_COMPONENT_INSTANCE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -757,7 +821,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteEventToTaskMapping()
 	 * @generated
 	 */
-	int RTE_EVENT_TO_TASK_MAPPING = 9;
+	int RTE_EVENT_TO_TASK_MAPPING = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -875,7 +939,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOs()
 	 * @generated
 	 */
-	int OS = 10;
+	int OS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1020,7 +1084,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsTask()
 	 * @generated
 	 */
-	int OS_TASK = 11;
+	int OS_TASK = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1156,7 +1220,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteExclusiveAreaImplementation()
 	 * @generated
 	 */
-	int RTE_EXCLUSIVE_AREA_IMPLEMENTATION = 12;
+	int RTE_EXCLUSIVE_AREA_IMPLEMENTATION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1256,7 +1320,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsEvent()
 	 * @generated
 	 */
-	int OS_EVENT = 13;
+	int OS_EVENT = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1329,7 +1393,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getCom()
 	 * @generated
 	 */
-	int COM = 14;
+	int COM = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1411,7 +1475,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComConfig()
 	 * @generated
 	 */
-	int COM_CONFIG = 15;
+	int COM_CONFIG = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1493,7 +1557,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComSignal()
 	 * @generated
 	 */
-	int COM_SIGNAL = 16;
+	int COM_SIGNAL = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1593,7 +1657,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComSignalGroup()
 	 * @generated
 	 */
-	int COM_SIGNAL_GROUP = 17;
+	int COM_SIGNAL_GROUP = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1702,7 +1766,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComGroupSignal()
 	 * @generated
 	 */
-	int COM_GROUP_SIGNAL = 18;
+	int COM_GROUP_SIGNAL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1784,7 +1848,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsAlarm()
 	 * @generated
 	 */
-	int OS_ALARM = 19;
+	int OS_ALARM = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1857,7 +1921,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsResource()
 	 * @generated
 	 */
-	int OS_RESOURCE = 20;
+	int OS_RESOURCE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1921,7 +1985,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsApplication()
 	 * @generated
 	 */
-	int OS_APPLICATION = 21;
+	int OS_APPLICATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2030,7 +2094,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcuC()
 	 * @generated
 	 */
-	int ECU_C = 22;
+	int ECU_C = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2112,7 +2176,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucPartitionCollection()
 	 * @generated
 	 */
-	int ECUC_PARTITION_COLLECTION = 23;
+	int ECUC_PARTITION_COLLECTION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2194,7 +2258,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getEcucPartition()
 	 * @generated
 	 */
-	int ECUC_PARTITION = 24;
+	int ECUC_PARTITION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2312,7 +2376,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsSpinlock()
 	 * @generated
 	 */
-	int OS_SPINLOCK = 25;
+	int OS_SPINLOCK = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2394,7 +2458,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteOsInteraction()
 	 * @generated
 	 */
-	int RTE_OS_INTERACTION = 26;
+	int RTE_OS_INTERACTION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2467,7 +2531,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteUsedOsActivation()
 	 * @generated
 	 */
-	int RTE_USED_OS_ACTIVATION = 27;
+	int RTE_USED_OS_ACTIVATION = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2558,7 +2622,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteInitializationBehavior()
 	 * @generated
 	 */
-	int RTE_INITIALIZATION_BEHAVIOR = 28;
+	int RTE_INITIALIZATION_BEHAVIOR = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2640,7 +2704,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIoc()
 	 * @generated
 	 */
-	int OS_IOC = 29;
+	int OS_IOC = 30;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2713,7 +2777,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocCommunication()
 	 * @generated
 	 */
-	int OS_IOC_COMMUNICATION = 30;
+	int OS_IOC_COMMUNICATION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2822,7 +2886,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocSenderProperties()
 	 * @generated
 	 */
-	int OS_IOC_SENDER_PROPERTIES = 31;
+	int OS_IOC_SENDER_PROPERTIES = 32;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2913,7 +2977,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocReceiverProperties()
 	 * @generated
 	 */
-	int OS_IOC_RECEIVER_PROPERTIES = 32;
+	int OS_IOC_RECEIVER_PROPERTIES = 33;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2986,7 +3050,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsIocDataProperties()
 	 * @generated
 	 */
-	int OS_IOC_DATA_PROPERTIES = 33;
+	int OS_IOC_DATA_PROPERTIES = 34;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3077,7 +3141,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsApplicationTrustedFunction()
 	 * @generated
 	 */
-	int OS_APPLICATION_TRUSTED_FUNCTION = 34;
+	int OS_APPLICATION_TRUSTED_FUNCTION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3159,7 +3223,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsOS()
 	 * @generated
 	 */
-	int OS_OS = 35;
+	int OS_OS = 36;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3250,7 +3314,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswEventToTaskMapping()
 	 * @generated
 	 */
-	int RTE_BSW_EVENT_TO_TASK_MAPPING = 36;
+	int RTE_BSW_EVENT_TO_TASK_MAPPING = 37;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3368,7 +3432,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswRequiredModeGroupConnection()
 	 * @generated
 	 */
-	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = 37;
+	int RTE_BSW_REQUIRED_MODE_GROUP_CONNECTION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3459,7 +3523,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswModuleInstance()
 	 * @generated
 	 */
-	int RTE_BSW_MODULE_INSTANCE = 38;
+	int RTE_BSW_MODULE_INSTANCE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3559,7 +3623,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteBswExclusiveAreaImpl()
 	 * @generated
 	 */
-	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 39;
+	int RTE_BSW_EXCLUSIVE_AREA_IMPL = 40;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -3659,7 +3723,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsTaskScheduleEnum()
 	 * @generated
 	 */
-	int OS_TASK_SCHEDULE_ENUM = 40;
+	int OS_TASK_SCHEDULE_ENUM = 41;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum <em>Rte Exclusive Area Impl Mechanism Enum</em>}' enum.
@@ -3669,7 +3733,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteExclusiveAreaImplMechanismEnum()
 	 * @generated
 	 */
-	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 41;
+	int RTE_EXCLUSIVE_AREA_IMPL_MECHANISM_ENUM = 42;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum <em>Com Transfer Property Enum</em>}' enum.
@@ -3679,7 +3743,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getComTransferPropertyEnum()
 	 * @generated
 	 */
-	int COM_TRANSFER_PROPERTY_ENUM = 42;
+	int COM_TRANSFER_PROPERTY_ENUM = 43;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsSpinlockLockMethodEnum <em>Os Spinlock Lock Method Enum</em>}' enum.
@@ -3689,7 +3753,7 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getOsSpinlockLockMethodEnum()
 	 * @generated
 	 */
-	int OS_SPINLOCK_LOCK_METHOD_ENUM = 43;
+	int OS_SPINLOCK_LOCK_METHOD_ENUM = 44;
 
 	/**
 	 * The meta object id for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteInitializationStrategyEnum <em>Rte Initialization Strategy Enum</em>}' enum.
@@ -3699,7 +3763,61 @@ public interface EcucPackage extends EPackage {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getRteInitializationStrategyEnum()
 	 * @generated
 	 */
-	int RTE_INITIALIZATION_STRATEGY_ENUM = 44;
+	int RTE_INITIALIZATION_STRATEGY_ENUM = 45;
+
+	/**
+	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot <em>Document Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Document Root</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot
+	 * @generated
+	 */
+	EClass getDocumentRoot();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getMixed()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EAttribute getDocumentRoot_Mixed();
+
+	/**
+	 * Returns the meta object for the map '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getXMLNSPrefixMap <em>XMLNS Prefix Map</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>XMLNS Prefix Map</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getXMLNSPrefixMap()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_XMLNSPrefixMap();
+
+	/**
+	 * Returns the meta object for the map '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getXSISchemaLocation <em>XSI Schema Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the map '<em>XSI Schema Location</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getXSISchemaLocation()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_XSISchemaLocation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getEcucRoot <em>Ecuc Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Ecuc Root</em>'.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot#getEcucRoot()
+	 * @see #getDocumentRoot()
+	 * @generated
+	 */
+	EReference getDocumentRoot_EcucRoot();
 
 	/**
 	 * Returns the meta object for class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte <em>Rte</em>}'.
@@ -5465,6 +5583,48 @@ public interface EcucPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.DocumentRootImpl <em>Document Root</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.DocumentRootImpl
+		 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucPackageImpl#getDocumentRoot()
+		 * @generated
+		 */
+		EClass DOCUMENT_ROOT = eINSTANCE.getDocumentRoot();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DOCUMENT_ROOT__MIXED = eINSTANCE.getDocumentRoot_Mixed();
+
+		/**
+		 * The meta object literal for the '<em><b>XMLNS Prefix Map</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__XMLNS_PREFIX_MAP = eINSTANCE.getDocumentRoot_XMLNSPrefixMap();
+
+		/**
+		 * The meta object literal for the '<em><b>XSI Schema Location</b></em>' map feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__XSI_SCHEMA_LOCATION = eINSTANCE.getDocumentRoot_XSISchemaLocation();
+
+		/**
+		 * The meta object literal for the '<em><b>Ecuc Root</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DOCUMENT_ROOT__ECUC_ROOT = eINSTANCE.getDocumentRoot_EcucRoot();
+
 		/**
 		 * The meta object literal for the '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.RteImpl <em>Rte</em>}' class.
 		 * <!-- begin-user-doc -->

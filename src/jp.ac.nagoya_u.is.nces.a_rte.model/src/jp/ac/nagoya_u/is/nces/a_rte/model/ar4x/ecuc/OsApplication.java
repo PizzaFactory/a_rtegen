@@ -80,6 +80,7 @@ public interface OsApplication extends EcucContainer {
 	 * @see #setOsApplicationCoreAssignment(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplication_OsApplicationCoreAssignment()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsApplicationCoreAssignment' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsApplicationCoreAssignment();
@@ -106,6 +107,7 @@ public interface OsApplication extends EcucContainer {
 	 * @see #setOsTrusted(Boolean)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplication_OsTrusted()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 *        extendedMetaData="kind='element' name='OsTrusted' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Boolean getOsTrusted();
@@ -134,6 +136,7 @@ public interface OsApplication extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplication_OsAppEcucPartition()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPartition#getImplOsApplication
 	 * @model opposite="implOsApplication"
+	 *        extendedMetaData="kind='element' name='OsAppEcucPartition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EcucPartition getOsAppEcucPartition();
@@ -162,6 +165,7 @@ public interface OsApplication extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplication_OsApplicationTrustedFunction()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplicationTrustedFunction#getParent
 	 * @model opposite="parent" containment="true"
+	 *        extendedMetaData="kind='element' name='OsApplicationTrustedFunction' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplicationTrustedFunction> getOsApplicationTrustedFunction();
@@ -180,6 +184,7 @@ public interface OsApplication extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplication_OsAppTask()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsTask#getOwnerApplication
 	 * @model opposite="ownerApplication"
+	 *        extendedMetaData="kind='element' name='OsAppTask' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsTask> getOsAppTask();

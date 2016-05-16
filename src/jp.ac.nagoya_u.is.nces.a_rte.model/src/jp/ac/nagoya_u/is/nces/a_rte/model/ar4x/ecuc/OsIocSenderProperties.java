@@ -76,6 +76,7 @@ public interface OsIocSenderProperties extends EcucContainer {
 	 * @see #setOsIocSenderId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocSenderProperties_OsIocSenderId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsIocSenderId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsIocSenderId();
@@ -102,6 +103,7 @@ public interface OsIocSenderProperties extends EcucContainer {
 	 * @see #setOsIocSendingOsApplication(OsApplication)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocSenderProperties_OsIocSendingOsApplication()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='OsIocSendingOsApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsApplication getOsIocSendingOsApplication();
@@ -130,6 +132,7 @@ public interface OsIocSenderProperties extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocSenderProperties_Parent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocCommunication#getOsIocSenderProperties
 	 * @model opposite="osIocSenderProperties" required="true" transient="false" derived="true"
+	 *        extendedMetaData="kind='element' name='OsIocCommunication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsIocCommunication getParent();

@@ -79,6 +79,7 @@ public interface RteBswModuleInstance extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Event To Task Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswModuleInstance_RteBswEventToTaskMapping()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteBswEventToTaskMapping' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteBswEventToTaskMapping> getRteBswEventToTaskMapping();
@@ -95,6 +96,7 @@ public interface RteBswModuleInstance extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Exclusive Area Impl</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswModuleInstance_RteBswExclusiveAreaImpl()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteBswExclusiveAreaImpl' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteBswExclusiveAreaImpl> getRteBswExclusiveAreaImpl();
@@ -111,6 +113,7 @@ public interface RteBswModuleInstance extends EcucContainer {
 	 * @see #setRteBswImplementation(BswImplementation)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswModuleInstance_RteBswImplementation()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='RteBswImplementation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BswImplementation getRteBswImplementation();
@@ -139,6 +142,7 @@ public interface RteBswModuleInstance extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswModuleInstance_RteBswRequiredModeGroupConnection()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswRequiredModeGroupConnection#getParent
 	 * @model opposite="parent" containment="true" ordered="false"
+	 *        extendedMetaData="kind='element' name='RteBswRequiredModeGroupConnection' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteBswRequiredModeGroupConnection> getRteBswRequiredModeGroupConnection();

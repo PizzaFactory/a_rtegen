@@ -97,6 +97,7 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case EcucPackage.DOCUMENT_ROOT: return (EObject)createDocumentRoot();
 			case EcucPackage.RTE: return (EObject)createRte();
 			case EcucPackage.RTE_GENERATION: return (EObject)createRteGeneration();
 			case EcucPackage.RTE_BSW_GENERAL: return (EObject)createRteBswGeneral();
@@ -182,6 +183,16 @@ public class EcucFactoryImpl extends EFactoryImpl implements EcucFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DocumentRoot createDocumentRoot() {
+		DocumentRootImpl documentRoot = new DocumentRootImpl();
+		return documentRoot;
 	}
 
 	/**

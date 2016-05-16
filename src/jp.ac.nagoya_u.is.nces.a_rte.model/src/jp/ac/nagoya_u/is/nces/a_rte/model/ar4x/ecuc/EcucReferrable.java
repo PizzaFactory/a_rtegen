@@ -107,6 +107,7 @@ public interface EcucReferrable extends EcucObject {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucReferrable_ShortName()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Identifier" required="true"
 	 *        annotation="stereotypes nonEcuc='true'"
+	 *        extendedMetaData="kind='element' name='ShortName' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getShortName();
@@ -133,6 +134,7 @@ public interface EcucReferrable extends EcucObject {
 	 * @see #setReference(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucReferrable_Reference()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Ref" required="true" transient="true" derived="true"
+	 *        extendedMetaData="kind='element' name='Reference' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getReference();
@@ -162,6 +164,7 @@ public interface EcucReferrable extends EcucObject {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucReferrable_Source()
 	 * @model required="true"
 	 *        annotation="stereotypes nonEcuc='true'"
+	 *        extendedMetaData="kind='element' name='Source' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Identifiable getSource();

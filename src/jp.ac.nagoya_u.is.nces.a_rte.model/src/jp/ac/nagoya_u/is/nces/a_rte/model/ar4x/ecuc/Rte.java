@@ -81,6 +81,7 @@ public interface Rte extends EcucModule {
 	 * @see #setRteGeneration(RteGeneration)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteGeneration()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='RteGeneration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteGeneration getRteGeneration();
@@ -107,6 +108,7 @@ public interface Rte extends EcucModule {
 	 * @see #setRteBswGeneral(RteBswGeneral)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteBswGeneral()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='RteBswGeneral' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteBswGeneral getRteBswGeneral();
@@ -133,6 +135,7 @@ public interface Rte extends EcucModule {
 	 * @return the value of the '<em>Rte Sw Component Instance</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteSwComponentInstance()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteSwComponentInstance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteSwComponentInstance> getRteSwComponentInstance();
@@ -149,6 +152,7 @@ public interface Rte extends EcucModule {
 	 * @return the value of the '<em>Rte Os Interaction</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteOsInteraction()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='RteOsInteraction' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteOsInteraction> getRteOsInteraction();
@@ -165,6 +169,7 @@ public interface Rte extends EcucModule {
 	 * @return the value of the '<em>Rte Initialization Behavior</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteInitializationBehavior()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='RteInitializationBehavior' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteInitializationBehavior> getRteInitializationBehavior();
@@ -181,6 +186,7 @@ public interface Rte extends EcucModule {
 	 * @return the value of the '<em>Rte Bsw Module Instance</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRte_RteBswModuleInstance()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteBswModuleInstance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteBswModuleInstance> getRteBswModuleInstance();

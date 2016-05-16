@@ -74,6 +74,7 @@ public interface Com extends EcucModule {
 	 * @see #setComConfig(ComConfig)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getCom_ComConfig()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='ComConfig' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ComConfig getComConfig();

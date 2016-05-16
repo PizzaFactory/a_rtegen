@@ -80,6 +80,7 @@ public interface RteBswRequiredModeGroupConnection extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswRequiredModeGroupConnection_Parent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswModuleInstance#getRteBswRequiredModeGroupConnection
 	 * @model opposite="rteBswRequiredModeGroupConnection" required="true" transient="false" derived="true"
+	 *        extendedMetaData="kind='element' name='Parent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteBswModuleInstance getParent();
@@ -106,6 +107,7 @@ public interface RteBswRequiredModeGroupConnection extends EcucContainer {
 	 * @see #setRteBswProvidedModeGroup(ModeDeclarationGroupPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='RteBswProvidedModeGroup' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ModeDeclarationGroupPrototype getRteBswProvidedModeGroup();
@@ -132,6 +134,7 @@ public interface RteBswRequiredModeGroupConnection extends EcucContainer {
 	 * @see #setRteBswRequiredModeGroup(ModeDeclarationGroupPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='RteBswRequiredModeGroup' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ModeDeclarationGroupPrototype getRteBswRequiredModeGroup();

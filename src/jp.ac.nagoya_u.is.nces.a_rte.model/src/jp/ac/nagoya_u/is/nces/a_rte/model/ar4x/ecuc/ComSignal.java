@@ -76,7 +76,7 @@ public interface ComSignal extends EcucContainer {
 	 * @return the value of the '<em>Com System Template System Signal</em>' reference.
 	 * @see #setComSystemTemplateSystemSignal(ISignalToIPduMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignal_ComSystemTemplateSystemSignal()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='ComSystemTemplateSystemSignal' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ISignalToIPduMapping getComSystemTemplateSystemSignal();
@@ -103,6 +103,7 @@ public interface ComSignal extends EcucContainer {
 	 * @see #setComHandleId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignal_ComHandleId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        extendedMetaData="kind='element' name='ComHandleId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getComHandleId();
@@ -130,7 +131,7 @@ public interface ComSignal extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum
 	 * @see #setComTransferProperty(ComTransferPropertyEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignal_ComTransferProperty()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='ComTransferProperty' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ComTransferPropertyEnum getComTransferProperty();

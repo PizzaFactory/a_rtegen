@@ -80,6 +80,7 @@ public interface EcucPartition extends EcucContainer {
 	 * @see #setEcucPartitionBswModuleExecution(Boolean)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucPartition_EcucPartitionBswModuleExecution()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 *        extendedMetaData="kind='element' name='EcucPartitionBswModuleExecution' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Boolean getEcucPartitionBswModuleExecution();
@@ -106,6 +107,7 @@ public interface EcucPartition extends EcucContainer {
 	 * @see #setPartitionCanBeRestarted(Boolean)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucPartition_PartitionCanBeRestarted()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 *        extendedMetaData="kind='element' name='PartitionCanBeRestarted' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Boolean getPartitionCanBeRestarted();
@@ -134,6 +136,7 @@ public interface EcucPartition extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucPartition_EcucPartitionSoftwareComponent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.instance.SwComponentInstanceInSystem#getOwnerPartition
 	 * @model opposite="ownerPartition"
+	 *        extendedMetaData="kind='element' name='EcucPartitionSoftwareComponent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<SwComponentInstanceInSystem> getEcucPartitionSoftwareComponent();
@@ -152,6 +155,7 @@ public interface EcucPartition extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucPartition_ImplOsApplication()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplication#getOsAppEcucPartition
 	 * @model opposite="osAppEcucPartition" derived="true"
+	 *        extendedMetaData="kind='element' name='ImplOsApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplication> getImplOsApplication();

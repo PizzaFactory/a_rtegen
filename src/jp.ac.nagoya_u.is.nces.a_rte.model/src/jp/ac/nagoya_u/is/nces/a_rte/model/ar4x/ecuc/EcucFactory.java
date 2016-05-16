@@ -64,6 +64,15 @@ public interface EcucFactory extends EFactory {
 	EcucFactory eINSTANCE = jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.impl.EcucFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Document Root</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Document Root</em>'.
+	 * @generated
+	 */
+	DocumentRoot createDocumentRoot();
+
+	/**
 	 * Returns a new object of class '<em>Rte</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

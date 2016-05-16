@@ -4,23 +4,17 @@ package jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.tests;
 
 import java.io.File;
 import java.io.IOException;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucFactory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage;
-import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte;
-
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.util.EcucResourceFactoryImpl;
-
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 import org.eclipse.emf.ecore.util.Diagnostician;
 
 /**
@@ -60,8 +54,10 @@ public class EcucExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:"); //$NON-NLS-1$
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.ecuc")); //$NON-NLS-1$
-				Rte root = EcucFactory.eINSTANCE.createRte();
-				resource.getContents().add((EObject)root);
+				DocumentRoot documentRoot = EcucFactory.eINSTANCE.createDocumentRoot();
+				EcucRoot root = EcucFactory.eINSTANCE.createEcucRoot();
+				documentRoot.setEcucRoot(root);
+				resource.getContents().add((EObject)documentRoot);
 				resource.save(System.out, null);
 			}
 			catch (IOException exception) {

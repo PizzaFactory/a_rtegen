@@ -75,7 +75,7 @@ public interface ComGroupSignal extends EcucContainer {
 	 * @return the value of the '<em>Com System Template System Signal</em>' reference.
 	 * @see #setComSystemTemplateSystemSignal(ISignalToIPduMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComGroupSignal_ComSystemTemplateSystemSignal()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='ComSystemTemplateSystemSignal' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ISignalToIPduMapping getComSystemTemplateSystemSignal();
@@ -102,6 +102,7 @@ public interface ComGroupSignal extends EcucContainer {
 	 * @see #setComHandleId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComGroupSignal_ComHandleId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        extendedMetaData="kind='element' name='ComHandleId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getComHandleId();

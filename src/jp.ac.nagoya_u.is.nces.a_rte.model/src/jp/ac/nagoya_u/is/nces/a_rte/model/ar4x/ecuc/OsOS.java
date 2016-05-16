@@ -75,6 +75,7 @@ public interface OsOS extends EcucContainer {
 	 * @see #setOsNumberOfCores(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsOS_OsNumberOfCores()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsNumberOfCores' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsNumberOfCores();
@@ -101,6 +102,7 @@ public interface OsOS extends EcucContainer {
 	 * @see #setOsMasterCoreId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsOS_OsMasterCoreId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsMasterCoreId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsMasterCoreId();

@@ -79,7 +79,7 @@ public interface ComSignalGroup extends EcucContainer {
 	 * @return the value of the '<em>Com System Template Signal Group</em>' reference.
 	 * @see #setComSystemTemplateSignalGroup(ISignalToIPduMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignalGroup_ComSystemTemplateSignalGroup()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='ComSystemTemplateSignalGroup' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ISignalToIPduMapping getComSystemTemplateSignalGroup();
@@ -106,6 +106,7 @@ public interface ComSignalGroup extends EcucContainer {
 	 * @return the value of the '<em>Com Group Signal</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignalGroup_ComGroupSignal()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ComGroupSignal' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<ComGroupSignal> getComGroupSignal();
@@ -122,6 +123,7 @@ public interface ComSignalGroup extends EcucContainer {
 	 * @see #setComHandleId(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignalGroup_ComHandleId()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        extendedMetaData="kind='element' name='ComHandleId' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getComHandleId();
@@ -149,7 +151,7 @@ public interface ComSignalGroup extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum
 	 * @see #setComTransferProperty(ComTransferPropertyEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComSignalGroup_ComTransferProperty()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='ComTransferProperty' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ComTransferPropertyEnum getComTransferProperty();

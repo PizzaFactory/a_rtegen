@@ -74,6 +74,7 @@ public interface RteBswGeneral extends EcucContainer {
 	 * @see #setRteUseComShadowSignalApi(Boolean)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswGeneral_RteUseComShadowSignalApi()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Boolean" required="true"
+	 *        extendedMetaData="kind='element' name='RteUseComShadowSignalApi' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Boolean getRteUseComShadowSignalApi();

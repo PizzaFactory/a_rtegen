@@ -75,6 +75,7 @@ public interface RteOsInteraction extends EcucContainer {
 	 * @return the value of the '<em>Rte Used Os Activation</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteOsInteraction_RteUsedOsActivation()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteUsedOsActivation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteUsedOsActivation> getRteUsedOsActivation();

@@ -75,6 +75,7 @@ public interface EcucPartitionCollection extends EcucContainer {
 	 * @return the value of the '<em>Ecuc Partition</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucPartitionCollection_EcucPartition()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EcucPartition' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<EcucPartition> getEcucPartition();

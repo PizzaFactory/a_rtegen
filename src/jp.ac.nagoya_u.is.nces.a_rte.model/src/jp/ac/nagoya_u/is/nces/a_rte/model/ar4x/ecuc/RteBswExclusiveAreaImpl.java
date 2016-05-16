@@ -80,6 +80,7 @@ public interface RteBswExclusiveAreaImpl extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswExclusiveAreaImpl_RteBswExclusiveArea()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea#getBswConfig
 	 * @model opposite="bswConfig" required="true"
+	 *        extendedMetaData="kind='element' name='RteBswExclusiveArea' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ExclusiveArea getRteBswExclusiveArea();
@@ -107,7 +108,7 @@ public interface RteBswExclusiveAreaImpl extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum
 	 * @see #setRteExclusiveAreaImplMechanism(RteExclusiveAreaImplMechanismEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswExclusiveAreaImpl_RteExclusiveAreaImplMechanism()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteExclusiveAreaImplMechanism' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteExclusiveAreaImplMechanismEnum getRteExclusiveAreaImplMechanism();
@@ -134,7 +135,7 @@ public interface RteBswExclusiveAreaImpl extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Exclusive Area Os Spinlock</em>' reference.
 	 * @see #setRteBswExclusiveAreaOsSpinlock(OsSpinlock)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsSpinlock()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteBswExclusiveAreaOsSpinlock' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsSpinlock getRteBswExclusiveAreaOsSpinlock();
@@ -160,7 +161,7 @@ public interface RteBswExclusiveAreaImpl extends EcucContainer {
 	 * @return the value of the '<em>Rte Bsw Exclusive Area Os Resource</em>' reference.
 	 * @see #setRteBswExclusiveAreaOsResource(OsResource)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsResource()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteBswExclusiveAreaOsResource' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsResource getRteBswExclusiveAreaOsResource();

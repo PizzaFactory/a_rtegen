@@ -78,6 +78,7 @@ public interface OsIocDataProperties extends EcucContainer {
 	 * @see #setOsIocDataPropertyIndex(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocDataProperties_OsIocDataPropertyIndex()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsIocDataPropertyIndex' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsIocDataPropertyIndex();
@@ -104,6 +105,7 @@ public interface OsIocDataProperties extends EcucContainer {
 	 * @see #setOsIocInitValue(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocDataProperties_OsIocInitValue()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VerbatimString"
+	 *        extendedMetaData="kind='element' name='OsIocInitValue' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getOsIocInitValue();
@@ -130,6 +132,7 @@ public interface OsIocDataProperties extends EcucContainer {
 	 * @see #setOsIocDataType(ImplementationDataType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocDataProperties_OsIocDataType()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='OsIocDataType' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ImplementationDataType getOsIocDataType();

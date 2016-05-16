@@ -79,6 +79,7 @@ public interface EcucRoot extends ExtendedEObject {
 	 * @see #setRte(Rte)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucRoot_Rte()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Rte' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Rte getRte();
@@ -105,6 +106,7 @@ public interface EcucRoot extends ExtendedEObject {
 	 * @see #setOs(Os)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucRoot_Os()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Os' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Os getOs();
@@ -131,6 +133,7 @@ public interface EcucRoot extends ExtendedEObject {
 	 * @see #setCom(Com)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucRoot_Com()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='Com' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Com getCom();
@@ -157,6 +160,7 @@ public interface EcucRoot extends ExtendedEObject {
 	 * @see #setEcuC(EcuC)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getEcucRoot_EcuC()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='EcuC' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EcuC getEcuC();

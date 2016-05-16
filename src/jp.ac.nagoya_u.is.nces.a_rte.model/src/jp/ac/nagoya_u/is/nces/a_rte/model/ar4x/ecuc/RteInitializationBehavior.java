@@ -78,6 +78,7 @@ public interface RteInitializationBehavior extends EcucContainer {
 	 * @see #setRteInitializationStrategy(RteInitializationStrategyEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteInitializationBehavior_RteInitializationStrategy()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='RteInitializationStrategy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteInitializationStrategyEnum getRteInitializationStrategy();
@@ -105,6 +106,7 @@ public interface RteInitializationBehavior extends EcucContainer {
 	 * @return the value of the '<em>Rte Section Initialization Policy</em>' attribute list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteInitializationBehavior_RteSectionInitializationPolicy()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SectionInitializationPolicyType" required="true"
+	 *        extendedMetaData="kind='element' name='RteSectionInitializationPolicy' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<String> getRteSectionInitializationPolicy();
