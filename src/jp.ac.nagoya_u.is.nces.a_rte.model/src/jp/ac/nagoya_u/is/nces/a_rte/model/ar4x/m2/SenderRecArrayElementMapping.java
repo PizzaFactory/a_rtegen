@@ -76,6 +76,7 @@ public interface SenderRecArrayElementMapping extends M2Object {
 	 * @see #setIndexedArrayElement(IndexedArrayElement)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecArrayElementMapping_IndexedArrayElement()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='INDEXED-ARRAY-ELEMENT'"
 	 * @generated
 	 */
 	IndexedArrayElement getIndexedArrayElement();
@@ -102,6 +103,7 @@ public interface SenderRecArrayElementMapping extends M2Object {
 	 * @see #setComplexTypeMapping(SenderRecCompositeTypeMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecArrayElementMapping_ComplexTypeMapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='COMPLEX-TYPE-MAPPING'"
 	 * @generated
 	 */
 	SenderRecCompositeTypeMapping getComplexTypeMapping();
@@ -127,7 +129,7 @@ public interface SenderRecArrayElementMapping extends M2Object {
 	 * @return the value of the '<em>System Signal</em>' reference.
 	 * @see #setSystemSignal(SystemSignal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecArrayElementMapping_SystemSignal()
-	 * @model
+	 * @model annotation="tags xml.name='SYSTEM-SIGNAL-REF'"
 	 * @generated
 	 */
 	SystemSignal getSystemSignal();

@@ -77,6 +77,7 @@ public interface DataSendCompletedEvent extends RteEvent {
 	 * @see #setEventSource(VariableAccess)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataSendCompletedEvent_EventSource()
 	 * @model required="true"
+	 *        annotation="tags xml.name='EVENT-SOURCE-REF'"
 	 * @generated
 	 */
 	VariableAccess getEventSource();
@@ -102,7 +103,6 @@ public interface DataSendCompletedEvent extends RteEvent {
 	 * @return the value of the '<em>Event Source Data</em>' reference.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataSendCompletedEvent_EventSourceData()
 	 * @model resolveProxies="false" required="true" transient="true" changeable="false" volatile="true" derived="true"
-	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='eventSource.accessedVariable.autosarVariable'"
 	 * @generated
 	 */
 	VariableDataInstanceInSwc getEventSourceData();

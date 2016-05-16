@@ -102,6 +102,7 @@ public interface Referrable extends M2Object {
 	 * @see #setShortName(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getReferrable_ShortName()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Identifier" required="true"
+	 *        annotation="tags xml.name='SHORT-NAME'"
 	 * @generated
 	 */
 	String getShortName();
@@ -131,6 +132,7 @@ public interface Referrable extends M2Object {
 	 * @see #setReference(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getReferrable_Reference()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Ref" required="true" transient="true" derived="true"
+	 *        annotation="tags xml.name='REF'"
 	 * @generated
 	 */
 	String getReference();

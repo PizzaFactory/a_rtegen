@@ -82,6 +82,7 @@ public interface RteEvent extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRteEvent_StartOnEvent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RunnableEntity#getEvent
 	 * @model opposite="event"
+	 *        annotation="tags xml.name='START-ON-EVENT-REF'"
 	 * @generated
 	 */
 	RunnableEntity getStartOnEvent();

@@ -82,6 +82,7 @@ public interface BswEvent extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswEvent_StartsOnEvent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswSchedulableEntity#getEvent
 	 * @model opposite="event"
+	 *        annotation="tags xml.name='STARTS-ON-EVENT-REF'"
 	 * @generated
 	 */
 	BswSchedulableEntity getStartsOnEvent();

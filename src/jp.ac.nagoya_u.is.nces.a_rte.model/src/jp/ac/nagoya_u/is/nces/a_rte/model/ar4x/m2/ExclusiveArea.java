@@ -131,6 +131,7 @@ public interface ExclusiveArea extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getExclusiveArea_SwcConfig()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplementation#getRteExclusiveArea
 	 * @model opposite="rteExclusiveArea" derived="true"
+	 *        annotation="tags xml.name='SW-ALIGNMENT'"
 	 * @generated
 	 */
 	EList<RteExclusiveAreaImplementation> getSwcConfig();

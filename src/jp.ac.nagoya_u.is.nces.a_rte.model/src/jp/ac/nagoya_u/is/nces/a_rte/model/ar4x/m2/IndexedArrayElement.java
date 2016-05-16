@@ -74,7 +74,7 @@ public interface IndexedArrayElement extends M2Object {
 	 * @return the value of the '<em>Implementation Array Element</em>' reference.
 	 * @see #setImplementationArrayElement(ImplementationDataTypeElement)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getIndexedArrayElement_ImplementationArrayElement()
-	 * @model
+	 * @model annotation="tags xml.name='IMPLEMENTATION-ARRAY-ELEMENT-REF'"
 	 * @generated
 	 */
 	ImplementationDataTypeElement getImplementationArrayElement();
@@ -101,6 +101,7 @@ public interface IndexedArrayElement extends M2Object {
 	 * @see #setIndex(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getIndexedArrayElement_Index()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        annotation="tags xml.name='INDEX'"
 	 * @generated
 	 */
 	Integer getIndex();

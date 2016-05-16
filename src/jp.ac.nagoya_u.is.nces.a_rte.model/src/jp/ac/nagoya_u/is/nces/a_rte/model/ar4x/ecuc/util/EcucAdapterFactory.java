@@ -108,6 +108,10 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 	protected EcucSwitch<Adapter> modelSwitch =
 		new EcucSwitch<Adapter>() {
 			@Override
+			public Adapter caseDocumentRoot(DocumentRoot object) {
+				return createDocumentRootAdapter();
+			}
+			@Override
 			public Adapter caseEcucObject(EcucObject object) {
 				return createEcucObjectAdapter();
 			}
@@ -286,6 +290,20 @@ public class EcucAdapterFactory extends AdapterFactoryImpl {
 		return modelSwitch.doSwitch((EObject)target);
 	}
 
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot <em>Document Root</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot
+	 * @generated
+	 */
+	public Adapter createDocumentRootAdapter() {
+		return null;
+	}
 
 	/**
 	 * Creates a new adapter for an object of class '{@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte <em>Rte</em>}'.

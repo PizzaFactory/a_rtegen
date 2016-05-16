@@ -75,6 +75,7 @@ public interface ISignalIPdu extends ArElement {
 	 * @return the value of the '<em>ISignal To Pdu Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalIPdu_ISignalToPduMapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='I-SIGNAL-TO-PDU-MAPPING' xml.namePlural='I-SIGNAL-TO-PDU-MAPPINGS'"
 	 * @generated
 	 */
 	EList<ISignalToIPduMapping> getISignalToPduMapping();

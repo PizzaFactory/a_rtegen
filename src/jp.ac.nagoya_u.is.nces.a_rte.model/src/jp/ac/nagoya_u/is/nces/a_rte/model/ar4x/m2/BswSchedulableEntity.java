@@ -79,6 +79,7 @@ public interface BswSchedulableEntity extends BswModuleEntity {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswSchedulableEntity_Event()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BswEvent#getStartsOnEvent
 	 * @model opposite="startsOnEvent"
+	 *        annotation="tags xml.name='EVENT' xml.namePlural='EVENTS'"
 	 * @generated
 	 */
 	EList<BswEvent> getEvent();

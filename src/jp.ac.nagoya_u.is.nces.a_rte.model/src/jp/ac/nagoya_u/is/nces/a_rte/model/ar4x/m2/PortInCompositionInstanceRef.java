@@ -74,6 +74,7 @@ public interface PortInCompositionInstanceRef extends M2Object, IInstanceRef {
 	 * @see #setContextComponent(SwComponentPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortInCompositionInstanceRef_ContextComponent()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-COMPONENT-REF'"
 	 * @generated
 	 */
 	SwComponentPrototype getContextComponent();
