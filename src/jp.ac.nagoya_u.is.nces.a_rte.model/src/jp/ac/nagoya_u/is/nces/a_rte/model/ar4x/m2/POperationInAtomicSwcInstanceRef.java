@@ -75,6 +75,7 @@ public interface POperationInAtomicSwcInstanceRef extends M2Object, IInstanceRef
 	 * @see #setContextPPort(PPortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPOperationInAtomicSwcInstanceRef_ContextPPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-P-PORT-REF'"
 	 * @generated
 	 */
 	PPortPrototype getContextPPort();
@@ -101,6 +102,7 @@ public interface POperationInAtomicSwcInstanceRef extends M2Object, IInstanceRef
 	 * @see #setTargetProvidedOperation(ClientServerOperation)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPOperationInAtomicSwcInstanceRef_TargetProvidedOperation()
 	 * @model required="true"
+	 *        annotation="tags xml.name='TARGET-PROVIDED-OPERATION-REF'"
 	 * @generated
 	 */
 	ClientServerOperation getTargetProvidedOperation();

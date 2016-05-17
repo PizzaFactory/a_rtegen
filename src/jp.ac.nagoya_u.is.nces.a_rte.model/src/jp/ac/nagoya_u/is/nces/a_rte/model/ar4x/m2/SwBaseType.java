@@ -84,6 +84,7 @@ public interface SwBaseType extends ArElement {
 	 * @see #setBaseTypeEncoding(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwBaseType_BaseTypeEncoding()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.BaseTypeEncodingString" required="true"
+	 *        annotation="tags xml.name='BASE-TYPE-ENCODING'"
 	 * @generated
 	 */
 	String getBaseTypeEncoding();
@@ -110,6 +111,7 @@ public interface SwBaseType extends ArElement {
 	 * @see #setBaseTypeSize(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwBaseType_BaseTypeSize()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        annotation="tags xml.name='BASE-TYPE-SIZE'"
 	 * @generated
 	 */
 	Integer getBaseTypeSize();
@@ -136,6 +138,7 @@ public interface SwBaseType extends ArElement {
 	 * @see #setNativeDeclaration(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwBaseType_NativeDeclaration()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.NativeDeclarationString"
+	 *        annotation="tags xml.name='NATIVE-DECLARATION'"
 	 * @generated
 	 */
 	String getNativeDeclaration();

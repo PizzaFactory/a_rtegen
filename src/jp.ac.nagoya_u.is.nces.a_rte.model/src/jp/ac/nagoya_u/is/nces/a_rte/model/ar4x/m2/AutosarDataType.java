@@ -78,6 +78,7 @@ public interface AutosarDataType extends ArElement {
 	 * @see #setSwDataDefProps(SwDataDefProps)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_SwDataDefProps()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='SW-DATA-DEF-PROPS'"
 	 * @generated
 	 */
 	SwDataDefProps getSwDataDefProps();
@@ -104,6 +105,7 @@ public interface AutosarDataType extends ArElement {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosarDataType_InvalidValue()
 	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true"
 	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot derivation='if swDataDefProps.invalidValue.oclIsUndefined()\n\t\t\t\t\tthen null\n\t\t\t\t\telse swDataDefProps.invalidValue\n\t\t\t\t\tendif'"
+	 *        annotation="tags xml.name='TIMEOUT'"
 	 * @generated
 	 */
 	ValueSpecification getInvalidValue();

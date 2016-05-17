@@ -75,6 +75,7 @@ public interface VariableDataPrototype extends AutosarDataPrototype {
 	 * @see #setInitValue(ValueSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getVariableDataPrototype_InitValue()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='INIT-VALUE'"
 	 * @generated
 	 */
 	ValueSpecification getInitValue();

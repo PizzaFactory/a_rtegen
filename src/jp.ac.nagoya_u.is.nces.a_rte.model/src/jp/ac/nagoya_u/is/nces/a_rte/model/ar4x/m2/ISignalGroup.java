@@ -76,6 +76,7 @@ public interface ISignalGroup extends ArElement {
 	 * @see #setSystemSignalGroup(SystemSignalGroup)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalGroup_SystemSignalGroup()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SYSTEM-SIGNAL-GROUP-REF'"
 	 * @generated
 	 */
 	SystemSignalGroup getSystemSignalGroup();
@@ -101,7 +102,7 @@ public interface ISignalGroup extends ArElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>ISignal</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getISignalGroup_ISignal()
-	 * @model
+	 * @model annotation="tags xml.name='I-SIGNAL-REF' xml.namePlural='I-SIGNAL-REFS'"
 	 * @generated
 	 */
 	EList<ISignal> getISignal();

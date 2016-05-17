@@ -101,6 +101,7 @@ public interface VariableInAtomicSwcTypeInstanceRef extends M2Object, IInstanceR
 	 * @see #setTargetDataPrototype(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getVariableInAtomicSwcTypeInstanceRef_TargetDataPrototype()
 	 * @model required="true"
+	 *        annotation="tags xml.name='VARIABLE-DATA-PROTOTYPE'"
 	 * @generated
 	 */
 	VariableDataPrototype getTargetDataPrototype();

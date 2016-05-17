@@ -80,6 +80,29 @@ public class EcucItemProviderAdapterFactory extends EcucAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DocumentRootItemProvider documentRootItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDocumentRootAdapter() {
+		if (documentRootItemProvider == null) {
+			documentRootItemProvider = new DocumentRootItemProvider(this);
+		}
+
+		return documentRootItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.Rte} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1006,6 +1029,7 @@ public class EcucItemProviderAdapterFactory extends EcucAdapterFactory implement
 	 * @generated
 	 */
 	public void dispose() {
+		if (documentRootItemProvider != null) documentRootItemProvider.dispose();
 		if (rteItemProvider != null) rteItemProvider.dispose();
 		if (rteGenerationItemProvider != null) rteGenerationItemProvider.dispose();
 		if (rteBswGeneralItemProvider != null) rteBswGeneralItemProvider.dispose();

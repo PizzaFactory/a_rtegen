@@ -77,6 +77,7 @@ public interface SwComponentType extends ArElement {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwComponentType_Port()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortPrototype#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='PORT' xml.namePlural='PORTS'"
 	 * @generated
 	 */
 	EList<PortPrototype> getPort();

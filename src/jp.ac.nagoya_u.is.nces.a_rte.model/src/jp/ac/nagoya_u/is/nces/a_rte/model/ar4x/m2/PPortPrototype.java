@@ -78,6 +78,7 @@ public interface PPortPrototype extends PortPrototype {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPPortPrototype_ProvidedInterface()
 	 * @model required="true"
 	 *        annotation="stereotypes isOfType='true'"
+	 *        annotation="tags xml.name='PROVIDED-INTERFACE'"
 	 * @generated
 	 */
 	PortInterface getProvidedInterface();
@@ -104,6 +105,7 @@ public interface PPortPrototype extends PortPrototype {
 	 * @return the value of the '<em>Provided Com Spec</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPPortPrototype_ProvidedComSpec()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='PROVIDED-COM-SPEC' xml.namePlural='PROVIDED-COM-SPECS'"
 	 * @generated
 	 */
 	EList<PPortComSpec> getProvidedComSpec();

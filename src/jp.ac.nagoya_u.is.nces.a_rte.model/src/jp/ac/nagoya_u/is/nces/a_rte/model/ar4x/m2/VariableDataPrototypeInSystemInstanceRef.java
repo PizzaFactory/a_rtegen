@@ -75,7 +75,7 @@ public interface VariableDataPrototypeInSystemInstanceRef extends M2Object, IIns
 	 * @return the value of the '<em>Context Component</em>' reference.
 	 * @see #setContextComponent(SwComponentPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getVariableDataPrototypeInSystemInstanceRef_ContextComponent()
-	 * @model
+	 * @model annotation="tags xml.name='CONTEXT-COMPONENT-REF'"
 	 * @generated
 	 */
 	SwComponentPrototype getContextComponent();
@@ -102,6 +102,7 @@ public interface VariableDataPrototypeInSystemInstanceRef extends M2Object, IIns
 	 * @see #setContextPort(PortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getVariableDataPrototypeInSystemInstanceRef_ContextPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-PORT-REF'"
 	 * @generated
 	 */
 	PortPrototype getContextPort();
@@ -128,6 +129,7 @@ public interface VariableDataPrototypeInSystemInstanceRef extends M2Object, IIns
 	 * @see #setTargetDataPrototype(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getVariableDataPrototypeInSystemInstanceRef_TargetDataPrototype()
 	 * @model required="true"
+	 *        annotation="tags xml.name='TARGET-DATA-PROTOTYPE-REF'"
 	 * @generated
 	 */
 	VariableDataPrototype getTargetDataPrototype();

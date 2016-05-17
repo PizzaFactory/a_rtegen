@@ -51,6 +51,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcuC;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucFactory;
@@ -120,6 +121,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass documentRootEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,6 +525,51 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EcucPackage.eNS_URI, theEcucPackage);
 		return theEcucPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocumentRoot() {
+		return documentRootEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentRoot_Mixed() {
+		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_XMLNSPrefixMap() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_XSISchemaLocation() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_EcucRoot() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2014,6 +2067,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		documentRootEClass = createEClass(DOCUMENT_ROOT);
+		createEAttribute(documentRootEClass, DOCUMENT_ROOT__MIXED);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__ECUC_ROOT);
+
 		ecucObjectEClass = createEClass(ECUC_OBJECT);
 
 		ecucReferrableEClass = createEClass(ECUC_REFERRABLE);
@@ -2292,6 +2351,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		rteBswExclusiveAreaImplEClass.getESuperTypes().add(this.getEcucContainer());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_EcucRoot(), this.getEcucRoot(), null, "ecucRoot", null, 1, 1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(ecucObjectEClass, EcucObject.class, "EcucObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(ecucReferrableEClass, EcucReferrable.class, "EcucReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2532,10 +2597,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// stereotypes
-		createStereotypesAnnotations();
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
 		// tags
 		createTagsAnnotations();
+		// stereotypes
+		createStereotypesAnnotations();
 		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
 		createPivotAnnotations();
 	}
@@ -2555,6 +2622,44 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
+		addAnnotation
+		  (documentRootEClass, 
+		   source, 
+		   new String[] {
+			 "name", "", //$NON-NLS-1$ //$NON-NLS-2$
+			 "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_XMLNSPrefixMap(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_XSISchemaLocation(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 
@@ -2594,6 +2699,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 	 */
 	protected void createTagsAnnotations() {
 		String source = "tags"; //$NON-NLS-1$	
+		addAnnotation
+		  (getDocumentRoot_EcucRoot(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "A-RTE-ECU-CONFIGURATION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
 		addAnnotation
 		  (getOsTask_OsTaskAccessingApplication(), 
 		   source, 

@@ -75,6 +75,7 @@ public interface NonqueuedSenderComSpec extends SenderComSpec {
 	 * @see #setInitValue(ValueSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getNonqueuedSenderComSpec_InitValue()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='INIT-VALUE'"
 	 * @generated
 	 */
 	ValueSpecification getInitValue();

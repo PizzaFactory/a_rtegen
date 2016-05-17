@@ -74,6 +74,7 @@ public interface ConstantReference extends ValueSpecification {
 	 * @see #setConstant(ConstantSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getConstantReference_Constant()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONSTANT-REF'"
 	 * @generated
 	 */
 	ConstantSpecification getConstant();

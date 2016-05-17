@@ -75,6 +75,7 @@ public interface ModeRequestTypeMap extends M2Object {
 	 * @see #setImplementationDataType(ImplementationDataType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeRequestTypeMap_ImplementationDataType()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SW-ALIGNMENT'"
 	 * @generated
 	 */
 	ImplementationDataType getImplementationDataType();
@@ -101,6 +102,7 @@ public interface ModeRequestTypeMap extends M2Object {
 	 * @see #setModeGroup(ModeDeclarationGroup)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeRequestTypeMap_ModeGroup()
 	 * @model required="true"
+	 *        annotation="tags xml.name='MODE-GROUP-REF'"
 	 * @generated
 	 */
 	ModeDeclarationGroup getModeGroup();

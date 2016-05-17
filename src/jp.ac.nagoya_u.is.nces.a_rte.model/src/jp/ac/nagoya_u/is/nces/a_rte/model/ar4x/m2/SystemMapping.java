@@ -75,6 +75,7 @@ public interface SystemMapping extends Identifiable {
 	 * @return the value of the '<em>Data Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSystemMapping_DataMapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='DATA-MAPPINGS'"
 	 * @generated
 	 */
 	EList<DataMapping> getDataMapping();

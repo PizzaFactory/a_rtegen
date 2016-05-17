@@ -74,6 +74,7 @@ public interface BswInterruptEntity extends BswModuleEntity {
 	 * @see #setInterruptSource(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswInterruptEntity_InterruptSource()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.String" required="true"
+	 *        annotation="tags xml.name='INTERRUPT-SOURCE'"
 	 * @generated
 	 */
 	String getInterruptSource();

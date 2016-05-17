@@ -75,6 +75,7 @@ public interface EcucAbstractReferenceValue extends M2Object {
 	 * @see #setDefinitionRef(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucAbstractReferenceValue_DefinitionRef()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Ref" required="true"
+	 *        annotation="tags xml.name='DEFINITION-REF'"
 	 * @generated
 	 */
 	String getDefinitionRef();

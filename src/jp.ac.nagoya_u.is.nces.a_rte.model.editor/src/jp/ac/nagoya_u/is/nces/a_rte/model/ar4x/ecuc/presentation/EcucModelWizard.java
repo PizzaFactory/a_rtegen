@@ -63,6 +63,9 @@ import java.io.File;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteEditorAdvisor;
 import jp.ac.nagoya_u.is.nces.a_rte.model.rte.presentation.RteEditorPlugin;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.ExtendedMetaData;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
 import org.eclipse.swt.events.SelectionAdapter;
@@ -138,7 +141,7 @@ public class EcucModelWizard extends Wizard implements INewWizard {
 	protected IWorkbench workbench;
 
 	/**
-	 * Caches the names of the types that can be created as the root object.
+	 * Caches the names of the features representing global elements.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -159,7 +162,7 @@ public class EcucModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * Returns the names of the types that can be created as the root object.
+	 * Returns the names of the features representing global elements.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -167,11 +170,14 @@ public class EcucModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : ecucPackage.getEClassifiers()) {
-				if (eClassifier instanceof EClass) {
-					EClass eClass = (EClass)eClassifier;
-					if (!eClass.isAbstract()) {
-						initialObjectNames.add(eClass.getName());
+			for (EStructuralFeature eStructuralFeature : ExtendedMetaData.INSTANCE.getAllElements(ExtendedMetaData.INSTANCE.getDocumentRoot(ecucPackage))) {
+				if (eStructuralFeature.isChangeable()) {
+					EClassifier eClassifier = eStructuralFeature.getEType();
+					if (eClassifier instanceof EClass) {
+						EClass eClass = (EClass)eClassifier;
+						if (!eClass.isAbstract()) {
+							initialObjectNames.add(eStructuralFeature.getName());
+						}
 					}
 				}
 			}
@@ -187,8 +193,10 @@ public class EcucModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)ecucPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EClass eClass = ExtendedMetaData.INSTANCE.getDocumentRoot(ecucPackage);
+		EStructuralFeature eStructuralFeature = eClass.getEStructuralFeature(initialObjectCreationPage.getInitialObjectName());
 		EObject rootObject = ecucFactory.create(eClass);
+		rootObject.eSet(eStructuralFeature, EcoreUtil.create((EClass)eStructuralFeature.getEType()));
 		return rootObject;
 	}
 
@@ -528,19 +536,19 @@ public class EcucModelWizard extends Wizard implements INewWizard {
 		}		
 
 		/**
-		 * Returns the label for the specified type name.
+		 * Returns the label for the specified feature name.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected String getLabel(String typeName) {
+		protected String getLabel(String featureName) {
 			try {
-				return RteEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type"); //$NON-NLS-1$ //$NON-NLS-2$
+				return RteEditPlugin.INSTANCE.getString("_UI_DocumentRoot_" + featureName + "_feature"); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 			catch(MissingResourceException mre) {
 				RteEditorPlugin.INSTANCE.log(mre);
 			}
-			return typeName;
+			return featureName;
 		}
 
 		/**

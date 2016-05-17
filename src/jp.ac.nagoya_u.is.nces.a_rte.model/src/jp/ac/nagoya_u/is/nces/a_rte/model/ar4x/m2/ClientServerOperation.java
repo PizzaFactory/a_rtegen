@@ -75,7 +75,7 @@ public interface ClientServerOperation extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Possible Error</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getClientServerOperation_PossibleError()
-	 * @model
+	 * @model annotation="tags xml.name='POSSIBLE-ERROR' xml.namePlural='POSSIBLE-ERRORS'"
 	 * @generated
 	 */
 	EList<ApplicationError> getPossibleError();
@@ -92,6 +92,7 @@ public interface ClientServerOperation extends Identifiable {
 	 * @return the value of the '<em>Argument</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getClientServerOperation_Argument()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='ARGUMENT' xml.namePlural='ARGUMENTS'"
 	 * @generated
 	 */
 	EList<ArgumentDataPrototype> getArgument();
