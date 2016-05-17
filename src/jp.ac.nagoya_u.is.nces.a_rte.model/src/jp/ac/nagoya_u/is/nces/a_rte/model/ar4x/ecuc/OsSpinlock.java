@@ -80,6 +80,7 @@ public interface OsSpinlock extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsSpinlock_OsSpinlockAccessingApplication()
 	 * @model ordered="false"
 	 *        annotation="tags ecuc.definitionShortName='OsSpinlockAccessingApplication'"
+	 *        extendedMetaData="kind='element' name='OsSpinlockAccessingApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplication> getOsSpinlockAccessingApplication();
@@ -98,6 +99,7 @@ public interface OsSpinlock extends EcucContainer {
 	 * @see #setOsSpinlockLockMethod(OsSpinlockLockMethodEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsSpinlock_OsSpinlockLockMethod()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='OsSpinlockLockMethod' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsSpinlockLockMethodEnum getOsSpinlockLockMethod();

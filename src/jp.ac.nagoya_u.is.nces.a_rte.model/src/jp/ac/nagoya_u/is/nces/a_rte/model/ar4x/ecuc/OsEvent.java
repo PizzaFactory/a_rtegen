@@ -77,6 +77,7 @@ public interface OsEvent extends EcucContainer {
 	 * @see #setOsEventMask(BigInteger)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsEvent_OsEventMask()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.UnlimitedInteger"
+	 *        extendedMetaData="kind='element' name='OsEventMask' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BigInteger getOsEventMask();

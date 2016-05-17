@@ -74,6 +74,7 @@ public interface OsIocReceiverProperties extends EcucContainer {
 	 * @see #setOsIocReceivingOsApplication(OsApplication)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocReceiverProperties_OsIocReceivingOsApplication()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='OsIocReceivingOsApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsApplication getOsIocReceivingOsApplication();

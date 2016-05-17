@@ -51,6 +51,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComGroupSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignal;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComSignalGroup;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.ComTransferPropertyEnum;
+import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.DocumentRoot;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcuC;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucContainer;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucFactory;
@@ -120,6 +121,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass documentRootEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,6 +525,51 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(EcucPackage.eNS_URI, theEcucPackage);
 		return theEcucPackage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDocumentRoot() {
+		return documentRootEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDocumentRoot_Mixed() {
+		return (EAttribute)documentRootEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_XMLNSPrefixMap() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_XSISchemaLocation() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDocumentRoot_EcucRoot() {
+		return (EReference)documentRootEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -2014,6 +2067,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		documentRootEClass = createEClass(DOCUMENT_ROOT);
+		createEAttribute(documentRootEClass, DOCUMENT_ROOT__MIXED);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__XMLNS_PREFIX_MAP);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__XSI_SCHEMA_LOCATION);
+		createEReference(documentRootEClass, DOCUMENT_ROOT__ECUC_ROOT);
+
 		ecucObjectEClass = createEClass(ECUC_OBJECT);
 
 		ecucReferrableEClass = createEClass(ECUC_REFERRABLE);
@@ -2292,6 +2351,12 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		rteBswExclusiveAreaImplEClass.getESuperTypes().add(this.getEcucContainer());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(documentRootEClass, DocumentRoot.class, "DocumentRoot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getDocumentRoot_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_XMLNSPrefixMap(), ecorePackage.getEStringToStringMapEntry(), null, "xMLNSPrefixMap", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_XSISchemaLocation(), ecorePackage.getEStringToStringMapEntry(), null, "xSISchemaLocation", null, 0, -1, null, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getDocumentRoot_EcucRoot(), this.getEcucRoot(), null, "ecucRoot", null, 1, 1, null, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
 		initEClass(ecucObjectEClass, EcucObject.class, "EcucObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(ecucReferrableEClass, EcucReferrable.class, "EcucReferrable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -2532,6 +2597,8 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
 		// stereotypes
 		createStereotypesAnnotations();
 		// tags
@@ -2555,6 +2622,924 @@ public class EcucPackageImpl extends EPackageImpl implements EcucPackage {
 			 "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
 			 "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", //$NON-NLS-1$ //$NON-NLS-2$
 			 "validationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" //$NON-NLS-1$ //$NON-NLS-2$
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
+		addAnnotation
+		  (documentRootEClass, 
+		   source, 
+		   new String[] {
+			 "name", "", //$NON-NLS-1$ //$NON-NLS-2$
+			 "kind", "mixed" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", ":mixed" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_XMLNSPrefixMap(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "xmlns:prefix" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_XSISchemaLocation(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "xsi:schemaLocation" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDocumentRoot_EcucRoot(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ARteEcuConfiguration", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucReferrable_ShortName(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ShortName", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucReferrable_Reference(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Reference", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucReferrable_Source(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Source", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteGeneration(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteGeneration", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteBswGeneral(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswGeneral", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteSwComponentInstance(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteSwComponentInstance", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteOsInteraction(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteOsInteraction", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteInitializationBehavior(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteInitializationBehavior", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRte_RteBswModuleInstance(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswModuleInstance", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswGeneral_RteUseComShadowSignalApi(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteUseComShadowSignalApi", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucRoot_Rte(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Rte", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucRoot_Os(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Os", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucRoot_Com(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Com", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucRoot_EcuC(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "EcuC", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteSwComponentInstance_RteEventToTaskMapping(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteEventToTaskMapping", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteSwComponentInstance_RteExclusiveAreaImplementation(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveAreaImplementation", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteSwComponentInstance_RteSoftwareComponentInstance(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteSoftwareComponentInstance", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RteEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RteActivationOffset(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteActivationOffset", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RteMappedToTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteMappedToTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RtePositionInTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RtePositionInTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RteUsedOsAlarm(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteUsedOsAlarm", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEventToTaskMapping_RteUsedOsEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteUsedOsEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsAlarm(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsAlarm", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsResource(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsResource", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsSpinlock(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsSpinlock", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsIoc(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIoc", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOs_OsOS(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsOS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OsTaskActivation(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTaskActivation", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OsTaskPriority(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTaskPriority", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OsTaskSchedule(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTaskSchedule", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OsTaskAccessingApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTaskAccessingApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OsTaskEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTaskEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_MappedRteEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "MappedRteEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_OwnerApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OwnerApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsTask_MappedRteBswEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "MappedRteBswEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteExclusiveAreaImplementation_RteExclusiveAreaImplMechanism(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveAreaImplMechanism", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteExclusiveAreaImplementation_RteExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveArea", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteExclusiveAreaImplementation_RteExclusiveAreaOsResource(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveAreaOsResource", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteExclusiveAreaImplementation_RteExclusiveAreaOsSpinlock(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveAreaOsSpinlock", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsEvent_OsEventMask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsEventMask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCom_ComConfig(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComConfig", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComConfig_ComSignal(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComSignal", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComConfig_ComSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComSignalGroup", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignal_ComSystemTemplateSystemSignal(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComSystemTemplateSystemSignal", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignal_ComHandleId(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComHandleId", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignal_ComTransferProperty(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComTransferProperty", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignalGroup_ComGroupSignal(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComGroupSignal", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignalGroup_ComSystemTemplateSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComSystemTemplateSignalGroup", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignalGroup_ComHandleId(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComHandleId", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComSignalGroup_ComTransferProperty(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComTransferProperty", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComGroupSignal_ComSystemTemplateSystemSignal(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComSystemTemplateSystemSignal", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getComGroupSignal_ComHandleId(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ComHandleId", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsAlarm_ExpectedConfig(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ExpectedConfig", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplication_OsApplicationCoreAssignment(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsApplicationCoreAssignment", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplication_OsTrusted(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTrusted", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplication_OsAppEcucPartition(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsAppEcucPartition", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplication_OsApplicationTrustedFunction(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsApplicationTrustedFunction", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplication_OsAppTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsAppTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcuC_EcucPartitionCollection(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "EcucPartitionCollection", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucPartitionCollection_EcucPartition(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "EcucPartition", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucPartition_EcucPartitionBswModuleExecution(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "EcucPartitionBswModuleExecution", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucPartition_PartitionCanBeRestarted(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "PartitionCanBeRestarted", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucPartition_EcucPartitionSoftwareComponent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "EcucPartitionSoftwareComponent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucPartition_ImplOsApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "ImplOsApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsSpinlock_OsSpinlockAccessingApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsSpinlockAccessingApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsSpinlock_OsSpinlockLockMethod(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsSpinlockLockMethod", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteOsInteraction_RteUsedOsActivation(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteUsedOsActivation", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteUsedOsActivation_RteExpectedTickDuration(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExcpectedTickDuration", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteUsedOsActivation_RteExpectedActivationOffset(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExpectedActivationOffset", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteUsedOsActivation_RteActivationOsAlarm(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteActivationOsAlarm", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteInitializationBehavior_RteInitializationStrategy(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteInitializationStrategy", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteInitializationBehavior_RteSectionInitializationPolicy(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteSectionInitializationPolicy", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIoc_OsIocCommunication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocCommunication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocCommunication_OsIocSenderProperties(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocSenderProperties", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocCommunication_OsIocReceiverProperties(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocReceiverProperties", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocCommunication_OsIocDataProperties(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocDataProperties", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocCommunication_OsIocBufferLength(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocBufferLength", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocSenderProperties_OsIocSendingOsApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocSendingOsApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocSenderProperties_Parent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocCommunication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocSenderProperties_OsIocSenderId(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocSenderId", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocReceiverProperties_OsIocReceivingOsApplication(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocReceivingOsApplication", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocDataProperties_OsIocDataPropertyIndex(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocDataPropertyIndex", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocDataProperties_OsIocInitValue(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocInitValue", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsIocDataProperties_OsIocDataType(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsIocDataType", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplicationTrustedFunction_OsTrustedFunctionName(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsTrustedFunctionName", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsApplicationTrustedFunction_Parent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Parent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsOS_OsNumberOfCores(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsNumberOfCores", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOsOS_OsMasterCoreId(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "OsMasterCoreId", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswActivationOffset(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswEventToTaskMapping", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswPositionInTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswPositionInTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswMappedToTask(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswMappedToTask", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswUsedOsAlarm(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswUsedOsAlarm", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswEventToTaskMapping_RteBswUsedOsEvent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswUsedOsEvent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswRequiredModeGroupConnection_Parent(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "Parent", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswRequiredModeGroupConnection_RteBswProvidedModeGroup(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswProvidedModeGroup", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswRequiredModeGroupConnection_RteBswRequiredModeGroup(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswRequiredModeGroup", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswModuleInstance_RteBswEventToTaskMapping(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswEventToTaskMapping", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswModuleInstance_RteBswExclusiveAreaImpl(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswExclusiveAreaImpl", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswModuleInstance_RteBswImplementation(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswImplementation", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswModuleInstance_RteBswRequiredModeGroupConnection(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswRequiredModeGroupConnection", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswExclusiveAreaImpl_RteBswExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswExclusiveArea", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsResource(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswExclusiveAreaOsResource", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswExclusiveAreaImpl_RteExclusiveAreaImplMechanism(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteExclusiveAreaImplMechanism", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteBswExclusiveAreaImpl_RteBswExclusiveAreaOsSpinlock(), 
+		   source, 
+		   new String[] {
+			 "kind", "element", //$NON-NLS-1$ //$NON-NLS-2$
+			 "name", "RteBswExclusiveAreaOsSpinlock", //$NON-NLS-1$ //$NON-NLS-2$
+			 "namespace", "##targetNamespace" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

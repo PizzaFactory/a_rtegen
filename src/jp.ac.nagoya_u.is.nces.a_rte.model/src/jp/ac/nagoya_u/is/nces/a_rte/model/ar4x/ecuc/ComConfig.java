@@ -76,6 +76,7 @@ public interface ComConfig extends EcucContainer {
 	 * @return the value of the '<em>Com Signal</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComConfig_ComSignal()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ComSignal' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<ComSignal> getComSignal();
@@ -92,6 +93,7 @@ public interface ComConfig extends EcucContainer {
 	 * @return the value of the '<em>Com Signal Group</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getComConfig_ComSignalGroup()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='ComSignalGroup' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<ComSignalGroup> getComSignalGroup();

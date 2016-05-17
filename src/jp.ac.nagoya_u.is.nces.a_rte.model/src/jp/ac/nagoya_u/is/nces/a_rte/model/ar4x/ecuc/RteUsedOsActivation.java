@@ -77,6 +77,7 @@ public interface RteUsedOsActivation extends EcucContainer {
 	 * @see #setRteExpectedTickDuration(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteUsedOsActivation_RteExpectedTickDuration()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" required="true"
+	 *        extendedMetaData="kind='element' name='RteExcpectedTickDuration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BigDecimal getRteExpectedTickDuration();
@@ -103,6 +104,7 @@ public interface RteUsedOsActivation extends EcucContainer {
 	 * @see #setRteExpectedActivationOffset(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteUsedOsActivation_RteExpectedActivationOffset()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" required="true"
+	 *        extendedMetaData="kind='element' name='RteExpectedActivationOffset' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	BigDecimal getRteExpectedActivationOffset();
@@ -131,6 +133,7 @@ public interface RteUsedOsActivation extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteUsedOsActivation_RteActivationOsAlarm()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsAlarm#getExpectedConfig
 	 * @model opposite="expectedConfig"
+	 *        extendedMetaData="kind='element' name='RteActivationOsAlarm' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsAlarm getRteActivationOsAlarm();

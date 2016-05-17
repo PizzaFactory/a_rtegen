@@ -80,7 +80,7 @@ public interface RteExclusiveAreaImplementation extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteExclusiveAreaImplMechanismEnum
 	 * @see #setRteExclusiveAreaImplMechanism(RteExclusiveAreaImplMechanismEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteExclusiveAreaImplementation_RteExclusiveAreaImplMechanism()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteExclusiveAreaImplMechanism' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	RteExclusiveAreaImplMechanismEnum getRteExclusiveAreaImplMechanism();
@@ -110,6 +110,7 @@ public interface RteExclusiveAreaImplementation extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteExclusiveAreaImplementation_RteExclusiveArea()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea#getSwcConfig
 	 * @model opposite="swcConfig" required="true"
+	 *        extendedMetaData="kind='element' name='RteExclusiveArea' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	ExclusiveArea getRteExclusiveArea();
@@ -135,7 +136,7 @@ public interface RteExclusiveAreaImplementation extends EcucContainer {
 	 * @return the value of the '<em>Rte Exclusive Area Os Resource</em>' reference.
 	 * @see #setRteExclusiveAreaOsResource(OsResource)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteExclusiveAreaImplementation_RteExclusiveAreaOsResource()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteExclusiveAreaOsResource' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsResource getRteExclusiveAreaOsResource();
@@ -161,7 +162,7 @@ public interface RteExclusiveAreaImplementation extends EcucContainer {
 	 * @return the value of the '<em>Rte Exclusive Area Os Spinlock</em>' reference.
 	 * @see #setRteExclusiveAreaOsSpinlock(OsSpinlock)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteExclusiveAreaImplementation_RteExclusiveAreaOsSpinlock()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteExclusiveAreaOsSpinlock' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsSpinlock getRteExclusiveAreaOsSpinlock();

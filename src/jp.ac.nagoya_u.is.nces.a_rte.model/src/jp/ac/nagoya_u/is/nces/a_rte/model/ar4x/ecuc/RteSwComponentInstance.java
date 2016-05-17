@@ -79,6 +79,7 @@ public interface RteSwComponentInstance extends EcucContainer {
 	 * @return the value of the '<em>Rte Event To Task Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteSwComponentInstance_RteEventToTaskMapping()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteEventToTaskMapping' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteEventToTaskMapping> getRteEventToTaskMapping();
@@ -95,6 +96,7 @@ public interface RteSwComponentInstance extends EcucContainer {
 	 * @return the value of the '<em>Rte Exclusive Area Implementation</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteSwComponentInstance_RteExclusiveAreaImplementation()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='RteExclusiveAreaImplementation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteExclusiveAreaImplementation> getRteExclusiveAreaImplementation();
@@ -110,7 +112,7 @@ public interface RteSwComponentInstance extends EcucContainer {
 	 * @return the value of the '<em>Rte Software Component Instance</em>' reference.
 	 * @see #setRteSoftwareComponentInstance(SwComponentPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getRteSwComponentInstance_RteSoftwareComponentInstance()
-	 * @model
+	 * @model extendedMetaData="kind='element' name='RteSoftwareComponentInstance' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	SwComponentPrototype getRteSoftwareComponentInstance();

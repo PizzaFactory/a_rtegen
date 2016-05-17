@@ -76,6 +76,7 @@ public interface OsIoc extends EcucContainer {
 	 * @return the value of the '<em>Os Ioc Communication</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIoc_OsIocCommunication()
 	 * @model containment="true" ordered="false"
+	 *        extendedMetaData="kind='element' name='OsIocCommunication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsIocCommunication> getOsIocCommunication();

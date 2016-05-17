@@ -84,6 +84,7 @@ public interface OsTask extends EcucContainer {
 	 * @see #setOsTaskActivation(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OsTaskActivation()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger" required="true"
+	 *        extendedMetaData="kind='element' name='OsTaskActivation' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsTaskActivation();
@@ -110,6 +111,7 @@ public interface OsTask extends EcucContainer {
 	 * @see #setOsTaskPriority(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OsTaskPriority()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        extendedMetaData="kind='element' name='OsTaskPriority' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsTaskPriority();
@@ -138,6 +140,7 @@ public interface OsTask extends EcucContainer {
 	 * @see #setOsTaskSchedule(OsTaskScheduleEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OsTaskSchedule()
 	 * @model required="true"
+	 *        extendedMetaData="kind='element' name='OsTaskSchedule' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsTaskScheduleEnum getOsTaskSchedule();
@@ -166,6 +169,7 @@ public interface OsTask extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OsTaskAccessingApplication()
 	 * @model ordered="false"
 	 *        annotation="tags ecuc.definitionShortName='OsTaskAccessingApplication'"
+	 *        extendedMetaData="kind='element' name='OsTaskAccessingApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplication> getOsTaskAccessingApplication();
@@ -182,6 +186,7 @@ public interface OsTask extends EcucContainer {
 	 * @return the value of the '<em>Os Task Event</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OsTaskEvent()
 	 * @model ordered="false"
+	 *        extendedMetaData="kind='element' name='OsTaskEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsEvent> getOsTaskEvent();
@@ -200,6 +205,7 @@ public interface OsTask extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_MappedRteEvent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteEventToTaskMapping#getRteMappedToTask
 	 * @model opposite="rteMappedToTask" derived="true"
+	 *        extendedMetaData="kind='element' name='MappedRteEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteEventToTaskMapping> getMappedRteEvent();
@@ -218,6 +224,7 @@ public interface OsTask extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_OwnerApplication()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplication#getOsAppTask
 	 * @model opposite="osAppTask" derived="true" ordered="false"
+	 *        extendedMetaData="kind='element' name='OwnerApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplication> getOwnerApplication();
@@ -236,6 +243,7 @@ public interface OsTask extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsTask_MappedRteBswEvent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteBswEventToTaskMapping#getRteBswMappedToTask
 	 * @model opposite="rteBswMappedToTask"
+	 *        extendedMetaData="kind='element' name='MappedRteBswEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteBswEventToTaskMapping> getMappedRteBswEvent();

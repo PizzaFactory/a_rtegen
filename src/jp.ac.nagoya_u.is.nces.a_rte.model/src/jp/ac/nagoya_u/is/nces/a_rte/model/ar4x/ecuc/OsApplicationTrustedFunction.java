@@ -75,6 +75,7 @@ public interface OsApplicationTrustedFunction extends EcucContainer {
 	 * @see #setOsTrustedFunctionName(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplicationTrustedFunction_OsTrustedFunctionName()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CIdentifier" required="true"
+	 *        extendedMetaData="kind='element' name='OsTrustedFunctionName' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	String getOsTrustedFunctionName();
@@ -103,6 +104,7 @@ public interface OsApplicationTrustedFunction extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsApplicationTrustedFunction_Parent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsApplication#getOsApplicationTrustedFunction
 	 * @model opposite="osApplicationTrustedFunction" required="true" transient="false" derived="true"
+	 *        extendedMetaData="kind='element' name='Parent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsApplication getParent();

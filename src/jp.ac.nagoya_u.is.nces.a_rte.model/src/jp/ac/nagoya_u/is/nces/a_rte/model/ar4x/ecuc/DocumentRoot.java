@@ -93,8 +93,8 @@ public interface DocumentRoot extends ExtendedEObject {
 	 * @return the value of the '<em>Ecuc Root</em>' containment reference.
 	 * @see #setEcucRoot(EcucRoot)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getDocumentRoot_EcucRoot()
-	 * @model containment="true" upper="-2" transient="true" volatile="true" derived="true"
-	 *        extendedMetaData="kind='element' name='EcuConfiguration' namespace='##targetNamespace'"
+	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='ARteEcuConfiguration' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EcucRoot getEcucRoot();

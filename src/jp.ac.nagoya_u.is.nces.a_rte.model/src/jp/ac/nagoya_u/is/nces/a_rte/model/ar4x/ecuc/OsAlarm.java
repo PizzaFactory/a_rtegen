@@ -79,6 +79,7 @@ public interface OsAlarm extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsAlarm_ExpectedConfig()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.RteUsedOsActivation#getRteActivationOsAlarm
 	 * @model opposite="rteActivationOsAlarm" derived="true"
+	 *        extendedMetaData="kind='element' name='ExpectedConfig' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<RteUsedOsActivation> getExpectedConfig();

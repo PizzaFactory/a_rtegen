@@ -80,6 +80,7 @@ public interface OsIocCommunication extends EcucContainer {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocCommunication_OsIocSenderProperties()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.OsIocSenderProperties#getParent
 	 * @model opposite="parent" containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='OsIocSenderProperties' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsIocSenderProperties> getOsIocSenderProperties();
@@ -96,6 +97,7 @@ public interface OsIocCommunication extends EcucContainer {
 	 * @see #setOsIocReceiverProperties(OsIocReceiverProperties)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocCommunication_OsIocReceiverProperties()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='OsIocReceiverProperties' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsIocReceiverProperties getOsIocReceiverProperties();
@@ -122,6 +124,7 @@ public interface OsIocCommunication extends EcucContainer {
 	 * @return the value of the '<em>Os Ioc Data Properties</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocCommunication_OsIocDataProperties()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='OsIocDataProperties' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsIocDataProperties> getOsIocDataProperties();
@@ -138,6 +141,7 @@ public interface OsIocCommunication extends EcucContainer {
 	 * @see #setOsIocBufferLength(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOsIocCommunication_OsIocBufferLength()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer"
+	 *        extendedMetaData="kind='element' name='OsIocBufferLength' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	Integer getOsIocBufferLength();

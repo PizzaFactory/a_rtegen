@@ -82,6 +82,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Task</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsTask()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsTask' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsTask> getOsTask();
@@ -98,6 +99,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Event</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsEvent()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsEvent' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsEvent> getOsEvent();
@@ -114,6 +116,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Application</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsApplication()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsApplication' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsApplication> getOsApplication();
@@ -130,6 +133,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Alarm</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsAlarm()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsAlarm' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsAlarm> getOsAlarm();
@@ -146,6 +150,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Resource</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsResource()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsResource' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsResource> getOsResource();
@@ -162,6 +167,7 @@ public interface Os extends EcucModule {
 	 * @return the value of the '<em>Os Spinlock</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsSpinlock()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsSpinlock' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	EList<OsSpinlock> getOsSpinlock();
@@ -178,6 +184,7 @@ public interface Os extends EcucModule {
 	 * @see #setOsIoc(OsIoc)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsIoc()
 	 * @model containment="true"
+	 *        extendedMetaData="kind='element' name='OsIoc' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsIoc getOsIoc();
@@ -204,6 +211,7 @@ public interface Os extends EcucModule {
 	 * @see #setOsOS(OsOS)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.ecuc.EcucPackage#getOs_OsOS()
 	 * @model containment="true" required="true"
+	 *        extendedMetaData="kind='element' name='OsOS' namespace='##targetNamespace'"
 	 * @generated
 	 */
 	OsOS getOsOS();
