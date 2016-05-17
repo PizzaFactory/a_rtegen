@@ -77,7 +77,7 @@ public interface System extends ArElement {
 	 * @see #setRootSoftwareComposition(RootSwCompositionPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSystem_RootSoftwareComposition()
 	 * @model containment="true"
-	 *        annotation="tags xml.roleWrapperElement='true'"
+	 *        annotation="tags xml.roleWrapperElement='true' xml.namePlural='ROOT-SOFTWARE-COMPOSITIONS' xml.name='ROOT-SOFTWARE-COMPOSITION'"
 	 * @generated
 	 */
 	RootSwCompositionPrototype getRootSoftwareComposition();
@@ -104,6 +104,7 @@ public interface System extends ArElement {
 	 * @return the value of the '<em>Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSystem_Mapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.roleWrapperElement='true' xml.name='SYSTEM-MAPPING' xml.namePlural='MAPPINGS'"
 	 * @generated
 	 */
 	EList<SystemMapping> getMapping();

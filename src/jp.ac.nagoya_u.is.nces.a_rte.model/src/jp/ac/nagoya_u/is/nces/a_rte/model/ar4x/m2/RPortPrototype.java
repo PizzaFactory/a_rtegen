@@ -78,6 +78,7 @@ public interface RPortPrototype extends PortPrototype {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRPortPrototype_RequiredInterface()
 	 * @model required="true"
 	 *        annotation="stereotypes isOfType='true'"
+	 *        annotation="tags xml.name='REQUIRED-INTERFACE'"
 	 * @generated
 	 */
 	PortInterface getRequiredInterface();
@@ -104,6 +105,7 @@ public interface RPortPrototype extends PortPrototype {
 	 * @return the value of the '<em>Required Com Spec</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRPortPrototype_RequiredComSpec()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='REQURED-COMSPEC' xml.namePlural='REQUIRED-COMSPECS'"
 	 * @generated
 	 */
 	EList<RPortComSpec> getRequiredComSpec();

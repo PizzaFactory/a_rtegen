@@ -80,6 +80,7 @@ public interface PortPrototype extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortPrototype_Parent()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SwComponentType#getPort
 	 * @model opposite="port" transient="false" derived="true"
+	 *        annotation="tags xml.name='PARENT'"
 	 * @generated
 	 */
 	SwComponentType getParent();
@@ -108,6 +109,7 @@ public interface PortPrototype extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortPrototype_PortApiOption()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PortApiOption#getPort
 	 * @model opposite="port"
+	 *        annotation="tags xml.name='PORT-API-OPTION' xml.namePlural='PORT-API-OPTIONS'"
 	 * @generated
 	 */
 	EList<PortApiOption> getPortApiOption();

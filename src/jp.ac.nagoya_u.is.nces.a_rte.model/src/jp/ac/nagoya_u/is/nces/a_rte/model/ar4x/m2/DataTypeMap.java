@@ -75,6 +75,7 @@ public interface DataTypeMap extends M2Object {
 	 * @see #setImplementationDataType(ImplementationDataType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataTypeMap_ImplementationDataType()
 	 * @model required="true"
+	 *        annotation="tags xml.name='IMPLEMENTATION-DATA-TYPE-REF'"
 	 * @generated
 	 */
 	ImplementationDataType getImplementationDataType();
@@ -101,6 +102,7 @@ public interface DataTypeMap extends M2Object {
 	 * @see #setApplicationDataType(ApplicationDataType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDataTypeMap_ApplicationDataType()
 	 * @model required="true"
+	 *        annotation="tags xml.name='APPLICATION-DATA-TYPE-REF'"
 	 * @generated
 	 */
 	ApplicationDataType getApplicationDataType();

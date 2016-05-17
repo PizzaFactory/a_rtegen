@@ -74,6 +74,7 @@ public interface Limit extends M2Object {
 	 * @see #setValue(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getLimit_Value()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.VerbatimString"
+	 *        annotation="tags xml.name='VALUE'"
 	 * @generated
 	 */
 	String getValue();

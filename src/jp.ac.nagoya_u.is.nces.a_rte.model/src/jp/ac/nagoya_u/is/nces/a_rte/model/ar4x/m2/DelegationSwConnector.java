@@ -78,6 +78,7 @@ public interface DelegationSwConnector extends SwConnector {
 	 * @see #setOuterPort(PortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDelegationSwConnector_OuterPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='OUTER-PORT-IREF'"
 	 * @generated
 	 */
 	PortPrototype getOuterPort();
@@ -104,6 +105,7 @@ public interface DelegationSwConnector extends SwConnector {
 	 * @see #setInnerPortIref(PortInCompositionInstanceRef)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getDelegationSwConnector_InnerPortIref()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='INNER-PORT-IREF'"
 	 * @generated
 	 */
 	PortInCompositionInstanceRef getInnerPortIref();

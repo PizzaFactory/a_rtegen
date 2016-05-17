@@ -76,6 +76,7 @@ public interface SenderReceiverInterface extends PortInterface {
 	 * @return the value of the '<em>Data Element</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverInterface_DataElement()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='DATA-ELEMENTS' xml.namePlural='VARIABLE-DATA-PROTOTYPE'"
 	 * @generated
 	 */
 	EList<VariableDataPrototype> getDataElement();
@@ -92,6 +93,7 @@ public interface SenderReceiverInterface extends PortInterface {
 	 * @return the value of the '<em>Invalidation Policy</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderReceiverInterface_InvalidationPolicy()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='INVALIDATION-POLICYS' xml.namePlural='INVALIDATION-POLICY'"
 	 * @generated
 	 */
 	EList<InvalidationPolicy> getInvalidationPolicy();

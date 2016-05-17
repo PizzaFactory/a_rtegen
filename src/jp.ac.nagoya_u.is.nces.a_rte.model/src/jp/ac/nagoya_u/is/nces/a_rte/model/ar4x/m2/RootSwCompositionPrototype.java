@@ -75,6 +75,7 @@ public interface RootSwCompositionPrototype extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRootSwCompositionPrototype_SoftwareComposition()
 	 * @model required="true"
 	 *        annotation="stereotypes isOfType='true'"
+	 *        annotation="tags xml.name='SOFTWARE-COMPOSITION-TREF'"
 	 * @generated
 	 */
 	CompositionSwComponentType getSoftwareComposition();

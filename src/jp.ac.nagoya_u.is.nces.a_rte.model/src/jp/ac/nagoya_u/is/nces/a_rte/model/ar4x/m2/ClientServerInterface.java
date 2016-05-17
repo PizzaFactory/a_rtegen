@@ -76,6 +76,7 @@ public interface ClientServerInterface extends PortInterface {
 	 * @return the value of the '<em>Operation</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getClientServerInterface_Operation()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='OPERATION' xml.namePlural='OPERATIONS'"
 	 * @generated
 	 */
 	EList<ClientServerOperation> getOperation();
@@ -94,6 +95,7 @@ public interface ClientServerInterface extends PortInterface {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getClientServerInterface_PossibleError()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ApplicationError#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='POSSIBLE-ERROR' xml.namePlural='POSSIBLE-ERRORS'"
 	 * @generated
 	 */
 	EList<ApplicationError> getPossibleError();

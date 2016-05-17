@@ -81,6 +81,7 @@ public interface SwComponentPrototype extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwComponentPrototype_Type()
 	 * @model required="true"
 	 *        annotation="stereotypes isOfType='true'"
+	 *        annotation="tags xml.name='TYPE-TREF'"
 	 * @generated
 	 */
 	SwComponentType getType();

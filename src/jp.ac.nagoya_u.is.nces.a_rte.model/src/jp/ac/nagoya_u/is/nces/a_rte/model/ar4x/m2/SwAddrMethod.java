@@ -76,7 +76,7 @@ public interface SwAddrMethod extends ArElement {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.MemoryAllocationKeywordPolicyType
 	 * @see #setMemoryAllocationKeywordPolicy(MemoryAllocationKeywordPolicyType)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwAddrMethod_MemoryAllocationKeywordPolicy()
-	 * @model
+	 * @model annotation="tags xml.name='MEMORY-ALLOCATION-KEYWORD-POLICY'"
 	 * @generated
 	 */
 	MemoryAllocationKeywordPolicyType getMemoryAllocationKeywordPolicy();
@@ -104,6 +104,7 @@ public interface SwAddrMethod extends ArElement {
 	 * @see #setSectionInitializationPolicy(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwAddrMethod_SectionInitializationPolicy()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.SectionInitializationPolicyType"
+	 *        annotation="tags xml.name='SECTION-INITIALIZATION-POLICY'"
 	 * @generated
 	 */
 	String getSectionInitializationPolicy();

@@ -78,6 +78,7 @@ public interface EcucContainerValue extends Identifiable {
 	 * @return the value of the '<em>Sub Container</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucContainerValue_SubContainer()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='SUB-CONTAINERS'"
 	 * @generated
 	 */
 	EList<EcucContainerValue> getSubContainer();
@@ -94,6 +95,7 @@ public interface EcucContainerValue extends Identifiable {
 	 * @return the value of the '<em>Parameter Value</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucContainerValue_ParameterValue()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='PARAMETER-VALUE' xml.namePlural='PARAMETER-VALUES'"
 	 * @generated
 	 */
 	EList<EcucParameterValue> getParameterValue();
@@ -110,6 +112,7 @@ public interface EcucContainerValue extends Identifiable {
 	 * @see #setDefinitionRef(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucContainerValue_DefinitionRef()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Ref" required="true"
+	 *        annotation="tags xml.name='DEFINITION-REF'"
 	 * @generated
 	 */
 	String getDefinitionRef();
@@ -136,6 +139,7 @@ public interface EcucContainerValue extends Identifiable {
 	 * @return the value of the '<em>Reference Value</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucContainerValue_ReferenceValue()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='REFERENCE-VALUE' xml.namePlural='REFERENCE-VALUES'"
 	 * @generated
 	 */
 	EList<EcucAbstractReferenceValue> getReferenceValue();

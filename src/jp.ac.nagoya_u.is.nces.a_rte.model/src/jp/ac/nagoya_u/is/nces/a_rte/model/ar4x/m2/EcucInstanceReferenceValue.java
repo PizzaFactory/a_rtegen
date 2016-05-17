@@ -78,6 +78,7 @@ public interface EcucInstanceReferenceValue extends EcucAbstractReferenceValue {
 	 * @see #setValueIref(AnyInstanceRef)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucInstanceReferenceValue_ValueIref()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='VALUE-IREF'"
 	 * @generated
 	 */
 	AnyInstanceRef getValueIref();
@@ -104,6 +105,7 @@ public interface EcucInstanceReferenceValue extends EcucAbstractReferenceValue {
 	 * @see #setValue(IInstanceObject)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucInstanceReferenceValue_Value()
 	 * @model required="true"
+	 *        annotation="tags xml.name='VALUE'"
 	 * @generated
 	 */
 	IInstanceObject getValue();

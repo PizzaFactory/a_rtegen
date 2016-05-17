@@ -75,6 +75,7 @@ public interface RVariableInAtomicSwcInstanceRef extends M2Object, IInstanceRef 
 	 * @see #setContextRPort(PortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRVariableInAtomicSwcInstanceRef_ContextRPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-R-PORT-REF'"
 	 * @generated
 	 */
 	PortPrototype getContextRPort();
@@ -101,6 +102,7 @@ public interface RVariableInAtomicSwcInstanceRef extends M2Object, IInstanceRef 
 	 * @see #setTargetDataElement(VariableDataPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getRVariableInAtomicSwcInstanceRef_TargetDataElement()
 	 * @model required="true"
+	 *        annotation="tags xml.attribute='true' xml.name='DEST'"
 	 * @generated
 	 */
 	VariableDataPrototype getTargetDataElement();

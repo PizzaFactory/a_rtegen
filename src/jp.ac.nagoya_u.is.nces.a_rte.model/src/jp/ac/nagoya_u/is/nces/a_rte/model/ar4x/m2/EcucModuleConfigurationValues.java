@@ -78,6 +78,7 @@ public interface EcucModuleConfigurationValues extends ArElement {
 	 * @return the value of the '<em>Container</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucModuleConfigurationValues_Container()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='CONTAINER' xml.namePlural='CONTAINERS'"
 	 * @generated
 	 */
 	EList<EcucContainerValue> getContainer();
@@ -94,6 +95,7 @@ public interface EcucModuleConfigurationValues extends ArElement {
 	 * @see #setEcucDefEdition(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucModuleConfigurationValues_EcucDefEdition()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.RevisionLabelString" required="true"
+	 *        annotation="tags xml.name='ECUC-DEF-EDITION'"
 	 * @generated
 	 */
 	String getEcucDefEdition();
@@ -122,6 +124,7 @@ public interface EcucModuleConfigurationValues extends ArElement {
 	 * @see #setImplementationConfigVariant(EcucConfigurationVariantEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucModuleConfigurationValues_ImplementationConfigVariant()
 	 * @model required="true"
+	 *        annotation="tags xml.name='IMPLEMENTATION-CONFIG-VARIANT'"
 	 * @generated
 	 */
 	EcucConfigurationVariantEnum getImplementationConfigVariant();
@@ -149,6 +152,7 @@ public interface EcucModuleConfigurationValues extends ArElement {
 	 * @see #setDefinitionRef(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucModuleConfigurationValues_DefinitionRef()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Ref" required="true"
+	 *        annotation="tags xml.name='DEFINITION-REF'"
 	 * @generated
 	 */
 	String getDefinitionRef();

@@ -73,7 +73,7 @@ public interface Implementation extends ArElement {
 	 * @return the value of the '<em>Swc Bsw Mapping</em>' reference.
 	 * @see #setSwcBswMapping(SwcBswMapping)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementation_SwcBswMapping()
-	 * @model
+	 * @model annotation="tags xml.name='SWC-BSW-MAPPING-REF'"
 	 * @generated
 	 */
 	SwcBswMapping getSwcBswMapping();

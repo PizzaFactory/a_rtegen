@@ -79,6 +79,7 @@ public interface ImplementationDataTypeElement extends Identifiable {
 	 * @see #setArraySize(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataTypeElement_ArraySize()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.PositiveInteger"
+	 *        annotation="tags xml.name='ARRAY-SIZE'"
 	 * @generated
 	 */
 	Integer getArraySize();
@@ -106,7 +107,7 @@ public interface ImplementationDataTypeElement extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ArraySizeSemanticsEnum
 	 * @see #setArraySizeSemantics(ArraySizeSemanticsEnum)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataTypeElement_ArraySizeSemantics()
-	 * @model
+	 * @model annotation="tags xml.name='ARRAY-SIZE-SEMANTICS'"
 	 * @generated
 	 */
 	ArraySizeSemanticsEnum getArraySizeSemantics();
@@ -134,6 +135,7 @@ public interface ImplementationDataTypeElement extends Identifiable {
 	 * @return the value of the '<em>Sub Element</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataTypeElement_SubElement()
 	 * @model containment="true"
+	 *        annotation="tags xml.namePlural='SUB-ELEMENTS'"
 	 * @generated
 	 */
 	EList<ImplementationDataTypeElement> getSubElement();
@@ -150,6 +152,7 @@ public interface ImplementationDataTypeElement extends Identifiable {
 	 * @see #setSwDataDefProps(SwDataDefProps)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getImplementationDataTypeElement_SwDataDefProps()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='SW-DATA-DEF-PROPS'"
 	 * @generated
 	 */
 	SwDataDefProps getSwDataDefProps();

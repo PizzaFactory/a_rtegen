@@ -75,6 +75,7 @@ public interface PortPrototypeInCompositionInstanceRef extends M2Object, IInstan
 	 * @see #setContextComponent(SwComponentPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPortPrototypeInCompositionInstanceRef_ContextComponent()
 	 * @model required="true"
+	 *        annotation="tags xml.attribute='true' xml.name='DEST'"
 	 * @generated
 	 */
 	SwComponentPrototype getContextComponent();

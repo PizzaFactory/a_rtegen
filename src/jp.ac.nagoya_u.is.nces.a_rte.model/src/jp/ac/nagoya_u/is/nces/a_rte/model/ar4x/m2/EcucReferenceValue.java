@@ -75,6 +75,7 @@ public interface EcucReferenceValue extends EcucAbstractReferenceValue {
 	 * @see #setValue(Identifiable)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getEcucReferenceValue_Value()
 	 * @model required="true"
+	 *        annotation="tags xml.name='VALUE'"
 	 * @generated
 	 */
 	Identifiable getValue();

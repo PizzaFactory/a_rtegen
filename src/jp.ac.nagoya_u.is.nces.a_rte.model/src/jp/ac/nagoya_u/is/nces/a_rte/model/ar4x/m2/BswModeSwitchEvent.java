@@ -78,6 +78,7 @@ public interface BswModeSwitchEvent extends BswEvent {
 	 * @see #setActivation(ModeActivationKind)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModeSwitchEvent_Activation()
 	 * @model required="true"
+	 *        annotation="tags xml.name='ACTIVATION'"
 	 * @generated
 	 */
 	ModeActivationKind getActivation();
@@ -105,6 +106,7 @@ public interface BswModeSwitchEvent extends BswEvent {
 	 * @return the value of the '<em>Mode Iref</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getBswModeSwitchEvent_ModeIref()
 	 * @model containment="true" required="true" upper="2"
+	 *        annotation="tags xml.name='MODE-IREF'"
 	 * @generated
 	 */
 	EList<ModeInBswModuleDescriptionInstanceRef> getModeIref();

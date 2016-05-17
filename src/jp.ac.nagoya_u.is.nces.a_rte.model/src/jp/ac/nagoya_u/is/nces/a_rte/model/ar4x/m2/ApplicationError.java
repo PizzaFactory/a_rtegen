@@ -75,6 +75,7 @@ public interface ApplicationError extends Identifiable {
 	 * @see #setErrorCode(Integer)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getApplicationError_ErrorCode()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Integer" required="true"
+	 *        annotation="tags xml.name='ERROR-CODE'"
 	 * @generated
 	 */
 	Integer getErrorCode();

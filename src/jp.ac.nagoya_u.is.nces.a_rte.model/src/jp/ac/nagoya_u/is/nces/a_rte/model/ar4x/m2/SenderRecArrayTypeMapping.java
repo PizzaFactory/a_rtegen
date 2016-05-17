@@ -75,6 +75,7 @@ public interface SenderRecArrayTypeMapping extends SenderRecCompositeTypeMapping
 	 * @return the value of the '<em>Array Element Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSenderRecArrayTypeMapping_ArrayElementMapping()
 	 * @model containment="true" ordered="false"
+	 *        annotation="tags xml.name='SENDER-REC-ARRAY-TYPE-MAPPING' xml.namePlural='ARRAY-ELEMENT-MAPPINGS'"
 	 * @generated
 	 */
 	EList<SenderRecArrayElementMapping> getArrayElementMapping();

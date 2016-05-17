@@ -75,7 +75,7 @@ public interface InternalBehavior extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Data Type Mapping</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getInternalBehavior_DataTypeMapping()
-	 * @model
+	 * @model annotation="tags xml.name='DATA-TYPE-MAPPING-REF' xml.namePlural='DATA-TYPE-MAPPING-REFS'"
 	 * @generated
 	 */
 	EList<DataTypeMappingSet> getDataTypeMapping();
@@ -94,6 +94,7 @@ public interface InternalBehavior extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getInternalBehavior_ExclusiveArea()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea#getParent
 	 * @model opposite="parent" containment="true"
+	 *        annotation="tags xml.name='EXCLUSIVE-AREA' xml.namePlural='EXCLUSIVE-AREAS'"
 	 * @generated
 	 */
 	EList<ExclusiveArea> getExclusiveArea();

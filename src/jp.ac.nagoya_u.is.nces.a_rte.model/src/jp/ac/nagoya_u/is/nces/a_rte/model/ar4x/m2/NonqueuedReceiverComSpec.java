@@ -80,6 +80,7 @@ public interface NonqueuedReceiverComSpec extends ReceiverComSpec {
 	 * @see #setAliveTimeout(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getNonqueuedReceiverComSpec_AliveTimeout()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" required="true"
+	 *        annotation="tags xml.name='ALIVE-TIMEOUT'"
 	 * @generated
 	 */
 	BigDecimal getAliveTimeout();
@@ -106,6 +107,7 @@ public interface NonqueuedReceiverComSpec extends ReceiverComSpec {
 	 * @see #setInitValue(ValueSpecification)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getNonqueuedReceiverComSpec_InitValue()
 	 * @model containment="true" required="true"
+	 *        annotation="tags xml.name='INIT-VALUE'"
 	 * @generated
 	 */
 	ValueSpecification getInitValue();
@@ -132,6 +134,7 @@ public interface NonqueuedReceiverComSpec extends ReceiverComSpec {
 	 * @see #setFilter(DataFilter)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getNonqueuedReceiverComSpec_Filter()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='FILTER'"
 	 * @generated
 	 */
 	DataFilter getFilter();
