@@ -14,7 +14,11 @@
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="M2Root">
       <eStructuralFeatures xsi:type="ecore:EReference" name="autosar" lowerBound="1"
-          eType="#//m2/Autosar" containment="true"/>
+          eType="#//m2/Autosar" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="AUTOSAR"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Autosar" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//m2/String"
@@ -24,35 +28,80 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="arPackage" upperBound="-1"
-          eType="#//m2/ArPackage" containment="true"/>
+          eType="#//m2/ArPackage" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="AR-PACKAGE"/>
+          <details key="xml.namePlural" value="AR-PACKAGES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArPackage" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
-          eType="#//m2/ArElement" containment="true"/>
+          eType="#//m2/ArElement" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ELEMENTS"/>
+          <details key="xml.namePlural" value="ELEMENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="arPackage" upperBound="-1"
-          eType="#//m2/ArPackage" containment="true"/>
+          eType="#//m2/ArPackage" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="AR-PACKAGE"/>
+          <details key="xml.namePlural" value="AR-PACKAGES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArElement" abstract="true" eSuperTypes="#//m2/Identifiable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Identifiable" abstract="true" eSuperTypes="#//m2/Referrable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//m2/CategoryString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="category" eType="#//m2/CategoryString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CATEGORY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="M2Object" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="SwBaseType" eSuperTypes="#//m2/ArElement">
       <eOperations name="getUpperLimitForUnsignedInteger" lowerBound="1" eType="#//m2/Integer"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeEncoding" lowerBound="1"
-          eType="#//m2/BaseTypeEncodingString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeSize" eType="#//m2/Integer"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativeDeclaration" eType="#//m2/NativeDeclarationString"/>
+          eType="#//m2/BaseTypeEncodingString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BASE-TYPE-ENCODING"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseTypeSize" eType="#//m2/Integer">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BASE-TYPE-SIZE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nativeDeclaration" eType="#//m2/NativeDeclarationString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="NATIVE-DECLARATION"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderReceiverInterface" eSuperTypes="#//m2/PortInterface">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" upperBound="-1"
-          eType="#//m2/VariableDataPrototype" containment="true"/>
+          eType="#//m2/VariableDataPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-ELEMENTS"/>
+          <details key="xml.namePlural" value="VARIABLE-DATA-PROTOTYPE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="invalidationPolicy" upperBound="-1"
-          eType="#//m2/InvalidationPolicy" containment="true"/>
+          eType="#//m2/InvalidationPolicy" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INVALIDATION-POLICYS"/>
+          <details key="xml.namePlural" value="INVALIDATION-POLICY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableDataPrototype" eSuperTypes="#//m2/AutosarDataPrototype">
       <eStructuralFeatures xsi:type="ecore:EReference" name="initValue" eType="#//m2/ValueSpecification"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INIT-VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Referrable" abstract="true" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//m2/String"
@@ -62,23 +111,44 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" lowerBound="1"
-          eType="#//m2/Identifier"/>
+          eType="#//m2/Identifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SHORT-NAME"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" lowerBound="1"
           eType="#//m2/Ref" transient="true" derived="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="モデル要素を参照するためのAUTOSARリファレンス"/>
         </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REF"/>
+        </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwComponentType" abstract="true" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1"
-          eType="#//m2/PortPrototype" containment="true" eOpposite="#//m2/PortPrototype/parent"/>
+          eType="#//m2/PortPrototype" containment="true" eOpposite="#//m2/PortPrototype/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PORT"/>
+          <details key="xml.namePlural" value="PORTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PortPrototype" abstract="true" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//m2/SwComponentType"
-          derived="true" eOpposite="#//m2/SwComponentType/port"/>
+          derived="true" eOpposite="#//m2/SwComponentType/port">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PARENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="portApiOption" upperBound="-1"
-          eType="#//m2/PortApiOption" eOpposite="#//m2/PortApiOption/port"/>
+          eType="#//m2/PortApiOption" eOpposite="#//m2/PortApiOption/port">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PORT-API-OPTION"/>
+          <details key="xml.namePlural" value="PORT-API-OPTIONS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AtomicSwComponentType" abstract="true"
         eSuperTypes="#//m2/SwComponentType">
@@ -144,6 +214,7 @@
           containment="true" eOpposite="#//m2/SwcInternalBehavior/parent">
         <eAnnotations source="tags">
           <details key="xml.roleWrapperElement" value="true"/>
+          <details key="xml.name" value="SWC-INTERNAL-BEHAVIOR"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
@@ -162,9 +233,17 @@
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
         </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REQUIRED-INTERFACE"/>
+        </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredComSpec" upperBound="-1"
-          eType="#//m2/RPortComSpec" containment="true"/>
+          eType="#//m2/RPortComSpec" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REQURED-COMSPEC"/>
+          <details key="xml.namePlural" value="REQUIRED-COMSPECS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PPortPrototype" eSuperTypes="#//m2/PortPrototype">
       <eOperations name="getUsingDataTypes" ordered="false" upperBound="-1" eType="#//m2/AutosarDataType">
@@ -180,9 +259,17 @@
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
         </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDED-INTERFACE"/>
+        </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedComSpec" upperBound="-1"
-          eType="#//m2/PPortComSpec" containment="true"/>
+          eType="#//m2/PPortComSpec" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDED-COM-SPEC"/>
+          <details key="xml.namePlural" value="PROVIDED-COM-SPECS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwcInternalBehavior" eSuperTypes="#//m2/Identifiable #//m2/InternalBehavior">
       <eOperations name="getReferencerIncludedDataTypeSets" ordered="false" upperBound="-1"
@@ -236,73 +323,167 @@
         <eParameters name="applicationDataType" lowerBound="1" eType="#//m2/ApplicationDataType"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="runnable" lowerBound="1"
-          upperBound="-1" eType="#//m2/RunnableEntity" containment="true" eOpposite="#//m2/RunnableEntity/parent"/>
+          upperBound="-1" eType="#//m2/RunnableEntity" containment="true" eOpposite="#//m2/RunnableEntity/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="RUNNABLE-ENTITY"/>
+          <details key="xml.namePlural" value="RUNNABLES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
           eType="#//m2/RteEvent" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="portApiOption" upperBound="-1"
-          eType="#//m2/PortApiOption" containment="true"/>
+          eType="#//m2/PortApiOption" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PORT-API-OPTION"/>
+          <details key="xml.namePlural" value="PORT-API-OPTIONS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="includedDataTypeSet"
-          upperBound="-1" eType="#//m2/IncludedDataTypeSet" containment="true"/>
+          upperBound="-1" eType="#//m2/IncludedDataTypeSet" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INCLUDED-DATA-TYPE-SET"/>
+          <details key="xml.namePlural" value="INCLUDED-DATA-TYPE-SETS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
-          eType="#//m2/AtomicSwComponentType" derived="true" eOpposite="#//m2/AtomicSwComponentType/internalBehavior"/>
+          eType="#//m2/AtomicSwComponentType" derived="true" eOpposite="#//m2/AtomicSwComponentType/internalBehavior">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ATOMIC-SW-COMPONENT-TYPE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="explicitInterRunnableVariable"
-          upperBound="-1" eType="#//m2/VariableDataPrototype" containment="true"/>
+          upperBound="-1" eType="#//m2/VariableDataPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EXPLICIT-INTER-RUNNABLE-VARIABLE"/>
+          <details key="xml.namePlural" value="EXPLICIT-INTER-RUNNABLE-VARIABLES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExecutableEntity" abstract="true"
         eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="canEnterExclusiveArea"
-          upperBound="-1" eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/enterExecutableEntity"/>
+          upperBound="-1" eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/enterExecutableEntity">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CAN-ENTER-EXCLUSIVE-AREA-REF"/>
+          <details key="xml.namePlural" value="CAN-ENTER-EXCLUSIVE-AREA-REFS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="runsInsideExclusiveArea"
-          upperBound="-1" eType="#//m2/ExclusiveArea"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod"/>
+          upperBound="-1" eType="#//m2/ExclusiveArea">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="RUNS-INSIDE-EXCLUSIVE-AREA-REF"/>
+          <details key="xml.namePlural" value="RUNS-INSIDE-ECLUSIVE-AREA-REFS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-ADDR-METHOD-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RunnableEntity" eSuperTypes="#//m2/ExecutableEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataSendPoint" upperBound="-1"
-          eType="#//m2/VariableAccess" containment="true"/>
+          eType="#//m2/VariableAccess" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-SEND-POINT"/>
+          <details key="xml.namePlural" value="DATA-SEND-POINTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataReceivePointByArgument"
-          upperBound="-1" eType="#//m2/VariableAccess" containment="true"/>
+          upperBound="-1" eType="#//m2/VariableAccess" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-RECEIVE-POINT-BY-ARGUMENT"/>
+          <details key="xml.namePlural" value="DATA-RECEIVE-POINT-BY-ARGUMENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="serverCallPoint" upperBound="-1"
           eType="#//m2/ServerCallPoint" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
           eType="#//m2/RteEvent" eOpposite="#//m2/RteEvent/startOnEvent"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//m2/SwcInternalBehavior" derived="true" eOpposite="#//m2/SwcInternalBehavior/runnable"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="#//m2/CIdentifier"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="#//m2/CIdentifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYMBOL"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="writtenLocalVariable"
-          upperBound="-1" eType="#//m2/VariableAccess" containment="true"/>
+          upperBound="-1" eType="#//m2/VariableAccess" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="WRITTEN-LOCAL-VARIABLE"/>
+          <details key="xml.namePlural" value="WRITTEN-LOCAL-VARIABLES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="readLocalVariable" upperBound="-1"
-          eType="#//m2/VariableAccess" containment="true"/>
+          eType="#//m2/VariableAccess" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="READ-LOCAL-VARIABLE"/>
+          <details key="xml.namePlural" value="READ-LOCAL-VARIABLES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableAccess" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessedVariable" lowerBound="1"
-          eType="#//m2/AutosarVariableRef" containment="true"/>
+          eType="#//m2/AutosarVariableRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ACCESSED-VARIABLE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AutosarVariableRef" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="autosarVariableIref"
-          eType="#//m2/VariableInAtomicSwcTypeInstanceRef" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="autosarVariable" eType="#//instance/VariableDataInstanceInSwc"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="localVariable" eType="#//m2/VariableDataPrototype"/>
+          eType="#//m2/VariableInAtomicSwcTypeInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="AUTOSAR-VARIABLE-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="autosarVariable" eType="#//instance/VariableDataInstanceInSwc">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="AUTOSAR-VARIABLE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localVariable" eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="LOCAL-VARIABLE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableInAtomicSwcTypeInstanceRef"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="portPrototype" lowerBound="1"
           eType="#//m2/PortPrototype"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetDataPrototype"
-          lowerBound="1" eType="#//m2/VariableDataPrototype"/>
+          lowerBound="1" eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VARIABLE-DATA-PROTOTYPE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RteEvent" abstract="true" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="startOnEvent" eType="#//m2/RunnableEntity"
-          eOpposite="#//m2/RunnableEntity/event"/>
+          eOpposite="#//m2/RunnableEntity/event">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="START-ON-EVENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="config" upperBound="-1"
           eType="#//ecuc/RteEventToTaskMapping" derived="true" eOpposite="#//ecuc/RteEventToTaskMapping/rteEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TimingEvent" eSuperTypes="#//m2/RteEvent">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PERIOD"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BackgroundEvent" eSuperTypes="#//m2/RteEvent"/>
     <eClassifiers xsi:type="ecore:EClass" name="DataSendCompletedEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="eventSource" lowerBound="1"
-          eType="#//m2/VariableAccess"/>
+          eType="#//m2/VariableAccess">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EVENT-SOURCE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="eventSourceData" lowerBound="1"
           eType="#//instance/VariableDataInstanceInSwc" changeable="false" volatile="true"
           transient="true" derived="true" resolveProxies="false">
@@ -313,106 +494,226 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataReceivedEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataIref" lowerBound="1"
-          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true"/>
+          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
           eType="#//instance/VariableDataInstanceInSwc"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataReceiveErrorEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataIref" lowerBound="1"
-          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true"/>
+          eType="#//m2/RVariableInAtomicSwcInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
           eType="#//instance/VariableDataInstanceInSwc"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RVariableInAtomicSwcInstanceRef" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextRPort" lowerBound="1"
-          eType="#//m2/PortPrototype"/>
+          eType="#//m2/PortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-R-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetDataElement" lowerBound="1"
-          eType="#//m2/VariableDataPrototype"/>
+          eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.attribute" value="true"/>
+          <details key="xml.name" value="DEST"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucModuleConfigurationValues" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
-          eType="#//m2/Ref"/>
+          eType="#//m2/Ref">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DEFINITION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ecucDefEdition" lowerBound="1"
-          eType="#//m2/RevisionLabelString"/>
+          eType="#//m2/RevisionLabelString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ECUC-DEF-EDITION"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationConfigVariant"
-          lowerBound="1" eType="#//m2/EcucConfigurationVariantEnum"/>
+          lowerBound="1" eType="#//m2/EcucConfigurationVariantEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-CONFIG-VARIANT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
-          upperBound="-1" eType="#//m2/EcucContainerValue" containment="true"/>
+          upperBound="-1" eType="#//m2/EcucContainerValue" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTAINER"/>
+          <details key="xml.namePlural" value="CONTAINERS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucContainerValue" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
-          eType="#//m2/Ref"/>
+          eType="#//m2/Ref">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DEFINITION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValue" upperBound="-1"
-          eType="#//m2/EcucParameterValue" containment="true"/>
+          eType="#//m2/EcucParameterValue" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PARAMETER-VALUE"/>
+          <details key="xml.namePlural" value="PARAMETER-VALUES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="referenceValue" upperBound="-1"
-          eType="#//m2/EcucAbstractReferenceValue" containment="true"/>
+          eType="#//m2/EcucAbstractReferenceValue" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REFERENCE-VALUE"/>
+          <details key="xml.namePlural" value="REFERENCE-VALUES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subContainer" upperBound="-1"
-          eType="#//m2/EcucContainerValue" containment="true"/>
+          eType="#//m2/EcucContainerValue" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SUB-CONTAINERS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucParameterValue" abstract="true"
         eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
-          eType="#//m2/Ref"/>
+          eType="#//m2/Ref">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DEFINITION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucNumericalParamValue" eSuperTypes="#//m2/EcucParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//m2/Numerical"/>
+          eType="#//m2/Numerical">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucTextualParamValue" eSuperTypes="#//m2/EcucParameterValue">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//m2/VerbatimString"/>
+          eType="#//m2/VerbatimString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucAbstractReferenceValue" abstract="true"
         eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definitionRef" lowerBound="1"
-          eType="#//m2/Ref"/>
+          eType="#//m2/Ref">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DEFINITION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucReferenceValue" eSuperTypes="#//m2/EcucAbstractReferenceValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#//m2/Identifiable"/>
+          eType="#//m2/Identifiable">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucInstanceReferenceValue" eSuperTypes="#//m2/EcucAbstractReferenceValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="valueIref" lowerBound="1"
-          eType="#//m2/AnyInstanceRef" containment="true"/>
+          eType="#//m2/AnyInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#//instance/IInstanceObject"/>
+          eType="#//instance/IInstanceObject">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RPortComSpec" abstract="true" eSuperTypes="#//m2/M2Object"/>
     <eClassifiers xsi:type="ecore:EClass" name="PPortComSpec" abstract="true" eSuperTypes="#//m2/M2Object"/>
     <eClassifiers xsi:type="ecore:EClass" name="ReceiverComSpec" abstract="true" eSuperTypes="#//m2/RPortComSpec">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
-          eType="#//m2/VariableDataPrototype"/>
+          eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-ELEMENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderComSpec" abstract="true" eSuperTypes="#//m2/PPortComSpec">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
-          eType="#//m2/VariableDataPrototype"/>
+          eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-ELEMENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="transmissionAcknowledge"
-          eType="#//m2/TransmissionAcknowledgementRequest" containment="true"/>
+          eType="#//m2/TransmissionAcknowledgementRequest" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TRANSMISSION-ACKNOWLEDGE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TransmissionAcknowledgementRequest"
         eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" lowerBound="1"
-          eType="#//m2/TimeValue"/>
+          eType="#//m2/TimeValue">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TIMEOUT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NonqueuedSenderComSpec" eSuperTypes="#//m2/SenderComSpec">
       <eStructuralFeatures xsi:type="ecore:EReference" name="initValue" lowerBound="1"
-          eType="#//m2/ValueSpecification" containment="true"/>
+          eType="#//m2/ValueSpecification" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INIT-VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QueuedSenderComSpec" eSuperTypes="#//m2/SenderComSpec"/>
     <eClassifiers xsi:type="ecore:EClass" name="NonqueuedReceiverComSpec" eSuperTypes="#//m2/ReceiverComSpec">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="aliveTimeout" lowerBound="1"
-          eType="#//m2/TimeValue"/>
+          eType="#//m2/TimeValue">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ALIVE-TIMEOUT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="initValue" lowerBound="1"
-          eType="#//m2/ValueSpecification" containment="true"/>
+          eType="#//m2/ValueSpecification" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INIT-VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//m2/DataFilter"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="FILTER"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PortInterface" eSuperTypes="#//m2/ArElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompositionSwComponentType" eSuperTypes="#//m2/SwComponentType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
-          eType="#//m2/SwComponentPrototype" containment="true"/>
+          eType="#//m2/SwComponentPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="COMPONENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="connector" upperBound="-1"
-          eType="#//m2/SwConnector" containment="true"/>
+          eType="#//m2/SwConnector" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="CONNECTORS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwConnector" abstract="true" eSuperTypes="#//m2/Identifiable"/>
     <eClassifiers xsi:type="ecore:EClass" name="AssemblySwConnector" eSuperTypes="#//m2/SwConnector">
@@ -421,38 +722,70 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="provider" lowerBound="1"
           eType="#//instance/PortInstanceInComposition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providerIref" lowerBound="1"
-          eType="#//m2/PPortPrototypeInCompositionInstanceRef" containment="true"/>
+          eType="#//m2/PPortPrototypeInCompositionInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDER-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requesterIref" lowerBound="1"
-          eType="#//m2/RPortPrototypeInCompositionInstanceRef" containment="true"/>
+          eType="#//m2/RPortPrototypeInCompositionInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REQUESTER-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DelegationSwConnector" eSuperTypes="#//m2/SwConnector">
       <eStructuralFeatures xsi:type="ecore:EReference" name="innerPort" lowerBound="1"
           eType="#//instance/PortInstanceInComposition"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="outerPort" lowerBound="1"
-          eType="#//m2/PortPrototype"/>
+          eType="#//m2/PortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="OUTER-PORT-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="innerPortIref" lowerBound="1"
-          eType="#//m2/PortInCompositionInstanceRef" containment="true"/>
+          eType="#//m2/PortInCompositionInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INNER-PORT-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PortPrototypeInCompositionInstanceRef"
         abstract="true" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponent" lowerBound="1"
-          eType="#//m2/SwComponentPrototype"/>
+          eType="#//m2/SwComponentPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.attribute" value="true"/>
+          <details key="xml.name" value="DEST"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RPortPrototypeInCompositionInstanceRef"
         eSuperTypes="#//m2/PortPrototypeInCompositionInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetRPort" lowerBound="1"
-          eType="#//m2/RPortPrototype"/>
+          eType="#//m2/RPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-R-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PPortPrototypeInCompositionInstanceRef"
         eSuperTypes="#//m2/PortPrototypeInCompositionInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetPPort" lowerBound="1"
-          eType="#//m2/PPortPrototype"/>
+          eType="#//m2/PPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-P-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwComponentPrototype" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
           eType="#//m2/SwComponentType">
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TYPE-TREF"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="instance" upperBound="-1"
@@ -467,11 +800,18 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-DATA-DEF-PROPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="invalidValue" eType="#//m2/ValueSpecification"
           changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
           <details key="derivation" value="if swDataDefProps.invalidValue.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;then null&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;else swDataDefProps.invalidValue&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;endif"/>
+        </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TIMEOUT"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="compuMethod" eType="#//m2/CompuMethod"
@@ -540,7 +880,12 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subElement" upperBound="-1"
-          eType="#//m2/ImplementationDataTypeElement" containment="true"/>
+          eType="#//m2/ImplementationDataTypeElement" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-DATA-TYPE-ELEMENT"/>
+          <details key="xml.namePlural" value="SUB-ELEMENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//m2/SwBaseType"
           changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
@@ -560,12 +905,28 @@
           <details key="body" value="category = 'TYPE_REFERENCE'"/>
         </eAnnotations>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySize" eType="#//m2/PositiveInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySizeSemantics" eType="#//m2/ArraySizeSemanticsEnum"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySize" eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ARRAY-SIZE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arraySizeSemantics" eType="#//m2/ArraySizeSemanticsEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ARRAY-SIZE-SEMANTICS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="subElement" upperBound="-1"
-          eType="#//m2/ImplementationDataTypeElement" containment="true"/>
+          eType="#//m2/ImplementationDataTypeElement" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="SUB-ELEMENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-DATA-DEF-PROPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ArraySizeSemanticsEnum">
       <eLiterals name="fixedSize"/>
@@ -575,27 +936,73 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="invalidValue" eType="#//m2/ValueSpecification"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="baseType" eType="#//m2/SwBaseType"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="swImplPolicy" eType="#//m2/SwImplPolicyEnum"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="swAlignment" eType="#//m2/AlignmentType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="compuMethod" eType="#//m2/CompuMethod"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dataConstr" eType="#//m2/DataConstr"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="swImplPolicy" eType="#//m2/SwImplPolicyEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-IMPL-POLICY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swAddrMethod" eType="#//m2/SwAddrMethod">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-ADDR-METHOD-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="swAlignment" eType="#//m2/AlignmentType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-ALIGNMENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="compuMethod" eType="#//m2/CompuMethod">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="COMPU-METHOD-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataConstr" eType="#//m2/DataConstr">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-CONSTR-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationDataType"
-          eType="#//m2/ImplementationDataType"/>
+          eType="#//m2/ImplementationDataType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-DATA-TYPE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swPointerTargetProps"
-          eType="#//m2/SwPointerTargetProps" containment="true"/>
+          eType="#//m2/SwPointerTargetProps" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-POINTER-TARGET-PROPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataTypeMap" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationDataType"
-          lowerBound="1" eType="#//m2/ImplementationDataType"/>
+          lowerBound="1" eType="#//m2/ImplementationDataType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-DATA-TYPE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="applicationDataType"
-          lowerBound="1" eType="#//m2/ApplicationDataType"/>
+          lowerBound="1" eType="#//m2/ApplicationDataType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="APPLICATION-DATA-TYPE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataTypeMappingSet" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypeMap" upperBound="-1"
-          eType="#//m2/DataTypeMap" containment="true"/>
+          eType="#//m2/DataTypeMap" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-TYPE-MAP"/>
+          <details key="xml.namePlural" value="DATA-TYPE-MAPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeRequestTypeMap" upperBound="-1"
-          eType="#//m2/ModeRequestTypeMap" containment="true"/>
+          eType="#//m2/ModeRequestTypeMap" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MODE-REQUEST-TYPE-MAP"/>
+          <details key="xml.namePlural" value="MODE-REQUEST-TYPE-MAPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModeDeclarationGroupPrototype" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
@@ -603,20 +1010,40 @@
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
         </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TYPE-TREF"/>
+        </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModeRequestTypeMap" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationDataType"
-          lowerBound="1" eType="#//m2/ImplementationDataType"/>
+          lowerBound="1" eType="#//m2/ImplementationDataType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-ALIGNMENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeGroup" lowerBound="1"
-          eType="#//m2/ModeDeclarationGroup"/>
+          eType="#//m2/ModeDeclarationGroup">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MODE-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModeDeclaration" eSuperTypes="#//m2/ArElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ModeDeclarationGroup" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="initialMode" lowerBound="1"
-          eType="#//m2/ModeDeclaration"/>
+          eType="#//m2/ModeDeclaration">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INITIAL-MODE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeDeclaration" ordered="false"
-          lowerBound="1" upperBound="-1" eType="#//m2/ModeDeclaration" containment="true"/>
+          lowerBound="1" upperBound="-1" eType="#//m2/ModeDeclaration" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MODE-DECLARATION"/>
+          <details key="xml.namePlural" value="MODE-DECLARATIONS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationPrimitiveDataType" eSuperTypes="#//m2/ApplicationDataType"/>
     <eClassifiers xsi:type="ecore:EClass" name="AutosarDataPrototype" abstract="true"
@@ -683,7 +1110,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ExclusiveArea" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="swcConfig" upperBound="-1"
-          eType="#//ecuc/RteExclusiveAreaImplementation" derived="true" eOpposite="#//ecuc/RteExclusiveAreaImplementation/rteExclusiveArea"/>
+          eType="#//ecuc/RteExclusiveAreaImplementation" derived="true" eOpposite="#//ecuc/RteExclusiveAreaImplementation/rteExclusiveArea">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-ALIGNMENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bswConfig" upperBound="-1"
           eType="#//ecuc/RteBswExclusiveAreaImpl" eOpposite="#//ecuc/RteBswExclusiveAreaImpl/rteBswExclusiveArea"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
@@ -693,11 +1124,19 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumericalValueSpecification" eSuperTypes="#//m2/ValueSpecification">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//m2/Numerical"/>
+          eType="#//m2/Numerical">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TextValueSpecification" eSuperTypes="#//m2/ValueSpecification">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
-          eType="#//m2/VerbatimString"/>
+          eType="#//m2/VerbatimString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ConstantReference" eSuperTypes="#//m2/ValueSpecification">
       <eOperations name="getEndValueSpec" lowerBound="1" eType="#//m2/ValueSpecification">
@@ -709,7 +1148,11 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="constant" lowerBound="1"
-          eType="#//m2/ConstantSpecification"/>
+          eType="#//m2/ConstantSpecification">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONSTANT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceValueSpecification" eSuperTypes="#//m2/ValueSpecification">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -725,7 +1168,12 @@
         <details key="documentation" value="NOTE 未サポートのため，属性は定義しない．"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1"
-          upperBound="-1" eType="#//m2/ValueSpecification" containment="true"/>
+          upperBound="-1" eType="#//m2/ValueSpecification" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="FIELD"/>
+          <details key="xml.namePlural" value="FIELDS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationValueSpecification" eSuperTypes="#//m2/ValueSpecification">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -734,42 +1182,86 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ConstantSpecification" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="valueSpec" lowerBound="1"
-          eType="#//m2/ValueSpecification" containment="true"/>
+          eType="#//m2/ValueSpecification" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE-SPEC"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OperationInvokedEvent" eSuperTypes="#//m2/RteEvent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationIref" lowerBound="1"
-          eType="#//m2/POperationInAtomicSwcInstanceRef" containment="true"/>
+          eType="#//m2/POperationInAtomicSwcInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="OPERATION-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
           eType="#//instance/POperationInstanceInSwc" eOpposite="#//instance/POperationInstanceInSwc/operationInvokedEvent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="POperationInAtomicSwcInstanceRef"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextPPort" lowerBound="1"
-          eType="#//m2/PPortPrototype"/>
+          eType="#//m2/PPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-P-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetProvidedOperation"
-          lowerBound="1" eType="#//m2/ClientServerOperation"/>
+          lowerBound="1" eType="#//m2/ClientServerOperation">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-PROVIDED-OPERATION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClientServerInterface" eSuperTypes="#//m2/PortInterface">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
-          upperBound="-1" eType="#//m2/ClientServerOperation" containment="true"/>
+          upperBound="-1" eType="#//m2/ClientServerOperation" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="OPERATION"/>
+          <details key="xml.namePlural" value="OPERATIONS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="possibleError" upperBound="-1"
-          eType="#//m2/ApplicationError" containment="true" eOpposite="#//m2/ApplicationError/parent"/>
+          eType="#//m2/ApplicationError" containment="true" eOpposite="#//m2/ApplicationError/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="POSSIBLE-ERROR"/>
+          <details key="xml.namePlural" value="POSSIBLE-ERRORS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClientServerOperation" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="possibleError" upperBound="-1"
-          eType="#//m2/ApplicationError"/>
+          eType="#//m2/ApplicationError">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="POSSIBLE-ERROR"/>
+          <details key="xml.namePlural" value="POSSIBLE-ERRORS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="argument" upperBound="-1"
-          eType="#//m2/ArgumentDataPrototype" containment="true"/>
+          eType="#//m2/ArgumentDataPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ARGUMENT"/>
+          <details key="xml.namePlural" value="ARGUMENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ApplicationError" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorCode" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ERROR-CODE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//m2/ClientServerInterface" derived="true" eOpposite="#//m2/ClientServerInterface/possibleError"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ArgumentDataPrototype" eSuperTypes="#//m2/AutosarDataPrototype">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" lowerBound="1"
-          eType="#//m2/ArgumentDirectionEnum"/>
+          eType="#//m2/ArgumentDirectionEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DIRECTION"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ArgumentDirectionEnum">
       <eLiterals name="in"/>
@@ -799,17 +1291,49 @@
         <eParameters name="another" lowerBound="1" eType="#//m2/DataFilter"/>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataFilterType" lowerBound="1"
-          eType="#//m2/DataFilterTypeEnum"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" eType="#//m2/UnlimitedInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="#//m2/UnlimitedInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="#//m2/UnlimitedInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" eType="#//m2/PositiveInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/PositiveInteger"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="#//m2/UnlimitedInteger"/>
+          eType="#//m2/DataFilterTypeEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-FILTER-TYPE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mask" eType="#//m2/UnlimitedInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MASK"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="max" eType="#//m2/UnlimitedInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MAX"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" eType="#//m2/UnlimitedInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MIN"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="offset" eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="OFFSET"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PERIOD"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="#//m2/UnlimitedInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="X"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QueuedReceiverComSpec" eSuperTypes="#//m2/ReceiverComSpec">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueLength" lowerBound="1"
-          eType="#//m2/PositiveInteger"/>
+          eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="QUEUE-LENGTH"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="Numerical" instanceClassName="java.math.BigDecimal"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Integer" instanceClassName="java.lang.Integer"/>
@@ -851,38 +1375,75 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PortApiOption" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="portArgValue" upperBound="-1"
-          eType="#//m2/PortDefinedArgumentValue" containment="true" eOpposite="#//m2/PortDefinedArgumentValue/parent"/>
+          eType="#//m2/PortDefinedArgumentValue" containment="true" eOpposite="#//m2/PortDefinedArgumentValue/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PORT-ARG-VALUE"/>
+          <details key="xml.namePlural" value="PORT-ARG-VALUES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="port" lowerBound="1"
-          eType="#//m2/PortPrototype" eOpposite="#//m2/PortPrototype/portApiOption"/>
+          eType="#//m2/PortPrototype" eOpposite="#//m2/PortPrototype/portApiOption">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableTakeAddress" lowerBound="1"
-          eType="#//m2/Boolean"/>
+          eType="#//m2/Boolean">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ENABLE-TAKE-ADDRESS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PortDefinedArgumentValue" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#//m2/ValueSpecification" containment="true"/>
+          eType="#//m2/ValueSpecification" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="valueType" lowerBound="1"
           eType="#//m2/ImplementationDataType">
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
+        </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE-TYPE-TREF"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//m2/PortApiOption" derived="true" eOpposite="#//m2/PortApiOption/portArgValue"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IncludedDataTypeSet" eSuperTypes="#//m2/M2Object">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalPrefix" eType="#//m2/Identifier"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalPrefix" eType="#//m2/Identifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="LITERAL-PREFIX"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
-          upperBound="-1" eType="#//m2/AutosarDataType"/>
+          upperBound="-1" eType="#//m2/AutosarDataType">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="DATA-TYPE-REFS"/>
+          <details key="xml.name" value="DATA-TYPE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rootSoftwareComposition"
           eType="#//m2/RootSwCompositionPrototype" containment="true">
         <eAnnotations source="tags">
           <details key="xml.roleWrapperElement" value="true"/>
+          <details key="xml.namePlural" value="ROOT-SOFTWARE-COMPOSITIONS"/>
+          <details key="xml.name" value="ROOT-SOFTWARE-COMPOSITION"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mapping" upperBound="-1"
-          eType="#//m2/SystemMapping" containment="true"/>
+          eType="#//m2/SystemMapping" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.roleWrapperElement" value="true"/>
+          <details key="xml.name" value="SYSTEM-MAPPING"/>
+          <details key="xml.namePlural" value="MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RootSwCompositionPrototype" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="softwareComposition"
@@ -890,52 +1451,114 @@
         <eAnnotations source="stereotypes">
           <details key="isOfType" value="true"/>
         </eAnnotations>
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SOFTWARE-COMPOSITION-TREF"/>
+        </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemMapping" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataMapping" upperBound="-1"
-          eType="#//m2/DataMapping" containment="true"/>
+          eType="#//m2/DataMapping" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="DATA-MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataMapping" abstract="true" eSuperTypes="#//m2/M2Object"/>
     <eClassifiers xsi:type="ecore:EClass" name="SystemSignal" eSuperTypes="#//m2/ArElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="ISignal" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" lowerBound="1"
-          eType="#//m2/SystemSignal"/>
+          eType="#//m2/SystemSignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ISignalIPdu" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iSignalToPduMapping"
-          upperBound="-1" eType="#//m2/ISignalToIPduMapping" containment="true"/>
+          upperBound="-1" eType="#//m2/ISignalToIPduMapping" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="I-SIGNAL-TO-PDU-MAPPING"/>
+          <details key="xml.namePlural" value="I-SIGNAL-TO-PDU-MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ISignalToIPduMapping" eSuperTypes="#//m2/Identifiable">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iSignal" eType="#//m2/ISignal"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iSignalGroup" eType="#//m2/ISignalGroup"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iSignal" eType="#//m2/ISignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="I-SIGNAL-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iSignalGroup" eType="#//m2/ISignalGroup">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ISIGNAL-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderReceiverToSignalMapping" eSuperTypes="#//m2/DataMapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" lowerBound="1"
-          eType="#//m2/SystemSignal"/>
+          eType="#//m2/SystemSignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElementIref" lowerBound="1"
-          eType="#//m2/VariableDataPrototypeInSystemInstanceRef" containment="true"/>
+          eType="#//m2/VariableDataPrototypeInSystemInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-ELEMENT-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
           eType="#//instance/VariableDataInstance"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderReceiverToSignalGroupMapping"
         eSuperTypes="#//m2/DataMapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signalGroup" lowerBound="1"
-          eType="#//m2/SystemSignalGroup"/>
+          eType="#//m2/SystemSignalGroup">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SIGNAL-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElementIref" lowerBound="1"
-          eType="#//m2/VariableDataPrototypeInSystemInstanceRef" containment="true"/>
+          eType="#//m2/VariableDataPrototypeInSystemInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-ELEMENT-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataElement" lowerBound="1"
-          eType="#//instance/VariableDataInstance"/>
+          eType="#//instance/VariableDataInstance">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ECUC-MODULE-CONFIGURATION-VALUES-REF"/>
+          <details key="xml.namePlural" value="ECUC-VALUES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="typeMapping" lowerBound="1"
-          eType="#//m2/SenderRecCompositeTypeMapping" containment="true"/>
+          eType="#//m2/SenderRecCompositeTypeMapping" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ECUC-MODULE-CONFIGURATION-VALUES-REF"/>
+          <details key="xml.namePlural" value="ECUC-VALUES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableDataPrototypeInSystemInstanceRef"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponent" eType="#//m2/SwComponentPrototype"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponent" eType="#//m2/SwComponentPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-COMPONENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextPort" lowerBound="1"
-          eType="#//m2/PortPrototype"/>
+          eType="#//m2/PortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetDataPrototype"
-          lowerBound="1" eType="#//m2/VariableDataPrototype"/>
+          lowerBound="1" eType="#//m2/VariableDataPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-DATA-PROTOTYPE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EcucValueCollection" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucValue" lowerBound="1"
@@ -946,12 +1569,20 @@
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecuExtract" lowerBound="1"
-          eType="#//m2/System"/>
+          eType="#//m2/System">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ECU-EXTRACT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="NativeDeclarationString" instanceClassName="java.lang.String"/>
     <eClassifiers xsi:type="ecore:EClass" name="ServerCallPoint" abstract="true" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operationIref" lowerBound="1"
-          eType="#//m2/ROperationInAtomicSwcInstanceRef" containment="true"/>
+          eType="#//m2/ROperationInAtomicSwcInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="OPERATION-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
           eType="#//instance/OperationInstanceInSwc"/>
     </eClassifiers>
@@ -964,9 +1595,17 @@
     <eClassifiers xsi:type="ecore:EClass" name="ROperationInAtomicSwcInstanceRef"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextRPort" lowerBound="1"
-          eType="#//m2/RPortPrototype"/>
+          eType="#//m2/RPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-R-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetRequiredOperation"
-          lowerBound="1" eType="#//m2/ClientServerOperation"/>
+          lowerBound="1" eType="#//m2/ClientServerOperation">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-REQUIRED-OPERATION-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="SwImplPolicyEnum">
       <eLiterals name="unspecified"/>
@@ -983,9 +1622,17 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwAddrMethod" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="memoryAllocationKeywordPolicy"
-          eType="#//m2/MemoryAllocationKeywordPolicyType"/>
+          eType="#//m2/MemoryAllocationKeywordPolicyType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MEMORY-ALLOCATION-KEYWORD-POLICY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="sectionInitializationPolicy"
-          eType="#//m2/SectionInitializationPolicyType"/>
+          eType="#//m2/SectionInitializationPolicyType">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SECTION-INITIALIZATION-POLICY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompuMethod" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="compuInternalToPhys"
@@ -1003,48 +1650,99 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataConstrRule" upperBound="-1"
-          eType="#//m2/DataConstrRule" containment="true"/>
+          eType="#//m2/DataConstrRule" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-CONSTR-RULE"/>
+          <details key="xml.namePlural" value="DATA-CONSTR-RULES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="SectionInitializationPolicyType"
         instanceClassName="java.lang.String"/>
     <eClassifiers xsi:type="ecore:EClass" name="DataConstrRule" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="internalConstrs" eType="#//m2/InternalConstrs"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INTERNAL-CONSTRS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalConstrs" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="lowerLimit" eType="#//m2/Limit"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="LOWER-LIMIT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="upperLimit" eType="#//m2/Limit"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="UPPER-LIMIT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Compu" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="compuScale" upperBound="-1"
-          eType="#//m2/CompuScale" containment="true"/>
+          eType="#//m2/CompuScale" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="COMPU-SCALE"/>
+          <details key="xml.namePlural" value="COMPU-SCALES"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Limit" eSuperTypes="#//m2/M2Object">
       <eAnnotations source="stereotypes">
         <details key="atpMixedString" value="true"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//m2/VerbatimString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//m2/VerbatimString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VALUE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompuScale" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="lowerLimit" eType="#//m2/Limit"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortLabel" eType="#//m2/Identifier"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="#//m2/CIdentifier"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="LOWER-LIMIT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortLabel" eType="#//m2/Identifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SHORT-LABEL"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="#//m2/CIdentifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYMBOL"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="upperLimit" eType="#//m2/Limit"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="UPPER-LIMIT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="compuConst" eType="#//m2/CompuConst"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="COMPU-CONST"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CompuConst" eSuperTypes="#//m2/M2Object">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vt" eType="#//m2/VerbatimString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="vt" eType="#//m2/VerbatimString">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="VT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AnyInstanceRef" eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextElement" upperBound="-1"
           eType="#//m2/Identifiable">
         <eAnnotations source="tags">
           <details key="xml.roleWrapperElement" value="false"/>
+          <details key="xml.name" value="CONTEXT-ELEMENT-REF"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
@@ -1074,49 +1772,111 @@
     <eClassifiers xsi:type="ecore:EClass" name="PortInCompositionInstanceRef" abstract="true"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextComponent" lowerBound="1"
-          eType="#//m2/SwComponentPrototype"/>
+          eType="#//m2/SwComponentPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-COMPONENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PPortInCompositionInstanceRef" eSuperTypes="#//m2/PortInCompositionInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetPPort" lowerBound="1"
-          eType="#//m2/PPortPrototype"/>
+          eType="#//m2/PPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-P-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RPortInCompositionInstanceRef" eSuperTypes="#//m2/PortInCompositionInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetRPort" lowerBound="1"
-          eType="#//m2/RPortPrototype"/>
+          eType="#//m2/RPortPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-R-PORT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalBehavior" abstract="true"
         interface="true" eSuperTypes="#//m2/Identifiable">
       <eOperations name="getParent" eType="#//m2/Referrable"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypeMapping" upperBound="-1"
-          eType="#//m2/DataTypeMappingSet"/>
+          eType="#//m2/DataTypeMappingSet">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="DATA-TYPE-MAPPING-REF"/>
+          <details key="xml.namePlural" value="DATA-TYPE-MAPPING-REFS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="exclusiveArea" upperBound="-1"
-          eType="#//m2/ExclusiveArea" containment="true" eOpposite="#//m2/ExclusiveArea/parent"/>
+          eType="#//m2/ExclusiveArea" containment="true" eOpposite="#//m2/ExclusiveArea/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EXCLUSIVE-AREA"/>
+          <details key="xml.namePlural" value="EXCLUSIVE-AREAS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwcBswRunnableMapping" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="swcRunnable" lowerBound="1"
-          eType="#//m2/RunnableEntity"/>
+          eType="#//m2/RunnableEntity">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SWC-RUNNABLE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bswEntity" lowerBound="1"
-          eType="#//m2/BswModuleEntity"/>
+          eType="#//m2/BswModuleEntity">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BSW-ENTITY-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwcBswMapping" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="runnableMapping" upperBound="-1"
-          eType="#//m2/SwcBswRunnableMapping" containment="true"/>
+          eType="#//m2/SwcBswRunnableMapping" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="RUNNABLE-MAPPING"/>
+          <details key="xml.namePlural" value="RUNNABLE-MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swcBehavior" lowerBound="1"
-          eType="#//m2/SwcInternalBehavior"/>
+          eType="#//m2/SwcInternalBehavior">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SWC-BEHAVIOR-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bswBehavior" lowerBound="1"
-          eType="#//m2/BswInternalBehavior"/>
+          eType="#//m2/BswInternalBehavior">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BSW-BEHAVIOR-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswInternalBehavior" eSuperTypes="#//m2/InternalBehavior">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//m2/BswModuleDescription" eOpposite="#//m2/BswModuleDescription/internalBehavior"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
-          upperBound="-1" eType="#//m2/BswModuleEntity" containment="true" eOpposite="#//m2/BswModuleEntity/parent"/>
+          upperBound="-1" eType="#//m2/BswModuleEntity" containment="true" eOpposite="#//m2/BswModuleEntity/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ENTITY"/>
+          <details key="xml.namePlural" value="ENTITYS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
-          eType="#//m2/BswEvent" containment="true" eOpposite="#//m2/BswEvent/parent"/>
+          eType="#//m2/BswEvent" containment="true" eOpposite="#//m2/BswEvent/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EVENT"/>
+          <details key="xml.namePlural" value="EVENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementation" upperBound="-1"
-          eType="#//m2/BswImplementation" eOpposite="#//m2/BswImplementation/behavior"/>
+          eType="#//m2/BswImplementation" eOpposite="#//m2/BswImplementation/behavior">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BSW-TRIGGER-DIRECT-IMPLEMENTATION"/>
+          <details key="xml.namePlural" value="BSW-TRIGGER-DIRECT-IMPLEMENTATIONS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeSenderPolicy" upperBound="-1"
-          eType="#//m2/BswModeSenderPolicy" containment="true"/>
+          eType="#//m2/BswModeSenderPolicy" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BSW-MODE-SENDER-POLICY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bswSchedulableEntity"
           upperBound="-1" eType="#//m2/BswSchedulableEntity" changeable="false" volatile="true"
           transient="true" derived="true" resolveProxies="false">
@@ -1127,16 +1887,32 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswModeSenderPolicy" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedModeGroup" lowerBound="1"
-          eType="#//m2/ModeDeclarationGroupPrototype"/>
+          eType="#//m2/ModeDeclarationGroupPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDED-MODE-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueLength" lowerBound="1"
-          eType="#//m2/PositiveInteger"/>
+          eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="QUEUE-LENGTH"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Implementation" abstract="true" eSuperTypes="#//m2/ArElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="swcBswMapping" eType="#//m2/SwcBswMapping"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="swcBswMapping" eType="#//m2/SwcBswMapping">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SWC-BSW-MAPPING-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswImplementation" eSuperTypes="#//m2/Implementation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="behavior" lowerBound="1"
-          eType="#//m2/BswInternalBehavior" eOpposite="#//m2/BswInternalBehavior/implementation"/>
+          eType="#//m2/BswInternalBehavior" eOpposite="#//m2/BswInternalBehavior/implementation">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="BEHAVIOR-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswModuleDescription" eSuperTypes="#//m2/ArElement">
       <eOperations name="getEnableInternalBehavior" lowerBound="1" eType="#//m2/BswInternalBehavior">
@@ -1148,48 +1924,92 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="internalBehavior" upperBound="-1"
-          eType="#//m2/BswInternalBehavior" containment="true" eOpposite="#//m2/BswInternalBehavior/parent"/>
+          eType="#//m2/BswInternalBehavior" containment="true" eOpposite="#//m2/BswInternalBehavior/parent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INTERNAL-BEHAVIOR"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedEntry" upperBound="-1"
-          eType="#//m2/BswModuleEntry"/>
+          eType="#//m2/BswModuleEntry">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDED-ENTRY"/>
+          <details key="xml.namePlural" value="PROVIDED-ENTRYS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedModeGroup" ordered="false"
-          upperBound="-1" eType="#//m2/ModeDeclarationGroupPrototype" containment="true"/>
+          upperBound="-1" eType="#//m2/ModeDeclarationGroupPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PROVIDED-MODE-GROUP"/>
+          <details key="xml.namePlural" value="PROVIDED-MODE-GROUPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredModeGroup" ordered="false"
-          upperBound="-1" eType="#//m2/ModeDeclarationGroupPrototype" containment="true"/>
+          upperBound="-1" eType="#//m2/ModeDeclarationGroupPrototype" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="REQUIRED-MODE-GROUP"/>
+          <details key="xml.namePlural" value="REQUIRED-MODE-GROUPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswModuleEntry" eSuperTypes="#//m2/ArElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceId" eType="#//m2/PositiveInteger"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceId" eType="#//m2/PositiveInteger">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SERVICE-ID"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="callType" lowerBound="1"
-          eType="#//m2/BswCallTypeEnum"/>
+          eType="#//m2/BswCallTypeEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CALL-TYPE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionContext" lowerBound="1"
-          eType="#//m2/BswExecutionContextEnum"/>
+          eType="#//m2/BswExecutionContextEnum">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EXECUTION-CONTEXT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswModuleEntity" abstract="true" eSuperTypes="#//m2/ExecutableEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementedEntry" lowerBound="1"
-          eType="#//m2/BswModuleEntry"/>
+          eType="#//m2/BswModuleEntry">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTED-ENTRY-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//m2/BswInternalBehavior" eOpposite="#//m2/BswInternalBehavior/entity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="accessedModeGroup" upperBound="-1"
           eType="#//m2/ModeDeclarationGroupPrototype">
         <eAnnotations source="tags">
           <details key="xml.namePlural" value="ACCESSED-MODE-GROUPS"/>
-          <details key="xml.name" value="MODE-DECLARATION-GROUP-PROTOTYPE-REF"/>
+          <details key="xml.name" value="MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="managedModeGroup" upperBound="-1"
           eType="#//m2/ModeDeclarationGroupPrototype">
         <eAnnotations source="tags">
           <details key="xml.namePlural" value="MANAGED-MODE-GROUPS"/>
-          <details key="xml.name" value="MODE-DECLARATION-GROUP-PROTOTYPE-REF"/>
+          <details key="xml.name" value="MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswSchedulableEntity" eSuperTypes="#//m2/BswModuleEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="event" upperBound="-1"
-          eType="#//m2/BswEvent" eOpposite="#//m2/BswEvent/startsOnEvent"/>
+          eType="#//m2/BswEvent" eOpposite="#//m2/BswEvent/startsOnEvent">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="EVENT"/>
+          <details key="xml.namePlural" value="EVENTS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswEvent" abstract="true" eSuperTypes="#//m2/Identifiable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="startsOnEvent" eType="#//m2/BswSchedulableEntity"
-          eOpposite="#//m2/BswSchedulableEntity/event"/>
+          eOpposite="#//m2/BswSchedulableEntity/event">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="STARTS-ON-EVENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="config" upperBound="-1"
           eType="#//ecuc/RteBswEventToTaskMapping" eOpposite="#//ecuc/RteBswEventToTaskMapping/rteBswEvent"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
@@ -1204,16 +2024,32 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswModeSwitchEvent" eSuperTypes="#//m2/BswEvent">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="activation" lowerBound="1"
-          eType="#//m2/ModeActivationKind"/>
+          eType="#//m2/ModeActivationKind">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="ACTIVATION"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="modeIref" lowerBound="1"
-          upperBound="2" eType="#//m2/ModeInBswModuleDescriptionInstanceRef" containment="true"/>
+          upperBound="2" eType="#//m2/ModeInBswModuleDescriptionInstanceRef" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="MODE-IREF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ModeInBswModuleDescriptionInstanceRef"
         eSuperTypes="#//m2/M2Object #//m2/IInstanceRef">
       <eStructuralFeatures xsi:type="ecore:EReference" name="contextModeDeclarationGroup"
-          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype"/>
+          lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="CONTEXT-MODE-DECLARATION-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetMode" lowerBound="1"
-          eType="#//m2/ModeDeclaration"/>
+          eType="#//m2/ModeDeclaration">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-MODE-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="ModeActivationKind">
       <eLiterals name="onEntry" value="1"/>
@@ -1221,7 +2057,11 @@
       <eLiterals name="onTransition" value="3"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswTimingEvent" eSuperTypes="#//m2/BswEvent">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//m2/TimeValue">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="PERIOD"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BswBackgroundEvent" eSuperTypes="#//m2/BswEvent"/>
     <eClassifiers xsi:type="ecore:EEnum" name="BswCallTypeEnum">
@@ -1240,53 +2080,121 @@
     <eClassifiers xsi:type="ecore:EClass" name="BswCalledEntity" eSuperTypes="#//m2/BswModuleEntity"/>
     <eClassifiers xsi:type="ecore:EClass" name="BswInterruptEntity" eSuperTypes="#//m2/BswModuleEntity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="interruptSource" lowerBound="1"
-          eType="#//m2/String"/>
+          eType="#//m2/String">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INTERRUPT-SOURCE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SystemSignalGroup" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" upperBound="-1"
-          eType="#//m2/SystemSignal"/>
+          eType="#//m2/SystemSignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-REF"/>
+          <details key="xml.namePlural" value="SYSTEM-SIGNAL-REFS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ISignalGroup" eSuperTypes="#//m2/ArElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignalGroup" lowerBound="1"
-          eType="#//m2/SystemSignalGroup"/>
+          eType="#//m2/SystemSignalGroup">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-GROUP-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iSignal" upperBound="-1"
-          eType="#//m2/ISignal"/>
+          eType="#//m2/ISignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="I-SIGNAL-REF"/>
+          <details key="xml.namePlural" value="I-SIGNAL-REFS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderRecCompositeTypeMapping" abstract="true"/>
     <eClassifiers xsi:type="ecore:EClass" name="SenderRecRecordTypeMapping" eSuperTypes="#//m2/SenderRecCompositeTypeMapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="recordElementMapping"
           ordered="false" upperBound="-1" eType="#//m2/SenderRecRecordElementMapping"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="RECORD-ELEMENT-MAPPING"/>
+          <details key="xml.namePlural" value="RECORD-ELEMENT-MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderRecRecordElementMapping" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationRecordElement"
-          eType="#//m2/ImplementationDataTypeElement"/>
+          eType="#//m2/ImplementationDataTypeElement">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-RECORD-ELEMENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="complexTypeMapping" eType="#//m2/SenderRecCompositeTypeMapping"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" eType="#//m2/SystemSignal"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="COMPLEX-TYPE-MAPPING"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" eType="#//m2/SystemSignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderRecArrayTypeMapping" eSuperTypes="#//m2/SenderRecCompositeTypeMapping">
       <eStructuralFeatures xsi:type="ecore:EReference" name="arrayElementMapping"
           ordered="false" upperBound="-1" eType="#//m2/SenderRecArrayElementMapping"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SENDER-REC-ARRAY-TYPE-MAPPING"/>
+          <details key="xml.namePlural" value="ARRAY-ELEMENT-MAPPINGS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IndexedArrayElement" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationArrayElement"
-          eType="#//m2/ImplementationDataTypeElement"/>
+          eType="#//m2/ImplementationDataTypeElement">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="IMPLEMENTATION-ARRAY-ELEMENT-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1"
-          eType="#//m2/Integer"/>
+          eType="#//m2/Integer">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INDEX"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SenderRecArrayElementMapping" eSuperTypes="#//m2/M2Object">
       <eStructuralFeatures xsi:type="ecore:EReference" name="indexedArrayElement"
-          lowerBound="1" eType="#//m2/IndexedArrayElement" containment="true"/>
+          lowerBound="1" eType="#//m2/IndexedArrayElement" containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="INDEXED-ARRAY-ELEMENT"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="complexTypeMapping" eType="#//m2/SenderRecCompositeTypeMapping"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" eType="#//m2/SystemSignal"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.namePlural" value="COMPLEX-TYPE-MAPPING"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="systemSignal" eType="#//m2/SystemSignal">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SYSTEM-SIGNAL-REF"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SwPointerTargetProps" eSuperTypes="#//m2/M2Object">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetCategory" eType="#//m2/Identifier"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetCategory" eType="#//m2/Identifier">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="TARGET-CATEGORY"/>
+        </eAnnotations>
+      </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="swDataDefProps" eType="#//m2/SwDataDefProps"
-          containment="true"/>
+          containment="true">
+        <eAnnotations source="tags">
+          <details key="xml.name" value="SW-DATA-DEF-PROPS"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="ecuc" nsURI="http://nces.is.nagoya-u.ac.jp/a-rte/ar4x/ecuc"
@@ -1296,76 +2204,53 @@
       <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
       <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
     </eAnnotations>
-    <eClassifiers
-        xsi:type="ecore:EClass"
-        name="DocumentRoot">
+    <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="name" value=""/>
         <details key="kind" value="mixed"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="elementWildcard"/>
           <details key="name" value=":mixed"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
-        transient="true" containment="true" resolveProxies="false">
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+          transient="true" containment="true" resolveProxies="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="attribute"/>
           <details key="name" value="xmlns:prefix"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
-        transient="true" containment="true" resolveProxies="false">
+          eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+          transient="true" containment="true" resolveProxies="false">
         <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="attribute"/>
           <details key="name" value="xsi:schemaLocation"/>
         </eAnnotations>
       </eStructuralFeatures>
-      <eStructuralFeatures
-          xsi:type="ecore:EReference"
-          name="ecucRoot"
-          lowerBound="1"
-          eType="#//ecuc/EcucRoot"
-          containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ecucRoot" lowerBound="1"
+          eType="#//ecuc/EcucRoot" containment="true">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ARteEcuConfiguration"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers
-        xsi:type="ecore:EClass"
-        name="EcucObject"
-        abstract="true"/>
-    <eClassifiers
-        xsi:type="ecore:EClass"
-        name="EcucReferrable"
-        abstract="true"
-        eSuperTypes="#//ecuc/EcucObject">
-      <eStructuralFeatures
-          xsi:type="ecore:EAttribute"
-          name="id"
-          lowerBound="1"
-          eType="#//m2/String"
-          derived="true"
-          iD="true"/>
-      <eStructuralFeatures
-          xsi:type="ecore:EAttribute"
-          name="shortName"
-          lowerBound="1"
+    <eClassifiers xsi:type="ecore:EClass" name="EcucObject" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EcucReferrable" abstract="true" eSuperTypes="#//ecuc/EcucObject">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="#//m2/String"
+          derived="true" iD="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="shortName" lowerBound="1"
           eType="#//m2/Identifier">
         <eAnnotations source="stereotypes">
           <details key="nonEcuc" value="true"/>
         </eAnnotations>
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ShortName"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1373,8 +2258,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" lowerBound="1"
           eType="#//m2/Ref" transient="true" derived="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Reference"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1385,8 +2269,7 @@
         <eAnnotations source="stereotypes">
           <details key="nonEcuc" value="true"/>
         </eAnnotations>
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Source"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1405,8 +2288,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Rte" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteGeneration" lowerBound="1"
           eType="#//ecuc/RteGeneration" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteGeneration"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1414,8 +2296,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswGeneral" lowerBound="1"
           eType="#//ecuc/RteBswGeneral" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswGeneral"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1423,8 +2304,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteSwComponentInstance"
           upperBound="-1" eType="#//ecuc/RteSwComponentInstance" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteSwComponentInstance"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1432,8 +2312,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteOsInteraction" lowerBound="1"
           upperBound="-1" eType="#//ecuc/RteOsInteraction" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteOsInteraction"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1442,8 +2321,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteInitializationBehavior"
           lowerBound="1" upperBound="-1" eType="#//ecuc/RteInitializationBehavior"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteInitializationBehavior"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1451,8 +2329,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswModuleInstance"
           upperBound="-1" eType="#//ecuc/RteBswModuleInstance" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswModuleInstance"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1463,8 +2340,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteBswGeneral" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteUseComShadowSignalApi"
           lowerBound="1" eType="#//m2/Boolean">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteUseComShadowSignalApi"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1474,8 +2350,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="EcucRoot">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rte" eType="#//ecuc/Rte"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Rte"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1483,8 +2358,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="os" eType="#//ecuc/Os"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Os"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1492,8 +2366,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="com" eType="#//ecuc/Com"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Com"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1501,8 +2374,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecuC" eType="#//ecuc/EcuC"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="EcuC"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1512,8 +2384,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteSwComponentInstance" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteEventToTaskMapping"
           upperBound="-1" eType="#//ecuc/RteEventToTaskMapping" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteEventToTaskMapping"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1521,8 +2392,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaImplementation"
           upperBound="-1" eType="#//ecuc/RteExclusiveAreaImplementation" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveAreaImplementation"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1530,8 +2400,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteSoftwareComponentInstance"
           eType="#//m2/SwComponentPrototype">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteSoftwareComponentInstance"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1541,8 +2410,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteEventToTaskMapping" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteEvent" lowerBound="1"
           eType="#//m2/RteEvent" eOpposite="#//m2/RteEvent/config">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1550,8 +2418,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteActivationOffset"
           eType="#//m2/TimeValue">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteActivationOffset"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1559,32 +2426,28 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteMappedToTask" eType="#//ecuc/OsTask"
           eOpposite="#//ecuc/OsTask/mappedRteEvent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteMappedToTask"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rtePositionInTask" eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RtePositionInTask"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsAlarm" eType="#//ecuc/OsAlarm">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteUsedOsAlarm"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsEvent" eType="#//ecuc/OsEvent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteUsedOsEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1594,8 +2457,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Os" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osTask" upperBound="-1"
           eType="#//ecuc/OsTask" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTask"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1603,8 +2465,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osEvent" upperBound="-1"
           eType="#//ecuc/OsEvent" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1612,8 +2473,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osApplication" upperBound="-1"
           eType="#//ecuc/OsApplication" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1621,8 +2481,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAlarm" upperBound="-1"
           eType="#//ecuc/OsAlarm" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsAlarm"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1630,8 +2489,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osResource" upperBound="-1"
           eType="#//ecuc/OsResource" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsResource"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1639,8 +2497,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osSpinlock" upperBound="-1"
           eType="#//ecuc/OsSpinlock" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsSpinlock"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1648,8 +2505,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIoc" eType="#//ecuc/OsIoc"
           containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIoc"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1657,8 +2513,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osOS" lowerBound="1"
           eType="#//ecuc/OsOS" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsOS"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1672,8 +2527,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsTask" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskActivation" lowerBound="1"
           eType="#//m2/PositiveInteger">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTaskActivation"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1681,8 +2535,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskPriority" lowerBound="1"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTaskPriority"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1690,8 +2543,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTaskSchedule" lowerBound="1"
           eType="#//ecuc/OsTaskScheduleEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTaskSchedule"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1702,8 +2554,7 @@
         <eAnnotations source="tags">
           <details key="ecuc.definitionShortName" value="OsTaskAccessingApplication"/>
         </eAnnotations>
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTaskAccessingApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1711,8 +2562,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osTaskEvent" ordered="false"
           upperBound="-1" eType="#//ecuc/OsEvent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTaskEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1720,8 +2570,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappedRteEvent" upperBound="-1"
           eType="#//ecuc/RteEventToTaskMapping" derived="true" eOpposite="#//ecuc/RteEventToTaskMapping/rteMappedToTask">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="MappedRteEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1729,8 +2578,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ownerApplication" ordered="false"
           upperBound="-1" eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppTask">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OwnerApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1738,8 +2586,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="mappedRteBswEvent" upperBound="-1"
           eType="#//ecuc/RteBswEventToTaskMapping" eOpposite="#//ecuc/RteBswEventToTaskMapping/rteBswMappedToTask">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="MappedRteBswEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1749,8 +2596,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteExclusiveAreaImplementation" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExclusiveAreaImplMechanism"
           eType="#//ecuc/RteExclusiveAreaImplMechanismEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveAreaImplMechanism"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1758,8 +2604,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveArea" lowerBound="1"
           eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/swcConfig">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveArea"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1767,8 +2612,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaOsResource"
           eType="#//ecuc/OsResource">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveAreaOsResource"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1776,8 +2620,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteExclusiveAreaOsSpinlock"
           eType="#//ecuc/OsSpinlock">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveAreaOsSpinlock"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1794,8 +2637,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="OsEvent" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osEventMask" eType="#//m2/UnlimitedInteger">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsEventMask"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1805,8 +2647,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Com" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comConfig" lowerBound="1"
           eType="#//ecuc/ComConfig" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComConfig"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1816,8 +2657,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ComConfig" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSignal" upperBound="-1"
           eType="#//ecuc/ComSignal" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComSignal"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1825,8 +2665,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSignalGroup" upperBound="-1"
           eType="#//ecuc/ComSignalGroup" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComSignalGroup"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1848,8 +2687,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSystemSignal"
           eType="#//m2/ISignalToIPduMapping">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComSystemTemplateSystemSignal"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1857,8 +2695,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComHandleId"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1866,8 +2703,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comTransferProperty"
           eType="#//ecuc/ComTransferPropertyEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComTransferProperty"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1882,8 +2718,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comGroupSignal" upperBound="-1"
           eType="#//ecuc/ComGroupSignal" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComGroupSignal"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1891,8 +2726,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSignalGroup"
           eType="#//m2/ISignalToIPduMapping">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComSystemTemplateSignalGroup"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1900,8 +2734,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComHandleId"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1909,8 +2742,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comTransferProperty"
           eType="#//ecuc/ComTransferPropertyEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComTransferProperty"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1920,8 +2752,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="ComGroupSignal" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="comSystemTemplateSystemSignal"
           eType="#//m2/ISignalToIPduMapping">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComSystemTemplateSystemSignal"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1929,8 +2760,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="comHandleId" lowerBound="1"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ComHandleId"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1940,8 +2770,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsAlarm" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="expectedConfig" upperBound="-1"
           eType="#//ecuc/RteUsedOsActivation" derived="true" eOpposite="#//ecuc/RteUsedOsActivation/rteActivationOsAlarm">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ExpectedConfig"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1952,8 +2781,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsApplication" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osApplicationCoreAssignment"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsApplicationCoreAssignment"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1961,8 +2789,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTrusted" lowerBound="1"
           eType="#//m2/Boolean">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTrusted"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1970,8 +2797,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAppEcucPartition" eType="#//ecuc/EcucPartition"
           eOpposite="#//ecuc/EcucPartition/implOsApplication">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsAppEcucPartition"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1980,8 +2806,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="osApplicationTrustedFunction"
           upperBound="-1" eType="#//ecuc/OsApplicationTrustedFunction" containment="true"
           eOpposite="#//ecuc/OsApplicationTrustedFunction/parent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsApplicationTrustedFunction"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -1989,8 +2814,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osAppTask" upperBound="-1"
           eType="#//ecuc/OsTask" eOpposite="#//ecuc/OsTask/ownerApplication">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsAppTask"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2000,8 +2824,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="EcuC" eSuperTypes="#//ecuc/EcucModule">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartitionCollection"
           eType="#//ecuc/EcucPartitionCollection" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="EcucPartitionCollection"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2016,8 +2839,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartition" upperBound="-1"
           eType="#//ecuc/EcucPartition" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="EcucPartition"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2037,8 +2859,7 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ecucPartitionBswModuleExecution"
           lowerBound="1" eType="#//m2/Boolean">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="EcucPartitionBswModuleExecution"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2046,8 +2867,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="partitionCanBeRestarted"
           lowerBound="1" eType="#//m2/Boolean">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="PartitionCanBeRestarted"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2055,8 +2875,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ecucPartitionSoftwareComponent"
           upperBound="-1" eType="#//instance/SwComponentInstanceInSystem" eOpposite="#//instance/SwComponentInstanceInSystem/ownerPartition">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="EcucPartitionSoftwareComponent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2064,8 +2883,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implOsApplication" upperBound="-1"
           eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osAppEcucPartition">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="ImplOsApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2083,8 +2901,7 @@
         <eAnnotations source="tags">
           <details key="ecuc.definitionShortName" value="OsSpinlockAccessingApplication"/>
         </eAnnotations>
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsSpinlockAccessingApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2092,8 +2909,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osSpinlockLockMethod"
           lowerBound="1" eType="#//ecuc/OsSpinlockLockMethodEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsSpinlockLockMethod"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2103,8 +2919,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteOsInteraction" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteUsedOsActivation"
           upperBound="-1" eType="#//ecuc/RteUsedOsActivation" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteUsedOsActivation"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2114,8 +2929,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteUsedOsActivation" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExpectedTickDuration"
           lowerBound="1" eType="#//m2/TimeValue">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExcpectedTickDuration"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2123,8 +2937,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExpectedActivationOffset"
           lowerBound="1" eType="#//m2/TimeValue">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExpectedActivationOffset"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2132,8 +2945,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteActivationOsAlarm"
           eType="#//ecuc/OsAlarm" eOpposite="#//ecuc/OsAlarm/expectedConfig">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteActivationOsAlarm"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2143,8 +2955,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteInitializationBehavior" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteInitializationStrategy"
           lowerBound="1" eType="#//ecuc/RteInitializationStrategyEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteInitializationStrategy"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2152,8 +2963,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteSectionInitializationPolicy"
           lowerBound="1" upperBound="-1" eType="#//m2/SectionInitializationPolicyType">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteSectionInitializationPolicy"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2172,8 +2982,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsIoc" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocCommunication" ordered="false"
           upperBound="-1" eType="#//ecuc/OsIocCommunication" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocCommunication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2189,8 +2998,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocSenderProperties"
           lowerBound="1" upperBound="-1" eType="#//ecuc/OsIocSenderProperties" containment="true"
           eOpposite="#//ecuc/OsIocSenderProperties/parent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocSenderProperties"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2198,8 +3006,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocReceiverProperties"
           lowerBound="1" eType="#//ecuc/OsIocReceiverProperties" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocReceiverProperties"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2207,16 +3014,14 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocDataProperties"
           lowerBound="1" upperBound="-1" eType="#//ecuc/OsIocDataProperties" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocDataProperties"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocBufferLength" eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocBufferLength"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2226,8 +3031,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsIocSenderProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocSendingOsApplication"
           lowerBound="1" eType="#//ecuc/OsApplication">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocSendingOsApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2235,16 +3039,14 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//ecuc/OsIocCommunication" derived="true" eOpposite="#//ecuc/OsIocCommunication/osIocSenderProperties">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocCommunication"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocSenderId" eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocSenderId"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2254,8 +3056,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsIocReceiverProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocReceivingOsApplication"
           lowerBound="1" eType="#//ecuc/OsApplication">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocReceivingOsApplication"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2265,16 +3066,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsIocDataProperties" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocDataPropertyIndex"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocDataPropertyIndex"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osIocInitValue" eType="#//m2/VerbatimString">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocInitValue"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2282,8 +3081,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="osIocDataType" lowerBound="1"
           eType="#//m2/ImplementationDataType">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsIocDataType"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2293,8 +3091,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="OsApplicationTrustedFunction" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osTrustedFunctionName"
           lowerBound="1" eType="#//m2/CIdentifier">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsTrustedFunctionName"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2302,8 +3099,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//ecuc/OsApplication" derived="true" eOpposite="#//ecuc/OsApplication/osApplicationTrustedFunction">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Parent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2317,16 +3113,14 @@
         </eAnnotations>
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osNumberOfCores" eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsNumberOfCores"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="osMasterCoreId" eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="OsMasterCoreId"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2336,8 +3130,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteBswEventToTaskMapping" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteBswActivationOffset"
           eType="#//m2/TimeValue">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswEventToTaskMapping"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2345,8 +3138,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswEvent" lowerBound="1"
           eType="#//m2/BswEvent" eOpposite="#//m2/BswEvent/config">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2354,8 +3146,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteBswPositionInTask"
           eType="#//m2/Integer">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswPositionInTask"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2363,24 +3154,21 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswMappedToTask" eType="#//ecuc/OsTask"
           eOpposite="#//ecuc/OsTask/mappedRteBswEvent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswMappedToTask"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsAlarm" eType="#//ecuc/OsAlarm">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswUsedOsAlarm"/>
           <details key="namespace" value="##targetNamespace"/>
         </eAnnotations>
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswUsedOsEvent" eType="#//ecuc/OsEvent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswUsedOsEvent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2391,8 +3179,7 @@
         eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parent" lowerBound="1"
           eType="#//ecuc/RteBswModuleInstance" derived="true" eOpposite="#//ecuc/RteBswModuleInstance/rteBswRequiredModeGroupConnection">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="Parent"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2400,8 +3187,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswProvidedModeGroup"
           lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswProvidedModeGroup"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2409,8 +3195,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroup"
           lowerBound="1" eType="#//m2/ModeDeclarationGroupPrototype">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswRequiredModeGroup"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2420,8 +3205,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteBswModuleInstance" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswEventToTaskMapping"
           upperBound="-1" eType="#//ecuc/RteBswEventToTaskMapping" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswEventToTaskMapping"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2429,8 +3213,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaImpl"
           upperBound="-1" eType="#//ecuc/RteBswExclusiveAreaImpl" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswExclusiveAreaImpl"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2438,8 +3221,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswImplementation"
           lowerBound="1" eType="#//m2/BswImplementation" containment="true">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswImplementation"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2448,8 +3230,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswRequiredModeGroupConnection"
           ordered="false" upperBound="-1" eType="#//ecuc/RteBswRequiredModeGroupConnection"
           containment="true" eOpposite="#//ecuc/RteBswRequiredModeGroupConnection/parent">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswRequiredModeGroupConnection"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2459,8 +3240,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="RteBswExclusiveAreaImpl" eSuperTypes="#//ecuc/EcucContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveArea"
           lowerBound="1" eType="#//m2/ExclusiveArea" eOpposite="#//m2/ExclusiveArea/bswConfig">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswExclusiveArea"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2468,8 +3248,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaOsResource"
           eType="#//ecuc/OsResource">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswExclusiveAreaOsResource"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2477,8 +3256,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="rteExclusiveAreaImplMechanism"
           eType="#//ecuc/RteExclusiveAreaImplMechanismEnum">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteExclusiveAreaImplMechanism"/>
           <details key="namespace" value="##targetNamespace"/>
@@ -2486,8 +3264,7 @@
       </eStructuralFeatures>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rteBswExclusiveAreaOsSpinlock"
           eType="#//ecuc/OsSpinlock">
-        <eAnnotations
-            source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
           <details key="kind" value="element"/>
           <details key="name" value="RteBswExclusiveAreaOsSpinlock"/>
           <details key="namespace" value="##targetNamespace"/>
