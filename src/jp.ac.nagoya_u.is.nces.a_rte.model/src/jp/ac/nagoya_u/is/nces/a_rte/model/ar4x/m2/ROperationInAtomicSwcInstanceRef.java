@@ -75,6 +75,7 @@ public interface ROperationInAtomicSwcInstanceRef extends M2Object, IInstanceRef
 	 * @see #setContextRPort(RPortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getROperationInAtomicSwcInstanceRef_ContextRPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='CONTEXT-R-PORT-REF'"
 	 * @generated
 	 */
 	RPortPrototype getContextRPort();
@@ -101,6 +102,7 @@ public interface ROperationInAtomicSwcInstanceRef extends M2Object, IInstanceRef
 	 * @see #setTargetRequiredOperation(ClientServerOperation)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getROperationInAtomicSwcInstanceRef_TargetRequiredOperation()
 	 * @model required="true"
+	 *        annotation="tags xml.name='TARGET-REQUIRED-OPERATION-REF'"
 	 * @generated
 	 */
 	ClientServerOperation getTargetRequiredOperation();

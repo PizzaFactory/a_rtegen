@@ -105,6 +105,7 @@ public interface Autosar extends M2Object {
 	 * @return the value of the '<em>Ar Package</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getAutosar_ArPackage()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='AR-PACKAGE' xml.namePlural='AR-PACKAGES'"
 	 * @generated
 	 */
 	EList<ArPackage> getArPackage();

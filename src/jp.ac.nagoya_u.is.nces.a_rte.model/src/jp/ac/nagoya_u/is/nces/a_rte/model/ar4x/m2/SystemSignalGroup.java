@@ -74,7 +74,7 @@ public interface SystemSignalGroup extends ArElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System Signal</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSystemSignalGroup_SystemSignal()
-	 * @model
+	 * @model annotation="tags xml.name='SYSTEM-SIGNAL-REF' xml.namePlural='SYSTEM-SIGNAL-REFS'"
 	 * @generated
 	 */
 	EList<SystemSignal> getSystemSignal();

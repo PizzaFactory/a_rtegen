@@ -74,6 +74,7 @@ public interface PPortPrototypeInCompositionInstanceRef extends PortPrototypeInC
 	 * @see #setTargetPPort(PPortPrototype)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getPPortPrototypeInCompositionInstanceRef_TargetPPort()
 	 * @model required="true"
+	 *        annotation="tags xml.name='TARGET-P-PORT-REF'"
 	 * @generated
 	 */
 	PPortPrototype getTargetPPort();

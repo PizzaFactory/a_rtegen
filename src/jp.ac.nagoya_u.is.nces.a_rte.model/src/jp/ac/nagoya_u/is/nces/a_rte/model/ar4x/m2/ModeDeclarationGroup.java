@@ -76,6 +76,7 @@ public interface ModeDeclarationGroup extends ArElement {
 	 * @see #setInitialMode(ModeDeclaration)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeDeclarationGroup_InitialMode()
 	 * @model required="true"
+	 *        annotation="tags xml.name='INITIAL-MODE-REF'"
 	 * @generated
 	 */
 	ModeDeclaration getInitialMode();
@@ -102,6 +103,7 @@ public interface ModeDeclarationGroup extends ArElement {
 	 * @return the value of the '<em>Mode Declaration</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getModeDeclarationGroup_ModeDeclaration()
 	 * @model containment="true" required="true" ordered="false"
+	 *        annotation="tags xml.name='MODE-DECLARATION' xml.namePlural='MODE-DECLARATIONS'"
 	 * @generated
 	 */
 	EList<ModeDeclaration> getModeDeclaration();

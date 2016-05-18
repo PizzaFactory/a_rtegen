@@ -75,6 +75,7 @@ public interface TransmissionAcknowledgementRequest extends M2Object {
 	 * @see #setTimeout(BigDecimal)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getTransmissionAcknowledgementRequest_Timeout()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.TimeValue" required="true"
+	 *        annotation="tags xml.name='TIMEOUT'"
 	 * @generated
 	 */
 	BigDecimal getTimeout();

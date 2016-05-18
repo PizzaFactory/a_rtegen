@@ -79,6 +79,7 @@ public interface ExecutableEntity extends Identifiable {
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getExecutableEntity_CanEnterExclusiveArea()
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.ExclusiveArea#getEnterExecutableEntity
 	 * @model opposite="enterExecutableEntity"
+	 *        annotation="tags xml.name='CAN-ENTER-EXCLUSIVE-AREA-REF' xml.namePlural='CAN-ENTER-EXCLUSIVE-AREA-REFS'"
 	 * @generated
 	 */
 	EList<ExclusiveArea> getCanEnterExclusiveArea();
@@ -94,7 +95,7 @@ public interface ExecutableEntity extends Identifiable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Runs Inside Exclusive Area</em>' reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getExecutableEntity_RunsInsideExclusiveArea()
-	 * @model
+	 * @model annotation="tags xml.name='RUNS-INSIDE-EXCLUSIVE-AREA-REF' xml.namePlural='RUNS-INSIDE-ECLUSIVE-AREA-REFS'"
 	 * @generated
 	 */
 	EList<ExclusiveArea> getRunsInsideExclusiveArea();
@@ -110,7 +111,7 @@ public interface ExecutableEntity extends Identifiable {
 	 * @return the value of the '<em>Sw Addr Method</em>' reference.
 	 * @see #setSwAddrMethod(SwAddrMethod)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getExecutableEntity_SwAddrMethod()
-	 * @model
+	 * @model annotation="tags xml.name='SW-ADDR-METHOD-REF'"
 	 * @generated
 	 */
 	SwAddrMethod getSwAddrMethod();

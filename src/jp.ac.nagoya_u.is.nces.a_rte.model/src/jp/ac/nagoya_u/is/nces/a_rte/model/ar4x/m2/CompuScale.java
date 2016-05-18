@@ -78,6 +78,7 @@ public interface CompuScale extends M2Object {
 	 * @see #setSymbol(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_Symbol()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.CIdentifier"
+	 *        annotation="tags xml.name='SYMBOL'"
 	 * @generated
 	 */
 	String getSymbol();
@@ -104,6 +105,7 @@ public interface CompuScale extends M2Object {
 	 * @see #setLowerLimit(Limit)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_LowerLimit()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='LOWER-LIMIT'"
 	 * @generated
 	 */
 	Limit getLowerLimit();
@@ -130,6 +132,7 @@ public interface CompuScale extends M2Object {
 	 * @see #setShortLabel(String)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_ShortLabel()
 	 * @model dataType="jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Identifier"
+	 *        annotation="tags xml.name='SHORT-LABEL'"
 	 * @generated
 	 */
 	String getShortLabel();
@@ -156,6 +159,7 @@ public interface CompuScale extends M2Object {
 	 * @see #setUpperLimit(Limit)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_UpperLimit()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='UPPER-LIMIT'"
 	 * @generated
 	 */
 	Limit getUpperLimit();
@@ -182,6 +186,7 @@ public interface CompuScale extends M2Object {
 	 * @see #setCompuConst(CompuConst)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getCompuScale_CompuConst()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='COMPU-CONST'"
 	 * @generated
 	 */
 	CompuConst getCompuConst();

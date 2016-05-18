@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="A-RTEGEN" sequenceNumber="7016">
+<?pde version="3.8"?><target name="A-RTEGEN" sequenceNumber="7017">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="jp.pizzafactory.a_rte.orbit.feature.group" version="1.0.1.201411160835"/>
@@ -17,6 +17,7 @@
 <unit id="org.eclipse.swt" version="3.103.2.v20150203-1313"/>
 <unit id="org.eclipse.ocl.all.feature.group" version="5.0.2.v20140725-2242"/>
 <unit id="org.eclipse.platform.feature.group" version="4.4.2.v20150204-1700"/>
+<unit id="org.eclipse.sphinx.sdk.feature.group" version="0.8.1.201409171422"/>
 <repository location="http://download.eclipse.org/releases/luna/"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">

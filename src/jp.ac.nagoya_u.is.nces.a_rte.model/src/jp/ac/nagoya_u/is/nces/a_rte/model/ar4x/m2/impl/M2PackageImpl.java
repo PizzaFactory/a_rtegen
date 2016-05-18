@@ -7589,10 +7589,10 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-		createPivotAnnotations();
 		// tags
 		createTagsAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
 		// stereotypes
 		createStereotypesAnnotations();
 	}
@@ -7992,16 +7992,941 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 	protected void createTagsAnnotations() {
 		String source = "tags"; //$NON-NLS-1$	
 		addAnnotation
+		  (getM2Root_Autosar(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "AUTOSAR" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosar_ArPackage(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "AR-PACKAGE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "AR-PACKAGES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getArPackage_Element(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ELEMENTS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ELEMENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getArPackage_ArPackage(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "AR-PACKAGE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "AR-PACKAGES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getIdentifiable_Category(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CATEGORY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwBaseType_BaseTypeEncoding(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BASE-TYPE-ENCODING" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwBaseType_BaseTypeSize(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BASE-TYPE-SIZE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwBaseType_NativeDeclaration(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "NATIVE-DECLARATION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverInterface_DataElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-ELEMENTS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "VARIABLE-DATA-PROTOTYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverInterface_InvalidationPolicy(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INVALIDATION-POLICYS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "INVALIDATION-POLICY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableDataPrototype_InitValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INIT-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getReferrable_ShortName(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SHORT-NAME" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getReferrable_Reference(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwComponentType_Port(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PORT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PORTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortPrototype_Parent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PARENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortPrototype_PortApiOption(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PORT-API-OPTION", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PORT-API-OPTIONS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
 		  (getAtomicSwComponentType_InternalBehavior(), 
 		   source, 
 		   new String[] {
-			 "xml.roleWrapperElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.roleWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "SWC-INTERNAL-BEHAVIOR" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRPortPrototype_RequiredInterface(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REQUIRED-INTERFACE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRPortPrototype_RequiredComSpec(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REQURED-COMSPEC", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "REQUIRED-COMSPECS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPPortPrototype_ProvidedInterface(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDED-INTERFACE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPPortPrototype_ProvidedComSpec(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDED-COM-SPEC", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PROVIDED-COM-SPECS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcInternalBehavior_Runnable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "RUNNABLE-ENTITY", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "RUNNABLES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcInternalBehavior_PortApiOption(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PORT-API-OPTION", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PORT-API-OPTIONS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcInternalBehavior_IncludedDataTypeSet(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INCLUDED-DATA-TYPE-SET", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "INCLUDED-DATA-TYPE-SETS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcInternalBehavior_Parent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ATOMIC-SW-COMPONENT-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcInternalBehavior_ExplicitInterRunnableVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EXPLICIT-INTER-RUNNABLE-VARIABLE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "EXPLICIT-INTER-RUNNABLE-VARIABLES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getExecutableEntity_CanEnterExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CAN-ENTER-EXCLUSIVE-AREA-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "CAN-ENTER-EXCLUSIVE-AREA-REFS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getExecutableEntity_RunsInsideExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "RUNS-INSIDE-EXCLUSIVE-AREA-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "RUNS-INSIDE-ECLUSIVE-AREA-REFS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getExecutableEntity_SwAddrMethod(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-ADDR-METHOD-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRunnableEntity_DataSendPoint(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-SEND-POINT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "DATA-SEND-POINTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRunnableEntity_DataReceivePointByArgument(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-RECEIVE-POINT-BY-ARGUMENT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "DATA-RECEIVE-POINT-BY-ARGUMENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRunnableEntity_Symbol(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYMBOL" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRunnableEntity_WrittenLocalVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "WRITTEN-LOCAL-VARIABLE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "WRITTEN-LOCAL-VARIABLES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRunnableEntity_ReadLocalVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "READ-LOCAL-VARIABLE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "READ-LOCAL-VARIABLES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableAccess_AccessedVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ACCESSED-VARIABLE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosarVariableRef_AutosarVariableIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "AUTOSAR-VARIABLE-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosarVariableRef_AutosarVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "AUTOSAR-VARIABLE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosarVariableRef_LocalVariable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "LOCAL-VARIABLE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableInAtomicSwcTypeInstanceRef_TargetDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VARIABLE-DATA-PROTOTYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRteEvent_StartOnEvent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "START-ON-EVENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getTimingEvent_Period(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PERIOD" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataSendCompletedEvent_EventSource(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EVENT-SOURCE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataReceivedEvent_DataIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataReceiveErrorEvent_DataIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRVariableInAtomicSwcInstanceRef_ContextRPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-R-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRVariableInAtomicSwcInstanceRef_TargetDataElement(), 
+		   source, 
+		   new String[] {
+			 "xml.attribute", "true", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "DEST" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucModuleConfigurationValues_DefinitionRef(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DEFINITION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucModuleConfigurationValues_EcucDefEdition(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ECUC-DEF-EDITION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucModuleConfigurationValues_ImplementationConfigVariant(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-CONFIG-VARIANT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucModuleConfigurationValues_Container(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTAINER", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "CONTAINERS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucContainerValue_DefinitionRef(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DEFINITION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucContainerValue_ParameterValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PARAMETER-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PARAMETER-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucContainerValue_ReferenceValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REFERENCE-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "REFERENCE-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucContainerValue_SubContainer(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SUB-CONTAINERS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucParameterValue_DefinitionRef(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DEFINITION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucNumericalParamValue_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucTextualParamValue_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucAbstractReferenceValue_DefinitionRef(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DEFINITION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucReferenceValue_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucInstanceReferenceValue_ValueIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getEcucInstanceReferenceValue_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getReceiverComSpec_DataElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-ELEMENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderComSpec_DataElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-ELEMENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderComSpec_TransmissionAcknowledge(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TRANSMISSION-ACKNOWLEDGE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getTransmissionAcknowledgementRequest_Timeout(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TIMEOUT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getNonqueuedSenderComSpec_InitValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INIT-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getNonqueuedReceiverComSpec_AliveTimeout(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ALIVE-TIMEOUT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getNonqueuedReceiverComSpec_InitValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INIT-VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getNonqueuedReceiverComSpec_Filter(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "FILTER" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompositionSwComponentType_Component(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "COMPONENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompositionSwComponentType_Connector(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "CONNECTORS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAssemblySwConnector_ProviderIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDER-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAssemblySwConnector_RequesterIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REQUESTER-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDelegationSwConnector_OuterPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "OUTER-PORT-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDelegationSwConnector_InnerPortIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INNER-PORT-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortPrototypeInCompositionInstanceRef_ContextComponent(), 
+		   source, 
+		   new String[] {
+			 "xml.attribute", "true", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "DEST" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRPortPrototypeInCompositionInstanceRef_TargetRPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-R-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPPortPrototypeInCompositionInstanceRef_TargetPPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-P-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwComponentPrototype_Type(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TYPE-TREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosarDataType_SwDataDefProps(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-DATA-DEF-PROPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getAutosarDataType_InvalidValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TIMEOUT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementationDataType_SubElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-DATA-TYPE-ELEMENT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "SUB-ELEMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementationDataTypeElement_ArraySize(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ARRAY-SIZE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementationDataTypeElement_ArraySizeSemantics(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ARRAY-SIZE-SEMANTICS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementationDataTypeElement_SubElement(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "SUB-ELEMENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementationDataTypeElement_SwDataDefProps(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-DATA-DEF-PROPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_SwImplPolicy(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-IMPL-POLICY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_SwAddrMethod(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-ADDR-METHOD-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_SwAlignment(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-ALIGNMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_CompuMethod(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "COMPU-METHOD-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_DataConstr(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-CONSTR-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-DATA-TYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwDataDefProps_SwPointerTargetProps(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-POINTER-TARGET-PROPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataTypeMap_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-DATA-TYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataTypeMap_ApplicationDataType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "APPLICATION-DATA-TYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataTypeMappingSet_DataTypeMap(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-TYPE-MAP", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "DATA-TYPE-MAPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataTypeMappingSet_ModeRequestTypeMap(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MODE-REQUEST-TYPE-MAP", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "MODE-REQUEST-TYPE-MAPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeDeclarationGroupPrototype_Type(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TYPE-TREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeRequestTypeMap_ImplementationDataType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-ALIGNMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeRequestTypeMap_ModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MODE-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeDeclarationGroup_InitialMode(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INITIAL-MODE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeDeclarationGroup_ModeDeclaration(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MODE-DECLARATION", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "MODE-DECLARATIONS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getExclusiveArea_SwcConfig(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-ALIGNMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getNumericalValueSpecification_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getTextValueSpecification_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getConstantReference_Constant(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONSTANT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRecordValueSpecification_Field(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "FIELD", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "FIELDS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getConstantSpecification_ValueSpec(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE-SPEC" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getOperationInvokedEvent_OperationIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "OPERATION-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPOperationInAtomicSwcInstanceRef_ContextPPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-P-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPOperationInAtomicSwcInstanceRef_TargetProvidedOperation(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-PROVIDED-OPERATION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getClientServerInterface_Operation(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "OPERATION", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "OPERATIONS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getClientServerInterface_PossibleError(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "POSSIBLE-ERROR", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "POSSIBLE-ERRORS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getClientServerOperation_PossibleError(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "POSSIBLE-ERROR", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "POSSIBLE-ERRORS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getClientServerOperation_Argument(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ARGUMENT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ARGUMENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getApplicationError_ErrorCode(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ERROR-CODE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getArgumentDataPrototype_Direction(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DIRECTION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_DataFilterType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-FILTER-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_Mask(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MASK" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_Max(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MAX" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_Min(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MIN" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_Offset(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "OFFSET" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_Period(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PERIOD" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataFilter_X(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "X" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getQueuedReceiverComSpec_QueueLength(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "QUEUE-LENGTH" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortApiOption_PortArgValue(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PORT-ARG-VALUE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PORT-ARG-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortApiOption_Port(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortApiOption_EnableTakeAddress(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ENABLE-TAKE-ADDRESS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortDefinedArgumentValue_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortDefinedArgumentValue_ValueType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE-TYPE-TREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getIncludedDataTypeSet_LiteralPrefix(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "LITERAL-PREFIX" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getIncludedDataTypeSet_DataType(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "DATA-TYPE-REFS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "DATA-TYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getSystem_RootSoftwareComposition(), 
 		   source, 
 		   new String[] {
-			 "xml.roleWrapperElement", "true" //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.roleWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ROOT-SOFTWARE-COMPOSITIONS", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "ROOT-SOFTWARE-COMPOSITION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSystem_Mapping(), 
+		   source, 
+		   new String[] {
+			 "xml.roleWrapperElement", "true", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "SYSTEM-MAPPING", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRootSwCompositionPrototype_SoftwareComposition(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SOFTWARE-COMPOSITION-TREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSystemMapping_DataMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "DATA-MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignal_SystemSignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignalIPdu_ISignalToPduMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "I-SIGNAL-TO-PDU-MAPPING", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "I-SIGNAL-TO-PDU-MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignalToIPduMapping_ISignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "I-SIGNAL-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignalToIPduMapping_ISignalGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ISIGNAL-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalMapping_SystemSignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalMapping_DataElementIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-ELEMENT-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalGroupMapping_SignalGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SIGNAL-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalGroupMapping_DataElementIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-ELEMENT-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalGroupMapping_DataElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ECUC-MODULE-CONFIGURATION-VALUES-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ECUC-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderReceiverToSignalGroupMapping_TypeMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ECUC-MODULE-CONFIGURATION-VALUES-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ECUC-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableDataPrototypeInSystemInstanceRef_ContextComponent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-COMPONENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableDataPrototypeInSystemInstanceRef_ContextPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getVariableDataPrototypeInSystemInstanceRef_TargetDataPrototype(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-DATA-PROTOTYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getEcucValueCollection_EcucValue(), 
@@ -8011,24 +8936,313 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 			 "xml.namePlural", "ECUC-VALUES" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
+		  (getEcucValueCollection_EcuExtract(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ECU-EXTRACT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getServerCallPoint_OperationIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "OPERATION-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getROperationInAtomicSwcInstanceRef_ContextRPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-R-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getROperationInAtomicSwcInstanceRef_TargetRequiredOperation(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-REQUIRED-OPERATION-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwAddrMethod_MemoryAllocationKeywordPolicy(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MEMORY-ALLOCATION-KEYWORD-POLICY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwAddrMethod_SectionInitializationPolicy(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SECTION-INITIALIZATION-POLICY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataConstr_DataConstrRule(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-CONSTR-RULE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "DATA-CONSTR-RULES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getDataConstrRule_InternalConstrs(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INTERNAL-CONSTRS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalConstrs_LowerLimit(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "LOWER-LIMIT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalConstrs_UpperLimit(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "UPPER-LIMIT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompu_CompuScale(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "COMPU-SCALE", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "COMPU-SCALES" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getLimit_Value(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VALUE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuScale_LowerLimit(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "LOWER-LIMIT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuScale_ShortLabel(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SHORT-LABEL" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuScale_Symbol(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYMBOL" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuScale_UpperLimit(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "UPPER-LIMIT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuScale_CompuConst(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "COMPU-CONST" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getCompuConst_Vt(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "VT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
 		  (getAnyInstanceRef_ContextElement(), 
 		   source, 
 		   new String[] {
-			 "xml.roleWrapperElement", "false" //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.roleWrapperElement", "false", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "CONTEXT-ELEMENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPortInCompositionInstanceRef_ContextComponent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-COMPONENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getPPortInCompositionInstanceRef_TargetPPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-P-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getRPortInCompositionInstanceRef_TargetRPort(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-R-PORT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalBehavior_DataTypeMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "DATA-TYPE-MAPPING-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "DATA-TYPE-MAPPING-REFS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getInternalBehavior_ExclusiveArea(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EXCLUSIVE-AREA", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "EXCLUSIVE-AREAS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcBswRunnableMapping_SwcRunnable(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SWC-RUNNABLE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcBswRunnableMapping_BswEntity(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BSW-ENTITY-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcBswMapping_RunnableMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "RUNNABLE-MAPPING", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "RUNNABLE-MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcBswMapping_SwcBehavior(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SWC-BEHAVIOR-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwcBswMapping_BswBehavior(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BSW-BEHAVIOR-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswInternalBehavior_Entity(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ENTITY", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ENTITYS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswInternalBehavior_Event(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EVENT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "EVENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswInternalBehavior_Implementation(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BSW-TRIGGER-DIRECT-IMPLEMENTATION", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "BSW-TRIGGER-DIRECT-IMPLEMENTATIONS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswInternalBehavior_ModeSenderPolicy(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BSW-MODE-SENDER-POLICY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModeSenderPolicy_ProvidedModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDED-MODE-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModeSenderPolicy_QueueLength(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "QUEUE-LENGTH" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getImplementation_SwcBswMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SWC-BSW-MAPPING-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswImplementation_Behavior(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "BEHAVIOR-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleDescription_InternalBehavior(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INTERNAL-BEHAVIOR" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleDescription_ProvidedEntry(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDED-ENTRY", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PROVIDED-ENTRYS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleDescription_ProvidedModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PROVIDED-MODE-GROUP", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "PROVIDED-MODE-GROUPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleDescription_RequiredModeGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "REQUIRED-MODE-GROUP", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "REQUIRED-MODE-GROUPS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleEntry_ServiceId(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SERVICE-ID" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleEntry_CallType(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CALL-TYPE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleEntry_ExecutionContext(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EXECUTION-CONTEXT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModuleEntity_ImplementedEntry(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTED-ENTRY-REF" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getBswModuleEntity_AccessedModeGroup(), 
 		   source, 
 		   new String[] {
 			 "xml.namePlural", "ACCESSED-MODE-GROUPS", //$NON-NLS-1$ //$NON-NLS-2$
-			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getBswModuleEntity_ManagedModeGroup(), 
 		   source, 
 		   new String[] {
 			 "xml.namePlural", "MANAGED-MODE-GROUPS", //$NON-NLS-1$ //$NON-NLS-2$
-			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.name", "MODE-DECLARATION-GROUP-PROTOTYPE-REF-CONDITIONAL" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswSchedulableEntity_Event(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "EVENT", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "EVENTS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswEvent_StartsOnEvent(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "STARTS-ON-EVENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
 		   });	
 		addAnnotation
 		  (getBswEvent_DisabledInMode(), 
@@ -8036,6 +9250,136 @@ public class M2PackageImpl extends EPackageImpl implements M2Package {
 		   new String[] {
 			 "xml.namePlural", "DISABLED-IN-MODE-IREFS", //$NON-NLS-1$ //$NON-NLS-2$
 			 "xml.name", "DISABLED-IN-MODE-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModeSwitchEvent_Activation(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "ACTIVATION" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswModeSwitchEvent_ModeIref(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "MODE-IREF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeInBswModuleDescriptionInstanceRef_ContextModeDeclarationGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "CONTEXT-MODE-DECLARATION-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getModeInBswModuleDescriptionInstanceRef_TargetMode(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-MODE-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswTimingEvent_Period(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "PERIOD" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getBswInterruptEntity_InterruptSource(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INTERRUPT-SOURCE" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSystemSignalGroup_SystemSignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "SYSTEM-SIGNAL-REFS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignalGroup_SystemSignalGroup(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-GROUP-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getISignalGroup_ISignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "I-SIGNAL-REF", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "I-SIGNAL-REFS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecRecordTypeMapping_RecordElementMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "RECORD-ELEMENT-MAPPING", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "RECORD-ELEMENT-MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecRecordElementMapping_ImplementationRecordElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-RECORD-ELEMENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecRecordElementMapping_ComplexTypeMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "COMPLEX-TYPE-MAPPING" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecRecordElementMapping_SystemSignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecArrayTypeMapping_ArrayElementMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SENDER-REC-ARRAY-TYPE-MAPPING", //$NON-NLS-1$ //$NON-NLS-2$
+			 "xml.namePlural", "ARRAY-ELEMENT-MAPPINGS" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getIndexedArrayElement_ImplementationArrayElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "IMPLEMENTATION-ARRAY-ELEMENT-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getIndexedArrayElement_Index(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INDEX" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecArrayElementMapping_IndexedArrayElement(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "INDEXED-ARRAY-ELEMENT" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecArrayElementMapping_ComplexTypeMapping(), 
+		   source, 
+		   new String[] {
+			 "xml.namePlural", "COMPLEX-TYPE-MAPPING" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSenderRecArrayElementMapping_SystemSignal(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SYSTEM-SIGNAL-REF" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwPointerTargetProps_TargetCategory(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "TARGET-CATEGORY" //$NON-NLS-1$ //$NON-NLS-2$
+		   });	
+		addAnnotation
+		  (getSwPointerTargetProps_SwDataDefProps(), 
+		   source, 
+		   new String[] {
+			 "xml.name", "SW-DATA-DEF-PROPS" //$NON-NLS-1$ //$NON-NLS-2$
 		   });
 	}
 

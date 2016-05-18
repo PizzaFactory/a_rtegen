@@ -77,6 +77,7 @@ public interface SwcBswMapping extends ArElement {
 	 * @return the value of the '<em>Runnable Mapping</em>' containment reference list.
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcBswMapping_RunnableMapping()
 	 * @model containment="true"
+	 *        annotation="tags xml.name='RUNNABLE-MAPPING' xml.namePlural='RUNNABLE-MAPPINGS'"
 	 * @generated
 	 */
 	EList<SwcBswRunnableMapping> getRunnableMapping();
@@ -93,6 +94,7 @@ public interface SwcBswMapping extends ArElement {
 	 * @see #setSwcBehavior(SwcInternalBehavior)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcBswMapping_SwcBehavior()
 	 * @model required="true"
+	 *        annotation="tags xml.name='SWC-BEHAVIOR-REF'"
 	 * @generated
 	 */
 	SwcInternalBehavior getSwcBehavior();
@@ -119,6 +121,7 @@ public interface SwcBswMapping extends ArElement {
 	 * @see #setBswBehavior(BswInternalBehavior)
 	 * @see jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package#getSwcBswMapping_BswBehavior()
 	 * @model required="true"
+	 *        annotation="tags xml.name='BSW-BEHAVIOR-REF'"
 	 * @generated
 	 */
 	BswInternalBehavior getBswBehavior();
