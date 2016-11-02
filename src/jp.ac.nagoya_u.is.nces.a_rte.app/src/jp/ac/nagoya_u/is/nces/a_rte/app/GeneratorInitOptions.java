@@ -59,4 +59,14 @@ public class GeneratorInitOptions {
 	 * RTEЕ├┘И┐╗Ц┐┤Ц┐╪Ц┌©Е·▀Ц│╝Ц┐╒Ц┐┤Ц┐╚Ц┌▓Д©²Ф▄│Ц│≥Ц┌▀AUTOSAR XML
 	 */
 	public File internalDataTypesFile;
+
+	/**
+	 * ю╦ю╝╓╥╓©RTE╓ке╛мя╓╧╓К╔Ё║╪╔и╔у╔╘║╪╔ч╔ц╔©(uncrustify)╓н╪б╧т╔у╔║╔╓╔К
+	 */
+	public File uncrustifyExecutableFile;
+
+	/**
+	 * ю╦ю╝╓╥╓©RTE╓ке╛мя╓╧╓К╔Ё║╪╔и╔у╔╘║╪╔ч╔ц╔©(uncrustify)╓н╔Ё╔С╔у╔ё╔╟╔у╔║╔╓╔К
+	 */
+	public File uncrustifyConfigFile;
 }

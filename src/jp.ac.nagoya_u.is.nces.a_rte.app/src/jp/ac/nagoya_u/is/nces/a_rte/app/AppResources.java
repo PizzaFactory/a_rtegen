@@ -67,7 +67,14 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
 
 	/**
-	 * @return RTE
+	 */
+	public static final String UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH = "bin/uncrustify.exe";
+
+	/**
+	 */
+	public static final String UNCRUSTIFY_CONFIG_RELATIVE_PATH = "bin/atk2style.cfg";
+
+	/**
 	 */
 	private static String getRteGeneratorHome() {
 		return System.getProperty(RTE_GENERATOR_HOME_ENV_NAME, ".") + "/";
@@ -93,5 +100,18 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	public static File getDefaultSchemaFile() {
 		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
 	}
-	
+
+	/**
+	 * @return
+	 */
+	public static File getDefaultUncrustifyExecutableFile() {
+		return new File(getRteGeneratorHome(), UNCRUSTIFY_EXECUTABLE_RELATIVE_PATH);
+	}
+
+	/**
+	 * @return
+	 */
+	public static File getDefaultUncrustifyConfigFile() {
+		return new File(getRteGeneratorHome(), UNCRUSTIFY_CONFIG_RELATIVE_PATH);
+	}
 }

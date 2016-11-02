@@ -111,7 +111,13 @@ public class ContractPhaseRteGenerator implements IRteGenerator {
 			this.moduleModelBuilder = RteModuleModelBuilder.forContractPhase();
 			this.codeGenerator = RteCodeGenerator.forContractPhase();
 
-			//TODO: Use CDT code formatter.
+			if (!generatorInitOptions.uncrustifyExecutableFile.isFile()) {
+				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyExecutableFile.getAbsolutePath() + " does not exist.");
+			}
+			if (!generatorInitOptions.uncrustifyConfigFile.isFile()) {
+				throw new AppException("Error occurred while setting up code formatter. " + generatorInitOptions.uncrustifyConfigFile.getAbsolutePath() + " does not exist.");
+			}
+
 			CodeFormatter uncrustifyCodeFormatter = new NullCodeFormatter();
 			this.codeGenerator.addCodeFormatter(uncrustifyCodeFormatter);
 

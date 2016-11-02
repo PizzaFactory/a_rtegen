@@ -84,6 +84,8 @@ public class RteGeneratorApp {
 		GeneratorInitOptions generatorInitOptions = new GeneratorInitOptions();
 		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile();
 		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile();
+		generatorInitOptions.uncrustifyExecutableFile = AppResources.getDefaultUncrustifyExecutableFile();
+		generatorInitOptions.uncrustifyConfigFile = AppResources.getDefaultUncrustifyConfigFile();
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
