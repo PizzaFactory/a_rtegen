@@ -45,19 +45,21 @@ package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
 import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.M2_ROOT;
 
+import java.io.File;
 import java.io.IOException;
+
+import javax.xml.stream.XMLStreamException;
 
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.EcucToM2Mapper;
+import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelSaver;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelSaver {
-	public void save(Resource eResource, IFile generatedEcucFile) throws PersistException {
+	public void save(Resource eResource, File file) throws PersistException {
 		try {
 			EcucToM2Mapper mapper = new EcucToM2Mapper(eResource);
 			mapper.map();
@@ -70,6 +72,8 @@ public class AutosarModelSaver {
 			arM2Resource.setURI(URI.createPlatformResourceURI(generatedEcucFile.getFullPath().toString(), true));
 			arM2Resource.save(null);
 		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
+			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
+		} catch (XMLStreamException e) {
 			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
 		} catch (IOException e) {
 			throw new PersistException("Error occurred while saving AUTOSAR XML. " + e.getMessage(), e);

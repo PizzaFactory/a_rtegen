@@ -43,6 +43,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist;
 
+import java.io.File;
+
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.Autosar;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Factory;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
@@ -53,19 +55,15 @@ import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelMerger;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelReferenceResolver;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ToEcucMapper;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelLoader {
 	private final M2ModelMerger m2ModelMerger;
 
-	private IFile schemaFile;
+	private File schemaFile;
 	private M2ModelLoader m2ModelLoader;
 
 	/**
@@ -90,45 +88,30 @@ public class AutosarModelLoader {
 		this.m2ModelMerger = new M2ModelMerger();
 	}
 
-	public void setSchemaFile(IFile schemaFile) {
+	public void setSchemaFile(File schemaFile) {
 		this.schemaFile = schemaFile;
 		this.m2ModelLoader = null;
 	}
 
-	public void loadM2(IProject project, Resource eResource, Iterable<String> files) throws CoreException {
+	public void loadM2(Resource eResource, Iterable<String> files) throws PersistException {
 		Autosar mergedAutosar = M2Factory.eINSTANCE.createAutosar();
 		final ILog logger = Activator.getDefault().getLog();
-		final MultiStatus multiStatus = new MultiStatus(Activator.PLUGIN_ID, 0, "Errors in loading AUTOSAR file(s)", null);
-		for (String filePath : files) {
-			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + filePath);
+		for (String file : files) {
+			final IStatus status1 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Loading AUTOSAR file " + file);
 			logger.log(status1);
-			IFile file = project.getFile(filePath);
-			try {
-				M2Root m2Root = getM2ModelLoader().load(file.getContents());
+			M2Root m2Root = getM2ModelLoader().load(file);
 
-				final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + filePath);
-				logger.log(status2);
-				this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
-			} catch (CoreException | PersistException e) {
-				IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, filePath, e);
-				multiStatus.add(status);
-			}
-		}
-		if (!multiStatus.isOK()) {
-			throw new CoreException(multiStatus);
+			final IStatus status2 = new Status(IStatus.INFO, Activator.PLUGIN_ID, "Merging AUTOSAR file " + file);
+			logger.log(status2);
+			this.m2ModelMerger.merge(mergedAutosar, m2Root.getAutosar());
 		}
 
 		M2Root m2Root = M2Factory.eINSTANCE.createM2Root();
 		m2Root.setAutosar(mergedAutosar);
 		eResource.getContents().add(m2Root);
-
+		
 		M2ModelReferenceResolver referenceResolver = new M2ModelReferenceResolver();
-		try {
-			referenceResolver.resolve(m2Root.getAutosar());
-		} catch (PersistException e) {
-			IStatus status = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getLocalizedMessage(), e);
-			throw new CoreException(status);
-		}
+		referenceResolver.resolve(m2Root.getAutosar());
 	}
 
 	public void loadInstance(Resource eResource) throws PersistException {

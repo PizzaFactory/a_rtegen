@@ -43,10 +43,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app;
 
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.Path;
+import java.io.File;
 
 /**
  * RTEジェネレータアプリケーションが使用するリソースのデフォルト設定を保持する。
@@ -70,10 +67,17 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	public static final String MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH = "model/Rte_InternalDataTypes.arxml";
 
 	/**
+	 * @return RTE
+	 */
+	private static String getRteGeneratorHome() {
+		return System.getProperty(RTE_GENERATOR_HOME_ENV_NAME, ".") + "/";
+	}
+
+	/**
 	 * @return RTE内部型を保持するAUTOSAR XMLファイル
 	 */
-	public static IFile getDefaultInternalDataTypesFile(IProject project) {
-		return project.getFile(MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH);
+	public static File getDefaultInternalDataTypesFile() {
+		return new File(getRteGeneratorHome(), MODEL_INTERNAL_DATA_TYPES_FILE_RELATIVE_PATH);
 	}
 
 	/**
@@ -86,8 +90,8 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	/**
 	 * @return AUTOSARスキーマファイル
 	 */
-    public static IFile getSchemaFile(IContainer directory) {
-		return directory.getFolder(new Path(SCHEMA_DIRECTORY_PATH)).getFile(new Path(SCHEMA_FILE_NAME));
+	public static File getDefaultSchemaFile() {
+		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
 	}
 	
 }

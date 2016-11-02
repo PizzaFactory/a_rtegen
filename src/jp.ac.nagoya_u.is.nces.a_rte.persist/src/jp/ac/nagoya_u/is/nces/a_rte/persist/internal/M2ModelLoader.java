@@ -43,8 +43,8 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.persist.internal;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -58,12 +58,7 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.PersistException;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.util.M2XmlUtils;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
 import org.xml.sax.ErrorHandler;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
@@ -71,7 +66,7 @@ import org.xml.sax.XMLReader;
 public class M2ModelLoader {
 	private final SAXParser saxParser;
 
-	public M2ModelLoader(IFile schemaFile) throws PersistException {
+	public M2ModelLoader(File schemaFile) throws PersistException {
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setNamespaceAware(true);
 		spf.setSchema(createSchema(schemaFile));
@@ -87,22 +82,16 @@ public class M2ModelLoader {
 		}
 	}
 
-	private Schema createSchema(IFile schemaFile) throws PersistException {
+	private Schema createSchema(File schemaFile) throws PersistException {
 		SchemaFactory factory = SchemaFactory.newInstance(M2XmlUtils.W3C_XML_SCHEMA);
 		try {
-			IFile xmlXsdFile = schemaFile.getParent().getFile(new Path("xml.xsd"));
-			Source xmlXsdSource = new StreamSource(xmlXsdFile.getContents());
-			Source schemaSource = new StreamSource(schemaFile.getContents());
-			Schema schema = factory.newSchema(new Source[] { xmlXsdSource, schemaSource });
-			return schema;
-		} catch (SAXException | CoreException e) {
+			return factory.newSchema(schemaFile);
+		} catch (SAXException e) {
 			throw new PersistException("Error occurred while loading an AUTOSAR XML schema file. Please confirm that the file is installed.", e);
 		}
 	}
 
-	public M2Root load(InputStream is) throws PersistException {
-		InputSource source = new InputSource(is);
-
+	public M2Root load(String file) throws PersistException {
 		M2ModelLoadHandler handler = new M2ModelLoadHandler();
 
 		try {
@@ -123,12 +112,24 @@ public class M2ModelLoader {
 					throw exception;
 				}
 			});
-			xmlReader.parse(source);
+			xmlReader.parse(convertToFileURL(file));
 
-		} catch (SAXException | IOException e) { // COVERAGE (Â∏∏Áî®„Ç±„Éº„Çπ„Åß„ÅØ„Å™„ÅÑ„Åü„ÇÅÔºå„Ç≥„Éº„Éâ„É¨„Éì„É•„Éº„ÅßÂïèÈ°å„Å™„ÅÑ„Åì„Å®„ÇíÁ¢∫Ë™ç)
-			throw new PersistException("Error occurred while loading source. " + e.getMessage(), e);
+		} catch (SAXException | IOException e) {
+			throw new PersistException("Error occurred while loading file " + file + ". " + e.getMessage(), e);
 		}
 
 		return handler.getM2Root();
+	}
+
+	private static String convertToFileURL(String filename) {
+		String path = new File(filename).getAbsolutePath();
+		if (File.separatorChar != '/') { // COVERAGE (æÔÕ—•±°º•π§«§œ§ §§§ø§·°§•≥°º•…•Ï•”•Â°º§«Ã‰¬Í§ §§§≥§»§Ú≥Œ«ß)
+			path = path.replace(File.separatorChar, '/');
+		}
+
+		if (!path.startsWith("/")) { // COVERAGE (æÔÕ—•±°º•π§«§œ§ §§§ø§·°§•≥°º•…•Ï•”•Â°º§«Ã‰¬Í§ §§§≥§»§Ú≥Œ«ß)
+			path = "/" + path;
+		}
+		return "file:" + path;
 	}
 }

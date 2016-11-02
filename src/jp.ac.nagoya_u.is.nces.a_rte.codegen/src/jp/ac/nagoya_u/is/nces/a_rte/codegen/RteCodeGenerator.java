@@ -55,7 +55,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.rte.module.RteModule;
 
 import org.eclipse.acceleo.engine.event.AbstractAcceleoTextGenerationListener;
 import org.eclipse.acceleo.engine.event.AcceleoTextGenerationEvent;
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.emf.common.util.BasicMonitor;
 
 import com.google.common.collect.Lists;
@@ -80,11 +79,11 @@ public class RteCodeGenerator {
 		this.codeFormatters.add(codeFormatter);
 	}
 
-	public void generate(RteModule rteModule, IContainer folder) throws CodegenException {
+	public void generate(RteModule rteModule, File outputDirectory) throws CodegenException {
 		try {
 			final List<InternalCodegenException> caughtExceptions = Lists.newArrayList();
-			File project = folder.getLocation().toFile();
-			RteCodes rteCodes = new RteCodes(rteModule, project, Collections.emptyList());
+
+			RteCodes rteCodes = new RteCodes(rteModule, outputDirectory, Collections.emptyList());
 			rteCodes.addGenerationListener(new AbstractAcceleoTextGenerationListener() {
 				@Override
 				public void fileGenerated(AcceleoTextGenerationEvent event) {

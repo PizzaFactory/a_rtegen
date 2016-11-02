@@ -50,7 +50,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.app.AppResources;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteInteractionModelBuilderOptions;
 import jp.ac.nagoya_u.is.nces.a_rte.m2m.RteModuleModelBuilderOptions;
 
-import org.eclipse.core.resources.IProject;
 import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.Option;
 
@@ -164,10 +163,6 @@ public class GeneratorOptions {
 	@Option(name = "--schema-directory", usage = "Specify the schema directory for AUTOSAR scheme file", metaVar = "<directory>")
 	public String schemaDirectory = AppResources.getDefaultSchemaDirectory();
 
-	public GeneratorOptions(IProject project) {
-		this.project = project;
-	}
-
 	/**
 	 * ツール情報の表示のためのオプションが指定されているかを判定する。
 	 * @return 表示オプションが指定されている場合、true。それ以外の場合、false。
@@ -179,8 +174,6 @@ public class GeneratorOptions {
 	public PrintStream stdout = System.out;
 
 	public PrintStream stderr = System.err;
-
-	public IProject project;
 
 	/**
 	 * RTE連携モデル生成用のオプションを生成する。

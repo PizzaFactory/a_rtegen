@@ -43,7 +43,7 @@
  */
 package jp.ac.nagoya_u.is.nces.a_rte.app;
 
-import org.eclipse.core.resources.IFile;
+import java.io.File;
 
 /**
  * RTEジェネレータアプリケーションの初期設定を表す。
@@ -53,10 +53,10 @@ public class GeneratorInitOptions {
 	/**
 	 * スキーマファイル
 	 */
-	public IFile schemaFile;
+	public File schemaFile;
 
 	/**
 	 * RTE内部データ型のモデルを保持するAUTOSAR XML
 	 */
-	public IFile internalDataTypesFile;
+	public File internalDataTypesFile;
 }

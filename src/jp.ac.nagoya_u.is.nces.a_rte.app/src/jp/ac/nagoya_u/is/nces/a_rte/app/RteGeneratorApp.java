@@ -55,10 +55,6 @@ import jp.ac.nagoya_u.is.nces.a_rte.model.ModelEnvironment;
 import jp.ac.nagoya_u.is.nces.a_rte.model.util.GeneratorInfos;
 import jp.ac.nagoya_u.is.nces.a_rte.validation.ModelValidationEnvironment;
 
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 
@@ -73,12 +69,21 @@ public class RteGeneratorApp {
 	private final GeneratorInitOptions generatorInitOptions;
 
 	/**
+	 * RTE
+	 * @param args Java
+	 */
+	public static void main(String[] args) {
+		RteGeneratorApp app = new RteGeneratorApp();
+		app.execute(args);
+	}
+
+	/**
 	 * „Éá„Éï„Ç©„É´„Éà„ÅÆ{@link RteGeneratorApp}„ÇíÊßãÁØâ„Åô„Çã„ÄÇ
 	 */
-	public RteGeneratorApp(IProject project) {
+	public RteGeneratorApp() {
 		GeneratorInitOptions generatorInitOptions = new GeneratorInitOptions();
-		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile(project);
-		generatorInitOptions.schemaFile = AppResources.getSchemaFile(project);
+		generatorInitOptions.internalDataTypesFile = AppResources.getDefaultInternalDataTypesFile();
+		generatorInitOptions.schemaFile = AppResources.getDefaultSchemaFile();
 		this.generatorInitOptions = generatorInitOptions;
 	}
 
@@ -94,8 +99,8 @@ public class RteGeneratorApp {
 	 * „Ç¢„Éó„É™„Ç±„Éº„Ç∑„Éß„É≥„ÇíÂÆüË°å„Åô„Çã„ÄÇ
 	 * @param args „Ç¢„Éó„É™„Ç±„Éº„Ç∑„Éß„É≥ÂÆüË°åÂºïÊï∞
 	 */
-	public void execute(IProject project, String[] args) throws CoreException {
-		GeneratorOptions options = new GeneratorOptions(project);
+	public void execute(String[] args) {
+		GeneratorOptions options = new GeneratorOptions();
 
 		CmdLineParser parser = new CmdLineParser(options);
 		parser.setUsageWidth(100);
@@ -139,8 +144,8 @@ public class RteGeneratorApp {
 		stdout.println(GeneratorInfos.GENERATOR_COMMAND_NAME + " (" + GeneratorInfos.GENERATOR_TOOL_NAME + ") " + GeneratorInfos.GENERATOR_VERSION);
 	}
 
-	private void generate(GeneratorOptions options) throws CoreException {
-		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getProjectRelativePath().toString());
+	private void generate(GeneratorOptions options) {
+		options.inputFiles.add(0, this.generatorInitOptions.internalDataTypesFile.getAbsolutePath());
 
 		try {
 			// RTE„Ç∏„Çß„Éç„É¨„Éº„Çø„ÇíÂÆüË°å
@@ -151,7 +156,11 @@ public class RteGeneratorApp {
 			final String message = "Generation cancelled on error.";
 			options.stderr.println(message);
 			Activator.log(message, e);
-			throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, message, e));
+
+		} catch (Exception e) { // COVERAGE æÔ§ÀÃ§√£(…‘∂ÒπÁ∫Æ∆˛ª˛§Œ§ﬂ≈˛√£§π§Î•≥°º•…§ §Œ§«°§Ã§•´•–•Ï•√•∏§«Ã‰¬Í§ §§)
+			final String message = "Generation cancelled on error.";
+			options.stderr.println(message);
+			Activator.log(message, e);
 		}
 	}
 
