@@ -12,7 +12,6 @@
 		<module>../jp.pizzafactory.a_rte.doc</module>
 		<module>../jp.pizzafactory.a_rte.feature</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.app</module>
-		<module>../jp.ac.nagoya_u.is.nces.a_rte.app.test</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.codegen</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.m2m</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.model</module>
@@ -22,7 +21,6 @@
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.persist</module>
 		<module>../jp.ac.nagoya_u.is.nces.a_rte.validation</module>
 		<module>../p2update</module>
-		<module>../jp.pizzafactory.a_rte.headless</module>
 	</modules>
 
 	<properties>
@@ -37,24 +35,60 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>PizzaFactroy 8.5 Express</id>
-			<layout>p2</layout>
-			<url>http://builder.monami-ya.com:8080/nexus/content/groups/pf8.5-express/</url>
-		</repository>
-		<repository>
 			<id>Eclipse Luna repository</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/luna/</url>
+			<url>http://download.eclipse.org/releases/luna/201502271000/</url>
 		</repository>
 		<repository>
 			<id>Orbit Update Site</id>
 			<layout>p2</layout>
-			<url>http://pizzafactory.github.io/a_rte.orbit/</url>
+			<url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository</url>
 		</repository>
 		<repository>
 			<id>Acceleo 3.6.2</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/acceleo/updates/releases/3.6/R201510121214/</url>
+			<url>http://download.eclipse.org/acceleo/updates/releases/3.6</url>
+		</repository>
+		<repository>
+			<id>EMF Compare</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emf/compare/updates/releases/3.2/R201605311222/</url>
+		</repository>
+		<repository>
+			<id>Xcore</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emf/emf/updates/2.11/xcore/R201506020808/</url>
+
+		</repository>
+		<repository>
+			<id>MWE</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.8.3/</url>
+		</repository>
+		<repository>
+			<id>OCL</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/mdt/ocl/updates/releases/6.0.2/</url>
+		</repository>
+		<repository>
+			<id>Xtext</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/2.9.2/</url>
+		</repository>
+		<repository>
+			<id>Sphinx</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/sphinx/releases/0.9.x/</url>
+		</repository>
+		<repository>
+			<id>EMF IncQuery</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/viatra/incquery/updates/release</url>
+		</repository>
+		<repository>
+			<id>Bits</id>
+			<layout>p2</layout>
+			<url>http://pizzafactory.github.com/bits/p2repo/8.5/1.0.0.201609210758/</url>
 		</repository>
 	</repositories>
 	<build>

@@ -48,7 +48,8 @@ import java.io.File;
 /**
  * RTEジェネレータアプリケーションが使用するリソースのデフォルト設定を保持する。
  */
-public class AppResources { // COVERAGE 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
+public class AppResources { // COVERAGE
+							// 常に未達(インスタンス生成が行なわれていないが，ユーティリティであるため問題ない)
 	private static final String RTE_GENERATOR_HOME_ENV_NAME = "A_RTE_HOME";
 
 	/**
@@ -98,7 +99,7 @@ public class AppResources { // COVERAGE 常に未達(インスタンス生成が
 	 * @return AUTOSARスキーマファイル
 	 */
 	public static File getDefaultSchemaFile() {
-		return new File(getRteGeneratorHome(), SCHEMA_FILE_RELATIVE_PATH);
+		return new File(getRteGeneratorHome(), SCHEMA_DIRECTORY_PATH);
 	}
 
 	/**

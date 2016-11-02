@@ -51,6 +51,7 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.ECUC
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -82,19 +83,24 @@ public class M2ModelSaver {
 		private static final String XML_VERSION = "1.0";
 		private static final Charset DEFAULT_ENCODING = Charset.forName("UTF-8");
 
-		private final M2Root m2Root;
-		private final XMLStreamWriter writer;
+		private M2Root m2Root;
+		private OutputStream outputStream;
+		private XMLStreamWriter writer;
 
-		public Saver(M2Root m2Root, File file) throws XMLStreamException, IOException {
+		public void setM2Root(M2Root m2Root) {
 			this.m2Root = m2Root;
+		}
 
-			Files.createParentDirs(file);
-			XMLOutputFactory factory = XMLOutputFactory.newInstance();
-			factory.setProperty(XMLOutputFactory.IS_REPAIRING_NAMESPACES, true);
-			this.writer = new IndentingXMLStreamWriter(factory.createXMLStreamWriter(new FileOutputStream(file), DEFAULT_ENCODING.name()));
+		public void setOutputStream(OutputStream outputStream) {
+			this.outputStream = outputStream;
 		}
 
 		private void save() throws XMLStreamException {
+			XMLOutputFactory factory = XMLOutputFactory.newInstance();
+			factory.setProperty(XMLOutputFactory.IS_REPAIRING_NAMESPACES, true);
+			this.writer = new IndentingXMLStreamWriter(
+					factory.createXMLStreamWriter(outputStream,
+							DEFAULT_ENCODING.name()));
 			try {
 				this.writer.writeStartDocument(DEFAULT_ENCODING.name(), XML_VERSION);
 				this.writer.writeStartElement("AUTOSAR");
@@ -124,22 +130,26 @@ public class M2ModelSaver {
 				case REFERENCE:
 					writeContentOfReference(eObject, eStructuralFeature);
 					break;
-				case REFERENCE_WRAPPER_AND_REFERENCE: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+				case REFERENCE_WRAPPER_AND_REFERENCE: // COVERAGE
+														// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					// NOTE 未サポート
 					break;
 				case ROLE:
 					writeContentOfRole(eObject, eStructuralFeature);
 					break;
-				case ROLE_AND_TYPE: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+				case ROLE_AND_TYPE: // COVERAGE
+									// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					writeContentOfRoleAndType(eObject, eStructuralFeature);
 					break;
-				case ROLE_WRAPPER_AND_ROLE: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+				case ROLE_WRAPPER_AND_ROLE: // COVERAGE
+											// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					writeContentOfRoleWrapperAndRole(eObject, eStructuralFeature);
 					break;
 				case ROLE_WRAPPER_AND_TYPE:
 					writeContentOfRoleWrapperAndType(eObject, eStructuralFeature);
 					break;
-				case TYPE_REFERENCE: // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+				case TYPE_REFERENCE: // COVERAGE
+										// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 					// NOTE 未サポート
 					break;
 				case UNKNOWN:
@@ -153,7 +163,9 @@ public class M2ModelSaver {
 			return Iterables.filter(eClass.getEAllStructuralFeatures(), new Predicate<EStructuralFeature>() {
 				@Override
 				public boolean apply(EStructuralFeature input) {
-					return !input.isTransient() && !input.isDerived() && !isID(input) && !M2ModelUtils.isNonM2Feature(input); // (分岐網羅はされているのでテスト要件を満たしている)
+							return !input.isTransient() && !input.isDerived()
+									&& !isID(input)
+									&& !M2ModelUtils.isNonM2Feature(input); // (分岐網羅はされているのでテスト要件を満たしている)
 				}
 			});
 		}
@@ -188,7 +200,8 @@ public class M2ModelSaver {
 		}
 
 		private void writeContentOfRoleWrapperAndRole(EObject eContainerObject, EStructuralFeature eStructuralFeature) throws XMLStreamException {
-			if (eStructuralFeature.getEType() instanceof EDataType) { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+			if (eStructuralFeature.getEType() instanceof EDataType) { // COVERAGE
+																		// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 				writeValueRoleWrapperAndRoles(eStructuralFeature, EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature));
 			} else { // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 				List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature);
@@ -197,7 +210,9 @@ public class M2ModelSaver {
 		}
 
 		private void writeContentOfRoleAndType(EObject eContainerObject, EStructuralFeature eStructuralFeature) throws XMLStreamException {
-			List<EObject> eObjects = EmfUtils.getFeatureValues(eContainerObject, eStructuralFeature); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+			List<EObject> eObjects = EmfUtils.getFeatureValues(
+					eContainerObject, eStructuralFeature); // COVERAGE
+															// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			writeRoleAndTypes(eStructuralFeature, eObjects);
 		}
 
@@ -215,7 +230,9 @@ public class M2ModelSaver {
 		}
 
 		private void writeRoleWrapperAndRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException {
-			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+			String roleWrapperName = M2XmlUtils
+					.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE
+																// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			this.writer.writeStartElement(roleWrapperName);
 			for (EObject eObject : eObjects) {
 				writeRole(eStructuralFeature, eObject);
@@ -223,13 +240,17 @@ public class M2ModelSaver {
 			this.writer.writeEndElement();
 		}
 
-		private void writeRoles(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException { // COVERAGE 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
+		private void writeRoles(EStructuralFeature eStructuralFeature,
+				List<EObject> eObjects) throws XMLStreamException { // COVERAGE
+																	// 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
 			for (EObject eObject : eObjects) {
 				writeRole(eStructuralFeature, eObject);
 			}
 		}
 
-		private void writeRole(EStructuralFeature eStructuralFeature, EObject eObject) throws XMLStreamException { // COVERAGE 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
+		private void writeRole(EStructuralFeature eStructuralFeature,
+				EObject eObject) throws XMLStreamException { // COVERAGE
+																// 現状のツールワークフローでは通らないが，コードレビュー済みであるため問題ない
 			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature);
 			this.writer.writeStartElement(roleName);
 			writeContent(eObject);
@@ -250,7 +271,9 @@ public class M2ModelSaver {
 		}
 
 		private void writeValueRoleWrapperAndRoles(EStructuralFeature eStructuralFeature, List<Object> values) throws XMLStreamException {
-			String roleWrapperName = M2XmlUtils.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+			String roleWrapperName = M2XmlUtils
+					.getXmlRoleWrapperName(eStructuralFeature); // COVERAGE
+																// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			this.writer.writeStartElement(roleWrapperName);
 			for (Object value : values) {
 				writeValueRole(eStructuralFeature, value);
@@ -269,8 +292,7 @@ public class M2ModelSaver {
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-CONTAINER-DEF");
 			} else if (ECUC_PARAMETER_VALUE__DEFINITION_REF.equals(eStructuralFeature)) {
 				/*
-				 * NOTE：#91対応
-				 * 本来はモデルからの修正する必要があるが，2014/3末リリースに向けて暫定的に以下の対応とする．
+				 * NOTE：#91対応 本来はモデルからの修正する必要があるが，2014/3末リリースに向けて暫定的に以下の対応とする．
 				 */
 				if ("/AUTOSAR/EcucDefs/Os/OsApplication/OsApplicationTrustedFunction/OsTrustedFunctionName".equals(value)) {
 					this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-FUNCTION-NAME-DEF");
@@ -279,7 +301,9 @@ public class M2ModelSaver {
 				} else {
 					this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-PARAMETER-DEF");
 				}
-			} else if (ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF.equals(eStructuralFeature)) { // COVERAGE 常にtrue(現状，サポート範囲内では，definitionRefの必要な要素は，EcucModuleConfigurationValues,EcucContainerValue,EcucParameterValue,EcucAbstractReferenceValueのいずれかであるため)
+			} else if (ECUC_ABSTRACT_REFERENCE_VALUE__DEFINITION_REF
+					.equals(eStructuralFeature)) { // COVERAGE
+													// 常にtrue(現状，サポート範囲内では，definitionRefの必要な要素は，EcucModuleConfigurationValues,EcucContainerValue,EcucParameterValue,EcucAbstractReferenceValueのいずれかであるため)
 				this.writer.writeAttribute(M2XmlUtils.DEST_ATTRIBUTE_NAME, "ECUC-ABSTRACT-REFERENCE-DEF");
 			}
 
@@ -317,7 +341,8 @@ public class M2ModelSaver {
 		}
 
 		private void writeRoleAndTypes(EStructuralFeature eStructuralFeature, List<EObject> eObjects) throws XMLStreamException {
-			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature); // COVERAGE 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
+			String roleName = M2XmlUtils.getXmlRoleName(eStructuralFeature); // COVERAGE
+																				// 常に未達(現状のツールワークフローでは使用されないが，コードレビュー済みであるため問題ない)
 			this.writer.writeStartElement(roleName);
 			for (EObject eObject : eObjects) {
 				writeType(eObject);
@@ -327,7 +352,18 @@ public class M2ModelSaver {
 	}
 
 	public void save(M2Root m2Root, File file) throws XMLStreamException, IOException {
-		Saver saver = new Saver(m2Root, file);
+		Files.createParentDirs(file);
+		Saver saver = new Saver();
+		saver.setM2Root(m2Root);
+		saver.setOutputStream(new FileOutputStream(file));
+		saver.save();
+	}
+
+	public void save(M2Root m2Root, OutputStream outputStream)
+			throws XMLStreamException, IOException {
+		Saver saver = new Saver();
+		saver.setM2Root(m2Root);
+		saver.setOutputStream(outputStream);
 		saver.save();
 	}
 }

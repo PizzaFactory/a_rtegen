@@ -48,14 +48,12 @@ import static jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Package.Literals.M2_R
 import java.io.File;
 import java.io.IOException;
 
-import javax.xml.stream.XMLStreamException;
-
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelException;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ModelQuery;
 import jp.ac.nagoya_u.is.nces.a_rte.model.ar4x.m2.M2Root;
 import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.EcucToM2Mapper;
-import jp.ac.nagoya_u.is.nces.a_rte.persist.internal.M2ModelSaver;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 
 public class AutosarModelSaver {
@@ -69,11 +67,10 @@ public class AutosarModelSaver {
 			M2Root m2Root = query.findSingleByKind(M2_ROOT);
 			ArM2Resource arM2Resource = new ArM2Resource();
 			arM2Resource.getContents().add(m2Root);
-			arM2Resource.setURI(URI.createPlatformResourceURI(generatedEcucFile.getFullPath().toString(), true));
+			arM2Resource.setURI(URI.createFileURI(file.getAbsolutePath()));
 			arM2Resource.save(null);
-		} catch (ModelException e) { // COVERAGE 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
-			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
-		} catch (XMLStreamException e) {
+		} catch (ModelException e) { // COVERAGE
+										// 常に未達(不具合混入時のみ到達するコードなので，未カバレッジで問題ない)
 			throw new PersistException("Internal error occurred while saving AUTOSAR XML.", e);
 		} catch (IOException e) {
 			throw new PersistException("Error occurred while saving AUTOSAR XML. " + e.getMessage(), e);
